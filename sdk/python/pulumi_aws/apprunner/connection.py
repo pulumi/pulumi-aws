@@ -191,6 +191,7 @@ class Connection(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -202,13 +203,14 @@ class Connection(pulumi.CustomResource):
                 "Name": "example-apprunner-connection",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import App Runner Connections using the `connection_name`. For example:
 
         ```sh
-         $ pulumi import aws:apprunner/connection:Connection example example
+        $ pulumi import aws:apprunner/connection:Connection example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -230,6 +232,7 @@ class Connection(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -241,13 +244,14 @@ class Connection(pulumi.CustomResource):
                 "Name": "example-apprunner-connection",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import App Runner Connections using the `connection_name`. For example:
 
         ```sh
-         $ pulumi import aws:apprunner/connection:Connection example example
+        $ pulumi import aws:apprunner/connection:Connection example example
         ```
 
         :param str resource_name: The name of the resource.

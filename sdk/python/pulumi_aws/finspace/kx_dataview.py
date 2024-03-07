@@ -455,8 +455,10 @@ class KxDataview(pulumi.CustomResource):
         Resource for managing an AWS FinSpace Kx Dataview.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -474,13 +476,14 @@ class KxDataview(pulumi.CustomResource):
                 db_paths=["/*"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import an AWS FinSpace Kx Cluster using the `id` (environment ID and cluster name, comma-delimited). For example:
 
         ```sh
-         $ pulumi import aws:finspace/kxDataview:KxDataview example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-database,my-tf-kx-dataview
+        $ pulumi import aws:finspace/kxDataview:KxDataview example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-database,my-tf-kx-dataview
         ```
 
         :param str resource_name: The name of the resource.
@@ -508,8 +511,10 @@ class KxDataview(pulumi.CustomResource):
         Resource for managing an AWS FinSpace Kx Dataview.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -527,13 +532,14 @@ class KxDataview(pulumi.CustomResource):
                 db_paths=["/*"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import an AWS FinSpace Kx Cluster using the `id` (environment ID and cluster name, comma-delimited). For example:
 
         ```sh
-         $ pulumi import aws:finspace/kxDataview:KxDataview example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-database,my-tf-kx-dataview
+        $ pulumi import aws:finspace/kxDataview:KxDataview example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-database,my-tf-kx-dataview
         ```
 
         :param str resource_name: The name of the resource.

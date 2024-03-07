@@ -73,6 +73,7 @@ class ImageBlockPublicAccess(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -80,6 +81,7 @@ class ImageBlockPublicAccess(pulumi.CustomResource):
         # Prevent making AMIs publicly accessible in the region and account for which the provider is configured
         test = aws.ec2.ImageBlockPublicAccess("test", state="block-new-sharing")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -103,6 +105,7 @@ class ImageBlockPublicAccess(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -110,6 +113,7 @@ class ImageBlockPublicAccess(pulumi.CustomResource):
         # Prevent making AMIs publicly accessible in the region and account for which the provider is configured
         test = aws.ec2.ImageBlockPublicAccess("test", state="block-new-sharing")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

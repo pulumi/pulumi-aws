@@ -13,8 +13,10 @@ namespace Pulumi.Aws.CloudFront
     /// Resource for managing an AWS CloudFront Key Value Store.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,13 +33,14 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CloudFront Key Value Store using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cloudfront/keyValueStore:KeyValueStore example example_store
+    /// $ pulumi import aws:cloudfront/keyValueStore:KeyValueStore example example_store
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudfront/keyValueStore:KeyValueStore")]

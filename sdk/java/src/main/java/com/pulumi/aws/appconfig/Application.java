@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides an AppConfig Application resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,13 +51,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import AppConfig Applications using their application ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:appconfig/application:Application example 71rxuzt
+ * $ pulumi import aws:appconfig/application:Application example 71rxuzt
  * ```
  * 
  */

@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -38,6 +39,7 @@ import * as utilities from "../utilities";
  *     vpcId: secondary.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -48,12 +50,12 @@ import * as utilities from "../utilities";
  * The VPC is in the same region where you have configured the AWS Provider:
  *
  * ```sh
- *  $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678
+ * $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678
  * ```
- *  The VPC is _not_ in the same region where you have configured the AWS Provider:
+ * The VPC is _not_ in the same region where you have configured the AWS Provider:
  *
  * ```sh
- *  $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678:us-east-2
+ * $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678:us-east-2
  * ```
  */
 export class ZoneAssociation extends pulumi.CustomResource {

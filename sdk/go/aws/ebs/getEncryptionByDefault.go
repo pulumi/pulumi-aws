@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -36,6 +37,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupEncryptionByDefault(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*LookupEncryptionByDefaultResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEncryptionByDefaultResult

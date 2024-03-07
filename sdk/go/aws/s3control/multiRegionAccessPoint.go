@@ -17,8 +17,10 @@ import (
 // > This resource cannot be used with S3 directory buckets.
 //
 // ## Example Usage
+//
 // ### Multiple AWS Buckets in Different Regions
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -65,15 +67,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Multi-Region Access Points using the `account_id` and `name` of the Multi-Region Access Point separated by a colon (`:`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:s3control/multiRegionAccessPoint:MultiRegionAccessPoint example 123456789012:example
-//
+// $ pulumi import aws:s3control/multiRegionAccessPoint:MultiRegionAccessPoint example 123456789012:example
 // ```
 type MultiRegionAccessPoint struct {
 	pulumi.CustomResourceState

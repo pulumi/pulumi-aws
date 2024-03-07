@@ -25,6 +25,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -91,6 +92,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Note on ECDSA Key Algorithm
 //
 // If the ARN of the `sslCertificateId` that is pointed to references a
@@ -104,9 +107,7 @@ import (
 // Using `pulumi import`, import ELBs using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:elb/loadBalancer:LoadBalancer bar elb-production-12345
-//
+// $ pulumi import aws:elb/loadBalancer:LoadBalancer bar elb-production-12345
 // ```
 type LoadBalancer struct {
 	pulumi.CustomResourceState

@@ -269,6 +269,7 @@ class TransitGatewayPeering(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -277,13 +278,14 @@ class TransitGatewayPeering(pulumi.CustomResource):
             core_network_id=example_awscc_networkmanager_core_network["id"],
             transit_gateway_arn=example_aws_ec2_transit_gateway["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_networkmanager_transit_gateway_peering` using the peering ID. For example:
 
         ```sh
-         $ pulumi import aws:networkmanager/transitGatewayPeering:TransitGatewayPeering example peering-444555aaabbb11223
+        $ pulumi import aws:networkmanager/transitGatewayPeering:TransitGatewayPeering example peering-444555aaabbb11223
         ```
 
         :param str resource_name: The name of the resource.
@@ -303,6 +305,7 @@ class TransitGatewayPeering(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -311,13 +314,14 @@ class TransitGatewayPeering(pulumi.CustomResource):
             core_network_id=example_awscc_networkmanager_core_network["id"],
             transit_gateway_arn=example_aws_ec2_transit_gateway["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_networkmanager_transit_gateway_peering` using the peering ID. For example:
 
         ```sh
-         $ pulumi import aws:networkmanager/transitGatewayPeering:TransitGatewayPeering example peering-444555aaabbb11223
+        $ pulumi import aws:networkmanager/transitGatewayPeering:TransitGatewayPeering example peering-444555aaabbb11223
         ```
 
         :param str resource_name: The name of the resource.

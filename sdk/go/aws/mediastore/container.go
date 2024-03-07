@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,15 +39,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import MediaStore Container using the MediaStore Container Name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:mediastore/container:Container example example
-//
+// $ pulumi import aws:mediastore/container:Container example example
 // ```
 type Container struct {
 	pulumi.CustomResourceState

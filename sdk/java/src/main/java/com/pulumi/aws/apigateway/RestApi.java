@@ -26,7 +26,10 @@ import javax.annotation.Nullable;
  * !&gt; **WARN:** When importing Open API Specifications with the `body` argument, by default the API Gateway REST API will be replaced with the Open API Specification thus removing any existing methods, resources, integrations, or endpoints. Endpoint mutations are asynchronous operations, and race conditions with DNS are possible. To overcome this limitation, use the `put_rest_api_mode` attribute and set it to `merge`.
  * 
  * ## Example Usage
+ * 
  * ### OpenAPI Specification
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -95,9 +98,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### OpenAPI Specification with Private Endpoints
  * 
  * Using `put_rest_api_mode` = `merge` when importing the OpenAPI Specification, the AWS control plane will not delete all existing literal properties that are not explicitly set in the OpenAPI definition. Impacted API Gateway properties: ApiKeySourceType, BinaryMediaTypes, Description, EndpointConfiguration, MinimumCompressionSize, Name, Policy).
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -221,7 +228,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Resources
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -292,15 +303,16 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_api_gateway_rest_api` using the REST API ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:apigateway/restApi:RestApi example 12345abcde
+ * $ pulumi import aws:apigateway/restApi:RestApi example 12345abcde
  * ```
- *  ~&gt; __NOTE:__ Resource import does not currently support the `body` attribute.
+ * ~&gt; __NOTE:__ Resource import does not currently support the `body` attribute.
  * 
  */
 @ResourceType(type="aws:apigateway/restApi:RestApi")

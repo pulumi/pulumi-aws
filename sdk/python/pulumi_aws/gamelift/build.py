@@ -241,6 +241,7 @@ class Build(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -254,13 +255,14 @@ class Build(pulumi.CustomResource):
                 role_arn=test_aws_iam_role["arn"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import GameLift Builds using the ID. For example:
 
         ```sh
-         $ pulumi import aws:gamelift/build:Build example <build-id>
+        $ pulumi import aws:gamelift/build:Build example <build-id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -282,6 +284,7 @@ class Build(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -295,13 +298,14 @@ class Build(pulumi.CustomResource):
                 role_arn=test_aws_iam_role["arn"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import GameLift Builds using the ID. For example:
 
         ```sh
-         $ pulumi import aws:gamelift/build:Build example <build-id>
+        $ pulumi import aws:gamelift/build:Build example <build-id>
         ```
 
         :param str resource_name: The name of the resource.

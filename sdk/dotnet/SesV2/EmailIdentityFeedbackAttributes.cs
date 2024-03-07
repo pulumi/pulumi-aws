@@ -13,8 +13,10 @@ namespace Pulumi.Aws.SesV2
     /// Resource for managing an AWS SESv2 (Simple Email V2) Email Identity Feedback Attributes.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -36,13 +38,14 @@ namespace Pulumi.Aws.SesV2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity Feedback Attributes using the `email_identity`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes example example.com
+    /// $ pulumi import aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes example example.com
     /// ```
     /// </summary>
     [AwsResourceType("aws:sesv2/emailIdentityFeedbackAttributes:EmailIdentityFeedbackAttributes")]

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,13 +22,14 @@ import * as utilities from "../utilities";
  *     grantName: test.snapshotCopyGrantName,
  * }});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Redshift Snapshot Copy Grants by name. For example:
  *
  * ```sh
- *  $ pulumi import aws:redshift/snapshotCopyGrant:SnapshotCopyGrant test my-grant
+ * $ pulumi import aws:redshift/snapshotCopyGrant:SnapshotCopyGrant test my-grant
  * ```
  */
 export class SnapshotCopyGrant extends pulumi.CustomResource {

@@ -17,7 +17,10 @@ import javax.annotation.Nullable;
  * Provides an AWS Network Firewall Resource Policy Resource for a rule group or firewall policy.
  * 
  * ## Example Usage
+ * 
  * ### For a Firewall Policy resource
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -64,7 +67,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### For a Rule Group resource
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -110,14 +117,15 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Network Firewall Resource Policies using the `resource_arn`. For example:
  * 
- * ```sh
- *  $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
- * ```
+ * &lt;break&gt;```sh&lt;break&gt;
+ * $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
+ * &lt;break&gt;```&lt;break&gt;
  * 
  */
 @ResourceType(type="aws:networkfirewall/resourcePolicy:ResourcePolicy")

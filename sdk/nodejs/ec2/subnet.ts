@@ -10,8 +10,10 @@ import * as utilities from "../utilities";
  * > **NOTE:** Due to [AWS Lambda improved VPC networking changes that began deploying in September 2019](https://aws.amazon.com/blogs/compute/announcing-improved-vpc-networking-for-aws-lambda-functions/), subnets associated with Lambda Functions can take up to 45 minutes to successfully delete.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,11 +26,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Subnets In Secondary VPC CIDR Blocks
  *
  * When managing subnets in one of a VPC's secondary CIDR blocks created using a `aws.ec2.VpcIpv4CidrBlockAssociation`
  * resource, it is recommended to reference that resource's `vpcId` attribute to ensure correct dependency ordering.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -42,13 +47,14 @@ import * as utilities from "../utilities";
  *     cidrBlock: "172.20.0.0/24",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import subnets using the subnet `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/subnet:Subnet public_subnet subnet-9d4a7b6c
+ * $ pulumi import aws:ec2/subnet:Subnet public_subnet subnet-9d4a7b6c
  * ```
  */
 export class Subnet extends pulumi.CustomResource {

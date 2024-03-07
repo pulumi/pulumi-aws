@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Provides information on Service Catalog Portfolio Constraints.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,6 +23,7 @@ import * as utilities from "../utilities";
  *     portfolioId: "port-3lli3b3an",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPortfolioConstraints(args: GetPortfolioConstraintsArgs, opts?: pulumi.InvokeOptions): Promise<GetPortfolioConstraintsResult> {
 
@@ -78,8 +81,10 @@ export interface GetPortfolioConstraintsResult {
  * Provides information on Service Catalog Portfolio Constraints.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -88,6 +93,7 @@ export interface GetPortfolioConstraintsResult {
  *     portfolioId: "port-3lli3b3an",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPortfolioConstraintsOutput(args: GetPortfolioConstraintsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPortfolioConstraintsResult> {
     return pulumi.output(args).apply((a: any) => getPortfolioConstraints(a, opts))

@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  * The following example shows how one might accept a Security Group id as a variable
  * and use this data source to obtain the data necessary to create a subnet.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -33,6 +34,7 @@ import * as utilities from "../utilities";
  *     cidrBlock: "10.0.1.0/24",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSecurityGroup(args?: GetSecurityGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetSecurityGroupResult> {
     args = args || {};
@@ -108,6 +110,7 @@ export interface GetSecurityGroupResult {
  * The following example shows how one might accept a Security Group id as a variable
  * and use this data source to obtain the data necessary to create a subnet.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -122,6 +125,7 @@ export interface GetSecurityGroupResult {
  *     cidrBlock: "10.0.1.0/24",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSecurityGroupOutput(args?: GetSecurityGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecurityGroupResult> {
     return pulumi.output(args).apply((a: any) => getSecurityGroup(a, opts))

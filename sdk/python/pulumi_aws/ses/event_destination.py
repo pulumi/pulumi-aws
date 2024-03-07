@@ -292,8 +292,10 @@ class EventDestination(pulumi.CustomResource):
         Provides an SES event destination
 
         ## Example Usage
+
         ### CloudWatch Destination
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -312,8 +314,11 @@ class EventDestination(pulumi.CustomResource):
                 value_source="emailHeader",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Kinesis Destination
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -331,8 +336,11 @@ class EventDestination(pulumi.CustomResource):
                 role_arn=example["arn"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### SNS Destination
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -349,13 +357,14 @@ class EventDestination(pulumi.CustomResource):
                 topic_arn=example["arn"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SES event destinations using `configuration_set_name` together with the event destination's `name`. For example:
 
         ```sh
-         $ pulumi import aws:ses/eventDestination:EventDestination sns some-configuration-set-test/event-destination-sns
+        $ pulumi import aws:ses/eventDestination:EventDestination sns some-configuration-set-test/event-destination-sns
         ```
 
         :param str resource_name: The name of the resource.
@@ -380,8 +389,10 @@ class EventDestination(pulumi.CustomResource):
         Provides an SES event destination
 
         ## Example Usage
+
         ### CloudWatch Destination
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -400,8 +411,11 @@ class EventDestination(pulumi.CustomResource):
                 value_source="emailHeader",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Kinesis Destination
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -419,8 +433,11 @@ class EventDestination(pulumi.CustomResource):
                 role_arn=example["arn"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### SNS Destination
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -437,13 +454,14 @@ class EventDestination(pulumi.CustomResource):
                 topic_arn=example["arn"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SES event destinations using `configuration_set_name` together with the event destination's `name`. For example:
 
         ```sh
-         $ pulumi import aws:ses/eventDestination:EventDestination sns some-configuration-set-test/event-destination-sns
+        $ pulumi import aws:ses/eventDestination:EventDestination sns some-configuration-set-test/event-destination-sns
         ```
 
         :param str resource_name: The name of the resource.

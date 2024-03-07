@@ -14,10 +14,9 @@ namespace Pulumi.Aws.WafRegional
         /// <summary>
         /// `aws.wafregional.WebAcl` Retrieves a WAF Regional Web ACL Resource Id.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,8 +32,7 @@ namespace Pulumi.Aws.WafRegional
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetWebAclResult> InvokeAsync(GetWebAclArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWebAclResult>("aws:wafregional/getWebAcl:getWebAcl", args ?? new GetWebAclArgs(), options.WithDefaults());
@@ -42,10 +40,9 @@ namespace Pulumi.Aws.WafRegional
         /// <summary>
         /// `aws.wafregional.WebAcl` Retrieves a WAF Regional Web ACL Resource Id.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,8 +58,7 @@ namespace Pulumi.Aws.WafRegional
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetWebAclResult> Invoke(GetWebAclInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWebAclResult>("aws:wafregional/getWebAcl:getWebAcl", args ?? new GetWebAclInvokeArgs(), options.WithDefaults());

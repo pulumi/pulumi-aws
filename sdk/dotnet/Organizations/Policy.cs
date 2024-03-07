@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Organizations
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -49,13 +50,14 @@ namespace Pulumi.Aws.Organizations
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_organizations_policy` using the policy ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:organizations/policy:Policy example p-12345678
+    /// $ pulumi import aws:organizations/policy:Policy example p-12345678
     /// ```
     /// </summary>
     [AwsResourceType("aws:organizations/policy:Policy")]

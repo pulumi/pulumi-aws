@@ -316,6 +316,7 @@ class OptionGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -345,6 +346,7 @@ class OptionGroup(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         > **Note:** Any modifications to the `rds.OptionGroup` are set to happen immediately as we default to applying immediately.
 
@@ -361,7 +363,7 @@ class OptionGroup(pulumi.CustomResource):
         Using `pulumi import`, import DB option groups using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group
+        $ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group
         ```
 
         :param str resource_name: The name of the resource.
@@ -390,6 +392,7 @@ class OptionGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -419,6 +422,7 @@ class OptionGroup(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         > **Note:** Any modifications to the `rds.OptionGroup` are set to happen immediately as we default to applying immediately.
 
@@ -435,7 +439,7 @@ class OptionGroup(pulumi.CustomResource):
         Using `pulumi import`, import DB option groups using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group
+        $ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group
         ```
 
         :param str resource_name: The name of the resource.

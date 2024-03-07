@@ -15,8 +15,10 @@ import (
 // Manages an App Runner Service.
 //
 // ## Example Usage
+//
 // ### Service with a Code Repository Source
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -70,8 +72,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Service with an Image Repository Source
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -108,8 +113,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Service with Observability Configuration
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -159,15 +167,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import App Runner Services using the `arn`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:apprunner/service:Service example arn:aws:apprunner:us-east-1:1234567890:service/example/0a03292a89764e5882c41d8f991c82fe
-//
+// $ pulumi import aws:apprunner/service:Service example arn:aws:apprunner:us-east-1:1234567890:service/example/0a03292a89764e5882c41d8f991c82fe
 // ```
 type Service struct {
 	pulumi.CustomResourceState

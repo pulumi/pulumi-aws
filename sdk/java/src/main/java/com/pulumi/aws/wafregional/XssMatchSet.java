@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides a WAF Regional XSS Match Set Resource for use with Application Load Balancer.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -63,13 +65,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import AWS WAF Regional XSS Match using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:wafregional/xssMatchSet:XssMatchSet example 12345abcde
+ * $ pulumi import aws:wafregional/xssMatchSet:XssMatchSet example 12345abcde
  * ```
  * 
  */

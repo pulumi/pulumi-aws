@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -18,6 +19,7 @@ import * as utilities from "../utilities";
  *     excludeNumbers: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRandomPassword(args?: GetRandomPasswordArgs, opts?: pulumi.InvokeOptions): Promise<GetRandomPasswordResult> {
     args = args || {};
@@ -52,7 +54,7 @@ export interface GetRandomPasswordArgs {
      */
     excludeNumbers?: boolean;
     /**
-     * Specifies whether to exclude the following punctuation characters from the password: ``! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~ .``
+     * Specifies whether to exclude the following punctuation characters from the password: ``! " # $ %!&(MISSING) ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~ .``
      */
     excludePunctuation?: boolean;
     /**
@@ -99,6 +101,7 @@ export interface GetRandomPasswordResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -108,6 +111,7 @@ export interface GetRandomPasswordResult {
  *     excludeNumbers: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRandomPasswordOutput(args?: GetRandomPasswordOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRandomPasswordResult> {
     return pulumi.output(args).apply((a: any) => getRandomPassword(a, opts))
@@ -130,7 +134,7 @@ export interface GetRandomPasswordOutputArgs {
      */
     excludeNumbers?: pulumi.Input<boolean>;
     /**
-     * Specifies whether to exclude the following punctuation characters from the password: ``! " # $ % & ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~ .``
+     * Specifies whether to exclude the following punctuation characters from the password: ``! " # $ %!&(MISSING) ' ( ) * + , - . / : ; < = > ? @ [ \ ] ^ _ ` { | } ~ .``
      */
     excludePunctuation?: pulumi.Input<boolean>;
     /**

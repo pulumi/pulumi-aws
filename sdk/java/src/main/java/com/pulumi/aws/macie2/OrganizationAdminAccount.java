@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Provides a resource to manage an [Amazon Macie Organization Admin Account](https://docs.aws.amazon.com/macie/latest/APIReference/admin.html).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,13 +50,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_macie2_organization_admin_account` using the id. For example:
  * 
  * ```sh
- *  $ pulumi import aws:macie2/organizationAdminAccount:OrganizationAdminAccount example abcd1
+ * $ pulumi import aws:macie2/organizationAdminAccount:OrganizationAdminAccount example abcd1
  * ```
  * 
  */

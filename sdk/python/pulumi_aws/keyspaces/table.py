@@ -448,6 +448,7 @@ class Table(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -465,13 +466,14 @@ class Table(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a table using the `keyspace_name` and `table_name` separated by `/`. For example:
 
         ```sh
-         $ pulumi import aws:keyspaces/table:Table example my_keyspace/my_table
+        $ pulumi import aws:keyspaces/table:Table example my_keyspace/my_table
         ```
 
         :param str resource_name: The name of the resource.
@@ -503,6 +505,7 @@ class Table(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -520,13 +523,14 @@ class Table(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a table using the `keyspace_name` and `table_name` separated by `/`. For example:
 
         ```sh
-         $ pulumi import aws:keyspaces/table:Table example my_keyspace/my_table
+        $ pulumi import aws:keyspaces/table:Table example my_keyspace/my_table
         ```
 
         :param str resource_name: The name of the resource.

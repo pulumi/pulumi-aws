@@ -20,6 +20,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -54,15 +55,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Config Organization Managed Rules using the name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cfg/organizationManagedRule:OrganizationManagedRule example example
-//
+// $ pulumi import aws:cfg/organizationManagedRule:OrganizationManagedRule example example
 // ```
 type OrganizationManagedRule struct {
 	pulumi.CustomResourceState

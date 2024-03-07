@@ -17,7 +17,10 @@ import javax.annotation.Nullable;
  * Provides an Amazon Managed Grafana workspace license association resource.
  * 
  * ## Example Usage
+ * 
  * ### Basic configuration
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -75,13 +78,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Grafana workspace license association using the workspace&#39;s `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:grafana/licenseAssociation:LicenseAssociation example g-2054c75a02
+ * $ pulumi import aws:grafana/licenseAssociation:LicenseAssociation example g-2054c75a02
  * ```
  * 
  */

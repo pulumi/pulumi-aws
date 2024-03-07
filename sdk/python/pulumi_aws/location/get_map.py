@@ -134,12 +134,14 @@ def get_map(map_name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.location.get_map(map_name="example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str map_name: Name of the map resource.
@@ -171,12 +173,14 @@ def get_map_output(map_name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.location.get_map(map_name="example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str map_name: Name of the map resource.

@@ -21,7 +21,10 @@ import javax.annotation.Nullable;
  * Manages an AWS Config Configuration Aggregator
  * 
  * ## Example Usage
+ * 
  * ### Account Based Aggregation
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -55,7 +58,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Organization Based Aggregation
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -116,13 +123,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Configuration Aggregators using the name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cfg/configurationAggregator:ConfigurationAggregator example foo
+ * $ pulumi import aws:cfg/configurationAggregator:ConfigurationAggregator example foo
  * ```
  * 
  */

@@ -63,6 +63,7 @@ def get_billing_service_account(id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -99,6 +100,7 @@ def get_billing_service_account(id: Optional[str] = None,
         bucket=billing_logs.id,
         policy=allow_billing_logging.json)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str id: ID of the AWS billing service account.
@@ -121,6 +123,7 @@ def get_billing_service_account_output(id: Optional[pulumi.Input[Optional[str]]]
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -157,6 +160,7 @@ def get_billing_service_account_output(id: Optional[pulumi.Input[Optional[str]]]
         bucket=billing_logs.id,
         policy=allow_billing_logging.json)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str id: ID of the AWS billing service account.

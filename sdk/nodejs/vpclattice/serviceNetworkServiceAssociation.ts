@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS VPC Lattice Service Network Service Association.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,13 +24,14 @@ import * as utilities from "../utilities";
  *     serviceNetworkIdentifier: exampleAwsVpclatticeServiceNetwork.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import VPC Lattice Service Network Service Association using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:vpclattice/serviceNetworkServiceAssociation:ServiceNetworkServiceAssociation example snsa-05e2474658a88f6ba
+ * $ pulumi import aws:vpclattice/serviceNetworkServiceAssociation:ServiceNetworkServiceAssociation example snsa-05e2474658a88f6ba
  * ```
  */
 export class ServiceNetworkServiceAssociation extends pulumi.CustomResource {

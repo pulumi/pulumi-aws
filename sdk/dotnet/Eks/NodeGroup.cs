@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Eks
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -42,10 +43,13 @@ namespace Pulumi.Aws.Eks
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Ignoring Changes to Desired Size
     /// 
     /// You can utilize [ignoreChanges](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) create an EKS Node Group with an initial size of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -64,43 +68,11 @@ namespace Pulumi.Aws.Eks
     /// 
     /// });
     /// ```
-    /// ### Tracking the latest EKS Node Group AMI releases
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
-    /// You can have the node group track the latest version of the Amazon EKS optimized Amazon Linux AMI for a given EKS version by querying an Amazon provided SSM parameter. Replace `amazon-linux-2` in the parameter name below with `amazon-linux-2-gpu` to retrieve the  accelerated AMI version and `amazon-linux-2-arm64` to retrieve the Arm version.
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// 	
-    /// object NotImplemented(string errorMessage) 
-    /// {
-    ///     throw new System.NotImplementedException(errorMessage);
-    /// }
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var eksAmiReleaseVersion = Aws.Ssm.GetParameter.Invoke(new()
-    ///     {
-    ///         Name = $"/aws/service/eks/optimized-ami/{exampleAwsEksCluster.Version}/amazon-linux-2/recommended/release_version",
-    ///     });
-    /// 
-    ///     var example = new Aws.Eks.NodeGroup("example", new()
-    ///     {
-    ///         ClusterName = exampleAwsEksCluster.Name,
-    ///         NodeGroupName = "example",
-    ///         Version = exampleAwsEksCluster.Version,
-    ///         ReleaseVersion = NotImplemented("nonsensitive(data.aws_ssm_parameter.eks_ami_release_version.value)"),
-    ///         NodeRoleArn = exampleAwsIamRole.Arn,
-    ///         SubnetIds = exampleAwsSubnet.Select(__item =&gt; __item.Id).ToList(),
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// ### Example IAM Role for EKS Node Group
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -151,8 +123,11 @@ namespace Pulumi.Aws.Eks
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Example Subnets for EKS Node Group
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -185,13 +160,14 @@ namespace Pulumi.Aws.Eks
     ///     }
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EKS Node Groups using the `cluster_name` and `node_group_name` separated by a colon (`:`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:eks/nodeGroup:NodeGroup my_node_group my_cluster:my_node_group
+    /// $ pulumi import aws:eks/nodeGroup:NodeGroup my_node_group my_cluster:my_node_group
     /// ```
     /// </summary>
     [AwsResourceType("aws:eks/nodeGroup:NodeGroup")]

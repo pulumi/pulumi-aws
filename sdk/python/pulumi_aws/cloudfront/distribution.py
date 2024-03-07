@@ -913,10 +913,12 @@ class Distribution(pulumi.CustomResource):
         > **NOTE:** CloudFront distributions take about 15 minutes to reach a deployed state after creation or modification. During this time, deletes to resources will be blocked. If you need to delete a distribution that is enabled and you do not want to wait, you need to use the `retain_on_delete` flag.
 
         ## Example Usage
+
         ### S3 Origin
 
         The example below creates a CloudFront distribution with an S3 origin.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1046,10 +1048,13 @@ class Distribution(pulumi.CustomResource):
                 cloudfront_default_certificate=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Failover Routing
 
         The example below creates a CloudFront distribution with an origin group for failover routing.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1094,10 +1099,13 @@ class Distribution(pulumi.CustomResource):
                 target_origin_id="groupS3",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Managed Caching Policy
 
         The example below creates a CloudFront distribution with an [AWS managed caching policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html).
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1139,13 +1147,14 @@ class Distribution(pulumi.CustomResource):
                 cloudfront_default_certificate=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudFront Distributions using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:cloudfront/distribution:Distribution distribution E74FTE3EXAMPLE
+        $ pulumi import aws:cloudfront/distribution:Distribution distribution E74FTE3EXAMPLE
         ```
 
         :param str resource_name: The name of the resource.
@@ -1186,10 +1195,12 @@ class Distribution(pulumi.CustomResource):
         > **NOTE:** CloudFront distributions take about 15 minutes to reach a deployed state after creation or modification. During this time, deletes to resources will be blocked. If you need to delete a distribution that is enabled and you do not want to wait, you need to use the `retain_on_delete` flag.
 
         ## Example Usage
+
         ### S3 Origin
 
         The example below creates a CloudFront distribution with an S3 origin.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1319,10 +1330,13 @@ class Distribution(pulumi.CustomResource):
                 cloudfront_default_certificate=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Failover Routing
 
         The example below creates a CloudFront distribution with an origin group for failover routing.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1367,10 +1381,13 @@ class Distribution(pulumi.CustomResource):
                 target_origin_id="groupS3",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Managed Caching Policy
 
         The example below creates a CloudFront distribution with an [AWS managed caching policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html).
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1412,13 +1429,14 @@ class Distribution(pulumi.CustomResource):
                 cloudfront_default_certificate=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudFront Distributions using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:cloudfront/distribution:Distribution distribution E74FTE3EXAMPLE
+        $ pulumi import aws:cloudfront/distribution:Distribution distribution E74FTE3EXAMPLE
         ```
 
         :param str resource_name: The name of the resource.

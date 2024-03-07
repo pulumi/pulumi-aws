@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -34,9 +35,11 @@ import * as utilities from "../utilities";
  *     roleArn: exampleAwsIamRole.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * Full usage:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -77,8 +80,11 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Example IAM Role for GameLift Game Server Group
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -106,13 +112,14 @@ import * as utilities from "../utilities";
  *     role: example.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import GameLift Game Server Group using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:gamelift/gameServerGroup:GameServerGroup example example
+ * $ pulumi import aws:gamelift/gameServerGroup:GameServerGroup example example
  * ```
  */
 export class GameServerGroup extends pulumi.CustomResource {

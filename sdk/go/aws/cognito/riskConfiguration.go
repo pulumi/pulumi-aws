@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,6 +45,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -54,17 +56,12 @@ import (
 // Import using the user pool ID:
 //
 // ```sh
-//
-//	$ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example
-//
+// $ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example
 // ```
-//
-//	Import using the user pool ID and Client ID separated by a `:`:
+// Import using the user pool ID and Client ID separated by a `:`:
 //
 // ```sh
-//
-//	$ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example:example
-//
+// $ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example:example
 // ```
 type RiskConfiguration struct {
 	pulumi.CustomResourceState

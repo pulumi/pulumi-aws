@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -79,15 +80,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import DB proxy default target groups using the `db_proxy_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup example example
-//
+// $ pulumi import aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup example example
 // ```
 type ProxyDefaultTargetGroup struct {
 	pulumi.CustomResourceState

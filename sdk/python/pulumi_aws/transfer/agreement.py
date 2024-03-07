@@ -325,8 +325,10 @@ class Agreement(pulumi.CustomResource):
         Provides a AWS Transfer AS2 Agreement resource.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -339,13 +341,14 @@ class Agreement(pulumi.CustomResource):
             partner_profile_id=partner["profileId"],
             server_id=test_aws_transfer_server["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Transfer AS2 Agreement using the `server_id/agreement_id`. For example:
 
         ```sh
-         $ pulumi import aws:transfer/agreement:Agreement example s-4221a88afd5f4362a/a-4221a88afd5f4362a
+        $ pulumi import aws:transfer/agreement:Agreement example s-4221a88afd5f4362a/a-4221a88afd5f4362a
         ```
 
         :param str resource_name: The name of the resource.
@@ -368,8 +371,10 @@ class Agreement(pulumi.CustomResource):
         Provides a AWS Transfer AS2 Agreement resource.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -382,13 +387,14 @@ class Agreement(pulumi.CustomResource):
             partner_profile_id=partner["profileId"],
             server_id=test_aws_transfer_server["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Transfer AS2 Agreement using the `server_id/agreement_id`. For example:
 
         ```sh
-         $ pulumi import aws:transfer/agreement:Agreement example s-4221a88afd5f4362a/a-4221a88afd5f4362a
+        $ pulumi import aws:transfer/agreement:Agreement example s-4221a88afd5f4362a/a-4221a88afd5f4362a
         ```
 
         :param str resource_name: The name of the resource.

@@ -60,12 +60,14 @@ def get_rule(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.waf.get_rule(name="tfWAFRule")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the WAF rule.
@@ -88,12 +90,14 @@ def get_rule_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.waf.get_rule(name="tfWAFRule")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the WAF rule.

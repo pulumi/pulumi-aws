@@ -256,6 +256,7 @@ class MulticastDomain(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -342,13 +343,14 @@ class MulticastDomain(pulumi.CustomResource):
             network_interface_id=instance2.primary_network_interface_id,
             transit_gateway_multicast_domain_id=association1.transit_gateway_multicast_domain_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ec2_transit_gateway_multicast_domain` using the EC2 Transit Gateway Multicast Domain identifier. For example:
 
         ```sh
-         $ pulumi import aws:ec2transitgateway/multicastDomain:MulticastDomain example tgw-mcast-domain-12345
+        $ pulumi import aws:ec2transitgateway/multicastDomain:MulticastDomain example tgw-mcast-domain-12345
         ```
 
         :param str resource_name: The name of the resource.
@@ -370,6 +372,7 @@ class MulticastDomain(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -456,13 +459,14 @@ class MulticastDomain(pulumi.CustomResource):
             network_interface_id=instance2.primary_network_interface_id,
             transit_gateway_multicast_domain_id=association1.transit_gateway_multicast_domain_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ec2_transit_gateway_multicast_domain` using the EC2 Transit Gateway Multicast Domain identifier. For example:
 
         ```sh
-         $ pulumi import aws:ec2transitgateway/multicastDomain:MulticastDomain example tgw-mcast-domain-12345
+        $ pulumi import aws:ec2transitgateway/multicastDomain:MulticastDomain example tgw-mcast-domain-12345
         ```
 
         :param str resource_name: The name of the resource.

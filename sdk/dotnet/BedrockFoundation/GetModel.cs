@@ -14,11 +14,11 @@ namespace Pulumi.Aws.BedrockFoundation
         /// <summary>
         /// Data source for managing an AWS Bedrock Foundation Model.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -36,8 +36,7 @@ namespace Pulumi.Aws.BedrockFoundation
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetModelResult> InvokeAsync(GetModelArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetModelResult>("aws:bedrockfoundation/getModel:getModel", args ?? new GetModelArgs(), options.WithDefaults());
@@ -45,11 +44,11 @@ namespace Pulumi.Aws.BedrockFoundation
         /// <summary>
         /// Data source for managing an AWS Bedrock Foundation Model.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -67,8 +66,7 @@ namespace Pulumi.Aws.BedrockFoundation
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetModelResult> Invoke(GetModelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetModelResult>("aws:bedrockfoundation/getModel:getModel", args ?? new GetModelInvokeArgs(), options.WithDefaults());

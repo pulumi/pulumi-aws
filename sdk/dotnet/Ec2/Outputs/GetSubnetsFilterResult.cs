@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// [the underlying AWS API](http://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeSubnets.html).
         /// For example, if matching against tag `Name`, use:
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -43,6 +44,7 @@ namespace Pulumi.Aws.Ec2.Outputs
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public readonly string Name;
         /// <summary>

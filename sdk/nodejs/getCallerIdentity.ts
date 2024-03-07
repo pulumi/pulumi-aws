@@ -10,6 +10,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,6 +20,7 @@ import * as utilities from "./utilities";
  * export const callerArn = current.then(current => current.arn);
  * export const callerUser = current.then(current => current.userId);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getCallerIdentity(args?: GetCallerIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetCallerIdentityResult> {
     args = args || {};
@@ -66,6 +68,7 @@ export interface GetCallerIdentityResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -75,6 +78,7 @@ export interface GetCallerIdentityResult {
  * export const callerArn = current.then(current => current.arn);
  * export const callerUser = current.then(current => current.userId);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getCallerIdentityOutput(args?: GetCallerIdentityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCallerIdentityResult> {
     return pulumi.output(args).apply((a: any) => getCallerIdentity(a, opts))

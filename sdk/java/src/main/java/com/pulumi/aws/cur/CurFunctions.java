@@ -22,6 +22,8 @@ public final class CurFunctions {
      * &gt; *NOTE:* If AWS Organizations is enabled, only the master account can use this resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -50,6 +52,7 @@ public final class CurFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetReportDefinitionResult> getReportDefinition(GetReportDefinitionArgs args) {
@@ -63,6 +66,8 @@ public final class CurFunctions {
      * &gt; *NOTE:* If AWS Organizations is enabled, only the master account can use this resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -91,6 +96,7 @@ public final class CurFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetReportDefinitionResult> getReportDefinitionPlain(GetReportDefinitionPlainArgs args) {
@@ -104,6 +110,8 @@ public final class CurFunctions {
      * &gt; *NOTE:* If AWS Organizations is enabled, only the master account can use this resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -132,6 +140,7 @@ public final class CurFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetReportDefinitionResult> getReportDefinition(GetReportDefinitionArgs args, InvokeOptions options) {
@@ -145,6 +154,8 @@ public final class CurFunctions {
      * &gt; *NOTE:* If AWS Organizations is enabled, only the master account can use this resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -173,6 +184,7 @@ public final class CurFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetReportDefinitionResult> getReportDefinitionPlain(GetReportDefinitionPlainArgs args, InvokeOptions options) {

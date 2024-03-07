@@ -103,6 +103,7 @@ class ResourcePolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -120,13 +121,14 @@ class ResourcePolicy(pulumi.CustomResource):
         )])
         example = aws.glue.ResourcePolicy("example", policy=glue_example_policy.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Glue Resource Policy using the account ID. For example:
 
         ```sh
-         $ pulumi import aws:glue/resourcePolicy:ResourcePolicy Test 12356789012
+        $ pulumi import aws:glue/resourcePolicy:ResourcePolicy Test 12356789012
         ```
 
         :param str resource_name: The name of the resource.
@@ -145,6 +147,7 @@ class ResourcePolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -162,13 +165,14 @@ class ResourcePolicy(pulumi.CustomResource):
         )])
         example = aws.glue.ResourcePolicy("example", policy=glue_example_policy.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Glue Resource Policy using the account ID. For example:
 
         ```sh
-         $ pulumi import aws:glue/resourcePolicy:ResourcePolicy Test 12356789012
+        $ pulumi import aws:glue/resourcePolicy:ResourcePolicy Test 12356789012
         ```
 
         :param str resource_name: The name of the resource.

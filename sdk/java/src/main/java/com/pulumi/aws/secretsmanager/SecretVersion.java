@@ -21,7 +21,10 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** If the `AWSCURRENT` staging label is present on this version during resource deletion, that label cannot be removed and will be skipped to prevent errors when fully deleting the secret. That label will leave this secret version active even after the resource is deleted from this provider unless the secret itself is deleted. Move the `AWSCURRENT` staging label before or after deleting this resource from this provider to fully trigger version deprecation if necessary.
  * 
  * ## Example Usage
+ * 
  * ### Simple String Value
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -51,9 +54,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Key-Value Pairs
  * 
  * Secrets Manager also accepts key-value pairs in JSON.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -87,6 +94,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Reading key-value pairs from JSON back into a native map
  * 
@@ -95,7 +103,7 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import `aws_secretsmanager_secret_version` using the secret ID and version ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:secretsmanager/secretVersion:SecretVersion example &#39;arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456|xxxxx-xxxxxxx-xxxxxxx-xxxxx&#39;
+ * $ pulumi import aws:secretsmanager/secretVersion:SecretVersion example &#39;arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456|xxxxx-xxxxxxx-xxxxxxx-xxxxx&#39;
  * ```
  * 
  */

@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,13 +23,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_lightsail_lb` using the name attribute. For example:
  *
  * ```sh
- *  $ pulumi import aws:lightsail/lb:Lb test example-load-balancer
+ * $ pulumi import aws:lightsail/lb:Lb test example-load-balancer
  * ```
  */
 export class Lb extends pulumi.CustomResource {

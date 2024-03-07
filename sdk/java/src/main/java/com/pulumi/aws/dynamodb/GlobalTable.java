@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * &gt; Note: There are many restrictions before you can properly create DynamoDB Global Tables in multiple regions. See the [AWS DynamoDB Global Table Requirements](http://docs.aws.amazon.com/amazondynamodb/latest/developerguide/globaltables_reqs_bestpractices.html) for more information.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -88,13 +90,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import DynamoDB Global Tables using the global table name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:dynamodb/globalTable:GlobalTable MyTable MyTable
+ * $ pulumi import aws:dynamodb/globalTable:GlobalTable MyTable MyTable
  * ```
  * 
  */

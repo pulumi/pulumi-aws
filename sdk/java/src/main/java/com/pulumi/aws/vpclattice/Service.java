@@ -21,7 +21,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS VPC Lattice Service.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -52,13 +55,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import VPC Lattice Service using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:vpclattice/service:Service example svc-06728e2357ea55f8a
+ * $ pulumi import aws:vpclattice/service:Service example svc-06728e2357ea55f8a
  * ```
  * 
  */

@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS Transcribe MedicalVocabulary.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -33,13 +35,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Transcribe MedicalVocabulary using the `vocabulary_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:transcribe/medicalVocabulary:MedicalVocabulary example example-name
+ * $ pulumi import aws:transcribe/medicalVocabulary:MedicalVocabulary example example-name
  * ```
  */
 export class MedicalVocabulary extends pulumi.CustomResource {

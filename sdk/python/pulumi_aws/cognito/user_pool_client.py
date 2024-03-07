@@ -815,8 +815,10 @@ class UserPoolClient(pulumi.CustomResource):
         use the `cognito.ManagedUserPoolClient` resource instead.
 
         ## Example Usage
+
         ### Create a basic user pool client
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -826,8 +828,11 @@ class UserPoolClient(pulumi.CustomResource):
             name="client",
             user_pool_id=pool.id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Create a user pool client with no SRP authentication
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -839,8 +844,11 @@ class UserPoolClient(pulumi.CustomResource):
             generate_secret=True,
             explicit_auth_flows=["ADMIN_NO_SRP_AUTH"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Create a user pool client with pinpoint analytics
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -881,8 +889,11 @@ class UserPoolClient(pulumi.CustomResource):
             role=test_role.id,
             policy=test.json)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Create a user pool client with Cognito as the identity provider
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -903,13 +914,14 @@ class UserPoolClient(pulumi.CustomResource):
             ],
             supported_identity_providers=["COGNITO"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Cognito User Pool Clients using the `id` of the Cognito User Pool, and the `id` of the Cognito User Pool Client. For example:
 
         ```sh
-         $ pulumi import aws:cognito/userPoolClient:UserPoolClient client us-west-2_abc123/3ho4ek12345678909nh3fmhpko
+        $ pulumi import aws:cognito/userPoolClient:UserPoolClient client us-west-2_abc123/3ho4ek12345678909nh3fmhpko
         ```
 
         :param str resource_name: The name of the resource.
@@ -958,8 +970,10 @@ class UserPoolClient(pulumi.CustomResource):
         use the `cognito.ManagedUserPoolClient` resource instead.
 
         ## Example Usage
+
         ### Create a basic user pool client
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -969,8 +983,11 @@ class UserPoolClient(pulumi.CustomResource):
             name="client",
             user_pool_id=pool.id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Create a user pool client with no SRP authentication
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -982,8 +999,11 @@ class UserPoolClient(pulumi.CustomResource):
             generate_secret=True,
             explicit_auth_flows=["ADMIN_NO_SRP_AUTH"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Create a user pool client with pinpoint analytics
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1024,8 +1044,11 @@ class UserPoolClient(pulumi.CustomResource):
             role=test_role.id,
             policy=test.json)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Create a user pool client with Cognito as the identity provider
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1046,13 +1069,14 @@ class UserPoolClient(pulumi.CustomResource):
             ],
             supported_identity_providers=["COGNITO"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Cognito User Pool Clients using the `id` of the Cognito User Pool, and the `id` of the Cognito User Pool Client. For example:
 
         ```sh
-         $ pulumi import aws:cognito/userPoolClient:UserPoolClient client us-west-2_abc123/3ho4ek12345678909nh3fmhpko
+        $ pulumi import aws:cognito/userPoolClient:UserPoolClient client us-west-2_abc123/3ho4ek12345678909nh3fmhpko
         ```
 
         :param str resource_name: The name of the resource.

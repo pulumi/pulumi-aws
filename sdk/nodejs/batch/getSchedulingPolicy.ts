@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,6 +21,7 @@ import * as utilities from "../utilities";
  *     arn: "arn:aws:batch:us-east-1:012345678910:scheduling-policy/example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSchedulingPolicy(args: GetSchedulingPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetSchedulingPolicyResult> {
 
@@ -68,6 +70,7 @@ export interface GetSchedulingPolicyResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -76,6 +79,7 @@ export interface GetSchedulingPolicyResult {
  *     arn: "arn:aws:batch:us-east-1:012345678910:scheduling-policy/example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSchedulingPolicyOutput(args: GetSchedulingPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSchedulingPolicyResult> {
     return pulumi.output(args).apply((a: any) => getSchedulingPolicy(a, opts))

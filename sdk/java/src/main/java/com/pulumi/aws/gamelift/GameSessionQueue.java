@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * Provides an GameLift Game Session Queue resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -64,13 +66,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import GameLift Game Session Queues using their `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example
+ * $ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example
  * ```
  * 
  */

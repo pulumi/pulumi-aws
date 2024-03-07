@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as `aws.route53.TrafficPolicy`.
  *
  * ## Example Usage
+ *
  * ### Basic Example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -51,10 +53,13 @@ import * as utilities from "../utilities";
  *     document: example.then(example => example.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Complex Example
  *
  * The following example showcases the use of nested rules within the traffic policy document and introduces the `geoproximity` rule type.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -127,6 +132,7 @@ import * as utilities from "../utilities";
  *     document: example.then(example => example.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getTrafficPolicyDocument(args?: GetTrafficPolicyDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetTrafficPolicyDocumentResult> {
     args = args || {};
@@ -195,8 +201,10 @@ export interface GetTrafficPolicyDocumentResult {
  * Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as `aws.route53.TrafficPolicy`.
  *
  * ## Example Usage
+ *
  * ### Basic Example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -235,10 +243,13 @@ export interface GetTrafficPolicyDocumentResult {
  *     document: example.then(example => example.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Complex Example
  *
  * The following example showcases the use of nested rules within the traffic policy document and introduces the `geoproximity` rule type.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -311,6 +322,7 @@ export interface GetTrafficPolicyDocumentResult {
  *     document: example.then(example => example.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getTrafficPolicyDocumentOutput(args?: GetTrafficPolicyDocumentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrafficPolicyDocumentResult> {
     return pulumi.output(args).apply((a: any) => getTrafficPolicyDocument(a, opts))

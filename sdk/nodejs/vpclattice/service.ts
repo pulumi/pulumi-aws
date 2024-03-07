@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS VPC Lattice Service.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,13 +25,14 @@ import * as utilities from "../utilities";
  *     customDomainName: "example.com",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import VPC Lattice Service using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:vpclattice/service:Service example svc-06728e2357ea55f8a
+ * $ pulumi import aws:vpclattice/service:Service example svc-06728e2357ea55f8a
  * ```
  */
 export class Service extends pulumi.CustomResource {

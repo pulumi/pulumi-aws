@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides a ApplicationInsights Application resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -66,13 +68,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import ApplicationInsights Applications using the `resource_group_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:applicationinsights/application:Application some some-application
+ * $ pulumi import aws:applicationinsights/application:Application some some-application
  * ```
  * 
  */

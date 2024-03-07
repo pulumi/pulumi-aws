@@ -17,8 +17,10 @@ import (
 // > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 //
 // ## Example Usage
+//
 // ### Kinesis Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -91,8 +93,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### SSM Document Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -242,8 +247,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### RunCommand Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -289,8 +297,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### ECS Run Task with Role and Task Override Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -408,8 +419,11 @@ import (
 // })
 // }
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### API Gateway target
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -464,8 +478,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Cross-Account Event Bus target
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -559,8 +576,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Input Transformer Usage - JSON Object
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -596,8 +616,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Input Transformer Usage - Simple String
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -633,8 +656,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Cloudwatch Log Group Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -752,15 +778,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import EventBridge Targets using `event_bus_name/rule-name/target-id` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cloudwatch/eventTarget:EventTarget test-event-target rule-name/target-id
-//
+// $ pulumi import aws:cloudwatch/eventTarget:EventTarget test-event-target rule-name/target-id
 // ```
 type EventTarget struct {
 	pulumi.CustomResourceState

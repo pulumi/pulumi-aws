@@ -14,8 +14,10 @@ import (
 // Provides a CloudWatch Evidently Project resource.
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,8 +45,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Store evaluation events in a CloudWatch Log Group
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -77,8 +82,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Store evaluation events in an S3 bucket
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -112,15 +120,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CloudWatch Evidently Project using the `arn`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:evidently/project:Project example arn:aws:evidently:us-east-1:123456789012:segment/example
-//
+// $ pulumi import aws:evidently/project:Project example arn:aws:evidently:us-east-1:123456789012:segment/example
 // ```
 type Project struct {
 	pulumi.CustomResourceState

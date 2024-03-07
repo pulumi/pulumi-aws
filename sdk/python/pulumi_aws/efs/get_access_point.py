@@ -143,12 +143,14 @@ def get_access_point(access_point_id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.efs.get_access_point(access_point_id="fsap-12345678")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str access_point_id: ID that identifies the file system.
@@ -181,12 +183,14 @@ def get_access_point_output(access_point_id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.efs.get_access_point(access_point_id="fsap-12345678")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str access_point_id: ID that identifies the file system.

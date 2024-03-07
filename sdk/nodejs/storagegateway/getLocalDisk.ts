@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -18,6 +19,7 @@ import * as utilities from "../utilities";
  *     gatewayArn: testAwsStoragegatewayGateway.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getLocalDisk(args: GetLocalDiskArgs, opts?: pulumi.InvokeOptions): Promise<GetLocalDiskResult> {
 
@@ -68,6 +70,7 @@ export interface GetLocalDiskResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -77,6 +80,7 @@ export interface GetLocalDiskResult {
  *     gatewayArn: testAwsStoragegatewayGateway.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getLocalDiskOutput(args: GetLocalDiskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocalDiskResult> {
     return pulumi.output(args).apply((a: any) => getLocalDisk(a, opts))

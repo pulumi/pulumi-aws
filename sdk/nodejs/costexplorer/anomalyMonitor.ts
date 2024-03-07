@@ -10,8 +10,10 @@ import * as utilities from "../utilities";
  * ## Example Usage
  *
  * There are two main types of a Cost Anomaly Monitor: `DIMENSIONAL` and `CUSTOM`.
+ *
  * ### Dimensional Example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,8 +24,11 @@ import * as utilities from "../utilities";
  *     monitorDimension: "SERVICE",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Custom Example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -45,13 +50,14 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_ce_anomaly_monitor` using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:costexplorer/anomalyMonitor:AnomalyMonitor example costAnomalyMonitorARN
+ * $ pulumi import aws:costexplorer/anomalyMonitor:AnomalyMonitor example costAnomalyMonitorARN
  * ```
  */
 export class AnomalyMonitor extends pulumi.CustomResource {

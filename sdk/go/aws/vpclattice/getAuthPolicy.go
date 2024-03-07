@@ -14,8 +14,10 @@ import (
 // Data source for managing an AWS VPC Lattice Auth Policy.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupAuthPolicy(ctx *pulumi.Context, args *LookupAuthPolicyArgs, opts ...pulumi.InvokeOption) (*LookupAuthPolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAuthPolicyResult

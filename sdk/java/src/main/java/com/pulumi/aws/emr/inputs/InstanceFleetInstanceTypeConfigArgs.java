@@ -22,14 +22,16 @@ public final class InstanceFleetInstanceTypeConfigArgs extends com.pulumi.resour
     public static final InstanceFleetInstanceTypeConfigArgs Empty = new InstanceFleetInstanceTypeConfigArgs();
 
     /**
-     * The bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+     * The bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
+     * (MISSING)
      * 
      */
     @Import(name="bidPrice")
     private @Nullable Output<String> bidPrice;
 
     /**
-     * @return The bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+     * @return The bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
+     * (MISSING)
      * 
      */
     public Optional<Output<String>> bidPrice() {
@@ -37,14 +39,16 @@ public final class InstanceFleetInstanceTypeConfigArgs extends com.pulumi.resour
     }
 
     /**
-     * The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+     * The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%!)(MISSING). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
+     * (MISSING)
      * 
      */
     @Import(name="bidPriceAsPercentageOfOnDemandPrice")
     private @Nullable Output<Double> bidPriceAsPercentageOfOnDemandPrice;
 
     /**
-     * @return The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+     * @return The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%!)(MISSING). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
+     * (MISSING)
      * 
      */
     public Optional<Output<Double>> bidPriceAsPercentageOfOnDemandPrice() {
@@ -141,7 +145,8 @@ public final class InstanceFleetInstanceTypeConfigArgs extends com.pulumi.resour
         }
 
         /**
-         * @param bidPrice The bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+         * @param bidPrice The bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
+         * (MISSING)
          * 
          * @return builder
          * 
@@ -152,7 +157,8 @@ public final class InstanceFleetInstanceTypeConfigArgs extends com.pulumi.resour
         }
 
         /**
-         * @param bidPrice The bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+         * @param bidPrice The bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
+         * (MISSING)
          * 
          * @return builder
          * 
@@ -162,7 +168,8 @@ public final class InstanceFleetInstanceTypeConfigArgs extends com.pulumi.resour
         }
 
         /**
-         * @param bidPriceAsPercentageOfOnDemandPrice The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+         * @param bidPriceAsPercentageOfOnDemandPrice The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%!)(MISSING). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
+         * (MISSING)
          * 
          * @return builder
          * 
@@ -173,7 +180,8 @@ public final class InstanceFleetInstanceTypeConfigArgs extends com.pulumi.resour
         }
 
         /**
-         * @param bidPriceAsPercentageOfOnDemandPrice The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+         * @param bidPriceAsPercentageOfOnDemandPrice The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%!)(MISSING). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
+         * (MISSING)
          * 
          * @return builder
          * 

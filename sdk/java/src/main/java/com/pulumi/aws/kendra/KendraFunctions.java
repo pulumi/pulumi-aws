@@ -30,6 +30,8 @@ public final class KendraFunctions {
      * Provides details about a specific Amazon Kendra Experience.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -59,6 +61,7 @@ public final class KendraFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetExperienceResult> getExperience(GetExperienceArgs args) {
@@ -68,6 +71,8 @@ public final class KendraFunctions {
      * Provides details about a specific Amazon Kendra Experience.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -97,6 +102,7 @@ public final class KendraFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetExperienceResult> getExperiencePlain(GetExperiencePlainArgs args) {
@@ -106,6 +112,8 @@ public final class KendraFunctions {
      * Provides details about a specific Amazon Kendra Experience.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -135,6 +143,7 @@ public final class KendraFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetExperienceResult> getExperience(GetExperienceArgs args, InvokeOptions options) {
@@ -144,6 +153,8 @@ public final class KendraFunctions {
      * Provides details about a specific Amazon Kendra Experience.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -173,6 +184,7 @@ public final class KendraFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetExperienceResult> getExperiencePlain(GetExperiencePlainArgs args, InvokeOptions options) {
@@ -182,6 +194,8 @@ public final class KendraFunctions {
      * Provides details about a specific Amazon Kendra Faq.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -211,6 +225,7 @@ public final class KendraFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFaqResult> getFaq(GetFaqArgs args) {
@@ -220,6 +235,8 @@ public final class KendraFunctions {
      * Provides details about a specific Amazon Kendra Faq.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -249,6 +266,7 @@ public final class KendraFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFaqResult> getFaqPlain(GetFaqPlainArgs args) {
@@ -258,6 +276,8 @@ public final class KendraFunctions {
      * Provides details about a specific Amazon Kendra Faq.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -287,6 +307,7 @@ public final class KendraFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFaqResult> getFaq(GetFaqArgs args, InvokeOptions options) {
@@ -296,6 +317,8 @@ public final class KendraFunctions {
      * Provides details about a specific Amazon Kendra Faq.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -325,6 +348,7 @@ public final class KendraFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFaqResult> getFaqPlain(GetFaqPlainArgs args, InvokeOptions options) {
@@ -334,6 +358,8 @@ public final class KendraFunctions {
      * Provides details about a specific Amazon Kendra Index.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -362,6 +388,7 @@ public final class KendraFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetIndexResult> getIndex(GetIndexArgs args) {
@@ -371,6 +398,8 @@ public final class KendraFunctions {
      * Provides details about a specific Amazon Kendra Index.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -399,6 +428,7 @@ public final class KendraFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetIndexResult> getIndexPlain(GetIndexPlainArgs args) {
@@ -408,6 +438,8 @@ public final class KendraFunctions {
      * Provides details about a specific Amazon Kendra Index.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -436,6 +468,7 @@ public final class KendraFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetIndexResult> getIndex(GetIndexArgs args, InvokeOptions options) {
@@ -445,6 +478,8 @@ public final class KendraFunctions {
      * Provides details about a specific Amazon Kendra Index.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -473,6 +508,7 @@ public final class KendraFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetIndexResult> getIndexPlain(GetIndexPlainArgs args, InvokeOptions options) {
@@ -482,6 +518,8 @@ public final class KendraFunctions {
      * Provides details about a specific Amazon Kendra block list used for query suggestions for an index.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -511,6 +549,7 @@ public final class KendraFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetQuerySuggestionsBlockListResult> getQuerySuggestionsBlockList(GetQuerySuggestionsBlockListArgs args) {
@@ -520,6 +559,8 @@ public final class KendraFunctions {
      * Provides details about a specific Amazon Kendra block list used for query suggestions for an index.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -549,6 +590,7 @@ public final class KendraFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetQuerySuggestionsBlockListResult> getQuerySuggestionsBlockListPlain(GetQuerySuggestionsBlockListPlainArgs args) {
@@ -558,6 +600,8 @@ public final class KendraFunctions {
      * Provides details about a specific Amazon Kendra block list used for query suggestions for an index.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -587,6 +631,7 @@ public final class KendraFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetQuerySuggestionsBlockListResult> getQuerySuggestionsBlockList(GetQuerySuggestionsBlockListArgs args, InvokeOptions options) {
@@ -596,6 +641,8 @@ public final class KendraFunctions {
      * Provides details about a specific Amazon Kendra block list used for query suggestions for an index.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -625,6 +672,7 @@ public final class KendraFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetQuerySuggestionsBlockListResult> getQuerySuggestionsBlockListPlain(GetQuerySuggestionsBlockListPlainArgs args, InvokeOptions options) {
@@ -634,6 +682,8 @@ public final class KendraFunctions {
      * Provides details about a specific Amazon Kendra Thesaurus.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -663,6 +713,7 @@ public final class KendraFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetThesaurusResult> getThesaurus(GetThesaurusArgs args) {
@@ -672,6 +723,8 @@ public final class KendraFunctions {
      * Provides details about a specific Amazon Kendra Thesaurus.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -701,6 +754,7 @@ public final class KendraFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetThesaurusResult> getThesaurusPlain(GetThesaurusPlainArgs args) {
@@ -710,6 +764,8 @@ public final class KendraFunctions {
      * Provides details about a specific Amazon Kendra Thesaurus.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -739,6 +795,7 @@ public final class KendraFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetThesaurusResult> getThesaurus(GetThesaurusArgs args, InvokeOptions options) {
@@ -748,6 +805,8 @@ public final class KendraFunctions {
      * Provides details about a specific Amazon Kendra Thesaurus.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -777,6 +836,7 @@ public final class KendraFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetThesaurusResult> getThesaurusPlain(GetThesaurusPlainArgs args, InvokeOptions options) {

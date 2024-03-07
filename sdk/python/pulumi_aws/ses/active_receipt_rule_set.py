@@ -86,19 +86,21 @@ class ActiveReceiptRuleSet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         main = aws.ses.ActiveReceiptRuleSet("main", rule_set_name="primary-rules")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import active SES receipt rule sets using the rule set name. For example:
 
         ```sh
-         $ pulumi import aws:ses/activeReceiptRuleSet:ActiveReceiptRuleSet my_rule_set my_rule_set_name
+        $ pulumi import aws:ses/activeReceiptRuleSet:ActiveReceiptRuleSet my_rule_set my_rule_set_name
         ```
 
         :param str resource_name: The name of the resource.
@@ -116,19 +118,21 @@ class ActiveReceiptRuleSet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         main = aws.ses.ActiveReceiptRuleSet("main", rule_set_name="primary-rules")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import active SES receipt rule sets using the rule set name. For example:
 
         ```sh
-         $ pulumi import aws:ses/activeReceiptRuleSet:ActiveReceiptRuleSet my_rule_set my_rule_set_name
+        $ pulumi import aws:ses/activeReceiptRuleSet:ActiveReceiptRuleSet my_rule_set my_rule_set_name
         ```
 
         :param str resource_name: The name of the resource.

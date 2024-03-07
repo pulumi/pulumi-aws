@@ -25,8 +25,10 @@ import (
 // - For AWS Account ID principals, a resource share invitation is sent and must be accepted before resources become available. See the `ram.ResourceShareAccepter` resource to accept these invitations.
 //
 // ## Example Usage
+//
 // ### AWS Account ID
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -57,8 +59,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### AWS Organization
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -83,15 +88,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import RAM Principal Associations using their Resource Share ARN and the `principal` separated by a comma. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ram/principalAssociation:PrincipalAssociation example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12,123456789012
-//
+// $ pulumi import aws:ram/principalAssociation:PrincipalAssociation example arn:aws:ram:eu-west-1:123456789012:resource-share/73da1ab9-b94a-4ba3-8eb4-45917f7f4b12,123456789012
 // ```
 type PrincipalAssociation struct {
 	pulumi.CustomResourceState

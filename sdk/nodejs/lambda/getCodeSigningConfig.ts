@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,6 +23,7 @@ import * as utilities from "../utilities";
  *     arn: `arn:aws:lambda:${awsRegion}:${awsAccount}:code-signing-config:csc-0f6c334abcdea4d8b`,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getCodeSigningConfig(args: GetCodeSigningConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetCodeSigningConfigResult> {
 
@@ -78,6 +80,7 @@ export interface GetCodeSigningConfigResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -86,6 +89,7 @@ export interface GetCodeSigningConfigResult {
  *     arn: `arn:aws:lambda:${awsRegion}:${awsAccount}:code-signing-config:csc-0f6c334abcdea4d8b`,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getCodeSigningConfigOutput(args: GetCodeSigningConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCodeSigningConfigResult> {
     return pulumi.output(args).apply((a: any) => getCodeSigningConfig(a, opts))

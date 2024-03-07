@@ -106,6 +106,7 @@ class SpotDatafeedSubscription(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -115,13 +116,14 @@ class SpotDatafeedSubscription(pulumi.CustomResource):
             bucket=default.id,
             prefix="my_subdirectory")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a Spot Datafeed Subscription using the word `spot-datafeed-subscription`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription mysubscription spot-datafeed-subscription
+        $ pulumi import aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription mysubscription spot-datafeed-subscription
         ```
 
         :param str resource_name: The name of the resource.
@@ -143,6 +145,7 @@ class SpotDatafeedSubscription(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -152,13 +155,14 @@ class SpotDatafeedSubscription(pulumi.CustomResource):
             bucket=default.id,
             prefix="my_subdirectory")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a Spot Datafeed Subscription using the word `spot-datafeed-subscription`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription mysubscription spot-datafeed-subscription
+        $ pulumi import aws:ec2/spotDatafeedSubscription:SpotDatafeedSubscription mysubscription spot-datafeed-subscription
         ```
 
         :param str resource_name: The name of the resource.

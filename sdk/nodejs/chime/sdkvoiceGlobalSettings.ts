@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Resource for managing Amazon Chime SDK Voice Global Settings.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,13 +23,14 @@ import * as utilities from "../utilities";
  *     cdrBucket: "example-bucket-name",
  * }});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import AWS Chime SDK Voice Global Settings using the `id` (AWS account ID). For example:
  *
  * ```sh
- *  $ pulumi import aws:chime/sdkvoiceGlobalSettings:SdkvoiceGlobalSettings example 123456789012
+ * $ pulumi import aws:chime/sdkvoiceGlobalSettings:SdkvoiceGlobalSettings example 123456789012
  * ```
  */
 export class SdkvoiceGlobalSettings extends pulumi.CustomResource {

@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS IVS (Interactive Video) Chat Logging Configuration.
  *
  * ## Example Usage
+ *
  * ### Basic Usage - Logging to CloudWatch
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,8 +26,11 @@ import * as utilities from "../utilities";
  *     },
  * }});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Basic Usage - Logging to Kinesis Firehose with Extended S3
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -66,13 +71,14 @@ import * as utilities from "../utilities";
  *     },
  * }});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import IVS (Interactive Video) Chat Logging Configuration using the ARN. For example:
  *
  * ```sh
- *  $ pulumi import aws:ivschat/loggingConfiguration:LoggingConfiguration example arn:aws:ivschat:us-west-2:326937407773:logging-configuration/MMUQc8wcqZmC
+ * $ pulumi import aws:ivschat/loggingConfiguration:LoggingConfiguration example arn:aws:ivschat:us-west-2:326937407773:logging-configuration/MMUQc8wcqZmC
  * ```
  */
 export class LoggingConfiguration extends pulumi.CustomResource {

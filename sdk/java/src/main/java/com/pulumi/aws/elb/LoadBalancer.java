@@ -35,6 +35,8 @@ import javax.annotation.Nullable;
  * conflict and will overwrite attachments.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -102,6 +104,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Note on ECDSA Key Algorithm
  * 
  * If the ARN of the `ssl_certificate_id` that is pointed to references a
@@ -115,7 +119,7 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import ELBs using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:elb/loadBalancer:LoadBalancer bar elb-production-12345
+ * $ pulumi import aws:elb/loadBalancer:LoadBalancer bar elb-production-12345
  * ```
  * 
  */

@@ -516,37 +516,10 @@ class Component(pulumi.CustomResource):
         Manages an Image Builder Component.
 
         ## Example Usage
-        ### Inline Data Document
 
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.imagebuilder.Component("example",
-            data=not_implemented(\"\"\"yamlencode({
-        phases=[{
-        name="build"
-        steps=[{
-        action="ExecuteBash"
-        inputs={
-        commands=["echo 'hello world'"]
-        }
-        name="example"
-        onFailure="Continue"
-        }]
-        }]
-        schemaVersion=1.0
-        })\"\"\"),
-            name="example",
-            platform="Linux",
-            version="1.0.0")
-        ```
         ### URI Document
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -557,15 +530,16 @@ class Component(pulumi.CustomResource):
             uri=f"s3://{example_aws_s3_object['bucket']}/{example_aws_s3_object['key']}",
             version="1.0.0")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_imagebuilder_components` resources using the Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:imagebuilder/component:Component example arn:aws:imagebuilder:us-east-1:123456789012:component/example/1.0.0/1
+        $ pulumi import aws:imagebuilder/component:Component example arn:aws:imagebuilder:us-east-1:123456789012:component/example/1.0.0/1
         ```
-         Certain resource arguments, such as `uri`, cannot be read via the API and imported into the provider. The provider will display a difference for these arguments the first run after import if declared in the the provider configuration for an imported resource.
+        Certain resource arguments, such as `uri`, cannot be read via the API and imported into the provider. The provider will display a difference for these arguments the first run after import if declared in the the provider configuration for an imported resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -595,37 +569,10 @@ class Component(pulumi.CustomResource):
         Manages an Image Builder Component.
 
         ## Example Usage
-        ### Inline Data Document
 
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.imagebuilder.Component("example",
-            data=not_implemented(\"\"\"yamlencode({
-        phases=[{
-        name="build"
-        steps=[{
-        action="ExecuteBash"
-        inputs={
-        commands=["echo 'hello world'"]
-        }
-        name="example"
-        onFailure="Continue"
-        }]
-        }]
-        schemaVersion=1.0
-        })\"\"\"),
-            name="example",
-            platform="Linux",
-            version="1.0.0")
-        ```
         ### URI Document
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -636,15 +583,16 @@ class Component(pulumi.CustomResource):
             uri=f"s3://{example_aws_s3_object['bucket']}/{example_aws_s3_object['key']}",
             version="1.0.0")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_imagebuilder_components` resources using the Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:imagebuilder/component:Component example arn:aws:imagebuilder:us-east-1:123456789012:component/example/1.0.0/1
+        $ pulumi import aws:imagebuilder/component:Component example arn:aws:imagebuilder:us-east-1:123456789012:component/example/1.0.0/1
         ```
-         Certain resource arguments, such as `uri`, cannot be read via the API and imported into the provider. The provider will display a difference for these arguments the first run after import if declared in the the provider configuration for an imported resource.
+        Certain resource arguments, such as `uri`, cannot be read via the API and imported into the provider. The provider will display a difference for these arguments the first run after import if declared in the the provider configuration for an imported resource.
 
         :param str resource_name: The name of the resource.
         :param ComponentArgs args: The arguments to use to populate this resource's properties.

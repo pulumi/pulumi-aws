@@ -281,6 +281,7 @@ class PlaceIndex(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -289,13 +290,14 @@ class PlaceIndex(pulumi.CustomResource):
             data_source="Here",
             index_name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_location_place_index` resources using the place index name. For example:
 
         ```sh
-         $ pulumi import aws:location/placeIndex:PlaceIndex example example
+        $ pulumi import aws:location/placeIndex:PlaceIndex example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -319,6 +321,7 @@ class PlaceIndex(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -327,13 +330,14 @@ class PlaceIndex(pulumi.CustomResource):
             data_source="Here",
             index_name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_location_place_index` resources using the place index name. For example:
 
         ```sh
-         $ pulumi import aws:location/placeIndex:PlaceIndex example example
+        $ pulumi import aws:location/placeIndex:PlaceIndex example example
         ```
 
         :param str resource_name: The name of the resource.

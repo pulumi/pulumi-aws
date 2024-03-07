@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -26,13 +27,14 @@ import * as utilities from "../utilities";
  *     subnetIds: [exampleSubnet.id],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import a subnet group using its `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:memorydb/subnetGroup:SubnetGroup example my-subnet-group
+ * $ pulumi import aws:memorydb/subnetGroup:SubnetGroup example my-subnet-group
  * ```
  */
 export class SubnetGroup extends pulumi.CustomResource {

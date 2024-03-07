@@ -29,7 +29,7 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import CloudFront Functions using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cloudfront/function:Function test my_test_function
+ * $ pulumi import aws:cloudfront/function:Function test my_test_function
  * ```
  * 
  */

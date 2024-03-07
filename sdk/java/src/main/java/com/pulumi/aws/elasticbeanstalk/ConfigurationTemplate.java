@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * application with the same configuration settings.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -59,6 +61,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Option Settings
  * 
  * The `setting` field supports the following format:

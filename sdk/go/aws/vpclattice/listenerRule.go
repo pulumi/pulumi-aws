@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -75,8 +76,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -118,15 +122,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import VPC Lattice Listener Rule using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:vpclattice/listenerRule:ListenerRule example service123/listener456/rule789
-//
+// $ pulumi import aws:vpclattice/listenerRule:ListenerRule example service123/listener456/rule789
 // ```
 type ListenerRule struct {
 	pulumi.CustomResourceState

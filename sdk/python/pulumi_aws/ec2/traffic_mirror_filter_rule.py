@@ -391,6 +391,7 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
 
         To create a basic traffic mirror session
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -424,13 +425,14 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
                 to_port=10,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import traffic mirror rules using the `traffic_mirror_filter_id` and `id` separated by `:`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/trafficMirrorFilterRule:TrafficMirrorFilterRule rule tmf-0fbb93ddf38198f64:tmfr-05a458f06445d0aee
+        $ pulumi import aws:ec2/trafficMirrorFilterRule:TrafficMirrorFilterRule rule tmf-0fbb93ddf38198f64:tmfr-05a458f06445d0aee
         ```
 
         :param str resource_name: The name of the resource.
@@ -462,6 +464,7 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
 
         To create a basic traffic mirror session
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -495,13 +498,14 @@ class TrafficMirrorFilterRule(pulumi.CustomResource):
                 to_port=10,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import traffic mirror rules using the `traffic_mirror_filter_id` and `id` separated by `:`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/trafficMirrorFilterRule:TrafficMirrorFilterRule rule tmf-0fbb93ddf38198f64:tmfr-05a458f06445d0aee
+        $ pulumi import aws:ec2/trafficMirrorFilterRule:TrafficMirrorFilterRule rule tmf-0fbb93ddf38198f64:tmfr-05a458f06445d0aee
         ```
 
         :param str resource_name: The name of the resource.

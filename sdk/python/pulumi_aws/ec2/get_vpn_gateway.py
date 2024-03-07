@@ -120,6 +120,7 @@ def get_vpn_gateway(amazon_side_asn: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -130,6 +131,7 @@ def get_vpn_gateway(amazon_side_asn: Optional[str] = None,
     )])
     pulumi.export("vpnGatewayId", selected.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str amazon_side_asn: Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.
@@ -181,6 +183,7 @@ def get_vpn_gateway_output(amazon_side_asn: Optional[pulumi.Input[Optional[str]]
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -191,6 +194,7 @@ def get_vpn_gateway_output(amazon_side_asn: Optional[pulumi.Input[Optional[str]]
     )])
     pulumi.export("vpnGatewayId", selected.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str amazon_side_asn: Autonomous System Number (ASN) for the Amazon side of the specific VPN Gateway to retrieve.

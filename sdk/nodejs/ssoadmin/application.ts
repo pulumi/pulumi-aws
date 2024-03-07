@@ -15,54 +15,13 @@ import * as utilities from "../utilities";
  * See this issue for additional context.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const example = aws.ssoadmin.getInstances({});
- * const exampleApplication = new aws.ssoadmin.Application("example", {
- *     name: "example",
- *     applicationProviderArn: "arn:aws:sso::aws:applicationProvider/custom",
- *     instanceArn: notImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
- * });
- * ```
- * ### With Portal Options
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const example = aws.ssoadmin.getInstances({});
- * const exampleApplication = new aws.ssoadmin.Application("example", {
- *     name: "example",
- *     applicationProviderArn: "arn:aws:sso::aws:applicationProvider/custom",
- *     instanceArn: notImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
- *     portalOptions: {
- *         visibility: "ENABLED",
- *         signInOptions: {
- *             applicationUrl: "http://example.com",
- *             origin: "APPLICATION",
- *         },
- *     },
- * });
- * ```
  *
  * ## Import
  *
  * Using `pulumi import`, import SSO Admin Application using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ssoadmin/application:Application example arn:aws:sso::012345678901:application/id-12345678
+ * $ pulumi import aws:ssoadmin/application:Application example arn:aws:sso::012345678901:application/id-12345678
  * ```
  */
 export class Application extends pulumi.CustomResource {

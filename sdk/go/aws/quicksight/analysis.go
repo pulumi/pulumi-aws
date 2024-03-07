@@ -15,8 +15,10 @@ import (
 // Resource for managing a QuickSight Analysis.
 //
 // ## Example Usage
+//
 // ### From Source Template
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -52,15 +54,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import a QuickSight Analysis using the AWS account ID and analysis ID separated by a comma (`,`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:quicksight/analysis:Analysis example 123456789012,example-id
-//
+// $ pulumi import aws:quicksight/analysis:Analysis example 123456789012,example-id
 // ```
 type Analysis struct {
 	pulumi.CustomResourceState

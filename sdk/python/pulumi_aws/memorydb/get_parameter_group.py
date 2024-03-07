@@ -125,12 +125,14 @@ def get_parameter_group(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.memorydb.get_parameter_group(name="my-parameter-group")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the parameter group.
@@ -161,12 +163,14 @@ def get_parameter_group_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.memorydb.get_parameter_group(name="my-parameter-group")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the parameter group.

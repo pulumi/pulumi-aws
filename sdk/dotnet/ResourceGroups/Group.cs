@@ -14,6 +14,7 @@ namespace Pulumi.Aws.ResourceGroups
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -44,13 +45,14 @@ namespace Pulumi.Aws.ResourceGroups
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import resource groups using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:resourcegroups/group:Group foo resource-group-name
+    /// $ pulumi import aws:resourcegroups/group:Group foo resource-group-name
     /// ```
     /// </summary>
     [AwsResourceType("aws:resourcegroups/group:Group")]

@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -64,15 +65,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import ECS Capacity Providers using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ecs/capacityProvider:CapacityProvider example example
-//
+// $ pulumi import aws:ecs/capacityProvider:CapacityProvider example example
 // ```
 type CapacityProvider struct {
 	pulumi.CustomResourceState

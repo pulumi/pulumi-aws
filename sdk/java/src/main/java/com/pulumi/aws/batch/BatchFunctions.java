@@ -28,6 +28,8 @@ public final class BatchFunctions {
      * compute environment within AWS Batch.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -56,6 +58,7 @@ public final class BatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetComputeEnvironmentResult> getComputeEnvironment(GetComputeEnvironmentArgs args) {
@@ -66,6 +69,8 @@ public final class BatchFunctions {
      * compute environment within AWS Batch.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -94,6 +99,7 @@ public final class BatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetComputeEnvironmentResult> getComputeEnvironmentPlain(GetComputeEnvironmentPlainArgs args) {
@@ -104,6 +110,8 @@ public final class BatchFunctions {
      * compute environment within AWS Batch.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -132,6 +140,7 @@ public final class BatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetComputeEnvironmentResult> getComputeEnvironment(GetComputeEnvironmentArgs args, InvokeOptions options) {
@@ -142,6 +151,8 @@ public final class BatchFunctions {
      * compute environment within AWS Batch.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -170,6 +181,7 @@ public final class BatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetComputeEnvironmentResult> getComputeEnvironmentPlain(GetComputeEnvironmentPlainArgs args, InvokeOptions options) {
@@ -179,7 +191,10 @@ public final class BatchFunctions {
      * Data source for managing an AWS Batch Job Definition.
      * 
      * ## Example Usage
+     * 
      * ### Lookup via Arn
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -208,7 +223,11 @@ public final class BatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Lookup via Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -238,6 +257,7 @@ public final class BatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetJobDefinitionResult> getJobDefinition() {
@@ -247,7 +267,10 @@ public final class BatchFunctions {
      * Data source for managing an AWS Batch Job Definition.
      * 
      * ## Example Usage
+     * 
      * ### Lookup via Arn
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -276,7 +299,11 @@ public final class BatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Lookup via Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -306,6 +333,7 @@ public final class BatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetJobDefinitionResult> getJobDefinitionPlain() {
@@ -315,7 +343,10 @@ public final class BatchFunctions {
      * Data source for managing an AWS Batch Job Definition.
      * 
      * ## Example Usage
+     * 
      * ### Lookup via Arn
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -344,7 +375,11 @@ public final class BatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Lookup via Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -374,6 +409,7 @@ public final class BatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetJobDefinitionResult> getJobDefinition(GetJobDefinitionArgs args) {
@@ -383,7 +419,10 @@ public final class BatchFunctions {
      * Data source for managing an AWS Batch Job Definition.
      * 
      * ## Example Usage
+     * 
      * ### Lookup via Arn
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -412,7 +451,11 @@ public final class BatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Lookup via Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -442,6 +485,7 @@ public final class BatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetJobDefinitionResult> getJobDefinitionPlain(GetJobDefinitionPlainArgs args) {
@@ -451,7 +495,10 @@ public final class BatchFunctions {
      * Data source for managing an AWS Batch Job Definition.
      * 
      * ## Example Usage
+     * 
      * ### Lookup via Arn
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -480,7 +527,11 @@ public final class BatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Lookup via Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -510,6 +561,7 @@ public final class BatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetJobDefinitionResult> getJobDefinition(GetJobDefinitionArgs args, InvokeOptions options) {
@@ -519,7 +571,10 @@ public final class BatchFunctions {
      * Data source for managing an AWS Batch Job Definition.
      * 
      * ## Example Usage
+     * 
      * ### Lookup via Arn
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -548,7 +603,11 @@ public final class BatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Lookup via Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -578,6 +637,7 @@ public final class BatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetJobDefinitionResult> getJobDefinitionPlain(GetJobDefinitionPlainArgs args, InvokeOptions options) {
@@ -588,6 +648,8 @@ public final class BatchFunctions {
      * job queue within AWS Batch.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -616,6 +678,7 @@ public final class BatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetJobQueueResult> getJobQueue(GetJobQueueArgs args) {
@@ -626,6 +689,8 @@ public final class BatchFunctions {
      * job queue within AWS Batch.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -654,6 +719,7 @@ public final class BatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetJobQueueResult> getJobQueuePlain(GetJobQueuePlainArgs args) {
@@ -664,6 +730,8 @@ public final class BatchFunctions {
      * job queue within AWS Batch.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -692,6 +760,7 @@ public final class BatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetJobQueueResult> getJobQueue(GetJobQueueArgs args, InvokeOptions options) {
@@ -702,6 +771,8 @@ public final class BatchFunctions {
      * job queue within AWS Batch.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -730,6 +801,7 @@ public final class BatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetJobQueueResult> getJobQueuePlain(GetJobQueuePlainArgs args, InvokeOptions options) {
@@ -739,6 +811,8 @@ public final class BatchFunctions {
      * The Batch Scheduling Policy data source allows access to details of a specific Scheduling Policy within AWS Batch.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -767,6 +841,7 @@ public final class BatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSchedulingPolicyResult> getSchedulingPolicy(GetSchedulingPolicyArgs args) {
@@ -776,6 +851,8 @@ public final class BatchFunctions {
      * The Batch Scheduling Policy data source allows access to details of a specific Scheduling Policy within AWS Batch.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -804,6 +881,7 @@ public final class BatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSchedulingPolicyResult> getSchedulingPolicyPlain(GetSchedulingPolicyPlainArgs args) {
@@ -813,6 +891,8 @@ public final class BatchFunctions {
      * The Batch Scheduling Policy data source allows access to details of a specific Scheduling Policy within AWS Batch.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -841,6 +921,7 @@ public final class BatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSchedulingPolicyResult> getSchedulingPolicy(GetSchedulingPolicyArgs args, InvokeOptions options) {
@@ -850,6 +931,8 @@ public final class BatchFunctions {
      * The Batch Scheduling Policy data source allows access to details of a specific Scheduling Policy within AWS Batch.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -878,6 +961,7 @@ public final class BatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSchedulingPolicyResult> getSchedulingPolicyPlain(GetSchedulingPolicyPlainArgs args, InvokeOptions options) {

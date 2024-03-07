@@ -32,8 +32,10 @@ import (
 // > **Note:** Any attribute changes that re-create the resource will be applied immediately, regardless of the value of `applyImmediately`.
 //
 // ## Example Usage
+//
 // ### Memcached Cluster
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -62,8 +64,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Redis Instance
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -93,10 +98,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Redis Cluster Mode Disabled Read Replica Instance
 //
 // These inherit their settings from the replication group.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -121,8 +129,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Redis Log Delivery configuration
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -165,89 +176,14 @@ import (
 //	}
 //
 // ```
-// ### Elasticache Cluster in Outpost
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/elasticache"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/outposts"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func notImplemented(message string) pulumi.AnyOutput {
-//		panic(message)
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := outposts.GetOutposts(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleGetOutpost, err := outposts.GetOutpost(ctx, &outposts.GetOutpostArgs{
-//				Id: pulumi.StringRef(notImplemented("tolist(data.aws_outposts_outposts.example.ids)")[0]),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleVpc, err := ec2.NewVpc(ctx, "example", &ec2.VpcArgs{
-//				CidrBlock: pulumi.String("10.0.0.0/16"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSubnet, err := ec2.NewSubnet(ctx, "example", &ec2.SubnetArgs{
-//				VpcId:     exampleVpc.ID(),
-//				CidrBlock: pulumi.String("10.0.1.0/24"),
-//				Tags: pulumi.StringMap{
-//					"Name": pulumi.String("my-subnet"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleSubnetGroup, err := elasticache.NewSubnetGroup(ctx, "example", &elasticache.SubnetGroupArgs{
-//				Name: pulumi.String("my-cache-subnet"),
-//				SubnetIds: pulumi.StringArray{
-//					exampleSubnet.ID(),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = elasticache.NewCluster(ctx, "example", &elasticache.ClusterArgs{
-//				ClusterId:           pulumi.String("cluster-example"),
-//				OutpostMode:         pulumi.String("single-outpost"),
-//				PreferredOutpostArn: *pulumi.String(exampleGetOutpost.Arn),
-//				Engine:              pulumi.String("memcached"),
-//				NodeType:            pulumi.String("cache.r5.large"),
-//				NumCacheNodes:       pulumi.Int(2),
-//				ParameterGroupName:  pulumi.String("default.memcached1.4"),
-//				Port:                pulumi.Int(11211),
-//				SubnetGroupName:     exampleSubnetGroup.Name,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import ElastiCache Clusters using the `cluster_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:elasticache/cluster:Cluster my_cluster my_cluster
-//
+// $ pulumi import aws:elasticache/cluster:Cluster my_cluster my_cluster
 // ```
 type Cluster struct {
 	pulumi.CustomResourceState

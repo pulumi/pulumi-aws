@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * Provides a AWS Transfer User resource. Managing SSH keys can be accomplished with the `aws.transfer.SshKey` resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -102,13 +104,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Transfer Users using the `server_id` and `user_name` separated by `/`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:transfer/user:User bar s-12345678/test-username
+ * $ pulumi import aws:transfer/user:User bar s-12345678/test-username
  * ```
  * 
  */

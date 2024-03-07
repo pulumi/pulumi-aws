@@ -23,6 +23,7 @@ namespace Pulumi.Aws.DocDB
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -44,13 +45,14 @@ namespace Pulumi.Aws.DocDB
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DocumentDB Clusters using the `cluster_identifier`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:docdb/cluster:Cluster docdb_cluster docdb-prod-cluster
+    /// $ pulumi import aws:docdb/cluster:Cluster docdb_cluster docdb-prod-cluster
     /// ```
     /// </summary>
     [AwsResourceType("aws:docdb/cluster:Cluster")]

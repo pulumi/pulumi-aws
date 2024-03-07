@@ -7,6 +7,7 @@ import * as utilities from "../utilities";
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,6 +24,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSdk(args: GetSdkArgs, opts?: pulumi.InvokeOptions): Promise<GetSdkResult> {
 
@@ -85,6 +87,7 @@ export interface GetSdkResult {
 /**
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -101,6 +104,7 @@ export interface GetSdkResult {
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSdkOutput(args: GetSdkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSdkResult> {
     return pulumi.output(args).apply((a: any) => getSdk(a, opts))

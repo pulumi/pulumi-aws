@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS Redshift Data Share Consumer Association.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,8 +43,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Consumer Region
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -67,15 +72,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Redshift Data Share Consumer Association using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation example arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example,,,us-west-2
-//
+// $ pulumi import aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation example arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example,,,us-west-2
 // ```
 type DataShareConsumerAssociation struct {
 	pulumi.CustomResourceState

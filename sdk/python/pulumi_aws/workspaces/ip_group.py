@@ -194,6 +194,7 @@ class IpGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -216,13 +217,14 @@ class IpGroup(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import WorkSpaces IP groups using their GroupID. For example:
 
         ```sh
-         $ pulumi import aws:workspaces/ipGroup:IpGroup example wsipg-488lrtl3k
+        $ pulumi import aws:workspaces/ipGroup:IpGroup example wsipg-488lrtl3k
         ```
 
         :param str resource_name: The name of the resource.
@@ -243,6 +245,7 @@ class IpGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -265,13 +268,14 @@ class IpGroup(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import WorkSpaces IP groups using their GroupID. For example:
 
         ```sh
-         $ pulumi import aws:workspaces/ipGroup:IpGroup example wsipg-488lrtl3k
+        $ pulumi import aws:workspaces/ipGroup:IpGroup example wsipg-488lrtl3k
         ```
 
         :param str resource_name: The name of the resource.

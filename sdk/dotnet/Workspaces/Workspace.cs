@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Workspaces
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -58,13 +59,14 @@ namespace Pulumi.Aws.Workspaces
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Workspaces using their ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:workspaces/workspace:Workspace example ws-9z9zmbkhv
+    /// $ pulumi import aws:workspaces/workspace:Workspace example ws-9z9zmbkhv
     /// ```
     /// </summary>
     [AwsResourceType("aws:workspaces/workspace:Workspace")]

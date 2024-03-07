@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,8 +25,11 @@ import * as utilities from "../utilities";
  *     hostId: testDedicatedHost.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Filter Example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -37,6 +41,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDedicatedHost(args?: GetDedicatedHostArgs, opts?: pulumi.InvokeOptions): Promise<GetDedicatedHostResult> {
     args = args || {};
@@ -129,6 +134,7 @@ export interface GetDedicatedHostResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -141,8 +147,11 @@ export interface GetDedicatedHostResult {
  *     hostId: testDedicatedHost.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Filter Example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -154,6 +163,7 @@ export interface GetDedicatedHostResult {
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDedicatedHostOutput(args?: GetDedicatedHostOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDedicatedHostResult> {
     return pulumi.output(args).apply((a: any) => getDedicatedHost(a, opts))

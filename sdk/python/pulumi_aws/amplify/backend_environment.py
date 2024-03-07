@@ -184,6 +184,7 @@ class BackendEnvironment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -195,13 +196,14 @@ class BackendEnvironment(pulumi.CustomResource):
             deployment_artifacts="app-example-deployment",
             stack_name="amplify-app-example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amplify backend environment using `app_id` and `environment_name`. For example:
 
         ```sh
-         $ pulumi import aws:amplify/backendEnvironment:BackendEnvironment example d2ypk4k47z8u6/example
+        $ pulumi import aws:amplify/backendEnvironment:BackendEnvironment example d2ypk4k47z8u6/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -222,6 +224,7 @@ class BackendEnvironment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -233,13 +236,14 @@ class BackendEnvironment(pulumi.CustomResource):
             deployment_artifacts="app-example-deployment",
             stack_name="amplify-app-example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amplify backend environment using `app_id` and `environment_name`. For example:
 
         ```sh
-         $ pulumi import aws:amplify/backendEnvironment:BackendEnvironment example d2ypk4k47z8u6/example
+        $ pulumi import aws:amplify/backendEnvironment:BackendEnvironment example d2ypk4k47z8u6/example
         ```
 
         :param str resource_name: The name of the resource.

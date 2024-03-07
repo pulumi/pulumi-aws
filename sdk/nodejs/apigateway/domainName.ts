@@ -36,8 +36,10 @@ import * as utilities from "../utilities";
  * `regionalCertificateArn = aws_acm_certificate_validation.cert.certificate_arn`.
  *
  * ## Example Usage
+ *
  * ### Edge Optimized (ACM Certificate)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -59,45 +61,11 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * ### Edge Optimized (IAM Certificate)
+ * <!--End PulumiCodeChooser -->
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const example = new aws.apigateway.DomainName("example", {
- *     domainName: "api.example.com",
- *     certificateName: "example-api",
- *     certificateBody: std.file({
- *         input: `${notImplemented("path.module")}/example.com/example.crt`,
- *     }).then(invoke => invoke.result),
- *     certificateChain: std.file({
- *         input: `${notImplemented("path.module")}/example.com/ca.crt`,
- *     }).then(invoke => invoke.result),
- *     certificatePrivateKey: std.file({
- *         input: `${notImplemented("path.module")}/example.com/example.key`,
- *     }).then(invoke => invoke.result),
- * });
- * // Example DNS record using Route53.
- * // Route53 is not specifically required; any DNS host can be used.
- * const exampleRecord = new aws.route53.Record("example", {
- *     zoneId: exampleAwsRoute53Zone.id,
- *     name: example.domainName,
- *     type: "A",
- *     aliases: [{
- *         name: example.cloudfrontDomainName,
- *         zoneId: example.cloudfrontZoneId,
- *         evaluateTargetHealth: true,
- *     }],
- * });
- * ```
  * ### Regional (ACM Certificate)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -122,53 +90,14 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
- * ### Regional (IAM Certificate)
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const example = new aws.apigateway.DomainName("example", {
- *     certificateBody: std.file({
- *         input: `${notImplemented("path.module")}/example.com/example.crt`,
- *     }).then(invoke => invoke.result),
- *     certificateChain: std.file({
- *         input: `${notImplemented("path.module")}/example.com/ca.crt`,
- *     }).then(invoke => invoke.result),
- *     certificatePrivateKey: std.file({
- *         input: `${notImplemented("path.module")}/example.com/example.key`,
- *     }).then(invoke => invoke.result),
- *     domainName: "api.example.com",
- *     regionalCertificateName: "example-api",
- *     endpointConfiguration: {
- *         types: "REGIONAL",
- *     },
- * });
- * // Example DNS record using Route53.
- * // Route53 is not specifically required; any DNS host can be used.
- * const exampleRecord = new aws.route53.Record("example", {
- *     name: example.domainName,
- *     type: "A",
- *     zoneId: exampleAwsRoute53Zone.id,
- *     aliases: [{
- *         evaluateTargetHealth: true,
- *         name: example.regionalDomainName,
- *         zoneId: example.regionalZoneId,
- *     }],
- * });
- * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import API Gateway domain names using their `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:apigateway/domainName:DomainName example dev.example.com
+ * $ pulumi import aws:apigateway/domainName:DomainName example dev.example.com
  * ```
  */
 export class DomainName extends pulumi.CustomResource {

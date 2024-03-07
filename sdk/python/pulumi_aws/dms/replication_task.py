@@ -471,6 +471,7 @@ class ReplicationTask(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -489,13 +490,14 @@ class ReplicationTask(pulumi.CustomResource):
             },
             target_endpoint_arn=test_dms_target_endpoint_tf["endpointArn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import replication tasks using the `replication_task_id`. For example:
 
         ```sh
-         $ pulumi import aws:dms/replicationTask:ReplicationTask test test-dms-replication-task-tf
+        $ pulumi import aws:dms/replicationTask:ReplicationTask test test-dms-replication-task-tf
         ```
 
         :param str resource_name: The name of the resource.
@@ -530,6 +532,7 @@ class ReplicationTask(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -548,13 +551,14 @@ class ReplicationTask(pulumi.CustomResource):
             },
             target_endpoint_arn=test_dms_target_endpoint_tf["endpointArn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import replication tasks using the `replication_task_id`. For example:
 
         ```sh
-         $ pulumi import aws:dms/replicationTask:ReplicationTask test test-dms-replication-task-tf
+        $ pulumi import aws:dms/replicationTask:ReplicationTask test test-dms-replication-task-tf
         ```
 
         :param str resource_name: The name of the resource.

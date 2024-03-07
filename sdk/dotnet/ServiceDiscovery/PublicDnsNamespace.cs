@@ -14,6 +14,7 @@ namespace Pulumi.Aws.ServiceDiscovery
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,13 +31,14 @@ namespace Pulumi.Aws.ServiceDiscovery
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Service Discovery Public DNS Namespace using the namespace ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace example 0123456789
+    /// $ pulumi import aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace example 0123456789
     /// ```
     /// </summary>
     [AwsResourceType("aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace")]

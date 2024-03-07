@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS VPC Lattice Service Network.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,13 +21,14 @@ import * as utilities from "../utilities";
  *     authType: "AWS_IAM",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import VPC Lattice Service Network using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:vpclattice/serviceNetwork:ServiceNetwork example sn-0158f91c1e3358dba
+ * $ pulumi import aws:vpclattice/serviceNetwork:ServiceNetwork example sn-0158f91c1e3358dba
  * ```
  */
 export class ServiceNetwork extends pulumi.CustomResource {

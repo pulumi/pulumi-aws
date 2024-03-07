@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Provides an RDS DB proxy endpoint resource. For additional information, see the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy-endpoints.html).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -52,13 +54,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import DB proxy endpoints using the `DB-PROXY-NAME/DB-PROXY-ENDPOINT-NAME`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:rds/proxyEndpoint:ProxyEndpoint example example/example
+ * $ pulumi import aws:rds/proxyEndpoint:ProxyEndpoint example example/example
  * ```
  * 
  */

@@ -136,47 +136,12 @@ class CustomerManagedPolicyAttachment(pulumi.CustomResource):
 
         > **NOTE:** Creating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.ssoadmin.get_instances()
-        example_permission_set = aws.ssoadmin.PermissionSet("example",
-            name="Example",
-            instance_arn=not_implemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0])
-        example_policy = aws.iam.Policy("example",
-            name="TestPolicy",
-            description="My test policy",
-            policy=json.dumps({
-                "version": "2012-10-17",
-                "statement": [{
-                    "action": ["ec2:Describe*"],
-                    "effect": "Allow",
-                    "resource": "*",
-                }],
-            }))
-        example_customer_managed_policy_attachment = aws.ssoadmin.CustomerManagedPolicyAttachment("example",
-            instance_arn=example_permission_set.instance_arn,
-            permission_set_arn=example_permission_set.arn,
-            customer_managed_policy_reference=aws.ssoadmin.CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs(
-                name=example_policy.name,
-                path="/",
-            ))
-        ```
-
         ## Import
 
         Using `pulumi import`, import SSO Managed Policy Attachments using the `name`, `path`, `permission_set_arn`, and `instance_arn` separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment example TestPolicy,/,arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
+        $ pulumi import aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment example TestPolicy,/,arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
         ```
 
         :param str resource_name: The name of the resource.
@@ -196,47 +161,12 @@ class CustomerManagedPolicyAttachment(pulumi.CustomResource):
 
         > **NOTE:** Creating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import json
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.ssoadmin.get_instances()
-        example_permission_set = aws.ssoadmin.PermissionSet("example",
-            name="Example",
-            instance_arn=not_implemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0])
-        example_policy = aws.iam.Policy("example",
-            name="TestPolicy",
-            description="My test policy",
-            policy=json.dumps({
-                "version": "2012-10-17",
-                "statement": [{
-                    "action": ["ec2:Describe*"],
-                    "effect": "Allow",
-                    "resource": "*",
-                }],
-            }))
-        example_customer_managed_policy_attachment = aws.ssoadmin.CustomerManagedPolicyAttachment("example",
-            instance_arn=example_permission_set.instance_arn,
-            permission_set_arn=example_permission_set.arn,
-            customer_managed_policy_reference=aws.ssoadmin.CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs(
-                name=example_policy.name,
-                path="/",
-            ))
-        ```
-
         ## Import
 
         Using `pulumi import`, import SSO Managed Policy Attachments using the `name`, `path`, `permission_set_arn`, and `instance_arn` separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment example TestPolicy,/,arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
+        $ pulumi import aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment example TestPolicy,/,arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
         ```
 
         :param str resource_name: The name of the resource.

@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * To register a basic SWF domain:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -51,13 +53,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import SWF Domains using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:swf/domain:Domain foo test-domain
+ * $ pulumi import aws:swf/domain:Domain foo test-domain
  * ```
  * 
  */

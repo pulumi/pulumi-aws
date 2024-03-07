@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,13 +23,14 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import conditional forwarders using the directory id and remote_domain_name. For example:
  *
  * ```sh
- *  $ pulumi import aws:directoryservice/conditionalForwader:ConditionalForwader example d-1234567890:example.com
+ * $ pulumi import aws:directoryservice/conditionalForwader:ConditionalForwader example d-1234567890:example.com
  * ```
  */
 export class ConditionalForwader extends pulumi.CustomResource {

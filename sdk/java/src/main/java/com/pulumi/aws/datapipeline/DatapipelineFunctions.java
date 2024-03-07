@@ -21,6 +21,8 @@ public final class DatapipelineFunctions {
      * Provides details about a specific DataPipeline Pipeline.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -49,6 +51,7 @@ public final class DatapipelineFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPipelineResult> getPipeline(GetPipelineArgs args) {
@@ -58,6 +61,8 @@ public final class DatapipelineFunctions {
      * Provides details about a specific DataPipeline Pipeline.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -86,6 +91,7 @@ public final class DatapipelineFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPipelineResult> getPipelinePlain(GetPipelinePlainArgs args) {
@@ -95,6 +101,8 @@ public final class DatapipelineFunctions {
      * Provides details about a specific DataPipeline Pipeline.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -123,6 +131,7 @@ public final class DatapipelineFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPipelineResult> getPipeline(GetPipelineArgs args, InvokeOptions options) {
@@ -132,6 +141,8 @@ public final class DatapipelineFunctions {
      * Provides details about a specific DataPipeline Pipeline.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -160,6 +171,7 @@ public final class DatapipelineFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPipelineResult> getPipelinePlain(GetPipelinePlainArgs args, InvokeOptions options) {
@@ -169,6 +181,8 @@ public final class DatapipelineFunctions {
      * Provides details about a specific DataPipeline Pipeline Definition.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -197,6 +211,7 @@ public final class DatapipelineFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPipelineDefinitionResult> getPipelineDefinition(GetPipelineDefinitionArgs args) {
@@ -206,6 +221,8 @@ public final class DatapipelineFunctions {
      * Provides details about a specific DataPipeline Pipeline Definition.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -234,6 +251,7 @@ public final class DatapipelineFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPipelineDefinitionResult> getPipelineDefinitionPlain(GetPipelineDefinitionPlainArgs args) {
@@ -243,6 +261,8 @@ public final class DatapipelineFunctions {
      * Provides details about a specific DataPipeline Pipeline Definition.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -271,6 +291,7 @@ public final class DatapipelineFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPipelineDefinitionResult> getPipelineDefinition(GetPipelineDefinitionArgs args, InvokeOptions options) {
@@ -280,6 +301,8 @@ public final class DatapipelineFunctions {
      * Provides details about a specific DataPipeline Pipeline Definition.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -308,6 +331,7 @@ public final class DatapipelineFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPipelineDefinitionResult> getPipelineDefinitionPlain(GetPipelineDefinitionPlainArgs args, InvokeOptions options) {

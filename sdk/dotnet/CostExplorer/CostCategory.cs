@@ -14,6 +14,7 @@ namespace Pulumi.Aws.CostExplorer
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -90,13 +91,14 @@ namespace Pulumi.Aws.CostExplorer
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_ce_cost_category` using the id. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:costexplorer/costCategory:CostCategory example costCategoryARN
+    /// $ pulumi import aws:costexplorer/costCategory:CostCategory example costCategoryARN
     /// ```
     /// </summary>
     [AwsResourceType("aws:costexplorer/costCategory:CostCategory")]

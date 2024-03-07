@@ -16,6 +16,7 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -66,13 +67,14 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import ElastiCache user group associations using the `user_group_id` and `user_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:elasticache/userGroupAssociation:UserGroupAssociation example userGoupId1,userId
+    /// $ pulumi import aws:elasticache/userGroupAssociation:UserGroupAssociation example userGoupId1,userId
     /// ```
     /// </summary>
     [AwsResourceType("aws:elasticache/userGroupAssociation:UserGroupAssociation")]

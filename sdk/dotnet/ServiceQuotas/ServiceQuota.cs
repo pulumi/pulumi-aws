@@ -16,6 +16,7 @@ namespace Pulumi.Aws.ServiceQuotas
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -33,6 +34,7 @@ namespace Pulumi.Aws.ServiceQuotas
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -41,7 +43,7 @@ namespace Pulumi.Aws.ServiceQuotas
     /// ~&gt; __NOTE:__ This resource does not require explicit import and will assume management of an existing service quota on Pulumi resource creation.
     /// 
     /// ```sh
-    ///  $ pulumi import aws:servicequotas/serviceQuota:ServiceQuota example vpc/L-F678F1CE
+    /// $ pulumi import aws:servicequotas/serviceQuota:ServiceQuota example vpc/L-F678F1CE
     /// ```
     /// </summary>
     [AwsResourceType("aws:servicequotas/serviceQuota:ServiceQuota")]

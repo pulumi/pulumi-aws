@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  *
  * Basic usage:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,6 +23,7 @@ import * as utilities from "../utilities";
  *     imageTag: "2.2-1.0.11.0",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPrebuiltEcrImage(args: GetPrebuiltEcrImageArgs, opts?: pulumi.InvokeOptions): Promise<GetPrebuiltEcrImageResult> {
 
@@ -86,6 +88,7 @@ export interface GetPrebuiltEcrImageResult {
  *
  * Basic usage:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -95,6 +98,7 @@ export interface GetPrebuiltEcrImageResult {
  *     imageTag: "2.2-1.0.11.0",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPrebuiltEcrImageOutput(args: GetPrebuiltEcrImageOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPrebuiltEcrImageResult> {
     return pulumi.output(args).apply((a: any) => getPrebuiltEcrImage(a, opts))

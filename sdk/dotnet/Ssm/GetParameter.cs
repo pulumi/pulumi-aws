@@ -14,10 +14,9 @@ namespace Pulumi.Aws.Ssm
         /// <summary>
         /// Provides an SSM Parameter data source.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,10 +32,9 @@ namespace Pulumi.Aws.Ssm
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// &gt; **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Task<GetParameterResult> InvokeAsync(GetParameterArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetParameterResult>("aws:ssm/getParameter:getParameter", args ?? new GetParameterArgs(), options.WithDefaults());
@@ -44,10 +42,9 @@ namespace Pulumi.Aws.Ssm
         /// <summary>
         /// Provides an SSM Parameter data source.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,10 +60,9 @@ namespace Pulumi.Aws.Ssm
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// &gt; **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
-        /// {{% /example %}}
-        /// {{% /examples %}}
         /// </summary>
         public static Output<GetParameterResult> Invoke(GetParameterInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetParameterResult>("aws:ssm/getParameter:getParameter", args ?? new GetParameterInvokeArgs(), options.WithDefaults());

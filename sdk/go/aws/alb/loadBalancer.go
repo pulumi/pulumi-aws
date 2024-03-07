@@ -16,80 +16,10 @@ import (
 // > **Note:** `alb.LoadBalancer` is known as `lb.LoadBalancer`. The functionality is identical.
 //
 // ## Example Usage
-// ### Application Load Balancer
 //
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lb.NewLoadBalancer(ctx, "test", &lb.LoadBalancerArgs{
-//				Name:             pulumi.String("test-lb-tf"),
-//				Internal:         pulumi.Bool(false),
-//				LoadBalancerType: pulumi.String("application"),
-//				SecurityGroups: pulumi.StringArray{
-//					lbSg.Id,
-//				},
-//				Subnets:                  "TODO: For expression",
-//				EnableDeletionProtection: pulumi.Bool(true),
-//				AccessLogs: &lb.LoadBalancerAccessLogsArgs{
-//					Bucket:  pulumi.Any(lbLogs.Id),
-//					Prefix:  pulumi.String("test-lb"),
-//					Enabled: pulumi.Bool(true),
-//				},
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("production"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### Network Load Balancer
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := lb.NewLoadBalancer(ctx, "test", &lb.LoadBalancerArgs{
-//				Name:                     pulumi.String("test-lb-tf"),
-//				Internal:                 pulumi.Bool(false),
-//				LoadBalancerType:         pulumi.String("network"),
-//				Subnets:                  "TODO: For expression",
-//				EnableDeletionProtection: pulumi.Bool(true),
-//				Tags: pulumi.StringMap{
-//					"Environment": pulumi.String("production"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ### Specifying Elastic IPs
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -124,8 +54,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Specifying private IP addresses for an internal-facing load balancer
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -160,15 +93,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import LBs using their ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:alb/loadBalancer:LoadBalancer bar arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188
-//
+// $ pulumi import aws:alb/loadBalancer:LoadBalancer bar arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188
 // ```
 type LoadBalancer struct {
 	pulumi.CustomResourceState

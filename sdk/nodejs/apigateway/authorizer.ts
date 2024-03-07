@@ -11,6 +11,7 @@ import {RestApi} from "./index";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -74,13 +75,14 @@ import {RestApi} from "./index";
  *     policy: invocationPolicy.apply(invocationPolicy => invocationPolicy.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import AWS API Gateway Authorizer using the `REST-API-ID/AUTHORIZER-ID`. For example:
  *
  * ```sh
- *  $ pulumi import aws:apigateway/authorizer:Authorizer authorizer 12345abcde/example
+ * $ pulumi import aws:apigateway/authorizer:Authorizer authorizer 12345abcde/example
  * ```
  */
 export class Authorizer extends pulumi.CustomResource {

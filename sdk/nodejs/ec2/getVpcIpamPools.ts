@@ -16,6 +16,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -33,6 +34,7 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVpcIpamPools(args?: GetVpcIpamPoolsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcIpamPoolsResult> {
     args = args || {};
@@ -76,6 +78,7 @@ export interface GetVpcIpamPoolsResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -93,6 +96,7 @@ export interface GetVpcIpamPoolsResult {
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVpcIpamPoolsOutput(args?: GetVpcIpamPoolsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcIpamPoolsResult> {
     return pulumi.output(args).apply((a: any) => getVpcIpamPools(a, opts))

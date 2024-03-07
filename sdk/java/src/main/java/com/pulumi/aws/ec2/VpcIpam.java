@@ -25,6 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * Basic usage:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -62,6 +64,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Shared with multiple operating_regions:
  * 
@@ -70,7 +73,7 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import IPAMs using the IPAM `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/vpcIpam:VpcIpam example ipam-0178368ad2146a492
+ * $ pulumi import aws:ec2/vpcIpam:VpcIpam example ipam-0178368ad2146a492
  * ```
  * 
  */

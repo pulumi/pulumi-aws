@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
 
 /**
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,13 +48,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Service Discovery HTTP Namespace using the namespace ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:servicediscovery/httpNamespace:HttpNamespace example ns-1234567890
+ * $ pulumi import aws:servicediscovery/httpNamespace:HttpNamespace example ns-1234567890
  * ```
  * 
  */

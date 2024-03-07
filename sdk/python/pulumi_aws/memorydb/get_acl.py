@@ -109,12 +109,14 @@ def get_acl(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.memorydb.get_acl(name="my-acl")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the ACL.
@@ -144,12 +146,14 @@ def get_acl_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.memorydb.get_acl(name="my-acl")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the ACL.

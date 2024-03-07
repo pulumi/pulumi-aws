@@ -191,8 +191,10 @@ class ServerlessAccessPolicy(pulumi.CustomResource):
         Resource for managing an AWS OpenSearch Serverless Access Policy. See AWS documentation for [data access policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html) and [supported data access policy permissions](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html#serverless-data-supported-permissions).
 
         ## Example Usage
+
         ### Grant all collection and index permissions
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -219,8 +221,11 @@ class ServerlessAccessPolicy(pulumi.CustomResource):
                 "principal": [current.arn],
             }]))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Grant read-only collection and index permissions
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -250,8 +255,11 @@ class ServerlessAccessPolicy(pulumi.CustomResource):
                 "principal": [current.arn],
             }]))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Grant SAML identity permissions
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -280,13 +288,14 @@ class ServerlessAccessPolicy(pulumi.CustomResource):
                 ],
             }]))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import OpenSearchServerless Access Policy using the `name` and `type` arguments separated by a slash (`/`). For example:
 
         ```sh
-         $ pulumi import aws:opensearch/serverlessAccessPolicy:ServerlessAccessPolicy example example/data
+        $ pulumi import aws:opensearch/serverlessAccessPolicy:ServerlessAccessPolicy example example/data
         ```
 
         :param str resource_name: The name of the resource.
@@ -308,8 +317,10 @@ class ServerlessAccessPolicy(pulumi.CustomResource):
         Resource for managing an AWS OpenSearch Serverless Access Policy. See AWS documentation for [data access policies](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html) and [supported data access policy permissions](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/serverless-data-access.html#serverless-data-supported-permissions).
 
         ## Example Usage
+
         ### Grant all collection and index permissions
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -336,8 +347,11 @@ class ServerlessAccessPolicy(pulumi.CustomResource):
                 "principal": [current.arn],
             }]))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Grant read-only collection and index permissions
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -367,8 +381,11 @@ class ServerlessAccessPolicy(pulumi.CustomResource):
                 "principal": [current.arn],
             }]))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Grant SAML identity permissions
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -397,13 +414,14 @@ class ServerlessAccessPolicy(pulumi.CustomResource):
                 ],
             }]))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import OpenSearchServerless Access Policy using the `name` and `type` arguments separated by a slash (`/`). For example:
 
         ```sh
-         $ pulumi import aws:opensearch/serverlessAccessPolicy:ServerlessAccessPolicy example example/data
+        $ pulumi import aws:opensearch/serverlessAccessPolicy:ServerlessAccessPolicy example example/data
         ```
 
         :param str resource_name: The name of the resource.

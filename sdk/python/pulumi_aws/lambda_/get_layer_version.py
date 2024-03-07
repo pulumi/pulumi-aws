@@ -225,6 +225,7 @@ def get_layer_version(compatible_architecture: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -233,6 +234,7 @@ def get_layer_version(compatible_architecture: Optional[str] = None,
     layer_name = config.require("layerName")
     existing = aws.lambda.get_layer_version(layer_name=layer_name)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str compatible_architecture: Specific architecture the layer version could support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.
@@ -278,6 +280,7 @@ def get_layer_version_output(compatible_architecture: Optional[pulumi.Input[Opti
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -286,6 +289,7 @@ def get_layer_version_output(compatible_architecture: Optional[pulumi.Input[Opti
     layer_name = config.require("layerName")
     existing = aws.lambda.get_layer_version(layer_name=layer_name)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str compatible_architecture: Specific architecture the layer version could support. Conflicts with `version`. If specified, the latest available layer version supporting the provided architecture will be used.

@@ -206,8 +206,10 @@ class Classifier(pulumi.CustomResource):
         > **NOTE:** It is only valid to create one type of classifier (csv, grok, JSON, or XML). Changing classifier types will recreate the classifier.
 
         ## Example Usage
+
         ### Csv Classifier
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -226,8 +228,11 @@ class Classifier(pulumi.CustomResource):
                 quote_symbol="'",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Grok Classifier
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -239,8 +244,11 @@ class Classifier(pulumi.CustomResource):
                 grok_pattern="example",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### JSON Classifier
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -251,8 +259,11 @@ class Classifier(pulumi.CustomResource):
                 json_path="example",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### XML Classifier
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -264,13 +275,14 @@ class Classifier(pulumi.CustomResource):
                 row_tag="example",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Glue Classifiers using their name. For example:
 
         ```sh
-         $ pulumi import aws:glue/classifier:Classifier MyClassifier MyClassifier
+        $ pulumi import aws:glue/classifier:Classifier MyClassifier MyClassifier
         ```
 
         :param str resource_name: The name of the resource.
@@ -293,8 +305,10 @@ class Classifier(pulumi.CustomResource):
         > **NOTE:** It is only valid to create one type of classifier (csv, grok, JSON, or XML). Changing classifier types will recreate the classifier.
 
         ## Example Usage
+
         ### Csv Classifier
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -313,8 +327,11 @@ class Classifier(pulumi.CustomResource):
                 quote_symbol="'",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Grok Classifier
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -326,8 +343,11 @@ class Classifier(pulumi.CustomResource):
                 grok_pattern="example",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### JSON Classifier
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -338,8 +358,11 @@ class Classifier(pulumi.CustomResource):
                 json_path="example",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### XML Classifier
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -351,13 +374,14 @@ class Classifier(pulumi.CustomResource):
                 row_tag="example",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Glue Classifiers using their name. For example:
 
         ```sh
-         $ pulumi import aws:glue/classifier:Classifier MyClassifier MyClassifier
+        $ pulumi import aws:glue/classifier:Classifier MyClassifier MyClassifier
         ```
 
         :param str resource_name: The name of the resource.

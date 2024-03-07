@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -52,15 +53,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import event subscriptions using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:dms/eventSubscription:EventSubscription test my-awesome-event-subscription
-//
+// $ pulumi import aws:dms/eventSubscription:EventSubscription test my-awesome-event-subscription
 // ```
 type EventSubscription struct {
 	pulumi.CustomResourceState

@@ -145,22 +145,28 @@ def get_secret(arn: Optional[str] = None,
     Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `secretsmanager.SecretVersion` data source.
 
     ## Example Usage
+
     ### ARN
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     by_arn = aws.secretsmanager.get_secret(arn="arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456")
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Name
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     by_name = aws.secretsmanager.get_secret(name="example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str arn: ARN of the secret to retrieve.
@@ -195,22 +201,28 @@ def get_secret_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `secretsmanager.SecretVersion` data source.
 
     ## Example Usage
+
     ### ARN
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     by_arn = aws.secretsmanager.get_secret(arn="arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456")
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Name
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     by_name = aws.secretsmanager.get_secret(name="example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str arn: ARN of the secret to retrieve.

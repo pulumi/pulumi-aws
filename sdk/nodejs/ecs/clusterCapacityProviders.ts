@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -29,13 +30,14 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import ECS cluster capacity providers using the `cluster_name` attribute. For example:
  *
  * ```sh
- *  $ pulumi import aws:ecs/clusterCapacityProviders:ClusterCapacityProviders example my-cluster
+ * $ pulumi import aws:ecs/clusterCapacityProviders:ClusterCapacityProviders example my-cluster
  * ```
  */
 export class ClusterCapacityProviders extends pulumi.CustomResource {

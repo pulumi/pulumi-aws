@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Provides an SNS platform application resource
  *
  * ## Example Usage
+ *
  * ### Apple Push Notification Service (APNS) using certificate-based authentication
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,8 +23,11 @@ import * as utilities from "../utilities";
  *     platformPrincipal: "<APNS CERTIFICATE>",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Apple Push Notification Service (APNS) using token-based authentication
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -36,8 +41,11 @@ import * as utilities from "../utilities";
  *     applePlatformBundleId: "<APPLE BUNDLE ID>",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Google Cloud Messaging (GCM)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -48,13 +56,14 @@ import * as utilities from "../utilities";
  *     platformCredential: "<GCM API KEY>",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SNS platform applications using the ARN. For example:
  *
  * ```sh
- *  $ pulumi import aws:sns/platformApplication:PlatformApplication gcm_application arn:aws:sns:us-west-2:0123456789012:app/GCM/gcm_application
+ * $ pulumi import aws:sns/platformApplication:PlatformApplication gcm_application arn:aws:sns:us-west-2:0123456789012:app/GCM/gcm_application
  * ```
  */
 export class PlatformApplication extends pulumi.CustomResource {

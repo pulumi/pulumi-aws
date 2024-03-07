@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS RBin Rule.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -54,15 +56,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import RBin Rule using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:rbin/rule:Rule example examplerule
-//
+// $ pulumi import aws:rbin/rule:Rule example examplerule
 // ```
 type Rule struct {
 	pulumi.CustomResourceState

@@ -232,6 +232,7 @@ class Vault(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -264,13 +265,14 @@ class Vault(pulumi.CustomResource):
                 "Test": "MyArchive",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Glacier Vaults using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:glacier/vault:Vault archive my_archive
+        $ pulumi import aws:glacier/vault:Vault archive my_archive
         ```
 
         :param str resource_name: The name of the resource.
@@ -294,6 +296,7 @@ class Vault(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -326,13 +329,14 @@ class Vault(pulumi.CustomResource):
                 "Test": "MyArchive",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Glacier Vaults using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:glacier/vault:Vault archive my_archive
+        $ pulumi import aws:glacier/vault:Vault archive my_archive
         ```
 
         :param str resource_name: The name of the resource.

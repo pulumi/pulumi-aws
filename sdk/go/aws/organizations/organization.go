@@ -19,6 +19,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -46,15 +47,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import the AWS organization using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:organizations/organization:Organization my_org o-1234567
-//
+// $ pulumi import aws:organizations/organization:Organization my_org o-1234567
 // ```
 type Organization struct {
 	pulumi.CustomResourceState

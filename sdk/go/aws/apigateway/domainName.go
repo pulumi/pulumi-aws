@@ -40,8 +40,10 @@ import (
 // `regionalCertificateArn = aws_acm_certificate_validation.cert.certificate_arn`.
 //
 // ## Example Usage
+//
 // ### Edge Optimized (ACM Certificate)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -84,80 +86,11 @@ import (
 //	}
 //
 // ```
-// ### Edge Optimized (IAM Certificate)
+// <!--End PulumiCodeChooser -->
 //
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func notImplemented(message string) pulumi.AnyOutput {
-//		panic(message)
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: fmt.Sprintf("%v/example.com/example.crt", notImplemented("path.module")),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			invokeFile1, err := std.File(ctx, &std.FileArgs{
-//				Input: fmt.Sprintf("%v/example.com/ca.crt", notImplemented("path.module")),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			invokeFile2, err := std.File(ctx, &std.FileArgs{
-//				Input: fmt.Sprintf("%v/example.com/example.key", notImplemented("path.module")),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := apigateway.NewDomainName(ctx, "example", &apigateway.DomainNameArgs{
-//				DomainName:            pulumi.String("api.example.com"),
-//				CertificateName:       pulumi.String("example-api"),
-//				CertificateBody:       invokeFile.Result,
-//				CertificateChain:      invokeFile1.Result,
-//				CertificatePrivateKey: invokeFile2.Result,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			// Example DNS record using Route53.
-//			// Route53 is not specifically required; any DNS host can be used.
-//			_, err = route53.NewRecord(ctx, "example", &route53.RecordArgs{
-//				ZoneId: pulumi.Any(exampleAwsRoute53Zone.Id),
-//				Name:   example.DomainName,
-//				Type:   pulumi.String("A"),
-//				Aliases: route53.RecordAliasArray{
-//					&route53.RecordAliasArgs{
-//						Name:                 example.CloudfrontDomainName,
-//						ZoneId:               example.CloudfrontZoneId,
-//						EvaluateTargetHealth: pulumi.Bool(true),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ### Regional (ACM Certificate)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -203,90 +136,14 @@ import (
 //	}
 //
 // ```
-// ### Regional (IAM Certificate)
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/route53"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func notImplemented(message string) pulumi.AnyOutput {
-//		panic(message)
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: fmt.Sprintf("%v/example.com/example.crt", notImplemented("path.module")),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			invokeFile1, err := std.File(ctx, &std.FileArgs{
-//				Input: fmt.Sprintf("%v/example.com/ca.crt", notImplemented("path.module")),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			invokeFile2, err := std.File(ctx, &std.FileArgs{
-//				Input: fmt.Sprintf("%v/example.com/example.key", notImplemented("path.module")),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			example, err := apigateway.NewDomainName(ctx, "example", &apigateway.DomainNameArgs{
-//				CertificateBody:         invokeFile.Result,
-//				CertificateChain:        invokeFile1.Result,
-//				CertificatePrivateKey:   invokeFile2.Result,
-//				DomainName:              pulumi.String("api.example.com"),
-//				RegionalCertificateName: pulumi.String("example-api"),
-//				EndpointConfiguration: &apigateway.DomainNameEndpointConfigurationArgs{
-//					Types: pulumi.String("REGIONAL"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			// Example DNS record using Route53.
-//			// Route53 is not specifically required; any DNS host can be used.
-//			_, err = route53.NewRecord(ctx, "example", &route53.RecordArgs{
-//				Name:   example.DomainName,
-//				Type:   pulumi.String("A"),
-//				ZoneId: pulumi.Any(exampleAwsRoute53Zone.Id),
-//				Aliases: route53.RecordAliasArray{
-//					&route53.RecordAliasArgs{
-//						EvaluateTargetHealth: pulumi.Bool(true),
-//						Name:                 example.RegionalDomainName,
-//						ZoneId:               example.RegionalZoneId,
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import API Gateway domain names using their `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:apigateway/domainName:DomainName example dev.example.com
-//
+// $ pulumi import aws:apigateway/domainName:DomainName example dev.example.com
 // ```
 type DomainName struct {
 	pulumi.CustomResourceState

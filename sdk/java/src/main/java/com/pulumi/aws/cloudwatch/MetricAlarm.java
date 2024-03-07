@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * Provides a CloudWatch Metric Alarm resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -61,7 +63,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Example in Conjunction with Scaling Policies
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -110,8 +116,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Example with an Expression
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -176,6 +185,9 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -230,8 +242,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Example of monitoring Healthy Hosts on NLB using Target Group and NLB
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -275,6 +290,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &gt; **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extended_statistic` parameters.
  * You must choose one or the other
@@ -284,7 +300,7 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import CloudWatch Metric Alarm using the `alarm_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cloudwatch/metricAlarm:MetricAlarm test alarm-12345
+ * $ pulumi import aws:cloudwatch/metricAlarm:MetricAlarm test alarm-12345
  * ```
  * 
  */

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -42,13 +43,14 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import a QuickSight data source using the AWS account ID, and data source ID separated by a slash (`/`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:quicksight/dataSource:DataSource example 123456789123/my-data-source-id
+    /// $ pulumi import aws:quicksight/dataSource:DataSource example 123456789123/my-data-source-id
     /// ```
     /// </summary>
     [AwsResourceType("aws:quicksight/dataSource:DataSource")]

@@ -410,6 +410,7 @@ def get_object(bucket: Optional[str] = None,
     The following example retrieves a text object (which must have a `Content-Type`
     value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -421,6 +422,7 @@ def get_object(bucket: Optional[str] = None,
         ami="ami-2757f631",
         user_data=bootstrap_script.body)
     ```
+    <!--End PulumiCodeChooser -->
 
     The following, more-complex example retrieves only the metadata for a zip
     file stored in S3, which is then used to pass the most recent `version_id`
@@ -428,6 +430,7 @@ def get_object(bucket: Optional[str] = None,
     Lambda functions is available in the documentation for
     `lambda.Function`.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -442,6 +445,7 @@ def get_object(bucket: Optional[str] = None,
         role=iam_for_lambda["arn"],
         handler="exports.test")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str bucket: Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
@@ -513,6 +517,7 @@ def get_object_output(bucket: Optional[pulumi.Input[str]] = None,
     The following example retrieves a text object (which must have a `Content-Type`
     value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -524,6 +529,7 @@ def get_object_output(bucket: Optional[pulumi.Input[str]] = None,
         ami="ami-2757f631",
         user_data=bootstrap_script.body)
     ```
+    <!--End PulumiCodeChooser -->
 
     The following, more-complex example retrieves only the metadata for a zip
     file stored in S3, which is then used to pass the most recent `version_id`
@@ -531,6 +537,7 @@ def get_object_output(bucket: Optional[pulumi.Input[str]] = None,
     Lambda functions is available in the documentation for
     `lambda.Function`.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -545,6 +552,7 @@ def get_object_output(bucket: Optional[pulumi.Input[str]] = None,
         role=iam_for_lambda["arn"],
         handler="exports.test")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str bucket: Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified

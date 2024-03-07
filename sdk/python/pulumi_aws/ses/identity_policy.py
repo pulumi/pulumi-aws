@@ -135,6 +135,7 @@ class IdentityPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -156,13 +157,14 @@ class IdentityPolicy(pulumi.CustomResource):
             name="example",
             policy=example.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SES Identity Policies using the identity and policy name, separated by a pipe character (`|`). For example:
 
         ```sh
-         $ pulumi import aws:ses/identityPolicy:IdentityPolicy example 'example.com|example'
+        $ pulumi import aws:ses/identityPolicy:IdentityPolicy example 'example.com|example'
         ```
 
         :param str resource_name: The name of the resource.
@@ -182,6 +184,7 @@ class IdentityPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -203,13 +206,14 @@ class IdentityPolicy(pulumi.CustomResource):
             name="example",
             policy=example.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SES Identity Policies using the identity and policy name, separated by a pipe character (`|`). For example:
 
         ```sh
-         $ pulumi import aws:ses/identityPolicy:IdentityPolicy example 'example.com|example'
+        $ pulumi import aws:ses/identityPolicy:IdentityPolicy example 'example.com|example'
         ```
 
         :param str resource_name: The name of the resource.

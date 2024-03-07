@@ -18,8 +18,10 @@ import * as utilities from "../utilities";
  * `aws.cfg.Recorder` resource.
  *
  * ## Example Usage
+ *
  * ### Template Body
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -44,8 +46,11 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Template S3 URI
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -69,13 +74,14 @@ import * as utilities from "../utilities";
  *     templateS3Uri: pulumi.interpolate`s3://${exampleBucketV2.bucket}/${exampleBucketObjectv2.key}`,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Config Conformance Packs using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:cfg/conformancePack:ConformancePack example example
+ * $ pulumi import aws:cfg/conformancePack:ConformancePack example example
  * ```
  */
 export class ConformancePack extends pulumi.CustomResource {

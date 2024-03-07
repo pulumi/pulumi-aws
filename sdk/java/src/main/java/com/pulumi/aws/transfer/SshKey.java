@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Provides a AWS Transfer User SSH Key resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -100,13 +102,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Transfer SSH Public Key using the `server_id` and `user_name` and `ssh_public_key_id` separated by `/`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:transfer/sshKey:SshKey bar s-12345678/test-username/key-12345
+ * $ pulumi import aws:transfer/sshKey:SshKey bar s-12345678/test-username/key-12345
  * ```
  * 
  */

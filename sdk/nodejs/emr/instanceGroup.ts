@@ -17,6 +17,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -28,13 +29,14 @@ import * as utilities from "../utilities";
  *     name: "my little instance group",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import EMR task instance group using their EMR Cluster id and Instance Group id separated by a forward-slash `/`. For example:
  *
  * ```sh
- *  $ pulumi import aws:emr/instanceGroup:InstanceGroup task_group j-123456ABCDEF/ig-15EK4O09RZLNR
+ * $ pulumi import aws:emr/instanceGroup:InstanceGroup task_group j-123456ABCDEF/ig-15EK4O09RZLNR
  * ```
  */
 export class InstanceGroup extends pulumi.CustomResource {
@@ -80,6 +82,7 @@ export class InstanceGroup extends pulumi.CustomResource {
     /**
      * A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
      *
+     * <!--Start PulumiCodeChooser -->
      * ```typescript
      * import * as pulumi from "@pulumi/pulumi";
      * import * as aws from "@pulumi/aws";
@@ -100,6 +103,7 @@ export class InstanceGroup extends pulumi.CustomResource {
      * ]
      * `});
      * ```
+     * <!--End PulumiCodeChooser -->
      */
     public readonly configurationsJson!: pulumi.Output<string | undefined>;
     /**
@@ -199,6 +203,7 @@ export interface InstanceGroupState {
     /**
      * A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
      *
+     * <!--Start PulumiCodeChooser -->
      * ```typescript
      * import * as pulumi from "@pulumi/pulumi";
      * import * as aws from "@pulumi/aws";
@@ -219,6 +224,7 @@ export interface InstanceGroupState {
      * ]
      * `});
      * ```
+     * <!--End PulumiCodeChooser -->
      */
     configurationsJson?: pulumi.Input<string>;
     /**
@@ -270,6 +276,7 @@ export interface InstanceGroupArgs {
     /**
      * A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
      *
+     * <!--Start PulumiCodeChooser -->
      * ```typescript
      * import * as pulumi from "@pulumi/pulumi";
      * import * as aws from "@pulumi/aws";
@@ -290,6 +297,7 @@ export interface InstanceGroupArgs {
      * ]
      * `});
      * ```
+     * <!--End PulumiCodeChooser -->
      */
     configurationsJson?: pulumi.Input<string>;
     /**

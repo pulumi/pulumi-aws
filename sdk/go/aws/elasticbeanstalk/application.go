@@ -20,6 +20,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,15 +50,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Elastic Beanstalk Applications using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:elasticbeanstalk/application:Application tf_test tf-test-name
-//
+// $ pulumi import aws:elasticbeanstalk/application:Application tf_test tf-test-name
 // ```
 type Application struct {
 	pulumi.CustomResourceState

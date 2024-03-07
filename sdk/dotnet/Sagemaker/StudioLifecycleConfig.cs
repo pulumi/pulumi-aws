@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Sagemaker
     /// Provides a SageMaker Studio Lifecycle Config resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -36,13 +38,14 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SageMaker Studio Lifecycle Configs using the `studio_lifecycle_config_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig example example
+    /// $ pulumi import aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig")]

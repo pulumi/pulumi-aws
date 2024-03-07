@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Ssm
     /// Associates an SSM Document to an instance or EC2 tag.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Create an association for a specific instance
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -41,10 +43,13 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Create an association for all managed instances in an AWS account
     /// 
     /// To target all managed instances in an AWS account, set the `key` as `"InstanceIds"` with `values` set as `["*"]`. This example also illustrates how to use an Amazon owned SSM document named `AmazonCloudWatch-ManageAgent`.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -71,10 +76,13 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Create an association for a specific tag
     /// 
     /// This example shows how to target all managed instances that are assigned a tag key of `Environment` and value of `Development`.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -101,10 +109,13 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Create an association with a specific schedule
     /// 
     /// This example shows how to schedule an association in various ways.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -132,13 +143,14 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SSM associations using the `association_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ssm/association:Association test-association 10abcdef-0abc-1234-5678-90abcdef123456
+    /// $ pulumi import aws:ssm/association:Association test-association 10abcdef-0abc-1234-5678-90abcdef123456
     /// ```
     /// </summary>
     [AwsResourceType("aws:ssm/association:Association")]
@@ -193,13 +205,14 @@ namespace Pulumi.Aws.Ssm
         public Output<string?> InstanceId { get; private set; } = null!;
 
         /// <summary>
-        /// The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+        /// The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%!
+        /// (MISSING)
         /// </summary>
         [Output("maxConcurrency")]
         public Output<string?> MaxConcurrency { get; private set; } = null!;
 
         /// <summary>
-        /// The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
+        /// The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%! (MISSING)If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10%!f(MISSING)or 50 associations, the stop command is sent when the sixth error is returned.
         /// </summary>
         [Output("maxErrors")]
         public Output<string?> MaxErrors { get; private set; } = null!;
@@ -331,13 +344,14 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? InstanceId { get; set; }
 
         /// <summary>
-        /// The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+        /// The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%!
+        /// (MISSING)
         /// </summary>
         [Input("maxConcurrency")]
         public Input<string>? MaxConcurrency { get; set; }
 
         /// <summary>
-        /// The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
+        /// The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%! (MISSING)If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10%!f(MISSING)or 50 associations, the stop command is sent when the sixth error is returned.
         /// </summary>
         [Input("maxErrors")]
         public Input<string>? MaxErrors { get; set; }
@@ -455,13 +469,14 @@ namespace Pulumi.Aws.Ssm
         public Input<string>? InstanceId { get; set; }
 
         /// <summary>
-        /// The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%.
+        /// The maximum number of targets allowed to run the association at the same time. You can specify a number, for example 10, or a percentage of the target set, for example 10%!
+        /// (MISSING)
         /// </summary>
         [Input("maxConcurrency")]
         public Input<string>? MaxConcurrency { get; set; }
 
         /// <summary>
-        /// The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%. If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10% for 50 associations, the stop command is sent when the sixth error is returned.
+        /// The number of errors that are allowed before the system stops sending requests to run the association on additional targets. You can specify a number, for example 10, or a percentage of the target set, for example 10%! (MISSING)If you specify a threshold of 3, the stop command is sent when the fourth error is returned. If you specify a threshold of 10%!f(MISSING)or 50 associations, the stop command is sent when the sixth error is returned.
         /// </summary>
         [Input("maxErrors")]
         public Input<string>? MaxErrors { get; set; }

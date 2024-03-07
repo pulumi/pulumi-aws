@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -31,13 +32,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Athena Workgroups using their name. For example:
  *
  * ```sh
- *  $ pulumi import aws:athena/workgroup:Workgroup example example
+ * $ pulumi import aws:athena/workgroup:Workgroup example example
  * ```
  */
 export class Workgroup extends pulumi.CustomResource {

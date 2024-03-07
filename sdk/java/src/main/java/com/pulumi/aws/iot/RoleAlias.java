@@ -20,6 +20,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -64,13 +65,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import IOT Role Alias using the alias. For example:
  * 
  * ```sh
- *  $ pulumi import aws:iot/roleAlias:RoleAlias example myalias
+ * $ pulumi import aws:iot/roleAlias:RoleAlias example myalias
  * ```
  * 
  */

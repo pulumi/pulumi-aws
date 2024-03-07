@@ -16,6 +16,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,7 +32,9 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -53,13 +56,14 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EventBridge event buses using the `name` (which can also be a partner event source name). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
+    /// $ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/eventBus:EventBus")]

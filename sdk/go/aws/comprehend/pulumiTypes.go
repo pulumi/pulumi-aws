@@ -22,7 +22,7 @@ type DocumentClassifierInputDataConfig struct {
 	// One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
 	DataFormat *string `pulumi:"dataFormat"`
 	// Delimiter between labels when training a multi-label classifier.
-	// Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `*`, `-`, `_`, `+`, `=`, `\`, `:`, `;`, `>`, `?`, `/`, `<space>`, and `<tab>`.
+	// Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%!`(MISSING), `^`, `*`, `-`, `_`, `+`, `=`, `\`, `:`, `;`, `>`, `?`, `/`, `<space>`, and `<tab>`.
 	// Default is `|`.
 	LabelDelimiter *string `pulumi:"labelDelimiter"`
 	// Location of training documents.
@@ -51,7 +51,7 @@ type DocumentClassifierInputDataConfigArgs struct {
 	// One of `COMPREHEND_CSV` or `AUGMENTED_MANIFEST`.
 	DataFormat pulumi.StringPtrInput `pulumi:"dataFormat"`
 	// Delimiter between labels when training a multi-label classifier.
-	// Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `*`, `-`, `_`, `+`, `=`, `\`, `:`, `;`, `>`, `?`, `/`, `<space>`, and `<tab>`.
+	// Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%!`(MISSING), `^`, `*`, `-`, `_`, `+`, `=`, `\`, `:`, `;`, `>`, `?`, `/`, `<space>`, and `<tab>`.
 	// Default is `|`.
 	LabelDelimiter pulumi.StringPtrInput `pulumi:"labelDelimiter"`
 	// Location of training documents.
@@ -153,7 +153,7 @@ func (o DocumentClassifierInputDataConfigOutput) DataFormat() pulumi.StringPtrOu
 }
 
 // Delimiter between labels when training a multi-label classifier.
-// Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `*`, `-`, `_`, `+`, `=`, `\`, `:`, `;`, `>`, `?`, `/`, `<space>`, and `<tab>`.
+// Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%!`(MISSING), `^`, `*`, `-`, `_`, `+`, `=`, `\`, `:`, `;`, `>`, `?`, `/`, `<space>`, and `<tab>`.
 // Default is `|`.
 func (o DocumentClassifierInputDataConfigOutput) LabelDelimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DocumentClassifierInputDataConfig) *string { return v.LabelDelimiter }).(pulumi.StringPtrOutput)
@@ -217,7 +217,7 @@ func (o DocumentClassifierInputDataConfigPtrOutput) DataFormat() pulumi.StringPt
 }
 
 // Delimiter between labels when training a multi-label classifier.
-// Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%`, `^`, `*`, `-`, `_`, `+`, `=`, `\`, `:`, `;`, `>`, `?`, `/`, `<space>`, and `<tab>`.
+// Valid values are `|`, `~`, `!`, `@`, `#`, `$`, `%!`(MISSING), `^`, `*`, `-`, `_`, `+`, `=`, `\`, `:`, `;`, `>`, `?`, `/`, `<space>`, and `<tab>`.
 // Default is `|`.
 func (o DocumentClassifierInputDataConfigPtrOutput) LabelDelimiter() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *DocumentClassifierInputDataConfig) *string {

@@ -19,6 +19,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,15 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import schedule groups using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:scheduler/scheduleGroup:ScheduleGroup example my-schedule-group
-//
+// $ pulumi import aws:scheduler/scheduleGroup:ScheduleGroup example my-schedule-group
 // ```
 type ScheduleGroup struct {
 	pulumi.CustomResourceState

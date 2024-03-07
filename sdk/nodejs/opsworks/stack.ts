@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -32,13 +33,14 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import OpsWorks stacks using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:opsworks/stack:Stack bar 00000000-0000-0000-0000-000000000000
+ * $ pulumi import aws:opsworks/stack:Stack bar 00000000-0000-0000-0000-000000000000
  * ```
  */
 export class Stack extends pulumi.CustomResource {

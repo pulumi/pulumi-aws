@@ -14,8 +14,10 @@ import (
 // Data source for managing AWS SSO Admin Application Providers.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -37,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetApplicationProviders(ctx *pulumi.Context, args *GetApplicationProvidersArgs, opts ...pulumi.InvokeOption) (*GetApplicationProvidersResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetApplicationProvidersResult

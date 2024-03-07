@@ -200,6 +200,7 @@ class StudioSessionMapping(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -210,13 +211,14 @@ class StudioSessionMapping(pulumi.CustomResource):
             identity_id="example",
             session_policy_arn=example_aws_iam_policy["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EMR studio session mappings using `studio-id:identity-type:identity-id`. For example:
 
         ```sh
-         $ pulumi import aws:emr/studioSessionMapping:StudioSessionMapping example es-xxxxx:USER:xxxxx-xxx-xxx
+        $ pulumi import aws:emr/studioSessionMapping:StudioSessionMapping example es-xxxxx:USER:xxxxx-xxx-xxx
         ```
 
         :param str resource_name: The name of the resource.
@@ -238,6 +240,7 @@ class StudioSessionMapping(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -248,13 +251,14 @@ class StudioSessionMapping(pulumi.CustomResource):
             identity_id="example",
             session_policy_arn=example_aws_iam_policy["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EMR studio session mappings using `studio-id:identity-type:identity-id`. For example:
 
         ```sh
-         $ pulumi import aws:emr/studioSessionMapping:StudioSessionMapping example es-xxxxx:USER:xxxxx-xxx-xxx
+        $ pulumi import aws:emr/studioSessionMapping:StudioSessionMapping example es-xxxxx:USER:xxxxx-xxx-xxx
         ```
 
         :param str resource_name: The name of the resource.

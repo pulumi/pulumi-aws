@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Ses
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -52,13 +53,14 @@ namespace Pulumi.Aws.Ses
     ///     }
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DKIM tokens using the `domain` attribute. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ses/domainDkim:DomainDkim example example.com
+    /// $ pulumi import aws:ses/domainDkim:DomainDkim example example.com
     /// ```
     /// </summary>
     [AwsResourceType("aws:ses/domainDkim:DomainDkim")]

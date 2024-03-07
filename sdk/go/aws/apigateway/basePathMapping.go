@@ -16,77 +16,6 @@ import (
 // with a deployed API so that its methods can be called via the
 // custom domain name.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/apigateway"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func notImplemented(message string) pulumi.AnyOutput {
-//		panic(message)
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			example, err := apigateway.NewStage(ctx, "example", &apigateway.StageArgs{
-//				Deployment: pulumi.Any(exampleAwsApiGatewayDeployment.Id),
-//				RestApi:    pulumi.Any(exampleAwsApiGatewayRestApi.Id),
-//				StageName:  pulumi.String("example"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: fmt.Sprintf("%v/example.com/example.crt", notImplemented("path.module")),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			invokeFile1, err := std.File(ctx, &std.FileArgs{
-//				Input: fmt.Sprintf("%v/example.com/ca.crt", notImplemented("path.module")),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			invokeFile2, err := std.File(ctx, &std.FileArgs{
-//				Input: fmt.Sprintf("%v/example.com/example.key", notImplemented("path.module")),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleDomainName, err := apigateway.NewDomainName(ctx, "example", &apigateway.DomainNameArgs{
-//				DomainName:            pulumi.String("example.com"),
-//				CertificateName:       pulumi.String("example-api"),
-//				CertificateBody:       invokeFile.Result,
-//				CertificateChain:      invokeFile1.Result,
-//				CertificatePrivateKey: invokeFile2.Result,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = apigateway.NewBasePathMapping(ctx, "example", &apigateway.BasePathMappingArgs{
-//				RestApi:    pulumi.Any(exampleAwsApiGatewayRestApi.Id),
-//				StageName:  example.StageName,
-//				DomainName: exampleDomainName.DomainName,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // For a non-root `base_path`:
@@ -96,17 +25,12 @@ import (
 // For an empty `base_path` or, in other words, a root path (`/`):
 //
 // ```sh
-//
-//	$ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/
-//
+// $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/
 // ```
-//
-//	For a non-root `base_path`:
+// For a non-root `base_path`:
 //
 // ```sh
-//
-//	$ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/base-path
-//
+// $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/base-path
 // ```
 type BasePathMapping struct {
 	pulumi.CustomResourceState

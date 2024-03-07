@@ -288,6 +288,7 @@ class MountTarget(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -301,13 +302,14 @@ class MountTarget(pulumi.CustomResource):
             file_system_id=foo_aws_efs_file_system["id"],
             subnet_id=alpha_subnet.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import the EFS mount targets using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:efs/mountTarget:MountTarget alpha fsmt-52a643fb
+        $ pulumi import aws:efs/mountTarget:MountTarget alpha fsmt-52a643fb
         ```
 
         :param str resource_name: The name of the resource.
@@ -330,6 +332,7 @@ class MountTarget(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -343,13 +346,14 @@ class MountTarget(pulumi.CustomResource):
             file_system_id=foo_aws_efs_file_system["id"],
             subnet_id=alpha_subnet.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import the EFS mount targets using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:efs/mountTarget:MountTarget alpha fsmt-52a643fb
+        $ pulumi import aws:efs/mountTarget:MountTarget alpha fsmt-52a643fb
         ```
 
         :param str resource_name: The name of the resource.

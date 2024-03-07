@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * To get the contents of the document owned by AWS.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,9 +22,11 @@ import * as utilities from "../utilities";
  * });
  * export const content = foo.then(foo => foo.content);
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * To get the contents of the custom document.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -33,6 +36,7 @@ import * as utilities from "../utilities";
  *     documentFormat: "JSON",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDocument(args: GetDocumentArgs, opts?: pulumi.InvokeOptions): Promise<GetDocumentResult> {
 
@@ -93,6 +97,7 @@ export interface GetDocumentResult {
  *
  * To get the contents of the document owned by AWS.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -103,9 +108,11 @@ export interface GetDocumentResult {
  * });
  * export const content = foo.then(foo => foo.content);
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * To get the contents of the custom document.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -115,6 +122,7 @@ export interface GetDocumentResult {
  *     documentFormat: "JSON",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDocumentOutput(args: GetDocumentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDocumentResult> {
     return pulumi.output(args).apply((a: any) => getDocument(a, opts))

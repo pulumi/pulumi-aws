@@ -112,6 +112,7 @@ class ScramSecretAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -151,13 +152,14 @@ class ScramSecretAssociation(pulumi.CustomResource):
             secret_arn=example_secret.arn,
             policy=example.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import MSK SCRAM Secret Associations using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:msk/scramSecretAssociation:ScramSecretAssociation example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
+        $ pulumi import aws:msk/scramSecretAssociation:ScramSecretAssociation example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
         ```
 
         :param str resource_name: The name of the resource.
@@ -186,6 +188,7 @@ class ScramSecretAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -225,13 +228,14 @@ class ScramSecretAssociation(pulumi.CustomResource):
             secret_arn=example_secret.arn,
             policy=example.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import MSK SCRAM Secret Associations using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:msk/scramSecretAssociation:ScramSecretAssociation example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
+        $ pulumi import aws:msk/scramSecretAssociation:ScramSecretAssociation example arn:aws:kafka:us-west-2:123456789012:cluster/example/279c0212-d057-4dba-9aa9-1c4e5a25bfc7-3
         ```
 
         :param str resource_name: The name of the resource.

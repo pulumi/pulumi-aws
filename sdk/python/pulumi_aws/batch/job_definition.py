@@ -524,8 +524,10 @@ class JobDefinition(pulumi.CustomResource):
         Provides a Batch Job Definition resource.
 
         ## Example Usage
+
         ### Job definition of type container
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -572,8 +574,11 @@ class JobDefinition(pulumi.CustomResource):
                 }],
             }))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Job definition of type multinode
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -613,8 +618,11 @@ class JobDefinition(pulumi.CustomResource):
                 "numNodes": 2,
             }))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Job Definitionn of type EKS
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -646,8 +654,11 @@ class JobDefinition(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Fargate Platform Capability
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -693,13 +704,14 @@ class JobDefinition(pulumi.CustomResource):
                 "executionRoleArn": ecs_task_execution_role.arn,
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Batch Job Definition using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:batch/jobDefinition:JobDefinition test arn:aws:batch:us-east-1:123456789012:job-definition/sample
+        $ pulumi import aws:batch/jobDefinition:JobDefinition test arn:aws:batch:us-east-1:123456789012:job-definition/sample
         ```
 
         :param str resource_name: The name of the resource.
@@ -732,8 +744,10 @@ class JobDefinition(pulumi.CustomResource):
         Provides a Batch Job Definition resource.
 
         ## Example Usage
+
         ### Job definition of type container
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -780,8 +794,11 @@ class JobDefinition(pulumi.CustomResource):
                 }],
             }))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Job definition of type multinode
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -821,8 +838,11 @@ class JobDefinition(pulumi.CustomResource):
                 "numNodes": 2,
             }))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Job Definitionn of type EKS
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -854,8 +874,11 @@ class JobDefinition(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Fargate Platform Capability
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -901,13 +924,14 @@ class JobDefinition(pulumi.CustomResource):
                 "executionRoleArn": ecs_task_execution_role.arn,
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Batch Job Definition using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:batch/jobDefinition:JobDefinition test arn:aws:batch:us-east-1:123456789012:job-definition/sample
+        $ pulumi import aws:batch/jobDefinition:JobDefinition test arn:aws:batch:us-east-1:123456789012:job-definition/sample
         ```
 
         :param str resource_name: The name of the resource.

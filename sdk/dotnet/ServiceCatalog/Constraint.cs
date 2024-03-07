@@ -15,8 +15,10 @@ namespace Pulumi.Aws.ServiceCatalog
     /// &gt; **NOTE:** This resource does not associate a Service Catalog product and portfolio. However, the product and portfolio must be associated (see the `aws.servicecatalog.ProductPortfolioAssociation` resource) prior to creating a constraint or you will receive an error.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -40,13 +42,14 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_servicecatalog_constraint` using the constraint ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:servicecatalog/constraint:Constraint example cons-nmdkb6cgxfcrs
+    /// $ pulumi import aws:servicecatalog/constraint:Constraint example cons-nmdkb6cgxfcrs
     /// ```
     /// </summary>
     [AwsResourceType("aws:servicecatalog/constraint:Constraint")]

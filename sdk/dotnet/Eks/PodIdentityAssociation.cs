@@ -21,8 +21,10 @@ namespace Pulumi.Aws.Eks
     /// Pod Identity is a simpler method than IAM roles for service accounts, as this method doesn’t use OIDC identity providers. Additionally, you can configure a role for Pod Identity once, and reuse it across clusters.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -80,13 +82,14 @@ namespace Pulumi.Aws.Eks
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EKS (Elastic Kubernetes) Pod Identity Association using the `cluster_name` and `association_id` separated by a comma (`,`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:eks/podIdentityAssociation:PodIdentityAssociation example example,a-12345678
+    /// $ pulumi import aws:eks/podIdentityAssociation:PodIdentityAssociation example example,a-12345678
     /// ```
     /// </summary>
     [AwsResourceType("aws:eks/podIdentityAssociation:PodIdentityAssociation")]

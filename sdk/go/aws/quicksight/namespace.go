@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS QuickSight Namespace.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,15 +42,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import QuickSight Namespace using the AWS account ID and namespace separated by commas (`,`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:quicksight/namespace:Namespace example 123456789012,example
-//
+// $ pulumi import aws:quicksight/namespace:Namespace example 123456789012,example
 // ```
 type Namespace struct {
 	pulumi.CustomResourceState

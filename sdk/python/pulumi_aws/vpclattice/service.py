@@ -282,8 +282,10 @@ class Service(pulumi.CustomResource):
         Resource for managing an AWS VPC Lattice Service.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -293,13 +295,14 @@ class Service(pulumi.CustomResource):
             auth_type="AWS_IAM",
             custom_domain_name="example.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import VPC Lattice Service using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:vpclattice/service:Service example svc-06728e2357ea55f8a
+        $ pulumi import aws:vpclattice/service:Service example svc-06728e2357ea55f8a
         ```
 
         :param str resource_name: The name of the resource.
@@ -322,8 +325,10 @@ class Service(pulumi.CustomResource):
         Resource for managing an AWS VPC Lattice Service.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -333,13 +338,14 @@ class Service(pulumi.CustomResource):
             auth_type="AWS_IAM",
             custom_domain_name="example.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import VPC Lattice Service using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:vpclattice/service:Service example svc-06728e2357ea55f8a
+        $ pulumi import aws:vpclattice/service:Service example svc-06728e2357ea55f8a
         ```
 
         :param str resource_name: The name of the resource.

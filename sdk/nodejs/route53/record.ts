@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Provides a Route53 record resource.
  *
  * ## Example Usage
+ *
  * ### Simple routing policy
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -25,10 +27,13 @@ import * as utilities from "../utilities";
  *     records: [lb.publicIp],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Weighted routing policy
  *
  * Other routing policies are configured similarly. See [Amazon Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/routing-policy.html) for details.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -56,8 +61,11 @@ import * as utilities from "../utilities";
  *     records: ["live.example.com"],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Geoproximity routing policy
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -77,6 +85,8 @@ import * as utilities from "../utilities";
  *     records: ["dev.example.com"],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Alias record
  *
  * See [related part of Amazon Route 53 Developer Guide](https://docs.aws.amazon.com/Route53/latest/DeveloperGuide/resource-record-sets-choosing-alias-non-alias.html)
@@ -85,6 +95,7 @@ import * as utilities from "../utilities";
  * TTL for all alias records is [60 seconds](https://aws.amazon.com/route53/faqs/#dns_failover_do_i_need_to_adjust),
  * you cannot change this, therefore `ttl` has to be omitted in alias records.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -110,10 +121,13 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### NS and SOA Record Management
  *
  * When creating Route 53 zones, the `NS` and `SOA` records for the zone are automatically created. Enabling the `allowOverwrite` argument will allow managing these records in a single deployment without the requirement for `import`.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -133,6 +147,7 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -145,12 +160,12 @@ import * as utilities from "../utilities";
  * Using the ID of the record, which is the zone identifier, record name, and record type, separated by underscores (`_`):
  *
  * ```sh
- *  $ pulumi import aws:route53/record:Record myrecord Z4KAPRWWNC7JR_dev.example.com_NS
+ * $ pulumi import aws:route53/record:Record myrecord Z4KAPRWWNC7JR_dev.example.com_NS
  * ```
- *  If the record also contains a set identifier, append it:
+ * If the record also contains a set identifier, append it:
  *
  * ```sh
- *  $ pulumi import aws:route53/record:Record myrecord Z4KAPRWWNC7JR_dev.example.com_NS_dev
+ * $ pulumi import aws:route53/record:Record myrecord Z4KAPRWWNC7JR_dev.example.com_NS_dev
  * ```
  */
 export class Record extends pulumi.CustomResource {

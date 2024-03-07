@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -33,13 +34,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Backup Region Settings using the `region`. For example:
  *
  * ```sh
- *  $ pulumi import aws:backup/regionSettings:RegionSettings test us-west-2
+ * $ pulumi import aws:backup/regionSettings:RegionSettings test us-west-2
  * ```
  */
 export class RegionSettings extends pulumi.CustomResource {

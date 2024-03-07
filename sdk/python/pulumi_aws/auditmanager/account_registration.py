@@ -152,29 +152,35 @@ class AccountRegistration(pulumi.CustomResource):
         Resource for managing AWS Audit Manager Account Registration.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.auditmanager.AccountRegistration("example")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Deregister On Destroy
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.auditmanager.AccountRegistration("example", deregister_on_destroy=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Audit Manager Account Registration resources using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:auditmanager/accountRegistration:AccountRegistration example us-east-1
+        $ pulumi import aws:auditmanager/accountRegistration:AccountRegistration example us-east-1
         ```
 
         :param str resource_name: The name of the resource.
@@ -193,29 +199,35 @@ class AccountRegistration(pulumi.CustomResource):
         Resource for managing AWS Audit Manager Account Registration.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.auditmanager.AccountRegistration("example")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Deregister On Destroy
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.auditmanager.AccountRegistration("example", deregister_on_destroy=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Audit Manager Account Registration resources using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:auditmanager/accountRegistration:AccountRegistration example us-east-1
+        $ pulumi import aws:auditmanager/accountRegistration:AccountRegistration example us-east-1
         ```
 
         :param str resource_name: The name of the resource.

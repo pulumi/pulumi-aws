@@ -157,19 +157,21 @@ class HsmClientCertificate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.redshift.HsmClientCertificate("example", hsm_client_certificate_identifier="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift HSM Client Certificates using `hsm_client_certificate_identifier`. For example:
 
         ```sh
-         $ pulumi import aws:redshift/hsmClientCertificate:HsmClientCertificate test example
+        $ pulumi import aws:redshift/hsmClientCertificate:HsmClientCertificate test example
         ```
 
         :param str resource_name: The name of the resource.
@@ -188,19 +190,21 @@ class HsmClientCertificate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.redshift.HsmClientCertificate("example", hsm_client_certificate_identifier="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift HSM Client Certificates using `hsm_client_certificate_identifier`. For example:
 
         ```sh
-         $ pulumi import aws:redshift/hsmClientCertificate:HsmClientCertificate test example
+        $ pulumi import aws:redshift/hsmClientCertificate:HsmClientCertificate test example
         ```
 
         :param str resource_name: The name of the resource.

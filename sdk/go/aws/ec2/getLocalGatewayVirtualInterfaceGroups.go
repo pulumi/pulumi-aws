@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -36,6 +37,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetLocalGatewayVirtualInterfaceGroups(ctx *pulumi.Context, args *GetLocalGatewayVirtualInterfaceGroupsArgs, opts ...pulumi.InvokeOption) (*GetLocalGatewayVirtualInterfaceGroupsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLocalGatewayVirtualInterfaceGroupsResult

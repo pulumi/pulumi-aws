@@ -217,8 +217,10 @@ class OriginAccessControl(pulumi.CustomResource):
         Read more about Origin Access Control in the [CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html).
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -230,13 +232,14 @@ class OriginAccessControl(pulumi.CustomResource):
             signing_behavior="always",
             signing_protocol="sigv4")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudFront Origin Access Control using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:cloudfront/originAccessControl:OriginAccessControl example E327GJI25M56DG
+        $ pulumi import aws:cloudfront/originAccessControl:OriginAccessControl example E327GJI25M56DG
         ```
 
         :param str resource_name: The name of the resource.
@@ -259,8 +262,10 @@ class OriginAccessControl(pulumi.CustomResource):
         Read more about Origin Access Control in the [CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html).
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -272,13 +277,14 @@ class OriginAccessControl(pulumi.CustomResource):
             signing_behavior="always",
             signing_protocol="sigv4")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudFront Origin Access Control using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:cloudfront/originAccessControl:OriginAccessControl example E327GJI25M56DG
+        $ pulumi import aws:cloudfront/originAccessControl:OriginAccessControl example E327GJI25M56DG
         ```
 
         :param str resource_name: The name of the resource.

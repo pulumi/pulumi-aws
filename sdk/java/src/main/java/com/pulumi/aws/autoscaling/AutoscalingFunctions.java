@@ -22,6 +22,8 @@ public final class AutoscalingFunctions {
      * ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -70,6 +72,7 @@ public final class AutoscalingFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAmiIdsResult> getAmiIds() {
@@ -80,6 +83,8 @@ public final class AutoscalingFunctions {
      * ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -128,6 +133,7 @@ public final class AutoscalingFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAmiIdsResult> getAmiIdsPlain() {
@@ -138,6 +144,8 @@ public final class AutoscalingFunctions {
      * ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -186,6 +194,7 @@ public final class AutoscalingFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAmiIdsResult> getAmiIds(GetAmiIdsArgs args) {
@@ -196,6 +205,8 @@ public final class AutoscalingFunctions {
      * ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -244,6 +255,7 @@ public final class AutoscalingFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAmiIdsResult> getAmiIdsPlain(GetAmiIdsPlainArgs args) {
@@ -254,6 +266,8 @@ public final class AutoscalingFunctions {
      * ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -302,6 +316,7 @@ public final class AutoscalingFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAmiIdsResult> getAmiIds(GetAmiIdsArgs args, InvokeOptions options) {
@@ -312,6 +327,8 @@ public final class AutoscalingFunctions {
      * ASGs within a specific region. This will allow you to pass a list of AutoScaling Groups to other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -360,6 +377,7 @@ public final class AutoscalingFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAmiIdsResult> getAmiIdsPlain(GetAmiIdsPlainArgs args, InvokeOptions options) {
@@ -369,6 +387,8 @@ public final class AutoscalingFunctions {
      * Use this data source to get information on an existing autoscaling group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -397,6 +417,7 @@ public final class AutoscalingFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetGroupResult> getGroup(GetGroupArgs args) {
@@ -406,6 +427,8 @@ public final class AutoscalingFunctions {
      * Use this data source to get information on an existing autoscaling group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -434,6 +457,7 @@ public final class AutoscalingFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args) {
@@ -443,6 +467,8 @@ public final class AutoscalingFunctions {
      * Use this data source to get information on an existing autoscaling group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -471,6 +497,7 @@ public final class AutoscalingFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetGroupResult> getGroup(GetGroupArgs args, InvokeOptions options) {
@@ -480,6 +507,8 @@ public final class AutoscalingFunctions {
      * Use this data source to get information on an existing autoscaling group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -508,6 +537,7 @@ public final class AutoscalingFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetGroupResult> getGroupPlain(GetGroupPlainArgs args, InvokeOptions options) {

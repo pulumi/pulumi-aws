@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -71,15 +72,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_organizations_resource_policy` using the resource policy ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:organizations/resourcePolicy:ResourcePolicy example rp-12345678
-//
+// $ pulumi import aws:organizations/resourcePolicy:ResourcePolicy example rp-12345678
 // ```
 type ResourcePolicy struct {
 	pulumi.CustomResourceState

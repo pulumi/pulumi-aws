@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides a CodeCommit Repository Resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,7 +50,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### AWS KMS Customer Managed Keys (CMK)
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -86,13 +92,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import CodeCommit repository using repository name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:codecommit/repository:Repository imported ExistingRepo
+ * $ pulumi import aws:codecommit/repository:Repository imported ExistingRepo
  * ```
  * 
  */

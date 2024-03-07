@@ -20,7 +20,10 @@ import javax.annotation.Nullable;
  * Provides an AWS App Mesh virtual gateway resource.
  * 
  * ## Example Usage
+ * 
  * ### Basic
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -60,7 +63,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Access Logs and TLS
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -117,13 +124,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import App Mesh virtual gateway using `mesh_name` together with the virtual gateway&#39;s `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:appmesh/virtualGateway:VirtualGateway example mesh/gw1
+ * $ pulumi import aws:appmesh/virtualGateway:VirtualGateway example mesh/gw1
  * ```
  * 
  */

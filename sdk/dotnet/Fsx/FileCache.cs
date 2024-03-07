@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -77,13 +78,14 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Amazon File Cache cache using the resource `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:fsx/fileCache:FileCache example fc-8012925589
+    /// $ pulumi import aws:fsx/fileCache:FileCache example fc-8012925589
     /// ```
     /// </summary>
     [AwsResourceType("aws:fsx/fileCache:FileCache")]

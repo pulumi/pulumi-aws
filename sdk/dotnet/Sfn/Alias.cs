@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Sfn
     /// Provides a Step Function State Machine Alias.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -56,13 +58,14 @@ namespace Pulumi.Aws.Sfn
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SFN (Step Functions) Alias using the `arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:sfn/alias:Alias foo arn:aws:states:us-east-1:123456789098:stateMachine:myStateMachine:foo
+    /// $ pulumi import aws:sfn/alias:Alias foo arn:aws:states:us-east-1:123456789098:stateMachine:myStateMachine:foo
     /// ```
     /// </summary>
     [AwsResourceType("aws:sfn/alias:Alias")]

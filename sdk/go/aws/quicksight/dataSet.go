@@ -15,8 +15,10 @@ import (
 // Resource for managing a QuickSight Data Set.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -59,8 +61,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With Column Level Permission Rules
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -113,8 +118,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With Field Folders
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -166,8 +174,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With Permissions
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -222,8 +233,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With Row Level Permission Tag Configuration
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -277,15 +291,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import a QuickSight Data Set using the AWS account ID and data set ID separated by a comma (`,`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:quicksight/dataSet:DataSet example 123456789012,example-id
-//
+// $ pulumi import aws:quicksight/dataSet:DataSet example 123456789012,example-id
 // ```
 type DataSet struct {
 	pulumi.CustomResourceState

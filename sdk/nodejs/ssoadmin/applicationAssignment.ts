@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS SSO Admin Application Assignment.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,8 +22,11 @@ import * as utilities from "../utilities";
  *     principalType: "USER",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Group Type
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -32,13 +37,14 @@ import * as utilities from "../utilities";
  *     principalType: "GROUP",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SSO Admin Application Assignment using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ssoadmin/applicationAssignment:ApplicationAssignment example arn:aws:sso::012345678901:application/id-12345678,abcd1234,USER
+ * $ pulumi import aws:ssoadmin/applicationAssignment:ApplicationAssignment example arn:aws:sso::012345678901:application/id-12345678,abcd1234,USER
  * ```
  */
 export class ApplicationAssignment extends pulumi.CustomResource {

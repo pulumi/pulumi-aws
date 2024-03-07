@@ -102,6 +102,7 @@ class LbAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -127,13 +128,14 @@ class LbAttachment(pulumi.CustomResource):
             lb_name=test.name,
             instance_name=test_instance.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_lightsail_lb_attachment` using the name attribute. For example:
 
         ```sh
-         $ pulumi import aws:lightsail/lbAttachment:LbAttachment test example-load-balancer,example-instance
+        $ pulumi import aws:lightsail/lbAttachment:LbAttachment test example-load-balancer,example-instance
         ```
 
         :param str resource_name: The name of the resource.
@@ -152,6 +154,7 @@ class LbAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -177,13 +180,14 @@ class LbAttachment(pulumi.CustomResource):
             lb_name=test.name,
             instance_name=test_instance.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_lightsail_lb_attachment` using the name attribute. For example:
 
         ```sh
-         $ pulumi import aws:lightsail/lbAttachment:LbAttachment test example-load-balancer,example-instance
+        $ pulumi import aws:lightsail/lbAttachment:LbAttachment test example-load-balancer,example-instance
         ```
 
         :param str resource_name: The name of the resource.

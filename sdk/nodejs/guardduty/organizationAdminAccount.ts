@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,13 +21,14 @@ import * as utilities from "../utilities";
  * const exampleDetector = new aws.guardduty.Detector("example", {});
  * const exampleOrganizationAdminAccount = new aws.guardduty.OrganizationAdminAccount("example", {adminAccountId: "123456789012"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import GuardDuty Organization Admin Account using the AWS account ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:guardduty/organizationAdminAccount:OrganizationAdminAccount example 123456789012
+ * $ pulumi import aws:guardduty/organizationAdminAccount:OrganizationAdminAccount example 123456789012
  * ```
  */
 export class OrganizationAdminAccount extends pulumi.CustomResource {

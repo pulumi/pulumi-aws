@@ -15,8 +15,10 @@ import (
 // Provides a SageMaker Device Fleet resource.
 //
 // ## Example Usage
+//
 // ### Basic usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -46,15 +48,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SageMaker Device Fleets using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sagemaker/deviceFleet:DeviceFleet example my-fleet
-//
+// $ pulumi import aws:sagemaker/deviceFleet:DeviceFleet example my-fleet
 // ```
 type DeviceFleet struct {
 	pulumi.CustomResourceState

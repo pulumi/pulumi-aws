@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,8 +42,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With KMS Key
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -109,15 +113,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import XRay Encryption Config using the region name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:xray/encryptionConfig:EncryptionConfig example us-west-2
-//
+// $ pulumi import aws:xray/encryptionConfig:EncryptionConfig example us-west-2
 // ```
 type EncryptionConfig struct {
 	pulumi.CustomResourceState

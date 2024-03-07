@@ -19,7 +19,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS MediaLive MultiplexProgram.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -82,13 +85,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import MediaLive MultiplexProgram using the `id`, or a combination of &#34;`program_name`/`multiplex_id`&#34;. For example:
  * 
  * ```sh
- *  $ pulumi import aws:medialive/multiplexProgram:MultiplexProgram example example_program/1234567
+ * $ pulumi import aws:medialive/multiplexProgram:MultiplexProgram example example_program/1234567
  * ```
  * 
  */

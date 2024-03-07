@@ -324,6 +324,7 @@ def get_snapshot(db_instance_identifier: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -346,6 +347,7 @@ def get_snapshot(db_instance_identifier: Optional[str] = None,
         db_name="mydbdev",
         snapshot_identifier=latest_prod_snapshot.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str db_instance_identifier: Returns the list of snapshots created by the specific db_instance
@@ -419,6 +421,7 @@ def get_snapshot_output(db_instance_identifier: Optional[pulumi.Input[Optional[s
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -441,6 +444,7 @@ def get_snapshot_output(db_instance_identifier: Optional[pulumi.Input[Optional[s
         db_name="mydbdev",
         snapshot_identifier=latest_prod_snapshot.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str db_instance_identifier: Returns the list of snapshots created by the specific db_instance

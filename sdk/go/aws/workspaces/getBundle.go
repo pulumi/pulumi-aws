@@ -14,8 +14,10 @@ import (
 // Retrieve information about an AWS WorkSpaces bundle.
 //
 // ## Example Usage
+//
 // ### By ID
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,8 +41,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### By Owner & Name
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -65,6 +70,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetBundle(ctx *pulumi.Context, args *GetBundleArgs, opts ...pulumi.InvokeOption) (*GetBundleResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetBundleResult

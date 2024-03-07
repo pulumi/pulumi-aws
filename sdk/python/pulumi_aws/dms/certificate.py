@@ -215,6 +215,7 @@ class Certificate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -227,13 +228,14 @@ class Certificate(pulumi.CustomResource):
                 "Name": "test",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import certificates using the `certificate_id`. For example:
 
         ```sh
-         $ pulumi import aws:dms/certificate:Certificate test test-dms-certificate-tf
+        $ pulumi import aws:dms/certificate:Certificate test test-dms-certificate-tf
         ```
 
         :param str resource_name: The name of the resource.
@@ -256,6 +258,7 @@ class Certificate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -268,13 +271,14 @@ class Certificate(pulumi.CustomResource):
                 "Name": "test",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import certificates using the `certificate_id`. For example:
 
         ```sh
-         $ pulumi import aws:dms/certificate:Certificate test test-dms-certificate-tf
+        $ pulumi import aws:dms/certificate:Certificate test test-dms-certificate-tf
         ```
 
         :param str resource_name: The name of the resource.

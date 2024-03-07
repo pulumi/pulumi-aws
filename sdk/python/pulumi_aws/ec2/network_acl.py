@@ -269,6 +269,7 @@ class NetworkAcl(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -295,13 +296,14 @@ class NetworkAcl(pulumi.CustomResource):
                 "Name": "main",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Network ACLs using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/networkAcl:NetworkAcl main acl-7aaabd18
+        $ pulumi import aws:ec2/networkAcl:NetworkAcl main acl-7aaabd18
         ```
 
         :param str resource_name: The name of the resource.
@@ -334,6 +336,7 @@ class NetworkAcl(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -360,13 +363,14 @@ class NetworkAcl(pulumi.CustomResource):
                 "Name": "main",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Network ACLs using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/networkAcl:NetworkAcl main acl-7aaabd18
+        $ pulumi import aws:ec2/networkAcl:NetworkAcl main acl-7aaabd18
         ```
 
         :param str resource_name: The name of the resource.

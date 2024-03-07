@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Lex
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -142,13 +143,14 @@ namespace Pulumi.Aws.Lex
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import intents using their name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:lex/intent:Intent order_flowers_intent OrderFlowers
+    /// $ pulumi import aws:lex/intent:Intent order_flowers_intent OrderFlowers
     /// ```
     /// </summary>
     [AwsResourceType("aws:lex/intent:Intent")]

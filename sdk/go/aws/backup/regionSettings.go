@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -55,15 +56,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Backup Region Settings using the `region`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:backup/regionSettings:RegionSettings test us-west-2
-//
+// $ pulumi import aws:backup/regionSettings:RegionSettings test us-west-2
 // ```
 type RegionSettings struct {
 	pulumi.CustomResourceState

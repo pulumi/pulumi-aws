@@ -14,6 +14,7 @@ import {Topic} from "../sns";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -31,8 +32,11 @@ import {Topic} from "../sns";
  *     insufficientDataActions: [],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Example in Conjunction with Scaling Policies
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -60,9 +64,11 @@ import {Topic} from "../sns";
  *     alarmActions: [bat.arn],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Example with an Expression
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -110,7 +116,9 @@ import {Topic} from "../sns";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -146,9 +154,11 @@ import {Topic} from "../sns";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Example of monitoring Healthy Hosts on NLB using Target Group and NLB
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -172,6 +182,7 @@ import {Topic} from "../sns";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * > **NOTE:**  You cannot create a metric alarm consisting of both `statistic` and `extendedStatistic` parameters.
  * You must choose one or the other
@@ -181,7 +192,7 @@ import {Topic} from "../sns";
  * Using `pulumi import`, import CloudWatch Metric Alarm using the `alarm_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudwatch/metricAlarm:MetricAlarm test alarm-12345
+ * $ pulumi import aws:cloudwatch/metricAlarm:MetricAlarm test alarm-12345
  * ```
  */
 export class MetricAlarm extends pulumi.CustomResource {

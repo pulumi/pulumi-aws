@@ -30,7 +30,10 @@ import javax.annotation.Nullable;
  * [Read more about this in the AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VpnTunnelOptionsSpecification.html).
  * 
  * ## Example Usage
+ * 
  * ### EC2 Transit Gateway
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -72,7 +75,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Virtual Private Gateway
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -124,7 +131,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### AWS Site to Site Private VPN
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -197,13 +208,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import VPN Connections using the VPN connection `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/vpnConnection:VpnConnection testvpnconnection vpn-40f41529
+ * $ pulumi import aws:ec2/vpnConnection:VpnConnection testvpnconnection vpn-40f41529
  * ```
  * 
  */

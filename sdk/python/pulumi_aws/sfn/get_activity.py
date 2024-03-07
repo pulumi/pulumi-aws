@@ -82,12 +82,14 @@ def get_activity(arn: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     sfn_activity = aws.sfn.get_activity(name="my-activity")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str arn: ARN that identifies the activity.
@@ -115,12 +117,14 @@ def get_activity_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     sfn_activity = aws.sfn.get_activity(name="my-activity")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str arn: ARN that identifies the activity.

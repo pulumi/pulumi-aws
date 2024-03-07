@@ -14,10 +14,9 @@ namespace Pulumi.Aws.SecretsManager
         /// <summary>
         /// Generate a random password.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +33,7 @@ namespace Pulumi.Aws.SecretsManager
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetRandomPasswordResult> InvokeAsync(GetRandomPasswordArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRandomPasswordResult>("aws:secretsmanager/getRandomPassword:getRandomPassword", args ?? new GetRandomPasswordArgs(), options.WithDefaults());
@@ -43,10 +41,9 @@ namespace Pulumi.Aws.SecretsManager
         /// <summary>
         /// Generate a random password.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +60,7 @@ namespace Pulumi.Aws.SecretsManager
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetRandomPasswordResult> Invoke(GetRandomPasswordInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRandomPasswordResult>("aws:secretsmanager/getRandomPassword:getRandomPassword", args ?? new GetRandomPasswordInvokeArgs(), options.WithDefaults());
@@ -92,7 +88,7 @@ namespace Pulumi.Aws.SecretsManager
         public bool? ExcludeNumbers { get; set; }
 
         /// <summary>
-        /// Specifies whether to exclude the following punctuation characters from the password: ``! " # $ % &amp; ' ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~ .``
+        /// Specifies whether to exclude the following punctuation characters from the password: ``! " # $ %!&amp;(MISSING) ' ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~ .``
         /// </summary>
         [Input("excludePunctuation")]
         public bool? ExcludePunctuation { get; set; }
@@ -148,7 +144,7 @@ namespace Pulumi.Aws.SecretsManager
         public Input<bool>? ExcludeNumbers { get; set; }
 
         /// <summary>
-        /// Specifies whether to exclude the following punctuation characters from the password: ``! " # $ % &amp; ' ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~ .``
+        /// Specifies whether to exclude the following punctuation characters from the password: ``! " # $ %!&amp;(MISSING) ' ( ) * + , - . / : ; &lt; = &gt; ? @ [ \ ] ^ _ ` { | } ~ .``
         /// </summary>
         [Input("excludePunctuation")]
         public Input<bool>? ExcludePunctuation { get; set; }

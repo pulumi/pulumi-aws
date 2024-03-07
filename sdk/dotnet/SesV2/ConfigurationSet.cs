@@ -13,8 +13,10 @@ namespace Pulumi.Aws.SesV2
     /// Resource for managing an AWS SESv2 (Simple Email V2) Configuration Set.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -54,13 +56,14 @@ namespace Pulumi.Aws.SesV2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SESv2 (Simple Email V2) Configuration Set using the `configuration_set_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:sesv2/configurationSet:ConfigurationSet example example
+    /// $ pulumi import aws:sesv2/configurationSet:ConfigurationSet example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:sesv2/configurationSet:ConfigurationSet")]

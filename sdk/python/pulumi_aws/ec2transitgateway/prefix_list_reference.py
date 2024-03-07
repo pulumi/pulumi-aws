@@ -187,8 +187,10 @@ class PrefixListReference(pulumi.CustomResource):
         Manages an EC2 Transit Gateway Prefix List Reference.
 
         ## Example Usage
+
         ### Attachment Routing
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -198,8 +200,11 @@ class PrefixListReference(pulumi.CustomResource):
             transit_gateway_attachment_id=example_aws_ec2_transit_gateway_vpc_attachment["id"],
             transit_gateway_route_table_id=example_aws_ec2_transit_gateway["associationDefaultRouteTableId"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Blackhole Routing
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -209,13 +214,14 @@ class PrefixListReference(pulumi.CustomResource):
             prefix_list_id=example_aws_ec2_managed_prefix_list["id"],
             transit_gateway_route_table_id=example_aws_ec2_transit_gateway["associationDefaultRouteTableId"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ec2_transit_gateway_prefix_list_reference` using the EC2 Transit Gateway Route Table identifier and EC2 Prefix List identifier, separated by an underscore (`_`). For example:
 
         ```sh
-         $ pulumi import aws:ec2transitgateway/prefixListReference:PrefixListReference example tgw-rtb-12345678_pl-12345678
+        $ pulumi import aws:ec2transitgateway/prefixListReference:PrefixListReference example tgw-rtb-12345678_pl-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -237,8 +243,10 @@ class PrefixListReference(pulumi.CustomResource):
         Manages an EC2 Transit Gateway Prefix List Reference.
 
         ## Example Usage
+
         ### Attachment Routing
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -248,8 +256,11 @@ class PrefixListReference(pulumi.CustomResource):
             transit_gateway_attachment_id=example_aws_ec2_transit_gateway_vpc_attachment["id"],
             transit_gateway_route_table_id=example_aws_ec2_transit_gateway["associationDefaultRouteTableId"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Blackhole Routing
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -259,13 +270,14 @@ class PrefixListReference(pulumi.CustomResource):
             prefix_list_id=example_aws_ec2_managed_prefix_list["id"],
             transit_gateway_route_table_id=example_aws_ec2_transit_gateway["associationDefaultRouteTableId"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ec2_transit_gateway_prefix_list_reference` using the EC2 Transit Gateway Route Table identifier and EC2 Prefix List identifier, separated by an underscore (`_`). For example:
 
         ```sh
-         $ pulumi import aws:ec2transitgateway/prefixListReference:PrefixListReference example tgw-rtb-12345678_pl-12345678
+        $ pulumi import aws:ec2transitgateway/prefixListReference:PrefixListReference example tgw-rtb-12345678_pl-12345678
         ```
 
         :param str resource_name: The name of the resource.

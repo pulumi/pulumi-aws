@@ -14,6 +14,7 @@ namespace Pulumi.Aws.ElasticTranscoder
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -41,13 +42,14 @@ namespace Pulumi.Aws.ElasticTranscoder
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Elastic Transcoder pipelines using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:elastictranscoder/pipeline:Pipeline basic_pipeline 1407981661351-cttk8b
+    /// $ pulumi import aws:elastictranscoder/pipeline:Pipeline basic_pipeline 1407981661351-cttk8b
     /// ```
     /// </summary>
     [AwsResourceType("aws:elastictranscoder/pipeline:Pipeline")]

@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS Transcribe VocabularyFilter.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -27,13 +29,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Transcribe VocabularyFilter using the `vocabulary_filter_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:transcribe/vocabularyFilter:VocabularyFilter example example-name
+ * $ pulumi import aws:transcribe/vocabularyFilter:VocabularyFilter example example-name
  * ```
  */
 export class VocabularyFilter extends pulumi.CustomResource {

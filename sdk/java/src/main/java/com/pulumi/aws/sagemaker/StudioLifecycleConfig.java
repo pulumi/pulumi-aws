@@ -19,7 +19,10 @@ import javax.annotation.Nullable;
  * Provides a SageMaker Studio Lifecycle Config resource.
  * 
  * ## Example Usage
+ * 
  * ### Basic usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -52,13 +55,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import SageMaker Studio Lifecycle Configs using the `studio_lifecycle_config_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig example example
+ * $ pulumi import aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig example example
  * ```
  * 
  */

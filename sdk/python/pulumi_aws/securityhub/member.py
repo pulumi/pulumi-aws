@@ -168,6 +168,7 @@ class Member(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -178,13 +179,14 @@ class Member(pulumi.CustomResource):
             email="example@example.com",
             invite=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Security Hub members using their account ID. For example:
 
         ```sh
-         $ pulumi import aws:securityhub/member:Member example 123456789012
+        $ pulumi import aws:securityhub/member:Member example 123456789012
         ```
 
         :param str resource_name: The name of the resource.
@@ -204,6 +206,7 @@ class Member(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -214,13 +217,14 @@ class Member(pulumi.CustomResource):
             email="example@example.com",
             invite=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Security Hub members using their account ID. For example:
 
         ```sh
-         $ pulumi import aws:securityhub/member:Member example 123456789012
+        $ pulumi import aws:securityhub/member:Member example 123456789012
         ```
 
         :param str resource_name: The name of the resource.

@@ -15,6 +15,7 @@ import {NotificationType} from "./index";
  *
  * Basic usage:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -36,6 +37,7 @@ import {NotificationType} from "./index";
  *     topicArn: example.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class Notification extends pulumi.CustomResource {
     /**

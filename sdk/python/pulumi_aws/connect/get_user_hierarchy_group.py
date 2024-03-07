@@ -135,6 +135,7 @@ def get_user_hierarchy_group(hierarchy_group_id: Optional[str] = None,
 
     By `name`
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -142,9 +143,11 @@ def get_user_hierarchy_group(hierarchy_group_id: Optional[str] = None,
     example = aws.connect.get_user_hierarchy_group(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
         name="Example")
     ```
+    <!--End PulumiCodeChooser -->
 
     By `hierarchy_group_id`
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -152,6 +155,7 @@ def get_user_hierarchy_group(hierarchy_group_id: Optional[str] = None,
     example = aws.connect.get_user_hierarchy_group(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
         hierarchy_group_id="cccccccc-bbbb-cccc-dddd-111111111111")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str hierarchy_group_id: Returns information on a specific hierarchy group by hierarchy group id
@@ -191,6 +195,7 @@ def get_user_hierarchy_group_output(hierarchy_group_id: Optional[pulumi.Input[Op
 
     By `name`
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -198,9 +203,11 @@ def get_user_hierarchy_group_output(hierarchy_group_id: Optional[pulumi.Input[Op
     example = aws.connect.get_user_hierarchy_group(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
         name="Example")
     ```
+    <!--End PulumiCodeChooser -->
 
     By `hierarchy_group_id`
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -208,6 +215,7 @@ def get_user_hierarchy_group_output(hierarchy_group_id: Optional[pulumi.Input[Op
     example = aws.connect.get_user_hierarchy_group(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
         hierarchy_group_id="cccccccc-bbbb-cccc-dddd-111111111111")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str hierarchy_group_id: Returns information on a specific hierarchy group by hierarchy group id

@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS CodeGuru Reviewer Repository Association.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -71,6 +73,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:codegurureviewer/repositoryAssociation:RepositoryAssociation")

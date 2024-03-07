@@ -106,6 +106,7 @@ class BucketOwnershipControls(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -117,13 +118,14 @@ class BucketOwnershipControls(pulumi.CustomResource):
                 object_ownership="BucketOwnerPreferred",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import S3 Bucket Ownership Controls using S3 Bucket name. For example:
 
         ```sh
-         $ pulumi import aws:s3/bucketOwnershipControls:BucketOwnershipControls example my-bucket
+        $ pulumi import aws:s3/bucketOwnershipControls:BucketOwnershipControls example my-bucket
         ```
 
         :param str resource_name: The name of the resource.
@@ -144,6 +146,7 @@ class BucketOwnershipControls(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -155,13 +158,14 @@ class BucketOwnershipControls(pulumi.CustomResource):
                 object_ownership="BucketOwnerPreferred",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import S3 Bucket Ownership Controls using S3 Bucket name. For example:
 
         ```sh
-         $ pulumi import aws:s3/bucketOwnershipControls:BucketOwnershipControls example my-bucket
+        $ pulumi import aws:s3/bucketOwnershipControls:BucketOwnershipControls example my-bucket
         ```
 
         :param str resource_name: The name of the resource.

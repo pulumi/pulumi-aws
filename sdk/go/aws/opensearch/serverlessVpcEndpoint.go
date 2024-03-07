@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS OpenSearchServerless VPC Endpoint.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,15 +46,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import OpenSearchServerless Vpc Endpointa using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint example vpce-8012925589
-//
+// $ pulumi import aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint example vpce-8012925589
 // ```
 type ServerlessVpcEndpoint struct {
 	pulumi.CustomResourceState

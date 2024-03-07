@@ -19,6 +19,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,15 +44,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_s3_account_public_access_block` using the AWS account ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:s3/accountPublicAccessBlock:AccountPublicAccessBlock example 123456789012
-//
+// $ pulumi import aws:s3/accountPublicAccessBlock:AccountPublicAccessBlock example 123456789012
 // ```
 type AccountPublicAccessBlock struct {
 	pulumi.CustomResourceState

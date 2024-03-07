@@ -20,7 +20,10 @@ import javax.annotation.Nullable;
  * Provides a CodeDeploy application to be used as a basis for deployments
  * 
  * ## Example Usage
+ * 
  * ### ECS Application
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,7 +53,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Lambda Application
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -80,7 +87,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Server Application
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -110,13 +121,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import CodeDeploy Applications using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:codedeploy/application:Application example my-application
+ * $ pulumi import aws:codedeploy/application:Application example my-application
  * ```
  * 
  */

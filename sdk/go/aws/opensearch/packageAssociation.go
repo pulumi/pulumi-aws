@@ -15,8 +15,10 @@ import (
 // Manages an AWS Opensearch Package Association.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -62,6 +64,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type PackageAssociation struct {
 	pulumi.CustomResourceState
 

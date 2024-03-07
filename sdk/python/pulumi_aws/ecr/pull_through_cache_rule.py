@@ -154,6 +154,7 @@ class PullThroughCacheRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -163,13 +164,14 @@ class PullThroughCacheRule(pulumi.CustomResource):
             upstream_registry_url="public.ecr.aws",
             credential_arn="arn:aws:secretsmanager:us-east-1:123456789:secret:ecr-pullthroughcache/ecrpublic")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a pull-through cache rule using the `ecr_repository_prefix`. For example:
 
         ```sh
-         $ pulumi import aws:ecr/pullThroughCacheRule:PullThroughCacheRule example ecr-public
+        $ pulumi import aws:ecr/pullThroughCacheRule:PullThroughCacheRule example ecr-public
         ```
 
         :param str resource_name: The name of the resource.
@@ -192,6 +194,7 @@ class PullThroughCacheRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -201,13 +204,14 @@ class PullThroughCacheRule(pulumi.CustomResource):
             upstream_registry_url="public.ecr.aws",
             credential_arn="arn:aws:secretsmanager:us-east-1:123456789:secret:ecr-pullthroughcache/ecrpublic")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a pull-through cache rule using the `ecr_repository_prefix`. For example:
 
         ```sh
-         $ pulumi import aws:ecr/pullThroughCacheRule:PullThroughCacheRule example ecr-public
+        $ pulumi import aws:ecr/pullThroughCacheRule:PullThroughCacheRule example ecr-public
         ```
 
         :param str resource_name: The name of the resource.

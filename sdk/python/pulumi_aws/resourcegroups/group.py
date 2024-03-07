@@ -243,6 +243,7 @@ class Group(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -264,13 +265,14 @@ class Group(pulumi.CustomResource):
         \"\"\",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import resource groups using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:resourcegroups/group:Group foo resource-group-name
+        $ pulumi import aws:resourcegroups/group:Group foo resource-group-name
         ```
 
         :param str resource_name: The name of the resource.
@@ -292,6 +294,7 @@ class Group(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -313,13 +316,14 @@ class Group(pulumi.CustomResource):
         \"\"\",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import resource groups using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:resourcegroups/group:Group foo resource-group-name
+        $ pulumi import aws:resourcegroups/group:Group foo resource-group-name
         ```
 
         :param str resource_name: The name of the resource.

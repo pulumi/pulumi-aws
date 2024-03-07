@@ -23,7 +23,7 @@ public final class LaunchScheduledSplitsConfigStepSegmentOverride {
      */
     private String segment;
     /**
-     * @return The traffic allocation percentages among the feature variations to assign to this segment. This is a set of key-value pairs. The keys are variation names. The values represent the amount of traffic to allocate to that variation for this segment. This is expressed in thousandths of a percent, so a weight of 50000 represents 50% of traffic.
+     * @return The traffic allocation percentages among the feature variations to assign to this segment. This is a set of key-value pairs. The keys are variation names. The values represent the amount of traffic to allocate to that variation for this segment. This is expressed in thousandths of a percent, so a weight of 50000 represents 50%!o(MISSING)f traffic.
      * 
      */
     private Map<String,Integer> weights;
@@ -44,7 +44,7 @@ public final class LaunchScheduledSplitsConfigStepSegmentOverride {
         return this.segment;
     }
     /**
-     * @return The traffic allocation percentages among the feature variations to assign to this segment. This is a set of key-value pairs. The keys are variation names. The values represent the amount of traffic to allocate to that variation for this segment. This is expressed in thousandths of a percent, so a weight of 50000 represents 50% of traffic.
+     * @return The traffic allocation percentages among the feature variations to assign to this segment. This is a set of key-value pairs. The keys are variation names. The values represent the amount of traffic to allocate to that variation for this segment. This is expressed in thousandths of a percent, so a weight of 50000 represents 50%!o(MISSING)f traffic.
      * 
      */
     public Map<String,Integer> weights() {

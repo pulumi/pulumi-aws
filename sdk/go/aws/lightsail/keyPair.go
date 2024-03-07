@@ -18,8 +18,10 @@ import (
 // > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
 //
 // ## Example Usage
+//
 // ### Create New Key Pair
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,8 +46,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Create New Key Pair with PGP Encrypted Private Key
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -70,8 +75,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Existing Public Key Import
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -103,6 +111,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //

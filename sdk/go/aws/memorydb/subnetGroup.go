@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -59,15 +60,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import a subnet group using its `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:memorydb/subnetGroup:SubnetGroup example my-subnet-group
-//
+// $ pulumi import aws:memorydb/subnetGroup:SubnetGroup example my-subnet-group
 // ```
 type SubnetGroup struct {
 	pulumi.CustomResourceState

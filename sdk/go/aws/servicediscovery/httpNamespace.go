@@ -13,6 +13,7 @@ import (
 
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -37,15 +38,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Service Discovery HTTP Namespace using the namespace ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:servicediscovery/httpNamespace:HttpNamespace example ns-1234567890
-//
+// $ pulumi import aws:servicediscovery/httpNamespace:HttpNamespace example ns-1234567890
 // ```
 type HttpNamespace struct {
 	pulumi.CustomResourceState

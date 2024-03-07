@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Get information on an EC2 Transit Gateway.
  *
  * ## Example Usage
+ *
  * ### By Filter
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,8 +26,11 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### By Identifier
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -34,6 +39,7 @@ import * as utilities from "../utilities";
  *     id: "tgw-12345678",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getTransitGateway(args?: GetTransitGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayResult> {
     args = args || {};
@@ -134,8 +140,10 @@ export interface GetTransitGatewayResult {
  * Get information on an EC2 Transit Gateway.
  *
  * ## Example Usage
+ *
  * ### By Filter
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -147,8 +155,11 @@ export interface GetTransitGatewayResult {
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### By Identifier
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -157,6 +168,7 @@ export interface GetTransitGatewayResult {
  *     id: "tgw-12345678",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getTransitGatewayOutput(args?: GetTransitGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayResult> {
     return pulumi.output(args).apply((a: any) => getTransitGateway(a, opts))

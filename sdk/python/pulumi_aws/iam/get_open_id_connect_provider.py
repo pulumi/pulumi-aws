@@ -109,19 +109,23 @@ def get_open_id_connect_provider(arn: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.iam.get_open_id_connect_provider(arn="arn:aws:iam::123456789012:oidc-provider/accounts.google.com")
     ```
+    <!--End PulumiCodeChooser -->
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.iam.get_open_id_connect_provider(url="https://accounts.google.com")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str arn: ARN of the OpenID Connect provider.
@@ -156,19 +160,23 @@ def get_open_id_connect_provider_output(arn: Optional[pulumi.Input[Optional[str]
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.iam.get_open_id_connect_provider(arn="arn:aws:iam::123456789012:oidc-provider/accounts.google.com")
     ```
+    <!--End PulumiCodeChooser -->
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.iam.get_open_id_connect_provider(url="https://accounts.google.com")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str arn: ARN of the OpenID Connect provider.

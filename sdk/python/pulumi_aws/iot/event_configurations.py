@@ -72,6 +72,7 @@ class EventConfigurations(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -90,13 +91,14 @@ class EventConfigurations(pulumi.CustomResource):
             "CA_CERTIFICATE": False,
         })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IoT Event Configurations using the AWS Region. For example:
 
         ```sh
-         $ pulumi import aws:iot/eventConfigurations:EventConfigurations example us-west-2
+        $ pulumi import aws:iot/eventConfigurations:EventConfigurations example us-west-2
         ```
 
         :param str resource_name: The name of the resource.
@@ -116,6 +118,7 @@ class EventConfigurations(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -134,13 +137,14 @@ class EventConfigurations(pulumi.CustomResource):
             "CA_CERTIFICATE": False,
         })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IoT Event Configurations using the AWS Region. For example:
 
         ```sh
-         $ pulumi import aws:iot/eventConfigurations:EventConfigurations example us-west-2
+        $ pulumi import aws:iot/eventConfigurations:EventConfigurations example us-west-2
         ```
 
         :param str resource_name: The name of the resource.

@@ -85,8 +85,10 @@ class DelegatedAdminAccount(pulumi.CustomResource):
         Resource for managing an Amazon Inspector Delegated Admin Account.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -94,13 +96,14 @@ class DelegatedAdminAccount(pulumi.CustomResource):
         current = aws.get_caller_identity()
         example = aws.inspector2.DelegatedAdminAccount("example", account_id=current.account_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Inspector Delegated Admin Account using the `account_id`. For example:
 
         ```sh
-         $ pulumi import aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount example 012345678901
+        $ pulumi import aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount example 012345678901
         ```
 
         :param str resource_name: The name of the resource.
@@ -117,8 +120,10 @@ class DelegatedAdminAccount(pulumi.CustomResource):
         Resource for managing an Amazon Inspector Delegated Admin Account.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -126,13 +131,14 @@ class DelegatedAdminAccount(pulumi.CustomResource):
         current = aws.get_caller_identity()
         example = aws.inspector2.DelegatedAdminAccount("example", account_id=current.account_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Inspector Delegated Admin Account using the `account_id`. For example:
 
         ```sh
-         $ pulumi import aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount example 012345678901
+        $ pulumi import aws:inspector2/delegatedAdminAccount:DelegatedAdminAccount example 012345678901
         ```
 
         :param str resource_name: The name of the resource.

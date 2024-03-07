@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -25,13 +26,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_apigatewayv2_vpc_link` using the VPC Link identifier. For example:
  *
  * ```sh
- *  $ pulumi import aws:apigatewayv2/vpcLink:VpcLink example aabbccddee
+ * $ pulumi import aws:apigatewayv2/vpcLink:VpcLink example aabbccddee
  * ```
  */
 export class VpcLink extends pulumi.CustomResource {

@@ -427,6 +427,7 @@ class SecurityGroupEgressRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -438,13 +439,14 @@ class SecurityGroupEgressRule(pulumi.CustomResource):
             ip_protocol="tcp",
             to_port=80)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import security group egress rules using the `security_group_rule_id`. For example:
 
         ```sh
-         $ pulumi import aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule example sgr-02108b27edd666983
+        $ pulumi import aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule example sgr-02108b27edd666983
         ```
 
         :param str resource_name: The name of the resource.
@@ -478,6 +480,7 @@ class SecurityGroupEgressRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -489,13 +492,14 @@ class SecurityGroupEgressRule(pulumi.CustomResource):
             ip_protocol="tcp",
             to_port=80)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import security group egress rules using the `security_group_rule_id`. For example:
 
         ```sh
-         $ pulumi import aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule example sgr-02108b27edd666983
+        $ pulumi import aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule example sgr-02108b27edd666983
         ```
 
         :param str resource_name: The name of the resource.

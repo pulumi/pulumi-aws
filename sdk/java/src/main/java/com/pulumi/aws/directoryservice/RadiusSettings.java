@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Manages a directory&#39;s multi-factor authentication (MFA) using a Remote Authentication Dial In User Service (RADIUS) server.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -56,13 +58,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import RADIUS settings using the directory ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:directoryservice/radiusSettings:RadiusSettings example d-926724cf57
+ * $ pulumi import aws:directoryservice/radiusSettings:RadiusSettings example d-926724cf57
  * ```
  * 
  */

@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -31,10 +32,13 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Ignoring Changes to Desired Size
  *
  * You can utilize [ignoreChanges](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) create an EKS Node Group with an initial size of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -43,32 +47,11 @@ import * as utilities from "../utilities";
  *     desiredSize: 2,
  * }});
  * ```
- * ### Tracking the latest EKS Node Group AMI releases
+ * <!--End PulumiCodeChooser -->
  *
- * You can have the node group track the latest version of the Amazon EKS optimized Amazon Linux AMI for a given EKS version by querying an Amazon provided SSM parameter. Replace `amazon-linux-2` in the parameter name below with `amazon-linux-2-gpu` to retrieve the  accelerated AMI version and `amazon-linux-2-arm64` to retrieve the Arm version.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const eksAmiReleaseVersion = aws.ssm.getParameter({
- *     name: `/aws/service/eks/optimized-ami/${exampleAwsEksCluster.version}/amazon-linux-2/recommended/release_version`,
- * });
- * const example = new aws.eks.NodeGroup("example", {
- *     clusterName: exampleAwsEksCluster.name,
- *     nodeGroupName: "example",
- *     version: exampleAwsEksCluster.version,
- *     releaseVersion: notImplemented("nonsensitive(data.aws_ssm_parameter.eks_ami_release_version.value)"),
- *     nodeRoleArn: exampleAwsIamRole.arn,
- *     subnetIds: exampleAwsSubnet.map(__item => __item.id),
- * });
- * ```
  * ### Example IAM Role for EKS Node Group
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -99,8 +82,11 @@ import * as utilities from "../utilities";
  *     role: example.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Example Subnets for EKS Node Group
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -122,13 +108,14 @@ import * as utilities from "../utilities";
  *     }));
  * }
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import EKS Node Groups using the `cluster_name` and `node_group_name` separated by a colon (`:`). For example:
  *
  * ```sh
- *  $ pulumi import aws:eks/nodeGroup:NodeGroup my_node_group my_cluster:my_node_group
+ * $ pulumi import aws:eks/nodeGroup:NodeGroup my_node_group my_cluster:my_node_group
  * ```
  */
 export class NodeGroup extends pulumi.CustomResource {

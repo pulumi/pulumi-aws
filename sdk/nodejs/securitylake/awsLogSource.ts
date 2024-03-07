@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Resource for managing an Amazon Security Lake AWS Log Source.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,13 +26,14 @@ import * as utilities from "../utilities";
  *     sourceVersion: "1.0",
  * }});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import AWS log sources using the source name. For example:
  *
  * ```sh
- *  $ pulumi import aws:securitylake/awsLogSource:AwsLogSource example ROUTE53
+ * $ pulumi import aws:securitylake/awsLogSource:AwsLogSource example ROUTE53
  * ```
  */
 export class AwsLogSource extends pulumi.CustomResource {

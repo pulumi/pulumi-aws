@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides an AppConfig Deployment resource for an `aws.appconfig.Application` resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -55,13 +57,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import AppConfig Deployments using the application ID, environment ID, and deployment number separated by a slash (`/`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:appconfig/deployment:Deployment example 71abcde/11xxxxx/1
+ * $ pulumi import aws:appconfig/deployment:Deployment example 71abcde/11xxxxx/1
  * ```
  * 
  */

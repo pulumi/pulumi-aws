@@ -20,8 +20,10 @@ import (
 // see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail).
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -52,8 +54,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Public Domain Names
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -86,8 +91,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Private Registry Access
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -145,15 +153,14 @@ import (
 // })
 // }
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Lightsail Container Service using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:lightsail/containerService:ContainerService my_container_service container-service-1
-//
+// $ pulumi import aws:lightsail/containerService:ContainerService my_container_service container-service-1
 // ```
 type ContainerService struct {
 	pulumi.CustomResourceState

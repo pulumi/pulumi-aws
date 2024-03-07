@@ -21,8 +21,10 @@ import (
 // `cfg.Recorder` resource.
 //
 // ## Example Usage
+//
 // ### Template Body
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -68,8 +70,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Template S3 URI
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -125,15 +130,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Config Conformance Packs using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cfg/conformancePack:ConformancePack example example
-//
+// $ pulumi import aws:cfg/conformancePack:ConformancePack example example
 // ```
 type ConformancePack struct {
 	pulumi.CustomResourceState

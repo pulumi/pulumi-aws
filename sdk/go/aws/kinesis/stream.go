@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -53,15 +54,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Kinesis Streams using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:kinesis/stream:Stream test_stream pulumi-kinesis-test
-//
+// $ pulumi import aws:kinesis/stream:Stream test_stream pulumi-kinesis-test
 // ```
 type Stream struct {
 	pulumi.CustomResourceState

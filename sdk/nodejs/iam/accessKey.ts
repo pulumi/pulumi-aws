@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -35,7 +36,9 @@ import * as utilities from "../utilities";
  * });
  * export const secret = lb.encryptedSecret;
  * ```
+ * <!--End PulumiCodeChooser -->
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -47,15 +50,16 @@ import * as utilities from "../utilities";
  * const testAccessKey = new aws.iam.AccessKey("test", {user: test.name});
  * export const awsIamSmtpPasswordV4 = testAccessKey.sesSmtpPasswordV4;
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import IAM Access Keys using the identifier. For example:
  *
  * ```sh
- *  $ pulumi import aws:iam/accessKey:AccessKey example AKIA1234567890
+ * $ pulumi import aws:iam/accessKey:AccessKey example AKIA1234567890
  * ```
- *  Resource attributes such as `encrypted_secret`, `key_fingerprint`, `pgp_key`, `secret`, `ses_smtp_password_v4`, and `encrypted_ses_smtp_password_v4` are not available for imported resources as this information cannot be read from the IAM API.
+ * Resource attributes such as `encrypted_secret`, `key_fingerprint`, `pgp_key`, `secret`, `ses_smtp_password_v4`, and `encrypted_ses_smtp_password_v4` are not available for imported resources as this information cannot be read from the IAM API.
  */
 export class AccessKey extends pulumi.CustomResource {
     /**

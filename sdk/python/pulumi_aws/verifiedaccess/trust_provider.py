@@ -328,6 +328,7 @@ class TrustProvider(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -337,15 +338,14 @@ class TrustProvider(pulumi.CustomResource):
             trust_provider_type="user",
             user_trust_provider_type="iam-identity-center")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Using `pulumi import`, import Transfer Workflows using the
-
-        `id`. For example:
+        Using `pulumi import`, import Transfer Workflows using the  `id`. For example:
 
         ```sh
-         $ pulumi import aws:verifiedaccess/trustProvider:TrustProvider example vatp-8012925589
+        $ pulumi import aws:verifiedaccess/trustProvider:TrustProvider example vatp-8012925589
         ```
 
         :param str resource_name: The name of the resource.
@@ -372,6 +372,7 @@ class TrustProvider(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -381,15 +382,14 @@ class TrustProvider(pulumi.CustomResource):
             trust_provider_type="user",
             user_trust_provider_type="iam-identity-center")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Using `pulumi import`, import Transfer Workflows using the
-
-        `id`. For example:
+        Using `pulumi import`, import Transfer Workflows using the  `id`. For example:
 
         ```sh
-         $ pulumi import aws:verifiedaccess/trustProvider:TrustProvider example vatp-8012925589
+        $ pulumi import aws:verifiedaccess/trustProvider:TrustProvider example vatp-8012925589
         ```
 
         :param str resource_name: The name of the resource.

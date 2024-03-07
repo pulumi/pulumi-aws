@@ -275,6 +275,7 @@ class SnapshotSchedule(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -283,13 +284,14 @@ class SnapshotSchedule(pulumi.CustomResource):
             identifier="tf-redshift-snapshot-schedule",
             definitions=["rate(12 hours)"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Snapshot Schedule using the `identifier`. For example:
 
         ```sh
-         $ pulumi import aws:redshift/snapshotSchedule:SnapshotSchedule default tf-redshift-snapshot-schedule
+        $ pulumi import aws:redshift/snapshotSchedule:SnapshotSchedule default tf-redshift-snapshot-schedule
         ```
 
         :param str resource_name: The name of the resource.
@@ -311,6 +313,7 @@ class SnapshotSchedule(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -319,13 +322,14 @@ class SnapshotSchedule(pulumi.CustomResource):
             identifier="tf-redshift-snapshot-schedule",
             definitions=["rate(12 hours)"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Snapshot Schedule using the `identifier`. For example:
 
         ```sh
-         $ pulumi import aws:redshift/snapshotSchedule:SnapshotSchedule default tf-redshift-snapshot-schedule
+        $ pulumi import aws:redshift/snapshotSchedule:SnapshotSchedule default tf-redshift-snapshot-schedule
         ```
 
         :param str resource_name: The name of the resource.

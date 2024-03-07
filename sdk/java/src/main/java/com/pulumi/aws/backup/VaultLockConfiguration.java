@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides an AWS Backup vault lock configuration resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,13 +52,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Backup vault lock configuration using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:backup/vaultLockConfiguration:VaultLockConfiguration test TestVault
+ * $ pulumi import aws:backup/vaultLockConfiguration:VaultLockConfiguration test TestVault
  * ```
  * 
  */

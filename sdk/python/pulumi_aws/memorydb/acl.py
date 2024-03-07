@@ -226,6 +226,7 @@ class Acl(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -237,13 +238,14 @@ class Acl(pulumi.CustomResource):
                 "my-user-2",
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import an ACL using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:memorydb/acl:Acl example my-acl
+        $ pulumi import aws:memorydb/acl:Acl example my-acl
         ```
 
         :param str resource_name: The name of the resource.
@@ -266,6 +268,7 @@ class Acl(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -277,13 +280,14 @@ class Acl(pulumi.CustomResource):
                 "my-user-2",
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import an ACL using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:memorydb/acl:Acl example my-acl
+        $ pulumi import aws:memorydb/acl:Acl example my-acl
         ```
 
         :param str resource_name: The name of the resource.

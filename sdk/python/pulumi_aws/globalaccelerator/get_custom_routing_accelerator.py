@@ -135,6 +135,7 @@ def get_custom_routing_accelerator(arn: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -149,6 +150,7 @@ def get_custom_routing_accelerator(arn: Optional[str] = None,
     example = aws.globalaccelerator.get_custom_routing_accelerator(arn=accelerator_arn,
         name=accelerator_name)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str arn: Full ARN of the custom routing accelerator.
@@ -186,6 +188,7 @@ def get_custom_routing_accelerator_output(arn: Optional[pulumi.Input[Optional[st
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -200,6 +203,7 @@ def get_custom_routing_accelerator_output(arn: Optional[pulumi.Input[Optional[st
     example = aws.globalaccelerator.get_custom_routing_accelerator(arn=accelerator_arn,
         name=accelerator_name)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str arn: Full ARN of the custom routing accelerator.

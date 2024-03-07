@@ -14,6 +14,7 @@ namespace Pulumi.Aws.AppStream
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -52,13 +53,14 @@ namespace Pulumi.Aws.AppStream
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_appstream_fleet` using the id. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:appstream/fleet:Fleet example fleetNameExample
+    /// $ pulumi import aws:appstream/fleet:Fleet example fleetNameExample
     /// ```
     /// </summary>
     [AwsResourceType("aws:appstream/fleet:Fleet")]

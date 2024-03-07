@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,6 +21,7 @@ import * as utilities from "../utilities";
  *     arn: "arn:aws:imagebuilder:us-west-2:aws:distribution-configuration/example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDistributionConfiguration(args: GetDistributionConfigurationArgs, opts?: pulumi.InvokeOptions): Promise<GetDistributionConfigurationResult> {
 
@@ -83,6 +85,7 @@ export interface GetDistributionConfigurationResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -91,6 +94,7 @@ export interface GetDistributionConfigurationResult {
  *     arn: "arn:aws:imagebuilder:us-west-2:aws:distribution-configuration/example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDistributionConfigurationOutput(args: GetDistributionConfigurationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDistributionConfigurationResult> {
     return pulumi.output(args).apply((a: any) => getDistributionConfiguration(a, opts))

@@ -14,8 +14,10 @@ import (
 // Provides details about resource tagging.
 //
 // ## Example Usage
+//
 // ### Get All Resource Tag Mappings
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -37,8 +39,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Filter By Tag Key and Value
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -70,8 +75,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Filter By Resource Type
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -97,6 +105,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetResources(ctx *pulumi.Context, args *GetResourcesArgs, opts ...pulumi.InvokeOption) (*GetResourcesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetResourcesResult

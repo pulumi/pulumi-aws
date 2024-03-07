@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -41,13 +42,14 @@ namespace Pulumi.Aws.Route53
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Route53 Delegation Sets using the delegation set `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:route53/delegationSet:DelegationSet set1 N1PA6795SAMPLE
+    /// $ pulumi import aws:route53/delegationSet:DelegationSet set1 N1PA6795SAMPLE
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53/delegationSet:DelegationSet")]

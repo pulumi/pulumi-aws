@@ -18,8 +18,10 @@ import (
 // > **NOTE:** An `opensearch.ServerlessCollection` is not accessible without configuring an applicable network security policy. Data cannot be accessed without configuring an applicable data access policy.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -68,15 +70,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import OpenSearchServerless Collection using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:opensearch/serverlessCollection:ServerlessCollection example example
-//
+// $ pulumi import aws:opensearch/serverlessCollection:ServerlessCollection example example
 // ```
 type ServerlessCollection struct {
 	pulumi.CustomResourceState

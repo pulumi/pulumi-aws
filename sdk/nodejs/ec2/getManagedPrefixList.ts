@@ -12,8 +12,10 @@ import * as utilities from "../utilities";
  * customer-managed prefix list in the current region.
  *
  * ## Example Usage
+ *
  * ### Find the regional DynamoDB prefix list
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,8 +25,11 @@ import * as utilities from "../utilities";
  *     name: `com.amazonaws.${current.name}.dynamodb`,
  * }));
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Find a managed prefix list using filters
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -36,6 +41,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getManagedPrefixList(args?: GetManagedPrefixListArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedPrefixListResult> {
     args = args || {};
@@ -115,8 +121,10 @@ export interface GetManagedPrefixListResult {
  * customer-managed prefix list in the current region.
  *
  * ## Example Usage
+ *
  * ### Find the regional DynamoDB prefix list
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -126,8 +134,11 @@ export interface GetManagedPrefixListResult {
  *     name: `com.amazonaws.${current.name}.dynamodb`,
  * }));
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Find a managed prefix list using filters
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -139,6 +150,7 @@ export interface GetManagedPrefixListResult {
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getManagedPrefixListOutput(args?: GetManagedPrefixListOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedPrefixListResult> {
     return pulumi.output(args).apply((a: any) => getManagedPrefixList(a, opts))

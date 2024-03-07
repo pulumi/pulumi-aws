@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * in [AWS Docs](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/placement-groups.html).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,13 +52,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import placement groups using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/placementGroup:PlacementGroup prod_pg production-placement-group
+ * $ pulumi import aws:ec2/placementGroup:PlacementGroup prod_pg production-placement-group
  * ```
  * 
  */

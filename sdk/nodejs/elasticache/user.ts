@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  * > **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -25,7 +26,9 @@ import * as utilities from "../utilities";
  *     passwords: ["password123456789"],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -40,7 +43,9 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -59,13 +64,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import ElastiCache users using the `user_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:elasticache/user:User my_user userId1
+ * $ pulumi import aws:elasticache/user:User my_user userId1
  * ```
  */
 export class User extends pulumi.CustomResource {

@@ -15,8 +15,10 @@ import (
 // Provides an SSM Maintenance Window Task resource
 //
 // ## Example Usage
+//
 // ### Automation Tasks
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -66,8 +68,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Lambda Tasks
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -117,8 +122,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Run Command Tasks
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -178,8 +186,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Step Function Tasks
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -222,15 +233,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import AWS Maintenance Window Task using the `window_id` and `window_task_id` separated by `/`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ssm/maintenanceWindowTask:MaintenanceWindowTask task <window_id>/<window_task_id>
-//
+// $ pulumi import aws:ssm/maintenanceWindowTask:MaintenanceWindowTask task <window_id>/<window_task_id>
 // ```
 type MaintenanceWindowTask struct {
 	pulumi.CustomResourceState

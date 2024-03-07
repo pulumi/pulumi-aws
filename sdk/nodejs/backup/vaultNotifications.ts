@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -40,13 +41,14 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Backup vault notifications using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:backup/vaultNotifications:VaultNotifications test TestVault
+ * $ pulumi import aws:backup/vaultNotifications:VaultNotifications test TestVault
  * ```
  */
 export class VaultNotifications extends pulumi.CustomResource {

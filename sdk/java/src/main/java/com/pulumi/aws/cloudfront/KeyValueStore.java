@@ -19,7 +19,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS CloudFront Key Value Store.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,13 +52,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import CloudFront Key Value Store using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cloudfront/keyValueStore:KeyValueStore example example_store
+ * $ pulumi import aws:cloudfront/keyValueStore:KeyValueStore example example_store
  * ```
  * 
  */

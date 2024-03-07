@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Provides an AWS Backup Report Plan resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -62,13 +64,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Backup Report Plan using the `id` which corresponds to the name of the Backup Report Plan. For example:
  * 
  * ```sh
- *  $ pulumi import aws:backup/reportPlan:ReportPlan test &lt;id&gt;
+ * $ pulumi import aws:backup/reportPlan:ReportPlan test &lt;id&gt;
  * ```
  * 
  */

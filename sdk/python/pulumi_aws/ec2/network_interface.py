@@ -797,6 +797,7 @@ class NetworkInterface(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -810,6 +811,8 @@ class NetworkInterface(pulumi.CustomResource):
                 device_index=1,
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example of Managing Multiple IPs on a Network Interface
 
         By default, private IPs are managed through the `private_ips` and `private_ips_count` arguments which manage IPs as a set of IPs that are configured without regard to order. For a new network interface, the same primary IP address is consistently selected from a given set of addresses, regardless of the order provided. However, modifications of the set of addresses of an existing interface will not alter the current primary IP address unless it has been removed from the set.
@@ -832,7 +835,7 @@ class NetworkInterface(pulumi.CustomResource):
         Using `pulumi import`, import Network Interfaces using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/networkInterface:NetworkInterface test eni-e5aa89a3
+        $ pulumi import aws:ec2/networkInterface:NetworkInterface test eni-e5aa89a3
         ```
 
         :param str resource_name: The name of the resource.
@@ -870,6 +873,7 @@ class NetworkInterface(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -883,6 +887,8 @@ class NetworkInterface(pulumi.CustomResource):
                 device_index=1,
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example of Managing Multiple IPs on a Network Interface
 
         By default, private IPs are managed through the `private_ips` and `private_ips_count` arguments which manage IPs as a set of IPs that are configured without regard to order. For a new network interface, the same primary IP address is consistently selected from a given set of addresses, regardless of the order provided. However, modifications of the set of addresses of an existing interface will not alter the current primary IP address unless it has been removed from the set.
@@ -905,7 +911,7 @@ class NetworkInterface(pulumi.CustomResource):
         Using `pulumi import`, import Network Interfaces using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/networkInterface:NetworkInterface test eni-e5aa89a3
+        $ pulumi import aws:ec2/networkInterface:NetworkInterface test eni-e5aa89a3
         ```
 
         :param str resource_name: The name of the resource.

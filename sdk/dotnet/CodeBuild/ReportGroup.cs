@@ -14,6 +14,7 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -87,13 +88,14 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CodeBuild Report Group using the CodeBuild Report Group arn. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:codebuild/reportGroup:ReportGroup example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
+    /// $ pulumi import aws:codebuild/reportGroup:ReportGroup example arn:aws:codebuild:us-west-2:123456789:report-group/report-group-name
     /// ```
     /// </summary>
     [AwsResourceType("aws:codebuild/reportGroup:ReportGroup")]

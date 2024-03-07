@@ -15,8 +15,10 @@ import (
 // Provides an Amazon Managed Grafana workspace role association resource.
 //
 // ## Example Usage
+//
 // ### Basic configuration
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -83,6 +85,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type RoleAssociation struct {
 	pulumi.CustomResourceState
 

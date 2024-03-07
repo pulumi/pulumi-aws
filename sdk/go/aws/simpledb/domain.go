@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,15 +39,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SimpleDB Domains using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:simpledb/domain:Domain users users
-//
+// $ pulumi import aws:simpledb/domain:Domain users users
 // ```
 type Domain struct {
 	pulumi.CustomResourceState

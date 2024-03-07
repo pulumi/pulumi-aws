@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -84,15 +85,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Opsworks Application using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:opsworks/application:Application test <id>
-//
+// $ pulumi import aws:opsworks/application:Application test <id>
 // ```
 type Application struct {
 	pulumi.CustomResourceState

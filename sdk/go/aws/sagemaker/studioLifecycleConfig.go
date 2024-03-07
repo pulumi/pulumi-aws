@@ -15,8 +15,10 @@ import (
 // Provides a SageMaker Studio Lifecycle Config resource.
 //
 // ## Example Usage
+//
 // ### Basic usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,15 +51,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SageMaker Studio Lifecycle Configs using the `studio_lifecycle_config_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig example example
-//
+// $ pulumi import aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig example example
 // ```
 type StudioLifecycleConfig struct {
 	pulumi.CustomResourceState

@@ -27,6 +27,8 @@ public final class ElasticacheFunctions {
      * Use this data source to get information about an ElastiCache Cluster
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -55,6 +57,7 @@ public final class ElasticacheFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetClusterResult> getCluster(GetClusterArgs args) {
@@ -64,6 +67,8 @@ public final class ElasticacheFunctions {
      * Use this data source to get information about an ElastiCache Cluster
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -92,6 +97,7 @@ public final class ElasticacheFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetClusterResult> getClusterPlain(GetClusterPlainArgs args) {
@@ -101,6 +107,8 @@ public final class ElasticacheFunctions {
      * Use this data source to get information about an ElastiCache Cluster
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -129,6 +137,7 @@ public final class ElasticacheFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetClusterResult> getCluster(GetClusterArgs args, InvokeOptions options) {
@@ -138,6 +147,8 @@ public final class ElasticacheFunctions {
      * Use this data source to get information about an ElastiCache Cluster
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -166,6 +177,7 @@ public final class ElasticacheFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetClusterResult> getClusterPlain(GetClusterPlainArgs args, InvokeOptions options) {
@@ -175,6 +187,8 @@ public final class ElasticacheFunctions {
      * Use this data source to get information about an ElastiCache Replication Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -203,6 +217,7 @@ public final class ElasticacheFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetReplicationGroupResult> getReplicationGroup(GetReplicationGroupArgs args) {
@@ -212,6 +227,8 @@ public final class ElasticacheFunctions {
      * Use this data source to get information about an ElastiCache Replication Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -240,6 +257,7 @@ public final class ElasticacheFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetReplicationGroupResult> getReplicationGroupPlain(GetReplicationGroupPlainArgs args) {
@@ -249,6 +267,8 @@ public final class ElasticacheFunctions {
      * Use this data source to get information about an ElastiCache Replication Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -277,6 +297,7 @@ public final class ElasticacheFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetReplicationGroupResult> getReplicationGroup(GetReplicationGroupArgs args, InvokeOptions options) {
@@ -286,6 +307,8 @@ public final class ElasticacheFunctions {
      * Use this data source to get information about an ElastiCache Replication Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -314,6 +337,7 @@ public final class ElasticacheFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetReplicationGroupResult> getReplicationGroupPlain(GetReplicationGroupPlainArgs args, InvokeOptions options) {
@@ -323,6 +347,8 @@ public final class ElasticacheFunctions {
      * Provides information about a ElastiCache Subnet Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -351,6 +377,7 @@ public final class ElasticacheFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSubnetGroupResult> getSubnetGroup(GetSubnetGroupArgs args) {
@@ -360,6 +387,8 @@ public final class ElasticacheFunctions {
      * Provides information about a ElastiCache Subnet Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -388,6 +417,7 @@ public final class ElasticacheFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSubnetGroupResult> getSubnetGroupPlain(GetSubnetGroupPlainArgs args) {
@@ -397,6 +427,8 @@ public final class ElasticacheFunctions {
      * Provides information about a ElastiCache Subnet Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -425,6 +457,7 @@ public final class ElasticacheFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSubnetGroupResult> getSubnetGroup(GetSubnetGroupArgs args, InvokeOptions options) {
@@ -434,6 +467,8 @@ public final class ElasticacheFunctions {
      * Provides information about a ElastiCache Subnet Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -462,6 +497,7 @@ public final class ElasticacheFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSubnetGroupResult> getSubnetGroupPlain(GetSubnetGroupPlainArgs args, InvokeOptions options) {
@@ -471,6 +507,8 @@ public final class ElasticacheFunctions {
      * Use this data source to get information about an ElastiCache User.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -499,6 +537,7 @@ public final class ElasticacheFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserResult> getUser(GetUserArgs args) {
@@ -508,6 +547,8 @@ public final class ElasticacheFunctions {
      * Use this data source to get information about an ElastiCache User.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -536,6 +577,7 @@ public final class ElasticacheFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserResult> getUserPlain(GetUserPlainArgs args) {
@@ -545,6 +587,8 @@ public final class ElasticacheFunctions {
      * Use this data source to get information about an ElastiCache User.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -573,6 +617,7 @@ public final class ElasticacheFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserResult> getUser(GetUserArgs args, InvokeOptions options) {
@@ -582,6 +627,8 @@ public final class ElasticacheFunctions {
      * Use this data source to get information about an ElastiCache User.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -610,6 +657,7 @@ public final class ElasticacheFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserResult> getUserPlain(GetUserPlainArgs args, InvokeOptions options) {

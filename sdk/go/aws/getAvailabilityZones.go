@@ -21,8 +21,10 @@ import (
 // > When [Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/) are enabled in a region, by default the API and this data source include both Local Zones and Availability Zones. To return only Availability Zones, see the example section below.
 //
 // ## Example Usage
+//
 // ### By State
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -61,10 +63,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### By Filter
 //
 // All Local Zones (regardless of opt-in status):
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -97,9 +102,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // Only Availability Zones (no Local Zones):
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -130,6 +137,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetAvailabilityZones(ctx *pulumi.Context, args *GetAvailabilityZonesArgs, opts ...pulumi.InvokeOption) (*GetAvailabilityZonesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAvailabilityZonesResult

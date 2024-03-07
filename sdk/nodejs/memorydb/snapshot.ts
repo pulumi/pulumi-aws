@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,13 +24,14 @@ import * as utilities from "../utilities";
  *     name: "my-snapshot",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import a snapshot using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:memorydb/snapshot:Snapshot example my-snapshot
+ * $ pulumi import aws:memorydb/snapshot:Snapshot example my-snapshot
  * ```
  */
 export class Snapshot extends pulumi.CustomResource {

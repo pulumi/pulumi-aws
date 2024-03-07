@@ -627,12 +627,14 @@ def get_instance_type(instance_type: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.ec2.get_instance_type(instance_type="t2.micro")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str instance_type: Instance
@@ -701,12 +703,14 @@ def get_instance_type_output(instance_type: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.ec2.get_instance_type(instance_type="t2.micro")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str instance_type: Instance

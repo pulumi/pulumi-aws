@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,6 +22,7 @@ import * as utilities from "../utilities";
  *     reportName: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getReportDefinition(args: GetReportDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetReportDefinitionResult> {
 
@@ -99,6 +101,7 @@ export interface GetReportDefinitionResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -107,6 +110,7 @@ export interface GetReportDefinitionResult {
  *     reportName: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getReportDefinitionOutput(args: GetReportDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReportDefinitionResult> {
     return pulumi.output(args).apply((a: any) => getReportDefinition(a, opts))

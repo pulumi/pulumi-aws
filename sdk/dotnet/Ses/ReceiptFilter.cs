@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Ses
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,13 +32,14 @@ namespace Pulumi.Aws.Ses
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SES Receipt Filter using their `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ses/receiptFilter:ReceiptFilter test some-filter
+    /// $ pulumi import aws:ses/receiptFilter:ReceiptFilter test some-filter
     /// ```
     /// </summary>
     [AwsResourceType("aws:ses/receiptFilter:ReceiptFilter")]

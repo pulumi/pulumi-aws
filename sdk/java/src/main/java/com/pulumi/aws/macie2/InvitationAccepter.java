@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Provides a resource to manage an [Amazon Macie Invitation Accepter](https://docs.aws.amazon.com/macie/latest/APIReference/invitations-accept.html).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -59,13 +61,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_macie2_invitation_accepter` using the admin account ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:macie2/invitationAccepter:InvitationAccepter example 123456789012
+ * $ pulumi import aws:macie2/invitationAccepter:InvitationAccepter example 123456789012
  * ```
  * 
  */

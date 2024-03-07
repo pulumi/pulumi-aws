@@ -18,6 +18,7 @@ import (
 //
 // To register a basic SWF domain:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,15 +44,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SWF Domains using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:swf/domain:Domain foo test-domain
-//
+// $ pulumi import aws:swf/domain:Domain foo test-domain
 // ```
 type Domain struct {
 	pulumi.CustomResourceState

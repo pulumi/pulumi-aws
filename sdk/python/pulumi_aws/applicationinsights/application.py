@@ -347,6 +347,7 @@ class Application(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -365,13 +366,14 @@ class Application(pulumi.CustomResource):
             ))
         example = aws.applicationinsights.Application("example", resource_group_name=example_group.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ApplicationInsights Applications using the `resource_group_name`. For example:
 
         ```sh
-         $ pulumi import aws:applicationinsights/application:Application some some-application
+        $ pulumi import aws:applicationinsights/application:Application some some-application
         ```
 
         :param str resource_name: The name of the resource.
@@ -398,6 +400,7 @@ class Application(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -416,13 +419,14 @@ class Application(pulumi.CustomResource):
             ))
         example = aws.applicationinsights.Application("example", resource_group_name=example_group.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ApplicationInsights Applications using the `resource_group_name`. For example:
 
         ```sh
-         $ pulumi import aws:applicationinsights/application:Application some some-application
+        $ pulumi import aws:applicationinsights/application:Application some some-application
         ```
 
         :param str resource_name: The name of the resource.

@@ -102,6 +102,7 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -110,6 +111,8 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
             vpc_id=foo_aws_vpc["id"],
             dhcp_options_id=foo["id"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Remarks
 
         * You can only associate one DHCP Options Set to a given VPC ID.
@@ -120,7 +123,7 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
         Using `pulumi import`, import DHCP associations using the VPC ID associated with the options. For example:
 
         ```sh
-         $ pulumi import aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation imported vpc-0f001273ec18911b1
+        $ pulumi import aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation imported vpc-0f001273ec18911b1
         ```
 
         :param str resource_name: The name of the resource.
@@ -139,6 +142,7 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -147,6 +151,8 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
             vpc_id=foo_aws_vpc["id"],
             dhcp_options_id=foo["id"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Remarks
 
         * You can only associate one DHCP Options Set to a given VPC ID.
@@ -157,7 +163,7 @@ class VpcDhcpOptionsAssociation(pulumi.CustomResource):
         Using `pulumi import`, import DHCP associations using the VPC ID associated with the options. For example:
 
         ```sh
-         $ pulumi import aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation imported vpc-0f001273ec18911b1
+        $ pulumi import aws:ec2/vpcDhcpOptionsAssociation:VpcDhcpOptionsAssociation imported vpc-0f001273ec18911b1
         ```
 
         :param str resource_name: The name of the resource.

@@ -176,6 +176,7 @@ class Discoverer(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -185,13 +186,14 @@ class Discoverer(pulumi.CustomResource):
             source_arn=messenger.arn,
             description="Auto discover event schemas")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EventBridge discoverers using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:schemas/discoverer:Discoverer test 123
+        $ pulumi import aws:schemas/discoverer:Discoverer test 123
         ```
 
         :param str resource_name: The name of the resource.
@@ -213,6 +215,7 @@ class Discoverer(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -222,13 +225,14 @@ class Discoverer(pulumi.CustomResource):
             source_arn=messenger.arn,
             description="Auto discover event schemas")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EventBridge discoverers using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:schemas/discoverer:Discoverer test 123
+        $ pulumi import aws:schemas/discoverer:Discoverer test 123
         ```
 
         :param str resource_name: The name of the resource.

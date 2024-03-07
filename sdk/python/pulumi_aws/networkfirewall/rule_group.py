@@ -355,8 +355,10 @@ class RuleGroup(pulumi.CustomResource):
         Provides an AWS Network Firewall Rule Group Resource
 
         ## Example Usage
+
         ### Stateful Inspection for denying access to a domain
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -379,8 +381,11 @@ class RuleGroup(pulumi.CustomResource):
                 "Tag2": "Value2",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Stateful Inspection for permitting packets from a source IP address
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -417,8 +422,11 @@ class RuleGroup(pulumi.CustomResource):
                 "Name": "permit HTTP from source",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Stateful Inspection for blocking packets from going to an intended destination
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -451,8 +459,11 @@ class RuleGroup(pulumi.CustomResource):
                 "Tag2": "Value2",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Stateful Inspection from rules specifications defined in Suricata flat format
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -468,8 +479,11 @@ class RuleGroup(pulumi.CustomResource):
                 "Tag2": "Value2",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Stateful Inspection from rule group specifications using rule variables and Suricata format rules
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -518,8 +532,11 @@ class RuleGroup(pulumi.CustomResource):
                 "Tag2": "Value2",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Stateless Inspection with a Custom Action
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -583,8 +600,11 @@ class RuleGroup(pulumi.CustomResource):
                 "Tag2": "Value2",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### IP Set References to the Rule Group
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -615,13 +635,14 @@ class RuleGroup(pulumi.CustomResource):
                 "Tag2": "Value2",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Network Firewall Rule Groups using their `arn`. For example:
 
         ```sh
-         $ pulumi import aws:networkfirewall/ruleGroup:RuleGroup example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
+        $ pulumi import aws:networkfirewall/ruleGroup:RuleGroup example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -645,8 +666,10 @@ class RuleGroup(pulumi.CustomResource):
         Provides an AWS Network Firewall Rule Group Resource
 
         ## Example Usage
+
         ### Stateful Inspection for denying access to a domain
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -669,8 +692,11 @@ class RuleGroup(pulumi.CustomResource):
                 "Tag2": "Value2",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Stateful Inspection for permitting packets from a source IP address
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -707,8 +733,11 @@ class RuleGroup(pulumi.CustomResource):
                 "Name": "permit HTTP from source",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Stateful Inspection for blocking packets from going to an intended destination
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -741,8 +770,11 @@ class RuleGroup(pulumi.CustomResource):
                 "Tag2": "Value2",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Stateful Inspection from rules specifications defined in Suricata flat format
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -758,8 +790,11 @@ class RuleGroup(pulumi.CustomResource):
                 "Tag2": "Value2",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Stateful Inspection from rule group specifications using rule variables and Suricata format rules
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -808,8 +843,11 @@ class RuleGroup(pulumi.CustomResource):
                 "Tag2": "Value2",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Stateless Inspection with a Custom Action
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -873,8 +911,11 @@ class RuleGroup(pulumi.CustomResource):
                 "Tag2": "Value2",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### IP Set References to the Rule Group
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -905,13 +946,14 @@ class RuleGroup(pulumi.CustomResource):
                 "Tag2": "Value2",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Network Firewall Rule Groups using their `arn`. For example:
 
         ```sh
-         $ pulumi import aws:networkfirewall/ruleGroup:RuleGroup example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
+        $ pulumi import aws:networkfirewall/ruleGroup:RuleGroup example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
         ```
 
         :param str resource_name: The name of the resource.

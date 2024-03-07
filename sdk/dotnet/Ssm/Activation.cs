@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -70,15 +71,16 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AWS SSM Activation using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ssm/activation:Activation example e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE
+    /// $ pulumi import aws:ssm/activation:Activation example e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE
     /// ```
-    ///  -&gt; __Note:__ The `activation_code` attribute cannot be imported.
+    /// -&gt; __Note:__ The `activation_code` attribute cannot be imported.
     /// </summary>
     [AwsResourceType("aws:ssm/activation:Activation")]
     public partial class Activation : global::Pulumi.CustomResource

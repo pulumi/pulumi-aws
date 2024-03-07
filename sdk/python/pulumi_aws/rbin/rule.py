@@ -313,8 +313,10 @@ class Rule(pulumi.CustomResource):
         Resource for managing an AWS RBin Rule.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -334,13 +336,14 @@ class Rule(pulumi.CustomResource):
                 "test_tag_key": "test_tag_value",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import RBin Rule using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:rbin/rule:Rule example examplerule
+        $ pulumi import aws:rbin/rule:Rule example examplerule
         ```
 
         :param str resource_name: The name of the resource.
@@ -363,8 +366,10 @@ class Rule(pulumi.CustomResource):
         Resource for managing an AWS RBin Rule.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -384,13 +389,14 @@ class Rule(pulumi.CustomResource):
                 "test_tag_key": "test_tag_value",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import RBin Rule using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:rbin/rule:Rule example examplerule
+        $ pulumi import aws:rbin/rule:Rule example examplerule
         ```
 
         :param str resource_name: The name of the resource.

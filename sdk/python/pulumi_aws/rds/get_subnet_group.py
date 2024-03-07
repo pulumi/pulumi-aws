@@ -132,12 +132,14 @@ def get_subnet_group(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     database = aws.rds.get_subnet_group(name="my-test-database-subnet-group")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the RDS database subnet group.
@@ -166,12 +168,14 @@ def get_subnet_group_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     database = aws.rds.get_subnet_group(name="my-test-database-subnet-group")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the RDS database subnet group.

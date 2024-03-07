@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Provides an Athena Named Query resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -86,13 +88,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Athena Named Query using the query ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:athena/namedQuery:NamedQuery example 0123456789
+ * $ pulumi import aws:athena/namedQuery:NamedQuery example 0123456789
  * ```
  * 
  */

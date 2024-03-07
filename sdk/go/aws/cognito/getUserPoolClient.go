@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +40,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupUserPoolClient(ctx *pulumi.Context, args *LookupUserPoolClientArgs, opts ...pulumi.InvokeOption) (*LookupUserPoolClientResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupUserPoolClientResult

@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,132 +25,7 @@ import * as utilities from "../utilities";
  *     transitGatewayRouteTableId: example.id,
  * });
  * ```
- * ### Complexe use case with transit gateway peering
- *
- * This example allow to create a mesh of transit gateway for différent regions routing all traffic to on-prem VPN
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const _this = new aws.ec2transitgateway.TransitGateway("this", {
- *     defaultRouteTableAssociation: "disable",
- *     defaultRouteTablePropagation: "disable",
- * });
- * const thisVpcAttachment = new aws.ec2transitgateway.VpcAttachment("this", {
- *     subnetIds: .map(s => (s.id)),
- *     transitGatewayId: _this[0].id,
- *     vpcId: thisAwsVpc.id,
- *     transitGatewayDefaultRouteTableAssociation: false,
- *     transitGatewayDefaultRouteTablePropagation: false,
- * });
- * const thisRouteTable = new aws.ec2transitgateway.RouteTable("this", {transitGatewayId: myTransitGatewayId});
- * const vpc = new aws.ec2transitgateway.RouteTableAssociation("vpc", {
- *     transitGatewayAttachmentId: thisVpcAttachment.id,
- *     transitGatewayRouteTableId: myTransitGatewayIdRouteTable,
- * });
- * const vpn = new aws.ec2transitgateway.RouteTableAssociation("vpn", {
- *     transitGatewayAttachmentId: thisAwsVpnConnection[0].transitGatewayAttachmentId,
- *     transitGatewayRouteTableId: myTransitGatewayIdRouteTable,
- * });
- * const vpcRouteTablePropagation = new aws.ec2transitgateway.RouteTablePropagation("vpc", {
- *     transitGatewayAttachmentId: thisVpcAttachment.id,
- *     transitGatewayRouteTableId: thisRouteTable.id,
- * });
- * const vpnRouteTablePropagation = new aws.ec2transitgateway.RouteTablePropagation("vpn", {
- *     transitGatewayAttachmentId: thisAwsVpnConnection[0].transitGatewayAttachmentId,
- *     transitGatewayRouteTableId: thisRouteTable.id,
- * });
- * const eu_central_1 = new aws.ec2transitgateway.TransitGateway("eu-central-1", {
- *     defaultRouteTableAssociation: "disable",
- *     defaultRouteTablePropagation: "disable",
- * });
- * const eu_central_1PeeringAttachment = new aws.ec2transitgateway.PeeringAttachment("eu-central-1", {
- *     peerRegion: "eu-central-1",
- *     peerTransitGatewayId: eu_central_1.id,
- *     transitGatewayId: _this[0].id,
- *     tags: {
- *         Name: "TGW mesh from eu-central-1",
- *     },
- * });
- * const eu_central_1RouteTable = new aws.ec2transitgateway.RouteTable("eu-central-1", {
- *     transitGatewayId: eu_central_1.id,
- *     tags: notImplemented("merge({Name=\"wl-transit-gateway-routetable-eu-central-1\"},local.global_tags)"),
- * });
- * const eu_central_1PeeringAttachmentAccepter = new aws.ec2transitgateway.PeeringAttachmentAccepter("eu-central-1", {
- *     transitGatewayAttachmentId: eu_central_1PeeringAttachment.id,
- *     tags: {
- *         Name: "Accepter TGW peering eu-central-1",
- *     },
- * });
- * const filtered-eu-central-1 = aws.ec2transitgateway.getVpcAttachments({
- *     filters: [{
- *         name: "state",
- *         values: [
- *             "pendingAcceptance",
- *             "available",
- *         ],
- *     }],
- * });
- * const unit-eu-central-1 = .reduce((__obj, [, ]) => ({ ...__obj, [__key]: aws.ec2transitgateway.getVpcAttachment({
- *     id: __value,
- * }) }));
- * const trustedAwsAccountsIds = {};
- * const trustedVpcAttachmentsListEu-central-1 = notImplemented("compact([fork,tvaindata.aws_ec2_transit_gateway_vpc_attachment.unit-eu-central-1:contains(local.trusted_aws_accounts_ids,lookup(tva,\"vpc_owner_id\",\"\"))?tva.id:\"\"])");
- * //# create a map with all vpc attachments trusted to be able to use for_each to avoid conflict on plan/apply ##
- * const trustedVpcAttachementsEu-central-1 = notImplemented("toset(sort(local.trusted_vpc_attachments_list_eu-central-1))");
- * const trustedAccountsEu_central_1Tgw: aws.ec2transitgateway.VpcAttachmentAccepter[] = [];
- * for (const range = {value: 0}; range.value < trustedVpcAttachementsEu_central_1; range.value++) {
- *     trustedAccountsEu_central_1Tgw.push(new aws.ec2transitgateway.VpcAttachmentAccepter(`trusted_accounts_eu-central-1_tgw-${range.value}`, {
- *         transitGatewayAttachmentId: range.value,
- *         transitGatewayDefaultRouteTablePropagation: false,
- *         transitGatewayDefaultRouteTableAssociation: false,
- *         tags: globalTags,
- *     }));
- * }
- * const trustedAccountsEu_central_1: aws.ec2transitgateway.RouteTableAssociation[] = [];
- * trustedAccountsEu_central_1Tgw.apply(rangeBody => {
- *     for (const range of rangeBody.map((v, k) => ({key: k, value: v}))) {
- *         trustedAccountsEu_central_1.push(new aws.ec2transitgateway.RouteTableAssociation(`trusted_accounts_eu-central-1-${range.key}`, {
- *             transitGatewayAttachmentId: range.value.transitGatewayAttachmentId,
- *             transitGatewayRouteTableId: eu_central_1RouteTable.id,
- *         }));
- *     }
- * });
- * const trustedAccountsEu_central_1RouteTablePropagation: aws.ec2transitgateway.RouteTablePropagation[] = [];
- * trustedAccountsEu_central_1Tgw.apply(rangeBody => {
- *     for (const range of rangeBody.map((v, k) => ({key: k, value: v}))) {
- *         trustedAccountsEu_central_1RouteTablePropagation.push(new aws.ec2transitgateway.RouteTablePropagation(`trusted_accounts_eu-central-1-${range.key}`, {
- *             transitGatewayAttachmentId: range.value.transitGatewayAttachmentId,
- *             transitGatewayRouteTableId: eu_central_1RouteTable.id,
- *         }));
- *     }
- * });
- * const test = aws.ec2transitgateway.getRouteTableRoutesOutput({
- *     filters: [{
- *         name: "type",
- *         values: ["propagated"],
- *     }],
- *     transitGatewayRouteTableId: eu_central_1RouteTable.id,
- * });
- * const default_region_to_eu_central_1: aws.ec2transitgateway.Route[] = [];
- * test.apply(test => {
- *     const default_region_to_eu_central_1: aws.ec2transitgateway.Route[] = [];
- * pulumi.all(.reduce((__obj, r) => ({ ...__obj, [r.destinationCidrBlock]: r }))).apply(rangeBody => {
- *         for (const range of Object.entries(rangeBody).map(([k, v]) => ({key: k, value: v}))) {
- *             default_region_to_eu_central_1.push(new aws.ec2transitgateway.Route(`default-region-to-eu-central-1-${range.key}`, {
- *                 destinationCidrBlock: range.key,
- *                 transitGatewayRouteTableId: thisRouteTable.id,
- *                 transitGatewayAttachmentId: eu_central_1PeeringAttachment.id,
- *             }));
- *         }
- *     });
- * });
- * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRouteTableRoutes(args: GetRouteTableRoutesArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTableRoutesResult> {
 
@@ -197,6 +73,7 @@ export interface GetRouteTableRoutesResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -209,132 +86,7 @@ export interface GetRouteTableRoutesResult {
  *     transitGatewayRouteTableId: example.id,
  * });
  * ```
- * ### Complexe use case with transit gateway peering
- *
- * This example allow to create a mesh of transit gateway for différent regions routing all traffic to on-prem VPN
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const _this = new aws.ec2transitgateway.TransitGateway("this", {
- *     defaultRouteTableAssociation: "disable",
- *     defaultRouteTablePropagation: "disable",
- * });
- * const thisVpcAttachment = new aws.ec2transitgateway.VpcAttachment("this", {
- *     subnetIds: .map(s => (s.id)),
- *     transitGatewayId: _this[0].id,
- *     vpcId: thisAwsVpc.id,
- *     transitGatewayDefaultRouteTableAssociation: false,
- *     transitGatewayDefaultRouteTablePropagation: false,
- * });
- * const thisRouteTable = new aws.ec2transitgateway.RouteTable("this", {transitGatewayId: myTransitGatewayId});
- * const vpc = new aws.ec2transitgateway.RouteTableAssociation("vpc", {
- *     transitGatewayAttachmentId: thisVpcAttachment.id,
- *     transitGatewayRouteTableId: myTransitGatewayIdRouteTable,
- * });
- * const vpn = new aws.ec2transitgateway.RouteTableAssociation("vpn", {
- *     transitGatewayAttachmentId: thisAwsVpnConnection[0].transitGatewayAttachmentId,
- *     transitGatewayRouteTableId: myTransitGatewayIdRouteTable,
- * });
- * const vpcRouteTablePropagation = new aws.ec2transitgateway.RouteTablePropagation("vpc", {
- *     transitGatewayAttachmentId: thisVpcAttachment.id,
- *     transitGatewayRouteTableId: thisRouteTable.id,
- * });
- * const vpnRouteTablePropagation = new aws.ec2transitgateway.RouteTablePropagation("vpn", {
- *     transitGatewayAttachmentId: thisAwsVpnConnection[0].transitGatewayAttachmentId,
- *     transitGatewayRouteTableId: thisRouteTable.id,
- * });
- * const eu_central_1 = new aws.ec2transitgateway.TransitGateway("eu-central-1", {
- *     defaultRouteTableAssociation: "disable",
- *     defaultRouteTablePropagation: "disable",
- * });
- * const eu_central_1PeeringAttachment = new aws.ec2transitgateway.PeeringAttachment("eu-central-1", {
- *     peerRegion: "eu-central-1",
- *     peerTransitGatewayId: eu_central_1.id,
- *     transitGatewayId: _this[0].id,
- *     tags: {
- *         Name: "TGW mesh from eu-central-1",
- *     },
- * });
- * const eu_central_1RouteTable = new aws.ec2transitgateway.RouteTable("eu-central-1", {
- *     transitGatewayId: eu_central_1.id,
- *     tags: notImplemented("merge({Name=\"wl-transit-gateway-routetable-eu-central-1\"},local.global_tags)"),
- * });
- * const eu_central_1PeeringAttachmentAccepter = new aws.ec2transitgateway.PeeringAttachmentAccepter("eu-central-1", {
- *     transitGatewayAttachmentId: eu_central_1PeeringAttachment.id,
- *     tags: {
- *         Name: "Accepter TGW peering eu-central-1",
- *     },
- * });
- * const filtered-eu-central-1 = aws.ec2transitgateway.getVpcAttachments({
- *     filters: [{
- *         name: "state",
- *         values: [
- *             "pendingAcceptance",
- *             "available",
- *         ],
- *     }],
- * });
- * const unit-eu-central-1 = .reduce((__obj, [, ]) => ({ ...__obj, [__key]: aws.ec2transitgateway.getVpcAttachment({
- *     id: __value,
- * }) }));
- * const trustedAwsAccountsIds = {};
- * const trustedVpcAttachmentsListEu-central-1 = notImplemented("compact([fork,tvaindata.aws_ec2_transit_gateway_vpc_attachment.unit-eu-central-1:contains(local.trusted_aws_accounts_ids,lookup(tva,\"vpc_owner_id\",\"\"))?tva.id:\"\"])");
- * //# create a map with all vpc attachments trusted to be able to use for_each to avoid conflict on plan/apply ##
- * const trustedVpcAttachementsEu-central-1 = notImplemented("toset(sort(local.trusted_vpc_attachments_list_eu-central-1))");
- * const trustedAccountsEu_central_1Tgw: aws.ec2transitgateway.VpcAttachmentAccepter[] = [];
- * for (const range = {value: 0}; range.value < trustedVpcAttachementsEu_central_1; range.value++) {
- *     trustedAccountsEu_central_1Tgw.push(new aws.ec2transitgateway.VpcAttachmentAccepter(`trusted_accounts_eu-central-1_tgw-${range.value}`, {
- *         transitGatewayAttachmentId: range.value,
- *         transitGatewayDefaultRouteTablePropagation: false,
- *         transitGatewayDefaultRouteTableAssociation: false,
- *         tags: globalTags,
- *     }));
- * }
- * const trustedAccountsEu_central_1: aws.ec2transitgateway.RouteTableAssociation[] = [];
- * trustedAccountsEu_central_1Tgw.apply(rangeBody => {
- *     for (const range of rangeBody.map((v, k) => ({key: k, value: v}))) {
- *         trustedAccountsEu_central_1.push(new aws.ec2transitgateway.RouteTableAssociation(`trusted_accounts_eu-central-1-${range.key}`, {
- *             transitGatewayAttachmentId: range.value.transitGatewayAttachmentId,
- *             transitGatewayRouteTableId: eu_central_1RouteTable.id,
- *         }));
- *     }
- * });
- * const trustedAccountsEu_central_1RouteTablePropagation: aws.ec2transitgateway.RouteTablePropagation[] = [];
- * trustedAccountsEu_central_1Tgw.apply(rangeBody => {
- *     for (const range of rangeBody.map((v, k) => ({key: k, value: v}))) {
- *         trustedAccountsEu_central_1RouteTablePropagation.push(new aws.ec2transitgateway.RouteTablePropagation(`trusted_accounts_eu-central-1-${range.key}`, {
- *             transitGatewayAttachmentId: range.value.transitGatewayAttachmentId,
- *             transitGatewayRouteTableId: eu_central_1RouteTable.id,
- *         }));
- *     }
- * });
- * const test = aws.ec2transitgateway.getRouteTableRoutesOutput({
- *     filters: [{
- *         name: "type",
- *         values: ["propagated"],
- *     }],
- *     transitGatewayRouteTableId: eu_central_1RouteTable.id,
- * });
- * const default_region_to_eu_central_1: aws.ec2transitgateway.Route[] = [];
- * test.apply(test => {
- *     const default_region_to_eu_central_1: aws.ec2transitgateway.Route[] = [];
- * pulumi.all(.reduce((__obj, r) => ({ ...__obj, [r.destinationCidrBlock]: r }))).apply(rangeBody => {
- *         for (const range of Object.entries(rangeBody).map(([k, v]) => ({key: k, value: v}))) {
- *             default_region_to_eu_central_1.push(new aws.ec2transitgateway.Route(`default-region-to-eu-central-1-${range.key}`, {
- *                 destinationCidrBlock: range.key,
- *                 transitGatewayRouteTableId: thisRouteTable.id,
- *                 transitGatewayAttachmentId: eu_central_1PeeringAttachment.id,
- *             }));
- *         }
- *     });
- * });
- * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRouteTableRoutesOutput(args: GetRouteTableRoutesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteTableRoutesResult> {
     return pulumi.output(args).apply((a: any) => getRouteTableRoutes(a, opts))

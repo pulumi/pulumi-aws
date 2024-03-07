@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Ecr
         /// <summary>
         /// Data source for providing information on AWS ECR (Elastic Container Registry) Repositories.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -31,8 +31,7 @@ namespace Pulumi.Aws.Ecr
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetRepositoriesResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRepositoriesResult>("aws:ecr/getRepositories:getRepositories", InvokeArgs.Empty, options.WithDefaults());
@@ -40,11 +39,11 @@ namespace Pulumi.Aws.Ecr
         /// <summary>
         /// Data source for providing information on AWS ECR (Elastic Container Registry) Repositories.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -57,8 +56,7 @@ namespace Pulumi.Aws.Ecr
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetRepositoriesResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRepositoriesResult>("aws:ecr/getRepositories:getRepositories", InvokeArgs.Empty, options.WithDefaults());

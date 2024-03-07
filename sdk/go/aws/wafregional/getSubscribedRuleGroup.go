@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -61,6 +62,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetSubscribedRuleGroup(ctx *pulumi.Context, args *GetSubscribedRuleGroupArgs, opts ...pulumi.InvokeOption) (*GetSubscribedRuleGroupResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSubscribedRuleGroupResult

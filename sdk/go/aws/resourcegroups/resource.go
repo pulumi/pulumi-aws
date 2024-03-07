@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS Resource Groups Resource.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -57,6 +59,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type Resource struct {
 	pulumi.CustomResourceState
 

@@ -139,8 +139,10 @@ class BucketMetric(pulumi.CustomResource):
         > This resource cannot be used with S3 directory buckets.
 
         ## Example Usage
+
         ### Add metrics configuration for entire S3 bucket
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -150,8 +152,11 @@ class BucketMetric(pulumi.CustomResource):
             bucket=example.id,
             name="EntireBucket")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Add metrics configuration with S3 object filter
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -168,8 +173,11 @@ class BucketMetric(pulumi.CustomResource):
                 },
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Add metrics configuration with S3 object filter for S3 Access Point
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -189,13 +197,14 @@ class BucketMetric(pulumi.CustomResource):
                 },
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import S3 bucket metric configurations using `bucket:metric`. For example:
 
         ```sh
-         $ pulumi import aws:s3/bucketMetric:BucketMetric my-bucket-entire-bucket my-bucket:EntireBucket
+        $ pulumi import aws:s3/bucketMetric:BucketMetric my-bucket-entire-bucket my-bucket:EntireBucket
         ```
 
         :param str resource_name: The name of the resource.
@@ -216,8 +225,10 @@ class BucketMetric(pulumi.CustomResource):
         > This resource cannot be used with S3 directory buckets.
 
         ## Example Usage
+
         ### Add metrics configuration for entire S3 bucket
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -227,8 +238,11 @@ class BucketMetric(pulumi.CustomResource):
             bucket=example.id,
             name="EntireBucket")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Add metrics configuration with S3 object filter
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -245,8 +259,11 @@ class BucketMetric(pulumi.CustomResource):
                 },
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Add metrics configuration with S3 object filter for S3 Access Point
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -266,13 +283,14 @@ class BucketMetric(pulumi.CustomResource):
                 },
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import S3 bucket metric configurations using `bucket:metric`. For example:
 
         ```sh
-         $ pulumi import aws:s3/bucketMetric:BucketMetric my-bucket-entire-bucket my-bucket:EntireBucket
+        $ pulumi import aws:s3/bucketMetric:BucketMetric my-bucket-entire-bucket my-bucket:EntireBucket
         ```
 
         :param str resource_name: The name of the resource.

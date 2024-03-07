@@ -15,8 +15,10 @@ import (
 // Provides an SSM Maintenance Window Target resource
 //
 // ## Example Usage
+//
 // ### Instance Target
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -60,8 +62,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Resource Group Target
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -105,15 +110,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SSM Maintenance Window targets using `WINDOW_ID/WINDOW_TARGET_ID`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget example mw-0c50858d01EXAMPLE/23639a0b-ddbc-4bca-9e72-78d96EXAMPLE
-//
+// $ pulumi import aws:ssm/maintenanceWindowTarget:MaintenanceWindowTarget example mw-0c50858d01EXAMPLE/23639a0b-ddbc-4bca-9e72-78d96EXAMPLE
 // ```
 type MaintenanceWindowTarget struct {
 	pulumi.CustomResourceState

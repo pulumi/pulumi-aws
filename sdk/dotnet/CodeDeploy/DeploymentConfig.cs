@@ -13,8 +13,10 @@ namespace Pulumi.Aws.CodeDeploy
     /// Provides a CodeDeploy deployment config for an application
     /// 
     /// ## Example Usage
+    /// 
     /// ### Server Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -80,8 +82,11 @@ namespace Pulumi.Aws.CodeDeploy
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Lambda Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -131,13 +136,14 @@ namespace Pulumi.Aws.CodeDeploy
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CodeDeploy Deployment Configurations using the `deployment_config_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:codedeploy/deploymentConfig:DeploymentConfig example my-deployment-config
+    /// $ pulumi import aws:codedeploy/deploymentConfig:DeploymentConfig example my-deployment-config
     /// ```
     /// </summary>
     [AwsResourceType("aws:codedeploy/deploymentConfig:DeploymentConfig")]

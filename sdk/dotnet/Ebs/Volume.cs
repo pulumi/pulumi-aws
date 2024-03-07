@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Ebs
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,6 +35,7 @@ namespace Pulumi.Aws.Ebs
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// &gt; **NOTE:** At least one of `size` or `snapshot_id` is required when specifying an EBS volume
     /// 
@@ -42,7 +44,7 @@ namespace Pulumi.Aws.Ebs
     /// Using `pulumi import`, import EBS Volumes using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ebs/volume:Volume id vol-049df61146c4d7901
+    /// $ pulumi import aws:ebs/volume:Volume id vol-049df61146c4d7901
     /// ```
     /// </summary>
     [AwsResourceType("aws:ebs/volume:Volume")]

@@ -21,6 +21,8 @@ public final class CodecommitFunctions {
      * Provides details about a specific CodeCommit Approval Rule Template.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -49,6 +51,7 @@ public final class CodecommitFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetApprovalRuleTemplateResult> getApprovalRuleTemplate(GetApprovalRuleTemplateArgs args) {
@@ -58,6 +61,8 @@ public final class CodecommitFunctions {
      * Provides details about a specific CodeCommit Approval Rule Template.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -86,6 +91,7 @@ public final class CodecommitFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetApprovalRuleTemplateResult> getApprovalRuleTemplatePlain(GetApprovalRuleTemplatePlainArgs args) {
@@ -95,6 +101,8 @@ public final class CodecommitFunctions {
      * Provides details about a specific CodeCommit Approval Rule Template.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -123,6 +131,7 @@ public final class CodecommitFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetApprovalRuleTemplateResult> getApprovalRuleTemplate(GetApprovalRuleTemplateArgs args, InvokeOptions options) {
@@ -132,6 +141,8 @@ public final class CodecommitFunctions {
      * Provides details about a specific CodeCommit Approval Rule Template.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -160,6 +171,7 @@ public final class CodecommitFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetApprovalRuleTemplateResult> getApprovalRuleTemplatePlain(GetApprovalRuleTemplatePlainArgs args, InvokeOptions options) {
@@ -169,6 +181,8 @@ public final class CodecommitFunctions {
      * The CodeCommit Repository data source allows the ARN, Repository ID, Repository URL for HTTP and Repository URL for SSH to be retrieved for an CodeCommit repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -197,6 +211,7 @@ public final class CodecommitFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRepositoryResult> getRepository(GetRepositoryArgs args) {
@@ -206,6 +221,8 @@ public final class CodecommitFunctions {
      * The CodeCommit Repository data source allows the ARN, Repository ID, Repository URL for HTTP and Repository URL for SSH to be retrieved for an CodeCommit repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -234,6 +251,7 @@ public final class CodecommitFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRepositoryResult> getRepositoryPlain(GetRepositoryPlainArgs args) {
@@ -243,6 +261,8 @@ public final class CodecommitFunctions {
      * The CodeCommit Repository data source allows the ARN, Repository ID, Repository URL for HTTP and Repository URL for SSH to be retrieved for an CodeCommit repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -271,6 +291,7 @@ public final class CodecommitFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRepositoryResult> getRepository(GetRepositoryArgs args, InvokeOptions options) {
@@ -280,6 +301,8 @@ public final class CodecommitFunctions {
      * The CodeCommit Repository data source allows the ARN, Repository ID, Repository URL for HTTP and Repository URL for SSH to be retrieved for an CodeCommit repository.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -308,6 +331,7 @@ public final class CodecommitFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRepositoryResult> getRepositoryPlain(GetRepositoryPlainArgs args, InvokeOptions options) {

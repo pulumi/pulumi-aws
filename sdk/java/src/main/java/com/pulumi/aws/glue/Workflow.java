@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * See the example below for creating a graph with four nodes (two triggers and two jobs).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -78,13 +80,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Glue Workflows using `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
+ * $ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
  * ```
  * 
  */

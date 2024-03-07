@@ -742,8 +742,10 @@ class TaskDefinition(pulumi.CustomResource):
         Manages a revision of an ECS task definition to be used in `ecs.Service`.
 
         ## Example Usage
+
         ### Basic Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -784,8 +786,11 @@ class TaskDefinition(pulumi.CustomResource):
                 expression="attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With AppMesh Proxy
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -806,8 +811,11 @@ class TaskDefinition(pulumi.CustomResource):
                 },
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example Using `docker_volume_configuration`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -830,8 +838,11 @@ class TaskDefinition(pulumi.CustomResource):
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example Using `efs_volume_configuration`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -854,8 +865,11 @@ class TaskDefinition(pulumi.CustomResource):
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example Using `fsx_windows_file_server_volume_configuration`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -883,8 +897,11 @@ class TaskDefinition(pulumi.CustomResource):
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example Using `container_definitions` and `inference_accelerator`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -923,8 +940,11 @@ class TaskDefinition(pulumi.CustomResource):
                 device_type="eia1.medium",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example Using `runtime_platform` and `fargate`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -950,13 +970,14 @@ class TaskDefinition(pulumi.CustomResource):
                 cpu_architecture="X86_64",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ECS Task Definitions using their ARNs. For example:
 
         ```sh
-         $ pulumi import aws:ecs/taskDefinition:TaskDefinition example arn:aws:ecs:us-east-1:012345678910:task-definition/mytaskfamily:123
+        $ pulumi import aws:ecs/taskDefinition:TaskDefinition example arn:aws:ecs:us-east-1:012345678910:task-definition/mytaskfamily:123
         ```
 
         :param str resource_name: The name of the resource.
@@ -993,8 +1014,10 @@ class TaskDefinition(pulumi.CustomResource):
         Manages a revision of an ECS task definition to be used in `ecs.Service`.
 
         ## Example Usage
+
         ### Basic Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -1035,8 +1058,11 @@ class TaskDefinition(pulumi.CustomResource):
                 expression="attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With AppMesh Proxy
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1057,8 +1083,11 @@ class TaskDefinition(pulumi.CustomResource):
                 },
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example Using `docker_volume_configuration`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1081,8 +1110,11 @@ class TaskDefinition(pulumi.CustomResource):
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example Using `efs_volume_configuration`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1105,8 +1137,11 @@ class TaskDefinition(pulumi.CustomResource):
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example Using `fsx_windows_file_server_volume_configuration`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -1134,8 +1169,11 @@ class TaskDefinition(pulumi.CustomResource):
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example Using `container_definitions` and `inference_accelerator`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1174,8 +1212,11 @@ class TaskDefinition(pulumi.CustomResource):
                 device_type="eia1.medium",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example Using `runtime_platform` and `fargate`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1201,13 +1242,14 @@ class TaskDefinition(pulumi.CustomResource):
                 cpu_architecture="X86_64",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ECS Task Definitions using their ARNs. For example:
 
         ```sh
-         $ pulumi import aws:ecs/taskDefinition:TaskDefinition example arn:aws:ecs:us-east-1:012345678910:task-definition/mytaskfamily:123
+        $ pulumi import aws:ecs/taskDefinition:TaskDefinition example arn:aws:ecs:us-east-1:012345678910:task-definition/mytaskfamily:123
         ```
 
         :param str resource_name: The name of the resource.

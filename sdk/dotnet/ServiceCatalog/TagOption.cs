@@ -13,8 +13,10 @@ namespace Pulumi.Aws.ServiceCatalog
     /// Manages a Service Catalog Tag Option.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,13 +33,14 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_servicecatalog_tag_option` using the tag option ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:servicecatalog/tagOption:TagOption example tag-pjtvagohlyo3m
+    /// $ pulumi import aws:servicecatalog/tagOption:TagOption example tag-pjtvagohlyo3m
     /// ```
     /// </summary>
     [AwsResourceType("aws:servicecatalog/tagOption:TagOption")]

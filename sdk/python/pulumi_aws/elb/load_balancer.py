@@ -727,6 +727,7 @@ class LoadBalancer(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -775,6 +776,8 @@ class LoadBalancer(pulumi.CustomResource):
                 "Name": "foobar-elb",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Note on ECDSA Key Algorithm
 
         If the ARN of the `ssl_certificate_id` that is pointed to references a
@@ -788,7 +791,7 @@ class LoadBalancer(pulumi.CustomResource):
         Using `pulumi import`, import ELBs using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:elb/loadBalancer:LoadBalancer bar elb-production-12345
+        $ pulumi import aws:elb/loadBalancer:LoadBalancer bar elb-production-12345
         ```
 
         :param str resource_name: The name of the resource.
@@ -838,6 +841,7 @@ class LoadBalancer(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -886,6 +890,8 @@ class LoadBalancer(pulumi.CustomResource):
                 "Name": "foobar-elb",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Note on ECDSA Key Algorithm
 
         If the ARN of the `ssl_certificate_id` that is pointed to references a
@@ -899,7 +905,7 @@ class LoadBalancer(pulumi.CustomResource):
         Using `pulumi import`, import ELBs using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:elb/loadBalancer:LoadBalancer bar elb-production-12345
+        $ pulumi import aws:elb/loadBalancer:LoadBalancer bar elb-production-12345
         ```
 
         :param str resource_name: The name of the resource.

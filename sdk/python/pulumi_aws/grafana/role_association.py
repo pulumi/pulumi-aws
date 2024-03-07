@@ -175,8 +175,10 @@ class RoleAssociation(pulumi.CustomResource):
         Provides an Amazon Managed Grafana workspace role association resource.
 
         ## Example Usage
+
         ### Basic configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -208,6 +210,7 @@ class RoleAssociation(pulumi.CustomResource):
             ],
             workspace_id=example_workspace.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -228,8 +231,10 @@ class RoleAssociation(pulumi.CustomResource):
         Provides an Amazon Managed Grafana workspace role association resource.
 
         ## Example Usage
+
         ### Basic configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -261,6 +266,7 @@ class RoleAssociation(pulumi.CustomResource):
             ],
             workspace_id=example_workspace.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param RoleAssociationArgs args: The arguments to use to populate this resource's properties.

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,13 +31,14 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_lightsail_bucket` using the `name` attribute. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:lightsail/bucket:Bucket test example-bucket
+    /// $ pulumi import aws:lightsail/bucket:Bucket test example-bucket
     /// ```
     /// </summary>
     [AwsResourceType("aws:lightsail/bucket:Bucket")]

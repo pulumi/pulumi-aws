@@ -14,10 +14,12 @@ import (
 // Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the `secretsmanager.Secret` data source.
 //
 // ## Example Usage
+//
 // ### Retrieve Current Secret Version
 //
 // By default, this data sources retrieves information based on the `AWSCURRENT` staging label.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,8 +43,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Retrieve Specific Secret Version
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -67,31 +72,7 @@ import (
 //	}
 //
 // ```
-// ### Handling Key-Value Secret Strings in JSON
-//
-// # Reading key-value pairs from JSON back into a native map
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func notImplemented(message string) pulumi.AnyOutput {
-//		panic(message)
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			ctx.Export("example", notImplemented("jsondecode(data.aws_secretsmanager_secret_version.example.secret_string)").Key1)
-//			return nil
-//		})
-//	}
-//
-// ```
+// <!--End PulumiCodeChooser -->
 func LookupSecretVersion(ctx *pulumi.Context, args *LookupSecretVersionArgs, opts ...pulumi.InvokeOption) (*LookupSecretVersionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSecretVersionResult

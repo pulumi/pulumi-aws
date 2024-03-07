@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS AccessAnalyzer Archive Rule.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -59,15 +61,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import AccessAnalyzer ArchiveRule using the `analyzer_name/rule_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:accessanalyzer/archiveRule:ArchiveRule example example-analyzer/example-rule
-//
+// $ pulumi import aws:accessanalyzer/archiveRule:ArchiveRule example example-analyzer/example-rule
 // ```
 type ArchiveRule struct {
 	pulumi.CustomResourceState

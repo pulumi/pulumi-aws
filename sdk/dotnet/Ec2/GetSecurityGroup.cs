@@ -18,13 +18,12 @@ namespace Pulumi.Aws.Ec2
         /// an input variable and needs to, for example, determine the id of the
         /// VPC that the security group belongs to.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// The following example shows how one might accept a Security Group id as a variable
         /// and use this data source to obtain the data necessary to create a subnet.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -48,8 +47,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSecurityGroupResult> InvokeAsync(GetSecurityGroupArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityGroupResult>("aws:ec2/getSecurityGroup:getSecurityGroup", args ?? new GetSecurityGroupArgs(), options.WithDefaults());
@@ -61,13 +59,12 @@ namespace Pulumi.Aws.Ec2
         /// an input variable and needs to, for example, determine the id of the
         /// VPC that the security group belongs to.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// The following example shows how one might accept a Security Group id as a variable
         /// and use this data source to obtain the data necessary to create a subnet.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -91,8 +88,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSecurityGroupResult> Invoke(GetSecurityGroupInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityGroupResult>("aws:ec2/getSecurityGroup:getSecurityGroup", args ?? new GetSecurityGroupInvokeArgs(), options.WithDefaults());

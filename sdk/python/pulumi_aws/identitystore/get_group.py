@@ -129,27 +129,6 @@ def get_group(alternate_identifier: Optional[pulumi.InputType['GetGroupAlternate
     """
     Use this data source to get an Identity Store Group.
 
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-
-    def not_implemented(msg):
-        raise NotImplementedError(msg)
-
-    example = aws.ssoadmin.get_instances()
-    example_get_group = aws.identitystore.get_group(identity_store_id=not_implemented("tolist(data.aws_ssoadmin_instances.example.identity_store_ids)")[0],
-        alternate_identifier=aws.identitystore.GetGroupAlternateIdentifierArgs(
-            unique_attribute=aws.identitystore.GetGroupAlternateIdentifierUniqueAttributeArgs(
-                attribute_path="DisplayName",
-                attribute_value="ExampleGroup",
-            ),
-        ))
-    pulumi.export("groupId", example_get_group.group_id)
-    ```
-
 
     :param pulumi.InputType['GetGroupAlternateIdentifierArgs'] alternate_identifier: A unique identifier for the group that is not the primary identifier. Conflicts with `group_id` and `filter`. Detailed below.
     :param pulumi.InputType['GetGroupFilterArgs'] filter: Configuration block for filtering by a unique attribute of the group. Detailed below.
@@ -187,27 +166,6 @@ def get_group_output(alternate_identifier: Optional[pulumi.Input[Optional[pulumi
                      opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetGroupResult]:
     """
     Use this data source to get an Identity Store Group.
-
-    ## Example Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-
-    def not_implemented(msg):
-        raise NotImplementedError(msg)
-
-    example = aws.ssoadmin.get_instances()
-    example_get_group = aws.identitystore.get_group(identity_store_id=not_implemented("tolist(data.aws_ssoadmin_instances.example.identity_store_ids)")[0],
-        alternate_identifier=aws.identitystore.GetGroupAlternateIdentifierArgs(
-            unique_attribute=aws.identitystore.GetGroupAlternateIdentifierUniqueAttributeArgs(
-                attribute_path="DisplayName",
-                attribute_value="ExampleGroup",
-            ),
-        ))
-    pulumi.export("groupId", example_get_group.group_id)
-    ```
 
 
     :param pulumi.InputType['GetGroupAlternateIdentifierArgs'] alternate_identifier: A unique identifier for the group that is not the primary identifier. Conflicts with `group_id` and `filter`. Detailed below.

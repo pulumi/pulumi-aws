@@ -275,6 +275,7 @@ class ClusterParameterGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -288,13 +289,14 @@ class ClusterParameterGroup(pulumi.CustomResource):
                 value="1",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Neptune Cluster Parameter Groups using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:neptune/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
+        $ pulumi import aws:neptune/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
         ```
 
         :param str resource_name: The name of the resource.
@@ -317,6 +319,7 @@ class ClusterParameterGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -330,13 +333,14 @@ class ClusterParameterGroup(pulumi.CustomResource):
                 value="1",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Neptune Cluster Parameter Groups using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:neptune/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
+        $ pulumi import aws:neptune/clusterParameterGroup:ClusterParameterGroup cluster_pg production-pg-1
         ```
 
         :param str resource_name: The name of the resource.

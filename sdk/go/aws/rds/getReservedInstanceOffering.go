@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,6 +43,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetReservedInstanceOffering(ctx *pulumi.Context, args *GetReservedInstanceOfferingArgs, opts ...pulumi.InvokeOption) (*GetReservedInstanceOfferingResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetReservedInstanceOfferingResult

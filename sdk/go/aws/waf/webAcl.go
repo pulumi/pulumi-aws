@@ -18,6 +18,7 @@ import (
 //
 // This example blocks requests coming from `192.0.7.0/24` and allows everything else.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -81,10 +82,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Logging
 //
 // > *NOTE:* The Kinesis Firehose Delivery Stream name must begin with `aws-waf-logs-` and be located in `us-east-1` region. See the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html) for more information about enabling WAF logging.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -121,15 +125,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import WAF Web ACL using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:waf/webAcl:WebAcl main 0c8e583e-18f3-4c13-9e2a-67c4805d2f94
-//
+// $ pulumi import aws:waf/webAcl:WebAcl main 0c8e583e-18f3-4c13-9e2a-67c4805d2f94
 // ```
 type WebAcl struct {
 	pulumi.CustomResourceState

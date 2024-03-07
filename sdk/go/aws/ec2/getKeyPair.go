@@ -17,6 +17,7 @@ import (
 //
 // The following example shows how to get a EC2 Key Pair including the public key material from its name.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -52,6 +53,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupKeyPair(ctx *pulumi.Context, args *LookupKeyPairArgs, opts ...pulumi.InvokeOption) (*LookupKeyPairResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupKeyPairResult

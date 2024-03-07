@@ -22,7 +22,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS Security Lake Custom Log Source.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -65,13 +68,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Custom log sources using the source name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:securitylake/customLogSource:CustomLogSource example example-name
+ * $ pulumi import aws:securitylake/customLogSource:CustomLogSource example example-name
  * ```
  * 
  */

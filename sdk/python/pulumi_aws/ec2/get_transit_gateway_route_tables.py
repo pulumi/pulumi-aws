@@ -86,6 +86,7 @@ def get_transit_gateway_route_tables(filters: Optional[Sequence[pulumi.InputType
 
     The following shows outputting all Transit Gateway Route Table Ids.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -93,6 +94,7 @@ def get_transit_gateway_route_tables(filters: Optional[Sequence[pulumi.InputType
     example = aws.ec2.get_transit_gateway_route_tables()
     pulumi.export("example", example.ids)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetTransitGatewayRouteTablesFilterArgs']] filters: Custom filter block as described below.
@@ -126,6 +128,7 @@ def get_transit_gateway_route_tables_output(filters: Optional[pulumi.Input[Optio
 
     The following shows outputting all Transit Gateway Route Table Ids.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -133,6 +136,7 @@ def get_transit_gateway_route_tables_output(filters: Optional[pulumi.Input[Optio
     example = aws.ec2.get_transit_gateway_route_tables()
     pulumi.export("example", example.ids)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetTransitGatewayRouteTablesFilterArgs']] filters: Custom filter block as described below.

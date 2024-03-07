@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS VPC Lattice Auth Policy.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -71,15 +73,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import VPC Lattice Auth Policy using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:vpclattice/authPolicy:AuthPolicy example abcd-12345678
-//
+// $ pulumi import aws:vpclattice/authPolicy:AuthPolicy example abcd-12345678
 // ```
 type AuthPolicy struct {
 	pulumi.CustomResourceState

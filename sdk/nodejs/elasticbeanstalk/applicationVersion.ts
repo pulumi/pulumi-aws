@@ -22,6 +22,7 @@ import {Application} from "./index";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -44,6 +45,7 @@ import {Application} from "./index";
  *     key: defaultBucketObjectv2.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class ApplicationVersion extends pulumi.CustomResource {
     /**

@@ -14,13 +14,13 @@ namespace Pulumi.Aws.SecretsManager
         /// <summary>
         /// Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the `aws.secretsmanager.Secret` data source.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Retrieve Current Secret Version
         /// 
         /// By default, this data sources retrieves information based on the `AWSCURRENT` staging label.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -36,10 +36,11 @@ namespace Pulumi.Aws.SecretsManager
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### Retrieve Specific Secret Version
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -56,33 +57,7 @@ namespace Pulumi.Aws.SecretsManager
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
-        /// ### Handling Key-Value Secret Strings in JSON
-        /// 
-        /// Reading key-value pairs from JSON back into a native map
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// 	
-        /// object NotImplemented(string errorMessage) 
-        /// {
-        ///     throw new System.NotImplementedException(errorMessage);
-        /// }
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["example"] = NotImplemented("jsondecode(data.aws_secretsmanager_secret_version.example.secret_string)").Key1,
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSecretVersionResult> InvokeAsync(GetSecretVersionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecretVersionResult>("aws:secretsmanager/getSecretVersion:getSecretVersion", args ?? new GetSecretVersionArgs(), options.WithDefaults());
@@ -90,13 +65,13 @@ namespace Pulumi.Aws.SecretsManager
         /// <summary>
         /// Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the `aws.secretsmanager.Secret` data source.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Retrieve Current Secret Version
         /// 
         /// By default, this data sources retrieves information based on the `AWSCURRENT` staging label.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -112,10 +87,11 @@ namespace Pulumi.Aws.SecretsManager
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### Retrieve Specific Secret Version
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -132,33 +108,7 @@ namespace Pulumi.Aws.SecretsManager
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
-        /// ### Handling Key-Value Secret Strings in JSON
-        /// 
-        /// Reading key-value pairs from JSON back into a native map
-        /// 
-        /// ```csharp
-        /// using System.Collections.Generic;
-        /// using System.Linq;
-        /// using Pulumi;
-        /// 
-        /// 	
-        /// object NotImplemented(string errorMessage) 
-        /// {
-        ///     throw new System.NotImplementedException(errorMessage);
-        /// }
-        /// 
-        /// return await Deployment.RunAsync(() =&gt; 
-        /// {
-        ///     return new Dictionary&lt;string, object?&gt;
-        ///     {
-        ///         ["example"] = NotImplemented("jsondecode(data.aws_secretsmanager_secret_version.example.secret_string)").Key1,
-        ///     };
-        /// });
-        /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSecretVersionResult> Invoke(GetSecretVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretVersionResult>("aws:secretsmanager/getSecretVersion:getSecretVersion", args ?? new GetSecretVersionInvokeArgs(), options.WithDefaults());

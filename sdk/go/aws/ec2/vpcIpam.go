@@ -18,6 +18,7 @@ import (
 //
 // Basic usage:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -54,62 +55,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // Shared with multiple operating_regions:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
-//
-// )
-//
-//	func notImplemented(message string) pulumi.AnyOutput {
-//		panic(message)
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			// ensure current provider region is an operating_regions entry
-//			allIpamRegions := notImplemented("distinct(concat([data.aws_region.current.name],var.ipam_regions))")
-//			_, err := ec2.NewVpcIpam(ctx, "main", &ec2.VpcIpamArgs{
-//				OperatingRegions: "TODO: For expression",
-//				Description:      pulumi.String("multi region ipam"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = aws.GetRegion(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			cfg := config.New(ctx, "")
-//			ipamRegions := []string{
-//				"us-east-1",
-//				"us-west-2",
-//			}
-//			if param := cfg.GetObject("ipamRegions"); param != nil {
-//				ipamRegions = param
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //
 // Using `pulumi import`, import IPAMs using the IPAM `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/vpcIpam:VpcIpam example ipam-0178368ad2146a492
-//
+// $ pulumi import aws:ec2/vpcIpam:VpcIpam example ipam-0178368ad2146a492
 // ```
 type VpcIpam struct {
 	pulumi.CustomResourceState

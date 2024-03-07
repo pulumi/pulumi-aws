@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -39,13 +40,14 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Glue Workflows using `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
+ * $ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
  * ```
  */
 export class Workflow extends pulumi.CustomResource {

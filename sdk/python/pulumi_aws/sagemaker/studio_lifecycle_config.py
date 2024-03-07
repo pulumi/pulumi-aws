@@ -204,8 +204,10 @@ class StudioLifecycleConfig(pulumi.CustomResource):
         Provides a SageMaker Studio Lifecycle Config resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -216,13 +218,14 @@ class StudioLifecycleConfig(pulumi.CustomResource):
             studio_lifecycle_config_app_type="JupyterServer",
             studio_lifecycle_config_content=std.base64encode(input="echo Hello").result)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker Studio Lifecycle Configs using the `studio_lifecycle_config_name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig example example
+        $ pulumi import aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -242,8 +245,10 @@ class StudioLifecycleConfig(pulumi.CustomResource):
         Provides a SageMaker Studio Lifecycle Config resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -254,13 +259,14 @@ class StudioLifecycleConfig(pulumi.CustomResource):
             studio_lifecycle_config_app_type="JupyterServer",
             studio_lifecycle_config_content=std.base64encode(input="echo Hello").result)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker Studio Lifecycle Configs using the `studio_lifecycle_config_name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig example example
+        $ pulumi import aws:sagemaker/studioLifecycleConfig:StudioLifecycleConfig example example
         ```
 
         :param str resource_name: The name of the resource.

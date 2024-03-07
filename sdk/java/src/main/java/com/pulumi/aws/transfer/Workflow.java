@@ -22,7 +22,10 @@ import javax.annotation.Nullable;
  * Provides a AWS Transfer Workflow resource.
  * 
  * ## Example Usage
+ * 
  * ### Basic single step example
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -59,7 +62,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Multistep example
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -111,13 +118,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Transfer Workflows using the `worflow_id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:transfer/workflow:Workflow example example
+ * $ pulumi import aws:transfer/workflow:Workflow example example
  * ```
  * 
  */

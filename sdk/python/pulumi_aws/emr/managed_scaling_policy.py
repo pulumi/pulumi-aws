@@ -104,6 +104,7 @@ class ManagedScalingPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -127,13 +128,14 @@ class ManagedScalingPolicy(pulumi.CustomResource):
                 maximum_core_capacity_units=10,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EMR Managed Scaling Policies using the EMR Cluster identifier. For example:
 
         ```sh
-         $ pulumi import aws:emr/managedScalingPolicy:ManagedScalingPolicy example j-123456ABCDEF
+        $ pulumi import aws:emr/managedScalingPolicy:ManagedScalingPolicy example j-123456ABCDEF
         ```
 
         :param str resource_name: The name of the resource.
@@ -152,6 +154,7 @@ class ManagedScalingPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -175,13 +178,14 @@ class ManagedScalingPolicy(pulumi.CustomResource):
                 maximum_core_capacity_units=10,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EMR Managed Scaling Policies using the EMR Cluster identifier. For example:
 
         ```sh
-         $ pulumi import aws:emr/managedScalingPolicy:ManagedScalingPolicy example j-123456ABCDEF
+        $ pulumi import aws:emr/managedScalingPolicy:ManagedScalingPolicy example j-123456ABCDEF
         ```
 
         :param str resource_name: The name of the resource.

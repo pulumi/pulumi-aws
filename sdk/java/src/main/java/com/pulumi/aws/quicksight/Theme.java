@@ -23,7 +23,10 @@ import javax.annotation.Nullable;
  * Resource for managing a QuickSight Theme.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -75,13 +78,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import a QuickSight Theme using the AWS account ID and theme ID separated by a comma (`,`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:quicksight/theme:Theme example 123456789012,example-id
+ * $ pulumi import aws:quicksight/theme:Theme example 123456789012,example-id
  * ```
  * 
  */

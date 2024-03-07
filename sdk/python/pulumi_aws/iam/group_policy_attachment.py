@@ -104,6 +104,7 @@ class GroupPolicyAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -117,13 +118,14 @@ class GroupPolicyAttachment(pulumi.CustomResource):
             group=group.name,
             policy_arn=policy.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM group policy attachments using the group name and policy arn separated by `/`. For example:
 
         ```sh
-         $ pulumi import aws:iam/groupPolicyAttachment:GroupPolicyAttachment test-attach test-group/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
+        $ pulumi import aws:iam/groupPolicyAttachment:GroupPolicyAttachment test-attach test-group/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
         ```
 
         :param str resource_name: The name of the resource.
@@ -144,6 +146,7 @@ class GroupPolicyAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -157,13 +160,14 @@ class GroupPolicyAttachment(pulumi.CustomResource):
             group=group.name,
             policy_arn=policy.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM group policy attachments using the group name and policy arn separated by `/`. For example:
 
         ```sh
-         $ pulumi import aws:iam/groupPolicyAttachment:GroupPolicyAttachment test-attach test-group/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
+        $ pulumi import aws:iam/groupPolicyAttachment:GroupPolicyAttachment test-attach test-group/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
         ```
 
         :param str resource_name: The name of the resource.

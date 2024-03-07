@@ -14,11 +14,11 @@ namespace Pulumi.Aws.SsoAdmin
         /// <summary>
         /// Data source for managing AWS SSO Admin Application Providers.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -31,8 +31,7 @@ namespace Pulumi.Aws.SsoAdmin
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetApplicationProvidersResult> InvokeAsync(GetApplicationProvidersArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationProvidersResult>("aws:ssoadmin/getApplicationProviders:getApplicationProviders", args ?? new GetApplicationProvidersArgs(), options.WithDefaults());
@@ -40,11 +39,11 @@ namespace Pulumi.Aws.SsoAdmin
         /// <summary>
         /// Data source for managing AWS SSO Admin Application Providers.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -57,8 +56,7 @@ namespace Pulumi.Aws.SsoAdmin
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetApplicationProvidersResult> Invoke(GetApplicationProvidersInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationProvidersResult>("aws:ssoadmin/getApplicationProviders:getApplicationProviders", args ?? new GetApplicationProvidersInvokeArgs(), options.WithDefaults());

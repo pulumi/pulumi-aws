@@ -226,6 +226,7 @@ def get_dedicated_host(filters: Optional[Sequence[pulumi.InputType['GetDedicated
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -235,8 +236,11 @@ def get_dedicated_host(filters: Optional[Sequence[pulumi.InputType['GetDedicated
         availability_zone="us-west-2a")
     test = aws.ec2.get_dedicated_host_output(host_id=test_dedicated_host.id)
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Filter Example
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -246,6 +250,7 @@ def get_dedicated_host(filters: Optional[Sequence[pulumi.InputType['GetDedicated
         values=["c5.18xlarge"],
     )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetDedicatedHostFilterArgs']] filters: Configuration block. Detailed below.
@@ -287,6 +292,7 @@ def get_dedicated_host_output(filters: Optional[pulumi.Input[Optional[Sequence[p
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -296,8 +302,11 @@ def get_dedicated_host_output(filters: Optional[pulumi.Input[Optional[Sequence[p
         availability_zone="us-west-2a")
     test = aws.ec2.get_dedicated_host_output(host_id=test_dedicated_host.id)
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Filter Example
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -307,6 +316,7 @@ def get_dedicated_host_output(filters: Optional[pulumi.Input[Optional[Sequence[p
         values=["c5.18xlarge"],
     )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetDedicatedHostFilterArgs']] filters: Configuration block. Detailed below.

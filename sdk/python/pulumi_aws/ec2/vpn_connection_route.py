@@ -102,6 +102,7 @@ class VpnConnectionRoute(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -121,6 +122,7 @@ class VpnConnectionRoute(pulumi.CustomResource):
             destination_cidr_block="192.168.10.0/24",
             vpn_connection_id=main.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -138,6 +140,7 @@ class VpnConnectionRoute(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -157,6 +160,7 @@ class VpnConnectionRoute(pulumi.CustomResource):
             destination_cidr_block="192.168.10.0/24",
             vpn_connection_id=main.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param VpnConnectionRouteInitArgs args: The arguments to use to populate this resource's properties.

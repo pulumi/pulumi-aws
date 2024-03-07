@@ -73,12 +73,14 @@ def get_resource_tags(resource_id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     account = aws.organizations.get_resource_tags(resource_id="123456123846")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str resource_id: ID of the resource with the tags to list. See details below.
@@ -105,12 +107,14 @@ def get_resource_tags_output(resource_id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     account = aws.organizations.get_resource_tags(resource_id="123456123846")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str resource_id: ID of the resource with the tags to list. See details below.

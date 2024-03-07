@@ -168,6 +168,7 @@ class UserPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -189,13 +190,14 @@ class UserPolicy(pulumi.CustomResource):
             }))
         lb_access_key = aws.iam.AccessKey("lb", user=lb.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM User Policies using the `user_name:user_policy_name`. For example:
 
         ```sh
-         $ pulumi import aws:iam/userPolicy:UserPolicy mypolicy user_of_mypolicy_name:mypolicy_name
+        $ pulumi import aws:iam/userPolicy:UserPolicy mypolicy user_of_mypolicy_name:mypolicy_name
         ```
 
         :param str resource_name: The name of the resource.
@@ -216,6 +218,7 @@ class UserPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -237,13 +240,14 @@ class UserPolicy(pulumi.CustomResource):
             }))
         lb_access_key = aws.iam.AccessKey("lb", user=lb.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM User Policies using the `user_name:user_policy_name`. For example:
 
         ```sh
-         $ pulumi import aws:iam/userPolicy:UserPolicy mypolicy user_of_mypolicy_name:mypolicy_name
+        $ pulumi import aws:iam/userPolicy:UserPolicy mypolicy user_of_mypolicy_name:mypolicy_name
         ```
 
         :param str resource_name: The name of the resource.

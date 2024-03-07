@@ -135,6 +135,7 @@ class DocumentationVersion(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -151,13 +152,14 @@ class DocumentationVersion(pulumi.CustomResource):
             properties="{\\"description\\":\\"Example\\"}",
             rest_api_id=example_rest_api.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import API Gateway documentation versions using `REST-API-ID/VERSION`. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/documentationVersion:DocumentationVersion example 5i4e1ko720/example-version
+        $ pulumi import aws:apigateway/documentationVersion:DocumentationVersion example 5i4e1ko720/example-version
         ```
 
         :param str resource_name: The name of the resource.
@@ -177,6 +179,7 @@ class DocumentationVersion(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -193,13 +196,14 @@ class DocumentationVersion(pulumi.CustomResource):
             properties="{\\"description\\":\\"Example\\"}",
             rest_api_id=example_rest_api.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import API Gateway documentation versions using `REST-API-ID/VERSION`. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/documentationVersion:DocumentationVersion example 5i4e1ko720/example-version
+        $ pulumi import aws:apigateway/documentationVersion:DocumentationVersion example 5i4e1ko720/example-version
         ```
 
         :param str resource_name: The name of the resource.

@@ -60,6 +60,8 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway&#39;s attachment to a resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -96,6 +98,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAttachmentResult> getAttachment() {
@@ -105,6 +108,8 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway&#39;s attachment to a resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -141,6 +146,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAttachmentResult> getAttachmentPlain() {
@@ -150,6 +156,8 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway&#39;s attachment to a resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -186,6 +194,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAttachmentResult> getAttachment(GetAttachmentArgs args) {
@@ -195,6 +204,8 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway&#39;s attachment to a resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -231,6 +242,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAttachmentResult> getAttachmentPlain(GetAttachmentPlainArgs args) {
@@ -240,6 +252,8 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway&#39;s attachment to a resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -276,6 +290,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAttachmentResult> getAttachment(GetAttachmentArgs args, InvokeOptions options) {
@@ -285,6 +300,8 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway&#39;s attachment to a resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -321,6 +338,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAttachmentResult> getAttachmentPlain(GetAttachmentPlainArgs args, InvokeOptions options) {
@@ -331,6 +349,11 @@ public final class Ec2transitgatewayFunctions {
      * 
      * ## Example Usage
      * 
+     * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetAttachmentsResult> getAttachments() {
         return getAttachments(GetAttachmentsArgs.Empty, InvokeOptions.Empty);
@@ -339,6 +362,11 @@ public final class Ec2transitgatewayFunctions {
      * Get information on EC2 Transit Gateway Attachments.
      * 
      * ## Example Usage
+     * 
+     * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAttachmentsResult> getAttachmentsPlain() {
@@ -349,6 +377,11 @@ public final class Ec2transitgatewayFunctions {
      * 
      * ## Example Usage
      * 
+     * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetAttachmentsResult> getAttachments(GetAttachmentsArgs args) {
         return getAttachments(args, InvokeOptions.Empty);
@@ -357,6 +390,11 @@ public final class Ec2transitgatewayFunctions {
      * Get information on EC2 Transit Gateway Attachments.
      * 
      * ## Example Usage
+     * 
+     * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAttachmentsResult> getAttachmentsPlain(GetAttachmentsPlainArgs args) {
@@ -367,6 +405,11 @@ public final class Ec2transitgatewayFunctions {
      * 
      * ## Example Usage
      * 
+     * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetAttachmentsResult> getAttachments(GetAttachmentsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2transitgateway/getAttachments:getAttachments", TypeShape.of(GetAttachmentsResult.class), args, Utilities.withVersion(options));
@@ -376,6 +419,11 @@ public final class Ec2transitgatewayFunctions {
      * 
      * ## Example Usage
      * 
+     * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static CompletableFuture<GetAttachmentsResult> getAttachmentsPlain(GetAttachmentsPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:ec2transitgateway/getAttachments:getAttachments", TypeShape.of(GetAttachmentsResult.class), args, Utilities.withVersion(options));
@@ -384,7 +432,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway Connect.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -416,7 +467,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -445,6 +500,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetConnectResult> getConnect() {
@@ -454,7 +510,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway Connect.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -486,7 +545,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -515,6 +578,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetConnectResult> getConnectPlain() {
@@ -524,7 +588,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway Connect.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -556,7 +623,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -585,6 +656,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetConnectResult> getConnect(GetConnectArgs args) {
@@ -594,7 +666,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway Connect.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -626,7 +701,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -655,6 +734,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetConnectResult> getConnectPlain(GetConnectPlainArgs args) {
@@ -664,7 +744,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway Connect.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -696,7 +779,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -725,6 +812,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetConnectResult> getConnect(GetConnectArgs args, InvokeOptions options) {
@@ -734,7 +822,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway Connect.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -766,7 +857,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -795,6 +890,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetConnectResult> getConnectPlain(GetConnectPlainArgs args, InvokeOptions options) {
@@ -804,7 +900,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway Connect Peer.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -836,7 +935,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -865,6 +968,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetConnectPeerResult> getConnectPeer() {
@@ -874,7 +978,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway Connect Peer.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -906,7 +1013,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -935,6 +1046,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetConnectPeerResult> getConnectPeerPlain() {
@@ -944,7 +1056,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway Connect Peer.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -976,7 +1091,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1005,6 +1124,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetConnectPeerResult> getConnectPeer(GetConnectPeerArgs args) {
@@ -1014,7 +1134,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway Connect Peer.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1046,7 +1169,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1075,6 +1202,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetConnectPeerResult> getConnectPeerPlain(GetConnectPeerPlainArgs args) {
@@ -1084,7 +1212,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway Connect Peer.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1116,7 +1247,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1145,6 +1280,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetConnectPeerResult> getConnectPeer(GetConnectPeerArgs args, InvokeOptions options) {
@@ -1154,7 +1290,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway Connect Peer.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1186,7 +1325,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1215,6 +1358,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetConnectPeerResult> getConnectPeerPlain(GetConnectPeerPlainArgs args, InvokeOptions options) {
@@ -1224,7 +1368,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway&#39;s attachment to a Direct Connect Gateway.
      * 
      * ## Example Usage
+     * 
      * ### By Transit Gateway and Direct Connect Gateway Identifiers
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1254,6 +1401,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDirectConnectGatewayAttachmentResult> getDirectConnectGatewayAttachment() {
@@ -1263,7 +1411,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway&#39;s attachment to a Direct Connect Gateway.
      * 
      * ## Example Usage
+     * 
      * ### By Transit Gateway and Direct Connect Gateway Identifiers
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1293,6 +1444,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDirectConnectGatewayAttachmentResult> getDirectConnectGatewayAttachmentPlain() {
@@ -1302,7 +1454,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway&#39;s attachment to a Direct Connect Gateway.
      * 
      * ## Example Usage
+     * 
      * ### By Transit Gateway and Direct Connect Gateway Identifiers
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1332,6 +1487,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDirectConnectGatewayAttachmentResult> getDirectConnectGatewayAttachment(GetDirectConnectGatewayAttachmentArgs args) {
@@ -1341,7 +1497,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway&#39;s attachment to a Direct Connect Gateway.
      * 
      * ## Example Usage
+     * 
      * ### By Transit Gateway and Direct Connect Gateway Identifiers
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1371,6 +1530,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDirectConnectGatewayAttachmentResult> getDirectConnectGatewayAttachmentPlain(GetDirectConnectGatewayAttachmentPlainArgs args) {
@@ -1380,7 +1540,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway&#39;s attachment to a Direct Connect Gateway.
      * 
      * ## Example Usage
+     * 
      * ### By Transit Gateway and Direct Connect Gateway Identifiers
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1410,6 +1573,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDirectConnectGatewayAttachmentResult> getDirectConnectGatewayAttachment(GetDirectConnectGatewayAttachmentArgs args, InvokeOptions options) {
@@ -1419,7 +1583,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway&#39;s attachment to a Direct Connect Gateway.
      * 
      * ## Example Usage
+     * 
      * ### By Transit Gateway and Direct Connect Gateway Identifiers
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1449,6 +1616,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDirectConnectGatewayAttachmentResult> getDirectConnectGatewayAttachmentPlain(GetDirectConnectGatewayAttachmentPlainArgs args, InvokeOptions options) {
@@ -1458,7 +1626,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway Multicast Domain.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1490,7 +1661,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1519,6 +1694,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetMulticastDomainResult> getMulticastDomain() {
@@ -1528,7 +1704,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway Multicast Domain.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1560,7 +1739,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1589,6 +1772,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetMulticastDomainResult> getMulticastDomainPlain() {
@@ -1598,7 +1782,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway Multicast Domain.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1630,7 +1817,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1659,6 +1850,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetMulticastDomainResult> getMulticastDomain(GetMulticastDomainArgs args) {
@@ -1668,7 +1860,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway Multicast Domain.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1700,7 +1895,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1729,6 +1928,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetMulticastDomainResult> getMulticastDomainPlain(GetMulticastDomainPlainArgs args) {
@@ -1738,7 +1938,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway Multicast Domain.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1770,7 +1973,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1799,6 +2006,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetMulticastDomainResult> getMulticastDomain(GetMulticastDomainArgs args, InvokeOptions options) {
@@ -1808,7 +2016,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway Multicast Domain.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1840,7 +2051,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1869,6 +2084,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetMulticastDomainResult> getMulticastDomainPlain(GetMulticastDomainPlainArgs args, InvokeOptions options) {
@@ -1878,7 +2094,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway Peering Attachment.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1910,7 +2129,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1939,6 +2162,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPeeringAttachmentResult> getPeeringAttachment() {
@@ -1948,7 +2172,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway Peering Attachment.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1980,7 +2207,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2009,6 +2240,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPeeringAttachmentResult> getPeeringAttachmentPlain() {
@@ -2018,7 +2250,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway Peering Attachment.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2050,7 +2285,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2079,6 +2318,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPeeringAttachmentResult> getPeeringAttachment(GetPeeringAttachmentArgs args) {
@@ -2088,7 +2328,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway Peering Attachment.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2120,7 +2363,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2149,6 +2396,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPeeringAttachmentResult> getPeeringAttachmentPlain(GetPeeringAttachmentPlainArgs args) {
@@ -2158,7 +2406,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway Peering Attachment.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2190,7 +2441,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2219,6 +2474,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPeeringAttachmentResult> getPeeringAttachment(GetPeeringAttachmentArgs args, InvokeOptions options) {
@@ -2228,7 +2484,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway Peering Attachment.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2260,7 +2519,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2289,6 +2552,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPeeringAttachmentResult> getPeeringAttachmentPlain(GetPeeringAttachmentPlainArgs args, InvokeOptions options) {
@@ -2298,7 +2562,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway Route Table.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2335,7 +2602,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2364,6 +2635,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRouteTableResult> getRouteTable() {
@@ -2373,7 +2645,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway Route Table.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2410,7 +2685,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2439,6 +2718,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRouteTableResult> getRouteTablePlain() {
@@ -2448,7 +2728,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway Route Table.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2485,7 +2768,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2514,6 +2801,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRouteTableResult> getRouteTable(GetRouteTableArgs args) {
@@ -2523,7 +2811,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway Route Table.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2560,7 +2851,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2589,6 +2884,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRouteTableResult> getRouteTablePlain(GetRouteTablePlainArgs args) {
@@ -2598,7 +2894,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway Route Table.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2635,7 +2934,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2664,6 +2967,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRouteTableResult> getRouteTable(GetRouteTableArgs args, InvokeOptions options) {
@@ -2673,7 +2977,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway Route Table.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2710,7 +3017,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2739,6 +3050,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRouteTableResult> getRouteTablePlain(GetRouteTablePlainArgs args, InvokeOptions options) {
@@ -2748,7 +3060,10 @@ public final class Ec2transitgatewayFunctions {
      * Provides information for multiple EC2 Transit Gateway Route Table Associations, such as their identifiers.
      * 
      * ## Example Usage
+     * 
      * ### By Transit Gateway Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2777,6 +3092,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRouteTableAssociationsResult> getRouteTableAssociations(GetRouteTableAssociationsArgs args) {
@@ -2786,7 +3102,10 @@ public final class Ec2transitgatewayFunctions {
      * Provides information for multiple EC2 Transit Gateway Route Table Associations, such as their identifiers.
      * 
      * ## Example Usage
+     * 
      * ### By Transit Gateway Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2815,6 +3134,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRouteTableAssociationsResult> getRouteTableAssociationsPlain(GetRouteTableAssociationsPlainArgs args) {
@@ -2824,7 +3144,10 @@ public final class Ec2transitgatewayFunctions {
      * Provides information for multiple EC2 Transit Gateway Route Table Associations, such as their identifiers.
      * 
      * ## Example Usage
+     * 
      * ### By Transit Gateway Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2853,6 +3176,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRouteTableAssociationsResult> getRouteTableAssociations(GetRouteTableAssociationsArgs args, InvokeOptions options) {
@@ -2862,7 +3186,10 @@ public final class Ec2transitgatewayFunctions {
      * Provides information for multiple EC2 Transit Gateway Route Table Associations, such as their identifiers.
      * 
      * ## Example Usage
+     * 
      * ### By Transit Gateway Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2891,6 +3218,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRouteTableAssociationsResult> getRouteTableAssociationsPlain(GetRouteTableAssociationsPlainArgs args, InvokeOptions options) {
@@ -2900,7 +3228,10 @@ public final class Ec2transitgatewayFunctions {
      * Provides information for multiple EC2 Transit Gateway Route Table Propagations, such as their identifiers.
      * 
      * ## Example Usage
+     * 
      * ### By Transit Gateway Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2929,6 +3260,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRouteTablePropagationsResult> getRouteTablePropagations(GetRouteTablePropagationsArgs args) {
@@ -2938,7 +3270,10 @@ public final class Ec2transitgatewayFunctions {
      * Provides information for multiple EC2 Transit Gateway Route Table Propagations, such as their identifiers.
      * 
      * ## Example Usage
+     * 
      * ### By Transit Gateway Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2967,6 +3302,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRouteTablePropagationsResult> getRouteTablePropagationsPlain(GetRouteTablePropagationsPlainArgs args) {
@@ -2976,7 +3312,10 @@ public final class Ec2transitgatewayFunctions {
      * Provides information for multiple EC2 Transit Gateway Route Table Propagations, such as their identifiers.
      * 
      * ## Example Usage
+     * 
      * ### By Transit Gateway Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3005,6 +3344,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRouteTablePropagationsResult> getRouteTablePropagations(GetRouteTablePropagationsArgs args, InvokeOptions options) {
@@ -3014,7 +3354,10 @@ public final class Ec2transitgatewayFunctions {
      * Provides information for multiple EC2 Transit Gateway Route Table Propagations, such as their identifiers.
      * 
      * ## Example Usage
+     * 
      * ### By Transit Gateway Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3043,6 +3386,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRouteTablePropagationsResult> getRouteTablePropagationsPlain(GetRouteTablePropagationsPlainArgs args, InvokeOptions options) {
@@ -3052,6 +3396,8 @@ public final class Ec2transitgatewayFunctions {
      * Provides informations for routes of a specific transit gateway, such as state, type, cidr
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3084,6 +3430,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRouteTableRoutesResult> getRouteTableRoutes(GetRouteTableRoutesArgs args) {
@@ -3093,6 +3440,8 @@ public final class Ec2transitgatewayFunctions {
      * Provides informations for routes of a specific transit gateway, such as state, type, cidr
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3125,6 +3474,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRouteTableRoutesResult> getRouteTableRoutesPlain(GetRouteTableRoutesPlainArgs args) {
@@ -3134,6 +3484,8 @@ public final class Ec2transitgatewayFunctions {
      * Provides informations for routes of a specific transit gateway, such as state, type, cidr
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3166,6 +3518,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRouteTableRoutesResult> getRouteTableRoutes(GetRouteTableRoutesArgs args, InvokeOptions options) {
@@ -3175,6 +3528,8 @@ public final class Ec2transitgatewayFunctions {
      * Provides informations for routes of a specific transit gateway, such as state, type, cidr
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3207,6 +3562,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRouteTableRoutesResult> getRouteTableRoutesPlain(GetRouteTableRoutesPlainArgs args, InvokeOptions options) {
@@ -3216,7 +3572,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3248,7 +3607,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3277,6 +3640,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTransitGatewayResult> getTransitGateway() {
@@ -3286,7 +3650,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3318,7 +3685,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3347,6 +3718,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTransitGatewayResult> getTransitGatewayPlain() {
@@ -3356,7 +3728,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3388,7 +3763,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3417,6 +3796,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTransitGatewayResult> getTransitGateway(GetTransitGatewayArgs args) {
@@ -3426,7 +3806,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3458,7 +3841,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3487,6 +3874,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTransitGatewayResult> getTransitGatewayPlain(GetTransitGatewayPlainArgs args) {
@@ -3496,7 +3884,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3528,7 +3919,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3557,6 +3952,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTransitGatewayResult> getTransitGateway(GetTransitGatewayArgs args, InvokeOptions options) {
@@ -3566,7 +3962,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3598,7 +3997,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3627,6 +4030,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTransitGatewayResult> getTransitGatewayPlain(GetTransitGatewayPlainArgs args, InvokeOptions options) {
@@ -3636,7 +4040,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway VPC Attachment.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3668,7 +4075,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3697,6 +4108,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVpcAttachmentResult> getVpcAttachment() {
@@ -3706,7 +4118,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway VPC Attachment.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3738,7 +4153,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3767,6 +4186,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVpcAttachmentResult> getVpcAttachmentPlain() {
@@ -3776,7 +4196,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway VPC Attachment.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3808,7 +4231,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3837,6 +4264,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVpcAttachmentResult> getVpcAttachment(GetVpcAttachmentArgs args) {
@@ -3846,7 +4274,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway VPC Attachment.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3878,7 +4309,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3907,6 +4342,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVpcAttachmentResult> getVpcAttachmentPlain(GetVpcAttachmentPlainArgs args) {
@@ -3916,7 +4352,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway VPC Attachment.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3948,7 +4387,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3977,6 +4420,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVpcAttachmentResult> getVpcAttachment(GetVpcAttachmentArgs args, InvokeOptions options) {
@@ -3986,7 +4430,10 @@ public final class Ec2transitgatewayFunctions {
      * Get information on an EC2 Transit Gateway VPC Attachment.
      * 
      * ## Example Usage
+     * 
      * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4018,7 +4465,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Identifier
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4047,6 +4498,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVpcAttachmentResult> getVpcAttachmentPlain(GetVpcAttachmentPlainArgs args, InvokeOptions options) {
@@ -4057,6 +4509,11 @@ public final class Ec2transitgatewayFunctions {
      * 
      * ## Example Usage
      * 
+     * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetVpcAttachmentsResult> getVpcAttachments() {
         return getVpcAttachments(GetVpcAttachmentsArgs.Empty, InvokeOptions.Empty);
@@ -4065,6 +4522,11 @@ public final class Ec2transitgatewayFunctions {
      * Get information on EC2 Transit Gateway VPC Attachments.
      * 
      * ## Example Usage
+     * 
+     * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVpcAttachmentsResult> getVpcAttachmentsPlain() {
@@ -4075,6 +4537,11 @@ public final class Ec2transitgatewayFunctions {
      * 
      * ## Example Usage
      * 
+     * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetVpcAttachmentsResult> getVpcAttachments(GetVpcAttachmentsArgs args) {
         return getVpcAttachments(args, InvokeOptions.Empty);
@@ -4083,6 +4550,11 @@ public final class Ec2transitgatewayFunctions {
      * Get information on EC2 Transit Gateway VPC Attachments.
      * 
      * ## Example Usage
+     * 
+     * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVpcAttachmentsResult> getVpcAttachmentsPlain(GetVpcAttachmentsPlainArgs args) {
@@ -4093,6 +4565,11 @@ public final class Ec2transitgatewayFunctions {
      * 
      * ## Example Usage
      * 
+     * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetVpcAttachmentsResult> getVpcAttachments(GetVpcAttachmentsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ec2transitgateway/getVpcAttachments:getVpcAttachments", TypeShape.of(GetVpcAttachmentsResult.class), args, Utilities.withVersion(options));
@@ -4101,6 +4578,11 @@ public final class Ec2transitgatewayFunctions {
      * Get information on EC2 Transit Gateway VPC Attachments.
      * 
      * ## Example Usage
+     * 
+     * ### By Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVpcAttachmentsResult> getVpcAttachmentsPlain(GetVpcAttachmentsPlainArgs args, InvokeOptions options) {
@@ -4112,7 +4594,10 @@ public final class Ec2transitgatewayFunctions {
      * &gt; EC2 Transit Gateway VPN Attachments are implicitly created by VPN Connections referencing an EC2 Transit Gateway so there is no managed resource. For ease, the `aws.ec2.VpnConnection` resource includes a `transit_gateway_attachment_id` attribute which can replace some usage of this data source. For tagging the attachment, see the `aws.ec2.Tag` resource.
      * 
      * ## Example Usage
+     * 
      * ### By Transit Gateway and VPN Connection Identifiers
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4142,7 +4627,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4174,6 +4663,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVpnAttachmentResult> getVpnAttachment() {
@@ -4185,7 +4675,10 @@ public final class Ec2transitgatewayFunctions {
      * &gt; EC2 Transit Gateway VPN Attachments are implicitly created by VPN Connections referencing an EC2 Transit Gateway so there is no managed resource. For ease, the `aws.ec2.VpnConnection` resource includes a `transit_gateway_attachment_id` attribute which can replace some usage of this data source. For tagging the attachment, see the `aws.ec2.Tag` resource.
      * 
      * ## Example Usage
+     * 
      * ### By Transit Gateway and VPN Connection Identifiers
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4215,7 +4708,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4247,6 +4744,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVpnAttachmentResult> getVpnAttachmentPlain() {
@@ -4258,7 +4756,10 @@ public final class Ec2transitgatewayFunctions {
      * &gt; EC2 Transit Gateway VPN Attachments are implicitly created by VPN Connections referencing an EC2 Transit Gateway so there is no managed resource. For ease, the `aws.ec2.VpnConnection` resource includes a `transit_gateway_attachment_id` attribute which can replace some usage of this data source. For tagging the attachment, see the `aws.ec2.Tag` resource.
      * 
      * ## Example Usage
+     * 
      * ### By Transit Gateway and VPN Connection Identifiers
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4288,7 +4789,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4320,6 +4825,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVpnAttachmentResult> getVpnAttachment(GetVpnAttachmentArgs args) {
@@ -4331,7 +4837,10 @@ public final class Ec2transitgatewayFunctions {
      * &gt; EC2 Transit Gateway VPN Attachments are implicitly created by VPN Connections referencing an EC2 Transit Gateway so there is no managed resource. For ease, the `aws.ec2.VpnConnection` resource includes a `transit_gateway_attachment_id` attribute which can replace some usage of this data source. For tagging the attachment, see the `aws.ec2.Tag` resource.
      * 
      * ## Example Usage
+     * 
      * ### By Transit Gateway and VPN Connection Identifiers
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4361,7 +4870,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4393,6 +4906,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVpnAttachmentResult> getVpnAttachmentPlain(GetVpnAttachmentPlainArgs args) {
@@ -4404,7 +4918,10 @@ public final class Ec2transitgatewayFunctions {
      * &gt; EC2 Transit Gateway VPN Attachments are implicitly created by VPN Connections referencing an EC2 Transit Gateway so there is no managed resource. For ease, the `aws.ec2.VpnConnection` resource includes a `transit_gateway_attachment_id` attribute which can replace some usage of this data source. For tagging the attachment, see the `aws.ec2.Tag` resource.
      * 
      * ## Example Usage
+     * 
      * ### By Transit Gateway and VPN Connection Identifiers
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4434,7 +4951,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4466,6 +4987,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVpnAttachmentResult> getVpnAttachment(GetVpnAttachmentArgs args, InvokeOptions options) {
@@ -4477,7 +4999,10 @@ public final class Ec2transitgatewayFunctions {
      * &gt; EC2 Transit Gateway VPN Attachments are implicitly created by VPN Connections referencing an EC2 Transit Gateway so there is no managed resource. For ease, the `aws.ec2.VpnConnection` resource includes a `transit_gateway_attachment_id` attribute which can replace some usage of this data source. For tagging the attachment, see the `aws.ec2.Tag` resource.
      * 
      * ## Example Usage
+     * 
      * ### By Transit Gateway and VPN Connection Identifiers
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4507,7 +5032,11 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4539,6 +5068,7 @@ public final class Ec2transitgatewayFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVpnAttachmentResult> getVpnAttachmentPlain(GetVpnAttachmentPlainArgs args, InvokeOptions options) {

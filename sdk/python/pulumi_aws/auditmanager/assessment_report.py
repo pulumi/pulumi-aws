@@ -175,8 +175,10 @@ class AssessmentReport(pulumi.CustomResource):
         Resource for managing an AWS Audit Manager Assessment Report.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -185,13 +187,14 @@ class AssessmentReport(pulumi.CustomResource):
             name="example",
             assessment_id=test_aws_auditmanager_assessment["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Audit Manager Assessment Reports using the assessment report `id`. For example:
 
         ```sh
-         $ pulumi import aws:auditmanager/assessmentReport:AssessmentReport example abc123-de45
+        $ pulumi import aws:auditmanager/assessmentReport:AssessmentReport example abc123-de45
         ```
 
         :param str resource_name: The name of the resource.
@@ -212,8 +215,10 @@ class AssessmentReport(pulumi.CustomResource):
         Resource for managing an AWS Audit Manager Assessment Report.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -222,13 +227,14 @@ class AssessmentReport(pulumi.CustomResource):
             name="example",
             assessment_id=test_aws_auditmanager_assessment["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Audit Manager Assessment Reports using the assessment report `id`. For example:
 
         ```sh
-         $ pulumi import aws:auditmanager/assessmentReport:AssessmentReport example abc123-de45
+        $ pulumi import aws:auditmanager/assessmentReport:AssessmentReport example abc123-de45
         ```
 
         :param str resource_name: The name of the resource.

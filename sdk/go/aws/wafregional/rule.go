@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -59,6 +60,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Nested Fields
 //
 // ### `predicate`
@@ -76,9 +79,7 @@ import (
 // Using `pulumi import`, import WAF Regional Rule using the id. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:wafregional/rule:Rule wafrule a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
-//
+// $ pulumi import aws:wafregional/rule:Rule wafrule a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
 // ```
 type Rule struct {
 	pulumi.CustomResourceState

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -68,15 +69,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import ApplicationInsights Applications using the `resource_group_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:applicationinsights/application:Application some some-application
-//
+// $ pulumi import aws:applicationinsights/application:Application some some-application
 // ```
 type Application struct {
 	pulumi.CustomResourceState

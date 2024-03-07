@@ -95,6 +95,7 @@ def get_resource(path: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -103,6 +104,7 @@ def get_resource(path: Optional[str] = None,
     my_resource = aws.apigateway.get_resource(rest_api_id=my_rest_api.id,
         path="/endpoint/path")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str path: Full path of the resource.  If no path is found, an error will be returned.
@@ -132,6 +134,7 @@ def get_resource_output(path: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -140,6 +143,7 @@ def get_resource_output(path: Optional[pulumi.Input[str]] = None,
     my_resource = aws.apigateway.get_resource(rest_api_id=my_rest_api.id,
         path="/endpoint/path")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str path: Full path of the resource.  If no path is found, an error will be returned.

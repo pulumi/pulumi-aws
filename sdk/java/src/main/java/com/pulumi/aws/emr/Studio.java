@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides an Elastic MapReduce Studio.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -56,13 +58,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import EMR studios using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:emr/studio:Studio studio es-123456ABCDEF
+ * $ pulumi import aws:emr/studio:Studio studio es-123456ABCDEF
  * ```
  * 
  */

@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Provides a Log subscription for AWS Directory Service that pushes logs to cloudwatch.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -76,13 +78,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Directory Service Log Subscriptions using the directory id. For example:
  * 
  * ```sh
- *  $ pulumi import aws:directoryservice/logService:LogService msad d-1234567890
+ * $ pulumi import aws:directoryservice/logService:LogService msad d-1234567890
  * ```
  * 
  */

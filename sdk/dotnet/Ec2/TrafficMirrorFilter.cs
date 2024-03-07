@@ -17,6 +17,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// To create a basic traffic mirror filter
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -36,13 +37,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import traffic mirror filter using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/trafficMirrorFilter:TrafficMirrorFilter foo tmf-0fbb93ddf38198f64
+    /// $ pulumi import aws:ec2/trafficMirrorFilter:TrafficMirrorFilter foo tmf-0fbb93ddf38198f64
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/trafficMirrorFilter:TrafficMirrorFilter")]

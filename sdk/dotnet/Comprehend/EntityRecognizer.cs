@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Comprehend
     /// Resource for managing an AWS Comprehend Entity Recognizer.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -58,13 +60,14 @@ namespace Pulumi.Aws.Comprehend
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Comprehend Entity Recognizer using the ARN. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:comprehend/entityRecognizer:EntityRecognizer example arn:aws:comprehend:us-west-2:123456789012:entity-recognizer/example
+    /// $ pulumi import aws:comprehend/entityRecognizer:EntityRecognizer example arn:aws:comprehend:us-west-2:123456789012:entity-recognizer/example
     /// ```
     /// </summary>
     [AwsResourceType("aws:comprehend/entityRecognizer:EntityRecognizer")]

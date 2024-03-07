@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS VPC Lattice Listener.
  *
  * ## Example Usage
+ *
  * ### Fixed response action
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -29,8 +31,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Forward action
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -58,8 +63,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Forward action with weighted target groups
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -103,13 +111,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import VPC Lattice Listener using the `listener_id` of the listener and the `id` of the VPC Lattice service combined with a `/` character. For example:
  *
  * ```sh
- *  $ pulumi import aws:vpclattice/listener:Listener example svc-1a2b3c4d/listener-987654321
+ * $ pulumi import aws:vpclattice/listener:Listener example svc-1a2b3c4d/listener-987654321
  * ```
  */
 export class Listener extends pulumi.CustomResource {

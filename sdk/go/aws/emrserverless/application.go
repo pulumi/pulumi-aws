@@ -15,8 +15,10 @@ import (
 // Manages an EMR Serverless Application.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,8 +44,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Initial Capacity Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -81,8 +86,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Maximum Capacity Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -112,15 +120,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import EMR Severless applications using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:emrserverless/application:Application example id
-//
+// $ pulumi import aws:emrserverless/application:Application example id
 // ```
 type Application struct {
 	pulumi.CustomResourceState

@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Provides an Amazon MSK Connect Connector resource.
  *
  * ## Example Usage
+ *
  * ### Basic configuration
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -66,13 +68,14 @@ import * as utilities from "../utilities";
  *     serviceExecutionRoleArn: exampleAwsIamRole.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import MSK Connect Connector using the connector's `arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:mskconnect/connector:Connector example 'arn:aws:kafkaconnect:eu-central-1:123456789012:connector/example/264edee4-17a3-412e-bd76-6681cfc93805-3'
+ * $ pulumi import aws:mskconnect/connector:Connector example 'arn:aws:kafkaconnect:eu-central-1:123456789012:connector/example/264edee4-17a3-412e-bd76-6681cfc93805-3'
  * ```
  */
 export class Connector extends pulumi.CustomResource {

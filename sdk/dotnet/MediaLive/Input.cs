@@ -13,8 +13,10 @@ namespace Pulumi.Aws.MediaLive
     /// Resource for managing an AWS MediaLive Input.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -54,13 +56,14 @@ namespace Pulumi.Aws.MediaLive
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import MediaLive Input using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:medialive/input:Input example 12345678
+    /// $ pulumi import aws:medialive/input:Input example 12345678
     /// ```
     /// </summary>
     [AwsResourceType("aws:medialive/input:Input")]

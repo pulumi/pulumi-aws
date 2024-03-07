@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS EC2 (Elastic Compute Cloud) Verified Access Endpoint.
  *
  * ## Example Usage
+ *
  * ### ALB Example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -34,8 +36,11 @@ import * as utilities from "../utilities";
  *     verifiedAccessGroupId: exampleAwsVerifiedaccessGroup.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Network Interface Example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -56,15 +61,14 @@ import * as utilities from "../utilities";
  *     verifiedAccessGroupId: exampleAwsVerifiedaccessGroup.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * Using `pulumi import`, import Verified Access Instances using the
- *
- * `id`. For example:
+ * Using `pulumi import`, import Verified Access Instances using the  `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:verifiedaccess/endpoint:Endpoint example vae-8012925589
+ * $ pulumi import aws:verifiedaccess/endpoint:Endpoint example vae-8012925589
  * ```
  */
 export class Endpoint extends pulumi.CustomResource {

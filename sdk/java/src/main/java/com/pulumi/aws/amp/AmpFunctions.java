@@ -21,7 +21,10 @@ public final class AmpFunctions {
      * Provides an Amazon Managed Prometheus workspace data source.
      * 
      * ## Example Usage
+     * 
      * ### Basic configuration
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -50,6 +53,7 @@ public final class AmpFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args) {
@@ -59,7 +63,10 @@ public final class AmpFunctions {
      * Provides an Amazon Managed Prometheus workspace data source.
      * 
      * ## Example Usage
+     * 
      * ### Basic configuration
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -88,6 +95,7 @@ public final class AmpFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetWorkspaceResult> getWorkspacePlain(GetWorkspacePlainArgs args) {
@@ -97,7 +105,10 @@ public final class AmpFunctions {
      * Provides an Amazon Managed Prometheus workspace data source.
      * 
      * ## Example Usage
+     * 
      * ### Basic configuration
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -126,6 +137,7 @@ public final class AmpFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args, InvokeOptions options) {
@@ -135,7 +147,10 @@ public final class AmpFunctions {
      * Provides an Amazon Managed Prometheus workspace data source.
      * 
      * ## Example Usage
+     * 
      * ### Basic configuration
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -164,6 +179,7 @@ public final class AmpFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetWorkspaceResult> getWorkspacePlain(GetWorkspacePlainArgs args, InvokeOptions options) {
@@ -175,6 +191,8 @@ public final class AmpFunctions {
      * ## Example Usage
      * 
      * The following example returns all of the workspaces in a region:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -201,9 +219,12 @@ public final class AmpFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following example filters the workspaces by alias. Only the workspaces with
      * aliases that begin with the value of `alias_prefix` will be returned:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -232,6 +253,7 @@ public final class AmpFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetWorkspacesResult> getWorkspaces() {
@@ -243,6 +265,8 @@ public final class AmpFunctions {
      * ## Example Usage
      * 
      * The following example returns all of the workspaces in a region:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -269,9 +293,12 @@ public final class AmpFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following example filters the workspaces by alias. Only the workspaces with
      * aliases that begin with the value of `alias_prefix` will be returned:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -300,6 +327,7 @@ public final class AmpFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetWorkspacesResult> getWorkspacesPlain() {
@@ -311,6 +339,8 @@ public final class AmpFunctions {
      * ## Example Usage
      * 
      * The following example returns all of the workspaces in a region:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -337,9 +367,12 @@ public final class AmpFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following example filters the workspaces by alias. Only the workspaces with
      * aliases that begin with the value of `alias_prefix` will be returned:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -368,6 +401,7 @@ public final class AmpFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetWorkspacesResult> getWorkspaces(GetWorkspacesArgs args) {
@@ -379,6 +413,8 @@ public final class AmpFunctions {
      * ## Example Usage
      * 
      * The following example returns all of the workspaces in a region:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -405,9 +441,12 @@ public final class AmpFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following example filters the workspaces by alias. Only the workspaces with
      * aliases that begin with the value of `alias_prefix` will be returned:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -436,6 +475,7 @@ public final class AmpFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetWorkspacesResult> getWorkspacesPlain(GetWorkspacesPlainArgs args) {
@@ -447,6 +487,8 @@ public final class AmpFunctions {
      * ## Example Usage
      * 
      * The following example returns all of the workspaces in a region:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -473,9 +515,12 @@ public final class AmpFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following example filters the workspaces by alias. Only the workspaces with
      * aliases that begin with the value of `alias_prefix` will be returned:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -504,6 +549,7 @@ public final class AmpFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetWorkspacesResult> getWorkspaces(GetWorkspacesArgs args, InvokeOptions options) {
@@ -515,6 +561,8 @@ public final class AmpFunctions {
      * ## Example Usage
      * 
      * The following example returns all of the workspaces in a region:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -541,9 +589,12 @@ public final class AmpFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following example filters the workspaces by alias. Only the workspaces with
      * aliases that begin with the value of `alias_prefix` will be returned:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -572,6 +623,7 @@ public final class AmpFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetWorkspacesResult> getWorkspacesPlain(GetWorkspacesPlainArgs args, InvokeOptions options) {

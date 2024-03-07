@@ -169,6 +169,7 @@ class SchedulingPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -193,13 +194,14 @@ class SchedulingPolicy(pulumi.CustomResource):
                 "Name": "Example Batch Scheduling Policy",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Batch Scheduling Policy using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:batch/schedulingPolicy:SchedulingPolicy test_policy arn:aws:batch:us-east-1:123456789012:scheduling-policy/sample
+        $ pulumi import aws:batch/schedulingPolicy:SchedulingPolicy test_policy arn:aws:batch:us-east-1:123456789012:scheduling-policy/sample
         ```
 
         :param str resource_name: The name of the resource.
@@ -218,6 +220,7 @@ class SchedulingPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -242,13 +245,14 @@ class SchedulingPolicy(pulumi.CustomResource):
                 "Name": "Example Batch Scheduling Policy",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Batch Scheduling Policy using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:batch/schedulingPolicy:SchedulingPolicy test_policy arn:aws:batch:us-east-1:123456789012:scheduling-policy/sample
+        $ pulumi import aws:batch/schedulingPolicy:SchedulingPolicy test_policy arn:aws:batch:us-east-1:123456789012:scheduling-policy/sample
         ```
 
         :param str resource_name: The name of the resource.

@@ -14,12 +14,11 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// Provides details about a specific Amazon Connect Security Profile.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// By `name`
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -36,9 +35,11 @@ namespace Pulumi.Aws.Connect
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// By `security_profile_id`
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -55,8 +56,7 @@ namespace Pulumi.Aws.Connect
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSecurityProfileResult> InvokeAsync(GetSecurityProfileArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecurityProfileResult>("aws:connect/getSecurityProfile:getSecurityProfile", args ?? new GetSecurityProfileArgs(), options.WithDefaults());
@@ -64,12 +64,11 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// Provides details about a specific Amazon Connect Security Profile.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// By `name`
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -86,9 +85,11 @@ namespace Pulumi.Aws.Connect
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// By `security_profile_id`
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -105,8 +106,7 @@ namespace Pulumi.Aws.Connect
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSecurityProfileResult> Invoke(GetSecurityProfileInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecurityProfileResult>("aws:connect/getSecurityProfile:getSecurityProfile", args ?? new GetSecurityProfileInvokeArgs(), options.WithDefaults());

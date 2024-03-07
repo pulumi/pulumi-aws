@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,15 +39,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import IOT Thing Types using the name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:iot/thingType:ThingType example example
-//
+// $ pulumi import aws:iot/thingType:ThingType example example
 // ```
 type ThingType struct {
 	pulumi.CustomResourceState

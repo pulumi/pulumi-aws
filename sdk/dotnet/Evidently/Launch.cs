@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Evidently
     /// Provides a CloudWatch Evidently Launch resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -54,8 +56,11 @@ namespace Pulumi.Aws.Evidently
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With description
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -96,8 +101,11 @@ namespace Pulumi.Aws.Evidently
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With multiple groups
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -146,8 +154,11 @@ namespace Pulumi.Aws.Evidently
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With metric_monitors
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -212,8 +223,11 @@ namespace Pulumi.Aws.Evidently
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With randomization_salt
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -254,8 +268,11 @@ namespace Pulumi.Aws.Evidently
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With multiple steps
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -311,8 +328,11 @@ namespace Pulumi.Aws.Evidently
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With segment overrides
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -381,6 +401,7 @@ namespace Pulumi.Aws.Evidently
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -391,12 +412,12 @@ namespace Pulumi.Aws.Evidently
     /// Import using the `name` of the launch and `name` of the project separated by a `:`:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:evidently/launch:Launch example exampleLaunchName:exampleProjectName
+    /// $ pulumi import aws:evidently/launch:Launch example exampleLaunchName:exampleProjectName
     /// ```
-    ///  Import using the `name` of the launch and `arn` of the project separated by a `:`:
+    /// Import using the `name` of the launch and `arn` of the project separated by a `:`:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:evidently/launch:Launch example exampleLaunchName:arn:aws:evidently:us-east-1:123456789012:project/exampleProjectName
+    /// $ pulumi import aws:evidently/launch:Launch example exampleLaunchName:arn:aws:evidently:us-east-1:123456789012:project/exampleProjectName
     /// ```
     /// </summary>
     [AwsResourceType("aws:evidently/launch:Launch")]

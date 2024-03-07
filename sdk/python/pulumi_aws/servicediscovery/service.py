@@ -375,6 +375,7 @@ class Service(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -401,7 +402,9 @@ class Service(pulumi.CustomResource):
                 failure_threshold=1,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -424,13 +427,14 @@ class Service(pulumi.CustomResource):
                 type="HTTP",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Service Discovery Service using the service ID. For example:
 
         ```sh
-         $ pulumi import aws:servicediscovery/service:Service example 0123456789
+        $ pulumi import aws:servicediscovery/service:Service example 0123456789
         ```
 
         :param str resource_name: The name of the resource.
@@ -456,6 +460,7 @@ class Service(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -482,7 +487,9 @@ class Service(pulumi.CustomResource):
                 failure_threshold=1,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -505,13 +512,14 @@ class Service(pulumi.CustomResource):
                 type="HTTP",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Service Discovery Service using the service ID. For example:
 
         ```sh
-         $ pulumi import aws:servicediscovery/service:Service example 0123456789
+        $ pulumi import aws:servicediscovery/service:Service example 0123456789
         ```
 
         :param str resource_name: The name of the resource.

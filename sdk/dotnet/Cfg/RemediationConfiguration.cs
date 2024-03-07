@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// AWS managed rules can be used by setting the source owner to `AWS` and the source identifier to the name of the managed rule. More information about AWS managed rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html).
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -76,13 +77,14 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Remediation Configurations using the name config_rule_name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cfg/remediationConfiguration:RemediationConfiguration this example
+    /// $ pulumi import aws:cfg/remediationConfiguration:RemediationConfiguration this example
     /// ```
     /// </summary>
     [AwsResourceType("aws:cfg/remediationConfiguration:RemediationConfiguration")]

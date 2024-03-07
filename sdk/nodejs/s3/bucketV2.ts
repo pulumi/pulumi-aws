@@ -15,8 +15,10 @@ import * as utilities from "../utilities";
  * > Object Lock can be enabled by using the `objectLockEnable` attribute or by using the `aws.s3.BucketObjectLockConfigurationV2` resource. Please note, that by using the resource, Object Lock can be enabled/disabled without destroying and recreating the bucket.
  *
  * ## Example Usage
+ *
  * ### Private Bucket With Tags
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -29,13 +31,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import S3 bucket using the `bucket`. For example:
  *
  * ```sh
- *  $ pulumi import aws:s3/bucketV2:BucketV2 bucket bucket-name
+ * $ pulumi import aws:s3/bucketV2:BucketV2 bucket bucket-name
  * ```
  */
 export class BucketV2 extends pulumi.CustomResource {

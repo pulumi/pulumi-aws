@@ -209,6 +209,7 @@ class Rule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -228,6 +229,8 @@ class Rule(pulumi.CustomResource):
                 negated=False,
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Nested Fields
 
         ### `predicate`
@@ -245,7 +248,7 @@ class Rule(pulumi.CustomResource):
         Using `pulumi import`, import WAF Regional Rule using the id. For example:
 
         ```sh
-         $ pulumi import aws:wafregional/rule:Rule wafrule a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+        $ pulumi import aws:wafregional/rule:Rule wafrule a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
         ```
 
         :param str resource_name: The name of the resource.
@@ -266,6 +269,7 @@ class Rule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -285,6 +289,8 @@ class Rule(pulumi.CustomResource):
                 negated=False,
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Nested Fields
 
         ### `predicate`
@@ -302,7 +308,7 @@ class Rule(pulumi.CustomResource):
         Using `pulumi import`, import WAF Regional Rule using the id. For example:
 
         ```sh
-         $ pulumi import aws:wafregional/rule:Rule wafrule a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+        $ pulumi import aws:wafregional/rule:Rule wafrule a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
         ```
 
         :param str resource_name: The name of the resource.

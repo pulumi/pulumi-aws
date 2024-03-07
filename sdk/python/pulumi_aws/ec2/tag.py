@@ -136,6 +136,7 @@ class Tag(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -154,13 +155,14 @@ class Tag(pulumi.CustomResource):
             key="Name",
             value="Hello World")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ec2_tag` using the EC2 resource identifier and key, separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:ec2/tag:Tag example tgw-attach-1234567890abcdef,Name
+        $ pulumi import aws:ec2/tag:Tag example tgw-attach-1234567890abcdef,Name
         ```
 
         :param str resource_name: The name of the resource.
@@ -182,6 +184,7 @@ class Tag(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -200,13 +203,14 @@ class Tag(pulumi.CustomResource):
             key="Name",
             value="Hello World")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ec2_tag` using the EC2 resource identifier and key, separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:ec2/tag:Tag example tgw-attach-1234567890abcdef,Name
+        $ pulumi import aws:ec2/tag:Tag example tgw-attach-1234567890abcdef,Name
         ```
 
         :param str resource_name: The name of the resource.

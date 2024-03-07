@@ -21,7 +21,10 @@ import javax.annotation.Nullable;
  * Provides a Connection of Direct Connect.
  * 
  * ## Example Usage
+ * 
  * ### Create a connection
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -52,7 +55,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Request a MACsec-capable connection
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -84,9 +91,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Configure encryption mode for MACsec-capable connections
  * 
  * &gt; **NOTE:** You can only specify the `encryption_mode` argument once the connection is in an `Available` state.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -119,13 +130,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Direct Connect connections using the connection `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:directconnect/connection:Connection test_connection dxcon-ffre0ec3
+ * $ pulumi import aws:directconnect/connection:Connection test_connection dxcon-ffre0ec3
  * ```
  * 
  */

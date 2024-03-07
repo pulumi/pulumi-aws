@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -51,15 +52,14 @@ import (
 // return pulumiArr
 // }
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import DB proxy endpoints using the `DB-PROXY-NAME/DB-PROXY-ENDPOINT-NAME`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:rds/proxyEndpoint:ProxyEndpoint example example/example
-//
+// $ pulumi import aws:rds/proxyEndpoint:ProxyEndpoint example example/example
 // ```
 type ProxyEndpoint struct {
 	pulumi.CustomResourceState

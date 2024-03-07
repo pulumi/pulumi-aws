@@ -14,10 +14,9 @@ namespace Pulumi.Aws.CloudFormation
         /// <summary>
         /// Provides details about a CloudFormation Type.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +33,7 @@ namespace Pulumi.Aws.CloudFormation
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetCloudFormationTypeResult> InvokeAsync(GetCloudFormationTypeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCloudFormationTypeResult>("aws:cloudformation/getCloudFormationType:getCloudFormationType", args ?? new GetCloudFormationTypeArgs(), options.WithDefaults());
@@ -43,10 +41,9 @@ namespace Pulumi.Aws.CloudFormation
         /// <summary>
         /// Provides details about a CloudFormation Type.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +60,7 @@ namespace Pulumi.Aws.CloudFormation
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetCloudFormationTypeResult> Invoke(GetCloudFormationTypeInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCloudFormationTypeResult>("aws:cloudformation/getCloudFormationType:getCloudFormationType", args ?? new GetCloudFormationTypeInvokeArgs(), options.WithDefaults());

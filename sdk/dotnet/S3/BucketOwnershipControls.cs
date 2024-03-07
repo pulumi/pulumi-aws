@@ -16,6 +16,7 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -40,13 +41,14 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import S3 Bucket Ownership Controls using S3 Bucket name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:s3/bucketOwnershipControls:BucketOwnershipControls example my-bucket
+    /// $ pulumi import aws:s3/bucketOwnershipControls:BucketOwnershipControls example my-bucket
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3/bucketOwnershipControls:BucketOwnershipControls")]

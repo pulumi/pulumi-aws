@@ -11,13 +11,16 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const messenger = new aws.cloudwatch.EventBus("messenger", {name: "chat-messages"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -30,13 +33,14 @@ import * as utilities from "../utilities";
  *     eventSourceName: examplepartner.then(examplepartner => examplepartner.name),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import EventBridge event buses using the `name` (which can also be a partner event source name). For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
+ * $ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
  * ```
  */
 export class EventBus extends pulumi.CustomResource {

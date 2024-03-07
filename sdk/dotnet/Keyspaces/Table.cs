@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Keyspaces
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -50,13 +51,14 @@ namespace Pulumi.Aws.Keyspaces
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import a table using the `keyspace_name` and `table_name` separated by `/`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:keyspaces/table:Table example my_keyspace/my_table
+    /// $ pulumi import aws:keyspaces/table:Table example my_keyspace/my_table
     /// ```
     /// </summary>
     [AwsResourceType("aws:keyspaces/table:Table")]

@@ -17,8 +17,10 @@ import (
 // ## Example Usage
 //
 // ### Encryption Security Policy
+//
 // ### Applies to a single collection
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -62,8 +64,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Applies to multiple collections
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -107,8 +112,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Using a customer managed key
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -153,9 +161,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Network Security Policy
+//
 // ### Allow public access to the collection endpoint and the Dashboards endpoint
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -208,8 +220,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Allow VPC access to the collection endpoint and the Dashboards endpoint
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -265,8 +280,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Mixed access for different collections
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -334,15 +352,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import OpenSearchServerless Security Policy using the `name` and `type` arguments separated by a slash (`/`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:opensearch/serverlessSecurityPolicy:ServerlessSecurityPolicy example example/encryption
-//
+// $ pulumi import aws:opensearch/serverlessSecurityPolicy:ServerlessSecurityPolicy example example/encryption
 // ```
 type ServerlessSecurityPolicy struct {
 	pulumi.CustomResourceState

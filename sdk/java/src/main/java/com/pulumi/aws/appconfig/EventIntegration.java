@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides an Amazon AppIntegrations Event Integration resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -55,13 +57,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Amazon AppIntegrations Event Integrations using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:appconfig/eventIntegration:EventIntegration example example-name
+ * $ pulumi import aws:appconfig/eventIntegration:EventIntegration example example-name
  * ```
  * 
  */

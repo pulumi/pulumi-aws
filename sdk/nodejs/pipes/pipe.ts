@@ -17,8 +17,10 @@ import * as utilities from "../utilities";
  * > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -74,8 +76,11 @@ import * as utilities from "../utilities";
  *     target: targetQueue.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Enrichment Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -101,8 +106,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Filter Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -123,13 +131,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import pipes using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:pipes/pipe:Pipe example my-pipe
+ * $ pulumi import aws:pipes/pipe:Pipe example my-pipe
  * ```
  */
 export class Pipe extends pulumi.CustomResource {

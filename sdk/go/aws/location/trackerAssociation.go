@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -52,15 +53,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Location Tracker Association using the `tracker_name|consumer_arn`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:location/trackerAssociation:TrackerAssociation example "tracker_name|consumer_arn"
-//
+// $ pulumi import aws:location/trackerAssociation:TrackerAssociation example "tracker_name|consumer_arn"
 // ```
 type TrackerAssociation struct {
 	pulumi.CustomResourceState

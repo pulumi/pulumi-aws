@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -29,13 +30,14 @@ import * as utilities from "../utilities";
  *     CA_CERTIFICATE: false,
  * }});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import IoT Event Configurations using the AWS Region. For example:
  *
  * ```sh
- *  $ pulumi import aws:iot/eventConfigurations:EventConfigurations example us-west-2
+ * $ pulumi import aws:iot/eventConfigurations:EventConfigurations example us-west-2
  * ```
  */
 export class EventConfigurations extends pulumi.CustomResource {

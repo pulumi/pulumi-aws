@@ -17,7 +17,7 @@ import * as utilities from "../utilities";
  * Using `pulumi import`, import Multi-Region Access Point Policies using the `account_id` and `name` of the Multi-Region Access Point separated by a colon (`:`). For example:
  *
  * ```sh
- *  $ pulumi import aws:s3control/multiRegionAccessPointPolicy:MultiRegionAccessPointPolicy example 123456789012:example
+ * $ pulumi import aws:s3control/multiRegionAccessPointPolicy:MultiRegionAccessPointPolicy example 123456789012:example
  * ```
  */
 export class MultiRegionAccessPointPolicy extends pulumi.CustomResource {

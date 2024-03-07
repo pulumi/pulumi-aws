@@ -483,8 +483,10 @@ class Role(pulumi.CustomResource):
         > **NOTE:** If you use this resource's `managed_policy_arns` argument or `inline_policy` configuration blocks, this resource will take over exclusive management of the role's respective policy types (e.g., both policy types if both arguments are used). These arguments are incompatible with other ways of managing a role's policies, such as `iam.PolicyAttachment`, `iam.RolePolicyAttachment`, and `iam.RolePolicy`. If you attempt to manage a role's policies by multiple means, you will get resource cycling and/or errors.
 
         ## Example Usage
+
         ### Basic Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -507,8 +509,11 @@ class Role(pulumi.CustomResource):
                 "tag-key": "tag-value",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example of Using Data Source for Assume Role Policy
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -525,10 +530,13 @@ class Role(pulumi.CustomResource):
             path="/system/",
             assume_role_policy=instance_assume_role_policy.json)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example of Exclusive Inline Policies
 
         This example creates an IAM role with two inline IAM policies. If someone adds another inline policy out-of-band, on the next apply, this provider will remove that policy. If someone deletes these policies out-of-band, this provider will recreate them.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -559,10 +567,13 @@ class Role(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example of Removing Inline Policies
 
         This example creates an IAM role with what appears to be empty IAM `inline_policy` argument instead of using `inline_policy` as a configuration block. The result is that if someone were to add an inline policy out-of-band, on the next apply, this provider will remove that policy.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -572,10 +583,13 @@ class Role(pulumi.CustomResource):
             name="yak_role",
             assume_role_policy=instance_assume_role_policy["json"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example of Exclusive Managed Policies
 
         This example creates an IAM role and attaches two managed IAM policies. If someone attaches another managed policy out-of-band, on the next apply, this provider will detach that policy. If someone detaches these policies out-of-band, this provider will attach them again.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -613,10 +627,13 @@ class Role(pulumi.CustomResource):
                 policy_two.arn,
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example of Removing Managed Policies
 
         This example creates an IAM role with an empty `managed_policy_arns` argument. If someone attaches a policy out-of-band, on the next apply, this provider will detach that policy.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -626,13 +643,14 @@ class Role(pulumi.CustomResource):
             assume_role_policy=instance_assume_role_policy["json"],
             managed_policy_arns=[])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM Roles using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:iam/role:Role developer developer_name
+        $ pulumi import aws:iam/role:Role developer developer_name
         ```
 
         :param str resource_name: The name of the resource.
@@ -666,8 +684,10 @@ class Role(pulumi.CustomResource):
         > **NOTE:** If you use this resource's `managed_policy_arns` argument or `inline_policy` configuration blocks, this resource will take over exclusive management of the role's respective policy types (e.g., both policy types if both arguments are used). These arguments are incompatible with other ways of managing a role's policies, such as `iam.PolicyAttachment`, `iam.RolePolicyAttachment`, and `iam.RolePolicy`. If you attempt to manage a role's policies by multiple means, you will get resource cycling and/or errors.
 
         ## Example Usage
+
         ### Basic Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -690,8 +710,11 @@ class Role(pulumi.CustomResource):
                 "tag-key": "tag-value",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example of Using Data Source for Assume Role Policy
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -708,10 +731,13 @@ class Role(pulumi.CustomResource):
             path="/system/",
             assume_role_policy=instance_assume_role_policy.json)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example of Exclusive Inline Policies
 
         This example creates an IAM role with two inline IAM policies. If someone adds another inline policy out-of-band, on the next apply, this provider will remove that policy. If someone deletes these policies out-of-band, this provider will recreate them.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -742,10 +768,13 @@ class Role(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example of Removing Inline Policies
 
         This example creates an IAM role with what appears to be empty IAM `inline_policy` argument instead of using `inline_policy` as a configuration block. The result is that if someone were to add an inline policy out-of-band, on the next apply, this provider will remove that policy.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -755,10 +784,13 @@ class Role(pulumi.CustomResource):
             name="yak_role",
             assume_role_policy=instance_assume_role_policy["json"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example of Exclusive Managed Policies
 
         This example creates an IAM role and attaches two managed IAM policies. If someone attaches another managed policy out-of-band, on the next apply, this provider will detach that policy. If someone detaches these policies out-of-band, this provider will attach them again.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -796,10 +828,13 @@ class Role(pulumi.CustomResource):
                 policy_two.arn,
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example of Removing Managed Policies
 
         This example creates an IAM role with an empty `managed_policy_arns` argument. If someone attaches a policy out-of-band, on the next apply, this provider will detach that policy.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -809,13 +844,14 @@ class Role(pulumi.CustomResource):
             assume_role_policy=instance_assume_role_policy["json"],
             managed_policy_arns=[])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM Roles using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:iam/role:Role developer developer_name
+        $ pulumi import aws:iam/role:Role developer developer_name
         ```
 
         :param str resource_name: The name of the resource.

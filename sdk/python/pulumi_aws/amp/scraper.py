@@ -277,10 +277,11 @@ class Scraper(pulumi.CustomResource):
         """
         ## Import
 
-        Using `pulumi import`, import the Managed Scraper using its identifier. For example:
+        Using `pulumi import`, import the Managed Scraper using its identifier.
+        For example:
 
         ```sh
-         $ pulumi import aws:amp/scraper:Scraper example s-0123abc-0000-0123-a000-000000000000
+        $ pulumi import aws:amp/scraper:Scraper example s-0123abc-0000-0123-a000-000000000000
         ```
 
         :param str resource_name: The name of the resource.
@@ -301,10 +302,11 @@ class Scraper(pulumi.CustomResource):
         """
         ## Import
 
-        Using `pulumi import`, import the Managed Scraper using its identifier. For example:
+        Using `pulumi import`, import the Managed Scraper using its identifier.
+        For example:
 
         ```sh
-         $ pulumi import aws:amp/scraper:Scraper example s-0123abc-0000-0123-a000-000000000000
+        $ pulumi import aws:amp/scraper:Scraper example s-0123abc-0000-0123-a000-000000000000
         ```
 
         :param str resource_name: The name of the resource.

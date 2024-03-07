@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,6 +21,7 @@ import * as utilities from "../utilities";
  *     costCategoryArn: "costCategoryARN",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getCostCategory(args: GetCostCategoryArgs, opts?: pulumi.InvokeOptions): Promise<GetCostCategoryResult> {
 
@@ -88,6 +90,7 @@ export interface GetCostCategoryResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -96,6 +99,7 @@ export interface GetCostCategoryResult {
  *     costCategoryArn: "costCategoryARN",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getCostCategoryOutput(args: GetCostCategoryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCostCategoryResult> {
     return pulumi.output(args).apply((a: any) => getCostCategory(a, opts))

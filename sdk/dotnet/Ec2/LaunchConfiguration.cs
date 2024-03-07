@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -63,6 +64,8 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Using with AutoScaling Groups
     /// 
     /// Launch Configurations cannot be updated after creation with the Amazon
@@ -73,6 +76,7 @@ namespace Pulumi.Aws.Ec2
     /// Either omit the Launch Configuration `name` attribute, or specify a partial name
     /// with `name_prefix`.  Example:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -126,6 +130,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// With this setup this provider generates a unique name for your Launch
     /// Configuration and can then update the AutoScaling Group without conflict before
@@ -140,6 +145,7 @@ namespace Pulumi.Aws.Ec2
     /// documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
     /// for more information or how to launch [Spot Instances][3] with this provider.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -191,6 +197,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Block devices
     /// 
@@ -249,7 +256,7 @@ namespace Pulumi.Aws.Ec2
     /// Using `pulumi import`, import launch configurations using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf pulumi-lg-123456
+    /// $ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf pulumi-lg-123456
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/launchConfiguration:LaunchConfiguration")]

@@ -351,15 +351,18 @@ class Fleet(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.worklink.Fleet("example", name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         Network Configuration Usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -372,9 +375,11 @@ class Fleet(pulumi.CustomResource):
                 security_group_ids=[test["id"]],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         Identity Provider Configuration Usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -387,13 +392,14 @@ class Fleet(pulumi.CustomResource):
                 saml_metadata=std.file(input="saml-metadata.xml").result,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import WorkLink using the ARN. For example:
 
         ```sh
-         $ pulumi import aws:worklink/fleet:Fleet test arn:aws:worklink::123456789012:fleet/example
+        $ pulumi import aws:worklink/fleet:Fleet test arn:aws:worklink::123456789012:fleet/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -421,15 +427,18 @@ class Fleet(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.worklink.Fleet("example", name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         Network Configuration Usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -442,9 +451,11 @@ class Fleet(pulumi.CustomResource):
                 security_group_ids=[test["id"]],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         Identity Provider Configuration Usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -457,13 +468,14 @@ class Fleet(pulumi.CustomResource):
                 saml_metadata=std.file(input="saml-metadata.xml").result,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import WorkLink using the ARN. For example:
 
         ```sh
-         $ pulumi import aws:worklink/fleet:Fleet test arn:aws:worklink::123456789012:fleet/example
+        $ pulumi import aws:worklink/fleet:Fleet test arn:aws:worklink::123456789012:fleet/example
         ```
 
         :param str resource_name: The name of the resource.

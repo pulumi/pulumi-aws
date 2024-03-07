@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE on policy versions:** Updating this resource creates a new, default policy version. If updating the resource would exceed the maximum number of versions (5), the oldest non-default version of the policy is deleted before the new policy version is created.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -57,13 +59,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import IoT policies using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:iot/policy:Policy pubsub PubSubToAnyTopic
+ * $ pulumi import aws:iot/policy:Policy pubsub PubSubToAnyTopic
  * ```
  * 
  */

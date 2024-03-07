@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +40,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupRegexPatternSet(ctx *pulumi.Context, args *LookupRegexPatternSetArgs, opts ...pulumi.InvokeOption) (*LookupRegexPatternSetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRegexPatternSetResult

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,15 +41,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Redshift Serverless Snapshots using the `snapshot_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:redshiftserverless/snapshot:Snapshot example example
-//
+// $ pulumi import aws:redshiftserverless/snapshot:Snapshot example example
 // ```
 type Snapshot struct {
 	pulumi.CustomResourceState

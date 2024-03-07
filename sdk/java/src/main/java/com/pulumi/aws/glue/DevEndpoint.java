@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * Basic usage:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -78,13 +80,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import a Glue Development Endpoint using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:glue/devEndpoint:DevEndpoint example foo
+ * $ pulumi import aws:glue/devEndpoint:DevEndpoint example foo
  * ```
  * 
  */

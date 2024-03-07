@@ -174,8 +174,10 @@ class DataShareAuthorization(pulumi.CustomResource):
         Resource for managing an AWS Redshift Data Share Authorization.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -184,13 +186,14 @@ class DataShareAuthorization(pulumi.CustomResource):
             consumer_identifier="012345678901",
             data_share_arn="arn:aws:redshift:us-west-2:012345678901:datashare:3072dae5-022b-4d45-9cd3-01f010aae4b2/example_share")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Data Share Authorization using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:redshift/dataShareAuthorization:DataShareAuthorization example arn:aws:redshift:us-west-2:012345678901:datashare:3072dae5-022b-4d45-9cd3-01f010aae4b2/example_share,012345678901
+        $ pulumi import aws:redshift/dataShareAuthorization:DataShareAuthorization example arn:aws:redshift:us-west-2:012345678901:datashare:3072dae5-022b-4d45-9cd3-01f010aae4b2/example_share,012345678901
         ```
 
         :param str resource_name: The name of the resource.
@@ -211,8 +214,10 @@ class DataShareAuthorization(pulumi.CustomResource):
         Resource for managing an AWS Redshift Data Share Authorization.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -221,13 +226,14 @@ class DataShareAuthorization(pulumi.CustomResource):
             consumer_identifier="012345678901",
             data_share_arn="arn:aws:redshift:us-west-2:012345678901:datashare:3072dae5-022b-4d45-9cd3-01f010aae4b2/example_share")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Data Share Authorization using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:redshift/dataShareAuthorization:DataShareAuthorization example arn:aws:redshift:us-west-2:012345678901:datashare:3072dae5-022b-4d45-9cd3-01f010aae4b2/example_share,012345678901
+        $ pulumi import aws:redshift/dataShareAuthorization:DataShareAuthorization example arn:aws:redshift:us-west-2:012345678901:datashare:3072dae5-022b-4d45-9cd3-01f010aae4b2/example_share,012345678901
         ```
 
         :param str resource_name: The name of the resource.

@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Cognito
     /// Provides a Cognito User Pool Domain resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Amazon Cognito domain
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -36,8 +38,11 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Custom Cognito domain
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -81,13 +86,14 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Cognito User Pool Domains using the `domain`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cognito/userPoolDomain:UserPoolDomain main auth.example.org
+    /// $ pulumi import aws:cognito/userPoolDomain:UserPoolDomain main auth.example.org
     /// ```
     /// </summary>
     [AwsResourceType("aws:cognito/userPoolDomain:UserPoolDomain")]

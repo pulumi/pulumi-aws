@@ -155,6 +155,7 @@ class ZoneAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -176,6 +177,7 @@ class ZoneAssociation(pulumi.CustomResource):
             zone_id=example.zone_id,
             vpc_id=secondary.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -186,12 +188,12 @@ class ZoneAssociation(pulumi.CustomResource):
         The VPC is in the same region where you have configured the AWS Provider:
 
         ```sh
-         $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678
+        $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678
         ```
-         The VPC is _not_ in the same region where you have configured the AWS Provider:
+        The VPC is _not_ in the same region where you have configured the AWS Provider:
 
         ```sh
-         $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678:us-east-2
+        $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678:us-east-2
         ```
 
         :param str resource_name: The name of the resource.
@@ -215,6 +217,7 @@ class ZoneAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -236,6 +239,7 @@ class ZoneAssociation(pulumi.CustomResource):
             zone_id=example.zone_id,
             vpc_id=secondary.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -246,12 +250,12 @@ class ZoneAssociation(pulumi.CustomResource):
         The VPC is in the same region where you have configured the AWS Provider:
 
         ```sh
-         $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678
+        $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678
         ```
-         The VPC is _not_ in the same region where you have configured the AWS Provider:
+        The VPC is _not_ in the same region where you have configured the AWS Provider:
 
         ```sh
-         $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678:us-east-2
+        $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678:us-east-2
         ```
 
         :param str resource_name: The name of the resource.

@@ -10,42 +10,12 @@ import * as utilities from "../utilities";
 /**
  * Provides a Single Sign-On (SSO) ABAC Resource: https://docs.aws.amazon.com/singlesignon/latest/userguide/abac.html
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const example = aws.ssoadmin.getInstances({});
- * const exampleInstanceAccessControlAttributes = new aws.ssoadmin.InstanceAccessControlAttributes("example", {
- *     instanceArn: notImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
- *     attributes: [
- *         {
- *             key: "name",
- *             values: [{
- *                 sources: ["${path:name.givenName}"],
- *             }],
- *         },
- *         {
- *             key: "last",
- *             values: [{
- *                 sources: ["${path:name.familyName}"],
- *             }],
- *         },
- *     ],
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import SSO Account Assignments using the `instance_arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes example arn:aws:sso:::instance/ssoins-0123456789abcdef
+ * $ pulumi import aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes example arn:aws:sso:::instance/ssoins-0123456789abcdef
  * ```
  */
 export class InstanceAccessControlAttributes extends pulumi.CustomResource {

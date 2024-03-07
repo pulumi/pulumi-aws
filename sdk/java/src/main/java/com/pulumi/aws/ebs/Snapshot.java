@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Creates a Snapshot of an EBS Volume.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -58,13 +60,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import EBS Snapshot using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ebs/snapshot:Snapshot id snap-049df61146c4d7901
+ * $ pulumi import aws:ebs/snapshot:Snapshot id snap-049df61146c4d7901
  * ```
  * 
  */

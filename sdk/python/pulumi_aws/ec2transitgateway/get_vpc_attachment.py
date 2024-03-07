@@ -159,8 +159,10 @@ def get_vpc_attachment(filters: Optional[Sequence[pulumi.InputType['GetVpcAttach
     Get information on an EC2 Transit Gateway VPC Attachment.
 
     ## Example Usage
+
     ### By Filter
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -170,14 +172,18 @@ def get_vpc_attachment(filters: Optional[Sequence[pulumi.InputType['GetVpcAttach
         values=["vpc-12345678"],
     )])
     ```
+    <!--End PulumiCodeChooser -->
+
     ### By Identifier
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.ec2transitgateway.get_vpc_attachment(id="tgw-attach-12345678")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetVpcAttachmentFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
@@ -213,8 +219,10 @@ def get_vpc_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[p
     Get information on an EC2 Transit Gateway VPC Attachment.
 
     ## Example Usage
+
     ### By Filter
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -224,14 +232,18 @@ def get_vpc_attachment_output(filters: Optional[pulumi.Input[Optional[Sequence[p
         values=["vpc-12345678"],
     )])
     ```
+    <!--End PulumiCodeChooser -->
+
     ### By Identifier
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.ec2transitgateway.get_vpc_attachment(id="tgw-attach-12345678")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetVpcAttachmentFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.

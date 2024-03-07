@@ -243,6 +243,7 @@ class Cluster(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -254,8 +255,11 @@ class Cluster(pulumi.CustomResource):
                 value="enabled",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example with Log Configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -277,13 +281,14 @@ class Cluster(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ECS clusters using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:ecs/cluster:Cluster stateless stateless-app
+        $ pulumi import aws:ecs/cluster:Cluster stateless stateless-app
         ```
 
         :param str resource_name: The name of the resource.
@@ -305,6 +310,7 @@ class Cluster(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -316,8 +322,11 @@ class Cluster(pulumi.CustomResource):
                 value="enabled",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example with Log Configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -339,13 +348,14 @@ class Cluster(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ECS clusters using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:ecs/cluster:Cluster stateless stateless-app
+        $ pulumi import aws:ecs/cluster:Cluster stateless stateless-app
         ```
 
         :param str resource_name: The name of the resource.

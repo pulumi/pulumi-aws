@@ -201,6 +201,7 @@ class Model(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -218,13 +219,14 @@ class Model(pulumi.CustomResource):
                 "type": "object",
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_api_gateway_model` using `REST-API-ID/NAME`. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/model:Model example 12345abcde/example
+        $ pulumi import aws:apigateway/model:Model example 12345abcde/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -246,6 +248,7 @@ class Model(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -263,13 +266,14 @@ class Model(pulumi.CustomResource):
                 "type": "object",
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_api_gateway_model` using `REST-API-ID/NAME`. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/model:Model example 12345abcde/example
+        $ pulumi import aws:apigateway/model:Model example 12345abcde/example
         ```
 
         :param str resource_name: The name of the resource.

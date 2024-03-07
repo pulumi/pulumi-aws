@@ -361,6 +361,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -371,13 +372,14 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
             protocol="tcp")
         analysis = aws.ec2.NetworkInsightsAnalysis("analysis", network_insights_path_id=path.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Network Insights Analyses using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis test nia-0462085c957f11a55
+        $ pulumi import aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis test nia-0462085c957f11a55
         ```
 
         :param str resource_name: The name of the resource.
@@ -400,6 +402,7 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -410,13 +413,14 @@ class NetworkInsightsAnalysis(pulumi.CustomResource):
             protocol="tcp")
         analysis = aws.ec2.NetworkInsightsAnalysis("analysis", network_insights_path_id=path.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Network Insights Analyses using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis test nia-0462085c957f11a55
+        $ pulumi import aws:ec2/networkInsightsAnalysis:NetworkInsightsAnalysis test nia-0462085c957f11a55
         ```
 
         :param str resource_name: The name of the resource.

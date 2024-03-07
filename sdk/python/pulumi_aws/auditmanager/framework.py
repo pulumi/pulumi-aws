@@ -264,8 +264,10 @@ class Framework(pulumi.CustomResource):
         Resource for managing an AWS Audit Manager Framework.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -279,13 +281,14 @@ class Framework(pulumi.CustomResource):
                 )],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Audit Manager Framework using the framework `id`. For example:
 
         ```sh
-         $ pulumi import aws:auditmanager/framework:Framework example abc123-de45
+        $ pulumi import aws:auditmanager/framework:Framework example abc123-de45
         ```
 
         :param str resource_name: The name of the resource.
@@ -308,8 +311,10 @@ class Framework(pulumi.CustomResource):
         Resource for managing an AWS Audit Manager Framework.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -323,13 +328,14 @@ class Framework(pulumi.CustomResource):
                 )],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Audit Manager Framework using the framework `id`. For example:
 
         ```sh
-         $ pulumi import aws:auditmanager/framework:Framework example abc123-de45
+        $ pulumi import aws:auditmanager/framework:Framework example abc123-de45
         ```
 
         :param str resource_name: The name of the resource.

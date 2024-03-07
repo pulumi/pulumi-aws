@@ -175,8 +175,10 @@ class WorkerConfiguration(pulumi.CustomResource):
         Provides an Amazon MSK Connect Worker Configuration Resource.
 
         ## Example Usage
+
         ### Basic configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -187,13 +189,14 @@ class WorkerConfiguration(pulumi.CustomResource):
         value.converter=org.apache.kafka.connect.storage.StringConverter
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import MSK Connect Worker Configuration using the plugin's `arn`. For example:
 
         ```sh
-         $ pulumi import aws:mskconnect/workerConfiguration:WorkerConfiguration example 'arn:aws:kafkaconnect:eu-central-1:123456789012:worker-configuration/example/8848493b-7fcc-478c-a646-4a52634e3378-4'
+        $ pulumi import aws:mskconnect/workerConfiguration:WorkerConfiguration example 'arn:aws:kafkaconnect:eu-central-1:123456789012:worker-configuration/example/8848493b-7fcc-478c-a646-4a52634e3378-4'
         ```
 
         :param str resource_name: The name of the resource.
@@ -214,8 +217,10 @@ class WorkerConfiguration(pulumi.CustomResource):
         Provides an Amazon MSK Connect Worker Configuration Resource.
 
         ## Example Usage
+
         ### Basic configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -226,13 +231,14 @@ class WorkerConfiguration(pulumi.CustomResource):
         value.converter=org.apache.kafka.connect.storage.StringConverter
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import MSK Connect Worker Configuration using the plugin's `arn`. For example:
 
         ```sh
-         $ pulumi import aws:mskconnect/workerConfiguration:WorkerConfiguration example 'arn:aws:kafkaconnect:eu-central-1:123456789012:worker-configuration/example/8848493b-7fcc-478c-a646-4a52634e3378-4'
+        $ pulumi import aws:mskconnect/workerConfiguration:WorkerConfiguration example 'arn:aws:kafkaconnect:eu-central-1:123456789012:worker-configuration/example/8848493b-7fcc-478c-a646-4a52634e3378-4'
         ```
 
         :param str resource_name: The name of the resource.

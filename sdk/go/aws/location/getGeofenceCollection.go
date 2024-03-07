@@ -14,8 +14,10 @@ import (
 // Retrieve information about a Location Service Geofence Collection.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupGeofenceCollection(ctx *pulumi.Context, args *LookupGeofenceCollectionArgs, opts ...pulumi.InvokeOption) (*LookupGeofenceCollectionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupGeofenceCollectionResult

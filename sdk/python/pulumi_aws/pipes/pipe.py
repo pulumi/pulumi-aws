@@ -484,8 +484,10 @@ class Pipe(pulumi.CustomResource):
         > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -539,8 +541,11 @@ class Pipe(pulumi.CustomResource):
             source=source_queue.arn,
             target=target_queue.arn)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Enrichment Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -565,8 +570,11 @@ class Pipe(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Filter Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -587,13 +595,14 @@ class Pipe(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import pipes using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:pipes/pipe:Pipe example my-pipe
+        $ pulumi import aws:pipes/pipe:Pipe example my-pipe
         ```
 
         :param str resource_name: The name of the resource.
@@ -629,8 +638,10 @@ class Pipe(pulumi.CustomResource):
         > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -684,8 +695,11 @@ class Pipe(pulumi.CustomResource):
             source=source_queue.arn,
             target=target_queue.arn)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Enrichment Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -710,8 +724,11 @@ class Pipe(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Filter Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -732,13 +749,14 @@ class Pipe(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import pipes using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:pipes/pipe:Pipe example my-pipe
+        $ pulumi import aws:pipes/pipe:Pipe example my-pipe
         ```
 
         :param str resource_name: The name of the resource.

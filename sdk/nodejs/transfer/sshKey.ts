@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -60,13 +61,14 @@ import * as utilities from "../utilities";
  *     policy: example.then(example => example.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Transfer SSH Public Key using the `server_id` and `user_name` and `ssh_public_key_id` separated by `/`. For example:
  *
  * ```sh
- *  $ pulumi import aws:transfer/sshKey:SshKey bar s-12345678/test-username/key-12345
+ * $ pulumi import aws:transfer/sshKey:SshKey bar s-12345678/test-username/key-12345
  * ```
  */
 export class SshKey extends pulumi.CustomResource {

@@ -167,8 +167,10 @@ class ApiMapping(pulumi.CustomResource):
         More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html).
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -178,13 +180,14 @@ class ApiMapping(pulumi.CustomResource):
             domain_name=example_aws_apigatewayv2_domain_name["id"],
             stage=example_aws_apigatewayv2_stage["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_apigatewayv2_api_mapping` using the API mapping identifier and domain name. For example:
 
         ```sh
-         $ pulumi import aws:apigatewayv2/apiMapping:ApiMapping example 1122334/ws-api.example.com
+        $ pulumi import aws:apigatewayv2/apiMapping:ApiMapping example 1122334/ws-api.example.com
         ```
 
         :param str resource_name: The name of the resource.
@@ -205,8 +208,10 @@ class ApiMapping(pulumi.CustomResource):
         More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/how-to-custom-domains.html).
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -216,13 +221,14 @@ class ApiMapping(pulumi.CustomResource):
             domain_name=example_aws_apigatewayv2_domain_name["id"],
             stage=example_aws_apigatewayv2_stage["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_apigatewayv2_api_mapping` using the API mapping identifier and domain name. For example:
 
         ```sh
-         $ pulumi import aws:apigatewayv2/apiMapping:ApiMapping example 1122334/ws-api.example.com
+        $ pulumi import aws:apigatewayv2/apiMapping:ApiMapping example 1122334/ws-api.example.com
         ```
 
         :param str resource_name: The name of the resource.

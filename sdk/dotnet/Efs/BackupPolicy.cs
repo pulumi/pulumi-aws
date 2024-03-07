@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Efs
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -39,13 +40,14 @@ namespace Pulumi.Aws.Efs
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import the EFS backup policies using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:efs/backupPolicy:BackupPolicy example fs-6fa144c6
+    /// $ pulumi import aws:efs/backupPolicy:BackupPolicy example fs-6fa144c6
     /// ```
     /// </summary>
     [AwsResourceType("aws:efs/backupPolicy:BackupPolicy")]

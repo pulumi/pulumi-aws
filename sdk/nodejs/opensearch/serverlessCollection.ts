@@ -15,8 +15,10 @@ import * as utilities from "../utilities";
  * > **NOTE:** An `aws.opensearch.ServerlessCollection` is not accessible without configuring an applicable network security policy. Data cannot be accessed without configuring an applicable data access policy.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -34,13 +36,14 @@ import * as utilities from "../utilities";
  * });
  * const exampleServerlessCollection = new aws.opensearch.ServerlessCollection("example", {name: "example"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import OpenSearchServerless Collection using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:opensearch/serverlessCollection:ServerlessCollection example example
+ * $ pulumi import aws:opensearch/serverlessCollection:ServerlessCollection example example
  * ```
  */
 export class ServerlessCollection extends pulumi.CustomResource {

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,15 +41,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Redshift Serverless Workgroups using the `workgroup_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:redshiftserverless/workgroup:Workgroup example example
-//
+// $ pulumi import aws:redshiftserverless/workgroup:Workgroup example example
 // ```
 type Workgroup struct {
 	pulumi.CustomResourceState

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.AppConfig
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -53,13 +54,14 @@ namespace Pulumi.Aws.AppConfig
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AppConfig Environments using the environment ID and application ID separated by a colon (`:`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:appconfig/environment:Environment example 71abcde:11xxxxx
+    /// $ pulumi import aws:appconfig/environment:Environment example 71abcde:11xxxxx
     /// ```
     /// </summary>
     [AwsResourceType("aws:appconfig/environment:Environment")]

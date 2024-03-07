@@ -13,8 +13,10 @@ namespace Pulumi.Aws.MskConnect
     /// Provides an Amazon MSK Connect Custom Plugin Resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic configuration
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -51,13 +53,14 @@ namespace Pulumi.Aws.MskConnect
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import MSK Connect Custom Plugin using the plugin's `arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:mskconnect/customPlugin:CustomPlugin example 'arn:aws:kafkaconnect:eu-central-1:123456789012:custom-plugin/debezium-example/abcdefgh-1234-5678-9abc-defghijklmno-4'
+    /// $ pulumi import aws:mskconnect/customPlugin:CustomPlugin example 'arn:aws:kafkaconnect:eu-central-1:123456789012:custom-plugin/debezium-example/abcdefgh-1234-5678-9abc-defghijklmno-4'
     /// ```
     /// </summary>
     [AwsResourceType("aws:mskconnect/customPlugin:CustomPlugin")]

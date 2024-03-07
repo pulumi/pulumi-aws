@@ -25,6 +25,8 @@ import javax.annotation.Nullable;
  * See the [Create File Cache](https://docs.aws.amazon.com/fsx/latest/APIReference/API_CreateFileCache.html) for more information.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -79,13 +81,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Amazon File Cache cache using the resource `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:fsx/fileCache:FileCache example fc-8012925589
+ * $ pulumi import aws:fsx/fileCache:FileCache example fc-8012925589
  * ```
  * 
  */

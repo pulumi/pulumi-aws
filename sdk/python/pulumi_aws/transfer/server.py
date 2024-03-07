@@ -813,8 +813,10 @@ class Server(pulumi.CustomResource):
         > **NOTE:** Use the `transfer.Tag` resource to manage the system tags used for [custom hostnames](https://docs.aws.amazon.com/transfer/latest/userguide/requirements-dns.html#tag-custom-hostname-cdk).
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -823,16 +825,22 @@ class Server(pulumi.CustomResource):
             "Name": "Example",
         })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Security Policy Name
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.transfer.Server("example", security_policy_name="TransferSecurityPolicy-2020-06")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### VPC Endpoint
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -845,8 +853,11 @@ class Server(pulumi.CustomResource):
                 vpc_id=example_aws_vpc["id"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### AWS Directory authentication
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -855,8 +866,11 @@ class Server(pulumi.CustomResource):
             identity_provider_type="AWS_DIRECTORY_SERVICE",
             directory_id=example_aws_directory_service_directory["id"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### AWS Lambda authentication
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -865,8 +879,11 @@ class Server(pulumi.CustomResource):
             identity_provider_type="AWS_LAMBDA",
             function=example_aws_lambda_identity_provider["arn"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Protocols
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -885,8 +902,11 @@ class Server(pulumi.CustomResource):
             identity_provider_type="API_GATEWAY",
             url=f"{example_aws_api_gateway_deployment['invokeUrl']}{example_aws_api_gateway_resource['path']}")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Using Structured Logging Destinations
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -910,15 +930,16 @@ class Server(pulumi.CustomResource):
             protocols=["SFTP"],
             structured_log_destinations=[transfer.arn.apply(lambda arn: f"{arn}:*")])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Transfer Servers using the server `id`. For example:
 
         ```sh
-         $ pulumi import aws:transfer/server:Server example s-12345678
+        $ pulumi import aws:transfer/server:Server example s-12345678
         ```
-         Certain resource arguments, such as `host_key`, cannot be read via the API and imported into the provider. This provider will display a difference for these arguments the first run after import if declared in the provider configuration for an imported resource.
+        Certain resource arguments, such as `host_key`, cannot be read via the API and imported into the provider. This provider will display a difference for these arguments the first run after import if declared in the provider configuration for an imported resource.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -967,8 +988,10 @@ class Server(pulumi.CustomResource):
         > **NOTE:** Use the `transfer.Tag` resource to manage the system tags used for [custom hostnames](https://docs.aws.amazon.com/transfer/latest/userguide/requirements-dns.html#tag-custom-hostname-cdk).
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -977,16 +1000,22 @@ class Server(pulumi.CustomResource):
             "Name": "Example",
         })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Security Policy Name
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.transfer.Server("example", security_policy_name="TransferSecurityPolicy-2020-06")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### VPC Endpoint
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -999,8 +1028,11 @@ class Server(pulumi.CustomResource):
                 vpc_id=example_aws_vpc["id"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### AWS Directory authentication
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1009,8 +1041,11 @@ class Server(pulumi.CustomResource):
             identity_provider_type="AWS_DIRECTORY_SERVICE",
             directory_id=example_aws_directory_service_directory["id"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### AWS Lambda authentication
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1019,8 +1054,11 @@ class Server(pulumi.CustomResource):
             identity_provider_type="AWS_LAMBDA",
             function=example_aws_lambda_identity_provider["arn"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Protocols
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1039,8 +1077,11 @@ class Server(pulumi.CustomResource):
             identity_provider_type="API_GATEWAY",
             url=f"{example_aws_api_gateway_deployment['invokeUrl']}{example_aws_api_gateway_resource['path']}")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Using Structured Logging Destinations
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1064,15 +1105,16 @@ class Server(pulumi.CustomResource):
             protocols=["SFTP"],
             structured_log_destinations=[transfer.arn.apply(lambda arn: f"{arn}:*")])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Transfer Servers using the server `id`. For example:
 
         ```sh
-         $ pulumi import aws:transfer/server:Server example s-12345678
+        $ pulumi import aws:transfer/server:Server example s-12345678
         ```
-         Certain resource arguments, such as `host_key`, cannot be read via the API and imported into the provider. This provider will display a difference for these arguments the first run after import if declared in the provider configuration for an imported resource.
+        Certain resource arguments, such as `host_key`, cannot be read via the API and imported into the provider. This provider will display a difference for these arguments the first run after import if declared in the provider configuration for an imported resource.
 
         :param str resource_name: The name of the resource.
         :param ServerArgs args: The arguments to use to populate this resource's properties.

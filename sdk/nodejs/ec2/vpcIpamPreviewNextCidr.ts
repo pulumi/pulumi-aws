@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * Basic usage:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -34,6 +35,7 @@ import * as utilities from "../utilities";
  *     cidr: "172.20.0.0/16",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class VpcIpamPreviewNextCidr extends pulumi.CustomResource {
     /**

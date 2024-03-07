@@ -15,8 +15,10 @@ namespace Pulumi.Aws.CostExplorer
     /// ## Example Usage
     /// 
     /// There are two main types of a Cost Anomaly Monitor: `DIMENSIONAL` and `CUSTOM`.
+    /// 
     /// ### Dimensional Example
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,8 +36,11 @@ namespace Pulumi.Aws.CostExplorer
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Custom Example
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -70,13 +75,14 @@ namespace Pulumi.Aws.CostExplorer
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_ce_anomaly_monitor` using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:costexplorer/anomalyMonitor:AnomalyMonitor example costAnomalyMonitorARN
+    /// $ pulumi import aws:costexplorer/anomalyMonitor:AnomalyMonitor example costAnomalyMonitorARN
     /// ```
     /// </summary>
     [AwsResourceType("aws:costexplorer/anomalyMonitor:AnomalyMonitor")]

@@ -276,19 +276,21 @@ class Queue(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.mediaconvert.Queue("test", name="tf-test-queue")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Media Convert Queue using the queue name. For example:
 
         ```sh
-         $ pulumi import aws:mediaconvert/queue:Queue test tf-test-queue
+        $ pulumi import aws:mediaconvert/queue:Queue test tf-test-queue
         ```
 
         :param str resource_name: The name of the resource.
@@ -311,19 +313,21 @@ class Queue(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.mediaconvert.Queue("test", name="tf-test-queue")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Media Convert Queue using the queue name. For example:
 
         ```sh
-         $ pulumi import aws:mediaconvert/queue:Queue test tf-test-queue
+        $ pulumi import aws:mediaconvert/queue:Queue test tf-test-queue
         ```
 
         :param str resource_name: The name of the resource.

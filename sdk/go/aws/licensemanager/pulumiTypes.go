@@ -18,6 +18,7 @@ type GetLicenseGrantsFilter struct {
 	// [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedGrants.html#API_ListReceivedGrants_RequestSyntax).
 	// For example, if filtering using `ProductSKU`, use:
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -45,6 +46,7 @@ type GetLicenseGrantsFilter struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given field.
 	Values []string `pulumi:"values"`
@@ -66,6 +68,7 @@ type GetLicenseGrantsFilterArgs struct {
 	// [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedGrants.html#API_ListReceivedGrants_RequestSyntax).
 	// For example, if filtering using `ProductSKU`, use:
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -93,6 +96,7 @@ type GetLicenseGrantsFilterArgs struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given field.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -153,6 +157,7 @@ func (o GetLicenseGrantsFilterOutput) ToGetLicenseGrantsFilterOutputWithContext(
 // [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedGrants.html#API_ListReceivedGrants_RequestSyntax).
 // For example, if filtering using `ProductSKU`, use:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -183,6 +188,7 @@ func (o GetLicenseGrantsFilterOutput) ToGetLicenseGrantsFilterOutputWithContext(
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func (o GetLicenseGrantsFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetLicenseGrantsFilter) string { return v.Name }).(pulumi.StringOutput)
 }
@@ -1115,6 +1121,7 @@ type GetReceivedLicensesFilter struct {
 	// [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedLicenses.html#API_ListReceivedLicenses_RequestSyntax).
 	// For example, if filtering using `ProductSKU`, use:
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -1142,6 +1149,7 @@ type GetReceivedLicensesFilter struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	Name string `pulumi:"name"`
 	// Set of values that are accepted for the given field.
 	Values []string `pulumi:"values"`
@@ -1163,6 +1171,7 @@ type GetReceivedLicensesFilterArgs struct {
 	// [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedLicenses.html#API_ListReceivedLicenses_RequestSyntax).
 	// For example, if filtering using `ProductSKU`, use:
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -1190,6 +1199,7 @@ type GetReceivedLicensesFilterArgs struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	Name pulumi.StringInput `pulumi:"name"`
 	// Set of values that are accepted for the given field.
 	Values pulumi.StringArrayInput `pulumi:"values"`
@@ -1250,6 +1260,7 @@ func (o GetReceivedLicensesFilterOutput) ToGetReceivedLicensesFilterOutputWithCo
 // [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedLicenses.html#API_ListReceivedLicenses_RequestSyntax).
 // For example, if filtering using `ProductSKU`, use:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -1280,6 +1291,7 @@ func (o GetReceivedLicensesFilterOutput) ToGetReceivedLicensesFilterOutputWithCo
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func (o GetReceivedLicensesFilterOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v GetReceivedLicensesFilter) string { return v.Name }).(pulumi.StringOutput)
 }

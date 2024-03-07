@@ -555,6 +555,7 @@ class SnapshotCopy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -577,13 +578,14 @@ class SnapshotCopy(pulumi.CustomResource):
             source_db_snapshot_identifier=example_snapshot.db_snapshot_arn,
             target_db_snapshot_identifier="testsnapshot1234-copy")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_db_snapshot_copy` using the snapshot identifier. For example:
 
         ```sh
-         $ pulumi import aws:rds/snapshotCopy:SnapshotCopy example my-snapshot
+        $ pulumi import aws:rds/snapshotCopy:SnapshotCopy example my-snapshot
         ```
 
         :param str resource_name: The name of the resource.
@@ -609,6 +611,7 @@ class SnapshotCopy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -631,13 +634,14 @@ class SnapshotCopy(pulumi.CustomResource):
             source_db_snapshot_identifier=example_snapshot.db_snapshot_arn,
             target_db_snapshot_identifier="testsnapshot1234-copy")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_db_snapshot_copy` using the snapshot identifier. For example:
 
         ```sh
-         $ pulumi import aws:rds/snapshotCopy:SnapshotCopy example my-snapshot
+        $ pulumi import aws:rds/snapshotCopy:SnapshotCopy example my-snapshot
         ```
 
         :param str resource_name: The name of the resource.

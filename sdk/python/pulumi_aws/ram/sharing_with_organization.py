@@ -33,19 +33,21 @@ class SharingWithOrganization(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ram.SharingWithOrganization("example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import the resource using the current AWS account ID. For example:
 
         ```sh
-         $ pulumi import aws:ram/sharingWithOrganization:SharingWithOrganization example 123456789012
+        $ pulumi import aws:ram/sharingWithOrganization:SharingWithOrganization example 123456789012
         ```
 
         :param str resource_name: The name of the resource.
@@ -64,19 +66,21 @@ class SharingWithOrganization(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ram.SharingWithOrganization("example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import the resource using the current AWS account ID. For example:
 
         ```sh
-         $ pulumi import aws:ram/sharingWithOrganization:SharingWithOrganization example 123456789012
+        $ pulumi import aws:ram/sharingWithOrganization:SharingWithOrganization example 123456789012
         ```
 
         :param str resource_name: The name of the resource.

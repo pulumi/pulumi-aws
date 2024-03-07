@@ -189,6 +189,7 @@ class HttpNamespace(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -197,13 +198,14 @@ class HttpNamespace(pulumi.CustomResource):
             name="development",
             description="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Service Discovery HTTP Namespace using the namespace ID. For example:
 
         ```sh
-         $ pulumi import aws:servicediscovery/httpNamespace:HttpNamespace example ns-1234567890
+        $ pulumi import aws:servicediscovery/httpNamespace:HttpNamespace example ns-1234567890
         ```
 
         :param str resource_name: The name of the resource.
@@ -221,6 +223,7 @@ class HttpNamespace(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -229,13 +232,14 @@ class HttpNamespace(pulumi.CustomResource):
             name="development",
             description="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Service Discovery HTTP Namespace using the namespace ID. For example:
 
         ```sh
-         $ pulumi import aws:servicediscovery/httpNamespace:HttpNamespace example ns-1234567890
+        $ pulumi import aws:servicediscovery/httpNamespace:HttpNamespace example ns-1234567890
         ```
 
         :param str resource_name: The name of the resource.

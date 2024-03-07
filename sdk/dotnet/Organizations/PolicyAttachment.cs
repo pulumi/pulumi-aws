@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Organizations
     /// Provides a resource to attach an AWS Organizations policy to an organization account, root, or unit.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Organization Account
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,8 +33,11 @@ namespace Pulumi.Aws.Organizations
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Organization Root
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -49,8 +54,11 @@ namespace Pulumi.Aws.Organizations
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Organization Unit
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -67,6 +75,7 @@ namespace Pulumi.Aws.Organizations
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -75,7 +84,7 @@ namespace Pulumi.Aws.Organizations
     /// With an account target:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:organizations/policyAttachment:PolicyAttachment account 123456789012:p-12345678
+    /// $ pulumi import aws:organizations/policyAttachment:PolicyAttachment account 123456789012:p-12345678
     /// ```
     /// </summary>
     [AwsResourceType("aws:organizations/policyAttachment:PolicyAttachment")]

@@ -415,8 +415,10 @@ class Pipeline(pulumi.CustomResource):
         Resource for managing an AWS OpenSearch Ingestion Pipeline.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -455,8 +457,11 @@ class Pipeline(pulumi.CustomResource):
             max_units=1,
             min_units=1)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Using file function
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -468,13 +473,14 @@ class Pipeline(pulumi.CustomResource):
             max_units=1,
             min_units=1)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import OpenSearch Ingestion Pipeline using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:opensearchingest/pipeline:Pipeline example example
+        $ pulumi import aws:opensearchingest/pipeline:Pipeline example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -501,8 +507,10 @@ class Pipeline(pulumi.CustomResource):
         Resource for managing an AWS OpenSearch Ingestion Pipeline.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -541,8 +549,11 @@ class Pipeline(pulumi.CustomResource):
             max_units=1,
             min_units=1)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Using file function
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -554,13 +565,14 @@ class Pipeline(pulumi.CustomResource):
             max_units=1,
             min_units=1)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import OpenSearch Ingestion Pipeline using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:opensearchingest/pipeline:Pipeline example example
+        $ pulumi import aws:opensearchingest/pipeline:Pipeline example example
         ```
 
         :param str resource_name: The name of the resource.

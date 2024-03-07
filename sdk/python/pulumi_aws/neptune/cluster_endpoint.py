@@ -287,6 +287,7 @@ class ClusterEndpoint(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -296,13 +297,14 @@ class ClusterEndpoint(pulumi.CustomResource):
             cluster_endpoint_identifier="example",
             endpoint_type="READER")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_neptune_cluster_endpoint` using the `cluster-identifier:endpoint-identfier`. For example:
 
         ```sh
-         $ pulumi import aws:neptune/clusterEndpoint:ClusterEndpoint example my-cluster:my-endpoint
+        $ pulumi import aws:neptune/clusterEndpoint:ClusterEndpoint example my-cluster:my-endpoint
         ```
 
         :param str resource_name: The name of the resource.
@@ -325,6 +327,7 @@ class ClusterEndpoint(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -334,13 +337,14 @@ class ClusterEndpoint(pulumi.CustomResource):
             cluster_endpoint_identifier="example",
             endpoint_type="READER")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_neptune_cluster_endpoint` using the `cluster-identifier:endpoint-identfier`. For example:
 
         ```sh
-         $ pulumi import aws:neptune/clusterEndpoint:ClusterEndpoint example my-cluster:my-endpoint
+        $ pulumi import aws:neptune/clusterEndpoint:ClusterEndpoint example my-cluster:my-endpoint
         ```
 
         :param str resource_name: The name of the resource.

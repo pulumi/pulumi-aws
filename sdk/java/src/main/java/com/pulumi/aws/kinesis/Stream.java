@@ -26,6 +26,8 @@ import javax.annotation.Nullable;
  * For more details, see the [Amazon Kinesis Documentation](https://aws.amazon.com/documentation/kinesis/).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -64,13 +66,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Kinesis Streams using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:kinesis/stream:Stream test_stream pulumi-kinesis-test
+ * $ pulumi import aws:kinesis/stream:Stream test_stream pulumi-kinesis-test
  * ```
  * 
  */

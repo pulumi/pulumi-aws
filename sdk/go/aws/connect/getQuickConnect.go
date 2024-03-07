@@ -17,6 +17,7 @@ import (
 //
 // By `name`
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,9 +42,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // By `quickConnectId`
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -68,6 +71,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupQuickConnect(ctx *pulumi.Context, args *LookupQuickConnectArgs, opts ...pulumi.InvokeOption) (*LookupQuickConnectResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupQuickConnectResult

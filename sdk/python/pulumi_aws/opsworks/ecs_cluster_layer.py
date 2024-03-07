@@ -824,6 +824,7 @@ class EcsClusterLayer(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -832,6 +833,7 @@ class EcsClusterLayer(pulumi.CustomResource):
             stack_id=example_aws_opsworks_stack["id"],
             ecs_cluster_arn=example_aws_ecs_cluster["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -868,6 +870,7 @@ class EcsClusterLayer(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -876,6 +879,7 @@ class EcsClusterLayer(pulumi.CustomResource):
             stack_id=example_aws_opsworks_stack["id"],
             ecs_cluster_arn=example_aws_ecs_cluster["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param EcsClusterLayerArgs args: The arguments to use to populate this resource's properties.

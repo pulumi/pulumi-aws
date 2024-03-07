@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// Provides details about a specific Lex (V1) Bot associated with an Amazon Connect instance.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### By name
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -38,8 +38,7 @@ namespace Pulumi.Aws.Connect
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetBotAssociationResult> InvokeAsync(GetBotAssociationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBotAssociationResult>("aws:connect/getBotAssociation:getBotAssociation", args ?? new GetBotAssociationArgs(), options.WithDefaults());
@@ -47,11 +46,11 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// Provides details about a specific Lex (V1) Bot associated with an Amazon Connect instance.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### By name
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -71,8 +70,7 @@ namespace Pulumi.Aws.Connect
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetBotAssociationResult> Invoke(GetBotAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBotAssociationResult>("aws:connect/getBotAssociation:getBotAssociation", args ?? new GetBotAssociationInvokeArgs(), options.WithDefaults());

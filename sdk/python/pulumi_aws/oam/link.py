@@ -256,8 +256,10 @@ class Link(pulumi.CustomResource):
         Resource for managing an AWS CloudWatch Observability Access Manager Link.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -270,13 +272,14 @@ class Link(pulumi.CustomResource):
                 "Env": "prod",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudWatch Observability Access Manager Link using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:oam/link:Link example arn:aws:oam:us-west-2:123456789012:link/link-id
+        $ pulumi import aws:oam/link:Link example arn:aws:oam:us-west-2:123456789012:link/link-id
         ```
 
         :param str resource_name: The name of the resource.
@@ -298,8 +301,10 @@ class Link(pulumi.CustomResource):
         Resource for managing an AWS CloudWatch Observability Access Manager Link.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -312,13 +317,14 @@ class Link(pulumi.CustomResource):
                 "Env": "prod",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudWatch Observability Access Manager Link using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:oam/link:Link example arn:aws:oam:us-west-2:123456789012:link/link-id
+        $ pulumi import aws:oam/link:Link example arn:aws:oam:us-west-2:123456789012:link/link-id
         ```
 
         :param str resource_name: The name of the resource.

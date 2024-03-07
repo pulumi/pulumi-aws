@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,13 +33,14 @@ namespace Pulumi.Aws.Rds
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DB proxy endpoints using the `DB-PROXY-NAME/DB-PROXY-ENDPOINT-NAME`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:rds/proxyEndpoint:ProxyEndpoint example example/example
+    /// $ pulumi import aws:rds/proxyEndpoint:ProxyEndpoint example example/example
     /// ```
     /// </summary>
     [AwsResourceType("aws:rds/proxyEndpoint:ProxyEndpoint")]

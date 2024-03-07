@@ -18,10 +18,9 @@ namespace Pulumi.Aws.Ec2
         /// module and you need the pool ids as input variables. For example, pools
         /// can be shared via RAM and used to create vpcs with CIDRs from that pool.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -55,8 +54,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetVpcIpamPoolsResult> InvokeAsync(GetVpcIpamPoolsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcIpamPoolsResult>("aws:ec2/getVpcIpamPools:getVpcIpamPools", args ?? new GetVpcIpamPoolsArgs(), options.WithDefaults());
@@ -68,10 +66,9 @@ namespace Pulumi.Aws.Ec2
         /// module and you need the pool ids as input variables. For example, pools
         /// can be shared via RAM and used to create vpcs with CIDRs from that pool.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -105,8 +102,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetVpcIpamPoolsResult> Invoke(GetVpcIpamPoolsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcIpamPoolsResult>("aws:ec2/getVpcIpamPools:getVpcIpamPools", args ?? new GetVpcIpamPoolsInvokeArgs(), options.WithDefaults());

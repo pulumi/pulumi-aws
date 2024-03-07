@@ -87,19 +87,21 @@ class RetentionConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.cfg.RetentionConfiguration("example", retention_period_in_days=90)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import the AWS Config retention configuration using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:cfg/retentionConfiguration:RetentionConfiguration example default
+        $ pulumi import aws:cfg/retentionConfiguration:RetentionConfiguration example default
         ```
 
         :param str resource_name: The name of the resource.
@@ -118,19 +120,21 @@ class RetentionConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.cfg.RetentionConfiguration("example", retention_period_in_days=90)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import the AWS Config retention configuration using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:cfg/retentionConfiguration:RetentionConfiguration example default
+        $ pulumi import aws:cfg/retentionConfiguration:RetentionConfiguration example default
         ```
 
         :param str resource_name: The name of the resource.

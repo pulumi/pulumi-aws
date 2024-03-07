@@ -14,6 +14,7 @@ namespace Pulumi.Aws.RedshiftServerless
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -53,13 +54,14 @@ namespace Pulumi.Aws.RedshiftServerless
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Redshift Serverless Resource Policies using the `resource_arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:redshiftserverless/resourcePolicy:ResourcePolicy example example
+    /// $ pulumi import aws:redshiftserverless/resourcePolicy:ResourcePolicy example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:redshiftserverless/resourcePolicy:ResourcePolicy")]

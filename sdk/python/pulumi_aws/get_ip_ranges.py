@@ -127,6 +127,7 @@ def get_ip_ranges(id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -150,6 +151,7 @@ def get_ip_ranges(id: Optional[str] = None,
             "SyncToken": european_ec2.sync_token,
         })
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[str] regions: Filter IP ranges by regions (or include all regions, if
@@ -195,6 +197,7 @@ def get_ip_ranges_output(id: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -218,6 +221,7 @@ def get_ip_ranges_output(id: Optional[pulumi.Input[Optional[str]]] = None,
             "SyncToken": european_ec2.sync_token,
         })
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[str] regions: Filter IP ranges by regions (or include all regions, if

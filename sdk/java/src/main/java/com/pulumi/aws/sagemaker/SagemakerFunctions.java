@@ -22,6 +22,8 @@ public final class SagemakerFunctions {
      * ## Example Usage
      * 
      * Basic usage:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -51,6 +53,7 @@ public final class SagemakerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPrebuiltEcrImageResult> getPrebuiltEcrImage(GetPrebuiltEcrImageArgs args) {
@@ -64,6 +67,8 @@ public final class SagemakerFunctions {
      * ## Example Usage
      * 
      * Basic usage:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -93,6 +98,7 @@ public final class SagemakerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPrebuiltEcrImageResult> getPrebuiltEcrImagePlain(GetPrebuiltEcrImagePlainArgs args) {
@@ -106,6 +112,8 @@ public final class SagemakerFunctions {
      * ## Example Usage
      * 
      * Basic usage:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -135,6 +143,7 @@ public final class SagemakerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPrebuiltEcrImageResult> getPrebuiltEcrImage(GetPrebuiltEcrImageArgs args, InvokeOptions options) {
@@ -148,6 +157,8 @@ public final class SagemakerFunctions {
      * ## Example Usage
      * 
      * Basic usage:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -177,6 +188,7 @@ public final class SagemakerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPrebuiltEcrImageResult> getPrebuiltEcrImagePlain(GetPrebuiltEcrImagePlainArgs args, InvokeOptions options) {

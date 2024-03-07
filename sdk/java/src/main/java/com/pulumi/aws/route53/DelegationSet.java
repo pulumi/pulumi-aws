@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides a [Route53 Delegation Set](https://docs.aws.amazon.com/Route53/latest/APIReference/API-actions-by-function.html#actions-by-function-reusable-delegation-sets) resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -59,13 +61,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Route53 Delegation Sets using the delegation set `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:route53/delegationSet:DelegationSet set1 N1PA6795SAMPLE
+ * $ pulumi import aws:route53/delegationSet:DelegationSet set1 N1PA6795SAMPLE
  * ```
  * 
  */

@@ -10,14 +10,17 @@ import * as utilities from "../utilities";
  * > **NOTE:** This resource can only be used by the management account in the organization. In other words, a delegated administrator is not authorized to use the resource.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.servicecatalog.OrganizationsAccess("example", {enabled: true});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class OrganizationsAccess extends pulumi.CustomResource {
     /**

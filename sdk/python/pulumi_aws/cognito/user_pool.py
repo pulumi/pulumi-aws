@@ -973,16 +973,21 @@ class UserPool(pulumi.CustomResource):
         Provides a Cognito User Pool resource.
 
         ## Example Usage
+
         ### Basic configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         pool = aws.cognito.UserPool("pool", name="mypool")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Enabling SMS and Software Token Multi-Factor Authentication
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -999,8 +1004,11 @@ class UserPool(pulumi.CustomResource):
                 enabled=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Using Account Recovery Setting
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1020,13 +1028,14 @@ class UserPool(pulumi.CustomResource):
                 ],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Cognito User Pools using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:cognito/userPool:UserPool pool us-west-2_abc123
+        $ pulumi import aws:cognito/userPool:UserPool pool us-west-2_abc123
         ```
 
         :param str resource_name: The name of the resource.
@@ -1068,16 +1077,21 @@ class UserPool(pulumi.CustomResource):
         Provides a Cognito User Pool resource.
 
         ## Example Usage
+
         ### Basic configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         pool = aws.cognito.UserPool("pool", name="mypool")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Enabling SMS and Software Token Multi-Factor Authentication
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1094,8 +1108,11 @@ class UserPool(pulumi.CustomResource):
                 enabled=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Using Account Recovery Setting
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1115,13 +1132,14 @@ class UserPool(pulumi.CustomResource):
                 ],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Cognito User Pools using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:cognito/userPool:UserPool pool us-west-2_abc123
+        $ pulumi import aws:cognito/userPool:UserPool pool us-west-2_abc123
         ```
 
         :param str resource_name: The name of the resource.

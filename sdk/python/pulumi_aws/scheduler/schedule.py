@@ -460,8 +460,10 @@ class Schedule(pulumi.CustomResource):
         > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -478,8 +480,11 @@ class Schedule(pulumi.CustomResource):
                 role_arn=example_aws_iam_role["arn"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Universal Target
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -501,13 +506,14 @@ class Schedule(pulumi.CustomResource):
                 }),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import schedules using the combination `group_name/name`. For example:
 
         ```sh
-         $ pulumi import aws:scheduler/schedule:Schedule example my-schedule-group/my-schedule
+        $ pulumi import aws:scheduler/schedule:Schedule example my-schedule-group/my-schedule
         ```
 
         :param str resource_name: The name of the resource.
@@ -541,8 +547,10 @@ class Schedule(pulumi.CustomResource):
         > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -559,8 +567,11 @@ class Schedule(pulumi.CustomResource):
                 role_arn=example_aws_iam_role["arn"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Universal Target
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -582,13 +593,14 @@ class Schedule(pulumi.CustomResource):
                 }),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import schedules using the combination `group_name/name`. For example:
 
         ```sh
-         $ pulumi import aws:scheduler/schedule:Schedule example my-schedule-group/my-schedule
+        $ pulumi import aws:scheduler/schedule:Schedule example my-schedule-group/my-schedule
         ```
 
         :param str resource_name: The name of the resource.

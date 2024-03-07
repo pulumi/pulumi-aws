@@ -419,6 +419,7 @@ class OrganizationCustomRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -436,13 +437,14 @@ class OrganizationCustomRule(pulumi.CustomResource):
             name="example",
             trigger_types=["ConfigurationItemChangeNotification"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Config Organization Custom Rules using the name. For example:
 
         ```sh
-         $ pulumi import aws:cfg/organizationCustomRule:OrganizationCustomRule example example
+        $ pulumi import aws:cfg/organizationCustomRule:OrganizationCustomRule example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -474,6 +476,7 @@ class OrganizationCustomRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -491,13 +494,14 @@ class OrganizationCustomRule(pulumi.CustomResource):
             name="example",
             trigger_types=["ConfigurationItemChangeNotification"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Config Organization Custom Rules using the name. For example:
 
         ```sh
-         $ pulumi import aws:cfg/organizationCustomRule:OrganizationCustomRule example example
+        $ pulumi import aws:cfg/organizationCustomRule:OrganizationCustomRule example example
         ```
 
         :param str resource_name: The name of the resource.

@@ -129,8 +129,10 @@ class DrtAccessLogBucketAssociation(pulumi.CustomResource):
         Up to 10 log buckets can be associated for DRT Access sharing with the Shield Response Team (SRT).
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -140,13 +142,14 @@ class DrtAccessLogBucketAssociation(pulumi.CustomResource):
             log_bucket=shield_drt_access_log_bucket,
             role_arn_association_id=test.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Shield DRT access log bucket associations using the `log_bucket`. For example:
 
         ```sh
-         $ pulumi import aws:shield/drtAccessLogBucketAssociation:DrtAccessLogBucketAssociation example example-bucket
+        $ pulumi import aws:shield/drtAccessLogBucketAssociation:DrtAccessLogBucketAssociation example example-bucket
         ```
 
         :param str resource_name: The name of the resource.
@@ -165,8 +168,10 @@ class DrtAccessLogBucketAssociation(pulumi.CustomResource):
         Up to 10 log buckets can be associated for DRT Access sharing with the Shield Response Team (SRT).
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -176,13 +181,14 @@ class DrtAccessLogBucketAssociation(pulumi.CustomResource):
             log_bucket=shield_drt_access_log_bucket,
             role_arn_association_id=test.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Shield DRT access log bucket associations using the `log_bucket`. For example:
 
         ```sh
-         $ pulumi import aws:shield/drtAccessLogBucketAssociation:DrtAccessLogBucketAssociation example example-bucket
+        $ pulumi import aws:shield/drtAccessLogBucketAssociation:DrtAccessLogBucketAssociation example example-bucket
         ```
 
         :param str resource_name: The name of the resource.

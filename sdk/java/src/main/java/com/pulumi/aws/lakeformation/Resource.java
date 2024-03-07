@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * When you register subsequent paths, Lake Formation adds the path to the existing policy.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -58,6 +60,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:lakeformation/resource:Resource")

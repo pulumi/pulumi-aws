@@ -21,7 +21,10 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** The AWS ECR API seems to reorder rules based on `rulePriority`. If you define multiple rules that are not sorted in ascending `rulePriority` order in the this provider code, the resource will be flagged for recreation every deployment.
  * 
  * ## Example Usage
+ * 
  * ### Policy on untagged image
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -75,7 +78,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Policy on tagged image
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -129,13 +136,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import ECR Lifecycle Policy using the name of the repository. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ecr/lifecyclePolicy:LifecyclePolicy example tf-example
+ * $ pulumi import aws:ecr/lifecyclePolicy:LifecyclePolicy example tf-example
  * ```
  * 
  */

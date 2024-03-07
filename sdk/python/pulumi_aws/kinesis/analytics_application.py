@@ -455,8 +455,10 @@ class AnalyticsApplication(pulumi.CustomResource):
         > **Note:** To manage Amazon Kinesis Data Analytics for Apache Flink applications, use the `kinesisanalyticsv2.Application` resource.
 
         ## Example Usage
+
         ### Kinesis Stream Input
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -492,8 +494,11 @@ class AnalyticsApplication(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Starting An Application
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -554,13 +559,14 @@ class AnalyticsApplication(pulumi.CustomResource):
             )],
             start_application=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Kinesis Analytics Application using ARN. For example:
 
         ```sh
-         $ pulumi import aws:kinesis/analyticsApplication:AnalyticsApplication example arn:aws:kinesisanalytics:us-west-2:1234567890:application/example
+        $ pulumi import aws:kinesis/analyticsApplication:AnalyticsApplication example arn:aws:kinesisanalytics:us-west-2:1234567890:application/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -593,8 +599,10 @@ class AnalyticsApplication(pulumi.CustomResource):
         > **Note:** To manage Amazon Kinesis Data Analytics for Apache Flink applications, use the `kinesisanalyticsv2.Application` resource.
 
         ## Example Usage
+
         ### Kinesis Stream Input
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -630,8 +638,11 @@ class AnalyticsApplication(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Starting An Application
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -692,13 +703,14 @@ class AnalyticsApplication(pulumi.CustomResource):
             )],
             start_application=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Kinesis Analytics Application using ARN. For example:
 
         ```sh
-         $ pulumi import aws:kinesis/analyticsApplication:AnalyticsApplication example arn:aws:kinesisanalytics:us-west-2:1234567890:application/example
+        $ pulumi import aws:kinesis/analyticsApplication:AnalyticsApplication example arn:aws:kinesisanalytics:us-west-2:1234567890:application/example
         ```
 
         :param str resource_name: The name of the resource.

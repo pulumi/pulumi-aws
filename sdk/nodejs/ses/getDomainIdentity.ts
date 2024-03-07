@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -17,6 +18,7 @@ import * as utilities from "../utilities";
  *     domain: "example.com",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDomainIdentity(args: GetDomainIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetDomainIdentityResult> {
 
@@ -62,6 +64,7 @@ export interface GetDomainIdentityResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -70,6 +73,7 @@ export interface GetDomainIdentityResult {
  *     domain: "example.com",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDomainIdentityOutput(args: GetDomainIdentityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDomainIdentityResult> {
     return pulumi.output(args).apply((a: any) => getDomainIdentity(a, opts))

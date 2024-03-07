@@ -18,7 +18,10 @@ import javax.annotation.Nullable;
  * Provides a Cognito User Pool Domain resource.
  * 
  * ## Example Usage
+ * 
  * ### Amazon Cognito domain
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -54,7 +57,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Custom Cognito domain
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -111,13 +118,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Cognito User Pool Domains using the `domain`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cognito/userPoolDomain:UserPoolDomain main auth.example.org
+ * $ pulumi import aws:cognito/userPoolDomain:UserPoolDomain main auth.example.org
  * ```
  * 
  */

@@ -23,8 +23,10 @@ import * as utilities from "../utilities";
  * the `applyMethod` of a parameter, its value must also change.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -44,6 +46,8 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### `createBeforeDestroy` Lifecycle Configuration
  *
  * The `createBeforeDestroy`
@@ -52,6 +56,7 @@ import * as utilities from "../utilities";
  * bumping the `family` version during a major version upgrade. This configuration will prevent destruction
  * of the deposed parameter group while still in use by the database during upgrade.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -69,13 +74,14 @@ import * as utilities from "../utilities";
  *     applyImmediately: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import DB Parameter groups using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:rds/parameterGroup:ParameterGroup rds_pg rds-pg
+ * $ pulumi import aws:rds/parameterGroup:ParameterGroup rds_pg rds-pg
  * ```
  */
 export class ParameterGroup extends pulumi.CustomResource {

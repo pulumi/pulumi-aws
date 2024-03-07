@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -120,15 +121,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_appsync_datasource` using the `api_id`, a hyphen, and `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:appsync/dataSource:DataSource example abcdef123456-example
-//
+// $ pulumi import aws:appsync/dataSource:DataSource example abcdef123456-example
 // ```
 type DataSource struct {
 	pulumi.CustomResourceState

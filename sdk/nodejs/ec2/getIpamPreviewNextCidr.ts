@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  *
  * Basic usage:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -26,6 +27,7 @@ import * as utilities from "../utilities";
  *     cidr: test.then(test => test.cidr),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getIpamPreviewNextCidr(args: GetIpamPreviewNextCidrArgs, opts?: pulumi.InvokeOptions): Promise<GetIpamPreviewNextCidrResult> {
 
@@ -80,6 +82,7 @@ export interface GetIpamPreviewNextCidrResult {
  *
  * Basic usage:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -93,6 +96,7 @@ export interface GetIpamPreviewNextCidrResult {
  *     cidr: test.then(test => test.cidr),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getIpamPreviewNextCidrOutput(args: GetIpamPreviewNextCidrOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetIpamPreviewNextCidrResult> {
     return pulumi.output(args).apply((a: any) => getIpamPreviewNextCidr(a, opts))

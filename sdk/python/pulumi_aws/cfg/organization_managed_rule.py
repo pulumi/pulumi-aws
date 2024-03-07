@@ -387,6 +387,7 @@ class OrganizationManagedRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -398,13 +399,14 @@ class OrganizationManagedRule(pulumi.CustomResource):
             name="example",
             rule_identifier="IAM_PASSWORD_POLICY")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Config Organization Managed Rules using the name. For example:
 
         ```sh
-         $ pulumi import aws:cfg/organizationManagedRule:OrganizationManagedRule example example
+        $ pulumi import aws:cfg/organizationManagedRule:OrganizationManagedRule example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -435,6 +437,7 @@ class OrganizationManagedRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -446,13 +449,14 @@ class OrganizationManagedRule(pulumi.CustomResource):
             name="example",
             rule_identifier="IAM_PASSWORD_POLICY")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Config Organization Managed Rules using the name. For example:
 
         ```sh
-         $ pulumi import aws:cfg/organizationManagedRule:OrganizationManagedRule example example
+        $ pulumi import aws:cfg/organizationManagedRule:OrganizationManagedRule example example
         ```
 
         :param str resource_name: The name of the resource.

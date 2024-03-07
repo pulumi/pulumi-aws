@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -51,6 +52,7 @@ import * as utilities from "../utilities";
  *     policy: allowAuditLogging.apply(allowAuditLogging => allowAuditLogging.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getServiceAccount(args?: GetServiceAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceAccountResult> {
     args = args || {};
@@ -95,6 +97,7 @@ export interface GetServiceAccountResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -133,6 +136,7 @@ export interface GetServiceAccountResult {
  *     policy: allowAuditLogging.apply(allowAuditLogging => allowAuditLogging.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getServiceAccountOutput(args?: GetServiceAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceAccountResult> {
     return pulumi.output(args).apply((a: any) => getServiceAccount(a, opts))

@@ -15,6 +15,7 @@ namespace Pulumi.Aws.CustomerProfiles
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,8 +31,11 @@ namespace Pulumi.Aws.CustomerProfiles
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With SQS DLQ and KMS set
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -121,13 +125,14 @@ namespace Pulumi.Aws.CustomerProfiles
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Amazon Customer Profiles Domain using the resource `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:customerprofiles/domain:Domain example e6f777be-22d0-4b40-b307-5d2720ef16b2
+    /// $ pulumi import aws:customerprofiles/domain:Domain example e6f777be-22d0-4b40-b307-5d2720ef16b2
     /// ```
     /// </summary>
     [AwsResourceType("aws:customerprofiles/domain:Domain")]

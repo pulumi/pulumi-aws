@@ -158,8 +158,10 @@ def get_managed_prefix_list(filters: Optional[Sequence[pulumi.InputType['GetMana
     customer-managed prefix list in the current region.
 
     ## Example Usage
+
     ### Find the regional DynamoDB prefix list
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -167,8 +169,11 @@ def get_managed_prefix_list(filters: Optional[Sequence[pulumi.InputType['GetMana
     current = aws.get_region()
     example = aws.ec2.get_managed_prefix_list(name=f"com.amazonaws.{current.name}.dynamodb")
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Find a managed prefix list using filters
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -178,6 +183,7 @@ def get_managed_prefix_list(filters: Optional[Sequence[pulumi.InputType['GetMana
         values=["my-prefix-list"],
     )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetManagedPrefixListFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
@@ -217,8 +223,10 @@ def get_managed_prefix_list_output(filters: Optional[pulumi.Input[Optional[Seque
     customer-managed prefix list in the current region.
 
     ## Example Usage
+
     ### Find the regional DynamoDB prefix list
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -226,8 +234,11 @@ def get_managed_prefix_list_output(filters: Optional[pulumi.Input[Optional[Seque
     current = aws.get_region()
     example = aws.ec2.get_managed_prefix_list(name=f"com.amazonaws.{current.name}.dynamodb")
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Find a managed prefix list using filters
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -237,6 +248,7 @@ def get_managed_prefix_list_output(filters: Optional[pulumi.Input[Optional[Seque
         values=["my-prefix-list"],
     )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetManagedPrefixListFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.

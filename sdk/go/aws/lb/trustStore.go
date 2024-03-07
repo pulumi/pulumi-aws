@@ -21,9 +21,7 @@ import (
 // Using `pulumi import`, import Target Groups using their ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:lb/trustStore:TrustStore example arn:aws:elasticloadbalancing:us-west-2:187416307283:truststore/my-trust-store/20cfe21448b66314
-//
+// $ pulumi import aws:lb/trustStore:TrustStore example arn:aws:elasticloadbalancing:us-west-2:187416307283:truststore/my-trust-store/20cfe21448b66314
 // ```
 type TrustStore struct {
 	pulumi.CustomResourceState

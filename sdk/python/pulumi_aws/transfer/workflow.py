@@ -208,8 +208,10 @@ class Workflow(pulumi.CustomResource):
         Provides a AWS Transfer Workflow resource.
 
         ## Example Usage
+
         ### Basic single step example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -222,8 +224,11 @@ class Workflow(pulumi.CustomResource):
             type="DELETE",
         )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Multistep example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -251,13 +256,14 @@ class Workflow(pulumi.CustomResource):
             ),
         ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Transfer Workflows using the `worflow_id`. For example:
 
         ```sh
-         $ pulumi import aws:transfer/workflow:Workflow example example
+        $ pulumi import aws:transfer/workflow:Workflow example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -277,8 +283,10 @@ class Workflow(pulumi.CustomResource):
         Provides a AWS Transfer Workflow resource.
 
         ## Example Usage
+
         ### Basic single step example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -291,8 +299,11 @@ class Workflow(pulumi.CustomResource):
             type="DELETE",
         )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Multistep example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -320,13 +331,14 @@ class Workflow(pulumi.CustomResource):
             ),
         ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Transfer Workflows using the `worflow_id`. For example:
 
         ```sh
-         $ pulumi import aws:transfer/workflow:Workflow example example
+        $ pulumi import aws:transfer/workflow:Workflow example example
         ```
 
         :param str resource_name: The name of the resource.

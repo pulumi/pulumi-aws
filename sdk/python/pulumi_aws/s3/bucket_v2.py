@@ -1007,8 +1007,10 @@ class BucketV2(pulumi.CustomResource):
         > Object Lock can be enabled by using the `object_lock_enable` attribute or by using the `s3.BucketObjectLockConfigurationV2` resource. Please note, that by using the resource, Object Lock can be enabled/disabled without destroying and recreating the bucket.
 
         ## Example Usage
+
         ### Private Bucket With Tags
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1020,13 +1022,14 @@ class BucketV2(pulumi.CustomResource):
                 "Environment": "Dev",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import S3 bucket using the `bucket`. For example:
 
         ```sh
-         $ pulumi import aws:s3/bucketV2:BucketV2 bucket bucket-name
+        $ pulumi import aws:s3/bucketV2:BucketV2 bucket bucket-name
         ```
 
         :param str resource_name: The name of the resource.
@@ -1081,8 +1084,10 @@ class BucketV2(pulumi.CustomResource):
         > Object Lock can be enabled by using the `object_lock_enable` attribute or by using the `s3.BucketObjectLockConfigurationV2` resource. Please note, that by using the resource, Object Lock can be enabled/disabled without destroying and recreating the bucket.
 
         ## Example Usage
+
         ### Private Bucket With Tags
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1094,13 +1099,14 @@ class BucketV2(pulumi.CustomResource):
                 "Environment": "Dev",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import S3 bucket using the `bucket`. For example:
 
         ```sh
-         $ pulumi import aws:s3/bucketV2:BucketV2 bucket bucket-name
+        $ pulumi import aws:s3/bucketV2:BucketV2 bucket bucket-name
         ```
 
         :param str resource_name: The name of the resource.

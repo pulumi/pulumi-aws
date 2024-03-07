@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Scheduler
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -33,13 +34,14 @@ namespace Pulumi.Aws.Scheduler
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import schedule groups using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:scheduler/scheduleGroup:ScheduleGroup example my-schedule-group
+    /// $ pulumi import aws:scheduler/scheduleGroup:ScheduleGroup example my-schedule-group
     /// ```
     /// </summary>
     [AwsResourceType("aws:scheduler/scheduleGroup:ScheduleGroup")]

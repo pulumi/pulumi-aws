@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,13 +24,14 @@ import * as utilities from "../utilities";
  *     replicationFactor: 1,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import DAX Clusters using the `cluster_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:dax/cluster:Cluster my_cluster my_cluster
+ * $ pulumi import aws:dax/cluster:Cluster my_cluster my_cluster
  * ```
  */
 export class Cluster extends pulumi.CustomResource {

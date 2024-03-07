@@ -13,8 +13,10 @@ import * as utilities from "../utilities";
  * > Deleting this resource will return the assignment configuration for the application to the default AWS behavior (ie. `assignmentRequired = true`).
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,13 +26,14 @@ import * as utilities from "../utilities";
  *     assignmentRequired: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SSO Admin Application Assignment Configuration using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ssoadmin/applicationAssignmentConfiguration:ApplicationAssignmentConfiguration example arn:aws:sso::012345678901:application/id-12345678
+ * $ pulumi import aws:ssoadmin/applicationAssignmentConfiguration:ApplicationAssignmentConfiguration example arn:aws:sso::012345678901:application/id-12345678
  * ```
  */
 export class ApplicationAssignmentConfiguration extends pulumi.CustomResource {

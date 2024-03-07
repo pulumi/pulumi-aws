@@ -19,6 +19,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -47,15 +48,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import S3 Access Grants locations using the `account_id` and `access_grants_location_id`, separated by a comma (`,`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:s3control/accessGrantsLocation:AccessGrantsLocation example 123456789012,default
-//
+// $ pulumi import aws:s3control/accessGrantsLocation:AccessGrantsLocation example 123456789012,default
 // ```
 type AccessGrantsLocation struct {
 	pulumi.CustomResourceState

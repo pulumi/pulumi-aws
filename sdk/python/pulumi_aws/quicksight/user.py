@@ -315,6 +315,7 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -327,6 +328,7 @@ class User(pulumi.CustomResource):
             iam_arn="arn:aws:iam::123456789012:user/Example",
             user_role="AUTHOR")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -354,6 +356,7 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -366,6 +369,7 @@ class User(pulumi.CustomResource):
             iam_arn="arn:aws:iam::123456789012:user/Example",
             user_role="AUTHOR")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

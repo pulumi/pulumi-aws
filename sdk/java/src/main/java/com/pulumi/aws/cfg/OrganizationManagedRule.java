@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** Every Organization account except those configured in the `excluded_accounts` argument must have a Configuration Recorder with proper IAM permissions before the rule will successfully create or update. See also the `aws.cfg.Recorder` resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -59,13 +61,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Config Organization Managed Rules using the name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cfg/organizationManagedRule:OrganizationManagedRule example example
+ * $ pulumi import aws:cfg/organizationManagedRule:OrganizationManagedRule example example
  * ```
  * 
  */

@@ -13,8 +13,10 @@ namespace Pulumi.Aws.LakeFormation
     /// Manages an attachment between one or more existing LF-tags and an existing Lake Formation resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Database Example
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -57,8 +59,11 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Multiple Tags Example
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -121,6 +126,7 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:lakeformation/resourceLfTags:ResourceLfTags")]
     public partial class ResourceLfTags : global::Pulumi.CustomResource

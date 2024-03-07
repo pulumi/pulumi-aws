@@ -232,6 +232,7 @@ class EndpointAuthorization(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -240,13 +241,14 @@ class EndpointAuthorization(pulumi.CustomResource):
             account="01234567910",
             cluster_identifier=example_aws_redshift_cluster["clusterIdentifier"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift endpoint authorization using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:redshift/endpointAuthorization:EndpointAuthorization example 01234567910:cluster-example-id
+        $ pulumi import aws:redshift/endpointAuthorization:EndpointAuthorization example 01234567910:cluster-example-id
         ```
 
         :param str resource_name: The name of the resource.
@@ -267,6 +269,7 @@ class EndpointAuthorization(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -275,13 +278,14 @@ class EndpointAuthorization(pulumi.CustomResource):
             account="01234567910",
             cluster_identifier=example_aws_redshift_cluster["clusterIdentifier"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift endpoint authorization using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:redshift/endpointAuthorization:EndpointAuthorization example 01234567910:cluster-example-id
+        $ pulumi import aws:redshift/endpointAuthorization:EndpointAuthorization example 01234567910:cluster-example-id
         ```
 
         :param str resource_name: The name of the resource.

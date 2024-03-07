@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Manages a Glue Security Configuration.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -62,13 +64,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Glue Security Configurations using `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:glue/securityConfiguration:SecurityConfiguration example example
+ * $ pulumi import aws:glue/securityConfiguration:SecurityConfiguration example example
  * ```
  * 
  */

@@ -19,6 +19,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,15 +45,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import a pull-through cache rule using the `ecr_repository_prefix`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ecr/pullThroughCacheRule:PullThroughCacheRule example ecr-public
-//
+// $ pulumi import aws:ecr/pullThroughCacheRule:PullThroughCacheRule example ecr-public
 // ```
 type PullThroughCacheRule struct {
 	pulumi.CustomResourceState

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -58,15 +59,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_appstream_fleet` using the id. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:appstream/fleet:Fleet example fleetNameExample
-//
+// $ pulumi import aws:appstream/fleet:Fleet example fleetNameExample
 // ```
 type Fleet struct {
 	pulumi.CustomResourceState

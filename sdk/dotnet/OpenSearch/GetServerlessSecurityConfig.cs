@@ -14,11 +14,11 @@ namespace Pulumi.Aws.OpenSearch
         /// <summary>
         /// Data source for managing an AWS OpenSearch Serverless Security Config.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +34,7 @@ namespace Pulumi.Aws.OpenSearch
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetServerlessSecurityConfigResult> InvokeAsync(GetServerlessSecurityConfigArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerlessSecurityConfigResult>("aws:opensearch/getServerlessSecurityConfig:getServerlessSecurityConfig", args ?? new GetServerlessSecurityConfigArgs(), options.WithDefaults());
@@ -43,11 +42,11 @@ namespace Pulumi.Aws.OpenSearch
         /// <summary>
         /// Data source for managing an AWS OpenSearch Serverless Security Config.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +62,7 @@ namespace Pulumi.Aws.OpenSearch
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetServerlessSecurityConfigResult> Invoke(GetServerlessSecurityConfigInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerlessSecurityConfigResult>("aws:opensearch/getServerlessSecurityConfig:getServerlessSecurityConfig", args ?? new GetServerlessSecurityConfigInvokeArgs(), options.WithDefaults());

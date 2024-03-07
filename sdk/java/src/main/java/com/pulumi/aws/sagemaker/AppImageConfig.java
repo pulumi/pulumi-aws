@@ -21,7 +21,10 @@ import javax.annotation.Nullable;
  * Provides a SageMaker App Image Config resource.
  * 
  * ## Example Usage
+ * 
  * ### Basic usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -57,7 +60,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Default File System Config
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -95,13 +102,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import SageMaker App Image Configs using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:sagemaker/appImageConfig:AppImageConfig example example
+ * $ pulumi import aws:sagemaker/appImageConfig:AppImageConfig example example
  * ```
  * 
  */

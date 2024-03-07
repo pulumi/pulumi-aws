@@ -13,8 +13,10 @@ import (
 )
 
 // ## Example Usage
+//
 // ### Pause Cluster Action
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -106,8 +108,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Resize Cluster Action
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -141,15 +146,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Redshift Scheduled Action using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:redshift/scheduledAction:ScheduledAction example tf-redshift-scheduled-action
-//
+// $ pulumi import aws:redshift/scheduledAction:ScheduledAction example tf-redshift-scheduled-action
 // ```
 type ScheduledAction struct {
 	pulumi.CustomResourceState

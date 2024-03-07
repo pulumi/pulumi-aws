@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * Basic usage:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,9 +22,11 @@ import * as utilities from "../utilities";
  *     imageId: "amazonlinux-2023-x86_64",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * Get the URL of the Cloud9 environment after creation:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -37,9 +40,11 @@ import * as utilities from "../utilities";
  * });
  * export const cloud9Url = pulumi.interpolate`https://${region}.console.aws.amazon.com/cloud9/ide/${example.id}`;
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * Allocate a static IP to the Cloud9 environment:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -57,6 +62,7 @@ import * as utilities from "../utilities";
  * });
  * export const cloud9PublicIp = cloud9Eip.publicIp;
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class EnvironmentEC2 extends pulumi.CustomResource {
     /**

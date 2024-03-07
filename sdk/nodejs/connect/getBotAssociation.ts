@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Provides details about a specific Lex (V1) Bot associated with an Amazon Connect instance.
  *
  * ## Example Usage
+ *
  * ### By name
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,6 +26,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getBotAssociation(args: GetBotAssociationArgs, opts?: pulumi.InvokeOptions): Promise<GetBotAssociationResult> {
 
@@ -63,8 +66,10 @@ export interface GetBotAssociationResult {
  * Provides details about a specific Lex (V1) Bot associated with an Amazon Connect instance.
  *
  * ## Example Usage
+ *
  * ### By name
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -76,6 +81,7 @@ export interface GetBotAssociationResult {
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getBotAssociationOutput(args: GetBotAssociationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBotAssociationResult> {
     return pulumi.output(args).apply((a: any) => getBotAssociation(a, opts))

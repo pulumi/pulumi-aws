@@ -741,6 +741,7 @@ class Canary(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -756,13 +757,14 @@ class Canary(pulumi.CustomResource):
                 expression="rate(0 minute)",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Synthetics Canaries using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:synthetics/canary:Canary some some-canary
+        $ pulumi import aws:synthetics/canary:Canary some some-canary
         ```
 
         :param str resource_name: The name of the resource.
@@ -801,6 +803,7 @@ class Canary(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -816,13 +819,14 @@ class Canary(pulumi.CustomResource):
                 expression="rate(0 minute)",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Synthetics Canaries using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:synthetics/canary:Canary some some-canary
+        $ pulumi import aws:synthetics/canary:Canary some some-canary
         ```
 
         :param str resource_name: The name of the resource.

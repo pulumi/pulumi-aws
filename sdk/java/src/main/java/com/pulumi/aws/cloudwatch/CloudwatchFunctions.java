@@ -35,6 +35,8 @@ public final class CloudwatchFunctions {
      * an event bus, given the name of the bus.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -63,6 +65,7 @@ public final class CloudwatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEventBusResult> getEventBus(GetEventBusArgs args) {
@@ -74,6 +77,8 @@ public final class CloudwatchFunctions {
      * an event bus, given the name of the bus.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -102,6 +107,7 @@ public final class CloudwatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEventBusResult> getEventBusPlain(GetEventBusPlainArgs args) {
@@ -113,6 +119,8 @@ public final class CloudwatchFunctions {
      * an event bus, given the name of the bus.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -141,6 +149,7 @@ public final class CloudwatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEventBusResult> getEventBus(GetEventBusArgs args, InvokeOptions options) {
@@ -152,6 +161,8 @@ public final class CloudwatchFunctions {
      * an event bus, given the name of the bus.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -180,6 +191,7 @@ public final class CloudwatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEventBusResult> getEventBusPlain(GetEventBusPlainArgs args, InvokeOptions options) {
@@ -191,6 +203,8 @@ public final class CloudwatchFunctions {
      * &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -219,6 +233,7 @@ public final class CloudwatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEventConnectionResult> getEventConnection(GetEventConnectionArgs args) {
@@ -230,6 +245,8 @@ public final class CloudwatchFunctions {
      * &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -258,6 +275,7 @@ public final class CloudwatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEventConnectionResult> getEventConnectionPlain(GetEventConnectionPlainArgs args) {
@@ -269,6 +287,8 @@ public final class CloudwatchFunctions {
      * &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -297,6 +317,7 @@ public final class CloudwatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEventConnectionResult> getEventConnection(GetEventConnectionArgs args, InvokeOptions options) {
@@ -308,6 +329,8 @@ public final class CloudwatchFunctions {
      * &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -336,6 +359,7 @@ public final class CloudwatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEventConnectionResult> getEventConnectionPlain(GetEventConnectionPlainArgs args, InvokeOptions options) {
@@ -347,6 +371,8 @@ public final class CloudwatchFunctions {
      * &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -375,6 +401,7 @@ public final class CloudwatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEventSourceResult> getEventSource() {
@@ -386,6 +413,8 @@ public final class CloudwatchFunctions {
      * &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -414,6 +443,7 @@ public final class CloudwatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEventSourceResult> getEventSourcePlain() {
@@ -425,6 +455,8 @@ public final class CloudwatchFunctions {
      * &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -453,6 +485,7 @@ public final class CloudwatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEventSourceResult> getEventSource(GetEventSourceArgs args) {
@@ -464,6 +497,8 @@ public final class CloudwatchFunctions {
      * &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -492,6 +527,7 @@ public final class CloudwatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEventSourceResult> getEventSourcePlain(GetEventSourcePlainArgs args) {
@@ -503,6 +539,8 @@ public final class CloudwatchFunctions {
      * &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -531,6 +569,7 @@ public final class CloudwatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEventSourceResult> getEventSource(GetEventSourceArgs args, InvokeOptions options) {
@@ -542,6 +581,8 @@ public final class CloudwatchFunctions {
      * &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -570,6 +611,7 @@ public final class CloudwatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEventSourceResult> getEventSourcePlain(GetEventSourcePlainArgs args, InvokeOptions options) {
@@ -581,6 +623,8 @@ public final class CloudwatchFunctions {
      * &gt; For more information about data protection policies, see the [Help protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -649,6 +693,7 @@ public final class CloudwatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLogDataProtectionPolicyDocumentResult> getLogDataProtectionPolicyDocument(GetLogDataProtectionPolicyDocumentArgs args) {
@@ -660,6 +705,8 @@ public final class CloudwatchFunctions {
      * &gt; For more information about data protection policies, see the [Help protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -728,6 +775,7 @@ public final class CloudwatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLogDataProtectionPolicyDocumentResult> getLogDataProtectionPolicyDocumentPlain(GetLogDataProtectionPolicyDocumentPlainArgs args) {
@@ -739,6 +787,8 @@ public final class CloudwatchFunctions {
      * &gt; For more information about data protection policies, see the [Help protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -807,6 +857,7 @@ public final class CloudwatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLogDataProtectionPolicyDocumentResult> getLogDataProtectionPolicyDocument(GetLogDataProtectionPolicyDocumentArgs args, InvokeOptions options) {
@@ -818,6 +869,8 @@ public final class CloudwatchFunctions {
      * &gt; For more information about data protection policies, see the [Help protect sensitive log data with masking](https://docs.aws.amazon.com/AmazonCloudWatch/latest/logs/mask-sensitive-log-data.html).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -886,6 +939,7 @@ public final class CloudwatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLogDataProtectionPolicyDocumentResult> getLogDataProtectionPolicyDocumentPlain(GetLogDataProtectionPolicyDocumentPlainArgs args, InvokeOptions options) {
@@ -895,6 +949,8 @@ public final class CloudwatchFunctions {
      * Use this data source to get information about an AWS Cloudwatch Log Group
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -923,6 +979,7 @@ public final class CloudwatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLogGroupResult> getLogGroup(GetLogGroupArgs args) {
@@ -932,6 +989,8 @@ public final class CloudwatchFunctions {
      * Use this data source to get information about an AWS Cloudwatch Log Group
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -960,6 +1019,7 @@ public final class CloudwatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLogGroupResult> getLogGroupPlain(GetLogGroupPlainArgs args) {
@@ -969,6 +1029,8 @@ public final class CloudwatchFunctions {
      * Use this data source to get information about an AWS Cloudwatch Log Group
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -997,6 +1059,7 @@ public final class CloudwatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLogGroupResult> getLogGroup(GetLogGroupArgs args, InvokeOptions options) {
@@ -1006,6 +1069,8 @@ public final class CloudwatchFunctions {
      * Use this data source to get information about an AWS Cloudwatch Log Group
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1034,6 +1099,7 @@ public final class CloudwatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLogGroupResult> getLogGroupPlain(GetLogGroupPlainArgs args, InvokeOptions options) {
@@ -1043,6 +1109,8 @@ public final class CloudwatchFunctions {
      * Use this data source to get a list of AWS Cloudwatch Log Groups
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1071,6 +1139,7 @@ public final class CloudwatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLogGroupsResult> getLogGroups() {
@@ -1080,6 +1149,8 @@ public final class CloudwatchFunctions {
      * Use this data source to get a list of AWS Cloudwatch Log Groups
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1108,6 +1179,7 @@ public final class CloudwatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLogGroupsResult> getLogGroupsPlain() {
@@ -1117,6 +1189,8 @@ public final class CloudwatchFunctions {
      * Use this data source to get a list of AWS Cloudwatch Log Groups
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1145,6 +1219,7 @@ public final class CloudwatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLogGroupsResult> getLogGroups(GetLogGroupsArgs args) {
@@ -1154,6 +1229,8 @@ public final class CloudwatchFunctions {
      * Use this data source to get a list of AWS Cloudwatch Log Groups
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1182,6 +1259,7 @@ public final class CloudwatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLogGroupsResult> getLogGroupsPlain(GetLogGroupsPlainArgs args) {
@@ -1191,6 +1269,8 @@ public final class CloudwatchFunctions {
      * Use this data source to get a list of AWS Cloudwatch Log Groups
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1219,6 +1299,7 @@ public final class CloudwatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLogGroupsResult> getLogGroups(GetLogGroupsArgs args, InvokeOptions options) {
@@ -1228,6 +1309,8 @@ public final class CloudwatchFunctions {
      * Use this data source to get a list of AWS Cloudwatch Log Groups
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1256,6 +1339,7 @@ public final class CloudwatchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLogGroupsResult> getLogGroupsPlain(GetLogGroupsPlainArgs args, InvokeOptions options) {

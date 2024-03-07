@@ -437,6 +437,7 @@ class Firewall(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -453,13 +454,14 @@ class Firewall(pulumi.CustomResource):
                 "Tag2": "Value2",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Network Firewall Firewalls using their `arn`. For example:
 
         ```sh
-         $ pulumi import aws:networkfirewall/firewall:Firewall example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
+        $ pulumi import aws:networkfirewall/firewall:Firewall example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -486,6 +488,7 @@ class Firewall(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -502,13 +505,14 @@ class Firewall(pulumi.CustomResource):
                 "Tag2": "Value2",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Network Firewall Firewalls using their `arn`. For example:
 
         ```sh
-         $ pulumi import aws:networkfirewall/firewall:Firewall example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
+        $ pulumi import aws:networkfirewall/firewall:Firewall example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
         ```
 
         :param str resource_name: The name of the resource.

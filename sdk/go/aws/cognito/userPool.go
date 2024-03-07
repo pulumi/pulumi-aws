@@ -14,8 +14,10 @@ import (
 // Provides a Cognito User Pool resource.
 //
 // ## Example Usage
+//
 // ### Basic configuration
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,8 +41,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Enabling SMS and Software Token Multi-Factor Authentication
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -73,8 +78,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Using Account Recovery Setting
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -110,15 +118,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Cognito User Pools using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cognito/userPool:UserPool pool us-west-2_abc123
-//
+// $ pulumi import aws:cognito/userPool:UserPool pool us-west-2_abc123
 // ```
 type UserPool struct {
 	pulumi.CustomResourceState

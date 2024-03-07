@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -59,15 +60,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import slot types using their name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:lex/slotType:SlotType flower_types FlowerTypes
-//
+// $ pulumi import aws:lex/slotType:SlotType flower_types FlowerTypes
 // ```
 type SlotType struct {
 	pulumi.CustomResourceState

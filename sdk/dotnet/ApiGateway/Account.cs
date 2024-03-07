@@ -16,6 +16,7 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -95,13 +96,14 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import API Gateway Accounts using the word `api-gateway-account`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:apigateway/account:Account demo api-gateway-account
+    /// $ pulumi import aws:apigateway/account:Account demo api-gateway-account
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/account:Account")]

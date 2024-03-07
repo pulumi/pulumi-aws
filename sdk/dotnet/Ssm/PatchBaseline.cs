@@ -17,10 +17,12 @@ namespace Pulumi.Aws.Ssm
     /// of them is specified.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
     /// Using `approved_patches` only.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -40,8 +42,11 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Advanced Usage, specifying patch filters
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -148,8 +153,11 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Advanced usage, specifying Microsoft application and Windows patch rules
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -219,8 +227,11 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Advanced usage, specifying alternate patch source repository
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -268,13 +279,14 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SSM Patch Baselines using their baseline ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ssm/patchBaseline:PatchBaseline example pb-12345678
+    /// $ pulumi import aws:ssm/patchBaseline:PatchBaseline example pb-12345678
     /// ```
     /// </summary>
     [AwsResourceType("aws:ssm/patchBaseline:PatchBaseline")]

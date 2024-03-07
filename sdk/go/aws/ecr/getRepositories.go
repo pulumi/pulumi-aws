@@ -14,8 +14,10 @@ import (
 // Data source for providing information on AWS ECR (Elastic Container Registry) Repositories.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -37,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetRepositories(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetRepositoriesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRepositoriesResult

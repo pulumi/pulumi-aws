@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,15 +33,14 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import SSM
-    /// 
-    /// Maintenance Windows using the maintenance window `id`. For example:
+    /// Using `pulumi import`, import SSM  Maintenance Windows using the maintenance window `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ssm/maintenanceWindow:MaintenanceWindow imported-window mw-0123456789
+    /// $ pulumi import aws:ssm/maintenanceWindow:MaintenanceWindow imported-window mw-0123456789
     /// ```
     /// </summary>
     [AwsResourceType("aws:ssm/maintenanceWindow:MaintenanceWindow")]

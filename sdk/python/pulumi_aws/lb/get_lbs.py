@@ -72,8 +72,10 @@ def get_lbs(tags: Optional[Mapping[str, str]] = None,
     resources.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -82,6 +84,7 @@ def get_lbs(tags: Optional[Mapping[str, str]] = None,
         "elbv2.k8s.aws/cluster": "my-cluster",
     })
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match
@@ -106,8 +109,10 @@ def get_lbs_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = N
     resources.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -116,6 +121,7 @@ def get_lbs_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]] = N
         "elbv2.k8s.aws/cluster": "my-cluster",
     })
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Mapping[str, str] tags: Map of tags, each pair of which must exactly match

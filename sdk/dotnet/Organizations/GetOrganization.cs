@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Organizations
         /// <summary>
         /// Get information about the organization that the user's account belongs to
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### List all account IDs for the organization
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,10 +35,11 @@ namespace Pulumi.Aws.Organizations
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### SNS topic that can be interacted by the organization only
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -105,8 +106,7 @@ namespace Pulumi.Aws.Organizations
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetOrganizationResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationResult>("aws:organizations/getOrganization:getOrganization", InvokeArgs.Empty, options.WithDefaults());
@@ -114,11 +114,11 @@ namespace Pulumi.Aws.Organizations
         /// <summary>
         /// Get information about the organization that the user's account belongs to
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### List all account IDs for the organization
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -135,10 +135,11 @@ namespace Pulumi.Aws.Organizations
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### SNS topic that can be interacted by the organization only
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -205,8 +206,7 @@ namespace Pulumi.Aws.Organizations
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetOrganizationResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationResult>("aws:organizations/getOrganization:getOrganization", InvokeArgs.Empty, options.WithDefaults());

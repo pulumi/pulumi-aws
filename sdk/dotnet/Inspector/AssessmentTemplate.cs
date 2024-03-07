@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Inspector
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -46,13 +47,14 @@ namespace Pulumi.Aws.Inspector
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_inspector_assessment_template` using the template assessment ARN. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:inspector/assessmentTemplate:AssessmentTemplate example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH
+    /// $ pulumi import aws:inspector/assessmentTemplate:AssessmentTemplate example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH
     /// ```
     /// </summary>
     [AwsResourceType("aws:inspector/assessmentTemplate:AssessmentTemplate")]

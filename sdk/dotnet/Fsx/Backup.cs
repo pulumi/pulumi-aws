@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// ## Lustre Example
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -37,9 +38,11 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Windows Example
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -67,9 +70,11 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## ONTAP Example
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -94,9 +99,11 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## OpenZFS Example
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -120,13 +127,14 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import FSx Backups using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:fsx/backup:Backup example fs-543ab12b1ca672f33
+    /// $ pulumi import aws:fsx/backup:Backup example fs-543ab12b1ca672f33
     /// ```
     /// </summary>
     [AwsResourceType("aws:fsx/backup:Backup")]

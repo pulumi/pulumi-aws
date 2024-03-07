@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS Transcribe Vocabulary.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -33,13 +35,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Transcribe Vocabulary using the `vocabulary_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:transcribe/vocabulary:Vocabulary example example-name
+ * $ pulumi import aws:transcribe/vocabulary:Vocabulary example example-name
  * ```
  */
 export class Vocabulary extends pulumi.CustomResource {

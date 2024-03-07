@@ -115,8 +115,10 @@ class Enabler(pulumi.CustomResource):
         This resource must be created in the Organization's Administrator Account.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -125,8 +127,11 @@ class Enabler(pulumi.CustomResource):
             account_ids=["123456789012"],
             resource_types=["EC2"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### For the Calling Account
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -139,6 +144,7 @@ class Enabler(pulumi.CustomResource):
                 "EC2",
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -160,8 +166,10 @@ class Enabler(pulumi.CustomResource):
         This resource must be created in the Organization's Administrator Account.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -170,8 +178,11 @@ class Enabler(pulumi.CustomResource):
             account_ids=["123456789012"],
             resource_types=["EC2"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### For the Calling Account
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -184,6 +195,7 @@ class Enabler(pulumi.CustomResource):
                 "EC2",
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param EnablerArgs args: The arguments to use to populate this resource's properties.

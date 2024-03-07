@@ -15,69 +15,13 @@ import (
 // Provides a AWS Transfer AS2 Certificate resource.
 //
 // ## Example Usage
-// ### Basic
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/transfer"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func notImplemented(message string) pulumi.AnyOutput {
-//		panic(message)
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: fmt.Sprintf("%v/example.com/example.crt", notImplemented("path.module")),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			invokeFile1, err := std.File(ctx, &std.FileArgs{
-//				Input: fmt.Sprintf("%v/example.com/ca.crt", notImplemented("path.module")),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			invokeFile2, err := std.File(ctx, &std.FileArgs{
-//				Input: fmt.Sprintf("%v/example.com/example.key", notImplemented("path.module")),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = transfer.NewCertificate(ctx, "example", &transfer.CertificateArgs{
-//				Certificate:      invokeFile.Result,
-//				CertificateChain: invokeFile1.Result,
-//				PrivateKey:       invokeFile2.Result,
-//				Description:      pulumi.String("example"),
-//				Usage:            pulumi.String("SIGNING"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //
 // Using `pulumi import`, import Transfer AS2 Certificate using the `certificate_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:transfer/certificate:Certificate example c-4221a88afd5f4362a
-//
+// $ pulumi import aws:transfer/certificate:Certificate example c-4221a88afd5f4362a
 // ```
 type Certificate struct {
 	pulumi.CustomResourceState

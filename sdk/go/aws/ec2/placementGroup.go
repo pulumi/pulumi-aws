@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,15 +42,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import placement groups using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/placementGroup:PlacementGroup prod_pg production-placement-group
-//
+// $ pulumi import aws:ec2/placementGroup:PlacementGroup prod_pg production-placement-group
 // ```
 type PlacementGroup struct {
 	pulumi.CustomResourceState

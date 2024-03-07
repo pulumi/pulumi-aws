@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * Creates and manages an AWS IoT CA Certificate.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -108,6 +110,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:iot/caCertificate:CaCertificate")

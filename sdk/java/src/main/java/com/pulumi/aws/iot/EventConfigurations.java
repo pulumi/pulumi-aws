@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** Deleting this resource does not disable the event configurations, the resource in simply removed from state instead.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -61,13 +63,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import IoT Event Configurations using the AWS Region. For example:
  * 
  * ```sh
- *  $ pulumi import aws:iot/eventConfigurations:EventConfigurations example us-west-2
+ * $ pulumi import aws:iot/eventConfigurations:EventConfigurations example us-west-2
  * ```
  * 
  */

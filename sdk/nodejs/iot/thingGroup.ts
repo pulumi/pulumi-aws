@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -34,13 +35,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import IoT Things Groups using the name. For example:
  *
  * ```sh
- *  $ pulumi import aws:iot/thingGroup:ThingGroup example example
+ * $ pulumi import aws:iot/thingGroup:ThingGroup example example
  * ```
  */
 export class ThingGroup extends pulumi.CustomResource {

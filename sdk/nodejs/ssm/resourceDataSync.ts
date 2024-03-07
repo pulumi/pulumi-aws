@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -58,13 +59,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SSM resource data sync using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ssm/resourceDataSync:ResourceDataSync example example-name
+ * $ pulumi import aws:ssm/resourceDataSync:ResourceDataSync example example-name
  * ```
  */
 export class ResourceDataSync extends pulumi.CustomResource {

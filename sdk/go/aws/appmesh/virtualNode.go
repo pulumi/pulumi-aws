@@ -26,8 +26,10 @@ import (
 // The state associated with existing resources will automatically be migrated.
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -74,8 +76,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### AWS Cloud Map Service Discovery
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -133,8 +138,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Listener Health Check
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -189,8 +197,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Logging
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -244,15 +255,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import App Mesh virtual nodes using `mesh_name` together with the virtual node's `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:appmesh/virtualNode:VirtualNode serviceb1 simpleapp/serviceBv1
-//
+// $ pulumi import aws:appmesh/virtualNode:VirtualNode serviceb1 simpleapp/serviceBv1
 // ```
 type VirtualNode struct {
 	pulumi.CustomResourceState

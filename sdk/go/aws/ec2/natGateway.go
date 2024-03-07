@@ -15,8 +15,10 @@ import (
 // Provides a resource to create a VPC NAT Gateway.
 //
 // ## Example Usage
+//
 // ### Public NAT
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,8 +46,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Public NAT with Secondary Private IP Addresses
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -76,8 +81,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Private NAT
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -102,8 +110,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Private NAT with Secondary Private IP Addresses
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -129,15 +140,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import NAT Gateways using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/natGateway:NatGateway private_gw nat-05dba92075d71c408
-//
+// $ pulumi import aws:ec2/natGateway:NatGateway private_gw nat-05dba92075d71c408
 // ```
 type NatGateway struct {
 	pulumi.CustomResourceState

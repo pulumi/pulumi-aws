@@ -14,6 +14,7 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,13 +30,14 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Redshift HSM Client Certificates using `hsm_client_certificate_identifier`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:redshift/hsmClientCertificate:HsmClientCertificate test example
+    /// $ pulumi import aws:redshift/hsmClientCertificate:HsmClientCertificate test example
     /// ```
     /// </summary>
     [AwsResourceType("aws:redshift/hsmClientCertificate:HsmClientCertificate")]

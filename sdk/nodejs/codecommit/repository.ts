@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -18,8 +19,11 @@ import * as utilities from "../utilities";
  *     description: "This is the Sample App Repository",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### AWS KMS Customer Managed Keys (CMK)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -34,13 +38,14 @@ import * as utilities from "../utilities";
  *     kmsKeyId: testKey.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import CodeCommit repository using repository name. For example:
  *
  * ```sh
- *  $ pulumi import aws:codecommit/repository:Repository imported ExistingRepo
+ * $ pulumi import aws:codecommit/repository:Repository imported ExistingRepo
  * ```
  */
 export class Repository extends pulumi.CustomResource {

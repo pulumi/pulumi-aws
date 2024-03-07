@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,15 +42,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SES Receipt Filter using their `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ses/receiptFilter:ReceiptFilter test some-filter
-//
+// $ pulumi import aws:ses/receiptFilter:ReceiptFilter test some-filter
 // ```
 type ReceiptFilter struct {
 	pulumi.CustomResourceState

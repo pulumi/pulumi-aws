@@ -14,11 +14,11 @@ namespace Pulumi.Aws.SesV2
         /// <summary>
         /// Data source for managing an AWS SESv2 (Simple Email V2) Email Identity Mail From Attributes.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -39,8 +39,7 @@ namespace Pulumi.Aws.SesV2
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetEmailIdentityMailFromAttributesResult> InvokeAsync(GetEmailIdentityMailFromAttributesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEmailIdentityMailFromAttributesResult>("aws:sesv2/getEmailIdentityMailFromAttributes:getEmailIdentityMailFromAttributes", args ?? new GetEmailIdentityMailFromAttributesArgs(), options.WithDefaults());
@@ -48,11 +47,11 @@ namespace Pulumi.Aws.SesV2
         /// <summary>
         /// Data source for managing an AWS SESv2 (Simple Email V2) Email Identity Mail From Attributes.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -73,8 +72,7 @@ namespace Pulumi.Aws.SesV2
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetEmailIdentityMailFromAttributesResult> Invoke(GetEmailIdentityMailFromAttributesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEmailIdentityMailFromAttributesResult>("aws:sesv2/getEmailIdentityMailFromAttributes:getEmailIdentityMailFromAttributes", args ?? new GetEmailIdentityMailFromAttributesInvokeArgs(), options.WithDefaults());

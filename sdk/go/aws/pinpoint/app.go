@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,15 +46,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Pinpoint App using the `application-id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:pinpoint/app:App name application-id
-//
+// $ pulumi import aws:pinpoint/app:App name application-id
 // ```
 type App struct {
 	pulumi.CustomResourceState

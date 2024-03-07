@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -147,15 +148,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import AWS API Gateway Authorizer using the `REST-API-ID/AUTHORIZER-ID`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:apigateway/authorizer:Authorizer authorizer 12345abcde/example
-//
+// $ pulumi import aws:apigateway/authorizer:Authorizer authorizer 12345abcde/example
 // ```
 type Authorizer struct {
 	pulumi.CustomResourceState

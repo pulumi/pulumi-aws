@@ -272,6 +272,7 @@ class ProxyTarget(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -309,6 +310,7 @@ class ProxyTarget(pulumi.CustomResource):
             db_proxy_name=example.name,
             target_group_name=example_proxy_default_target_group.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -319,12 +321,12 @@ class ProxyTarget(pulumi.CustomResource):
         Instances:
 
         ```sh
-         $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/RDS_INSTANCE/example-instance
+        $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/RDS_INSTANCE/example-instance
         ```
-         Provisioned Clusters:
+        Provisioned Clusters:
 
         ```sh
-         $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/TRACKED_CLUSTER/example-cluster
+        $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/TRACKED_CLUSTER/example-cluster
         ```
 
         :param str resource_name: The name of the resource.
@@ -347,6 +349,7 @@ class ProxyTarget(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -384,6 +387,7 @@ class ProxyTarget(pulumi.CustomResource):
             db_proxy_name=example.name,
             target_group_name=example_proxy_default_target_group.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -394,12 +398,12 @@ class ProxyTarget(pulumi.CustomResource):
         Instances:
 
         ```sh
-         $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/RDS_INSTANCE/example-instance
+        $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/RDS_INSTANCE/example-instance
         ```
-         Provisioned Clusters:
+        Provisioned Clusters:
 
         ```sh
-         $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/TRACKED_CLUSTER/example-cluster
+        $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/TRACKED_CLUSTER/example-cluster
         ```
 
         :param str resource_name: The name of the resource.

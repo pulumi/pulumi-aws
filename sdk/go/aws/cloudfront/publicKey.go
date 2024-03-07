@@ -16,6 +16,7 @@ import (
 //
 // The following example below creates a CloudFront public key.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -48,15 +49,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CloudFront Public Key using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cloudfront/publicKey:PublicKey example K3D5EWEUDCCXON
-//
+// $ pulumi import aws:cloudfront/publicKey:PublicKey example K3D5EWEUDCCXON
 // ```
 type PublicKey struct {
 	pulumi.CustomResourceState

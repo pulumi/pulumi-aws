@@ -102,6 +102,7 @@ class DataProtectionPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -125,13 +126,14 @@ class DataProtectionPolicy(pulumi.CustomResource):
                 "Version": "2021-06-01",
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SNS Data Protection Topic Policy using the topic ARN. For example:
 
         ```sh
-         $ pulumi import aws:sns/dataProtectionPolicy:DataProtectionPolicy example arn:aws:sns:us-west-2:0123456789012:example
+        $ pulumi import aws:sns/dataProtectionPolicy:DataProtectionPolicy example arn:aws:sns:us-west-2:0123456789012:example
         ```
 
         :param str resource_name: The name of the resource.
@@ -150,6 +152,7 @@ class DataProtectionPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -173,13 +176,14 @@ class DataProtectionPolicy(pulumi.CustomResource):
                 "Version": "2021-06-01",
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SNS Data Protection Topic Policy using the topic ARN. For example:
 
         ```sh
-         $ pulumi import aws:sns/dataProtectionPolicy:DataProtectionPolicy example arn:aws:sns:us-west-2:0123456789012:example
+        $ pulumi import aws:sns/dataProtectionPolicy:DataProtectionPolicy example arn:aws:sns:us-west-2:0123456789012:example
         ```
 
         :param str resource_name: The name of the resource.

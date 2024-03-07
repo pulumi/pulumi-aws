@@ -47,6 +47,8 @@ public final class OrganizationsFunctions {
      * Get a list of AWS accounts that are designated as delegated administrators in this organization
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -75,6 +77,7 @@ public final class OrganizationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDelegatedAdministratorsResult> getDelegatedAdministrators() {
@@ -84,6 +87,8 @@ public final class OrganizationsFunctions {
      * Get a list of AWS accounts that are designated as delegated administrators in this organization
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -112,6 +117,7 @@ public final class OrganizationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDelegatedAdministratorsResult> getDelegatedAdministratorsPlain() {
@@ -121,6 +127,8 @@ public final class OrganizationsFunctions {
      * Get a list of AWS accounts that are designated as delegated administrators in this organization
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -149,6 +157,7 @@ public final class OrganizationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDelegatedAdministratorsResult> getDelegatedAdministrators(GetDelegatedAdministratorsArgs args) {
@@ -158,6 +167,8 @@ public final class OrganizationsFunctions {
      * Get a list of AWS accounts that are designated as delegated administrators in this organization
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -186,6 +197,7 @@ public final class OrganizationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDelegatedAdministratorsResult> getDelegatedAdministratorsPlain(GetDelegatedAdministratorsPlainArgs args) {
@@ -195,6 +207,8 @@ public final class OrganizationsFunctions {
      * Get a list of AWS accounts that are designated as delegated administrators in this organization
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -223,6 +237,7 @@ public final class OrganizationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDelegatedAdministratorsResult> getDelegatedAdministrators(GetDelegatedAdministratorsArgs args, InvokeOptions options) {
@@ -232,6 +247,8 @@ public final class OrganizationsFunctions {
      * Get a list of AWS accounts that are designated as delegated administrators in this organization
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -260,6 +277,7 @@ public final class OrganizationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDelegatedAdministratorsResult> getDelegatedAdministratorsPlain(GetDelegatedAdministratorsPlainArgs args, InvokeOptions options) {
@@ -269,6 +287,8 @@ public final class OrganizationsFunctions {
      * Get a list the AWS services for which the specified account is a delegated administrator
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -297,6 +317,7 @@ public final class OrganizationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDelegatedServicesResult> getDelegatedServices(GetDelegatedServicesArgs args) {
@@ -306,6 +327,8 @@ public final class OrganizationsFunctions {
      * Get a list the AWS services for which the specified account is a delegated administrator
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -334,6 +357,7 @@ public final class OrganizationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDelegatedServicesResult> getDelegatedServicesPlain(GetDelegatedServicesPlainArgs args) {
@@ -343,6 +367,8 @@ public final class OrganizationsFunctions {
      * Get a list the AWS services for which the specified account is a delegated administrator
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -371,6 +397,7 @@ public final class OrganizationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDelegatedServicesResult> getDelegatedServices(GetDelegatedServicesArgs args, InvokeOptions options) {
@@ -380,6 +407,8 @@ public final class OrganizationsFunctions {
      * Get a list the AWS services for which the specified account is a delegated administrator
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -408,6 +437,7 @@ public final class OrganizationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDelegatedServicesResult> getDelegatedServicesPlain(GetDelegatedServicesPlainArgs args, InvokeOptions options) {
@@ -417,7 +447,10 @@ public final class OrganizationsFunctions {
      * Get information about the organization that the user&#39;s account belongs to
      * 
      * ## Example Usage
+     * 
      * ### List all account IDs for the organization
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -444,7 +477,11 @@ public final class OrganizationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### SNS topic that can be interacted by the organization only
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -504,6 +541,7 @@ public final class OrganizationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOrganizationResult> getOrganization() {
@@ -513,7 +551,10 @@ public final class OrganizationsFunctions {
      * Get information about the organization that the user&#39;s account belongs to
      * 
      * ## Example Usage
+     * 
      * ### List all account IDs for the organization
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -540,7 +581,11 @@ public final class OrganizationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### SNS topic that can be interacted by the organization only
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -600,6 +645,7 @@ public final class OrganizationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOrganizationResult> getOrganizationPlain() {
@@ -609,7 +655,10 @@ public final class OrganizationsFunctions {
      * Get information about the organization that the user&#39;s account belongs to
      * 
      * ## Example Usage
+     * 
      * ### List all account IDs for the organization
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -636,7 +685,11 @@ public final class OrganizationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### SNS topic that can be interacted by the organization only
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -696,6 +749,7 @@ public final class OrganizationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOrganizationResult> getOrganization(InvokeArgs args) {
@@ -705,7 +759,10 @@ public final class OrganizationsFunctions {
      * Get information about the organization that the user&#39;s account belongs to
      * 
      * ## Example Usage
+     * 
      * ### List all account IDs for the organization
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -732,7 +789,11 @@ public final class OrganizationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### SNS topic that can be interacted by the organization only
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -792,6 +853,7 @@ public final class OrganizationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOrganizationResult> getOrganizationPlain(InvokeArgs args) {
@@ -801,7 +863,10 @@ public final class OrganizationsFunctions {
      * Get information about the organization that the user&#39;s account belongs to
      * 
      * ## Example Usage
+     * 
      * ### List all account IDs for the organization
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -828,7 +893,11 @@ public final class OrganizationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### SNS topic that can be interacted by the organization only
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -888,6 +957,7 @@ public final class OrganizationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOrganizationResult> getOrganization(InvokeArgs args, InvokeOptions options) {
@@ -897,7 +967,10 @@ public final class OrganizationsFunctions {
      * Get information about the organization that the user&#39;s account belongs to
      * 
      * ## Example Usage
+     * 
      * ### List all account IDs for the organization
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -924,7 +997,11 @@ public final class OrganizationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### SNS topic that can be interacted by the organization only
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -984,6 +1061,7 @@ public final class OrganizationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOrganizationResult> getOrganizationPlain(InvokeArgs args, InvokeOptions options) {
@@ -993,7 +1071,10 @@ public final class OrganizationsFunctions {
      * Data source for getting an AWS Organizations Organizational Unit.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1025,6 +1106,7 @@ public final class OrganizationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOrganizationalUnitResult> getOrganizationalUnit(GetOrganizationalUnitArgs args) {
@@ -1034,7 +1116,10 @@ public final class OrganizationsFunctions {
      * Data source for getting an AWS Organizations Organizational Unit.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1066,6 +1151,7 @@ public final class OrganizationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOrganizationalUnitResult> getOrganizationalUnitPlain(GetOrganizationalUnitPlainArgs args) {
@@ -1075,7 +1161,10 @@ public final class OrganizationsFunctions {
      * Data source for getting an AWS Organizations Organizational Unit.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1107,6 +1196,7 @@ public final class OrganizationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOrganizationalUnitResult> getOrganizationalUnit(GetOrganizationalUnitArgs args, InvokeOptions options) {
@@ -1116,7 +1206,10 @@ public final class OrganizationsFunctions {
      * Data source for getting an AWS Organizations Organizational Unit.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1148,6 +1241,7 @@ public final class OrganizationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOrganizationalUnitResult> getOrganizationalUnitPlain(GetOrganizationalUnitPlainArgs args, InvokeOptions options) {
@@ -1157,6 +1251,8 @@ public final class OrganizationsFunctions {
      * Get all direct child accounts under a parent organizational unit. This only provides immediate children, not all children.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1187,6 +1283,7 @@ public final class OrganizationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOrganizationalUnitChildAccountsResult> getOrganizationalUnitChildAccounts(GetOrganizationalUnitChildAccountsArgs args) {
@@ -1196,6 +1293,8 @@ public final class OrganizationsFunctions {
      * Get all direct child accounts under a parent organizational unit. This only provides immediate children, not all children.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1226,6 +1325,7 @@ public final class OrganizationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOrganizationalUnitChildAccountsResult> getOrganizationalUnitChildAccountsPlain(GetOrganizationalUnitChildAccountsPlainArgs args) {
@@ -1235,6 +1335,8 @@ public final class OrganizationsFunctions {
      * Get all direct child accounts under a parent organizational unit. This only provides immediate children, not all children.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1265,6 +1367,7 @@ public final class OrganizationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOrganizationalUnitChildAccountsResult> getOrganizationalUnitChildAccounts(GetOrganizationalUnitChildAccountsArgs args, InvokeOptions options) {
@@ -1274,6 +1377,8 @@ public final class OrganizationsFunctions {
      * Get all direct child accounts under a parent organizational unit. This only provides immediate children, not all children.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1304,6 +1409,7 @@ public final class OrganizationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOrganizationalUnitChildAccountsResult> getOrganizationalUnitChildAccountsPlain(GetOrganizationalUnitChildAccountsPlainArgs args, InvokeOptions options) {
@@ -1313,6 +1419,8 @@ public final class OrganizationsFunctions {
      * Get all direct child accounts under a parent organizational unit. This provides all children.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1343,6 +1451,7 @@ public final class OrganizationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOrganizationalUnitDescendantAccountsResult> getOrganizationalUnitDescendantAccounts(GetOrganizationalUnitDescendantAccountsArgs args) {
@@ -1352,6 +1461,8 @@ public final class OrganizationsFunctions {
      * Get all direct child accounts under a parent organizational unit. This provides all children.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1382,6 +1493,7 @@ public final class OrganizationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOrganizationalUnitDescendantAccountsResult> getOrganizationalUnitDescendantAccountsPlain(GetOrganizationalUnitDescendantAccountsPlainArgs args) {
@@ -1391,6 +1503,8 @@ public final class OrganizationsFunctions {
      * Get all direct child accounts under a parent organizational unit. This provides all children.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1421,6 +1535,7 @@ public final class OrganizationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOrganizationalUnitDescendantAccountsResult> getOrganizationalUnitDescendantAccounts(GetOrganizationalUnitDescendantAccountsArgs args, InvokeOptions options) {
@@ -1430,6 +1545,8 @@ public final class OrganizationsFunctions {
      * Get all direct child accounts under a parent organizational unit. This provides all children.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1460,6 +1577,7 @@ public final class OrganizationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOrganizationalUnitDescendantAccountsResult> getOrganizationalUnitDescendantAccountsPlain(GetOrganizationalUnitDescendantAccountsPlainArgs args, InvokeOptions options) {
@@ -1469,6 +1587,8 @@ public final class OrganizationsFunctions {
      * Get all direct child organizational units under a parent organizational unit. This only provides immediate children, not all children.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1499,6 +1619,7 @@ public final class OrganizationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOrganizationalUnitsResult> getOrganizationalUnits(GetOrganizationalUnitsArgs args) {
@@ -1508,6 +1629,8 @@ public final class OrganizationsFunctions {
      * Get all direct child organizational units under a parent organizational unit. This only provides immediate children, not all children.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1538,6 +1661,7 @@ public final class OrganizationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOrganizationalUnitsResult> getOrganizationalUnitsPlain(GetOrganizationalUnitsPlainArgs args) {
@@ -1547,6 +1671,8 @@ public final class OrganizationsFunctions {
      * Get all direct child organizational units under a parent organizational unit. This only provides immediate children, not all children.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1577,6 +1703,7 @@ public final class OrganizationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOrganizationalUnitsResult> getOrganizationalUnits(GetOrganizationalUnitsArgs args, InvokeOptions options) {
@@ -1586,6 +1713,8 @@ public final class OrganizationsFunctions {
      * Get all direct child organizational units under a parent organizational unit. This only provides immediate children, not all children.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1616,6 +1745,7 @@ public final class OrganizationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOrganizationalUnitsResult> getOrganizationalUnitsPlain(GetOrganizationalUnitsPlainArgs args, InvokeOptions options) {
@@ -1733,6 +1863,8 @@ public final class OrganizationsFunctions {
      * Get tags attached to the specified AWS Organizations resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1761,6 +1893,7 @@ public final class OrganizationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResourceTagsResult> getResourceTags(GetResourceTagsArgs args) {
@@ -1770,6 +1903,8 @@ public final class OrganizationsFunctions {
      * Get tags attached to the specified AWS Organizations resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1798,6 +1933,7 @@ public final class OrganizationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResourceTagsResult> getResourceTagsPlain(GetResourceTagsPlainArgs args) {
@@ -1807,6 +1943,8 @@ public final class OrganizationsFunctions {
      * Get tags attached to the specified AWS Organizations resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1835,6 +1973,7 @@ public final class OrganizationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResourceTagsResult> getResourceTags(GetResourceTagsArgs args, InvokeOptions options) {
@@ -1844,6 +1983,8 @@ public final class OrganizationsFunctions {
      * Get tags attached to the specified AWS Organizations resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1872,6 +2013,7 @@ public final class OrganizationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResourceTagsResult> getResourceTagsPlain(GetResourceTagsPlainArgs args, InvokeOptions options) {

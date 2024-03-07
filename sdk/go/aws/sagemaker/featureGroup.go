@@ -18,6 +18,7 @@ import (
 //
 // Basic usage:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -53,15 +54,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Feature Groups using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sagemaker/featureGroup:FeatureGroup test_feature_group feature_group-foo
-//
+// $ pulumi import aws:sagemaker/featureGroup:FeatureGroup test_feature_group feature_group-foo
 // ```
 type FeatureGroup struct {
 	pulumi.CustomResourceState

@@ -15,8 +15,10 @@ import (
 // Provides an Amazon Kendra Index resource.
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -46,8 +48,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With capacity units
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -77,8 +82,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With server side encryption configuration
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -106,8 +114,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With user group resolution configuration
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -135,11 +146,15 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With Document Metadata Configuration Updates
+//
 // ### Specifying the predefined elements
 //
 // Refer to [Amazon Kendra documentation on built-in document fields](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html#index-reserved-fields) for more information.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -365,10 +380,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Appending additional elements
 //
 // The example below shows additional elements with names, `example-string-value`, `example-long-value`, `example-string-list-value`, `example-date-value` representing the 4 types of `STRING_VALUE`, `LONG_VALUE`, `STRING_LIST_VALUE`, `DATE_VALUE` respectively.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -651,8 +669,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With JSON token type configuration
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -683,15 +704,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Amazon Kendra Indexes using its `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:kendra/index:Index example 12345678-1234-5678-9123-123456789123
-//
+// $ pulumi import aws:kendra/index:Index example 12345678-1234-5678-9123-123456789123
 // ```
 type Index struct {
 	pulumi.CustomResourceState

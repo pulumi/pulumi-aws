@@ -14,11 +14,11 @@ namespace Pulumi.Aws.CodeGuruProfiler
         /// <summary>
         /// Data source for managing an AWS CodeGuru Profiler Profiling Group.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +34,7 @@ namespace Pulumi.Aws.CodeGuruProfiler
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetProfilingGroupResult> InvokeAsync(GetProfilingGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetProfilingGroupResult>("aws:codeguruprofiler/getProfilingGroup:getProfilingGroup", args ?? new GetProfilingGroupArgs(), options.WithDefaults());
@@ -43,11 +42,11 @@ namespace Pulumi.Aws.CodeGuruProfiler
         /// <summary>
         /// Data source for managing an AWS CodeGuru Profiler Profiling Group.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +62,7 @@ namespace Pulumi.Aws.CodeGuruProfiler
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetProfilingGroupResult> Invoke(GetProfilingGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetProfilingGroupResult>("aws:codeguruprofiler/getProfilingGroup:getProfilingGroup", args ?? new GetProfilingGroupInvokeArgs(), options.WithDefaults());

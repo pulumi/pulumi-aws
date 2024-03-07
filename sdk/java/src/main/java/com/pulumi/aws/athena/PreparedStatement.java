@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Resource for managing an Athena Prepared Statement.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -68,13 +70,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Athena Prepared Statement using the `WORKGROUP-NAME/STATEMENT-NAME`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:athena/preparedStatement:PreparedStatement example 12345abcde/example
+ * $ pulumi import aws:athena/preparedStatement:PreparedStatement example 12345abcde/example
  * ```
  * 
  */

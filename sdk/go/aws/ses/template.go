@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,15 +42,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SES templates using the template name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ses/template:Template MyTemplate MyTemplate
-//
+// $ pulumi import aws:ses/template:Template MyTemplate MyTemplate
 // ```
 type Template struct {
 	pulumi.CustomResourceState

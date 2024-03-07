@@ -412,8 +412,10 @@ class Collaboration(pulumi.CustomResource):
         join the collaboration and can create memberships.
 
         ## Example Usage
+
         ### Collaboration with tags
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -442,13 +444,14 @@ class Collaboration(pulumi.CustomResource):
                 "Project": "Pulumi",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_cleanrooms_collaboration` using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:cleanrooms/collaboration:Collaboration collaboration 1234abcd-12ab-34cd-56ef-1234567890ab
+        $ pulumi import aws:cleanrooms/collaboration:Collaboration collaboration 1234abcd-12ab-34cd-56ef-1234567890ab
         ```
 
         :param str resource_name: The name of the resource.
@@ -485,8 +488,10 @@ class Collaboration(pulumi.CustomResource):
         join the collaboration and can create memberships.
 
         ## Example Usage
+
         ### Collaboration with tags
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -515,13 +520,14 @@ class Collaboration(pulumi.CustomResource):
                 "Project": "Pulumi",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_cleanrooms_collaboration` using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:cleanrooms/collaboration:Collaboration collaboration 1234abcd-12ab-34cd-56ef-1234567890ab
+        $ pulumi import aws:cleanrooms/collaboration:Collaboration collaboration 1234abcd-12ab-34cd-56ef-1234567890ab
         ```
 
         :param str resource_name: The name of the resource.

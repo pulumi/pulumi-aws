@@ -14,12 +14,11 @@ namespace Pulumi.Aws.Ssm
         /// <summary>
         /// Provides an SSM Patch Baseline data source. Useful if you wish to reuse the default baselines provided.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// To retrieve a baseline provided by AWS:
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -37,9 +36,11 @@ namespace Pulumi.Aws.Ssm
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// To retrieve a baseline on your account:
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -58,8 +59,7 @@ namespace Pulumi.Aws.Ssm
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetPatchBaselineResult> InvokeAsync(GetPatchBaselineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPatchBaselineResult>("aws:ssm/getPatchBaseline:getPatchBaseline", args ?? new GetPatchBaselineArgs(), options.WithDefaults());
@@ -67,12 +67,11 @@ namespace Pulumi.Aws.Ssm
         /// <summary>
         /// Provides an SSM Patch Baseline data source. Useful if you wish to reuse the default baselines provided.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// To retrieve a baseline provided by AWS:
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -90,9 +89,11 @@ namespace Pulumi.Aws.Ssm
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// To retrieve a baseline on your account:
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -111,8 +112,7 @@ namespace Pulumi.Aws.Ssm
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetPatchBaselineResult> Invoke(GetPatchBaselineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPatchBaselineResult>("aws:ssm/getPatchBaseline:getPatchBaseline", args ?? new GetPatchBaselineInvokeArgs(), options.WithDefaults());

@@ -26,6 +26,7 @@ namespace Pulumi.Aws.Sns
     /// 
     /// You can directly supply a topic and ARN by hand in the `topic_arn` property along with the queue ARN:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,9 +44,11 @@ namespace Pulumi.Aws.Sns
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// Alternatively you can use the ARN properties of a managed SNS topic and SQS queue:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -73,9 +76,11 @@ namespace Pulumi.Aws.Sns
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// You can subscribe SNS topics to SQS queues in different Amazon accounts and regions:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -254,13 +259,14 @@ namespace Pulumi.Aws.Sns
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SNS Topic Subscriptions using the subscription `arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:sns/topicSubscription:TopicSubscription user_updates_sqs_target arn:aws:sns:us-west-2:0123456789012:my-topic:8a21d249-4329-4871-acc6-7be709c6ea7f
+    /// $ pulumi import aws:sns/topicSubscription:TopicSubscription user_updates_sqs_target arn:aws:sns:us-west-2:0123456789012:my-topic:8a21d249-4329-4871-acc6-7be709c6ea7f
     /// ```
     /// </summary>
     [AwsResourceType("aws:sns/topicSubscription:TopicSubscription")]

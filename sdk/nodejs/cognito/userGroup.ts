@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -48,13 +49,14 @@ import * as utilities from "../utilities";
  *     roleArn: groupRoleRole.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Cognito User Groups using the `user_pool_id`/`name` attributes concatenated. For example:
  *
  * ```sh
- *  $ pulumi import aws:cognito/userGroup:UserGroup group us-east-1_vG78M4goG/user-group
+ * $ pulumi import aws:cognito/userGroup:UserGroup group us-east-1_vG78M4goG/user-group
  * ```
  */
 export class UserGroup extends pulumi.CustomResource {

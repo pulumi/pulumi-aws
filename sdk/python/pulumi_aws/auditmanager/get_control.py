@@ -132,8 +132,10 @@ def get_control(control_mapping_sources: Optional[Sequence[pulumi.InputType['Get
     Data source for managing an AWS Audit Manager Control.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -141,8 +143,11 @@ def get_control(control_mapping_sources: Optional[Sequence[pulumi.InputType['Get
     example = aws.auditmanager.get_control(name="1. Risk Management",
         type="Standard")
     ```
+    <!--End PulumiCodeChooser -->
+
     ### With Framework Resource
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -168,6 +173,7 @@ def get_control(control_mapping_sources: Optional[Sequence[pulumi.InputType['Get
             ),
         ])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the control.
@@ -202,8 +208,10 @@ def get_control_output(control_mapping_sources: Optional[pulumi.Input[Optional[S
     Data source for managing an AWS Audit Manager Control.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -211,8 +219,11 @@ def get_control_output(control_mapping_sources: Optional[pulumi.Input[Optional[S
     example = aws.auditmanager.get_control(name="1. Risk Management",
         type="Standard")
     ```
+    <!--End PulumiCodeChooser -->
+
     ### With Framework Resource
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -238,6 +249,7 @@ def get_control_output(control_mapping_sources: Optional[pulumi.Input[Optional[S
             ),
         ])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the control.

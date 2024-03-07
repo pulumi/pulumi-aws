@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** Deleting this resource does not disable the organization configuration feature, the resource in simply removed from state instead.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -63,6 +65,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:guardduty/organizationConfigurationFeature:OrganizationConfigurationFeature")

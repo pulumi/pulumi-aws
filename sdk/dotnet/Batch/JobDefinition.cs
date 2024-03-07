@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Batch
     /// Provides a Batch Job Definition resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Job definition of type container
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -91,8 +93,11 @@ namespace Pulumi.Aws.Batch
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Job definition of type multinode
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -148,8 +153,11 @@ namespace Pulumi.Aws.Batch
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Job Definitionn of type EKS
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -197,8 +205,11 @@ namespace Pulumi.Aws.Batch
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Fargate Platform Capability
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -285,13 +296,14 @@ namespace Pulumi.Aws.Batch
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Batch Job Definition using the `arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:batch/jobDefinition:JobDefinition test arn:aws:batch:us-east-1:123456789012:job-definition/sample
+    /// $ pulumi import aws:batch/jobDefinition:JobDefinition test arn:aws:batch:us-east-1:123456789012:job-definition/sample
     /// ```
     /// </summary>
     [AwsResourceType("aws:batch/jobDefinition:JobDefinition")]

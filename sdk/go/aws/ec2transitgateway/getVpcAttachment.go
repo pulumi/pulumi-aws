@@ -14,8 +14,10 @@ import (
 // Get information on an EC2 Transit Gateway VPC Attachment.
 //
 // ## Example Usage
+//
 // ### By Filter
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -46,8 +48,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### By Identifier
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -71,6 +76,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupVpcAttachment(ctx *pulumi.Context, args *LookupVpcAttachmentArgs, opts ...pulumi.InvokeOption) (*LookupVpcAttachmentResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVpcAttachmentResult

@@ -14,10 +14,9 @@ namespace Pulumi.Aws.AppMesh
         /// <summary>
         /// Data source for managing an AWS App Mesh Virtual Node.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +33,7 @@ namespace Pulumi.Aws.AppMesh
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetVirtualNodeResult> InvokeAsync(GetVirtualNodeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVirtualNodeResult>("aws:appmesh/getVirtualNode:getVirtualNode", args ?? new GetVirtualNodeArgs(), options.WithDefaults());
@@ -43,10 +41,9 @@ namespace Pulumi.Aws.AppMesh
         /// <summary>
         /// Data source for managing an AWS App Mesh Virtual Node.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +60,7 @@ namespace Pulumi.Aws.AppMesh
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetVirtualNodeResult> Invoke(GetVirtualNodeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVirtualNodeResult>("aws:appmesh/getVirtualNode:getVirtualNode", args ?? new GetVirtualNodeInvokeArgs(), options.WithDefaults());

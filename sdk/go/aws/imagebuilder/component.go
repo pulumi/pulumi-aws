@@ -15,55 +15,10 @@ import (
 // Manages an Image Builder Component.
 //
 // ## Example Usage
-// ### Inline Data Document
 //
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/imagebuilder"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func notImplemented(message string) pulumi.AnyOutput {
-//		panic(message)
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := imagebuilder.NewComponent(ctx, "example", &imagebuilder.ComponentArgs{
-//				Data: notImplemented(`yamlencode({
-//
-// phases=[{
-// name="build"
-// steps=[{
-// action="ExecuteBash"
-// inputs={
-// commands=["echo 'hello world'"]
-// }
-// name="example"
-// onFailure="Continue"
-// }]
-// }]
-// schemaVersion=1.0
-// })`),
-//
-//				Name:     pulumi.String("example"),
-//				Platform: pulumi.String("Linux"),
-//				Version:  pulumi.String("1.0.0"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ### URI Document
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -92,18 +47,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_imagebuilder_components` resources using the Amazon Resource Name (ARN). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:imagebuilder/component:Component example arn:aws:imagebuilder:us-east-1:123456789012:component/example/1.0.0/1
-//
+// $ pulumi import aws:imagebuilder/component:Component example arn:aws:imagebuilder:us-east-1:123456789012:component/example/1.0.0/1
 // ```
-//
-//	Certain resource arguments, such as `uri`, cannot be read via the API and imported into the provider. The provider will display a difference for these arguments the first run after import if declared in the the provider configuration for an imported resource.
+// Certain resource arguments, such as `uri`, cannot be read via the API and imported into the provider. The provider will display a difference for these arguments the first run after import if declared in the the provider configuration for an imported resource.
 type Component struct {
 	pulumi.CustomResourceState
 

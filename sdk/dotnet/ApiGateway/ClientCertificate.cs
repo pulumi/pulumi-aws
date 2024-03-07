@@ -14,6 +14,7 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,13 +30,14 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import API Gateway Client Certificates using the id. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:apigateway/clientCertificate:ClientCertificate demo ab1cqe
+    /// $ pulumi import aws:apigateway/clientCertificate:ClientCertificate demo ab1cqe
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/clientCertificate:ClientCertificate")]

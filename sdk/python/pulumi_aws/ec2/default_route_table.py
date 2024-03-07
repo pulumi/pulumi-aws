@@ -255,6 +255,7 @@ class DefaultRouteTable(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -275,9 +276,11 @@ class DefaultRouteTable(pulumi.CustomResource):
                 "Name": "example",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         To subsequently remove all managed routes:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -289,13 +292,14 @@ class DefaultRouteTable(pulumi.CustomResource):
                 "Name": "example",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Default VPC route tables using the `vpc_id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/defaultRouteTable:DefaultRouteTable example vpc-33cc44dd
+        $ pulumi import aws:ec2/defaultRouteTable:DefaultRouteTable example vpc-33cc44dd
         ```
 
         :param str resource_name: The name of the resource.
@@ -324,6 +328,7 @@ class DefaultRouteTable(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -344,9 +349,11 @@ class DefaultRouteTable(pulumi.CustomResource):
                 "Name": "example",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         To subsequently remove all managed routes:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -358,13 +365,14 @@ class DefaultRouteTable(pulumi.CustomResource):
                 "Name": "example",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Default VPC route tables using the `vpc_id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/defaultRouteTable:DefaultRouteTable example vpc-33cc44dd
+        $ pulumi import aws:ec2/defaultRouteTable:DefaultRouteTable example vpc-33cc44dd
         ```
 
         :param str resource_name: The name of the resource.

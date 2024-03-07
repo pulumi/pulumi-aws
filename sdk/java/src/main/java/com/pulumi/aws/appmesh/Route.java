@@ -20,7 +20,10 @@ import javax.annotation.Nullable;
  * Provides an AWS App Mesh route resource.
  * 
  * ## Example Usage
+ * 
  * ### HTTP Routing
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -73,7 +76,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### HTTP Header Routing
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -129,7 +136,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Retry Policy
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -187,7 +198,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### TCP Routing
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -231,13 +246,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import App Mesh virtual routes using `mesh_name` and `virtual_router_name` together with the route&#39;s `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:appmesh/route:Route serviceb simpleapp/serviceB/serviceB-route
+ * $ pulumi import aws:appmesh/route:Route serviceb simpleapp/serviceB/serviceB-route
  * ```
  * 
  */

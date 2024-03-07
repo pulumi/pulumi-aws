@@ -13,8 +13,10 @@ namespace Pulumi.Aws.ElastiCache
     /// Provides an ElastiCache Serverless Cache resource which manages memcached or redis.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Memcached Serverless
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -54,8 +56,11 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Redis Serverless
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -97,13 +102,14 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import ElastiCache Serverless Cache using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:elasticache/serverlessCache:ServerlessCache my_cluster my_cluster
+    /// $ pulumi import aws:elasticache/serverlessCache:ServerlessCache my_cluster my_cluster
     /// ```
     /// </summary>
     [AwsResourceType("aws:elasticache/serverlessCache:ServerlessCache")]

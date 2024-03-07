@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -96,13 +97,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Backup Framework using the `id` which corresponds to the name of the Backup Framework. For example:
  *
  * ```sh
- *  $ pulumi import aws:backup/framework:Framework test <id>
+ * $ pulumi import aws:backup/framework:Framework test <id>
  * ```
  */
 export class Framework extends pulumi.CustomResource {

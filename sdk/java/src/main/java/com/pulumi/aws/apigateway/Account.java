@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * &gt; **Note:** As there is no API method for deleting account settings or resetting it to defaults, destroying this resource will keep your account settings intact
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -93,13 +95,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import API Gateway Accounts using the word `api-gateway-account`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:apigateway/account:Account demo api-gateway-account
+ * $ pulumi import aws:apigateway/account:Account demo api-gateway-account
  * ```
  * 
  */

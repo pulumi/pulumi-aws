@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Attaches a Lightsail disk to a Lightsail Instance
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -74,13 +76,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_lightsail_disk` using the id attribute. For example:
  * 
  * ```sh
- *  $ pulumi import aws:lightsail/disk_attachment:Disk_attachment test test-disk,test-instance
+ * $ pulumi import aws:lightsail/disk_attachment:Disk_attachment test test-disk,test-instance
  * ```
  * 
  */

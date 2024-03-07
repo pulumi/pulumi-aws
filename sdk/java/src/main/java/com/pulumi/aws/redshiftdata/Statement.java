@@ -21,7 +21,10 @@ import javax.annotation.Nullable;
  * Executes a Redshift Data Statement.
  * 
  * ## Example Usage
+ * 
  * ### cluster_identifier
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -53,7 +56,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### workgroup_name
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -84,13 +91,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Redshift Data Statements using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:redshiftdata/statement:Statement example example
+ * $ pulumi import aws:redshiftdata/statement:Statement example example
  * ```
  * 
  */

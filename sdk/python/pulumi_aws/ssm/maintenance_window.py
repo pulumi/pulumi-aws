@@ -453,6 +453,7 @@ class MaintenanceWindow(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -463,15 +464,14 @@ class MaintenanceWindow(pulumi.CustomResource):
             duration=3,
             cutoff=1)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Using `pulumi import`, import SSM
-
-        Maintenance Windows using the maintenance window `id`. For example:
+        Using `pulumi import`, import SSM  Maintenance Windows using the maintenance window `id`. For example:
 
         ```sh
-         $ pulumi import aws:ssm/maintenanceWindow:MaintenanceWindow imported-window mw-0123456789
+        $ pulumi import aws:ssm/maintenanceWindow:MaintenanceWindow imported-window mw-0123456789
         ```
 
         :param str resource_name: The name of the resource.
@@ -500,6 +500,7 @@ class MaintenanceWindow(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -510,15 +511,14 @@ class MaintenanceWindow(pulumi.CustomResource):
             duration=3,
             cutoff=1)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Using `pulumi import`, import SSM
-
-        Maintenance Windows using the maintenance window `id`. For example:
+        Using `pulumi import`, import SSM  Maintenance Windows using the maintenance window `id`. For example:
 
         ```sh
-         $ pulumi import aws:ssm/maintenanceWindow:MaintenanceWindow imported-window mw-0123456789
+        $ pulumi import aws:ssm/maintenanceWindow:MaintenanceWindow imported-window mw-0123456789
         ```
 
         :param str resource_name: The name of the resource.

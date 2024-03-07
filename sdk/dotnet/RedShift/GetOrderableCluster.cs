@@ -14,10 +14,9 @@ namespace Pulumi.Aws.RedShift
         /// <summary>
         /// Information about Redshift Orderable Clusters and valid parameter combinations.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -38,8 +37,7 @@ namespace Pulumi.Aws.RedShift
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetOrderableClusterResult> InvokeAsync(GetOrderableClusterArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrderableClusterResult>("aws:redshift/getOrderableCluster:getOrderableCluster", args ?? new GetOrderableClusterArgs(), options.WithDefaults());
@@ -47,10 +45,9 @@ namespace Pulumi.Aws.RedShift
         /// <summary>
         /// Information about Redshift Orderable Clusters and valid parameter combinations.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -71,8 +68,7 @@ namespace Pulumi.Aws.RedShift
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetOrderableClusterResult> Invoke(GetOrderableClusterInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrderableClusterResult>("aws:redshift/getOrderableCluster:getOrderableCluster", args ?? new GetOrderableClusterInvokeArgs(), options.WithDefaults());

@@ -74,6 +74,7 @@ def get_instance_types(filters: Optional[Sequence[pulumi.InputType['GetInstanceT
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -100,6 +101,7 @@ def get_instance_types(filters: Optional[Sequence[pulumi.InputType['GetInstanceT
         ),
     ])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetInstanceTypesFilterArgs']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypes.html) for supported filters. Detailed below.
@@ -123,6 +125,7 @@ def get_instance_types_output(filters: Optional[pulumi.Input[Optional[Sequence[p
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -149,6 +152,7 @@ def get_instance_types_output(filters: Optional[pulumi.Input[Optional[Sequence[p
         ),
     ])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetInstanceTypesFilterArgs']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypes.html) for supported filters. Detailed below.

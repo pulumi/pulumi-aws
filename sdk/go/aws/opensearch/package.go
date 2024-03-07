@@ -15,8 +15,10 @@ import (
 // Manages an AWS Opensearch Package.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -68,15 +70,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import AWS Opensearch Packages using the Package ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:opensearch/package:Package example package-id
-//
+// $ pulumi import aws:opensearch/package:Package example package-id
 // ```
 type Package struct {
 	pulumi.CustomResourceState

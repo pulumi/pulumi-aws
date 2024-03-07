@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Lex
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -68,13 +69,14 @@ namespace Pulumi.Aws.Lex
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import bots using their name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:lex/bot:Bot order_flowers_bot OrderFlowers
+    /// $ pulumi import aws:lex/bot:Bot order_flowers_bot OrderFlowers
     /// ```
     /// </summary>
     [AwsResourceType("aws:lex/bot:Bot")]

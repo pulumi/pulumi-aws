@@ -105,6 +105,7 @@ class RecorderStatus(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -146,13 +147,14 @@ class RecorderStatus(pulumi.CustomResource):
             role=r.id,
             policy=p.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Configuration Recorder Status using the name of the Configuration Recorder. For example:
 
         ```sh
-         $ pulumi import aws:cfg/recorderStatus:RecorderStatus foo example
+        $ pulumi import aws:cfg/recorderStatus:RecorderStatus foo example
         ```
 
         :param str resource_name: The name of the resource.
@@ -173,6 +175,7 @@ class RecorderStatus(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -214,13 +217,14 @@ class RecorderStatus(pulumi.CustomResource):
             role=r.id,
             policy=p.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Configuration Recorder Status using the name of the Configuration Recorder. For example:
 
         ```sh
-         $ pulumi import aws:cfg/recorderStatus:RecorderStatus foo example
+        $ pulumi import aws:cfg/recorderStatus:RecorderStatus foo example
         ```
 
         :param str resource_name: The name of the resource.

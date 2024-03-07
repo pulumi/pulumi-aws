@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS QuickSight VPC Connection.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -57,13 +59,14 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import QuickSight VPC connection using the AWS account ID and VPC connection ID separated by commas (`,`). For example:
  *
  * ```sh
- *  $ pulumi import aws:quicksight/vpcConnection:VpcConnection example 123456789012,example
+ * $ pulumi import aws:quicksight/vpcConnection:VpcConnection example 123456789012,example
  * ```
  */
 export class VpcConnection extends pulumi.CustomResource {

@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,15 +40,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Service Discovery Public DNS Namespace using the namespace ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace example 0123456789
-//
+// $ pulumi import aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace example 0123456789
 // ```
 type PublicDnsNamespace struct {
 	pulumi.CustomResourceState

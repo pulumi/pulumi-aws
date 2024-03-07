@@ -102,6 +102,7 @@ class DomainPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -127,6 +128,7 @@ class DomainPolicy(pulumi.CustomResource):
             domain_name=example.domain_name,
             access_policies=main.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -144,6 +146,7 @@ class DomainPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -169,6 +172,7 @@ class DomainPolicy(pulumi.CustomResource):
             domain_name=example.domain_name,
             access_policies=main.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param DomainPolicyArgs args: The arguments to use to populate this resource's properties.

@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -38,6 +39,7 @@ import * as utilities from "../utilities";
  *     accessPolicies: main.apply(main => main.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class DomainPolicy extends pulumi.CustomResource {
     /**

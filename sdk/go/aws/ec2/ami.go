@@ -22,6 +22,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -58,15 +59,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_ami` using the ID of the AMI. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/ami:Ami example ami-12345678
-//
+// $ pulumi import aws:ec2/ami:Ami example ami-12345678
 // ```
 type Ami struct {
 	pulumi.CustomResourceState

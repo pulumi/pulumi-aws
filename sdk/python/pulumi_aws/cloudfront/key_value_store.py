@@ -182,8 +182,10 @@ class KeyValueStore(pulumi.CustomResource):
         Resource for managing an AWS CloudFront Key Value Store.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -192,13 +194,14 @@ class KeyValueStore(pulumi.CustomResource):
             name="ExampleKeyValueStore",
             comment="This is an example key value store")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudFront Key Value Store using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudfront/keyValueStore:KeyValueStore example example_store
+        $ pulumi import aws:cloudfront/keyValueStore:KeyValueStore example example_store
         ```
 
         :param str resource_name: The name of the resource.
@@ -218,8 +221,10 @@ class KeyValueStore(pulumi.CustomResource):
         Resource for managing an AWS CloudFront Key Value Store.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -228,13 +233,14 @@ class KeyValueStore(pulumi.CustomResource):
             name="ExampleKeyValueStore",
             comment="This is an example key value store")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudFront Key Value Store using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudfront/keyValueStore:KeyValueStore example example_store
+        $ pulumi import aws:cloudfront/keyValueStore:KeyValueStore example example_store
         ```
 
         :param str resource_name: The name of the resource.

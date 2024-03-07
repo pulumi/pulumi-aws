@@ -19,57 +19,13 @@ import (
 // > **NOTE:** You cannot delete a function if it’s associated with a cache behavior. First, update your distributions to remove the function association from all cache behaviors, then delete the function.
 //
 // ## Example Usage
-// ### Basic Example
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/cloudfront"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func notImplemented(message string) pulumi.AnyOutput {
-//		panic(message)
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: fmt.Sprintf("%v/function.js", notImplemented("path.module")),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = cloudfront.NewFunction(ctx, "test", &cloudfront.FunctionArgs{
-//				Name:    pulumi.String("test"),
-//				Runtime: pulumi.String("cloudfront-js-2.0"),
-//				Comment: pulumi.String("my function"),
-//				Publish: pulumi.Bool(true),
-//				Code:    invokeFile.Result,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //
 // Using `pulumi import`, import CloudFront Functions using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cloudfront/function:Function test my_test_function
-//
+// $ pulumi import aws:cloudfront/function:Function test my_test_function
 // ```
 type Function struct {
 	pulumi.CustomResourceState

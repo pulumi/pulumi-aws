@@ -16,10 +16,12 @@ import * as utilities from "../utilities";
  * > **Note:** Correctly using this data source requires familiarity with various details of AWS Identity and Access Management, and how various AWS services integrate with it. For general information on the AWS IAM policy simulator, see [Testing IAM policies with the IAM policy simulator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html). This data source wraps the `iam:SimulatePrincipalPolicy` API action described on that page.
  *
  * ## Example Usage
+ *
  * ### Self Access-checking Example
  *
  * The following example raises an error if the credentials passed to the AWS provider do not have access to perform the three actions `s3:GetObject`, `s3:PutObject`, and `s3:DeleteObject` on the S3 bucket with the given ARN.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -35,19 +37,24 @@ import * as utilities from "../utilities";
  *     resourceArns: ["arn:aws:s3:::my-test-bucket"],
  * }));
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * If you intend to use this data source to quickly raise an error when the given credentials are insufficient then you must use `dependsOn` inside any resource which would require those credentials, to ensure that the policy check will run first:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3.BucketObject("example", {bucket: "my-test-bucket"});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Testing the Effect of a Declared Policy
  *
  * The following example declares an S3 bucket and a user that should have access to the bucket, and then uses `aws.iam.getPrincipalPolicySimulation` to verify that the user does indeed have access to perform needed operations against the bucket.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -91,6 +98,7 @@ import * as utilities from "../utilities";
  *     resourcePolicyJson: accountAccess.policy,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * When using `aws.iam.getPrincipalPolicySimulation` to test the effect of a policy declared elsewhere in the same configuration, it's important to use `dependsOn` to make sure that the needed policy has been fully created or updated before running the simulation.
  */
@@ -204,10 +212,12 @@ export interface GetPrincipalPolicySimulationResult {
  * > **Note:** Correctly using this data source requires familiarity with various details of AWS Identity and Access Management, and how various AWS services integrate with it. For general information on the AWS IAM policy simulator, see [Testing IAM policies with the IAM policy simulator](https://docs.aws.amazon.com/IAM/latest/UserGuide/access_policies_testing-policies.html). This data source wraps the `iam:SimulatePrincipalPolicy` API action described on that page.
  *
  * ## Example Usage
+ *
  * ### Self Access-checking Example
  *
  * The following example raises an error if the credentials passed to the AWS provider do not have access to perform the three actions `s3:GetObject`, `s3:PutObject`, and `s3:DeleteObject` on the S3 bucket with the given ARN.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -223,19 +233,24 @@ export interface GetPrincipalPolicySimulationResult {
  *     resourceArns: ["arn:aws:s3:::my-test-bucket"],
  * }));
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * If you intend to use this data source to quickly raise an error when the given credentials are insufficient then you must use `dependsOn` inside any resource which would require those credentials, to ensure that the policy check will run first:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3.BucketObject("example", {bucket: "my-test-bucket"});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Testing the Effect of a Declared Policy
  *
  * The following example declares an S3 bucket and a user that should have access to the bucket, and then uses `aws.iam.getPrincipalPolicySimulation` to verify that the user does indeed have access to perform needed operations against the bucket.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -279,6 +294,7 @@ export interface GetPrincipalPolicySimulationResult {
  *     resourcePolicyJson: accountAccess.policy,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * When using `aws.iam.getPrincipalPolicySimulation` to test the effect of a policy declared elsewhere in the same configuration, it's important to use `dependsOn` to make sure that the needed policy has been fully created or updated before running the simulation.
  */

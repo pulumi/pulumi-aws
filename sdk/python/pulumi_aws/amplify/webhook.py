@@ -167,6 +167,7 @@ class Webhook(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -180,13 +181,14 @@ class Webhook(pulumi.CustomResource):
             branch_name=master.branch_name,
             description="triggermaster")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amplify webhook using a webhook ID. For example:
 
         ```sh
-         $ pulumi import aws:amplify/webhook:Webhook master a26b22a0-748b-4b57-b9a0-ae7e601fe4b1
+        $ pulumi import aws:amplify/webhook:Webhook master a26b22a0-748b-4b57-b9a0-ae7e601fe4b1
         ```
 
         :param str resource_name: The name of the resource.
@@ -206,6 +208,7 @@ class Webhook(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -219,13 +222,14 @@ class Webhook(pulumi.CustomResource):
             branch_name=master.branch_name,
             description="triggermaster")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amplify webhook using a webhook ID. For example:
 
         ```sh
-         $ pulumi import aws:amplify/webhook:Webhook master a26b22a0-748b-4b57-b9a0-ae7e601fe4b1
+        $ pulumi import aws:amplify/webhook:Webhook master a26b22a0-748b-4b57-b9a0-ae7e601fe4b1
         ```
 
         :param str resource_name: The name of the resource.

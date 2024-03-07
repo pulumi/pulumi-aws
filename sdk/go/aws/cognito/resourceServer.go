@@ -15,8 +15,10 @@ import (
 // Provides a Cognito Resource Server.
 //
 // ## Example Usage
+//
 // ### Create a basic resource server
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -48,8 +50,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Create a resource server with sample-scope
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -87,15 +92,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_cognito_resource_server` using their User Pool ID and Identifier. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cognito/resourceServer:ResourceServer example "us-west-2_abc123|https://example.com"
-//
+// $ pulumi import aws:cognito/resourceServer:ResourceServer example "us-west-2_abc123|https://example.com"
 // ```
 type ResourceServer struct {
 	pulumi.CustomResourceState

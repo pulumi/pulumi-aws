@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,17 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// # Using `pulumi import`, import SSM
-//
-// Maintenance Windows using the maintenance window `id`. For example:
+// Using `pulumi import`, import SSM  Maintenance Windows using the maintenance window `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ssm/maintenanceWindow:MaintenanceWindow imported-window mw-0123456789
-//
+// $ pulumi import aws:ssm/maintenanceWindow:MaintenanceWindow imported-window mw-0123456789
 // ```
 type MaintenanceWindow struct {
 	pulumi.CustomResourceState

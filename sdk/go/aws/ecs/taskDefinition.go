@@ -15,8 +15,10 @@ import (
 // Manages a revision of an ECS task definition to be used in `ecs.Service`.
 //
 // ## Example Usage
+//
 // ### Basic Example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -87,8 +89,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With AppMesh Proxy
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -131,8 +136,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example Using `dockerVolumeConfiguration`
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -181,8 +189,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example Using `efsVolumeConfiguration`
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -229,8 +240,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example Using `fsxWindowsFileServerVolumeConfiguration`
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -293,8 +307,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example Using `containerDefinitions` and `inferenceAccelerator`
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -353,8 +370,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example Using `runtimePlatform` and `fargate`
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -400,15 +420,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import ECS Task Definitions using their ARNs. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ecs/taskDefinition:TaskDefinition example arn:aws:ecs:us-east-1:012345678910:task-definition/mytaskfamily:123
-//
+// $ pulumi import aws:ecs/taskDefinition:TaskDefinition example arn:aws:ecs:us-east-1:012345678910:task-definition/mytaskfamily:123
 // ```
 type TaskDefinition struct {
 	pulumi.CustomResourceState

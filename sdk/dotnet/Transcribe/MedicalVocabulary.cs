@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Transcribe
     /// Resource for managing an AWS Transcribe MedicalVocabulary.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -55,13 +57,14 @@ namespace Pulumi.Aws.Transcribe
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Transcribe MedicalVocabulary using the `vocabulary_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:transcribe/medicalVocabulary:MedicalVocabulary example example-name
+    /// $ pulumi import aws:transcribe/medicalVocabulary:MedicalVocabulary example example-name
     /// ```
     /// </summary>
     [AwsResourceType("aws:transcribe/medicalVocabulary:MedicalVocabulary")]

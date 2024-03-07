@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,8 +45,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example with Log Configuration
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -94,15 +98,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import ECS clusters using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ecs/cluster:Cluster stateless stateless-app
-//
+// $ pulumi import aws:ecs/cluster:Cluster stateless stateless-app
 // ```
 type Cluster struct {
 	pulumi.CustomResourceState

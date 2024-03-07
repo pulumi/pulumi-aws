@@ -546,6 +546,7 @@ class ImageBuilder(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -564,13 +565,14 @@ class ImageBuilder(pulumi.CustomResource):
                 "Name": "Example Image Builder",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_appstream_image_builder` using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:appstream/imageBuilder:ImageBuilder example imageBuilderExample
+        $ pulumi import aws:appstream/imageBuilder:ImageBuilder example imageBuilderExample
         ```
 
         :param str resource_name: The name of the resource.
@@ -602,6 +604,7 @@ class ImageBuilder(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -620,13 +623,14 @@ class ImageBuilder(pulumi.CustomResource):
                 "Name": "Example Image Builder",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_appstream_image_builder` using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:appstream/imageBuilder:ImageBuilder example imageBuilderExample
+        $ pulumi import aws:appstream/imageBuilder:ImageBuilder example imageBuilderExample
         ```
 
         :param str resource_name: The name of the resource.

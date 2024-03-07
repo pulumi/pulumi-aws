@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,13 +23,14 @@ import * as utilities from "../utilities";
  *     hsmServerPublicCertificate: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Redshift HSM Client Certificates using `hsm_configuration_identifier`. For example:
  *
  * ```sh
- *  $ pulumi import aws:redshift/hsmConfiguration:HsmConfiguration example example
+ * $ pulumi import aws:redshift/hsmConfiguration:HsmConfiguration example example
  * ```
  */
 export class HsmConfiguration extends pulumi.CustomResource {

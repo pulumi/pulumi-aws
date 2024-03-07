@@ -13,8 +13,10 @@ namespace Pulumi.Aws.MskConnect
     /// Provides an Amazon MSK Connect Connector resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic configuration
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -94,13 +96,14 @@ namespace Pulumi.Aws.MskConnect
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import MSK Connect Connector using the connector's `arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:mskconnect/connector:Connector example 'arn:aws:kafkaconnect:eu-central-1:123456789012:connector/example/264edee4-17a3-412e-bd76-6681cfc93805-3'
+    /// $ pulumi import aws:mskconnect/connector:Connector example 'arn:aws:kafkaconnect:eu-central-1:123456789012:connector/example/264edee4-17a3-412e-bd76-6681cfc93805-3'
     /// ```
     /// </summary>
     [AwsResourceType("aws:mskconnect/connector:Connector")]

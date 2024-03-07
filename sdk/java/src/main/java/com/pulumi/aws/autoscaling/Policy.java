@@ -30,6 +30,8 @@ import javax.annotation.Nullable;
  * (policy-based) scaling.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -75,7 +77,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Create target tracking scaling policy using metric math
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -152,7 +158,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Create predictive scaling policy using customized metrics
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -222,7 +232,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Create predictive scaling policy using customized scaling and predefined load metric
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -282,13 +296,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import AutoScaling scaling policy using the role autoscaling_group_name and name separated by `/`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:autoscaling/policy:Policy test-policy asg-name/policy-name
+ * $ pulumi import aws:autoscaling/policy:Policy test-policy asg-name/policy-name
  * ```
  * 
  */
@@ -478,6 +493,9 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * Set of adjustments that manage
      * group scaling. These have the following structure:
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * The following fields are available in step adjustments:
      * 
      */
@@ -488,6 +506,9 @@ public class Policy extends com.pulumi.resources.CustomResource {
      * @return Set of adjustments that manage
      * group scaling. These have the following structure:
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * The following fields are available in step adjustments:
      * 
      */
@@ -496,6 +517,8 @@ public class Policy extends com.pulumi.resources.CustomResource {
     }
     /**
      * Target tracking policy. These have the following structure:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -531,6 +554,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following fields are available in target tracking configuration:
      * 
@@ -540,6 +564,8 @@ public class Policy extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Target tracking policy. These have the following structure:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -575,6 +601,7 @@ public class Policy extends com.pulumi.resources.CustomResource {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following fields are available in target tracking configuration:
      * 

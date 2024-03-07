@@ -272,8 +272,10 @@ class ProtectionGroup(pulumi.CustomResource):
         [Managing AWS Shield Advanced protection groups](https://docs.aws.amazon.com/waf/latest/developerguide/manage-protection-group.html)
 
         ## Example Usage
+
         ### Create protection group for all resources
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -283,8 +285,11 @@ class ProtectionGroup(pulumi.CustomResource):
             aggregation="MAX",
             pattern="ALL")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Create protection group for arbitrary number of resources
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -301,8 +306,11 @@ class ProtectionGroup(pulumi.CustomResource):
             pattern="ARBITRARY",
             members=[example.id.apply(lambda id: f"arn:aws:ec2:{current.name}:{current_get_caller_identity.account_id}:eip-allocation/{id}")])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Create protection group for a type of resource
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -313,13 +321,14 @@ class ProtectionGroup(pulumi.CustomResource):
             pattern="BY_RESOURCE_TYPE",
             resource_type="ELASTIC_IP_ALLOCATION")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Shield protection group resources using their protection group id. For example:
 
         ```sh
-         $ pulumi import aws:shield/protectionGroup:ProtectionGroup example example
+        $ pulumi import aws:shield/protectionGroup:ProtectionGroup example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -343,8 +352,10 @@ class ProtectionGroup(pulumi.CustomResource):
         [Managing AWS Shield Advanced protection groups](https://docs.aws.amazon.com/waf/latest/developerguide/manage-protection-group.html)
 
         ## Example Usage
+
         ### Create protection group for all resources
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -354,8 +365,11 @@ class ProtectionGroup(pulumi.CustomResource):
             aggregation="MAX",
             pattern="ALL")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Create protection group for arbitrary number of resources
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -372,8 +386,11 @@ class ProtectionGroup(pulumi.CustomResource):
             pattern="ARBITRARY",
             members=[example.id.apply(lambda id: f"arn:aws:ec2:{current.name}:{current_get_caller_identity.account_id}:eip-allocation/{id}")])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Create protection group for a type of resource
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -384,13 +401,14 @@ class ProtectionGroup(pulumi.CustomResource):
             pattern="BY_RESOURCE_TYPE",
             resource_type="ELASTIC_IP_ALLOCATION")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Shield protection group resources using their protection group id. For example:
 
         ```sh
-         $ pulumi import aws:shield/protectionGroup:ProtectionGroup example example
+        $ pulumi import aws:shield/protectionGroup:ProtectionGroup example example
         ```
 
         :param str resource_name: The name of the resource.

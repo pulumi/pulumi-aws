@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS Audit Manager Control.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -26,13 +28,14 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import an Audit Manager Control using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:auditmanager/control:Control example abc123-de45
+ * $ pulumi import aws:auditmanager/control:Control example abc123-de45
  * ```
  */
 export class Control extends pulumi.CustomResource {

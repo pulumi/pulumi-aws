@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Dms
     /// 
     /// Create required roles and then create a DMS instance, setting the depends_on to the required role policy attachments.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -118,13 +119,14 @@ namespace Pulumi.Aws.Dms
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import replication instances using the `replication_instance_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:dms/replicationInstance:ReplicationInstance test test-dms-replication-instance-tf
+    /// $ pulumi import aws:dms/replicationInstance:ReplicationInstance test test-dms-replication-instance-tf
     /// ```
     /// </summary>
     [AwsResourceType("aws:dms/replicationInstance:ReplicationInstance")]

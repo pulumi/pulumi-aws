@@ -20,7 +20,10 @@ import javax.annotation.Nullable;
  * Provides a Cognito Resource Server.
  * 
  * ## Example Usage
+ * 
  * ### Create a basic resource server
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -57,7 +60,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Create a resource server with sample-scope
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -99,13 +106,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_cognito_resource_server` using their User Pool ID and Identifier. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cognito/resourceServer:ResourceServer example &#34;us-west-2_abc123|https://example.com&#34;
+ * $ pulumi import aws:cognito/resourceServer:ResourceServer example &#34;us-west-2_abc123|https://example.com&#34;
  * ```
  * 
  */

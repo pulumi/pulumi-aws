@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Get information on EC2 Transit Gateway Attachments.
  *
  * ## Example Usage
+ *
  * ### By Filter
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -33,6 +35,7 @@ import * as utilities from "../utilities";
  *     transitGatewayAttachmentId: _arg0_.ids[__index],
  * })));
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAttachments(args?: GetAttachmentsArgs, opts?: pulumi.InvokeOptions): Promise<GetAttachmentsResult> {
     args = args || {};
@@ -74,8 +77,10 @@ export interface GetAttachmentsResult {
  * Get information on EC2 Transit Gateway Attachments.
  *
  * ## Example Usage
+ *
  * ### By Filter
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -96,6 +101,7 @@ export interface GetAttachmentsResult {
  *     transitGatewayAttachmentId: _arg0_.ids[__index],
  * })));
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAttachmentsOutput(args?: GetAttachmentsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAttachmentsResult> {
     return pulumi.output(args).apply((a: any) => getAttachments(a, opts))

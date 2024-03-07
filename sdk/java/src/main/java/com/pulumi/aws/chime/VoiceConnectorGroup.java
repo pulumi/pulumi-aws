@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * You can include Amazon Chime Voice Connectors from different AWS Regions in your group. This creates a fault tolerant mechanism for fallback in case of availability events.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -74,13 +76,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Configuration Recorder using the name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:chime/voiceConnectorGroup:VoiceConnectorGroup default example
+ * $ pulumi import aws:chime/voiceConnectorGroup:VoiceConnectorGroup default example
  * ```
  * 
  */

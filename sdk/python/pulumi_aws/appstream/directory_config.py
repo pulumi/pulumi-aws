@@ -152,6 +152,7 @@ class DirectoryConfig(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -164,13 +165,14 @@ class DirectoryConfig(pulumi.CustomResource):
                 account_password="PASSWORD OF ACCOUNT",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_appstream_directory_config` using the id. For example:
 
         ```sh
-         $ pulumi import aws:appstream/directoryConfig:DirectoryConfig example directoryNameExample
+        $ pulumi import aws:appstream/directoryConfig:DirectoryConfig example directoryNameExample
         ```
 
         :param str resource_name: The name of the resource.
@@ -190,6 +192,7 @@ class DirectoryConfig(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -202,13 +205,14 @@ class DirectoryConfig(pulumi.CustomResource):
                 account_password="PASSWORD OF ACCOUNT",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_appstream_directory_config` using the id. For example:
 
         ```sh
-         $ pulumi import aws:appstream/directoryConfig:DirectoryConfig example directoryNameExample
+        $ pulumi import aws:appstream/directoryConfig:DirectoryConfig example directoryNameExample
         ```
 
         :param str resource_name: The name of the resource.

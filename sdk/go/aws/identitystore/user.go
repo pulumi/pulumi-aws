@@ -20,53 +20,13 @@ import (
 // users using this resource.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/identitystore"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func notImplemented(message string) pulumi.AnyOutput {
-//		panic(message)
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := identitystore.NewUser(ctx, "example", &identitystore.UserArgs{
-//				IdentityStoreId: notImplemented("tolist(data.aws_ssoadmin_instances.example.identity_store_ids)")[0],
-//				DisplayName:     pulumi.String("John Doe"),
-//				UserName:        pulumi.String("johndoe"),
-//				Name: &identitystore.UserNameArgs{
-//					GivenName:  pulumi.String("John"),
-//					FamilyName: pulumi.String("Doe"),
-//				},
-//				Emails: &identitystore.UserEmailsArgs{
-//					Value: pulumi.String("john@example.com"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //
 // Using `pulumi import`, import an Identity Store User using the combination `identity_store_id/user_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:identitystore/user:User example d-9c6705e95c/065212b4-9061-703b-5876-13a517ae2a7c
-//
+// $ pulumi import aws:identitystore/user:User example d-9c6705e95c/065212b4-9061-703b-5876-13a517ae2a7c
 // ```
 type User struct {
 	pulumi.CustomResourceState

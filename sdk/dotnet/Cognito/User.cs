@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Cognito
     /// Provides a Cognito User Resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic configuration
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -36,8 +38,11 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Setting user attributes
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -86,13 +91,14 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Cognito User using the `user_pool_id`/`name` attributes concatenated. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cognito/user:User user us-east-1_vG78M4goG/user
+    /// $ pulumi import aws:cognito/user:User user us-east-1_vG78M4goG/user
     /// ```
     /// </summary>
     [AwsResourceType("aws:cognito/user:User")]

@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS VPC Lattice Auth Policy.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -37,13 +39,14 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import VPC Lattice Auth Policy using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:vpclattice/authPolicy:AuthPolicy example abcd-12345678
+ * $ pulumi import aws:vpclattice/authPolicy:AuthPolicy example abcd-12345678
  * ```
  */
 export class AuthPolicy extends pulumi.CustomResource {

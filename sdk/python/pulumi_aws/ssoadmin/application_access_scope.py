@@ -142,33 +142,13 @@ class ApplicationAccessScope(pulumi.CustomResource):
         Resource for managing an AWS SSO Admin Application Access Scope.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.ssoadmin.get_instances()
-        example_application = aws.ssoadmin.Application("example",
-            name="example",
-            application_provider_arn="arn:aws:sso::aws:applicationProvider/custom",
-            instance_arn=not_implemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0])
-        example_application_access_scope = aws.ssoadmin.ApplicationAccessScope("example",
-            application_arn=example_application.application_arn,
-            authorized_targets=["arn:aws:sso::012345678901:application/ssoins-012345678901/apl-012345678901"],
-            scope="sso:account:access")
-        ```
 
         ## Import
 
         Using `pulumi import`, import SSO Admin Application Access Scope using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ssoadmin/applicationAccessScope:ApplicationAccessScope example arn:aws:sso::012345678901:application/ssoins-012345678901/apl-012345678901,sso:account:access
+        $ pulumi import aws:ssoadmin/applicationAccessScope:ApplicationAccessScope example arn:aws:sso::012345678901:application/ssoins-012345678901/apl-012345678901,sso:account:access
         ```
 
         :param str resource_name: The name of the resource.
@@ -189,33 +169,13 @@ class ApplicationAccessScope(pulumi.CustomResource):
         Resource for managing an AWS SSO Admin Application Access Scope.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.ssoadmin.get_instances()
-        example_application = aws.ssoadmin.Application("example",
-            name="example",
-            application_provider_arn="arn:aws:sso::aws:applicationProvider/custom",
-            instance_arn=not_implemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0])
-        example_application_access_scope = aws.ssoadmin.ApplicationAccessScope("example",
-            application_arn=example_application.application_arn,
-            authorized_targets=["arn:aws:sso::012345678901:application/ssoins-012345678901/apl-012345678901"],
-            scope="sso:account:access")
-        ```
 
         ## Import
 
         Using `pulumi import`, import SSO Admin Application Access Scope using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ssoadmin/applicationAccessScope:ApplicationAccessScope example arn:aws:sso::012345678901:application/ssoins-012345678901/apl-012345678901,sso:account:access
+        $ pulumi import aws:ssoadmin/applicationAccessScope:ApplicationAccessScope example arn:aws:sso::012345678901:application/ssoins-012345678901/apl-012345678901,sso:account:access
         ```
 
         :param str resource_name: The name of the resource.

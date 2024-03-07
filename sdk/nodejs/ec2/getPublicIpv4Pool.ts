@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Provides details about a specific AWS EC2 Public IPv4 Pool.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,6 +23,7 @@ import * as utilities from "../utilities";
  *     poolId: "ipv4pool-ec2-000df99cff0c1ec10",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPublicIpv4Pool(args: GetPublicIpv4PoolArgs, opts?: pulumi.InvokeOptions): Promise<GetPublicIpv4PoolResult> {
 
@@ -81,8 +84,10 @@ export interface GetPublicIpv4PoolResult {
  * Provides details about a specific AWS EC2 Public IPv4 Pool.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -91,6 +96,7 @@ export interface GetPublicIpv4PoolResult {
  *     poolId: "ipv4pool-ec2-000df99cff0c1ec10",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPublicIpv4PoolOutput(args: GetPublicIpv4PoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPublicIpv4PoolResult> {
     return pulumi.output(args).apply((a: any) => getPublicIpv4Pool(a, opts))

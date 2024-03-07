@@ -19,7 +19,10 @@ import javax.annotation.Nullable;
  * Provides a ELBv2 Trust Store Revocation for use with Application Load Balancer Listener resources.
  * 
  * ## Example Usage
+ * 
  * ### Trust Store With Revocations
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -58,13 +61,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Trust Store Revocations using their ARN. For example:
  * 
  * ```sh
- *  $ pulumi import aws:lb/trustStoreRevocation:TrustStoreRevocation example arn:aws:elasticloadbalancing:us-west-2:187416307283:truststore/my-trust-store/20cfe21448b66314,6
+ * $ pulumi import aws:lb/trustStoreRevocation:TrustStoreRevocation example arn:aws:elasticloadbalancing:us-west-2:187416307283:truststore/my-trust-store/20cfe21448b66314,6
  * ```
  * 
  */

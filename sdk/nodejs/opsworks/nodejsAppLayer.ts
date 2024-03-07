@@ -12,12 +12,14 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const app = new aws.opsworks.NodejsAppLayer("app", {stackId: main.id});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class NodejsAppLayer extends pulumi.CustomResource {
     /**

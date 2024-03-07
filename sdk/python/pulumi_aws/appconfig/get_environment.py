@@ -144,8 +144,10 @@ def get_environment(application_id: Optional[str] = None,
     Provides access to an AppConfig Environment.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -153,6 +155,7 @@ def get_environment(application_id: Optional[str] = None,
     example = aws.appconfig.get_environment(application_id="b5d5gpj",
         environment_id="qrbb1c1")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str application_id: ID of the AppConfig Application to which this Environment belongs.
@@ -187,8 +190,10 @@ def get_environment_output(application_id: Optional[pulumi.Input[str]] = None,
     Provides access to an AppConfig Environment.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -196,6 +201,7 @@ def get_environment_output(application_id: Optional[pulumi.Input[str]] = None,
     example = aws.appconfig.get_environment(application_id="b5d5gpj",
         environment_id="qrbb1c1")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str application_id: ID of the AppConfig Application to which this Environment belongs.

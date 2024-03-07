@@ -37,6 +37,9 @@ public final class PolicyStepScalingPolicyConfiguration {
     /**
      * @return Set of adjustments that manage scaling. These have the following structure:
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     private @Nullable List<PolicyStepScalingPolicyConfigurationStepAdjustment> stepAdjustments;
 
@@ -71,6 +74,9 @@ public final class PolicyStepScalingPolicyConfiguration {
     }
     /**
      * @return Set of adjustments that manage scaling. These have the following structure:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public List<PolicyStepScalingPolicyConfigurationStepAdjustment> stepAdjustments() {

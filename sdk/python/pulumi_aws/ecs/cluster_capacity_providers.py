@@ -140,6 +140,7 @@ class ClusterCapacityProviders(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -154,13 +155,14 @@ class ClusterCapacityProviders(pulumi.CustomResource):
                 capacity_provider="FARGATE",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ECS cluster capacity providers using the `cluster_name` attribute. For example:
 
         ```sh
-         $ pulumi import aws:ecs/clusterCapacityProviders:ClusterCapacityProviders example my-cluster
+        $ pulumi import aws:ecs/clusterCapacityProviders:ClusterCapacityProviders example my-cluster
         ```
 
         :param str resource_name: The name of the resource.
@@ -182,6 +184,7 @@ class ClusterCapacityProviders(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -196,13 +199,14 @@ class ClusterCapacityProviders(pulumi.CustomResource):
                 capacity_provider="FARGATE",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ECS cluster capacity providers using the `cluster_name` attribute. For example:
 
         ```sh
-         $ pulumi import aws:ecs/clusterCapacityProviders:ClusterCapacityProviders example my-cluster
+        $ pulumi import aws:ecs/clusterCapacityProviders:ClusterCapacityProviders example my-cluster
         ```
 
         :param str resource_name: The name of the resource.

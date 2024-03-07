@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -53,15 +54,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import IOT Authorizers using the name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:iot/authorizer:Authorizer example example
-//
+// $ pulumi import aws:iot/authorizer:Authorizer example example
 // ```
 type Authorizer struct {
 	pulumi.CustomResourceState

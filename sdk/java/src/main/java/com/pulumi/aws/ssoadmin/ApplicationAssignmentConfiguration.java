@@ -23,7 +23,10 @@ import javax.annotation.Nullable;
  * &gt; Deleting this resource will return the assignment configuration for the application to the default AWS behavior (ie. `assignment_required = true`).
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -53,13 +56,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import SSO Admin Application Assignment Configuration using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ssoadmin/applicationAssignmentConfiguration:ApplicationAssignmentConfiguration example arn:aws:sso::012345678901:application/id-12345678
+ * $ pulumi import aws:ssoadmin/applicationAssignmentConfiguration:ApplicationAssignmentConfiguration example arn:aws:sso::012345678901:application/id-12345678
  * ```
  * 
  */

@@ -92,6 +92,7 @@ class DomainIdentityVerification(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -105,6 +106,7 @@ class DomainIdentityVerification(pulumi.CustomResource):
             records=[example.verification_token])
         example_verification = aws.ses.DomainIdentityVerification("example_verification", domain=example.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -127,6 +129,7 @@ class DomainIdentityVerification(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -140,6 +143,7 @@ class DomainIdentityVerification(pulumi.CustomResource):
             records=[example.verification_token])
         example_verification = aws.ses.DomainIdentityVerification("example_verification", domain=example.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param DomainIdentityVerificationArgs args: The arguments to use to populate this resource's properties.

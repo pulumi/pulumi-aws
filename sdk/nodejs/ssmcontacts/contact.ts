@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS SSM Contact.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,8 +21,11 @@ import * as utilities from "../utilities";
  *     type: "PERSONAL",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Usage With All Fields
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -34,13 +39,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SSM Contact using the `ARN`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ssmcontacts/contact:Contact example {ARNValue}
+ * $ pulumi import aws:ssmcontacts/contact:Contact example {ARNValue}
  * ```
  */
 export class Contact extends pulumi.CustomResource {

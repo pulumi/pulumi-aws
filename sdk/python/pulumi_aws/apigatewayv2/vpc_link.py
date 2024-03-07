@@ -209,6 +209,7 @@ class VpcLink(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -221,13 +222,14 @@ class VpcLink(pulumi.CustomResource):
                 "Usage": "example",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_apigatewayv2_vpc_link` using the VPC Link identifier. For example:
 
         ```sh
-         $ pulumi import aws:apigatewayv2/vpcLink:VpcLink example aabbccddee
+        $ pulumi import aws:apigatewayv2/vpcLink:VpcLink example aabbccddee
         ```
 
         :param str resource_name: The name of the resource.
@@ -251,6 +253,7 @@ class VpcLink(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -263,13 +266,14 @@ class VpcLink(pulumi.CustomResource):
                 "Usage": "example",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_apigatewayv2_vpc_link` using the VPC Link identifier. For example:
 
         ```sh
-         $ pulumi import aws:apigatewayv2/vpcLink:VpcLink example aabbccddee
+        $ pulumi import aws:apigatewayv2/vpcLink:VpcLink example aabbccddee
         ```
 
         :param str resource_name: The name of the resource.

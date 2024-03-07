@@ -176,8 +176,10 @@ class BucketReplicationConfig(pulumi.CustomResource):
         > This resource cannot be used with S3 directory buckets.
 
         ## Example Usage
+
         ### Using replication configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -257,8 +259,11 @@ class BucketReplicationConfig(pulumi.CustomResource):
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Bi-Directional Replication
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -305,13 +310,14 @@ class BucketReplicationConfig(pulumi.CustomResource):
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import S3 bucket replication configuration using the `bucket`. For example:
 
         ```sh
-         $ pulumi import aws:s3/bucketReplicationConfig:BucketReplicationConfig replication bucket-name
+        $ pulumi import aws:s3/bucketReplicationConfig:BucketReplicationConfig replication bucket-name
         ```
 
         :param str resource_name: The name of the resource.
@@ -336,8 +342,10 @@ class BucketReplicationConfig(pulumi.CustomResource):
         > This resource cannot be used with S3 directory buckets.
 
         ## Example Usage
+
         ### Using replication configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -417,8 +425,11 @@ class BucketReplicationConfig(pulumi.CustomResource):
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Bi-Directional Replication
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -465,13 +476,14 @@ class BucketReplicationConfig(pulumi.CustomResource):
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import S3 bucket replication configuration using the `bucket`. For example:
 
         ```sh
-         $ pulumi import aws:s3/bucketReplicationConfig:BucketReplicationConfig replication bucket-name
+        $ pulumi import aws:s3/bucketReplicationConfig:BucketReplicationConfig replication bucket-name
         ```
 
         :param str resource_name: The name of the resource.

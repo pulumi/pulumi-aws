@@ -215,8 +215,10 @@ class BucketNotification(pulumi.CustomResource):
         > This resource cannot be used with S3 directory buckets.
 
         ## Example Usage
+
         ### Add notification configuration to SNS Topic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -247,8 +249,11 @@ class BucketNotification(pulumi.CustomResource):
                 filter_suffix=".log",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Add notification configuration to SQS Queue
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -279,8 +284,11 @@ class BucketNotification(pulumi.CustomResource):
                 filter_suffix=".log",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Add notification configuration to Lambda Function
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -318,8 +326,11 @@ class BucketNotification(pulumi.CustomResource):
                 filter_suffix=".log",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Trigger multiple Lambda functions
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -376,8 +387,57 @@ class BucketNotification(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
+        ### Add multiple notification configurations to SQS Queue
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        bucket = aws.s3.BucketV2("bucket", bucket="your-bucket-name")
+        queue = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="*",
+                identifiers=["*"],
+            )],
+            actions=["sqs:SendMessage"],
+            resources=["arn:aws:sqs:*:*:s3-event-notification-queue"],
+            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                test="ArnEquals",
+                variable="aws:SourceArn",
+                values=[bucket.arn],
+            )],
+        )])
+        queue_queue = aws.sqs.Queue("queue",
+            name="s3-event-notification-queue",
+            policy=queue.json)
+        bucket_notification = aws.s3.BucketNotification("bucket_notification",
+            bucket=bucket.id,
+            queues=[
+                aws.s3.BucketNotificationQueueArgs(
+                    id="image-upload-event",
+                    queue_arn=queue_queue.arn,
+                    events=["s3:ObjectCreated:*"],
+                    filter_prefix="images/",
+                ),
+                aws.s3.BucketNotificationQueueArgs(
+                    id="video-upload-event",
+                    queue_arn=queue_queue.arn,
+                    events=["s3:ObjectCreated:*"],
+                    filter_prefix="videos/",
+                ),
+            ])
+        ```
+        <!--End PulumiCodeChooser -->
+
+        For JSON syntax, use an array instead of defining the `queue` key twice.
+
         ### Emit events to EventBridge
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -387,13 +447,14 @@ class BucketNotification(pulumi.CustomResource):
             bucket=bucket.id,
             eventbridge=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import S3 bucket notification using the `bucket`. For example:
 
         ```sh
-         $ pulumi import aws:s3/bucketNotification:BucketNotification bucket_notification bucket-name
+        $ pulumi import aws:s3/bucketNotification:BucketNotification bucket_notification bucket-name
         ```
 
         :param str resource_name: The name of the resource.
@@ -420,8 +481,10 @@ class BucketNotification(pulumi.CustomResource):
         > This resource cannot be used with S3 directory buckets.
 
         ## Example Usage
+
         ### Add notification configuration to SNS Topic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -452,8 +515,11 @@ class BucketNotification(pulumi.CustomResource):
                 filter_suffix=".log",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Add notification configuration to SQS Queue
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -484,8 +550,11 @@ class BucketNotification(pulumi.CustomResource):
                 filter_suffix=".log",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Add notification configuration to Lambda Function
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -523,8 +592,11 @@ class BucketNotification(pulumi.CustomResource):
                 filter_suffix=".log",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Trigger multiple Lambda functions
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -581,8 +653,57 @@ class BucketNotification(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
+        ### Add multiple notification configurations to SQS Queue
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        bucket = aws.s3.BucketV2("bucket", bucket="your-bucket-name")
+        queue = aws.iam.get_policy_document_output(statements=[aws.iam.GetPolicyDocumentStatementArgs(
+            effect="Allow",
+            principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
+                type="*",
+                identifiers=["*"],
+            )],
+            actions=["sqs:SendMessage"],
+            resources=["arn:aws:sqs:*:*:s3-event-notification-queue"],
+            conditions=[aws.iam.GetPolicyDocumentStatementConditionArgs(
+                test="ArnEquals",
+                variable="aws:SourceArn",
+                values=[bucket.arn],
+            )],
+        )])
+        queue_queue = aws.sqs.Queue("queue",
+            name="s3-event-notification-queue",
+            policy=queue.json)
+        bucket_notification = aws.s3.BucketNotification("bucket_notification",
+            bucket=bucket.id,
+            queues=[
+                aws.s3.BucketNotificationQueueArgs(
+                    id="image-upload-event",
+                    queue_arn=queue_queue.arn,
+                    events=["s3:ObjectCreated:*"],
+                    filter_prefix="images/",
+                ),
+                aws.s3.BucketNotificationQueueArgs(
+                    id="video-upload-event",
+                    queue_arn=queue_queue.arn,
+                    events=["s3:ObjectCreated:*"],
+                    filter_prefix="videos/",
+                ),
+            ])
+        ```
+        <!--End PulumiCodeChooser -->
+
+        For JSON syntax, use an array instead of defining the `queue` key twice.
+
         ### Emit events to EventBridge
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -592,13 +713,14 @@ class BucketNotification(pulumi.CustomResource):
             bucket=bucket.id,
             eventbridge=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import S3 bucket notification using the `bucket`. For example:
 
         ```sh
-         $ pulumi import aws:s3/bucketNotification:BucketNotification bucket_notification bucket-name
+        $ pulumi import aws:s3/bucketNotification:BucketNotification bucket_notification bucket-name
         ```
 
         :param str resource_name: The name of the resource.

@@ -18,6 +18,7 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -89,8 +90,11 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With Latest Version Of Launch Template
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -124,8 +128,11 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Mixed Instances Policy
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -177,8 +184,11 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Mixed Instances Policy with Spot Instances and Capacity Rebalance
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -238,10 +248,13 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Mixed Instances Policy with Instance level LaunchTemplateSpecification Overrides
     /// 
     /// When using a diverse instance set, some instance types might require a launch template with configuration values unique to that instance type such as a different AMI (Graviton2), architecture specific user data script, different EBS configuration, or different networking configuration.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -303,10 +316,13 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Mixed Instances Policy with Attribute-based Instance Type Selection
     /// 
     /// As an alternative to manually choosing instance types when creating a mixed instances group, you can specify a set of instance attributes that describe your compute requirements.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -362,8 +378,11 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Dynamic tagging
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -418,8 +437,11 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Automatically refresh all instances after the group is updated
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -493,8 +515,11 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Auto Scaling group with Warm Pool
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -533,8 +558,11 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Auto Scaling group with Traffic Sources
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -561,6 +589,8 @@ namespace Pulumi.Aws.AutoScaling
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Waiting for Capacity
     /// 
     /// A newly-created ASG is initially empty and begins to scale to `min_size` (or
@@ -628,7 +658,7 @@ namespace Pulumi.Aws.AutoScaling
     /// Using `pulumi import`, import Auto Scaling Groups using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:autoscaling/group:Group web web-asg
+    /// $ pulumi import aws:autoscaling/group:Group web web-asg
     /// ```
     /// </summary>
     [AwsResourceType("aws:autoscaling/group:Group")]

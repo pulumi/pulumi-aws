@@ -18,6 +18,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -32,13 +33,14 @@ import * as utilities from "../utilities";
  *     skipFinalSnapshot: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import DocumentDB Clusters using the `cluster_identifier`. For example:
  *
  * ```sh
- *  $ pulumi import aws:docdb/cluster:Cluster docdb_cluster docdb-prod-cluster
+ * $ pulumi import aws:docdb/cluster:Cluster docdb_cluster docdb-prod-cluster
  * ```
  */
 export class Cluster extends pulumi.CustomResource {

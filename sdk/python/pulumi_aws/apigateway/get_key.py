@@ -149,12 +149,14 @@ def get_key(id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     my_api_key = aws.apigateway.get_key(id="ru3mpjgse6")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str id: ID of the API Key to look up.
@@ -188,12 +190,14 @@ def get_key_output(id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     my_api_key = aws.apigateway.get_key(id="ru3mpjgse6")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str id: ID of the API Key to look up.

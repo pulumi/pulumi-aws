@@ -21,8 +21,10 @@ import (
 // otherwise, the policy may be destroyed too soon and the compute environment will then get stuck in the `DELETING` state, see [Troubleshooting AWS Batch](http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html) .
 //
 // ## Example Usage
+//
 // ### EC2 Type
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -179,8 +181,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Fargate Type
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -216,8 +221,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Setting Update Policy
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -262,15 +270,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import AWS Batch compute using the `compute_environment_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:batch/computeEnvironment:ComputeEnvironment sample sample
-//
+// $ pulumi import aws:batch/computeEnvironment:ComputeEnvironment sample sample
 // ```
 type ComputeEnvironment struct {
 	pulumi.CustomResourceState

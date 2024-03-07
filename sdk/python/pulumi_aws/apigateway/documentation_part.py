@@ -136,6 +136,7 @@ class DocumentationPart(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -150,13 +151,14 @@ class DocumentationPart(pulumi.CustomResource):
             properties="{\\"description\\":\\"Example description\\"}",
             rest_api_id=example_rest_api.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import API Gateway documentation_parts using `REST-API-ID/DOC-PART-ID`. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/documentationPart:DocumentationPart example 5i4e1ko720/3oyy3t
+        $ pulumi import aws:apigateway/documentationPart:DocumentationPart example 5i4e1ko720/3oyy3t
         ```
 
         :param str resource_name: The name of the resource.
@@ -176,6 +178,7 @@ class DocumentationPart(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -190,13 +193,14 @@ class DocumentationPart(pulumi.CustomResource):
             properties="{\\"description\\":\\"Example description\\"}",
             rest_api_id=example_rest_api.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import API Gateway documentation_parts using `REST-API-ID/DOC-PART-ID`. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/documentationPart:DocumentationPart example 5i4e1ko720/3oyy3t
+        $ pulumi import aws:apigateway/documentationPart:DocumentationPart example 5i4e1ko720/3oyy3t
         ```
 
         :param str resource_name: The name of the resource.

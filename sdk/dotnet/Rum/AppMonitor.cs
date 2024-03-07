@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Rum
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,13 +31,14 @@ namespace Pulumi.Aws.Rum
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Cloudwatch RUM App Monitor using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:rum/appMonitor:AppMonitor example example
+    /// $ pulumi import aws:rum/appMonitor:AppMonitor example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:rum/appMonitor:AppMonitor")]

@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * &gt; Advanced usage: To use a custom API endpoint for this resource, use the `s3control` endpoint provider configuration, not the `s3` endpoint provider configuration.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -52,13 +54,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_s3_account_public_access_block` using the AWS account ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:s3/accountPublicAccessBlock:AccountPublicAccessBlock example 123456789012
+ * $ pulumi import aws:s3/accountPublicAccessBlock:AccountPublicAccessBlock example 123456789012
  * ```
  * 
  */

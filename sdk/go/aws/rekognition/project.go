@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,15 +41,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Rekognition Project using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:rekognition/project:Project example project-id-12345678
-//
+// $ pulumi import aws:rekognition/project:Project example project-id-12345678
 // ```
 type Project struct {
 	pulumi.CustomResourceState

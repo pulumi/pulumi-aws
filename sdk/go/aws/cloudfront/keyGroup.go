@@ -16,6 +16,7 @@ import (
 //
 // The following example below creates a CloudFront key group.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -58,15 +59,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CloudFront Key Group using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cloudfront/keyGroup:KeyGroup example 4b4f2r1c-315d-5c2e-f093-216t50jed10f
-//
+// $ pulumi import aws:cloudfront/keyGroup:KeyGroup example 4b4f2r1c-315d-5c2e-f093-216t50jed10f
 // ```
 type KeyGroup struct {
 	pulumi.CustomResourceState

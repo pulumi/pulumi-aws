@@ -30,6 +30,8 @@ import javax.annotation.Nullable;
  * it&#39;s better to use `aws.ec2.AmiLaunchPermission` instead.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -67,13 +69,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_ami` using the ID of the AMI. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/ami:Ami example ami-12345678
+ * $ pulumi import aws:ec2/ami:Ami example ami-12345678
  * ```
  * 
  */

@@ -15,8 +15,10 @@ import (
 // Provides a SageMaker Domain resource.
 //
 // ## Example Usage
+//
 // ### Basic usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -77,8 +79,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Using Custom Images
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -143,15 +148,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SageMaker Domains using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8
-//
+// $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8
 // ```
 type Domain struct {
 	pulumi.CustomResourceState

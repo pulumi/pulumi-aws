@@ -17,6 +17,7 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -47,13 +48,14 @@ namespace Pulumi.Aws.Kinesis
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Kinesis Streams using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:kinesis/stream:Stream test_stream pulumi-kinesis-test
+    /// $ pulumi import aws:kinesis/stream:Stream test_stream pulumi-kinesis-test
     /// ```
     /// </summary>
     [AwsResourceType("aws:kinesis/stream:Stream")]

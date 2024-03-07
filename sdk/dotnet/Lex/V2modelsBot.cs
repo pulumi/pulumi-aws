@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Lex
     /// Resource for managing an AWS Lex V2 Models Bot.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,13 +45,14 @@ namespace Pulumi.Aws.Lex
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Lex V2 Models Bot using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:lex/v2modelsBot:V2modelsBot example bot-id-12345678
+    /// $ pulumi import aws:lex/v2modelsBot:V2modelsBot example bot-id-12345678
     /// ```
     /// </summary>
     [AwsResourceType("aws:lex/v2modelsBot:V2modelsBot")]

@@ -134,6 +134,7 @@ class Disk_attachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -157,13 +158,14 @@ class Disk_attachment(pulumi.CustomResource):
             instance_name=test_instance.name,
             disk_path="/dev/xvdf")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_lightsail_disk` using the id attribute. For example:
 
         ```sh
-         $ pulumi import aws:lightsail/disk_attachment:Disk_attachment test test-disk,test-instance
+        $ pulumi import aws:lightsail/disk_attachment:Disk_attachment test test-disk,test-instance
         ```
 
         :param str resource_name: The name of the resource.
@@ -183,6 +185,7 @@ class Disk_attachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -206,13 +209,14 @@ class Disk_attachment(pulumi.CustomResource):
             instance_name=test_instance.name,
             disk_path="/dev/xvdf")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_lightsail_disk` using the id attribute. For example:
 
         ```sh
-         $ pulumi import aws:lightsail/disk_attachment:Disk_attachment test test-disk,test-instance
+        $ pulumi import aws:lightsail/disk_attachment:Disk_attachment test test-disk,test-instance
         ```
 
         :param str resource_name: The name of the resource.

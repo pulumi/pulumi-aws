@@ -202,6 +202,7 @@ class AuthorizationRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -211,6 +212,7 @@ class AuthorizationRule(pulumi.CustomResource):
             target_network_cidr=example_aws_subnet["cidrBlock"],
             authorize_all_groups=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -221,12 +223,12 @@ class AuthorizationRule(pulumi.CustomResource):
         Using the endpoint ID and target network CIDR:
 
         ```sh
-         $ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24
+        $ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24
         ```
-         Using the endpoint ID, target network CIDR, and group name:
+        Using the endpoint ID, target network CIDR, and group name:
 
         ```sh
-         $ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24,team-a
+        $ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24,team-a
         ```
 
         :param str resource_name: The name of the resource.
@@ -249,6 +251,7 @@ class AuthorizationRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -258,6 +261,7 @@ class AuthorizationRule(pulumi.CustomResource):
             target_network_cidr=example_aws_subnet["cidrBlock"],
             authorize_all_groups=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -268,12 +272,12 @@ class AuthorizationRule(pulumi.CustomResource):
         Using the endpoint ID and target network CIDR:
 
         ```sh
-         $ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24
+        $ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24
         ```
-         Using the endpoint ID, target network CIDR, and group name:
+        Using the endpoint ID, target network CIDR, and group name:
 
         ```sh
-         $ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24,team-a
+        $ pulumi import aws:ec2clientvpn/authorizationRule:AuthorizationRule example cvpn-endpoint-0ac3a1abbccddd666,10.1.0.0/24,team-a
         ```
 
         :param str resource_name: The name of the resource.

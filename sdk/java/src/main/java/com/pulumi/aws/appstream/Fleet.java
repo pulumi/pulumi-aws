@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * Provides an AppStream fleet.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -69,13 +71,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_appstream_fleet` using the id. For example:
  * 
  * ```sh
- *  $ pulumi import aws:appstream/fleet:Fleet example fleetNameExample
+ * $ pulumi import aws:appstream/fleet:Fleet example fleetNameExample
  * ```
  * 
  */

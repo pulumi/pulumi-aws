@@ -89,6 +89,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -104,8 +105,11 @@ class ReplicationConfiguration(pulumi.CustomResource):
             )],
         ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Multiple Region Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -127,9 +131,11 @@ class ReplicationConfiguration(pulumi.CustomResource):
             )],
         ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Repository Filter Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -149,13 +155,14 @@ class ReplicationConfiguration(pulumi.CustomResource):
             )],
         ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ECR Replication Configuration using the `registry_id`. For example:
 
         ```sh
-         $ pulumi import aws:ecr/replicationConfiguration:ReplicationConfiguration service 012345678912
+        $ pulumi import aws:ecr/replicationConfiguration:ReplicationConfiguration service 012345678912
         ```
 
         :param str resource_name: The name of the resource.
@@ -173,6 +180,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -188,8 +196,11 @@ class ReplicationConfiguration(pulumi.CustomResource):
             )],
         ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Multiple Region Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -211,9 +222,11 @@ class ReplicationConfiguration(pulumi.CustomResource):
             )],
         ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Repository Filter Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -233,13 +246,14 @@ class ReplicationConfiguration(pulumi.CustomResource):
             )],
         ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ECR Replication Configuration using the `registry_id`. For example:
 
         ```sh
-         $ pulumi import aws:ecr/replicationConfiguration:ReplicationConfiguration service 012345678912
+        $ pulumi import aws:ecr/replicationConfiguration:ReplicationConfiguration service 012345678912
         ```
 
         :param str resource_name: The name of the resource.

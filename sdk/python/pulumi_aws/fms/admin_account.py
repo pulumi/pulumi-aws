@@ -71,19 +71,21 @@ class AdminAccount(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.fms.AdminAccount("example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Firewall Manager administrator account association using the account ID. For example:
 
         ```sh
-         $ pulumi import aws:fms/adminAccount:AdminAccount example 123456789012
+        $ pulumi import aws:fms/adminAccount:AdminAccount example 123456789012
         ```
 
         :param str resource_name: The name of the resource.
@@ -101,19 +103,21 @@ class AdminAccount(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.fms.AdminAccount("example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Firewall Manager administrator account association using the account ID. For example:
 
         ```sh
-         $ pulumi import aws:fms/adminAccount:AdminAccount example 123456789012
+        $ pulumi import aws:fms/adminAccount:AdminAccount example 123456789012
         ```
 
         :param str resource_name: The name of the resource.

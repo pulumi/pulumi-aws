@@ -15,8 +15,10 @@ import (
 // Provides a SageMaker Flow Definition resource.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -54,8 +56,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Public Workteam Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -99,8 +104,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Human Loop Activation Config Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -158,15 +166,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SageMaker Flow Definitions using the `flow_definition_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sagemaker/flowDefinition:FlowDefinition example example
-//
+// $ pulumi import aws:sagemaker/flowDefinition:FlowDefinition example example
 // ```
 type FlowDefinition struct {
 	pulumi.CustomResourceState

@@ -231,6 +231,7 @@ class Resource(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -238,6 +239,7 @@ class Resource(pulumi.CustomResource):
         example = aws.s3.get_bucket(bucket="an-example-bucket")
         example_resource = aws.lakeformation.Resource("example", arn=example.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -266,6 +268,7 @@ class Resource(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -273,6 +276,7 @@ class Resource(pulumi.CustomResource):
         example = aws.s3.get_bucket(bucket="an-example-bucket")
         example_resource = aws.lakeformation.Resource("example", arn=example.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param ResourceArgs args: The arguments to use to populate this resource's properties.

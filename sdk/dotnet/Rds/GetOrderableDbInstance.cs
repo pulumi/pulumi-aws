@@ -14,10 +14,9 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Information about RDS orderable DB instances and valid parameter combinations.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -42,9 +41,11 @@ namespace Pulumi.Aws.Rds
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// Valid parameter combinations can also be found with `preferred_engine_versions` and/or `preferred_instance_classes`.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -73,8 +74,7 @@ namespace Pulumi.Aws.Rds
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetOrderableDbInstanceResult> InvokeAsync(GetOrderableDbInstanceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrderableDbInstanceResult>("aws:rds/getOrderableDbInstance:getOrderableDbInstance", args ?? new GetOrderableDbInstanceArgs(), options.WithDefaults());
@@ -82,10 +82,9 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Information about RDS orderable DB instances and valid parameter combinations.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -110,9 +109,11 @@ namespace Pulumi.Aws.Rds
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// Valid parameter combinations can also be found with `preferred_engine_versions` and/or `preferred_instance_classes`.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -141,8 +142,7 @@ namespace Pulumi.Aws.Rds
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetOrderableDbInstanceResult> Invoke(GetOrderableDbInstanceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrderableDbInstanceResult>("aws:rds/getOrderableDbInstance:getOrderableDbInstance", args ?? new GetOrderableDbInstanceInvokeArgs(), options.WithDefaults());

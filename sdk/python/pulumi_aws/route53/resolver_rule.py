@@ -315,8 +315,10 @@ class ResolverRule(pulumi.CustomResource):
         Provides a Route53 Resolver rule.
 
         ## Example Usage
+
         ### System rule
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -325,8 +327,11 @@ class ResolverRule(pulumi.CustomResource):
             domain_name="subdomain.example.com",
             rule_type="SYSTEM")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Forward rule
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -343,13 +348,14 @@ class ResolverRule(pulumi.CustomResource):
                 "Environment": "Prod",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Route53 Resolver rules using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:route53/resolverRule:ResolverRule sys rslvr-rr-0123456789abcdef0
+        $ pulumi import aws:route53/resolverRule:ResolverRule sys rslvr-rr-0123456789abcdef0
         ```
 
         :param str resource_name: The name of the resource.
@@ -373,8 +379,10 @@ class ResolverRule(pulumi.CustomResource):
         Provides a Route53 Resolver rule.
 
         ## Example Usage
+
         ### System rule
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -383,8 +391,11 @@ class ResolverRule(pulumi.CustomResource):
             domain_name="subdomain.example.com",
             rule_type="SYSTEM")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Forward rule
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -401,13 +412,14 @@ class ResolverRule(pulumi.CustomResource):
                 "Environment": "Prod",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Route53 Resolver rules using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:route53/resolverRule:ResolverRule sys rslvr-rr-0123456789abcdef0
+        $ pulumi import aws:route53/resolverRule:ResolverRule sys rslvr-rr-0123456789abcdef0
         ```
 
         :param str resource_name: The name of the resource.

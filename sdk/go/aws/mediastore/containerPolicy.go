@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -93,15 +94,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import MediaStore Container Policy using the MediaStore Container Name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:mediastore/containerPolicy:ContainerPolicy example example
-//
+// $ pulumi import aws:mediastore/containerPolicy:ContainerPolicy example example
 // ```
 type ContainerPolicy struct {
 	pulumi.CustomResourceState

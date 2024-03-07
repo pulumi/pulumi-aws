@@ -417,8 +417,10 @@ class KxVolume(pulumi.CustomResource):
         Resource for managing an AWS FinSpace Kx Volume.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -434,13 +436,14 @@ class KxVolume(pulumi.CustomResource):
                 type="SSD_250",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import an AWS FinSpace Kx Volume using the `id` (environment ID and volume name, comma-delimited). For example:
 
         ```sh
-         $ pulumi import aws:finspace/kxVolume:KxVolume example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-volume
+        $ pulumi import aws:finspace/kxVolume:KxVolume example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-volume
         ```
 
         :param str resource_name: The name of the resource.
@@ -466,8 +469,10 @@ class KxVolume(pulumi.CustomResource):
         Resource for managing an AWS FinSpace Kx Volume.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -483,13 +488,14 @@ class KxVolume(pulumi.CustomResource):
                 type="SSD_250",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import an AWS FinSpace Kx Volume using the `id` (environment ID and volume name, comma-delimited). For example:
 
         ```sh
-         $ pulumi import aws:finspace/kxVolume:KxVolume example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-volume
+        $ pulumi import aws:finspace/kxVolume:KxVolume example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-volume
         ```
 
         :param str resource_name: The name of the resource.

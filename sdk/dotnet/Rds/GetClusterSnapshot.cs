@@ -17,10 +17,9 @@ namespace Pulumi.Aws.Rds
         /// &gt; **NOTE:** This data source does not apply to snapshots created on DB Instances.
         /// See the `aws.rds.Snapshot` data source for DB Instance snapshots.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -53,8 +52,7 @@ namespace Pulumi.Aws.Rds
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetClusterSnapshotResult> InvokeAsync(GetClusterSnapshotArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetClusterSnapshotResult>("aws:rds/getClusterSnapshot:getClusterSnapshot", args ?? new GetClusterSnapshotArgs(), options.WithDefaults());
@@ -65,10 +63,9 @@ namespace Pulumi.Aws.Rds
         /// &gt; **NOTE:** This data source does not apply to snapshots created on DB Instances.
         /// See the `aws.rds.Snapshot` data source for DB Instance snapshots.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -101,8 +98,7 @@ namespace Pulumi.Aws.Rds
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetClusterSnapshotResult> Invoke(GetClusterSnapshotInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetClusterSnapshotResult>("aws:rds/getClusterSnapshot:getClusterSnapshot", args ?? new GetClusterSnapshotInvokeArgs(), options.WithDefaults());

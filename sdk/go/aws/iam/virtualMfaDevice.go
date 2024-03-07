@@ -24,6 +24,7 @@ import (
 //
 // **Using certs on file:**
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -47,15 +48,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import IAM Virtual MFA Devices using the `arn`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:iam/virtualMfaDevice:VirtualMfaDevice example arn:aws:iam::123456789012:mfa/example
-//
+// $ pulumi import aws:iam/virtualMfaDevice:VirtualMfaDevice example arn:aws:iam::123456789012:mfa/example
 // ```
 type VirtualMfaDevice struct {
 	pulumi.CustomResourceState

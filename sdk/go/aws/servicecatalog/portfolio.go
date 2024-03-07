@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,15 +42,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Service Catalog Portfolios using the Service Catalog Portfolio `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:servicecatalog/portfolio:Portfolio testfolio port-12344321
-//
+// $ pulumi import aws:servicecatalog/portfolio:Portfolio testfolio port-12344321
 // ```
 type Portfolio struct {
 	pulumi.CustomResourceState

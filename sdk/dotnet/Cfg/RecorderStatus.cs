@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -114,13 +115,14 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Configuration Recorder Status using the name of the Configuration Recorder. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cfg/recorderStatus:RecorderStatus foo example
+    /// $ pulumi import aws:cfg/recorderStatus:RecorderStatus foo example
     /// ```
     /// </summary>
     [AwsResourceType("aws:cfg/recorderStatus:RecorderStatus")]

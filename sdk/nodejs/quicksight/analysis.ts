@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Resource for managing a QuickSight Analysis.
  *
  * ## Example Usage
+ *
  * ### From Source Template
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -31,13 +33,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import a QuickSight Analysis using the AWS account ID and analysis ID separated by a comma (`,`). For example:
  *
  * ```sh
- *  $ pulumi import aws:quicksight/analysis:Analysis example 123456789012,example-id
+ * $ pulumi import aws:quicksight/analysis:Analysis example 123456789012,example-id
  * ```
  */
 export class Analysis extends pulumi.CustomResource {

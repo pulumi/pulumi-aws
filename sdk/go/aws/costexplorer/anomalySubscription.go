@@ -15,8 +15,10 @@ import (
 // Provides a CE Anomaly Subscription.
 //
 // ## Example Usage
+//
 // ### Basic Example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -58,9 +60,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Threshold Expression Example
+//
 // ### For a Specific Dimension
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -105,8 +111,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Using an `and` Expression
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -166,8 +175,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### SNS Example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -286,15 +298,14 @@ import (
 // })
 // }
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_ce_anomaly_subscription` using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:costexplorer/anomalySubscription:AnomalySubscription example AnomalySubscriptionARN
-//
+// $ pulumi import aws:costexplorer/anomalySubscription:AnomalySubscription example AnomalySubscriptionARN
 // ```
 type AnomalySubscription struct {
 	pulumi.CustomResourceState

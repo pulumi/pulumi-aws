@@ -19,6 +19,8 @@ public final class GetEbsVolumesFilterArgs extends com.pulumi.resources.Resource
      * Name of the field to filter by, as defined by
      * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
      * For example, if matching against the `size` filter, use:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -52,6 +54,7 @@ public final class GetEbsVolumesFilterArgs extends com.pulumi.resources.Resource
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     @Import(name="name", required=true)
@@ -61,6 +64,8 @@ public final class GetEbsVolumesFilterArgs extends com.pulumi.resources.Resource
      * @return Name of the field to filter by, as defined by
      * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
      * For example, if matching against the `size` filter, use:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -94,6 +99,7 @@ public final class GetEbsVolumesFilterArgs extends com.pulumi.resources.Resource
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public Output<String> name() {
@@ -146,6 +152,8 @@ public final class GetEbsVolumesFilterArgs extends com.pulumi.resources.Resource
          * @param name Name of the field to filter by, as defined by
          * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
          * For example, if matching against the `size` filter, use:
+         * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -179,6 +187,7 @@ public final class GetEbsVolumesFilterArgs extends com.pulumi.resources.Resource
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 
@@ -192,6 +201,8 @@ public final class GetEbsVolumesFilterArgs extends com.pulumi.resources.Resource
          * @param name Name of the field to filter by, as defined by
          * [the underlying AWS API](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeVolumes.html).
          * For example, if matching against the `size` filter, use:
+         * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -225,6 +236,7 @@ public final class GetEbsVolumesFilterArgs extends com.pulumi.resources.Resource
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 

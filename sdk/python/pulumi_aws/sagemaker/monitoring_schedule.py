@@ -178,6 +178,7 @@ class MonitoringSchedule(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -189,13 +190,14 @@ class MonitoringSchedule(pulumi.CustomResource):
                 monitoring_type="DataQuality",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import monitoring schedules using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/monitoringSchedule:MonitoringSchedule test_monitoring_schedule monitoring-schedule-foo
+        $ pulumi import aws:sagemaker/monitoringSchedule:MonitoringSchedule test_monitoring_schedule monitoring-schedule-foo
         ```
 
         :param str resource_name: The name of the resource.
@@ -217,6 +219,7 @@ class MonitoringSchedule(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -228,13 +231,14 @@ class MonitoringSchedule(pulumi.CustomResource):
                 monitoring_type="DataQuality",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import monitoring schedules using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/monitoringSchedule:MonitoringSchedule test_monitoring_schedule monitoring-schedule-foo
+        $ pulumi import aws:sagemaker/monitoringSchedule:MonitoringSchedule test_monitoring_schedule monitoring-schedule-foo
         ```
 
         :param str resource_name: The name of the resource.

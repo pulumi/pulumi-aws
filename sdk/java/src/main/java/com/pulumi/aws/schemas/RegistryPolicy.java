@@ -17,7 +17,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS EventBridge Schemas Registry Policy.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -64,13 +67,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import EventBridge Schema Registry Policy using the `registry_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:schemas/registryPolicy:RegistryPolicy example example
+ * $ pulumi import aws:schemas/registryPolicy:RegistryPolicy example example
  * ```
  * 
  */

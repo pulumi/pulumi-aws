@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Cloud9
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -42,13 +43,14 @@ namespace Pulumi.Aws.Cloud9
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Cloud9 environment membership using the `environment-id#user-arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cloud9/environmentMembership:EnvironmentMembership test environment-id#user-arn
+    /// $ pulumi import aws:cloud9/environmentMembership:EnvironmentMembership test environment-id#user-arn
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloud9/environmentMembership:EnvironmentMembership")]

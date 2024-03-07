@@ -113,8 +113,10 @@ class PackageAssociation(pulumi.CustomResource):
         Manages an AWS Opensearch Package Association.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -136,6 +138,7 @@ class PackageAssociation(pulumi.CustomResource):
             package_id=example.id,
             domain_name=my_domain.domain_name)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -152,8 +155,10 @@ class PackageAssociation(pulumi.CustomResource):
         Manages an AWS Opensearch Package Association.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -175,6 +180,7 @@ class PackageAssociation(pulumi.CustomResource):
             package_id=example.id,
             domain_name=my_domain.domain_name)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param PackageAssociationArgs args: The arguments to use to populate this resource's properties.

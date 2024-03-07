@@ -15,8 +15,10 @@ import (
 // Manages an attachment between one or more existing LF-tags and an existing Lake Formation resource.
 //
 // ## Example Usage
+//
 // ### Database Example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -64,8 +66,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Multiple Tags Example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -132,6 +137,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type ResourceLfTags struct {
 	pulumi.CustomResourceState
 

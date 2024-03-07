@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -38,13 +39,14 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_ami` using the ID of the AMI. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/ami:Ami example ami-12345678
+ * $ pulumi import aws:ec2/ami:Ami example ami-12345678
  * ```
  */
 export class Ami extends pulumi.CustomResource {

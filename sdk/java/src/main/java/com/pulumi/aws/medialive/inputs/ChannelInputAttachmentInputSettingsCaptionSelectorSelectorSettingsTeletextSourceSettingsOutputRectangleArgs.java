@@ -15,14 +15,14 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
     public static final ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgs Empty = new ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSettingsTeletextSourceSettingsOutputRectangleArgs();
 
     /**
-     * See the description in left\_offset. For height, specify the entire height of the rectangle as a percentage of the underlying frame height. For example, &#34;80&#34; means the rectangle height is 80% of the underlying frame height. The top\_offset and rectangle\_height must add up to 100% or less. This field corresponds to tts:extent - Y in the TTML standard.
+     * See the description in left\_offset. For height, specify the entire height of the rectangle as a percentage of the underlying frame height. For example, &#34;80&#34; means the rectangle height is 80%!o(MISSING)f the underlying frame height. The top\_offset and rectangle\_height must add up to 100%!o(MISSING)r less. This field corresponds to tts:extent - Y in the TTML standard.
      * 
      */
     @Import(name="height", required=true)
     private Output<Double> height;
 
     /**
-     * @return See the description in left\_offset. For height, specify the entire height of the rectangle as a percentage of the underlying frame height. For example, &#34;80&#34; means the rectangle height is 80% of the underlying frame height. The top\_offset and rectangle\_height must add up to 100% or less. This field corresponds to tts:extent - Y in the TTML standard.
+     * @return See the description in left\_offset. For height, specify the entire height of the rectangle as a percentage of the underlying frame height. For example, &#34;80&#34; means the rectangle height is 80%!o(MISSING)f the underlying frame height. The top\_offset and rectangle\_height must add up to 100%!o(MISSING)r less. This field corresponds to tts:extent - Y in the TTML standard.
      * 
      */
     public Output<Double> height() {
@@ -30,14 +30,14 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
     }
 
     /**
-     * Applies only if you plan to convert these source captions to EBU-TT-D or TTML in an output. (Make sure to leave the default if you don’t have either of these formats in the output.) You can define a display rectangle for the captions that is smaller than the underlying video frame. You define the rectangle by specifying the position of the left edge, top edge, bottom edge, and right edge of the rectangle, all within the underlying video frame. The units for the measurements are percentages. If you specify a value for one of these fields, you must specify a value for all of them. For leftOffset, specify the position of the left edge of the rectangle, as a percentage of the underlying frame width, and relative to the left edge of the frame. For example, &#34;10&#34; means the measurement is 10% of the underlying frame width. The rectangle left edge starts at that position from the left edge of the frame. This field corresponds to tts:origin - X in the TTML standard.
+     * Applies only if you plan to convert these source captions to EBU-TT-D or TTML in an output. (Make sure to leave the default if you don’t have either of these formats in the output.) You can define a display rectangle for the captions that is smaller than the underlying video frame. You define the rectangle by specifying the position of the left edge, top edge, bottom edge, and right edge of the rectangle, all within the underlying video frame. The units for the measurements are percentages. If you specify a value for one of these fields, you must specify a value for all of them. For leftOffset, specify the position of the left edge of the rectangle, as a percentage of the underlying frame width, and relative to the left edge of the frame. For example, &#34;10&#34; means the measurement is 10%!o(MISSING)f the underlying frame width. The rectangle left edge starts at that position from the left edge of the frame. This field corresponds to tts:origin - X in the TTML standard.
      * 
      */
     @Import(name="leftOffset", required=true)
     private Output<Double> leftOffset;
 
     /**
-     * @return Applies only if you plan to convert these source captions to EBU-TT-D or TTML in an output. (Make sure to leave the default if you don’t have either of these formats in the output.) You can define a display rectangle for the captions that is smaller than the underlying video frame. You define the rectangle by specifying the position of the left edge, top edge, bottom edge, and right edge of the rectangle, all within the underlying video frame. The units for the measurements are percentages. If you specify a value for one of these fields, you must specify a value for all of them. For leftOffset, specify the position of the left edge of the rectangle, as a percentage of the underlying frame width, and relative to the left edge of the frame. For example, &#34;10&#34; means the measurement is 10% of the underlying frame width. The rectangle left edge starts at that position from the left edge of the frame. This field corresponds to tts:origin - X in the TTML standard.
+     * @return Applies only if you plan to convert these source captions to EBU-TT-D or TTML in an output. (Make sure to leave the default if you don’t have either of these formats in the output.) You can define a display rectangle for the captions that is smaller than the underlying video frame. You define the rectangle by specifying the position of the left edge, top edge, bottom edge, and right edge of the rectangle, all within the underlying video frame. The units for the measurements are percentages. If you specify a value for one of these fields, you must specify a value for all of them. For leftOffset, specify the position of the left edge of the rectangle, as a percentage of the underlying frame width, and relative to the left edge of the frame. For example, &#34;10&#34; means the measurement is 10%!o(MISSING)f the underlying frame width. The rectangle left edge starts at that position from the left edge of the frame. This field corresponds to tts:origin - X in the TTML standard.
      * 
      */
     public Output<Double> leftOffset() {
@@ -45,14 +45,14 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
     }
 
     /**
-     * See the description in left\_offset. For top\_offset, specify the position of the top edge of the rectangle, as a percentage of the underlying frame height, and relative to the top edge of the frame. For example, &#34;10&#34; means the measurement is 10% of the underlying frame height. The rectangle top edge starts at that position from the top edge of the frame. This field corresponds to tts:origin - Y in the TTML standard.
+     * See the description in left\_offset. For top\_offset, specify the position of the top edge of the rectangle, as a percentage of the underlying frame height, and relative to the top edge of the frame. For example, &#34;10&#34; means the measurement is 10%!o(MISSING)f the underlying frame height. The rectangle top edge starts at that position from the top edge of the frame. This field corresponds to tts:origin - Y in the TTML standard.
      * 
      */
     @Import(name="topOffset", required=true)
     private Output<Double> topOffset;
 
     /**
-     * @return See the description in left\_offset. For top\_offset, specify the position of the top edge of the rectangle, as a percentage of the underlying frame height, and relative to the top edge of the frame. For example, &#34;10&#34; means the measurement is 10% of the underlying frame height. The rectangle top edge starts at that position from the top edge of the frame. This field corresponds to tts:origin - Y in the TTML standard.
+     * @return See the description in left\_offset. For top\_offset, specify the position of the top edge of the rectangle, as a percentage of the underlying frame height, and relative to the top edge of the frame. For example, &#34;10&#34; means the measurement is 10%!o(MISSING)f the underlying frame height. The rectangle top edge starts at that position from the top edge of the frame. This field corresponds to tts:origin - Y in the TTML standard.
      * 
      */
     public Output<Double> topOffset() {
@@ -60,14 +60,14 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
     }
 
     /**
-     * See the description in left\_offset. For width, specify the entire width of the rectangle as a percentage of the underlying frame width. For example, &#34;80&#34; means the rectangle width is 80% of the underlying frame width. The left\_offset and rectangle\_width must add up to 100% or less. This field corresponds to tts:extent - X in the TTML standard.
+     * See the description in left\_offset. For width, specify the entire width of the rectangle as a percentage of the underlying frame width. For example, &#34;80&#34; means the rectangle width is 80%!o(MISSING)f the underlying frame width. The left\_offset and rectangle\_width must add up to 100%!o(MISSING)r less. This field corresponds to tts:extent - X in the TTML standard.
      * 
      */
     @Import(name="width", required=true)
     private Output<Double> width;
 
     /**
-     * @return See the description in left\_offset. For width, specify the entire width of the rectangle as a percentage of the underlying frame width. For example, &#34;80&#34; means the rectangle width is 80% of the underlying frame width. The left\_offset and rectangle\_width must add up to 100% or less. This field corresponds to tts:extent - X in the TTML standard.
+     * @return See the description in left\_offset. For width, specify the entire width of the rectangle as a percentage of the underlying frame width. For example, &#34;80&#34; means the rectangle width is 80%!o(MISSING)f the underlying frame width. The left\_offset and rectangle\_width must add up to 100%!o(MISSING)r less. This field corresponds to tts:extent - X in the TTML standard.
      * 
      */
     public Output<Double> width() {
@@ -102,7 +102,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
         }
 
         /**
-         * @param height See the description in left\_offset. For height, specify the entire height of the rectangle as a percentage of the underlying frame height. For example, &#34;80&#34; means the rectangle height is 80% of the underlying frame height. The top\_offset and rectangle\_height must add up to 100% or less. This field corresponds to tts:extent - Y in the TTML standard.
+         * @param height See the description in left\_offset. For height, specify the entire height of the rectangle as a percentage of the underlying frame height. For example, &#34;80&#34; means the rectangle height is 80%!o(MISSING)f the underlying frame height. The top\_offset and rectangle\_height must add up to 100%!o(MISSING)r less. This field corresponds to tts:extent - Y in the TTML standard.
          * 
          * @return builder
          * 
@@ -113,7 +113,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
         }
 
         /**
-         * @param height See the description in left\_offset. For height, specify the entire height of the rectangle as a percentage of the underlying frame height. For example, &#34;80&#34; means the rectangle height is 80% of the underlying frame height. The top\_offset and rectangle\_height must add up to 100% or less. This field corresponds to tts:extent - Y in the TTML standard.
+         * @param height See the description in left\_offset. For height, specify the entire height of the rectangle as a percentage of the underlying frame height. For example, &#34;80&#34; means the rectangle height is 80%!o(MISSING)f the underlying frame height. The top\_offset and rectangle\_height must add up to 100%!o(MISSING)r less. This field corresponds to tts:extent - Y in the TTML standard.
          * 
          * @return builder
          * 
@@ -123,7 +123,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
         }
 
         /**
-         * @param leftOffset Applies only if you plan to convert these source captions to EBU-TT-D or TTML in an output. (Make sure to leave the default if you don’t have either of these formats in the output.) You can define a display rectangle for the captions that is smaller than the underlying video frame. You define the rectangle by specifying the position of the left edge, top edge, bottom edge, and right edge of the rectangle, all within the underlying video frame. The units for the measurements are percentages. If you specify a value for one of these fields, you must specify a value for all of them. For leftOffset, specify the position of the left edge of the rectangle, as a percentage of the underlying frame width, and relative to the left edge of the frame. For example, &#34;10&#34; means the measurement is 10% of the underlying frame width. The rectangle left edge starts at that position from the left edge of the frame. This field corresponds to tts:origin - X in the TTML standard.
+         * @param leftOffset Applies only if you plan to convert these source captions to EBU-TT-D or TTML in an output. (Make sure to leave the default if you don’t have either of these formats in the output.) You can define a display rectangle for the captions that is smaller than the underlying video frame. You define the rectangle by specifying the position of the left edge, top edge, bottom edge, and right edge of the rectangle, all within the underlying video frame. The units for the measurements are percentages. If you specify a value for one of these fields, you must specify a value for all of them. For leftOffset, specify the position of the left edge of the rectangle, as a percentage of the underlying frame width, and relative to the left edge of the frame. For example, &#34;10&#34; means the measurement is 10%!o(MISSING)f the underlying frame width. The rectangle left edge starts at that position from the left edge of the frame. This field corresponds to tts:origin - X in the TTML standard.
          * 
          * @return builder
          * 
@@ -134,7 +134,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
         }
 
         /**
-         * @param leftOffset Applies only if you plan to convert these source captions to EBU-TT-D or TTML in an output. (Make sure to leave the default if you don’t have either of these formats in the output.) You can define a display rectangle for the captions that is smaller than the underlying video frame. You define the rectangle by specifying the position of the left edge, top edge, bottom edge, and right edge of the rectangle, all within the underlying video frame. The units for the measurements are percentages. If you specify a value for one of these fields, you must specify a value for all of them. For leftOffset, specify the position of the left edge of the rectangle, as a percentage of the underlying frame width, and relative to the left edge of the frame. For example, &#34;10&#34; means the measurement is 10% of the underlying frame width. The rectangle left edge starts at that position from the left edge of the frame. This field corresponds to tts:origin - X in the TTML standard.
+         * @param leftOffset Applies only if you plan to convert these source captions to EBU-TT-D or TTML in an output. (Make sure to leave the default if you don’t have either of these formats in the output.) You can define a display rectangle for the captions that is smaller than the underlying video frame. You define the rectangle by specifying the position of the left edge, top edge, bottom edge, and right edge of the rectangle, all within the underlying video frame. The units for the measurements are percentages. If you specify a value for one of these fields, you must specify a value for all of them. For leftOffset, specify the position of the left edge of the rectangle, as a percentage of the underlying frame width, and relative to the left edge of the frame. For example, &#34;10&#34; means the measurement is 10%!o(MISSING)f the underlying frame width. The rectangle left edge starts at that position from the left edge of the frame. This field corresponds to tts:origin - X in the TTML standard.
          * 
          * @return builder
          * 
@@ -144,7 +144,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
         }
 
         /**
-         * @param topOffset See the description in left\_offset. For top\_offset, specify the position of the top edge of the rectangle, as a percentage of the underlying frame height, and relative to the top edge of the frame. For example, &#34;10&#34; means the measurement is 10% of the underlying frame height. The rectangle top edge starts at that position from the top edge of the frame. This field corresponds to tts:origin - Y in the TTML standard.
+         * @param topOffset See the description in left\_offset. For top\_offset, specify the position of the top edge of the rectangle, as a percentage of the underlying frame height, and relative to the top edge of the frame. For example, &#34;10&#34; means the measurement is 10%!o(MISSING)f the underlying frame height. The rectangle top edge starts at that position from the top edge of the frame. This field corresponds to tts:origin - Y in the TTML standard.
          * 
          * @return builder
          * 
@@ -155,7 +155,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
         }
 
         /**
-         * @param topOffset See the description in left\_offset. For top\_offset, specify the position of the top edge of the rectangle, as a percentage of the underlying frame height, and relative to the top edge of the frame. For example, &#34;10&#34; means the measurement is 10% of the underlying frame height. The rectangle top edge starts at that position from the top edge of the frame. This field corresponds to tts:origin - Y in the TTML standard.
+         * @param topOffset See the description in left\_offset. For top\_offset, specify the position of the top edge of the rectangle, as a percentage of the underlying frame height, and relative to the top edge of the frame. For example, &#34;10&#34; means the measurement is 10%!o(MISSING)f the underlying frame height. The rectangle top edge starts at that position from the top edge of the frame. This field corresponds to tts:origin - Y in the TTML standard.
          * 
          * @return builder
          * 
@@ -165,7 +165,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
         }
 
         /**
-         * @param width See the description in left\_offset. For width, specify the entire width of the rectangle as a percentage of the underlying frame width. For example, &#34;80&#34; means the rectangle width is 80% of the underlying frame width. The left\_offset and rectangle\_width must add up to 100% or less. This field corresponds to tts:extent - X in the TTML standard.
+         * @param width See the description in left\_offset. For width, specify the entire width of the rectangle as a percentage of the underlying frame width. For example, &#34;80&#34; means the rectangle width is 80%!o(MISSING)f the underlying frame width. The left\_offset and rectangle\_width must add up to 100%!o(MISSING)r less. This field corresponds to tts:extent - X in the TTML standard.
          * 
          * @return builder
          * 
@@ -176,7 +176,7 @@ public final class ChannelInputAttachmentInputSettingsCaptionSelectorSelectorSet
         }
 
         /**
-         * @param width See the description in left\_offset. For width, specify the entire width of the rectangle as a percentage of the underlying frame width. For example, &#34;80&#34; means the rectangle width is 80% of the underlying frame width. The left\_offset and rectangle\_width must add up to 100% or less. This field corresponds to tts:extent - X in the TTML standard.
+         * @param width See the description in left\_offset. For width, specify the entire width of the rectangle as a percentage of the underlying frame width. For example, &#34;80&#34; means the rectangle width is 80%!o(MISSING)f the underlying frame width. The left\_offset and rectangle\_width must add up to 100%!o(MISSING)r less. This field corresponds to tts:extent - X in the TTML standard.
          * 
          * @return builder
          * 

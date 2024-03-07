@@ -14,10 +14,9 @@ namespace Pulumi.Aws.WafV2
         /// <summary>
         /// Retrieves the summary of a WAFv2 IP Set.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +33,7 @@ namespace Pulumi.Aws.WafV2
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetIpSetResult> InvokeAsync(GetIpSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetIpSetResult>("aws:wafv2/getIpSet:getIpSet", args ?? new GetIpSetArgs(), options.WithDefaults());
@@ -43,10 +41,9 @@ namespace Pulumi.Aws.WafV2
         /// <summary>
         /// Retrieves the summary of a WAFv2 IP Set.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +60,7 @@ namespace Pulumi.Aws.WafV2
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetIpSetResult> Invoke(GetIpSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetIpSetResult>("aws:wafv2/getIpSet:getIpSet", args ?? new GetIpSetInvokeArgs(), options.WithDefaults());

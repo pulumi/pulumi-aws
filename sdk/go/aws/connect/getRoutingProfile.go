@@ -17,6 +17,7 @@ import (
 //
 // By `name`
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,9 +42,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // By `routingProfileId`
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -68,6 +71,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupRoutingProfile(ctx *pulumi.Context, args *LookupRoutingProfileArgs, opts ...pulumi.InvokeOption) (*LookupRoutingProfileResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRoutingProfileResult

@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -38,13 +39,14 @@ import * as utilities from "../utilities";
  *     policy: example.apply(example => example.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import MediaStore Container Policy using the MediaStore Container Name. For example:
  *
  * ```sh
- *  $ pulumi import aws:mediastore/containerPolicy:ContainerPolicy example example
+ * $ pulumi import aws:mediastore/containerPolicy:ContainerPolicy example example
  * ```
  */
 export class ContainerPolicy extends pulumi.CustomResource {

@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,6 +21,7 @@ import * as utilities from "../utilities";
  *     clusterArn: exampleAwsMskCluster.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getBrokerNodes(args: GetBrokerNodesArgs, opts?: pulumi.InvokeOptions): Promise<GetBrokerNodesResult> {
 
@@ -55,6 +57,7 @@ export interface GetBrokerNodesResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -63,6 +66,7 @@ export interface GetBrokerNodesResult {
  *     clusterArn: exampleAwsMskCluster.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getBrokerNodesOutput(args: GetBrokerNodesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBrokerNodesResult> {
     return pulumi.output(args).apply((a: any) => getBrokerNodes(a, opts))

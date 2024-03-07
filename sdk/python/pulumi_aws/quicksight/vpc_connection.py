@@ -386,8 +386,10 @@ class VpcConnection(pulumi.CustomResource):
         Resource for managing an AWS QuickSight VPC Connection.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -431,13 +433,14 @@ class VpcConnection(pulumi.CustomResource):
                 "subnet-00000000000000001",
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import QuickSight VPC connection using the AWS account ID and VPC connection ID separated by commas (`,`). For example:
 
         ```sh
-         $ pulumi import aws:quicksight/vpcConnection:VpcConnection example 123456789012,example
+        $ pulumi import aws:quicksight/vpcConnection:VpcConnection example 123456789012,example
         ```
 
         :param str resource_name: The name of the resource.
@@ -463,8 +466,10 @@ class VpcConnection(pulumi.CustomResource):
         Resource for managing an AWS QuickSight VPC Connection.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -508,13 +513,14 @@ class VpcConnection(pulumi.CustomResource):
                 "subnet-00000000000000001",
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import QuickSight VPC connection using the AWS account ID and VPC connection ID separated by commas (`,`). For example:
 
         ```sh
-         $ pulumi import aws:quicksight/vpcConnection:VpcConnection example 123456789012,example
+        $ pulumi import aws:quicksight/vpcConnection:VpcConnection example 123456789012,example
         ```
 
         :param str resource_name: The name of the resource.

@@ -13,50 +13,13 @@ namespace Pulumi.Aws.SsoAdmin
     /// Resource for managing an AWS SSO Admin Application Access Scope.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// 	
-    /// object NotImplemented(string errorMessage) 
-    /// {
-    ///     throw new System.NotImplementedException(errorMessage);
-    /// }
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
-    /// 
-    ///     var exampleApplication = new Aws.SsoAdmin.Application("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         ApplicationProviderArn = "arn:aws:sso::aws:applicationProvider/custom",
-    ///         InstanceArn = NotImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
-    ///     });
-    /// 
-    ///     var exampleApplicationAccessScope = new Aws.SsoAdmin.ApplicationAccessScope("example", new()
-    ///     {
-    ///         ApplicationArn = exampleApplication.ApplicationArn,
-    ///         AuthorizedTargets = new[]
-    ///         {
-    ///             "arn:aws:sso::012345678901:application/ssoins-012345678901/apl-012345678901",
-    ///         },
-    ///         Scope = "sso:account:access",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SSO Admin Application Access Scope using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ssoadmin/applicationAccessScope:ApplicationAccessScope example arn:aws:sso::012345678901:application/ssoins-012345678901/apl-012345678901,sso:account:access
+    /// $ pulumi import aws:ssoadmin/applicationAccessScope:ApplicationAccessScope example arn:aws:sso::012345678901:application/ssoins-012345678901/apl-012345678901,sso:account:access
     /// ```
     /// </summary>
     [AwsResourceType("aws:ssoadmin/applicationAccessScope:ApplicationAccessScope")]

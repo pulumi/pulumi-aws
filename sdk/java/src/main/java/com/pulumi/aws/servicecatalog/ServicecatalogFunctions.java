@@ -33,7 +33,10 @@ public final class ServicecatalogFunctions {
      * Provides information on a Service Catalog Constraint.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -63,6 +66,7 @@ public final class ServicecatalogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetConstraintResult> getConstraint(GetConstraintArgs args) {
@@ -72,7 +76,10 @@ public final class ServicecatalogFunctions {
      * Provides information on a Service Catalog Constraint.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -102,6 +109,7 @@ public final class ServicecatalogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetConstraintResult> getConstraintPlain(GetConstraintPlainArgs args) {
@@ -111,7 +119,10 @@ public final class ServicecatalogFunctions {
      * Provides information on a Service Catalog Constraint.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -141,6 +152,7 @@ public final class ServicecatalogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetConstraintResult> getConstraint(GetConstraintArgs args, InvokeOptions options) {
@@ -150,7 +162,10 @@ public final class ServicecatalogFunctions {
      * Provides information on a Service Catalog Constraint.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -180,6 +195,7 @@ public final class ServicecatalogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetConstraintResult> getConstraintPlain(GetConstraintPlainArgs args, InvokeOptions options) {
@@ -189,7 +205,10 @@ public final class ServicecatalogFunctions {
      * Lists the paths to the specified product. A path is how the user has access to a specified product, and is necessary when provisioning a product. A path also determines the constraints put on the product.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -218,6 +237,7 @@ public final class ServicecatalogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLaunchPathsResult> getLaunchPaths(GetLaunchPathsArgs args) {
@@ -227,7 +247,10 @@ public final class ServicecatalogFunctions {
      * Lists the paths to the specified product. A path is how the user has access to a specified product, and is necessary when provisioning a product. A path also determines the constraints put on the product.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -256,6 +279,7 @@ public final class ServicecatalogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLaunchPathsResult> getLaunchPathsPlain(GetLaunchPathsPlainArgs args) {
@@ -265,7 +289,10 @@ public final class ServicecatalogFunctions {
      * Lists the paths to the specified product. A path is how the user has access to a specified product, and is necessary when provisioning a product. A path also determines the constraints put on the product.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -294,6 +321,7 @@ public final class ServicecatalogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLaunchPathsResult> getLaunchPaths(GetLaunchPathsArgs args, InvokeOptions options) {
@@ -303,7 +331,10 @@ public final class ServicecatalogFunctions {
      * Lists the paths to the specified product. A path is how the user has access to a specified product, and is necessary when provisioning a product. A path also determines the constraints put on the product.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -332,6 +363,7 @@ public final class ServicecatalogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLaunchPathsResult> getLaunchPathsPlain(GetLaunchPathsPlainArgs args, InvokeOptions options) {
@@ -341,6 +373,8 @@ public final class ServicecatalogFunctions {
      * Provides information for a Service Catalog Portfolio.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -369,6 +403,7 @@ public final class ServicecatalogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPortfolioResult> getPortfolio(GetPortfolioArgs args) {
@@ -378,6 +413,8 @@ public final class ServicecatalogFunctions {
      * Provides information for a Service Catalog Portfolio.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -406,6 +443,7 @@ public final class ServicecatalogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPortfolioResult> getPortfolioPlain(GetPortfolioPlainArgs args) {
@@ -415,6 +453,8 @@ public final class ServicecatalogFunctions {
      * Provides information for a Service Catalog Portfolio.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -443,6 +483,7 @@ public final class ServicecatalogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPortfolioResult> getPortfolio(GetPortfolioArgs args, InvokeOptions options) {
@@ -452,6 +493,8 @@ public final class ServicecatalogFunctions {
      * Provides information for a Service Catalog Portfolio.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -480,6 +523,7 @@ public final class ServicecatalogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPortfolioResult> getPortfolioPlain(GetPortfolioPlainArgs args, InvokeOptions options) {
@@ -489,7 +533,10 @@ public final class ServicecatalogFunctions {
      * Provides information on Service Catalog Portfolio Constraints.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -518,6 +565,7 @@ public final class ServicecatalogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPortfolioConstraintsResult> getPortfolioConstraints(GetPortfolioConstraintsArgs args) {
@@ -527,7 +575,10 @@ public final class ServicecatalogFunctions {
      * Provides information on Service Catalog Portfolio Constraints.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -556,6 +607,7 @@ public final class ServicecatalogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPortfolioConstraintsResult> getPortfolioConstraintsPlain(GetPortfolioConstraintsPlainArgs args) {
@@ -565,7 +617,10 @@ public final class ServicecatalogFunctions {
      * Provides information on Service Catalog Portfolio Constraints.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -594,6 +649,7 @@ public final class ServicecatalogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPortfolioConstraintsResult> getPortfolioConstraints(GetPortfolioConstraintsArgs args, InvokeOptions options) {
@@ -603,7 +659,10 @@ public final class ServicecatalogFunctions {
      * Provides information on Service Catalog Portfolio Constraints.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -632,6 +691,7 @@ public final class ServicecatalogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPortfolioConstraintsResult> getPortfolioConstraintsPlain(GetPortfolioConstraintsPlainArgs args, InvokeOptions options) {
@@ -643,7 +703,10 @@ public final class ServicecatalogFunctions {
      * &gt; **NOTE:** A &#34;provisioning artifact&#34; is also known as a &#34;version,&#34; and a &#34;distributor&#34; is also known as a &#34;vendor.&#34;
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -672,6 +735,7 @@ public final class ServicecatalogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetProductResult> getProduct(GetProductArgs args) {
@@ -683,7 +747,10 @@ public final class ServicecatalogFunctions {
      * &gt; **NOTE:** A &#34;provisioning artifact&#34; is also known as a &#34;version,&#34; and a &#34;distributor&#34; is also known as a &#34;vendor.&#34;
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -712,6 +779,7 @@ public final class ServicecatalogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetProductResult> getProductPlain(GetProductPlainArgs args) {
@@ -723,7 +791,10 @@ public final class ServicecatalogFunctions {
      * &gt; **NOTE:** A &#34;provisioning artifact&#34; is also known as a &#34;version,&#34; and a &#34;distributor&#34; is also known as a &#34;vendor.&#34;
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -752,6 +823,7 @@ public final class ServicecatalogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetProductResult> getProduct(GetProductArgs args, InvokeOptions options) {
@@ -763,7 +835,10 @@ public final class ServicecatalogFunctions {
      * &gt; **NOTE:** A &#34;provisioning artifact&#34; is also known as a &#34;version,&#34; and a &#34;distributor&#34; is also known as a &#34;vendor.&#34;
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -792,6 +867,7 @@ public final class ServicecatalogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetProductResult> getProductPlain(GetProductPlainArgs args, InvokeOptions options) {
@@ -801,7 +877,10 @@ public final class ServicecatalogFunctions {
      * Lists the provisioning artifacts for the specified product.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -830,6 +909,7 @@ public final class ServicecatalogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetProvisioningArtifactsResult> getProvisioningArtifacts(GetProvisioningArtifactsArgs args) {
@@ -839,7 +919,10 @@ public final class ServicecatalogFunctions {
      * Lists the provisioning artifacts for the specified product.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -868,6 +951,7 @@ public final class ServicecatalogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetProvisioningArtifactsResult> getProvisioningArtifactsPlain(GetProvisioningArtifactsPlainArgs args) {
@@ -877,7 +961,10 @@ public final class ServicecatalogFunctions {
      * Lists the provisioning artifacts for the specified product.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -906,6 +993,7 @@ public final class ServicecatalogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetProvisioningArtifactsResult> getProvisioningArtifacts(GetProvisioningArtifactsArgs args, InvokeOptions options) {
@@ -915,7 +1003,10 @@ public final class ServicecatalogFunctions {
      * Lists the provisioning artifacts for the specified product.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -944,6 +1035,7 @@ public final class ServicecatalogFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetProvisioningArtifactsResult> getProvisioningArtifactsPlain(GetProvisioningArtifactsPlainArgs args, InvokeOptions options) {

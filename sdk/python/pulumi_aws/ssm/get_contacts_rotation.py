@@ -127,14 +127,17 @@ def get_contacts_rotation(arn: Optional[str] = None,
                           opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGetContactsRotationResult:
     """
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.ssm.get_contacts_rotation(arn="arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str arn: The Amazon Resource Name (ARN) of the rotation.
@@ -160,14 +163,17 @@ def get_contacts_rotation_output(arn: Optional[pulumi.Input[str]] = None,
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetContactsRotationResult]:
     """
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.ssm.get_contacts_rotation(arn="arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str arn: The Amazon Resource Name (ARN) of the rotation.

@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,13 +36,14 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SageMaker Projects using the `project_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:sagemaker/project:Project example example
+    /// $ pulumi import aws:sagemaker/project:Project example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/project:Project")]

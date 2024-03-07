@@ -10,8 +10,10 @@ import * as utilities from "../utilities";
  * properties without having to hard code ARNs or unique IDs as input.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,6 +22,7 @@ import * as utilities from "../utilities";
  *     groupName: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getQuicksightGroup(args: GetQuicksightGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetQuicksightGroupResult> {
 
@@ -81,8 +84,10 @@ export interface GetQuicksightGroupResult {
  * properties without having to hard code ARNs or unique IDs as input.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -91,6 +96,7 @@ export interface GetQuicksightGroupResult {
  *     groupName: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getQuicksightGroupOutput(args: GetQuicksightGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQuicksightGroupResult> {
     return pulumi.output(args).apply((a: any) => getQuicksightGroup(a, opts))

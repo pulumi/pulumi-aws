@@ -18,7 +18,10 @@ import javax.annotation.Nullable;
  * Provides the ability to register a target with an AWS VPC Lattice Target Group.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -52,6 +55,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:vpclattice/targetGroupAttachment:TargetGroupAttachment")

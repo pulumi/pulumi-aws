@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -76,15 +77,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import ElastiCache user group associations using the `user_group_id` and `user_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:elasticache/userGroupAssociation:UserGroupAssociation example userGoupId1,userId
-//
+// $ pulumi import aws:elasticache/userGroupAssociation:UserGroupAssociation example userGoupId1,userId
 // ```
 type UserGroupAssociation struct {
 	pulumi.CustomResourceState

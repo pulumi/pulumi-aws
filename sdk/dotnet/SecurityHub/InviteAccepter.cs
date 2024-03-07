@@ -16,6 +16,7 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -42,13 +43,14 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Security Hub invite acceptance using the account ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:securityhub/inviteAccepter:InviteAccepter example 123456789012
+    /// $ pulumi import aws:securityhub/inviteAccepter:InviteAccepter example 123456789012
     /// ```
     /// </summary>
     [AwsResourceType("aws:securityhub/inviteAccepter:InviteAccepter")]

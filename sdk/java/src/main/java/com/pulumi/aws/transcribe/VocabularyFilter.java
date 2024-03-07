@@ -20,7 +20,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS Transcribe VocabularyFilter.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -57,13 +60,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Transcribe VocabularyFilter using the `vocabulary_filter_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:transcribe/vocabularyFilter:VocabularyFilter example example-name
+ * $ pulumi import aws:transcribe/vocabularyFilter:VocabularyFilter example example-name
  * ```
  * 
  */

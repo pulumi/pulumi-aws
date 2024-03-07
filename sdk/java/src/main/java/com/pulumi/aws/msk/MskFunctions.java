@@ -34,6 +34,7 @@ public final class MskFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -62,6 +63,7 @@ public final class MskFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBootstrapBrokersResult> getBootstrapBrokers(GetBootstrapBrokersArgs args) {
@@ -72,6 +74,7 @@ public final class MskFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -100,6 +103,7 @@ public final class MskFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBootstrapBrokersResult> getBootstrapBrokersPlain(GetBootstrapBrokersPlainArgs args) {
@@ -110,6 +114,7 @@ public final class MskFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -138,6 +143,7 @@ public final class MskFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBootstrapBrokersResult> getBootstrapBrokers(GetBootstrapBrokersArgs args, InvokeOptions options) {
@@ -148,6 +154,7 @@ public final class MskFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -176,6 +183,7 @@ public final class MskFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBootstrapBrokersResult> getBootstrapBrokersPlain(GetBootstrapBrokersPlainArgs args, InvokeOptions options) {
@@ -185,6 +193,8 @@ public final class MskFunctions {
      * Get information on an Amazon MSK Broker Nodes.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -213,6 +223,7 @@ public final class MskFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBrokerNodesResult> getBrokerNodes(GetBrokerNodesArgs args) {
@@ -222,6 +233,8 @@ public final class MskFunctions {
      * Get information on an Amazon MSK Broker Nodes.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -250,6 +263,7 @@ public final class MskFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBrokerNodesResult> getBrokerNodesPlain(GetBrokerNodesPlainArgs args) {
@@ -259,6 +273,8 @@ public final class MskFunctions {
      * Get information on an Amazon MSK Broker Nodes.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -287,6 +303,7 @@ public final class MskFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBrokerNodesResult> getBrokerNodes(GetBrokerNodesArgs args, InvokeOptions options) {
@@ -296,6 +313,8 @@ public final class MskFunctions {
      * Get information on an Amazon MSK Broker Nodes.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -324,6 +343,7 @@ public final class MskFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBrokerNodesResult> getBrokerNodesPlain(GetBrokerNodesPlainArgs args, InvokeOptions options) {
@@ -335,6 +355,8 @@ public final class MskFunctions {
      * &gt; **Note:** This data sources returns information on _provisioned_ clusters.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -363,6 +385,7 @@ public final class MskFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetClusterResult> getCluster(GetClusterArgs args) {
@@ -374,6 +397,8 @@ public final class MskFunctions {
      * &gt; **Note:** This data sources returns information on _provisioned_ clusters.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -402,6 +427,7 @@ public final class MskFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetClusterResult> getClusterPlain(GetClusterPlainArgs args) {
@@ -413,6 +439,8 @@ public final class MskFunctions {
      * &gt; **Note:** This data sources returns information on _provisioned_ clusters.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -441,6 +469,7 @@ public final class MskFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetClusterResult> getCluster(GetClusterArgs args, InvokeOptions options) {
@@ -452,6 +481,8 @@ public final class MskFunctions {
      * &gt; **Note:** This data sources returns information on _provisioned_ clusters.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -480,6 +511,7 @@ public final class MskFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetClusterResult> getClusterPlain(GetClusterPlainArgs args, InvokeOptions options) {
@@ -489,6 +521,8 @@ public final class MskFunctions {
      * Get information on an Amazon MSK Configuration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -517,6 +551,7 @@ public final class MskFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetConfigurationResult> getConfiguration(GetConfigurationArgs args) {
@@ -526,6 +561,8 @@ public final class MskFunctions {
      * Get information on an Amazon MSK Configuration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -554,6 +591,7 @@ public final class MskFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetConfigurationResult> getConfigurationPlain(GetConfigurationPlainArgs args) {
@@ -563,6 +601,8 @@ public final class MskFunctions {
      * Get information on an Amazon MSK Configuration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -591,6 +631,7 @@ public final class MskFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetConfigurationResult> getConfiguration(GetConfigurationArgs args, InvokeOptions options) {
@@ -600,6 +641,8 @@ public final class MskFunctions {
      * Get information on an Amazon MSK Configuration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -628,6 +671,7 @@ public final class MskFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetConfigurationResult> getConfigurationPlain(GetConfigurationPlainArgs args, InvokeOptions options) {
@@ -637,6 +681,8 @@ public final class MskFunctions {
      * Get information on a Amazon MSK Kafka Version
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -672,6 +718,7 @@ public final class MskFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetKafkaVersionResult> getKafkaVersion() {
@@ -681,6 +728,8 @@ public final class MskFunctions {
      * Get information on a Amazon MSK Kafka Version
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -716,6 +765,7 @@ public final class MskFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetKafkaVersionResult> getKafkaVersionPlain() {
@@ -725,6 +775,8 @@ public final class MskFunctions {
      * Get information on a Amazon MSK Kafka Version
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -760,6 +812,7 @@ public final class MskFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetKafkaVersionResult> getKafkaVersion(GetKafkaVersionArgs args) {
@@ -769,6 +822,8 @@ public final class MskFunctions {
      * Get information on a Amazon MSK Kafka Version
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -804,6 +859,7 @@ public final class MskFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetKafkaVersionResult> getKafkaVersionPlain(GetKafkaVersionPlainArgs args) {
@@ -813,6 +869,8 @@ public final class MskFunctions {
      * Get information on a Amazon MSK Kafka Version
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -848,6 +906,7 @@ public final class MskFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetKafkaVersionResult> getKafkaVersion(GetKafkaVersionArgs args, InvokeOptions options) {
@@ -857,6 +916,8 @@ public final class MskFunctions {
      * Get information on a Amazon MSK Kafka Version
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -892,6 +953,7 @@ public final class MskFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetKafkaVersionResult> getKafkaVersionPlain(GetKafkaVersionPlainArgs args, InvokeOptions options) {
@@ -901,6 +963,8 @@ public final class MskFunctions {
      * Get information on an Amazon MSK VPC Connection.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -929,6 +993,7 @@ public final class MskFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVpcConnectionResult> getVpcConnection(GetVpcConnectionArgs args) {
@@ -938,6 +1003,8 @@ public final class MskFunctions {
      * Get information on an Amazon MSK VPC Connection.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -966,6 +1033,7 @@ public final class MskFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVpcConnectionResult> getVpcConnectionPlain(GetVpcConnectionPlainArgs args) {
@@ -975,6 +1043,8 @@ public final class MskFunctions {
      * Get information on an Amazon MSK VPC Connection.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1003,6 +1073,7 @@ public final class MskFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVpcConnectionResult> getVpcConnection(GetVpcConnectionArgs args, InvokeOptions options) {
@@ -1012,6 +1083,8 @@ public final class MskFunctions {
      * Get information on an Amazon MSK VPC Connection.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1040,6 +1113,7 @@ public final class MskFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVpcConnectionResult> getVpcConnectionPlain(GetVpcConnectionPlainArgs args, InvokeOptions options) {

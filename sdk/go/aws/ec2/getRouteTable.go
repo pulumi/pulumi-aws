@@ -19,6 +19,7 @@ import (
 //
 // The following example shows how one might accept a Route Table ID as a variable and use this data source to obtain the data necessary to create a route.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -53,6 +54,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupRouteTable(ctx *pulumi.Context, args *LookupRouteTableArgs, opts ...pulumi.InvokeOption) (*LookupRouteTableResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupRouteTableResult

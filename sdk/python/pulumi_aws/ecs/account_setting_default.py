@@ -119,6 +119,7 @@ class AccountSettingDefault(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -127,13 +128,14 @@ class AccountSettingDefault(pulumi.CustomResource):
             name="taskLongArnFormat",
             value="enabled")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ECS Account Setting defaults using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:ecs/accountSettingDefault:AccountSettingDefault example taskLongArnFormat
+        $ pulumi import aws:ecs/accountSettingDefault:AccountSettingDefault example taskLongArnFormat
         ```
 
         :param str resource_name: The name of the resource.
@@ -156,6 +158,7 @@ class AccountSettingDefault(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -164,13 +167,14 @@ class AccountSettingDefault(pulumi.CustomResource):
             name="taskLongArnFormat",
             value="enabled")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ECS Account Setting defaults using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:ecs/accountSettingDefault:AccountSettingDefault example taskLongArnFormat
+        $ pulumi import aws:ecs/accountSettingDefault:AccountSettingDefault example taskLongArnFormat
         ```
 
         :param str resource_name: The name of the resource.

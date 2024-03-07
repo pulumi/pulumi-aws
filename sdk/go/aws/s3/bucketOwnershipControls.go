@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -50,15 +51,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import S3 Bucket Ownership Controls using S3 Bucket name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:s3/bucketOwnershipControls:BucketOwnershipControls example my-bucket
-//
+// $ pulumi import aws:s3/bucketOwnershipControls:BucketOwnershipControls example my-bucket
 // ```
 type BucketOwnershipControls struct {
 	pulumi.CustomResourceState

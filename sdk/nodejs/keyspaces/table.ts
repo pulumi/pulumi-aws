@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -32,13 +33,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import a table using the `keyspace_name` and `table_name` separated by `/`. For example:
  *
  * ```sh
- *  $ pulumi import aws:keyspaces/table:Table example my_keyspace/my_table
+ * $ pulumi import aws:keyspaces/table:Table example my_keyspace/my_table
  * ```
  */
 export class Table extends pulumi.CustomResource {

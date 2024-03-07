@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -132,15 +133,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import budget actions using `AccountID:ActionID:BudgetName`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:budgets/budgetAction:BudgetAction myBudget 123456789012:some-id:myBudget
-//
+// $ pulumi import aws:budgets/budgetAction:BudgetAction myBudget 123456789012:some-id:myBudget
 // ```
 type BudgetAction struct {
 	pulumi.CustomResourceState

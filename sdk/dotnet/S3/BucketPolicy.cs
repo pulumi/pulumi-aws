@@ -15,8 +15,10 @@ namespace Pulumi.Aws.S3
     /// &gt; Policies can be attached to both S3 general purpose buckets and S3 directory buckets.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -69,13 +71,14 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import S3 bucket policies using the bucket name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:s3/bucketPolicy:BucketPolicy allow_access_from_another_account my-tf-test-bucket
+    /// $ pulumi import aws:s3/bucketPolicy:BucketPolicy allow_access_from_another_account my-tf-test-bucket
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3/bucketPolicy:BucketPolicy")]

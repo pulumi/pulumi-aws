@@ -137,16 +137,21 @@ def get_bundle(bundle_id: Optional[str] = None,
     Retrieve information about an AWS WorkSpaces bundle.
 
     ## Example Usage
+
     ### By ID
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.workspaces.get_bundle(bundle_id="wsb-b0s22j3d7")
     ```
+    <!--End PulumiCodeChooser -->
+
     ### By Owner & Name
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -154,6 +159,7 @@ def get_bundle(bundle_id: Optional[str] = None,
     example = aws.workspaces.get_bundle(owner="AMAZON",
         name="Value with Windows 10 and Office 2016")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str bundle_id: ID of the bundle.
@@ -187,16 +193,21 @@ def get_bundle_output(bundle_id: Optional[pulumi.Input[Optional[str]]] = None,
     Retrieve information about an AWS WorkSpaces bundle.
 
     ## Example Usage
+
     ### By ID
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.workspaces.get_bundle(bundle_id="wsb-b0s22j3d7")
     ```
+    <!--End PulumiCodeChooser -->
+
     ### By Owner & Name
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -204,6 +215,7 @@ def get_bundle_output(bundle_id: Optional[pulumi.Input[Optional[str]]] = None,
     example = aws.workspaces.get_bundle(owner="AMAZON",
         name="Value with Windows 10 and Office 2016")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str bundle_id: ID of the bundle.

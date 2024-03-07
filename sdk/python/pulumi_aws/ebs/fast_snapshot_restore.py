@@ -144,8 +144,10 @@ class FastSnapshotRestore(pulumi.CustomResource):
         Resource for managing an EBS (Elastic Block Storage) Fast Snapshot Restore.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -154,13 +156,14 @@ class FastSnapshotRestore(pulumi.CustomResource):
             availability_zone="us-west-2a",
             snapshot_id=example_aws_ebs_snapshot["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EC2 (Elastic Compute Cloud) EBS Fast Snapshot Restore using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ebs/fastSnapshotRestore:FastSnapshotRestore example us-west-2a,snap-abcdef123456
+        $ pulumi import aws:ebs/fastSnapshotRestore:FastSnapshotRestore example us-west-2a,snap-abcdef123456
         ```
 
         :param str resource_name: The name of the resource.
@@ -178,8 +181,10 @@ class FastSnapshotRestore(pulumi.CustomResource):
         Resource for managing an EBS (Elastic Block Storage) Fast Snapshot Restore.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -188,13 +193,14 @@ class FastSnapshotRestore(pulumi.CustomResource):
             availability_zone="us-west-2a",
             snapshot_id=example_aws_ebs_snapshot["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EC2 (Elastic Compute Cloud) EBS Fast Snapshot Restore using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ebs/fastSnapshotRestore:FastSnapshotRestore example us-west-2a,snap-abcdef123456
+        $ pulumi import aws:ebs/fastSnapshotRestore:FastSnapshotRestore example us-west-2a,snap-abcdef123456
         ```
 
         :param str resource_name: The name of the resource.

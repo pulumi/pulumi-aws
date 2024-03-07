@@ -154,7 +154,7 @@ class RoleAlias(pulumi.CustomResource):
         Using `pulumi import`, import IOT Role Alias using the alias. For example:
 
         ```sh
-         $ pulumi import aws:iot/roleAlias:RoleAlias example myalias
+        $ pulumi import aws:iot/roleAlias:RoleAlias example myalias
         ```
 
         :param str resource_name: The name of the resource.
@@ -177,7 +177,7 @@ class RoleAlias(pulumi.CustomResource):
         Using `pulumi import`, import IOT Role Alias using the alias. For example:
 
         ```sh
-         $ pulumi import aws:iot/roleAlias:RoleAlias example myalias
+        $ pulumi import aws:iot/roleAlias:RoleAlias example myalias
         ```
 
         :param str resource_name: The name of the resource.

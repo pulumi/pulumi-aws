@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,13 +30,14 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import QuickSight Group using the aws account id, namespace and group name separated by `/`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:quicksight/group:Group example 123456789123/default/tf-example
+    /// $ pulumi import aws:quicksight/group:Group example 123456789123/default/tf-example
     /// ```
     /// </summary>
     [AwsResourceType("aws:quicksight/group:Group")]

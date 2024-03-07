@@ -257,12 +257,14 @@ def get_index(id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.kendra.get_index(id="12345678-1234-1234-1234-123456789123")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str id: Returns information on a specific Index by id.
@@ -304,12 +306,14 @@ def get_index_output(id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.kendra.get_index(id="12345678-1234-1234-1234-123456789123")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str id: Returns information on a specific Index by id.

@@ -1922,8 +1922,10 @@ class Cluster(pulumi.CustomResource):
         for more information.
 
         ## Example Usage
+
         ### Aurora MySQL 2.x (MySQL 5.7)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1943,8 +1945,11 @@ class Cluster(pulumi.CustomResource):
             backup_retention_period=5,
             preferred_backup_window="07:00-09:00")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Aurora MySQL 1.x (MySQL 5.6)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1962,8 +1967,11 @@ class Cluster(pulumi.CustomResource):
             backup_retention_period=5,
             preferred_backup_window="07:00-09:00")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Aurora with PostgreSQL engine
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1982,12 +1990,15 @@ class Cluster(pulumi.CustomResource):
             backup_retention_period=5,
             preferred_backup_window="07:00-09:00")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### RDS Multi-AZ Cluster
 
         > More information about RDS Multi-AZ Clusters can be found in the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html).
 
         To create a Multi-AZ RDS cluster, you must additionally specify the `engine`, `storage_type`, `allocated_storage`, `iops` and `db_cluster_instance_class` attributes.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2007,6 +2018,8 @@ class Cluster(pulumi.CustomResource):
             master_username="test",
             master_password="mustbeeightcharaters")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### RDS Serverless v2 Cluster
 
         > More information about RDS Serverless v2 Clusters can be found in the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html).
@@ -2016,6 +2029,7 @@ class Cluster(pulumi.CustomResource):
 
         To create a Serverless v2 RDS cluster, you must additionally specify the `engine_mode` and `serverlessv2_scaling_configuration` attributes. An `rds.ClusterInstance` resource must also be added to the cluster with the `instance_class` attribute specified.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2039,12 +2053,15 @@ class Cluster(pulumi.CustomResource):
             engine=example.engine,
             engine_version=example.engine_version)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### RDS/Aurora Managed Master Passwords via Secrets Manager, default KMS Key
 
         > More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
 
         You can specify the `manage_master_user_password` attribute to enable managing the master password with Secrets Manager. You can also update an existing cluster to use Secrets Manager by specify the `manage_master_user_password` attribute and removing the `master_password` attribute (removal is required).
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2055,12 +2072,15 @@ class Cluster(pulumi.CustomResource):
             manage_master_user_password=True,
             master_username="test")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### RDS/Aurora Managed Master Passwords via Secrets Manager, specific KMS Key
 
         > More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
 
         You can specify the `master_user_secret_kms_key_id` attribute to specify a specific KMS Key.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2073,8 +2093,11 @@ class Cluster(pulumi.CustomResource):
             master_username="test",
             master_user_secret_kms_key_id=example.key_id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Global Cluster Restored From Snapshot
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2091,13 +2114,14 @@ class Cluster(pulumi.CustomResource):
             source_db_cluster_identifier=example_cluster.arn,
             force_destroy=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import RDS Clusters using the `cluster_identifier`. For example:
 
         ```sh
-         $ pulumi import aws:rds/cluster:Cluster aurora_cluster aurora-prod-cluster
+        $ pulumi import aws:rds/cluster:Cluster aurora_cluster aurora-prod-cluster
         ```
 
         :param str resource_name: The name of the resource.
@@ -2185,8 +2209,10 @@ class Cluster(pulumi.CustomResource):
         for more information.
 
         ## Example Usage
+
         ### Aurora MySQL 2.x (MySQL 5.7)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2206,8 +2232,11 @@ class Cluster(pulumi.CustomResource):
             backup_retention_period=5,
             preferred_backup_window="07:00-09:00")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Aurora MySQL 1.x (MySQL 5.6)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2225,8 +2254,11 @@ class Cluster(pulumi.CustomResource):
             backup_retention_period=5,
             preferred_backup_window="07:00-09:00")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Aurora with PostgreSQL engine
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2245,12 +2277,15 @@ class Cluster(pulumi.CustomResource):
             backup_retention_period=5,
             preferred_backup_window="07:00-09:00")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### RDS Multi-AZ Cluster
 
         > More information about RDS Multi-AZ Clusters can be found in the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html).
 
         To create a Multi-AZ RDS cluster, you must additionally specify the `engine`, `storage_type`, `allocated_storage`, `iops` and `db_cluster_instance_class` attributes.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2270,6 +2305,8 @@ class Cluster(pulumi.CustomResource):
             master_username="test",
             master_password="mustbeeightcharaters")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### RDS Serverless v2 Cluster
 
         > More information about RDS Serverless v2 Clusters can be found in the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html).
@@ -2279,6 +2316,7 @@ class Cluster(pulumi.CustomResource):
 
         To create a Serverless v2 RDS cluster, you must additionally specify the `engine_mode` and `serverlessv2_scaling_configuration` attributes. An `rds.ClusterInstance` resource must also be added to the cluster with the `instance_class` attribute specified.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2302,12 +2340,15 @@ class Cluster(pulumi.CustomResource):
             engine=example.engine,
             engine_version=example.engine_version)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### RDS/Aurora Managed Master Passwords via Secrets Manager, default KMS Key
 
         > More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
 
         You can specify the `manage_master_user_password` attribute to enable managing the master password with Secrets Manager. You can also update an existing cluster to use Secrets Manager by specify the `manage_master_user_password` attribute and removing the `master_password` attribute (removal is required).
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2318,12 +2359,15 @@ class Cluster(pulumi.CustomResource):
             manage_master_user_password=True,
             master_username="test")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### RDS/Aurora Managed Master Passwords via Secrets Manager, specific KMS Key
 
         > More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
 
         You can specify the `master_user_secret_kms_key_id` attribute to specify a specific KMS Key.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2336,8 +2380,11 @@ class Cluster(pulumi.CustomResource):
             master_username="test",
             master_user_secret_kms_key_id=example.key_id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Global Cluster Restored From Snapshot
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2354,13 +2401,14 @@ class Cluster(pulumi.CustomResource):
             source_db_cluster_identifier=example_cluster.arn,
             force_destroy=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import RDS Clusters using the `cluster_identifier`. For example:
 
         ```sh
-         $ pulumi import aws:rds/cluster:Cluster aurora_cluster aurora-prod-cluster
+        $ pulumi import aws:rds/cluster:Cluster aurora_cluster aurora-prod-cluster
         ```
 
         :param str resource_name: The name of the resource.

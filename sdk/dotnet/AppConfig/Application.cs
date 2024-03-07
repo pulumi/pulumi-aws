@@ -14,6 +14,7 @@ namespace Pulumi.Aws.AppConfig
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,13 +35,14 @@ namespace Pulumi.Aws.AppConfig
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AppConfig Applications using their application ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:appconfig/application:Application example 71rxuzt
+    /// $ pulumi import aws:appconfig/application:Application example 71rxuzt
     /// ```
     /// </summary>
     [AwsResourceType("aws:appconfig/application:Application")]

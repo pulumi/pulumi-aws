@@ -153,6 +153,7 @@ def get_hours_of_operation(hours_of_operation_id: Optional[str] = None,
 
     By `name`
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -160,9 +161,11 @@ def get_hours_of_operation(hours_of_operation_id: Optional[str] = None,
     test = aws.connect.get_hours_of_operation(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
         name="Test")
     ```
+    <!--End PulumiCodeChooser -->
 
     By `hours_of_operation_id`
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -170,6 +173,7 @@ def get_hours_of_operation(hours_of_operation_id: Optional[str] = None,
     test = aws.connect.get_hours_of_operation(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
         hours_of_operation_id="cccccccc-bbbb-cccc-dddd-111111111111")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str hours_of_operation_id: Returns information on a specific Hours of Operation by hours of operation id
@@ -210,6 +214,7 @@ def get_hours_of_operation_output(hours_of_operation_id: Optional[pulumi.Input[O
 
     By `name`
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -217,9 +222,11 @@ def get_hours_of_operation_output(hours_of_operation_id: Optional[pulumi.Input[O
     test = aws.connect.get_hours_of_operation(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
         name="Test")
     ```
+    <!--End PulumiCodeChooser -->
 
     By `hours_of_operation_id`
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -227,6 +234,7 @@ def get_hours_of_operation_output(hours_of_operation_id: Optional[pulumi.Input[O
     test = aws.connect.get_hours_of_operation(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
         hours_of_operation_id="cccccccc-bbbb-cccc-dddd-111111111111")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str hours_of_operation_id: Returns information on a specific Hours of Operation by hours of operation id

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -63,15 +64,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import ElastiCache Subnet Groups using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:elasticache/subnetGroup:SubnetGroup bar tf-test-cache-subnet
-//
+// $ pulumi import aws:elasticache/subnetGroup:SubnetGroup bar tf-test-cache-subnet
 // ```
 type SubnetGroup struct {
 	pulumi.CustomResourceState

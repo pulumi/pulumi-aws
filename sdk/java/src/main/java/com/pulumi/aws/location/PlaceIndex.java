@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides a Location Service Place Index.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,13 +51,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_location_place_index` resources using the place index name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:location/placeIndex:PlaceIndex example example
+ * $ pulumi import aws:location/placeIndex:PlaceIndex example example
  * ```
  * 
  */

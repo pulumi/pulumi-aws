@@ -102,8 +102,10 @@ def get_serverless_access_policy(name: Optional[str] = None,
     Data source for managing an AWS OpenSearch Serverless Access Policy.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -111,6 +113,7 @@ def get_serverless_access_policy(name: Optional[str] = None,
     example = aws.opensearch.get_serverless_access_policy(name=example_aws_opensearchserverless_access_policy["name"],
         type=example_aws_opensearchserverless_access_policy["type"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the policy.
@@ -139,8 +142,10 @@ def get_serverless_access_policy_output(name: Optional[pulumi.Input[str]] = None
     Data source for managing an AWS OpenSearch Serverless Access Policy.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -148,6 +153,7 @@ def get_serverless_access_policy_output(name: Optional[pulumi.Input[str]] = None
     example = aws.opensearch.get_serverless_access_policy(name=example_aws_opensearchserverless_access_policy["name"],
         type=example_aws_opensearchserverless_access_policy["type"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the policy.

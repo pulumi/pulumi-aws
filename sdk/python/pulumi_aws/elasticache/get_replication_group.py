@@ -265,12 +265,14 @@ def get_replication_group(replication_group_id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     bar = aws.elasticache.get_replication_group(replication_group_id="example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str replication_group_id: Identifier for the replication group.
@@ -310,12 +312,14 @@ def get_replication_group_output(replication_group_id: Optional[pulumi.Input[str
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     bar = aws.elasticache.get_replication_group(replication_group_id="example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str replication_group_id: Identifier for the replication group.

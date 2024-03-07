@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -128,8 +129,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### JS
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -173,15 +177,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_appsync_resolver` using the `api_id`, a hyphen, `type`, a hypen and `field`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:appsync/resolver:Resolver example abcdef123456-exampleType-exampleField
-//
+// $ pulumi import aws:appsync/resolver:Resolver example abcdef123456-exampleType-exampleField
 // ```
 type Resolver struct {
 	pulumi.CustomResourceState

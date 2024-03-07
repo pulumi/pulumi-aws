@@ -135,6 +135,7 @@ class VpcAssociationAuthorization(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -159,13 +160,14 @@ class VpcAssociationAuthorization(pulumi.CustomResource):
             vpc_id=example_vpc_association_authorization.vpc_id,
             zone_id=example_vpc_association_authorization.zone_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Route 53 VPC Association Authorizations using the Hosted Zone ID and VPC ID, separated by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization example Z123456ABCDEFG:vpc-12345678
+        $ pulumi import aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization example Z123456ABCDEFG:vpc-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -185,6 +187,7 @@ class VpcAssociationAuthorization(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -209,13 +212,14 @@ class VpcAssociationAuthorization(pulumi.CustomResource):
             vpc_id=example_vpc_association_authorization.vpc_id,
             zone_id=example_vpc_association_authorization.zone_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Route 53 VPC Association Authorizations using the Hosted Zone ID and VPC ID, separated by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization example Z123456ABCDEFG:vpc-12345678
+        $ pulumi import aws:route53/vpcAssociationAuthorization:VpcAssociationAuthorization example Z123456ABCDEFG:vpc-12345678
         ```
 
         :param str resource_name: The name of the resource.

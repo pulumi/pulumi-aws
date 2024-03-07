@@ -136,6 +136,7 @@ class VoiceConnectorLogging(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -148,13 +149,14 @@ class VoiceConnectorLogging(pulumi.CustomResource):
             enable_media_metric_logs=True,
             voice_connector_id=default.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Chime Voice Connector Logging using the `voice_connector_id`. For example:
 
         ```sh
-         $ pulumi import aws:chime/voiceConnectorLogging:VoiceConnectorLogging default abcdef1ghij2klmno3pqr4
+        $ pulumi import aws:chime/voiceConnectorLogging:VoiceConnectorLogging default abcdef1ghij2klmno3pqr4
         ```
 
         :param str resource_name: The name of the resource.
@@ -174,6 +176,7 @@ class VoiceConnectorLogging(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -186,13 +189,14 @@ class VoiceConnectorLogging(pulumi.CustomResource):
             enable_media_metric_logs=True,
             voice_connector_id=default.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Chime Voice Connector Logging using the `voice_connector_id`. For example:
 
         ```sh
-         $ pulumi import aws:chime/voiceConnectorLogging:VoiceConnectorLogging default abcdef1ghij2klmno3pqr4
+        $ pulumi import aws:chime/voiceConnectorLogging:VoiceConnectorLogging default abcdef1ghij2klmno3pqr4
         ```
 
         :param str resource_name: The name of the resource.

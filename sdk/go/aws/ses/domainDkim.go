@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -72,15 +73,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import DKIM tokens using the `domain` attribute. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ses/domainDkim:DomainDkim example example.com
-//
+// $ pulumi import aws:ses/domainDkim:DomainDkim example example.com
 // ```
 type DomainDkim struct {
 	pulumi.CustomResourceState

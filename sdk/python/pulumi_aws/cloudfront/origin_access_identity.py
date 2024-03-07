@@ -172,12 +172,15 @@ class OriginAccessIdentity(pulumi.CustomResource):
 
         The following example below creates a CloudFront origin access identity.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.cloudfront.OriginAccessIdentity("example", comment="Some comment")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Using With CloudFront
 
         Normally, when referencing an origin access identity in CloudFront, you need to
@@ -186,6 +189,7 @@ class OriginAccessIdentity(pulumi.CustomResource):
         The below snippet demonstrates use with the `s3_origin_config` structure for the
         `cloudfront.Distribution` resource:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -196,6 +200,7 @@ class OriginAccessIdentity(pulumi.CustomResource):
             ),
         )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ### Updating your bucket policy
 
@@ -204,6 +209,7 @@ class OriginAccessIdentity(pulumi.CustomResource):
         `s3.BucketV2` bucket policy, causing spurious diffs. If
         you see this behaviour, use the `iam_arn` instead:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -220,6 +226,7 @@ class OriginAccessIdentity(pulumi.CustomResource):
             bucket=example_aws_s3_bucket["id"],
             policy=s3_policy.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         [1]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html
         [2]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
@@ -229,7 +236,7 @@ class OriginAccessIdentity(pulumi.CustomResource):
         Using `pulumi import`, import Cloudfront Origin Access Identities using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:cloudfront/originAccessIdentity:OriginAccessIdentity origin_access E74FTE3AEXAMPLE
+        $ pulumi import aws:cloudfront/originAccessIdentity:OriginAccessIdentity origin_access E74FTE3AEXAMPLE
         ```
 
         :param str resource_name: The name of the resource.
@@ -254,12 +261,15 @@ class OriginAccessIdentity(pulumi.CustomResource):
 
         The following example below creates a CloudFront origin access identity.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.cloudfront.OriginAccessIdentity("example", comment="Some comment")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Using With CloudFront
 
         Normally, when referencing an origin access identity in CloudFront, you need to
@@ -268,6 +278,7 @@ class OriginAccessIdentity(pulumi.CustomResource):
         The below snippet demonstrates use with the `s3_origin_config` structure for the
         `cloudfront.Distribution` resource:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -278,6 +289,7 @@ class OriginAccessIdentity(pulumi.CustomResource):
             ),
         )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ### Updating your bucket policy
 
@@ -286,6 +298,7 @@ class OriginAccessIdentity(pulumi.CustomResource):
         `s3.BucketV2` bucket policy, causing spurious diffs. If
         you see this behaviour, use the `iam_arn` instead:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -302,6 +315,7 @@ class OriginAccessIdentity(pulumi.CustomResource):
             bucket=example_aws_s3_bucket["id"],
             policy=s3_policy.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         [1]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html
         [2]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
@@ -311,7 +325,7 @@ class OriginAccessIdentity(pulumi.CustomResource):
         Using `pulumi import`, import Cloudfront Origin Access Identities using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:cloudfront/originAccessIdentity:OriginAccessIdentity origin_access E74FTE3AEXAMPLE
+        $ pulumi import aws:cloudfront/originAccessIdentity:OriginAccessIdentity origin_access E74FTE3AEXAMPLE
         ```
 
         :param str resource_name: The name of the resource.

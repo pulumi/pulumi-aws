@@ -21,6 +21,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -81,15 +82,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import IAM user group membership using the user name and group names separated by `/`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:iam/userGroupMembership:UserGroupMembership example1 user1/group1/group2
-//
+// $ pulumi import aws:iam/userGroupMembership:UserGroupMembership example1 user1/group1/group2
 // ```
 type UserGroupMembership struct {
 	pulumi.CustomResourceState

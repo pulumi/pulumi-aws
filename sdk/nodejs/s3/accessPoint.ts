@@ -17,8 +17,10 @@ import * as utilities from "../utilities";
  * > This resource cannot be used with S3 directory buckets.
  *
  * ## Example Usage
+ *
  * ### AWS Partition General Purpose Bucket
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -29,8 +31,11 @@ import * as utilities from "../utilities";
  *     name: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### S3 on Outposts Bucket
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -45,6 +50,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -55,12 +61,12 @@ import * as utilities from "../utilities";
  * Import using the `account_id` and `name` separated by a colon (`:`) for Access Points associated with an AWS Partition S3 Bucket:
  *
  * ```sh
- *  $ pulumi import aws:s3/accessPoint:AccessPoint example 123456789012:example
+ * $ pulumi import aws:s3/accessPoint:AccessPoint example 123456789012:example
  * ```
- *  Import using the ARN for Access Points associated with an S3 on Outposts Bucket:
+ * Import using the ARN for Access Points associated with an S3 on Outposts Bucket:
  *
  * ```sh
- *  $ pulumi import aws:s3/accessPoint:AccessPoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-1234567890123456/accesspoint/example
+ * $ pulumi import aws:s3/accessPoint:AccessPoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-1234567890123456/accesspoint/example
  * ```
  */
 export class AccessPoint extends pulumi.CustomResource {

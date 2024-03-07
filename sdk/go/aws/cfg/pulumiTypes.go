@@ -1607,9 +1607,11 @@ func (o RemediationConfigurationExecutionControlsPtrOutput) SsmControls() Remedi
 }
 
 type RemediationConfigurationExecutionControlsSsmControls struct {
-	// Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%.
+	// Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%!
+	// (MISSING)
 	ConcurrentExecutionRatePercentage *int `pulumi:"concurrentExecutionRatePercentage"`
-	// Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%.
+	// Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%!
+	// (MISSING)
 	ErrorPercentage *int `pulumi:"errorPercentage"`
 }
 
@@ -1625,9 +1627,11 @@ type RemediationConfigurationExecutionControlsSsmControlsInput interface {
 }
 
 type RemediationConfigurationExecutionControlsSsmControlsArgs struct {
-	// Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%.
+	// Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%!
+	// (MISSING)
 	ConcurrentExecutionRatePercentage pulumi.IntPtrInput `pulumi:"concurrentExecutionRatePercentage"`
-	// Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%.
+	// Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%!
+	// (MISSING)
 	ErrorPercentage pulumi.IntPtrInput `pulumi:"errorPercentage"`
 }
 
@@ -1708,14 +1712,16 @@ func (o RemediationConfigurationExecutionControlsSsmControlsOutput) ToRemediatio
 	}).(RemediationConfigurationExecutionControlsSsmControlsPtrOutput)
 }
 
-// Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%.
+// Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%!
+// (MISSING)
 func (o RemediationConfigurationExecutionControlsSsmControlsOutput) ConcurrentExecutionRatePercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RemediationConfigurationExecutionControlsSsmControls) *int {
 		return v.ConcurrentExecutionRatePercentage
 	}).(pulumi.IntPtrOutput)
 }
 
-// Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%.
+// Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%!
+// (MISSING)
 func (o RemediationConfigurationExecutionControlsSsmControlsOutput) ErrorPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v RemediationConfigurationExecutionControlsSsmControls) *int { return v.ErrorPercentage }).(pulumi.IntPtrOutput)
 }
@@ -1744,7 +1750,8 @@ func (o RemediationConfigurationExecutionControlsSsmControlsPtrOutput) Elem() Re
 	}).(RemediationConfigurationExecutionControlsSsmControlsOutput)
 }
 
-// Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%.
+// Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%!
+// (MISSING)
 func (o RemediationConfigurationExecutionControlsSsmControlsPtrOutput) ConcurrentExecutionRatePercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RemediationConfigurationExecutionControlsSsmControls) *int {
 		if v == nil {
@@ -1754,7 +1761,8 @@ func (o RemediationConfigurationExecutionControlsSsmControlsPtrOutput) Concurren
 	}).(pulumi.IntPtrOutput)
 }
 
-// Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%.
+// Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%!
+// (MISSING)
 func (o RemediationConfigurationExecutionControlsSsmControlsPtrOutput) ErrorPercentage() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *RemediationConfigurationExecutionControlsSsmControls) *int {
 		if v == nil {

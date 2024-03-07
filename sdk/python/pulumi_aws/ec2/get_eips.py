@@ -98,6 +98,7 @@ def get_eips(filters: Optional[Sequence[pulumi.InputType['GetEipsFilterArgs']]] 
 
     The following shows outputting all Elastic IPs with the a specific tag value.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -108,6 +109,7 @@ def get_eips(filters: Optional[Sequence[pulumi.InputType['GetEipsFilterArgs']]] 
     pulumi.export("allocationIds", example.allocation_ids)
     pulumi.export("publicIps", example.public_ips)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetEipsFilterArgs']] filters: Custom filter block as described below.
@@ -138,6 +140,7 @@ def get_eips_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.Inpu
 
     The following shows outputting all Elastic IPs with the a specific tag value.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -148,6 +151,7 @@ def get_eips_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.Inpu
     pulumi.export("allocationIds", example.allocation_ids)
     pulumi.export("publicIps", example.public_ips)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetEipsFilterArgs']] filters: Custom filter block as described below.

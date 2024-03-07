@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Backup
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -47,13 +48,14 @@ namespace Pulumi.Aws.Backup
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Backup Report Plan using the `id` which corresponds to the name of the Backup Report Plan. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:backup/reportPlan:ReportPlan test &lt;id&gt;
+    /// $ pulumi import aws:backup/reportPlan:ReportPlan test &lt;id&gt;
     /// ```
     /// </summary>
     [AwsResourceType("aws:backup/reportPlan:ReportPlan")]

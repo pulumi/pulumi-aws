@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * Provides an OpsWorks application resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -83,13 +85,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Opsworks Application using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:opsworks/application:Application test &lt;id&gt;
+ * $ pulumi import aws:opsworks/application:Application test &lt;id&gt;
  * ```
  * 
  */

@@ -18,7 +18,10 @@ public final class GrafanaFunctions {
      * Provides an Amazon Managed Grafana workspace data source.
      * 
      * ## Example Usage
+     * 
      * ### Basic configuration
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -47,6 +50,7 @@ public final class GrafanaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args) {
@@ -56,7 +60,10 @@ public final class GrafanaFunctions {
      * Provides an Amazon Managed Grafana workspace data source.
      * 
      * ## Example Usage
+     * 
      * ### Basic configuration
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -85,6 +92,7 @@ public final class GrafanaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetWorkspaceResult> getWorkspacePlain(GetWorkspacePlainArgs args) {
@@ -94,7 +102,10 @@ public final class GrafanaFunctions {
      * Provides an Amazon Managed Grafana workspace data source.
      * 
      * ## Example Usage
+     * 
      * ### Basic configuration
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -123,6 +134,7 @@ public final class GrafanaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetWorkspaceResult> getWorkspace(GetWorkspaceArgs args, InvokeOptions options) {
@@ -132,7 +144,10 @@ public final class GrafanaFunctions {
      * Provides an Amazon Managed Grafana workspace data source.
      * 
      * ## Example Usage
+     * 
      * ### Basic configuration
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -161,6 +176,7 @@ public final class GrafanaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetWorkspaceResult> getWorkspacePlain(GetWorkspacePlainArgs args, InvokeOptions options) {

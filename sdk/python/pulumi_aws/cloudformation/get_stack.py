@@ -182,6 +182,7 @@ def get_stack(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -195,6 +196,7 @@ def get_stack(name: Optional[str] = None,
             "Name": "HelloWorld",
         })
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the stack
@@ -231,6 +233,7 @@ def get_stack_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -244,6 +247,7 @@ def get_stack_output(name: Optional[pulumi.Input[str]] = None,
             "Name": "HelloWorld",
         })
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the stack

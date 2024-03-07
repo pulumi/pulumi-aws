@@ -489,8 +489,10 @@ class ContainerService(pulumi.CustomResource):
         see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail).
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -505,8 +507,11 @@ class ContainerService(pulumi.CustomResource):
                 "foo2": "",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Public Domain Names
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -518,8 +523,11 @@ class ContainerService(pulumi.CustomResource):
             )],
         ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Private Registry Access
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -544,13 +552,14 @@ class ContainerService(pulumi.CustomResource):
             repository=default_aws_ecr_repository["name"],
             policy=default.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Lightsail Container Service using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:lightsail/containerService:ContainerService my_container_service container-service-1
+        $ pulumi import aws:lightsail/containerService:ContainerService my_container_service container-service-1
         ```
 
         :param str resource_name: The name of the resource.
@@ -589,8 +598,10 @@ class ContainerService(pulumi.CustomResource):
         see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail).
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -605,8 +616,11 @@ class ContainerService(pulumi.CustomResource):
                 "foo2": "",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Public Domain Names
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -618,8 +632,11 @@ class ContainerService(pulumi.CustomResource):
             )],
         ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Private Registry Access
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -644,13 +661,14 @@ class ContainerService(pulumi.CustomResource):
             repository=default_aws_ecr_repository["name"],
             policy=default.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Lightsail Container Service using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:lightsail/containerService:ContainerService my_container_service container-service-1
+        $ pulumi import aws:lightsail/containerService:ContainerService my_container_service container-service-1
         ```
 
         :param str resource_name: The name of the resource.

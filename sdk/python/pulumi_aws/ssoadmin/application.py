@@ -367,52 +367,13 @@ class Application(pulumi.CustomResource):
         See this issue for additional context.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.ssoadmin.get_instances()
-        example_application = aws.ssoadmin.Application("example",
-            name="example",
-            application_provider_arn="arn:aws:sso::aws:applicationProvider/custom",
-            instance_arn=not_implemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0])
-        ```
-        ### With Portal Options
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.ssoadmin.get_instances()
-        example_application = aws.ssoadmin.Application("example",
-            name="example",
-            application_provider_arn="arn:aws:sso::aws:applicationProvider/custom",
-            instance_arn=not_implemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
-            portal_options=aws.ssoadmin.ApplicationPortalOptionsArgs(
-                visibility="ENABLED",
-                sign_in_options=aws.ssoadmin.ApplicationPortalOptionsSignInOptionsArgs(
-                    application_url="http://example.com",
-                    origin="APPLICATION",
-                ),
-            ))
-        ```
 
         ## Import
 
         Using `pulumi import`, import SSO Admin Application using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ssoadmin/application:Application example arn:aws:sso::012345678901:application/id-12345678
+        $ pulumi import aws:ssoadmin/application:Application example arn:aws:sso::012345678901:application/id-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -442,52 +403,13 @@ class Application(pulumi.CustomResource):
         See this issue for additional context.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.ssoadmin.get_instances()
-        example_application = aws.ssoadmin.Application("example",
-            name="example",
-            application_provider_arn="arn:aws:sso::aws:applicationProvider/custom",
-            instance_arn=not_implemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0])
-        ```
-        ### With Portal Options
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.ssoadmin.get_instances()
-        example_application = aws.ssoadmin.Application("example",
-            name="example",
-            application_provider_arn="arn:aws:sso::aws:applicationProvider/custom",
-            instance_arn=not_implemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
-            portal_options=aws.ssoadmin.ApplicationPortalOptionsArgs(
-                visibility="ENABLED",
-                sign_in_options=aws.ssoadmin.ApplicationPortalOptionsSignInOptionsArgs(
-                    application_url="http://example.com",
-                    origin="APPLICATION",
-                ),
-            ))
-        ```
 
         ## Import
 
         Using `pulumi import`, import SSO Admin Application using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ssoadmin/application:Application example arn:aws:sso::012345678901:application/id-12345678
+        $ pulumi import aws:ssoadmin/application:Application example arn:aws:sso::012345678901:application/id-12345678
         ```
 
         :param str resource_name: The name of the resource.

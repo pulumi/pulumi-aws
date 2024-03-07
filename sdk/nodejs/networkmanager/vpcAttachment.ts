@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS Network Manager VPC Attachment.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,13 +25,14 @@ import * as utilities from "../utilities";
  *     vpcArn: exampleAwsVpc.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_networkmanager_vpc_attachment` using the attachment ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:networkmanager/vpcAttachment:VpcAttachment example attachment-0f8fa60d2238d1bd8
+ * $ pulumi import aws:networkmanager/vpcAttachment:VpcAttachment example attachment-0f8fa60d2238d1bd8
  * ```
  */
 export class VpcAttachment extends pulumi.CustomResource {

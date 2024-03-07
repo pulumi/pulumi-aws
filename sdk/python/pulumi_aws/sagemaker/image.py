@@ -238,8 +238,10 @@ class Image(pulumi.CustomResource):
         Provides a SageMaker Image resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -248,13 +250,14 @@ class Image(pulumi.CustomResource):
             image_name="example",
             role_arn=test["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker Code Images using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/image:Image test_image my-code-repo
+        $ pulumi import aws:sagemaker/image:Image test_image my-code-repo
         ```
 
         :param str resource_name: The name of the resource.
@@ -275,8 +278,10 @@ class Image(pulumi.CustomResource):
         Provides a SageMaker Image resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -285,13 +290,14 @@ class Image(pulumi.CustomResource):
             image_name="example",
             role_arn=test["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker Code Images using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/image:Image test_image my-code-repo
+        $ pulumi import aws:sagemaker/image:Image test_image my-code-repo
         ```
 
         :param str resource_name: The name of the resource.

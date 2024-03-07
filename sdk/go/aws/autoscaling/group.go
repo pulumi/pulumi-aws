@@ -20,6 +20,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -99,8 +100,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With Latest Version Of Launch Template
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -142,8 +146,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Mixed Instances Policy
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -198,8 +205,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Mixed Instances Policy with Spot Instances and Capacity Rebalance
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -261,10 +271,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Mixed Instances Policy with Instance level LaunchTemplateSpecification Overrides
 //
 // When using a diverse instance set, some instance types might require a launch template with configuration values unique to that instance type such as a different AMI (Graviton2), architecture specific user data script, different EBS configuration, or different networking configuration.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -329,10 +342,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Mixed Instances Policy with Attribute-based Instance Type Selection
 //
 // As an alternative to manually choosing instance types when creating a mixed instances group, you can specify a set of instance attributes that describe your compute requirements.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -389,8 +405,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Dynamic tagging
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -451,8 +470,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Automatically refresh all instances after the group is updated
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -526,8 +548,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Auto Scaling group with Warm Pool
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -573,105 +598,14 @@ import (
 //	}
 //
 // ```
-// ### Auto Scaling group with Traffic Sources
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/autoscaling"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := autoscaling.NewGroup(ctx, "test", &autoscaling.GroupArgs{
-//				TrafficSources:     "TODO: For expression",
-//				VpcZoneIdentifiers: pulumi.Any(testAwsSubnet.Id),
-//				MaxSize:            pulumi.Int(1),
-//				MinSize:            pulumi.Int(1),
-//				ForceDelete:        pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ## Waiting for Capacity
-//
-// A newly-created ASG is initially empty and begins to scale to `minSize` (or
-// `desiredCapacity`, if specified) by launching instances using the provided
-// Launch Configuration. These instances take time to launch and boot.
-//
-// On ASG Update, changes to these values also take time to result in the target
-// number of instances providing service.
-//
-// This provider provides two mechanisms to help consistently manage ASG scale up
-// time across dependent resources.
-//
-// #### Waiting for ASG Capacity
-//
-// The first is default behavior. This provider waits after ASG creation for
-// `minSize` (or `desiredCapacity`, if specified) healthy instances to show up
-// in the ASG before continuing.
-//
-// If `minSize` or `desiredCapacity` are changed in a subsequent update,
-// this provider will also wait for the correct number of healthy instances before
-// continuing.
-//
-// This provider considers an instance "healthy" when the ASG reports `HealthStatus:
-// "Healthy"` and `LifecycleState: "InService"`. See the [AWS AutoScaling
-// Docs](https://docs.aws.amazon.com/AutoScaling/latest/DeveloperGuide/AutoScalingGroupLifecycle.html)
-// for more information on an ASG's lifecycle.
-//
-// This provider will wait for healthy instances for up to
-// `waitForCapacityTimeout`. If ASG creation is taking more than a few minutes,
-// it's worth investigating for scaling activity errors, which can be caused by
-// problems with the selected Launch Configuration.
-//
-// Setting `waitForCapacityTimeout` to `"0"` disables ASG Capacity waiting.
-//
-// #### Waiting for ELB Capacity
-//
-// The second mechanism is optional, and affects ASGs with attached ELBs specified
-// via the `loadBalancers` attribute or with ALBs specified with `targetGroupArns`.
-//
-// The `minElbCapacity` parameter causes the provider to wait for at least the
-// requested number of instances to show up `"InService"` in all attached ELBs
-// during ASG creation. It has no effect on ASG updates.
-//
-// If `waitForElbCapacity` is set, the provider will wait for exactly that number
-// of Instances to be `"InService"` in all attached ELBs on both creation and
-// updates.
-//
-// These parameters can be used to ensure that service is being provided before
-// the provider moves on. If new instances don't pass the ELB's health checks for any
-// reason, the apply will time out, and the ASG will be marked as
-// tainted (i.e., marked to be destroyed in a follow up run).
-//
-// As with ASG Capacity, the provider will wait for up to `waitForCapacityTimeout`
-// for the proper number of instances to be healthy.
-//
-// #### Troubleshooting Capacity Waiting Timeouts
-//
-// If ASG creation takes more than a few minutes, this could indicate one of a
-// number of configuration problems. See the [AWS Docs on Load Balancer
-// Troubleshooting](https://docs.aws.amazon.com/ElasticLoadBalancing/latest/DeveloperGuide/elb-troubleshooting.html)
-// for more information.
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Auto Scaling Groups using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:autoscaling/group:Group web web-asg
-//
+// $ pulumi import aws:autoscaling/group:Group web web-asg
 // ```
 type Group struct {
 	pulumi.CustomResourceState

@@ -107,6 +107,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -117,13 +118,14 @@ class OrganizationConfiguration(pulumi.CustomResource):
         example_organization_admin_account = aws.securityhub.OrganizationAdminAccount("example", admin_account_id="123456789012")
         example_organization_configuration = aws.securityhub.OrganizationConfiguration("example", auto_enable=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import an existing Security Hub enabled account using the AWS account ID. For example:
 
         ```sh
-         $ pulumi import aws:securityhub/organizationConfiguration:OrganizationConfiguration example 123456789012
+        $ pulumi import aws:securityhub/organizationConfiguration:OrganizationConfiguration example 123456789012
         ```
 
         :param str resource_name: The name of the resource.
@@ -146,6 +148,7 @@ class OrganizationConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -156,13 +159,14 @@ class OrganizationConfiguration(pulumi.CustomResource):
         example_organization_admin_account = aws.securityhub.OrganizationAdminAccount("example", admin_account_id="123456789012")
         example_organization_configuration = aws.securityhub.OrganizationConfiguration("example", auto_enable=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import an existing Security Hub enabled account using the AWS account ID. For example:
 
         ```sh
-         $ pulumi import aws:securityhub/organizationConfiguration:OrganizationConfiguration example 123456789012
+        $ pulumi import aws:securityhub/organizationConfiguration:OrganizationConfiguration example 123456789012
         ```
 
         :param str resource_name: The name of the resource.

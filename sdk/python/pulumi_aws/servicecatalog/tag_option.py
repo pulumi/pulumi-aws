@@ -154,8 +154,10 @@ class TagOption(pulumi.CustomResource):
         Manages a Service Catalog Tag Option.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -164,13 +166,14 @@ class TagOption(pulumi.CustomResource):
             key="nyckel",
             value="värde")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_servicecatalog_tag_option` using the tag option ID. For example:
 
         ```sh
-         $ pulumi import aws:servicecatalog/tagOption:TagOption example tag-pjtvagohlyo3m
+        $ pulumi import aws:servicecatalog/tagOption:TagOption example tag-pjtvagohlyo3m
         ```
 
         :param str resource_name: The name of the resource.
@@ -191,8 +194,10 @@ class TagOption(pulumi.CustomResource):
         Manages a Service Catalog Tag Option.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -201,13 +206,14 @@ class TagOption(pulumi.CustomResource):
             key="nyckel",
             value="värde")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_servicecatalog_tag_option` using the tag option ID. For example:
 
         ```sh
-         $ pulumi import aws:servicecatalog/tagOption:TagOption example tag-pjtvagohlyo3m
+        $ pulumi import aws:servicecatalog/tagOption:TagOption example tag-pjtvagohlyo3m
         ```
 
         :param str resource_name: The name of the resource.

@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Data source for managing an AWS Audit Manager Framework.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,6 +24,7 @@ import * as utilities from "../utilities";
  *     frameworkType: "Standard",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFramework(args: GetFrameworkArgs, opts?: pulumi.InvokeOptions): Promise<GetFrameworkResult> {
 
@@ -62,8 +65,10 @@ export interface GetFrameworkResult {
  * Data source for managing an AWS Audit Manager Framework.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -73,6 +78,7 @@ export interface GetFrameworkResult {
  *     frameworkType: "Standard",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFrameworkOutput(args: GetFrameworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFrameworkResult> {
     return pulumi.output(args).apply((a: any) => getFramework(a, opts))

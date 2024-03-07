@@ -85,8 +85,10 @@ class InboundConnectionAccepter(pulumi.CustomResource):
         Manages an [AWS Opensearch Inbound Connection Accepter](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_AcceptInboundConnection.html). If connecting domains from different AWS accounts, ensure that the accepter is configured to use the AWS account where the _remote_ opensearch domain exists.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -107,13 +109,14 @@ class InboundConnectionAccepter(pulumi.CustomResource):
             ))
         foo_inbound_connection_accepter = aws.opensearch.InboundConnectionAccepter("foo", connection_id=foo.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AWS Opensearch Inbound Connection Accepters using the Inbound Connection ID. For example:
 
         ```sh
-         $ pulumi import aws:opensearch/inboundConnectionAccepter:InboundConnectionAccepter foo connection-id
+        $ pulumi import aws:opensearch/inboundConnectionAccepter:InboundConnectionAccepter foo connection-id
         ```
 
         :param str resource_name: The name of the resource.
@@ -130,8 +133,10 @@ class InboundConnectionAccepter(pulumi.CustomResource):
         Manages an [AWS Opensearch Inbound Connection Accepter](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_AcceptInboundConnection.html). If connecting domains from different AWS accounts, ensure that the accepter is configured to use the AWS account where the _remote_ opensearch domain exists.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -152,13 +157,14 @@ class InboundConnectionAccepter(pulumi.CustomResource):
             ))
         foo_inbound_connection_accepter = aws.opensearch.InboundConnectionAccepter("foo", connection_id=foo.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AWS Opensearch Inbound Connection Accepters using the Inbound Connection ID. For example:
 
         ```sh
-         $ pulumi import aws:opensearch/inboundConnectionAccepter:InboundConnectionAccepter foo connection-id
+        $ pulumi import aws:opensearch/inboundConnectionAccepter:InboundConnectionAccepter foo connection-id
         ```
 
         :param str resource_name: The name of the resource.

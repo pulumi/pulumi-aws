@@ -220,6 +220,7 @@ class EventArchive(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -229,8 +230,11 @@ class EventArchive(pulumi.CustomResource):
             name="order-archive",
             event_source_arn=order.arn)
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Example all optional arguments
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -246,13 +250,14 @@ class EventArchive(pulumi.CustomResource):
                 "source": ["company.team.order"],
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import an EventBridge archive using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/eventArchive:EventArchive imported_event_archive order-archive
+        $ pulumi import aws:cloudwatch/eventArchive:EventArchive imported_event_archive order-archive
         ```
 
         :param str resource_name: The name of the resource.
@@ -276,6 +281,7 @@ class EventArchive(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -285,8 +291,11 @@ class EventArchive(pulumi.CustomResource):
             name="order-archive",
             event_source_arn=order.arn)
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Example all optional arguments
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -302,13 +311,14 @@ class EventArchive(pulumi.CustomResource):
                 "source": ["company.team.order"],
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import an EventBridge archive using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/eventArchive:EventArchive imported_event_archive order-archive
+        $ pulumi import aws:cloudwatch/eventArchive:EventArchive imported_event_archive order-archive
         ```
 
         :param str resource_name: The name of the resource.

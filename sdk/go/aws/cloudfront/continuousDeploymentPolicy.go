@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS CloudFront Continuous Deployment Policy.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -66,8 +68,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Single Weight Config with Session Stickiness
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -107,8 +112,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Single Header Config
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -145,15 +153,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CloudFront Continuous Deployment Policy using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy example abcd-1234
-//
+// $ pulumi import aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy example abcd-1234
 // ```
 type ContinuousDeploymentPolicy struct {
 	pulumi.CustomResourceState

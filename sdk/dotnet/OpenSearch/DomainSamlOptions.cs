@@ -13,8 +13,10 @@ namespace Pulumi.Aws.OpenSearch
     /// Manages SAML authentication options for an AWS OpenSearch Domain.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -61,13 +63,14 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import OpenSearch domains using the `domain_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:opensearch/domainSamlOptions:DomainSamlOptions example domain_name
+    /// $ pulumi import aws:opensearch/domainSamlOptions:DomainSamlOptions example domain_name
     /// ```
     /// </summary>
     [AwsResourceType("aws:opensearch/domainSamlOptions:DomainSamlOptions")]

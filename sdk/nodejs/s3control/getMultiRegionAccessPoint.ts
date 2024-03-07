@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,6 +21,7 @@ import * as utilities from "../utilities";
  *     name: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getMultiRegionAccessPoint(args: GetMultiRegionAccessPointArgs, opts?: pulumi.InvokeOptions): Promise<GetMultiRegionAccessPointResult> {
 
@@ -88,6 +90,7 @@ export interface GetMultiRegionAccessPointResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -96,6 +99,7 @@ export interface GetMultiRegionAccessPointResult {
  *     name: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getMultiRegionAccessPointOutput(args: GetMultiRegionAccessPointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetMultiRegionAccessPointResult> {
     return pulumi.output(args).apply((a: any) => getMultiRegionAccessPoint(a, opts))

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.CodePipeline
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -238,13 +239,14 @@ namespace Pulumi.Aws.CodePipeline
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CodePipelines using the name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:codepipeline/pipeline:Pipeline foo example
+    /// $ pulumi import aws:codepipeline/pipeline:Pipeline foo example
     /// ```
     /// </summary>
     [AwsResourceType("aws:codepipeline/pipeline:Pipeline")]

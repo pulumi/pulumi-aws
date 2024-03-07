@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -17,6 +18,7 @@ import * as utilities from "../utilities";
  *     calculatorName: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRouteCalculator(args: GetRouteCalculatorArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteCalculatorResult> {
 
@@ -80,6 +82,7 @@ export interface GetRouteCalculatorResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -88,6 +91,7 @@ export interface GetRouteCalculatorResult {
  *     calculatorName: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRouteCalculatorOutput(args: GetRouteCalculatorOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteCalculatorResult> {
     return pulumi.output(args).apply((a: any) => getRouteCalculator(a, opts))

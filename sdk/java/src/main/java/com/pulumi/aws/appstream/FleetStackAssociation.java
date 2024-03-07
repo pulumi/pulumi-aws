@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Manages an AppStream Fleet Stack association.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -64,13 +66,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import AppStream Stack Fleet Association using the `fleet_name` and `stack_name` separated by a slash (`/`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:appstream/fleetStackAssociation:FleetStackAssociation example fleetName/stackName
+ * $ pulumi import aws:appstream/fleetStackAssociation:FleetStackAssociation example fleetName/stackName
  * ```
  * 
  */

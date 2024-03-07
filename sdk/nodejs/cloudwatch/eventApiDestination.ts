@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,13 +25,14 @@ import * as utilities from "../utilities";
  *     connectionArn: testAwsCloudwatchEventConnection.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import EventBridge API Destinations using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudwatch/eventApiDestination:EventApiDestination test api-destination
+ * $ pulumi import aws:cloudwatch/eventApiDestination:EventApiDestination test api-destination
  * ```
  */
 export class EventApiDestination extends pulumi.CustomResource {

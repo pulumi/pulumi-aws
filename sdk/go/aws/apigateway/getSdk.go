@@ -13,6 +13,7 @@ import (
 
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,6 +45,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetSdk(ctx *pulumi.Context, args *GetSdkArgs, opts ...pulumi.InvokeOption) (*GetSdkResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetSdkResult

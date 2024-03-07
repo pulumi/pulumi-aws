@@ -14,12 +14,11 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Provides a list of Elastic IPs in a region.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// The following shows outputting all Elastic IPs with the a specific tag value.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -43,8 +42,7 @@ namespace Pulumi.Aws.Ec2
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetEipsResult> InvokeAsync(GetEipsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEipsResult>("aws:ec2/getEips:getEips", args ?? new GetEipsArgs(), options.WithDefaults());
@@ -52,12 +50,11 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Provides a list of Elastic IPs in a region.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// The following shows outputting all Elastic IPs with the a specific tag value.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -81,8 +78,7 @@ namespace Pulumi.Aws.Ec2
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetEipsResult> Invoke(GetEipsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEipsResult>("aws:ec2/getEips:getEips", args ?? new GetEipsInvokeArgs(), options.WithDefaults());

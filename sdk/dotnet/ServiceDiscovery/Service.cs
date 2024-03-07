@@ -14,6 +14,7 @@ namespace Pulumi.Aws.ServiceDiscovery
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -60,7 +61,9 @@ namespace Pulumi.Aws.ServiceDiscovery
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -100,13 +103,14 @@ namespace Pulumi.Aws.ServiceDiscovery
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Service Discovery Service using the service ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:servicediscovery/service:Service example 0123456789
+    /// $ pulumi import aws:servicediscovery/service:Service example 0123456789
     /// ```
     /// </summary>
     [AwsResourceType("aws:servicediscovery/service:Service")]

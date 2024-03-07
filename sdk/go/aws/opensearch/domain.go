@@ -31,8 +31,10 @@ import (
 // * IAM policy actions, such as those you will find in `accessPolicies`, are prefaced with `es:` for both.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -63,10 +65,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Access Policy
 //
 // > See also: `opensearch.DomainPolicy` resource
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -142,8 +147,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Log publishing to CloudWatch Logs
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -213,8 +221,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### VPC based OpenSearch
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -349,11 +360,15 @@ import (
 // })
 // }
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Enabling fine-grained access control on an existing domain
 //
 // This example shows two configurations: one to create a domain without fine-grained access control and the second to modify the domain to enable fine-grained access control. For more information, see [Enabling fine-grained access control](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/fgac.html).
+//
 // ### First apply
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -404,10 +419,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Second apply
 //
 // Notice that the only change is `advanced_security_options.0.enabled` is now set to `true`.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -458,15 +476,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import OpenSearch domains using the `domain_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:opensearch/domain:Domain example domain_name
-//
+// $ pulumi import aws:opensearch/domain:Domain example domain_name
 // ```
 type Domain struct {
 	pulumi.CustomResourceState

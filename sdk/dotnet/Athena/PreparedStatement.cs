@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Athena
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -48,13 +49,14 @@ namespace Pulumi.Aws.Athena
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Athena Prepared Statement using the `WORKGROUP-NAME/STATEMENT-NAME`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:athena/preparedStatement:PreparedStatement example 12345abcde/example
+    /// $ pulumi import aws:athena/preparedStatement:PreparedStatement example 12345abcde/example
     /// ```
     /// </summary>
     [AwsResourceType("aws:athena/preparedStatement:PreparedStatement")]

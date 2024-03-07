@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -28,13 +29,14 @@ import * as utilities from "../utilities";
  *     }));
  * }
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import DKIM tokens using the `domain` attribute. For example:
  *
  * ```sh
- *  $ pulumi import aws:ses/domainDkim:DomainDkim example example.com
+ * $ pulumi import aws:ses/domainDkim:DomainDkim example example.com
  * ```
  */
 export class DomainDkim extends pulumi.CustomResource {

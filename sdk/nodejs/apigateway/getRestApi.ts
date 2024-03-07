@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,6 +24,7 @@ import * as utilities from "../utilities";
  *     name: "my-rest-api",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRestApi(args: GetRestApiArgs, opts?: pulumi.InvokeOptions): Promise<GetRestApiResult> {
 
@@ -105,6 +107,7 @@ export interface GetRestApiResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -113,6 +116,7 @@ export interface GetRestApiResult {
  *     name: "my-rest-api",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRestApiOutput(args: GetRestApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRestApiResult> {
     return pulumi.output(args).apply((a: any) => getRestApi(a, opts))

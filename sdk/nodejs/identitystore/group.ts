@@ -11,29 +11,13 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS IdentityStore Group.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const _this = new aws.identitystore.Group("this", {
- *     displayName: "Example group",
- *     description: "Example description",
- *     identityStoreId: notImplemented("tolist(data.aws_ssoadmin_instances.example.identity_store_ids)")[0],
- * });
- * ```
  *
  * ## Import
  *
  * Using `pulumi import`, import an Identity Store Group using the combination `identity_store_id/group_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:identitystore/group:Group example d-9c6705e95c/b8a1c340-8031-7071-a2fb-7dc540320c30
+ * $ pulumi import aws:identitystore/group:Group example d-9c6705e95c/b8a1c340-8031-7071-a2fb-7dc540320c30
  * ```
  */
 export class Group extends pulumi.CustomResource {

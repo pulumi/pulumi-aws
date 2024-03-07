@@ -29,6 +29,8 @@ import javax.annotation.Nullable;
  * More information about Keyspaces tables can be found in the [Keyspaces Developer Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/working-with-tables.html).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -68,13 +70,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import a table using the `keyspace_name` and `table_name` separated by `/`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:keyspaces/table:Table example my_keyspace/my_table
+ * $ pulumi import aws:keyspaces/table:Table example my_keyspace/my_table
  * ```
  * 
  */

@@ -128,6 +128,7 @@ class VpcIpamOrganizationAdminAccount(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -135,13 +136,14 @@ class VpcIpamOrganizationAdminAccount(pulumi.CustomResource):
         delegated = aws.get_caller_identity()
         example = aws.ec2.VpcIpamOrganizationAdminAccount("example", delegated_admin_account_id=delegated.account_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IPAMs using the delegate account `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount example 12345678901
+        $ pulumi import aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount example 12345678901
         ```
 
         :param str resource_name: The name of the resource.
@@ -160,6 +162,7 @@ class VpcIpamOrganizationAdminAccount(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -167,13 +170,14 @@ class VpcIpamOrganizationAdminAccount(pulumi.CustomResource):
         delegated = aws.get_caller_identity()
         example = aws.ec2.VpcIpamOrganizationAdminAccount("example", delegated_admin_account_id=delegated.account_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IPAMs using the delegate account `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount example 12345678901
+        $ pulumi import aws:ec2/vpcIpamOrganizationAdminAccount:VpcIpamOrganizationAdminAccount example 12345678901
         ```
 
         :param str resource_name: The name of the resource.

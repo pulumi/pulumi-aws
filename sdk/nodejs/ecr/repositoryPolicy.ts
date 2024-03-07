@@ -13,6 +13,7 @@ import {PolicyDocument} from "../iam";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -49,13 +50,14 @@ import {PolicyDocument} from "../iam";
  *     policy: foopolicy.then(foopolicy => foopolicy.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import ECR Repository Policy using the repository name. For example:
  *
  * ```sh
- *  $ pulumi import aws:ecr/repositoryPolicy:RepositoryPolicy example example
+ * $ pulumi import aws:ecr/repositoryPolicy:RepositoryPolicy example example
  * ```
  */
 export class RepositoryPolicy extends pulumi.CustomResource {

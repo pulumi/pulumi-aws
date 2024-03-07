@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Rbin
     /// Resource for managing an AWS RBin Rule.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -48,13 +50,14 @@ namespace Pulumi.Aws.Rbin
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import RBin Rule using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:rbin/rule:Rule example examplerule
+    /// $ pulumi import aws:rbin/rule:Rule example examplerule
     /// ```
     /// </summary>
     [AwsResourceType("aws:rbin/rule:Rule")]

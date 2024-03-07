@@ -14,6 +14,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -65,13 +66,14 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_lightsail_lb_attachment` using the name attribute. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:lightsail/lbAttachment:LbAttachment test example-load-balancer,example-instance
+    /// $ pulumi import aws:lightsail/lbAttachment:LbAttachment test example-load-balancer,example-instance
     /// ```
     /// </summary>
     [AwsResourceType("aws:lightsail/lbAttachment:LbAttachment")]

@@ -426,8 +426,10 @@ class VpcEndpointService(pulumi.CustomResource):
         and will overwrite the association.
 
         ## Example Usage
+
         ### Network Load Balancers
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -436,8 +438,11 @@ class VpcEndpointService(pulumi.CustomResource):
             acceptance_required=False,
             network_load_balancer_arns=[example_aws_lb["arn"]])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Gateway Load Balancers
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -446,13 +451,14 @@ class VpcEndpointService(pulumi.CustomResource):
             acceptance_required=False,
             gateway_load_balancer_arns=[example_aws_lb["arn"]])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import VPC Endpoint Services using the VPC endpoint service `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/vpcEndpointService:VpcEndpointService foo vpce-svc-0f97a19d3fa8220bc
+        $ pulumi import aws:ec2/vpcEndpointService:VpcEndpointService foo vpce-svc-0f97a19d3fa8220bc
         ```
 
         :param str resource_name: The name of the resource.
@@ -482,8 +488,10 @@ class VpcEndpointService(pulumi.CustomResource):
         and will overwrite the association.
 
         ## Example Usage
+
         ### Network Load Balancers
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -492,8 +500,11 @@ class VpcEndpointService(pulumi.CustomResource):
             acceptance_required=False,
             network_load_balancer_arns=[example_aws_lb["arn"]])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Gateway Load Balancers
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -502,13 +513,14 @@ class VpcEndpointService(pulumi.CustomResource):
             acceptance_required=False,
             gateway_load_balancer_arns=[example_aws_lb["arn"]])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import VPC Endpoint Services using the VPC endpoint service `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/vpcEndpointService:VpcEndpointService foo vpce-svc-0f97a19d3fa8220bc
+        $ pulumi import aws:ec2/vpcEndpointService:VpcEndpointService foo vpce-svc-0f97a19d3fa8220bc
         ```
 
         :param str resource_name: The name of the resource.

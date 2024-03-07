@@ -17,6 +17,7 @@ import (
 //
 // Basic usage:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,9 +44,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // Full usage:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -83,6 +86,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Remarks
 //
 // * Notice that all arguments are optional but you have to specify at least one argument.
@@ -96,9 +101,7 @@ import (
 // Using `pulumi import`, import VPC DHCP Options using the DHCP Options `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/vpcDhcpOptions:VpcDhcpOptions my_options dopt-d9070ebb
-//
+// $ pulumi import aws:ec2/vpcDhcpOptions:VpcDhcpOptions my_options dopt-d9070ebb
 // ```
 type VpcDhcpOptions struct {
 	pulumi.CustomResourceState

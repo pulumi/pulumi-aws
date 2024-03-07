@@ -203,8 +203,10 @@ class DeploymentConfig(pulumi.CustomResource):
         Provides a CodeDeploy deployment config for an application
 
         ## Example Usage
+
         ### Server Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -239,8 +241,11 @@ class DeploymentConfig(pulumi.CustomResource):
                 enabled=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Lambda Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -269,13 +274,14 @@ class DeploymentConfig(pulumi.CustomResource):
                 enabled=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CodeDeploy Deployment Configurations using the `deployment_config_name`. For example:
 
         ```sh
-         $ pulumi import aws:codedeploy/deploymentConfig:DeploymentConfig example my-deployment-config
+        $ pulumi import aws:codedeploy/deploymentConfig:DeploymentConfig example my-deployment-config
         ```
 
         :param str resource_name: The name of the resource.
@@ -295,8 +301,10 @@ class DeploymentConfig(pulumi.CustomResource):
         Provides a CodeDeploy deployment config for an application
 
         ## Example Usage
+
         ### Server Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -331,8 +339,11 @@ class DeploymentConfig(pulumi.CustomResource):
                 enabled=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Lambda Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -361,13 +372,14 @@ class DeploymentConfig(pulumi.CustomResource):
                 enabled=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CodeDeploy Deployment Configurations using the `deployment_config_name`. For example:
 
         ```sh
-         $ pulumi import aws:codedeploy/deploymentConfig:DeploymentConfig example my-deployment-config
+        $ pulumi import aws:codedeploy/deploymentConfig:DeploymentConfig example my-deployment-config
         ```
 
         :param str resource_name: The name of the resource.

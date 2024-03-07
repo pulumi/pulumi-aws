@@ -801,8 +801,10 @@ class Crawler(pulumi.CustomResource):
         Manages a Glue Crawler. More information can be found in the [AWS Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html)
 
         ## Example Usage
+
         ### DynamoDB Target Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -815,8 +817,11 @@ class Crawler(pulumi.CustomResource):
                 path="table-name",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### JDBC Target Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -830,8 +835,11 @@ class Crawler(pulumi.CustomResource):
                 path="database-name/%",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### S3 Target Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -844,8 +852,11 @@ class Crawler(pulumi.CustomResource):
                 path=f"s3://{example_aws_s3_bucket['bucket']}",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Catalog Target Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -869,8 +880,11 @@ class Crawler(pulumi.CustomResource):
         }
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### MongoDB Target Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -884,8 +898,11 @@ class Crawler(pulumi.CustomResource):
                 path="database-name/%",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Configuration Settings Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -912,13 +929,14 @@ class Crawler(pulumi.CustomResource):
                 path=f"s3://{data_lake_bucket['bucket']}",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Glue Crawlers using `name`. For example:
 
         ```sh
-         $ pulumi import aws:glue/crawler:Crawler MyJob MyJob
+        $ pulumi import aws:glue/crawler:Crawler MyJob MyJob
         ```
 
         :param str resource_name: The name of the resource.
@@ -956,8 +974,10 @@ class Crawler(pulumi.CustomResource):
         Manages a Glue Crawler. More information can be found in the [AWS Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html)
 
         ## Example Usage
+
         ### DynamoDB Target Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -970,8 +990,11 @@ class Crawler(pulumi.CustomResource):
                 path="table-name",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### JDBC Target Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -985,8 +1008,11 @@ class Crawler(pulumi.CustomResource):
                 path="database-name/%",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### S3 Target Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -999,8 +1025,11 @@ class Crawler(pulumi.CustomResource):
                 path=f"s3://{example_aws_s3_bucket['bucket']}",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Catalog Target Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1024,8 +1053,11 @@ class Crawler(pulumi.CustomResource):
         }
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### MongoDB Target Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1039,8 +1071,11 @@ class Crawler(pulumi.CustomResource):
                 path="database-name/%",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Configuration Settings Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -1067,13 +1102,14 @@ class Crawler(pulumi.CustomResource):
                 path=f"s3://{data_lake_bucket['bucket']}",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Glue Crawlers using `name`. For example:
 
         ```sh
-         $ pulumi import aws:glue/crawler:Crawler MyJob MyJob
+        $ pulumi import aws:glue/crawler:Crawler MyJob MyJob
         ```
 
         :param str resource_name: The name of the resource.

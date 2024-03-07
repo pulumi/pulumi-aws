@@ -16,6 +16,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -33,13 +34,14 @@ import * as utilities from "../utilities";
  *     instanceCount: 3,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import RDS DB Instance Reservations using the `instance_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:rds/reservedInstance:ReservedInstance reservation_instance CustomReservationID
+ * $ pulumi import aws:rds/reservedInstance:ReservedInstance reservation_instance CustomReservationID
  * ```
  */
 export class ReservedInstance extends pulumi.CustomResource {

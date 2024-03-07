@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,15 +42,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Redshift endpoint access using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:redshift/endpointAccess:EndpointAccess example example
-//
+// $ pulumi import aws:redshift/endpointAccess:EndpointAccess example example
 // ```
 type EndpointAccess struct {
 	pulumi.CustomResourceState

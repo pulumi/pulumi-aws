@@ -17,8 +17,10 @@ import (
 // > **NOTE:** If the `AWSCURRENT` staging label is present on this version during resource deletion, that label cannot be removed and will be skipped to prevent errors when fully deleting the secret. That label will leave this secret version active even after the resource is deleted from this provider unless the secret itself is deleted. Move the `AWSCURRENT` staging label before or after deleting this resource from this provider to fully trigger version deprecation if necessary.
 //
 // ## Example Usage
+//
 // ### Simple String Value
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,10 +45,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Key-Value Pairs
 //
 // Secrets Manager also accepts key-value pairs in JSON.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -87,39 +92,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // # Reading key-value pairs from JSON back into a native map
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func notImplemented(message string) pulumi.AnyOutput {
-//		panic(message)
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			ctx.Export("example", notImplemented("jsondecode(aws_secretsmanager_secret_version.example.secret_string)").Key1)
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_secretsmanager_secret_version` using the secret ID and version ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:secretsmanager/secretVersion:SecretVersion example 'arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456|xxxxx-xxxxxxx-xxxxxxx-xxxxx'
-//
+// $ pulumi import aws:secretsmanager/secretVersion:SecretVersion example 'arn:aws:secretsmanager:us-east-1:123456789012:secret:example-123456|xxxxx-xxxxxxx-xxxxxxx-xxxxx'
 // ```
 type SecretVersion struct {
 	pulumi.CustomResourceState

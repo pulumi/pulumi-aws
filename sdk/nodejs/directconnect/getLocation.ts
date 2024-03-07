@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,6 +21,7 @@ import * as utilities from "../utilities";
  *     locationCode: "CS32A-24FL",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getLocation(args: GetLocationArgs, opts?: pulumi.InvokeOptions): Promise<GetLocationResult> {
 
@@ -73,6 +75,7 @@ export interface GetLocationResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -81,6 +84,7 @@ export interface GetLocationResult {
  *     locationCode: "CS32A-24FL",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getLocationOutput(args: GetLocationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLocationResult> {
     return pulumi.output(args).apply((a: any) => getLocation(a, opts))

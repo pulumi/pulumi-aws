@@ -14,8 +14,10 @@ import (
 // Get information about the organization that the user's account belongs to
 //
 // ## Example Usage
+//
 // ### List all account IDs for the organization
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,8 +44,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### SNS topic that can be interacted by the organization only
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -113,6 +118,7 @@ import (
 // })
 // }
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupOrganization(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*LookupOrganizationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupOrganizationResult

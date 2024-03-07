@@ -13,8 +13,10 @@ namespace Pulumi.Aws.CodeGuruProfiler
     /// Resource for managing an AWS CodeGuru Profiler Profiling Group.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,13 +37,14 @@ namespace Pulumi.Aws.CodeGuruProfiler
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CodeGuru Profiler Profiling Group using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:codeguruprofiler/profilingGroup:ProfilingGroup example profiling_group-name-12345678
+    /// $ pulumi import aws:codeguruprofiler/profilingGroup:ProfilingGroup example profiling_group-name-12345678
     /// ```
     /// </summary>
     [AwsResourceType("aws:codeguruprofiler/profilingGroup:ProfilingGroup")]

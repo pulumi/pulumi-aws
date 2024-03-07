@@ -27,7 +27,10 @@ public final class Sesv2Functions {
      * Data source for managing an AWS SESv2 (Simple Email V2) Configuration Set.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -56,6 +59,7 @@ public final class Sesv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetConfigurationSetResult> getConfigurationSet(GetConfigurationSetArgs args) {
@@ -65,7 +69,10 @@ public final class Sesv2Functions {
      * Data source for managing an AWS SESv2 (Simple Email V2) Configuration Set.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -94,6 +101,7 @@ public final class Sesv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetConfigurationSetResult> getConfigurationSetPlain(GetConfigurationSetPlainArgs args) {
@@ -103,7 +111,10 @@ public final class Sesv2Functions {
      * Data source for managing an AWS SESv2 (Simple Email V2) Configuration Set.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -132,6 +143,7 @@ public final class Sesv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetConfigurationSetResult> getConfigurationSet(GetConfigurationSetArgs args, InvokeOptions options) {
@@ -141,7 +153,10 @@ public final class Sesv2Functions {
      * Data source for managing an AWS SESv2 (Simple Email V2) Configuration Set.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -170,6 +185,7 @@ public final class Sesv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetConfigurationSetResult> getConfigurationSetPlain(GetConfigurationSetPlainArgs args, InvokeOptions options) {
@@ -179,7 +195,10 @@ public final class Sesv2Functions {
      * Data source for managing an AWS SESv2 (Simple Email V2) Dedicated IP Pool.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -208,6 +227,7 @@ public final class Sesv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDedicatedIpPoolResult> getDedicatedIpPool(GetDedicatedIpPoolArgs args) {
@@ -217,7 +237,10 @@ public final class Sesv2Functions {
      * Data source for managing an AWS SESv2 (Simple Email V2) Dedicated IP Pool.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -246,6 +269,7 @@ public final class Sesv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDedicatedIpPoolResult> getDedicatedIpPoolPlain(GetDedicatedIpPoolPlainArgs args) {
@@ -255,7 +279,10 @@ public final class Sesv2Functions {
      * Data source for managing an AWS SESv2 (Simple Email V2) Dedicated IP Pool.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -284,6 +311,7 @@ public final class Sesv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDedicatedIpPoolResult> getDedicatedIpPool(GetDedicatedIpPoolArgs args, InvokeOptions options) {
@@ -293,7 +321,10 @@ public final class Sesv2Functions {
      * Data source for managing an AWS SESv2 (Simple Email V2) Dedicated IP Pool.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -322,6 +353,7 @@ public final class Sesv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDedicatedIpPoolResult> getDedicatedIpPoolPlain(GetDedicatedIpPoolPlainArgs args, InvokeOptions options) {
@@ -331,7 +363,10 @@ public final class Sesv2Functions {
      * Data source for managing an AWS SESv2 (Simple Email V2) Email Identity.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -360,6 +395,7 @@ public final class Sesv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEmailIdentityResult> getEmailIdentity(GetEmailIdentityArgs args) {
@@ -369,7 +405,10 @@ public final class Sesv2Functions {
      * Data source for managing an AWS SESv2 (Simple Email V2) Email Identity.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -398,6 +437,7 @@ public final class Sesv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEmailIdentityResult> getEmailIdentityPlain(GetEmailIdentityPlainArgs args) {
@@ -407,7 +447,10 @@ public final class Sesv2Functions {
      * Data source for managing an AWS SESv2 (Simple Email V2) Email Identity.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -436,6 +479,7 @@ public final class Sesv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEmailIdentityResult> getEmailIdentity(GetEmailIdentityArgs args, InvokeOptions options) {
@@ -445,7 +489,10 @@ public final class Sesv2Functions {
      * Data source for managing an AWS SESv2 (Simple Email V2) Email Identity.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -474,6 +521,7 @@ public final class Sesv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEmailIdentityResult> getEmailIdentityPlain(GetEmailIdentityPlainArgs args, InvokeOptions options) {
@@ -483,7 +531,10 @@ public final class Sesv2Functions {
      * Data source for managing an AWS SESv2 (Simple Email V2) Email Identity Mail From Attributes.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -517,6 +568,7 @@ public final class Sesv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEmailIdentityMailFromAttributesResult> getEmailIdentityMailFromAttributes(GetEmailIdentityMailFromAttributesArgs args) {
@@ -526,7 +578,10 @@ public final class Sesv2Functions {
      * Data source for managing an AWS SESv2 (Simple Email V2) Email Identity Mail From Attributes.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -560,6 +615,7 @@ public final class Sesv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEmailIdentityMailFromAttributesResult> getEmailIdentityMailFromAttributesPlain(GetEmailIdentityMailFromAttributesPlainArgs args) {
@@ -569,7 +625,10 @@ public final class Sesv2Functions {
      * Data source for managing an AWS SESv2 (Simple Email V2) Email Identity Mail From Attributes.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -603,6 +662,7 @@ public final class Sesv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEmailIdentityMailFromAttributesResult> getEmailIdentityMailFromAttributes(GetEmailIdentityMailFromAttributesArgs args, InvokeOptions options) {
@@ -612,7 +672,10 @@ public final class Sesv2Functions {
      * Data source for managing an AWS SESv2 (Simple Email V2) Email Identity Mail From Attributes.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -646,6 +709,7 @@ public final class Sesv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEmailIdentityMailFromAttributesResult> getEmailIdentityMailFromAttributesPlain(GetEmailIdentityMailFromAttributesPlainArgs args, InvokeOptions options) {

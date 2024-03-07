@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -263,15 +264,14 @@ import (
 // })
 // }
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CodeBuild Project using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:codebuild/project:Project name project-name
-//
+// $ pulumi import aws:codebuild/project:Project name project-name
 // ```
 type Project struct {
 	pulumi.CustomResourceState

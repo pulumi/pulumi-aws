@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// Basic usage:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -36,13 +37,14 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import endpoints using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:sagemaker/endpoint:Endpoint test_endpoint my-endpoint
+    /// $ pulumi import aws:sagemaker/endpoint:Endpoint test_endpoint my-endpoint
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/endpoint:Endpoint")]

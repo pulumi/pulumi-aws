@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -36,13 +37,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import ECR Public Repositories using the `repository_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ecrpublic/repository:Repository example example
+ * $ pulumi import aws:ecrpublic/repository:Repository example example
  * ```
  */
 export class Repository extends pulumi.CustomResource {

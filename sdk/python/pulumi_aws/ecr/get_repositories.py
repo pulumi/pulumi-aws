@@ -61,14 +61,17 @@ def get_repositories(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
     Data source for providing information on AWS ECR (Elastic Container Registry) Repositories.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.ecr.get_repositories()
     ```
+    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -85,13 +88,16 @@ def get_repositories_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulu
     Data source for providing information on AWS ECR (Elastic Container Registry) Repositories.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.ecr.get_repositories()
     ```
+    <!--End PulumiCodeChooser -->
     """
     ...

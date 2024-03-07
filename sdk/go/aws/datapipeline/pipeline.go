@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,15 +39,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_datapipeline_pipeline` using the id (Pipeline ID). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:datapipeline/pipeline:Pipeline default df-1234567890
-//
+// $ pulumi import aws:datapipeline/pipeline:Pipeline default df-1234567890
 // ```
 type Pipeline struct {
 	pulumi.CustomResourceState

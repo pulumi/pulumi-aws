@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -33,13 +34,14 @@ import * as utilities from "../utilities";
  *     triggerTypes: ["ConfigurationItemChangeNotification"],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Config Organization Custom Rules using the name. For example:
  *
  * ```sh
- *  $ pulumi import aws:cfg/organizationCustomRule:OrganizationCustomRule example example
+ * $ pulumi import aws:cfg/organizationCustomRule:OrganizationCustomRule example example
  * ```
  */
 export class OrganizationCustomRule extends pulumi.CustomResource {

@@ -27,7 +27,10 @@ import javax.annotation.Nullable;
  * Provides an Amazon MSK Connect Connector resource.
  * 
  * ## Example Usage
+ * 
  * ### Basic configuration
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -111,13 +114,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import MSK Connect Connector using the connector&#39;s `arn`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:mskconnect/connector:Connector example &#39;arn:aws:kafkaconnect:eu-central-1:123456789012:connector/example/264edee4-17a3-412e-bd76-6681cfc93805-3&#39;
+ * $ pulumi import aws:mskconnect/connector:Connector example &#39;arn:aws:kafkaconnect:eu-central-1:123456789012:connector/example/264edee4-17a3-412e-bd76-6681cfc93805-3&#39;
  * ```
  * 
  */

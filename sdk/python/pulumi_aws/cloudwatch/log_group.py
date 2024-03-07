@@ -323,6 +323,7 @@ class LogGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -334,13 +335,14 @@ class LogGroup(pulumi.CustomResource):
                 "Application": "serviceA",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Cloudwatch Log Groups using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/logGroup:LogGroup test_group yada
+        $ pulumi import aws:cloudwatch/logGroup:LogGroup test_group yada
         ```
 
         :param str resource_name: The name of the resource.
@@ -368,6 +370,7 @@ class LogGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -379,13 +382,14 @@ class LogGroup(pulumi.CustomResource):
                 "Application": "serviceA",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Cloudwatch Log Groups using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/logGroup:LogGroup test_group yada
+        $ pulumi import aws:cloudwatch/logGroup:LogGroup test_group yada
         ```
 
         :param str resource_name: The name of the resource.

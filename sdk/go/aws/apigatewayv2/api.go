@@ -17,8 +17,10 @@ import (
 // > **Note:** Amazon API Gateway Version 2 resources are used for creating and deploying WebSocket and HTTP APIs. To create and deploy REST APIs, use Amazon API Gateway Version 1 resources.
 //
 // ## Example Usage
+//
 // ### Basic WebSocket API
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,8 +46,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Basic HTTP API
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -70,15 +75,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_apigatewayv2_api` using the API identifier. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:apigatewayv2/api:Api example aabbccddee
-//
+// $ pulumi import aws:apigatewayv2/api:Api example aabbccddee
 // ```
 type Api struct {
 	pulumi.CustomResourceState

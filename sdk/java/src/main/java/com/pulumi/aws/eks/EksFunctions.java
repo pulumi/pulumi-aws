@@ -38,6 +38,8 @@ public final class EksFunctions {
      * Access Entry Configurations for an EKS Cluster.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -68,6 +70,7 @@ public final class EksFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAccessEntryResult> getAccessEntry(GetAccessEntryArgs args) {
@@ -77,6 +80,8 @@ public final class EksFunctions {
      * Access Entry Configurations for an EKS Cluster.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -107,6 +112,7 @@ public final class EksFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAccessEntryResult> getAccessEntryPlain(GetAccessEntryPlainArgs args) {
@@ -116,6 +122,8 @@ public final class EksFunctions {
      * Access Entry Configurations for an EKS Cluster.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -146,6 +154,7 @@ public final class EksFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAccessEntryResult> getAccessEntry(GetAccessEntryArgs args, InvokeOptions options) {
@@ -155,6 +164,8 @@ public final class EksFunctions {
      * Access Entry Configurations for an EKS Cluster.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -185,6 +196,7 @@ public final class EksFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAccessEntryResult> getAccessEntryPlain(GetAccessEntryPlainArgs args, InvokeOptions options) {
@@ -194,6 +206,8 @@ public final class EksFunctions {
      * Retrieve information about an EKS add-on.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -224,6 +238,7 @@ public final class EksFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAddonResult> getAddon(GetAddonArgs args) {
@@ -233,6 +248,8 @@ public final class EksFunctions {
      * Retrieve information about an EKS add-on.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -263,6 +280,7 @@ public final class EksFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAddonResult> getAddonPlain(GetAddonPlainArgs args) {
@@ -272,6 +290,8 @@ public final class EksFunctions {
      * Retrieve information about an EKS add-on.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -302,6 +322,7 @@ public final class EksFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAddonResult> getAddon(GetAddonArgs args, InvokeOptions options) {
@@ -311,6 +332,8 @@ public final class EksFunctions {
      * Retrieve information about an EKS add-on.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -341,6 +364,7 @@ public final class EksFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAddonResult> getAddonPlain(GetAddonPlainArgs args, InvokeOptions options) {
@@ -350,6 +374,8 @@ public final class EksFunctions {
      * Retrieve information about a specific EKS add-on version compatible with an EKS cluster version.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -395,6 +421,7 @@ public final class EksFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAddonVersionResult> getAddonVersion(GetAddonVersionArgs args) {
@@ -404,6 +431,8 @@ public final class EksFunctions {
      * Retrieve information about a specific EKS add-on version compatible with an EKS cluster version.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -449,6 +478,7 @@ public final class EksFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAddonVersionResult> getAddonVersionPlain(GetAddonVersionPlainArgs args) {
@@ -458,6 +488,8 @@ public final class EksFunctions {
      * Retrieve information about a specific EKS add-on version compatible with an EKS cluster version.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -503,6 +535,7 @@ public final class EksFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAddonVersionResult> getAddonVersion(GetAddonVersionArgs args, InvokeOptions options) {
@@ -512,6 +545,8 @@ public final class EksFunctions {
      * Retrieve information about a specific EKS add-on version compatible with an EKS cluster version.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -557,6 +592,7 @@ public final class EksFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAddonVersionResult> getAddonVersionPlain(GetAddonVersionPlainArgs args, InvokeOptions options) {
@@ -566,6 +602,8 @@ public final class EksFunctions {
      * Retrieve information about an EKS Cluster.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -597,6 +635,7 @@ public final class EksFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetClusterResult> getCluster(GetClusterArgs args) {
@@ -606,6 +645,8 @@ public final class EksFunctions {
      * Retrieve information about an EKS Cluster.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -637,6 +678,7 @@ public final class EksFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetClusterResult> getClusterPlain(GetClusterPlainArgs args) {
@@ -646,6 +688,8 @@ public final class EksFunctions {
      * Retrieve information about an EKS Cluster.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -677,6 +721,7 @@ public final class EksFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetClusterResult> getCluster(GetClusterArgs args, InvokeOptions options) {
@@ -686,6 +731,8 @@ public final class EksFunctions {
      * Retrieve information about an EKS Cluster.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -717,6 +764,7 @@ public final class EksFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetClusterResult> getClusterPlain(GetClusterPlainArgs args, InvokeOptions options) {
@@ -731,6 +779,8 @@ public final class EksFunctions {
      * server configured.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -764,6 +814,7 @@ public final class EksFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetClusterAuthResult> getClusterAuth(GetClusterAuthArgs args) {
@@ -778,6 +829,8 @@ public final class EksFunctions {
      * server configured.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -811,6 +864,7 @@ public final class EksFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetClusterAuthResult> getClusterAuthPlain(GetClusterAuthPlainArgs args) {
@@ -825,6 +879,8 @@ public final class EksFunctions {
      * server configured.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -858,6 +914,7 @@ public final class EksFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetClusterAuthResult> getClusterAuth(GetClusterAuthArgs args, InvokeOptions options) {
@@ -872,6 +929,8 @@ public final class EksFunctions {
      * server configured.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -905,6 +964,7 @@ public final class EksFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetClusterAuthResult> getClusterAuthPlain(GetClusterAuthPlainArgs args, InvokeOptions options) {
@@ -913,16 +973,12 @@ public final class EksFunctions {
     /**
      * Retrieve EKS Clusters list
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetClustersResult> getClusters() {
         return getClusters(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Retrieve EKS Clusters list
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetClustersResult> getClustersPlain() {
@@ -931,16 +987,12 @@ public final class EksFunctions {
     /**
      * Retrieve EKS Clusters list
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetClustersResult> getClusters(InvokeArgs args) {
         return getClusters(args, InvokeOptions.Empty);
     }
     /**
      * Retrieve EKS Clusters list
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetClustersResult> getClustersPlain(InvokeArgs args) {
@@ -949,16 +1001,12 @@ public final class EksFunctions {
     /**
      * Retrieve EKS Clusters list
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetClustersResult> getClusters(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:eks/getClusters:getClusters", TypeShape.of(GetClustersResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Retrieve EKS Clusters list
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetClustersResult> getClustersPlain(InvokeArgs args, InvokeOptions options) {
@@ -968,6 +1016,8 @@ public final class EksFunctions {
      * Retrieve information about an EKS Node Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -997,6 +1047,7 @@ public final class EksFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNodeGroupResult> getNodeGroup(GetNodeGroupArgs args) {
@@ -1006,6 +1057,8 @@ public final class EksFunctions {
      * Retrieve information about an EKS Node Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1035,6 +1088,7 @@ public final class EksFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNodeGroupResult> getNodeGroupPlain(GetNodeGroupPlainArgs args) {
@@ -1044,6 +1098,8 @@ public final class EksFunctions {
      * Retrieve information about an EKS Node Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1073,6 +1129,7 @@ public final class EksFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNodeGroupResult> getNodeGroup(GetNodeGroupArgs args, InvokeOptions options) {
@@ -1082,6 +1139,8 @@ public final class EksFunctions {
      * Retrieve information about an EKS Node Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1111,6 +1170,7 @@ public final class EksFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNodeGroupResult> getNodeGroupPlain(GetNodeGroupPlainArgs args, InvokeOptions options) {
@@ -1121,6 +1181,9 @@ public final class EksFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetNodeGroupsResult> getNodeGroups(GetNodeGroupsArgs args) {
         return getNodeGroups(args, InvokeOptions.Empty);
@@ -1129,6 +1192,9 @@ public final class EksFunctions {
      * Retrieve the EKS Node Groups associated with a named EKS cluster. This will allow you to pass a list of Node Group names to other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNodeGroupsResult> getNodeGroupsPlain(GetNodeGroupsPlainArgs args) {
@@ -1139,6 +1205,9 @@ public final class EksFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetNodeGroupsResult> getNodeGroups(GetNodeGroupsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:eks/getNodeGroups:getNodeGroups", TypeShape.of(GetNodeGroupsResult.class), args, Utilities.withVersion(options));
@@ -1147,6 +1216,9 @@ public final class EksFunctions {
      * Retrieve the EKS Node Groups associated with a named EKS cluster. This will allow you to pass a list of Node Group names to other resources.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNodeGroupsResult> getNodeGroupsPlain(GetNodeGroupsPlainArgs args, InvokeOptions options) {

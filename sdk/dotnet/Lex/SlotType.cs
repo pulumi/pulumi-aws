@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Lex
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -54,13 +55,14 @@ namespace Pulumi.Aws.Lex
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import slot types using their name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:lex/slotType:SlotType flower_types FlowerTypes
+    /// $ pulumi import aws:lex/slotType:SlotType flower_types FlowerTypes
     /// ```
     /// </summary>
     [AwsResourceType("aws:lex/slotType:SlotType")]

@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Keyspaces
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,13 +32,14 @@ namespace Pulumi.Aws.Keyspaces
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import a keyspace using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:keyspaces/keyspace:Keyspace example my_keyspace
+    /// $ pulumi import aws:keyspaces/keyspace:Keyspace example my_keyspace
     /// ```
     /// </summary>
     [AwsResourceType("aws:keyspaces/keyspace:Keyspace")]

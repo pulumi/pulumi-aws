@@ -51,6 +51,7 @@ class PolicyArgs:
         :param pulumi.Input[Sequence[pulumi.Input['PolicyStepAdjustmentArgs']]] step_adjustments: Set of adjustments that manage
                group scaling. These have the following structure:
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                import pulumi_aws as aws
@@ -68,10 +69,12 @@ class PolicyArgs:
                    ),
                ])
                ```
+               <!--End PulumiCodeChooser -->
                
                The following fields are available in step adjustments:
         :param pulumi.Input['PolicyTargetTrackingConfigurationArgs'] target_tracking_configuration: Target tracking policy. These have the following structure:
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                import pulumi_aws as aws
@@ -83,6 +86,7 @@ class PolicyArgs:
                    target_value=40,
                ))
                ```
+               <!--End PulumiCodeChooser -->
                
                The following fields are available in target tracking configuration:
         """
@@ -257,6 +261,7 @@ class PolicyArgs:
         Set of adjustments that manage
         group scaling. These have the following structure:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -274,6 +279,7 @@ class PolicyArgs:
             ),
         ])
         ```
+        <!--End PulumiCodeChooser -->
 
         The following fields are available in step adjustments:
         """
@@ -289,6 +295,7 @@ class PolicyArgs:
         """
         Target tracking policy. These have the following structure:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -300,6 +307,7 @@ class PolicyArgs:
             target_value=40,
         ))
         ```
+        <!--End PulumiCodeChooser -->
 
         The following fields are available in target tracking configuration:
         """
@@ -350,6 +358,7 @@ class _PolicyState:
         :param pulumi.Input[Sequence[pulumi.Input['PolicyStepAdjustmentArgs']]] step_adjustments: Set of adjustments that manage
                group scaling. These have the following structure:
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                import pulumi_aws as aws
@@ -367,10 +376,12 @@ class _PolicyState:
                    ),
                ])
                ```
+               <!--End PulumiCodeChooser -->
                
                The following fields are available in step adjustments:
         :param pulumi.Input['PolicyTargetTrackingConfigurationArgs'] target_tracking_configuration: Target tracking policy. These have the following structure:
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                import pulumi_aws as aws
@@ -382,6 +393,7 @@ class _PolicyState:
                    target_value=40,
                ))
                ```
+               <!--End PulumiCodeChooser -->
                
                The following fields are available in target tracking configuration:
         """
@@ -571,6 +583,7 @@ class _PolicyState:
         Set of adjustments that manage
         group scaling. These have the following structure:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -588,6 +601,7 @@ class _PolicyState:
             ),
         ])
         ```
+        <!--End PulumiCodeChooser -->
 
         The following fields are available in step adjustments:
         """
@@ -603,6 +617,7 @@ class _PolicyState:
         """
         Target tracking policy. These have the following structure:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -614,6 +629,7 @@ class _PolicyState:
             target_value=40,
         ))
         ```
+        <!--End PulumiCodeChooser -->
 
         The following fields are available in target tracking configuration:
         """
@@ -654,6 +670,7 @@ class Policy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -674,8 +691,11 @@ class Policy(pulumi.CustomResource):
             cooldown=300,
             autoscaling_group_name=bar.name)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Create target tracking scaling policy using metric math
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -730,8 +750,11 @@ class Policy(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Create predictive scaling policy using customized metrics
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -776,8 +799,11 @@ class Policy(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Create predictive scaling policy using customized scaling and predefined load metric
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -812,13 +838,14 @@ class Policy(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AutoScaling scaling policy using the role autoscaling_group_name and name separated by `/`. For example:
 
         ```sh
-         $ pulumi import aws:autoscaling/policy:Policy test-policy asg-name/policy-name
+        $ pulumi import aws:autoscaling/policy:Policy test-policy asg-name/policy-name
         ```
 
         :param str resource_name: The name of the resource.
@@ -843,6 +870,7 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyStepAdjustmentArgs']]]] step_adjustments: Set of adjustments that manage
                group scaling. These have the following structure:
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                import pulumi_aws as aws
@@ -860,10 +888,12 @@ class Policy(pulumi.CustomResource):
                    ),
                ])
                ```
+               <!--End PulumiCodeChooser -->
                
                The following fields are available in step adjustments:
         :param pulumi.Input[pulumi.InputType['PolicyTargetTrackingConfigurationArgs']] target_tracking_configuration: Target tracking policy. These have the following structure:
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                import pulumi_aws as aws
@@ -875,6 +905,7 @@ class Policy(pulumi.CustomResource):
                    target_value=40,
                ))
                ```
+               <!--End PulumiCodeChooser -->
                
                The following fields are available in target tracking configuration:
         """
@@ -895,6 +926,7 @@ class Policy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -915,8 +947,11 @@ class Policy(pulumi.CustomResource):
             cooldown=300,
             autoscaling_group_name=bar.name)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Create target tracking scaling policy using metric math
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -971,8 +1006,11 @@ class Policy(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Create predictive scaling policy using customized metrics
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1017,8 +1055,11 @@ class Policy(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Create predictive scaling policy using customized scaling and predefined load metric
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1053,13 +1094,14 @@ class Policy(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AutoScaling scaling policy using the role autoscaling_group_name and name separated by `/`. For example:
 
         ```sh
-         $ pulumi import aws:autoscaling/policy:Policy test-policy asg-name/policy-name
+        $ pulumi import aws:autoscaling/policy:Policy test-policy asg-name/policy-name
         ```
 
         :param str resource_name: The name of the resource.
@@ -1167,6 +1209,7 @@ class Policy(pulumi.CustomResource):
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['PolicyStepAdjustmentArgs']]]] step_adjustments: Set of adjustments that manage
                group scaling. These have the following structure:
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                import pulumi_aws as aws
@@ -1184,10 +1227,12 @@ class Policy(pulumi.CustomResource):
                    ),
                ])
                ```
+               <!--End PulumiCodeChooser -->
                
                The following fields are available in step adjustments:
         :param pulumi.Input[pulumi.InputType['PolicyTargetTrackingConfigurationArgs']] target_tracking_configuration: Target tracking policy. These have the following structure:
                
+               <!--Start PulumiCodeChooser -->
                ```python
                import pulumi
                import pulumi_aws as aws
@@ -1199,6 +1244,7 @@ class Policy(pulumi.CustomResource):
                    target_value=40,
                ))
                ```
+               <!--End PulumiCodeChooser -->
                
                The following fields are available in target tracking configuration:
         """
@@ -1331,6 +1377,7 @@ class Policy(pulumi.CustomResource):
         Set of adjustments that manage
         group scaling. These have the following structure:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1348,6 +1395,7 @@ class Policy(pulumi.CustomResource):
             ),
         ])
         ```
+        <!--End PulumiCodeChooser -->
 
         The following fields are available in step adjustments:
         """
@@ -1359,6 +1407,7 @@ class Policy(pulumi.CustomResource):
         """
         Target tracking policy. These have the following structure:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1370,6 +1419,7 @@ class Policy(pulumi.CustomResource):
             target_value=40,
         ))
         ```
+        <!--End PulumiCodeChooser -->
 
         The following fields are available in target tracking configuration:
         """

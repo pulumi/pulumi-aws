@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Provides the ability to register a target with an AWS VPC Lattice Target Group.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -25,6 +27,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class TargetGroupAttachment extends pulumi.CustomResource {
     /**

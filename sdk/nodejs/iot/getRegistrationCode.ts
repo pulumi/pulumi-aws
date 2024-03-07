@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,6 +25,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRegistrationCode(opts?: pulumi.InvokeOptions): Promise<GetRegistrationCodeResult> {
 
@@ -50,6 +52,7 @@ export interface GetRegistrationCodeResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -65,6 +68,7 @@ export interface GetRegistrationCodeResult {
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRegistrationCodeOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetRegistrationCodeResult> {
     return pulumi.output(getRegistrationCode(opts))

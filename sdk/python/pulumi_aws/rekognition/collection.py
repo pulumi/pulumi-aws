@@ -192,6 +192,7 @@ class Collection(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -202,13 +203,14 @@ class Collection(pulumi.CustomResource):
                 "example": "1",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Rekognition Collection using the `example_id_arg`. For example:
 
         ```sh
-         $ pulumi import aws:rekognition/collection:Collection example collection-id-12345678
+        $ pulumi import aws:rekognition/collection:Collection example collection-id-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -229,6 +231,7 @@ class Collection(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -239,13 +242,14 @@ class Collection(pulumi.CustomResource):
                 "example": "1",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Rekognition Collection using the `example_id_arg`. For example:
 
         ```sh
-         $ pulumi import aws:rekognition/collection:Collection example collection-id-12345678
+        $ pulumi import aws:rekognition/collection:Collection example collection-id-12345678
         ```
 
         :param str resource_name: The name of the resource.

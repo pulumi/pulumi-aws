@@ -494,8 +494,10 @@ class User(pulumi.CustomResource):
         Provides a Cognito User Resource.
 
         ## Example Usage
+
         ### Basic configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -505,8 +507,11 @@ class User(pulumi.CustomResource):
             user_pool_id=example.id,
             username="example")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Setting user attributes
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -540,13 +545,14 @@ class User(pulumi.CustomResource):
                 "email_verified": "true",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Cognito User using the `user_pool_id`/`name` attributes concatenated. For example:
 
         ```sh
-         $ pulumi import aws:cognito/user:User user us-east-1_vG78M4goG/user
+        $ pulumi import aws:cognito/user:User user us-east-1_vG78M4goG/user
         ```
 
         :param str resource_name: The name of the resource.
@@ -577,8 +583,10 @@ class User(pulumi.CustomResource):
         Provides a Cognito User Resource.
 
         ## Example Usage
+
         ### Basic configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -588,8 +596,11 @@ class User(pulumi.CustomResource):
             user_pool_id=example.id,
             username="example")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Setting user attributes
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -623,13 +634,14 @@ class User(pulumi.CustomResource):
                 "email_verified": "true",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Cognito User using the `user_pool_id`/`name` attributes concatenated. For example:
 
         ```sh
-         $ pulumi import aws:cognito/user:User user us-east-1_vG78M4goG/user
+        $ pulumi import aws:cognito/user:User user us-east-1_vG78M4goG/user
         ```
 
         :param str resource_name: The name of the resource.

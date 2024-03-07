@@ -15,8 +15,10 @@ import (
 // Adds a launch permission to an Amazon Machine Image (AMI).
 //
 // ## Example Usage
+//
 // ### AWS Account ID
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,8 +43,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Public Access
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -67,8 +72,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Organization Access
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -98,15 +106,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import AMI Launch Permissions using `[ACCOUNT-ID|GROUP-NAME|ORGANIZATION-ARN|ORGANIZATIONAL-UNIT-ARN]/IMAGE-ID`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/amiLaunchPermission:AmiLaunchPermission example 123456789012/ami-12345678
-//
+// $ pulumi import aws:ec2/amiLaunchPermission:AmiLaunchPermission example 123456789012/ami-12345678
 // ```
 type AmiLaunchPermission struct {
 	pulumi.CustomResourceState

@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  *
  * The following example shows how to get a EC2 Key Pair including the public key material from its name.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -30,6 +31,7 @@ import * as utilities from "../utilities";
  * export const name = example.then(example => example.keyName);
  * export const id = example.then(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getKeyPair(args?: GetKeyPairArgs, opts?: pulumi.InvokeOptions): Promise<GetKeyPairResult> {
     args = args || {};
@@ -114,6 +116,7 @@ export interface GetKeyPairResult {
  *
  * The following example shows how to get a EC2 Key Pair including the public key material from its name.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -130,6 +133,7 @@ export interface GetKeyPairResult {
  * export const name = example.then(example => example.keyName);
  * export const id = example.then(example => example.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getKeyPairOutput(args?: GetKeyPairOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetKeyPairResult> {
     return pulumi.output(args).apply((a: any) => getKeyPair(a, opts))

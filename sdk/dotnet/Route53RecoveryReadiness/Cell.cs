@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,13 +30,14 @@ namespace Pulumi.Aws.Route53RecoveryReadiness
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Route53 Recovery Readiness cells using the cell name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:route53recoveryreadiness/cell:Cell us-west-2-failover-cell us-west-2-failover-cell
+    /// $ pulumi import aws:route53recoveryreadiness/cell:Cell us-west-2-failover-cell us-west-2-failover-cell
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53recoveryreadiness/cell:Cell")]

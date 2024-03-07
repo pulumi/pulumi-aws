@@ -21,6 +21,8 @@ public final class CodeartifactFunctions {
      * The CodeArtifact Authorization Token data source generates a temporary authentication token for accessing repositories in a CodeArtifact domain.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -49,6 +51,7 @@ public final class CodeartifactFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAuthorizationTokenResult> getAuthorizationToken(GetAuthorizationTokenArgs args) {
@@ -58,6 +61,8 @@ public final class CodeartifactFunctions {
      * The CodeArtifact Authorization Token data source generates a temporary authentication token for accessing repositories in a CodeArtifact domain.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -86,6 +91,7 @@ public final class CodeartifactFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAuthorizationTokenResult> getAuthorizationTokenPlain(GetAuthorizationTokenPlainArgs args) {
@@ -95,6 +101,8 @@ public final class CodeartifactFunctions {
      * The CodeArtifact Authorization Token data source generates a temporary authentication token for accessing repositories in a CodeArtifact domain.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -123,6 +131,7 @@ public final class CodeartifactFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAuthorizationTokenResult> getAuthorizationToken(GetAuthorizationTokenArgs args, InvokeOptions options) {
@@ -132,6 +141,8 @@ public final class CodeartifactFunctions {
      * The CodeArtifact Authorization Token data source generates a temporary authentication token for accessing repositories in a CodeArtifact domain.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -160,6 +171,7 @@ public final class CodeartifactFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAuthorizationTokenResult> getAuthorizationTokenPlain(GetAuthorizationTokenPlainArgs args, InvokeOptions options) {
@@ -169,6 +181,8 @@ public final class CodeartifactFunctions {
      * The CodeArtifact Repository Endpoint data source returns the endpoint of a repository for a specific package format.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -199,6 +213,7 @@ public final class CodeartifactFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRepositoryEndpointResult> getRepositoryEndpoint(GetRepositoryEndpointArgs args) {
@@ -208,6 +223,8 @@ public final class CodeartifactFunctions {
      * The CodeArtifact Repository Endpoint data source returns the endpoint of a repository for a specific package format.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -238,6 +255,7 @@ public final class CodeartifactFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRepositoryEndpointResult> getRepositoryEndpointPlain(GetRepositoryEndpointPlainArgs args) {
@@ -247,6 +265,8 @@ public final class CodeartifactFunctions {
      * The CodeArtifact Repository Endpoint data source returns the endpoint of a repository for a specific package format.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -277,6 +297,7 @@ public final class CodeartifactFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRepositoryEndpointResult> getRepositoryEndpoint(GetRepositoryEndpointArgs args, InvokeOptions options) {
@@ -286,6 +307,8 @@ public final class CodeartifactFunctions {
      * The CodeArtifact Repository Endpoint data source returns the endpoint of a repository for a specific package format.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -316,6 +339,7 @@ public final class CodeartifactFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRepositoryEndpointResult> getRepositoryEndpointPlain(GetRepositoryEndpointPlainArgs args, InvokeOptions options) {

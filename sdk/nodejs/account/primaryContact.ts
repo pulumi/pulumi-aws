@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -26,13 +27,14 @@ import * as utilities from "../utilities";
  *     websiteUrl: "https://www.examplecorp.com",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import the Primary Contact using the `account_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:account/primaryContact:PrimaryContact test 1234567890
+ * $ pulumi import aws:account/primaryContact:PrimaryContact test 1234567890
  * ```
  */
 export class PrimaryContact extends pulumi.CustomResource {

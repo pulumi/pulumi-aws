@@ -26,6 +26,8 @@ public final class LicensemanagerFunctions {
      * ## Example Usage
      * 
      * The following shows getting all license grant ARNs granted to your account.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -61,6 +63,7 @@ public final class LicensemanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLicenseGrantsResult> getLicenseGrants() {
@@ -72,6 +75,8 @@ public final class LicensemanagerFunctions {
      * ## Example Usage
      * 
      * The following shows getting all license grant ARNs granted to your account.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -107,6 +112,7 @@ public final class LicensemanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLicenseGrantsResult> getLicenseGrantsPlain() {
@@ -118,6 +124,8 @@ public final class LicensemanagerFunctions {
      * ## Example Usage
      * 
      * The following shows getting all license grant ARNs granted to your account.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -153,6 +161,7 @@ public final class LicensemanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLicenseGrantsResult> getLicenseGrants(GetLicenseGrantsArgs args) {
@@ -164,6 +173,8 @@ public final class LicensemanagerFunctions {
      * ## Example Usage
      * 
      * The following shows getting all license grant ARNs granted to your account.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -199,6 +210,7 @@ public final class LicensemanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLicenseGrantsResult> getLicenseGrantsPlain(GetLicenseGrantsPlainArgs args) {
@@ -210,6 +222,8 @@ public final class LicensemanagerFunctions {
      * ## Example Usage
      * 
      * The following shows getting all license grant ARNs granted to your account.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -245,6 +259,7 @@ public final class LicensemanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLicenseGrantsResult> getLicenseGrants(GetLicenseGrantsArgs args, InvokeOptions options) {
@@ -256,6 +271,8 @@ public final class LicensemanagerFunctions {
      * ## Example Usage
      * 
      * The following shows getting all license grant ARNs granted to your account.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -291,6 +308,7 @@ public final class LicensemanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLicenseGrantsResult> getLicenseGrantsPlain(GetLicenseGrantsPlainArgs args, InvokeOptions options) {
@@ -302,6 +320,8 @@ public final class LicensemanagerFunctions {
      * ## Example Usage
      * 
      * The following shows getting the received license data using and ARN.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -330,6 +350,7 @@ public final class LicensemanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetReceivedLicenseResult> getReceivedLicense(GetReceivedLicenseArgs args) {
@@ -341,6 +362,8 @@ public final class LicensemanagerFunctions {
      * ## Example Usage
      * 
      * The following shows getting the received license data using and ARN.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -369,6 +392,7 @@ public final class LicensemanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetReceivedLicenseResult> getReceivedLicensePlain(GetReceivedLicensePlainArgs args) {
@@ -380,6 +404,8 @@ public final class LicensemanagerFunctions {
      * ## Example Usage
      * 
      * The following shows getting the received license data using and ARN.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -408,6 +434,7 @@ public final class LicensemanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetReceivedLicenseResult> getReceivedLicense(GetReceivedLicenseArgs args, InvokeOptions options) {
@@ -419,6 +446,8 @@ public final class LicensemanagerFunctions {
      * ## Example Usage
      * 
      * The following shows getting the received license data using and ARN.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -447,6 +476,7 @@ public final class LicensemanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetReceivedLicenseResult> getReceivedLicensePlain(GetReceivedLicensePlainArgs args, InvokeOptions options) {
@@ -458,6 +488,8 @@ public final class LicensemanagerFunctions {
      * ## Example Usage
      * 
      * The following shows getting all license ARNs issued from the AWS marketplace. Providing no filter, would provide all license ARNs for the entire account.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -489,6 +521,7 @@ public final class LicensemanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetReceivedLicensesResult> getReceivedLicenses() {
@@ -500,6 +533,8 @@ public final class LicensemanagerFunctions {
      * ## Example Usage
      * 
      * The following shows getting all license ARNs issued from the AWS marketplace. Providing no filter, would provide all license ARNs for the entire account.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -531,6 +566,7 @@ public final class LicensemanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetReceivedLicensesResult> getReceivedLicensesPlain() {
@@ -542,6 +578,8 @@ public final class LicensemanagerFunctions {
      * ## Example Usage
      * 
      * The following shows getting all license ARNs issued from the AWS marketplace. Providing no filter, would provide all license ARNs for the entire account.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -573,6 +611,7 @@ public final class LicensemanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetReceivedLicensesResult> getReceivedLicenses(GetReceivedLicensesArgs args) {
@@ -584,6 +623,8 @@ public final class LicensemanagerFunctions {
      * ## Example Usage
      * 
      * The following shows getting all license ARNs issued from the AWS marketplace. Providing no filter, would provide all license ARNs for the entire account.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -615,6 +656,7 @@ public final class LicensemanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetReceivedLicensesResult> getReceivedLicensesPlain(GetReceivedLicensesPlainArgs args) {
@@ -626,6 +668,8 @@ public final class LicensemanagerFunctions {
      * ## Example Usage
      * 
      * The following shows getting all license ARNs issued from the AWS marketplace. Providing no filter, would provide all license ARNs for the entire account.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -657,6 +701,7 @@ public final class LicensemanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetReceivedLicensesResult> getReceivedLicenses(GetReceivedLicensesArgs args, InvokeOptions options) {
@@ -668,6 +713,8 @@ public final class LicensemanagerFunctions {
      * ## Example Usage
      * 
      * The following shows getting all license ARNs issued from the AWS marketplace. Providing no filter, would provide all license ARNs for the entire account.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -699,6 +746,7 @@ public final class LicensemanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetReceivedLicensesResult> getReceivedLicensesPlain(GetReceivedLicensesPlainArgs args, InvokeOptions options) {

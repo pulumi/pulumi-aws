@@ -38,6 +38,8 @@ public final class KmsFunctions {
      * without having to hard code the ARN as input.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -66,6 +68,7 @@ public final class KmsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAliasResult> getAlias(GetAliasArgs args) {
@@ -77,6 +80,8 @@ public final class KmsFunctions {
      * without having to hard code the ARN as input.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -105,6 +110,7 @@ public final class KmsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAliasResult> getAliasPlain(GetAliasPlainArgs args) {
@@ -116,6 +122,8 @@ public final class KmsFunctions {
      * without having to hard code the ARN as input.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -144,6 +152,7 @@ public final class KmsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAliasResult> getAlias(GetAliasArgs args, InvokeOptions options) {
@@ -155,6 +164,8 @@ public final class KmsFunctions {
      * without having to hard code the ARN as input.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -183,6 +194,7 @@ public final class KmsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAliasResult> getAliasPlain(GetAliasPlainArgs args, InvokeOptions options) {
@@ -195,6 +207,8 @@ public final class KmsFunctions {
      * resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -236,6 +250,7 @@ public final class KmsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCipherTextResult> getCipherText(GetCipherTextArgs args) {
@@ -248,6 +263,8 @@ public final class KmsFunctions {
      * resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -289,6 +306,7 @@ public final class KmsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCipherTextResult> getCipherTextPlain(GetCipherTextPlainArgs args) {
@@ -301,6 +319,8 @@ public final class KmsFunctions {
      * resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -342,6 +362,7 @@ public final class KmsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCipherTextResult> getCipherText(GetCipherTextArgs args, InvokeOptions options) {
@@ -354,6 +375,8 @@ public final class KmsFunctions {
      * resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -395,6 +418,7 @@ public final class KmsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCipherTextResult> getCipherTextPlain(GetCipherTextPlainArgs args, InvokeOptions options) {
@@ -406,6 +430,8 @@ public final class KmsFunctions {
      * without having to hard code the ID as input.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -434,6 +460,7 @@ public final class KmsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCustomKeyStoreResult> getCustomKeyStore() {
@@ -445,6 +472,8 @@ public final class KmsFunctions {
      * without having to hard code the ID as input.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -473,6 +502,7 @@ public final class KmsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCustomKeyStoreResult> getCustomKeyStorePlain() {
@@ -484,6 +514,8 @@ public final class KmsFunctions {
      * without having to hard code the ID as input.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -512,6 +544,7 @@ public final class KmsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCustomKeyStoreResult> getCustomKeyStore(GetCustomKeyStoreArgs args) {
@@ -523,6 +556,8 @@ public final class KmsFunctions {
      * without having to hard code the ID as input.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -551,6 +586,7 @@ public final class KmsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCustomKeyStoreResult> getCustomKeyStorePlain(GetCustomKeyStorePlainArgs args) {
@@ -562,6 +598,8 @@ public final class KmsFunctions {
      * without having to hard code the ID as input.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -590,6 +628,7 @@ public final class KmsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCustomKeyStoreResult> getCustomKeyStore(GetCustomKeyStoreArgs args, InvokeOptions options) {
@@ -601,6 +640,8 @@ public final class KmsFunctions {
      * without having to hard code the ID as input.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -629,6 +670,7 @@ public final class KmsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCustomKeyStoreResult> getCustomKeyStorePlain(GetCustomKeyStorePlainArgs args, InvokeOptions options) {
@@ -641,6 +683,8 @@ public final class KmsFunctions {
      * without having to hard code the ARN as input.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -681,6 +725,7 @@ public final class KmsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetKeyResult> getKey(GetKeyArgs args) {
@@ -693,6 +738,8 @@ public final class KmsFunctions {
      * without having to hard code the ARN as input.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -733,6 +780,7 @@ public final class KmsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetKeyResult> getKeyPlain(GetKeyPlainArgs args) {
@@ -745,6 +793,8 @@ public final class KmsFunctions {
      * without having to hard code the ARN as input.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -785,6 +835,7 @@ public final class KmsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetKeyResult> getKey(GetKeyArgs args, InvokeOptions options) {
@@ -797,6 +848,8 @@ public final class KmsFunctions {
      * without having to hard code the ARN as input.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -837,6 +890,7 @@ public final class KmsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetKeyResult> getKeyPlain(GetKeyPlainArgs args, InvokeOptions options) {
@@ -846,6 +900,8 @@ public final class KmsFunctions {
      * Use this data source to get the public key about the specified KMS Key with flexible key id input. This can be useful to reference key alias without having to hard code the ARN as input.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -886,6 +942,7 @@ public final class KmsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPublicKeyResult> getPublicKey(GetPublicKeyArgs args) {
@@ -895,6 +952,8 @@ public final class KmsFunctions {
      * Use this data source to get the public key about the specified KMS Key with flexible key id input. This can be useful to reference key alias without having to hard code the ARN as input.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -935,6 +994,7 @@ public final class KmsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPublicKeyResult> getPublicKeyPlain(GetPublicKeyPlainArgs args) {
@@ -944,6 +1004,8 @@ public final class KmsFunctions {
      * Use this data source to get the public key about the specified KMS Key with flexible key id input. This can be useful to reference key alias without having to hard code the ARN as input.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -984,6 +1046,7 @@ public final class KmsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPublicKeyResult> getPublicKey(GetPublicKeyArgs args, InvokeOptions options) {
@@ -993,6 +1056,8 @@ public final class KmsFunctions {
      * Use this data source to get the public key about the specified KMS Key with flexible key id input. This can be useful to reference key alias without having to hard code the ARN as input.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1033,6 +1098,7 @@ public final class KmsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPublicKeyResult> getPublicKeyPlain(GetPublicKeyPlainArgs args, InvokeOptions options) {
@@ -1053,12 +1119,30 @@ public final class KmsFunctions {
     /**
      * Decrypt multiple secrets from data encrypted with the AWS KMS service.
      * 
+     * ## Example Usage
+     * 
+     * If you do not already have a `CiphertextBlob` from encrypting a KMS secret, you can use the below commands to obtain one using the [AWS CLI kms encrypt](https://docs.aws.amazon.com/cli/latest/reference/kms/encrypt.html) command. This requires you to have your AWS CLI setup correctly and replace the `--key-id` with your own. Alternatively you can use `--plaintext &#39;master-password&#39;` (CLIv1) or `--plaintext fileb://&lt;(echo -n &#39;master-password&#39;)` (CLIv2) instead of reading from a file.
+     * 
+     * &gt; If you have a newline character at the end of your file, it will be decrypted with this newline character intact. For most use cases this is undesirable and leads to incorrect passwords or invalid values, as well as possible changes in the plan. Be sure to use `echo -n` if necessary.
+     * If you are using asymmetric keys ensure you are using the right encryption algorithm when you encrypt and decrypt else you will get IncorrectKeyException during the decrypt phase.
+     * 
+     * That encrypted output can now be inserted into provider configurations without exposing the plaintext secret directly.
+     * 
      */
     public static Output<GetSecretsResult> getSecrets(GetSecretsArgs args) {
         return getSecrets(args, InvokeOptions.Empty);
     }
     /**
      * Decrypt multiple secrets from data encrypted with the AWS KMS service.
+     * 
+     * ## Example Usage
+     * 
+     * If you do not already have a `CiphertextBlob` from encrypting a KMS secret, you can use the below commands to obtain one using the [AWS CLI kms encrypt](https://docs.aws.amazon.com/cli/latest/reference/kms/encrypt.html) command. This requires you to have your AWS CLI setup correctly and replace the `--key-id` with your own. Alternatively you can use `--plaintext &#39;master-password&#39;` (CLIv1) or `--plaintext fileb://&lt;(echo -n &#39;master-password&#39;)` (CLIv2) instead of reading from a file.
+     * 
+     * &gt; If you have a newline character at the end of your file, it will be decrypted with this newline character intact. For most use cases this is undesirable and leads to incorrect passwords or invalid values, as well as possible changes in the plan. Be sure to use `echo -n` if necessary.
+     * If you are using asymmetric keys ensure you are using the right encryption algorithm when you encrypt and decrypt else you will get IncorrectKeyException during the decrypt phase.
+     * 
+     * That encrypted output can now be inserted into provider configurations without exposing the plaintext secret directly.
      * 
      */
     public static CompletableFuture<GetSecretsResult> getSecretsPlain(GetSecretsPlainArgs args) {
@@ -1067,12 +1151,30 @@ public final class KmsFunctions {
     /**
      * Decrypt multiple secrets from data encrypted with the AWS KMS service.
      * 
+     * ## Example Usage
+     * 
+     * If you do not already have a `CiphertextBlob` from encrypting a KMS secret, you can use the below commands to obtain one using the [AWS CLI kms encrypt](https://docs.aws.amazon.com/cli/latest/reference/kms/encrypt.html) command. This requires you to have your AWS CLI setup correctly and replace the `--key-id` with your own. Alternatively you can use `--plaintext &#39;master-password&#39;` (CLIv1) or `--plaintext fileb://&lt;(echo -n &#39;master-password&#39;)` (CLIv2) instead of reading from a file.
+     * 
+     * &gt; If you have a newline character at the end of your file, it will be decrypted with this newline character intact. For most use cases this is undesirable and leads to incorrect passwords or invalid values, as well as possible changes in the plan. Be sure to use `echo -n` if necessary.
+     * If you are using asymmetric keys ensure you are using the right encryption algorithm when you encrypt and decrypt else you will get IncorrectKeyException during the decrypt phase.
+     * 
+     * That encrypted output can now be inserted into provider configurations without exposing the plaintext secret directly.
+     * 
      */
     public static Output<GetSecretsResult> getSecrets(GetSecretsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:kms/getSecrets:getSecrets", TypeShape.of(GetSecretsResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Decrypt multiple secrets from data encrypted with the AWS KMS service.
+     * 
+     * ## Example Usage
+     * 
+     * If you do not already have a `CiphertextBlob` from encrypting a KMS secret, you can use the below commands to obtain one using the [AWS CLI kms encrypt](https://docs.aws.amazon.com/cli/latest/reference/kms/encrypt.html) command. This requires you to have your AWS CLI setup correctly and replace the `--key-id` with your own. Alternatively you can use `--plaintext &#39;master-password&#39;` (CLIv1) or `--plaintext fileb://&lt;(echo -n &#39;master-password&#39;)` (CLIv2) instead of reading from a file.
+     * 
+     * &gt; If you have a newline character at the end of your file, it will be decrypted with this newline character intact. For most use cases this is undesirable and leads to incorrect passwords or invalid values, as well as possible changes in the plan. Be sure to use `echo -n` if necessary.
+     * If you are using asymmetric keys ensure you are using the right encryption algorithm when you encrypt and decrypt else you will get IncorrectKeyException during the decrypt phase.
+     * 
+     * That encrypted output can now be inserted into provider configurations without exposing the plaintext secret directly.
      * 
      */
     public static CompletableFuture<GetSecretsResult> getSecretsPlain(GetSecretsPlainArgs args, InvokeOptions options) {

@@ -94,6 +94,7 @@ def get_rule_group(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -101,6 +102,7 @@ def get_rule_group(name: Optional[str] = None,
     example = aws.wafv2.get_rule_group(name="some-rule-group",
         scope="REGIONAL")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the WAFv2 Rule Group.
@@ -129,6 +131,7 @@ def get_rule_group_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -136,6 +139,7 @@ def get_rule_group_output(name: Optional[pulumi.Input[str]] = None,
     example = aws.wafv2.get_rule_group(name="some-rule-group",
         scope="REGIONAL")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the WAFv2 Rule Group.

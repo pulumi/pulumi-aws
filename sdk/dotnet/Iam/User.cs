@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -67,13 +68,14 @@ namespace Pulumi.Aws.Iam
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IAM Users using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:iam/user:User lb loadbalancer
+    /// $ pulumi import aws:iam/user:User lb loadbalancer
     /// ```
     /// </summary>
     [AwsResourceType("aws:iam/user:User")]

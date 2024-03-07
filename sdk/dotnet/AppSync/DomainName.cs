@@ -14,6 +14,7 @@ namespace Pulumi.Aws.AppSync
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,13 +31,14 @@ namespace Pulumi.Aws.AppSync
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_appsync_domain_name` using the AppSync domain name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:appsync/domainName:DomainName example example.com
+    /// $ pulumi import aws:appsync/domainName:DomainName example example.com
     /// ```
     /// </summary>
     [AwsResourceType("aws:appsync/domainName:DomainName")]

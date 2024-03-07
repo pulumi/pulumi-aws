@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * Provides a Resource Group.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -66,13 +68,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import resource groups using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:resourcegroups/group:Group foo resource-group-name
+ * $ pulumi import aws:resourcegroups/group:Group foo resource-group-name
  * ```
  * 
  */

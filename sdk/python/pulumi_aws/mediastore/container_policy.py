@@ -102,6 +102,7 @@ class ContainerPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -128,13 +129,14 @@ class ContainerPolicy(pulumi.CustomResource):
             container_name=example_container.name,
             policy=example.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import MediaStore Container Policy using the MediaStore Container Name. For example:
 
         ```sh
-         $ pulumi import aws:mediastore/containerPolicy:ContainerPolicy example example
+        $ pulumi import aws:mediastore/containerPolicy:ContainerPolicy example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -153,6 +155,7 @@ class ContainerPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -179,13 +182,14 @@ class ContainerPolicy(pulumi.CustomResource):
             container_name=example_container.name,
             policy=example.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import MediaStore Container Policy using the MediaStore Container Name. For example:
 
         ```sh
-         $ pulumi import aws:mediastore/containerPolicy:ContainerPolicy example example
+        $ pulumi import aws:mediastore/containerPolicy:ContainerPolicy example example
         ```
 
         :param str resource_name: The name of the resource.

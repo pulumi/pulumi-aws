@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,15 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import a snapshot using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:memorydb/snapshot:Snapshot example my-snapshot
-//
+// $ pulumi import aws:memorydb/snapshot:Snapshot example my-snapshot
 // ```
 type Snapshot struct {
 	pulumi.CustomResourceState

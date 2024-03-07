@@ -226,6 +226,7 @@ class Project(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -236,13 +237,14 @@ class Project(pulumi.CustomResource):
                 product_id=example_aws_servicecatalog_product["id"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker Projects using the `project_name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/project:Project example example
+        $ pulumi import aws:sagemaker/project:Project example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -265,6 +267,7 @@ class Project(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -275,13 +278,14 @@ class Project(pulumi.CustomResource):
                 product_id=example_aws_servicecatalog_product["id"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker Projects using the `project_name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/project:Project example example
+        $ pulumi import aws:sagemaker/project:Project example example
         ```
 
         :param str resource_name: The name of the resource.

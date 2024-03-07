@@ -21,7 +21,10 @@ import javax.annotation.Nullable;
  * Provides a SageMaker Pipeline resource.
  * 
  * ## Example Usage
+ * 
  * ### Basic usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -64,13 +67,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import pipelines using the `pipeline_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:sagemaker/pipeline:Pipeline test_pipeline pipeline
+ * $ pulumi import aws:sagemaker/pipeline:Pipeline test_pipeline pipeline
  * ```
  * 
  */

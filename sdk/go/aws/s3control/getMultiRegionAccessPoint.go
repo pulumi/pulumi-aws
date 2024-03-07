@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupMultiRegionAccessPoint(ctx *pulumi.Context, args *LookupMultiRegionAccessPointArgs, opts ...pulumi.InvokeOption) (*LookupMultiRegionAccessPointResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupMultiRegionAccessPointResult

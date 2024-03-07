@@ -72,19 +72,21 @@ class AccountAlias(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         alias = aws.iam.AccountAlias("alias", account_alias="my-account-alias")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import the current Account Alias using the `account_alias`. For example:
 
         ```sh
-         $ pulumi import aws:iam/accountAlias:AccountAlias alias my-account-alias
+        $ pulumi import aws:iam/accountAlias:AccountAlias alias my-account-alias
         ```
 
         :param str resource_name: The name of the resource.
@@ -104,19 +106,21 @@ class AccountAlias(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         alias = aws.iam.AccountAlias("alias", account_alias="my-account-alias")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import the current Account Alias using the `account_alias`. For example:
 
         ```sh
-         $ pulumi import aws:iam/accountAlias:AccountAlias alias my-account-alias
+        $ pulumi import aws:iam/accountAlias:AccountAlias alias my-account-alias
         ```
 
         :param str resource_name: The name of the resource.

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -53,13 +54,14 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import ElastiCache Subnet Groups using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:elasticache/subnetGroup:SubnetGroup bar tf-test-cache-subnet
+    /// $ pulumi import aws:elasticache/subnetGroup:SubnetGroup bar tf-test-cache-subnet
     /// ```
     /// </summary>
     [AwsResourceType("aws:elasticache/subnetGroup:SubnetGroup")]

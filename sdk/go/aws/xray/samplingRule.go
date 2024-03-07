@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -52,15 +53,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import XRay Sampling Rules using the name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:xray/samplingRule:SamplingRule example example
-//
+// $ pulumi import aws:xray/samplingRule:SamplingRule example example
 // ```
 type SamplingRule struct {
 	pulumi.CustomResourceState

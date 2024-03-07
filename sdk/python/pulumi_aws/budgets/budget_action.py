@@ -377,6 +377,7 @@ class BudgetAction(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -430,13 +431,14 @@ class BudgetAction(pulumi.CustomResource):
                 subscription_type="EMAIL",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import budget actions using `AccountID:ActionID:BudgetName`. For example:
 
         ```sh
-         $ pulumi import aws:budgets/budgetAction:BudgetAction myBudget 123456789012:some-id:myBudget
+        $ pulumi import aws:budgets/budgetAction:BudgetAction myBudget 123456789012:some-id:myBudget
         ```
 
         :param str resource_name: The name of the resource.
@@ -462,6 +464,7 @@ class BudgetAction(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -515,13 +518,14 @@ class BudgetAction(pulumi.CustomResource):
                 subscription_type="EMAIL",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import budget actions using `AccountID:ActionID:BudgetName`. For example:
 
         ```sh
-         $ pulumi import aws:budgets/budgetAction:BudgetAction myBudget 123456789012:some-id:myBudget
+        $ pulumi import aws:budgets/budgetAction:BudgetAction myBudget 123456789012:some-id:myBudget
         ```
 
         :param str resource_name: The name of the resource.

@@ -556,8 +556,10 @@ class Domain(pulumi.CustomResource):
         Provides a SageMaker Domain resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -582,8 +584,11 @@ class Domain(pulumi.CustomResource):
                 execution_role=example_role.arn,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Using Custom Images
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -616,13 +621,14 @@ class Domain(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker Domains using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8
+        $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8
         ```
 
         :param str resource_name: The name of the resource.
@@ -652,8 +658,10 @@ class Domain(pulumi.CustomResource):
         Provides a SageMaker Domain resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -678,8 +686,11 @@ class Domain(pulumi.CustomResource):
                 execution_role=example_role.arn,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Using Custom Images
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -712,13 +723,14 @@ class Domain(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker Domains using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8
+        $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8
         ```
 
         :param str resource_name: The name of the resource.

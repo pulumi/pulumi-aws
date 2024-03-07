@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS RBin Rule.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -33,13 +35,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import RBin Rule using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:rbin/rule:Rule example examplerule
+ * $ pulumi import aws:rbin/rule:Rule example examplerule
  * ```
  */
 export class Rule extends pulumi.CustomResource {
