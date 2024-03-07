@@ -2479,17 +2479,19 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 						// If one is provided and the other is not, then no error will be thrown and no inline policy
 						// will be created.
 						Transform: func(pv resource.PropertyValue) (resource.PropertyValue, error) {
-							inlinePolicy := []resource.PropertyValue{}
-							for _, value := range pv.ArrayValue() {
-								if value.IsObject() {
-									policy := value.ObjectValue()
-									if policy.HasValue("policy") && policy["policy"].StringValue() != "" {
-										inlinePolicy = append(inlinePolicy, value)
+							if pv.IsArray() {
+								inlinePolicy := []resource.PropertyValue{}
+								for _, value := range pv.ArrayValue() {
+									if value.IsObject() {
+										policy := value.ObjectValue()
+										if policy.HasValue("policy") && policy["policy"].StringValue() != "" {
+											inlinePolicy = append(inlinePolicy, value)
+										}
 									}
 								}
+								return resource.NewArrayProperty(inlinePolicy), nil
 							}
-
-							return resource.NewArrayProperty(inlinePolicy), nil
+							return pv, nil
 						},
 						Elem: &tfbridge.SchemaInfo{
 							Fields: map[string]*tfbridge.SchemaInfo{
