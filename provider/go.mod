@@ -12,7 +12,7 @@ require (
 	github.com/pulumi/pulumi-terraform-bridge/pf v0.29.0
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.76.0
 	github.com/pulumi/pulumi/pkg/v3 v3.107.0
-	github.com/pulumi/pulumi/sdk/v3 v3.107.0
+	github.com/pulumi/pulumi/sdk/v3 v3.108.1
 	github.com/stretchr/testify v1.8.4
 	pgregory.net/rapid v0.6.1
 )
@@ -422,3 +422,7 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	lukechampine.com/frand v1.4.2 // indirect
 )
+
+replace github.com/pulumi/pulumi/pkg/v3 => github.com/pulumi/pulumi/pkg/v3 v3.108.2-0.20240307185530-fe44cf4e9673
+
+replace github.com/pulumi/pulumi/sdk/v3 => github.com/pulumi/pulumi/sdk/v3 v3.108.2-0.20240307185530-fe44cf4e9673
