@@ -2484,7 +2484,7 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 								for _, value := range pv.ArrayValue() {
 									if value.IsObject() {
 										policy := value.ObjectValue()
-										if policy.HasValue("policy") && policy["policy"].StringValue() != "" {
+										if policy.HasValue("policy") && policy["policy"].IsString() && policy["policy"].StringValue() != "" {
 											inlinePolicy = append(inlinePolicy, value)
 										}
 									}
