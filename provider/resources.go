@@ -2469,6 +2469,36 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 						AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
 						Transform: tfbridge.TransformJSONDocument,
 					},
+					"inline_policy": {
+						// inline_policy is an array of policy objects. The user is allowed to provided an empty list
+						//   inlinePolicies: []
+						// or a list with empty objects
+						//   inlinePolicies: [{}]
+						// In both cases the role will be created _without_ any inline policies attached.
+						// If a policy is provided, then both the `policy` and the `name` fields are required.
+						// If one is provided and the other is not, then no error will be thrown and no inline policy
+						// will be created.
+						Transform: func(pv resource.PropertyValue) (resource.PropertyValue, error) {
+							if pv.IsArray() {
+								inlinePolicy := []resource.PropertyValue{}
+								for _, value := range pv.ArrayValue() {
+									if value.IsObject() {
+										policy := value.ObjectValue()
+										if policy.HasValue("policy") && policy["policy"].IsString() && policy["policy"].StringValue() != "" {
+											inlinePolicy = append(inlinePolicy, value)
+										}
+									}
+								}
+								return resource.NewArrayProperty(inlinePolicy), nil
+							}
+							return pv, nil
+						},
+						Elem: &tfbridge.SchemaInfo{
+							Fields: map[string]*tfbridge.SchemaInfo{
+								"name": tfbridge.AutoName("name", 128, "-"),
+							},
+						},
+					},
 				},
 			},
 			"aws_iam_saml_provider":         {Tok: awsResource(iamMod, "SamlProvider")},

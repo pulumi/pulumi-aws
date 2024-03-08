@@ -35042,7 +35042,7 @@ export namespace iam {
         /**
          * Name of the role policy.
          */
-        name?: string;
+        name: string;
         /**
          * Policy document as a JSON formatted string.
          */
