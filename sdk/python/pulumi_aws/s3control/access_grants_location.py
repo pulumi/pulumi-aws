@@ -221,6 +221,7 @@ class AccessGrantsLocation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -230,13 +231,14 @@ class AccessGrantsLocation(pulumi.CustomResource):
             iam_role_arn=example_aws_iam_role["arn"],
             location_scope="s3://")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import S3 Access Grants locations using the `account_id` and `access_grants_location_id`, separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:s3control/accessGrantsLocation:AccessGrantsLocation example 123456789012,default
+        $ pulumi import aws:s3control/accessGrantsLocation:AccessGrantsLocation example 123456789012,default
         ```
 
         :param str resource_name: The name of the resource.
@@ -260,6 +262,7 @@ class AccessGrantsLocation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -269,13 +272,14 @@ class AccessGrantsLocation(pulumi.CustomResource):
             iam_role_arn=example_aws_iam_role["arn"],
             location_scope="s3://")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import S3 Access Grants locations using the `account_id` and `access_grants_location_id`, separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:s3control/accessGrantsLocation:AccessGrantsLocation example 123456789012,default
+        $ pulumi import aws:s3control/accessGrantsLocation:AccessGrantsLocation example 123456789012,default
         ```
 
         :param str resource_name: The name of the resource.

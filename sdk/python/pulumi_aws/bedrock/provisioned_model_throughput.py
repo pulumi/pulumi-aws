@@ -265,6 +265,7 @@ class ProvisionedModelThroughput(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -275,13 +276,14 @@ class ProvisionedModelThroughput(pulumi.CustomResource):
             commitment_duration="SixMonths",
             model_units=1)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Provisioned Throughput using the `provisioned_model_arn`. For example:
 
         ```sh
-         $ pulumi import aws:bedrock/provisionedModelThroughput:ProvisionedModelThroughput example arn:aws:bedrock:us-west-2:123456789012:provisioned-model/1y5n57gh5y2e
+        $ pulumi import aws:bedrock/provisionedModelThroughput:ProvisionedModelThroughput example arn:aws:bedrock:us-west-2:123456789012:provisioned-model/1y5n57gh5y2e
         ```
 
         :param str resource_name: The name of the resource.
@@ -303,6 +305,7 @@ class ProvisionedModelThroughput(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -313,13 +316,14 @@ class ProvisionedModelThroughput(pulumi.CustomResource):
             commitment_duration="SixMonths",
             model_units=1)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Provisioned Throughput using the `provisioned_model_arn`. For example:
 
         ```sh
-         $ pulumi import aws:bedrock/provisionedModelThroughput:ProvisionedModelThroughput example arn:aws:bedrock:us-west-2:123456789012:provisioned-model/1y5n57gh5y2e
+        $ pulumi import aws:bedrock/provisionedModelThroughput:ProvisionedModelThroughput example arn:aws:bedrock:us-west-2:123456789012:provisioned-model/1y5n57gh5y2e
         ```
 
         :param str resource_name: The name of the resource.

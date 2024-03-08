@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Oam
     /// Resource for managing an AWS CloudWatch Observability Access Manager Link.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -39,13 +41,14 @@ namespace Pulumi.Aws.Oam
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CloudWatch Observability Access Manager Link using the `arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:oam/link:Link example arn:aws:oam:us-west-2:123456789012:link/link-id
+    /// $ pulumi import aws:oam/link:Link example arn:aws:oam:us-west-2:123456789012:link/link-id
     /// ```
     /// </summary>
     [AwsResourceType("aws:oam/link:Link")]

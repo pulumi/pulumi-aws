@@ -157,6 +157,7 @@ class PolicyTable(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -167,13 +168,14 @@ class PolicyTable(pulumi.CustomResource):
                 "Name": "Example Policy Table",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ec2_transit_gateway_policy_table` using the EC2 Transit Gateway Policy Table identifier. For example:
 
         ```sh
-         $ pulumi import aws:ec2transitgateway/policyTable:PolicyTable example tgw-rtb-12345678
+        $ pulumi import aws:ec2transitgateway/policyTable:PolicyTable example tgw-rtb-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -192,6 +194,7 @@ class PolicyTable(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -202,13 +205,14 @@ class PolicyTable(pulumi.CustomResource):
                 "Name": "Example Policy Table",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ec2_transit_gateway_policy_table` using the EC2 Transit Gateway Policy Table identifier. For example:
 
         ```sh
-         $ pulumi import aws:ec2transitgateway/policyTable:PolicyTable example tgw-rtb-12345678
+        $ pulumi import aws:ec2transitgateway/policyTable:PolicyTable example tgw-rtb-12345678
         ```
 
         :param str resource_name: The name of the resource.

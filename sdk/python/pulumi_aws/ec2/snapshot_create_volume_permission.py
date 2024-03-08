@@ -102,6 +102,7 @@ class SnapshotCreateVolumePermission(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -114,6 +115,7 @@ class SnapshotCreateVolumePermission(pulumi.CustomResource):
             snapshot_id=example_snapshot.id,
             account_id="12345678")
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -131,6 +133,7 @@ class SnapshotCreateVolumePermission(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -143,6 +146,7 @@ class SnapshotCreateVolumePermission(pulumi.CustomResource):
             snapshot_id=example_snapshot.id,
             account_id="12345678")
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param SnapshotCreateVolumePermissionArgs args: The arguments to use to populate this resource's properties.

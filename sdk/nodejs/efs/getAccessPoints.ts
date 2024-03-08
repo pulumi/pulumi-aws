@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -17,6 +18,7 @@ import * as utilities from "../utilities";
  *     fileSystemId: "fs-12345678",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAccessPoints(args: GetAccessPointsArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessPointsResult> {
 
@@ -59,6 +61,7 @@ export interface GetAccessPointsResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -67,6 +70,7 @@ export interface GetAccessPointsResult {
  *     fileSystemId: "fs-12345678",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAccessPointsOutput(args: GetAccessPointsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessPointsResult> {
     return pulumi.output(args).apply((a: any) => getAccessPoints(a, opts))

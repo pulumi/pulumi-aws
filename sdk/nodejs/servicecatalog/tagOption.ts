@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Manages a Service Catalog Tag Option.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,13 +21,14 @@ import * as utilities from "../utilities";
  *     value: "värde",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_servicecatalog_tag_option` using the tag option ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:servicecatalog/tagOption:TagOption example tag-pjtvagohlyo3m
+ * $ pulumi import aws:servicecatalog/tagOption:TagOption example tag-pjtvagohlyo3m
  * ```
  */
 export class TagOption extends pulumi.CustomResource {

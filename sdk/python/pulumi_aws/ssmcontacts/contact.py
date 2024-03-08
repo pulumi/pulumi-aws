@@ -217,8 +217,10 @@ class Contact(pulumi.CustomResource):
         Resource for managing an AWS SSM Contact.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -227,8 +229,11 @@ class Contact(pulumi.CustomResource):
             alias="alias",
             type="PERSONAL")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Usage With All Fields
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -241,13 +246,14 @@ class Contact(pulumi.CustomResource):
                 "key": "value",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SSM Contact using the `ARN`. For example:
 
         ```sh
-         $ pulumi import aws:ssmcontacts/contact:Contact example {ARNValue}
+        $ pulumi import aws:ssmcontacts/contact:Contact example {ARNValue}
         ```
 
         :param str resource_name: The name of the resource.
@@ -270,8 +276,10 @@ class Contact(pulumi.CustomResource):
         Resource for managing an AWS SSM Contact.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -280,8 +288,11 @@ class Contact(pulumi.CustomResource):
             alias="alias",
             type="PERSONAL")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Usage With All Fields
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -294,13 +305,14 @@ class Contact(pulumi.CustomResource):
                 "key": "value",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SSM Contact using the `ARN`. For example:
 
         ```sh
-         $ pulumi import aws:ssmcontacts/contact:Contact example {ARNValue}
+        $ pulumi import aws:ssmcontacts/contact:Contact example {ARNValue}
         ```
 
         :param str resource_name: The name of the resource.

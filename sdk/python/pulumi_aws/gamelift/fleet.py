@@ -599,6 +599,7 @@ class Fleet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -615,13 +616,14 @@ class Fleet(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import GameLift Fleets using the ID. For example:
 
         ```sh
-         $ pulumi import aws:gamelift/fleet:Fleet example <fleet-id>
+        $ pulumi import aws:gamelift/fleet:Fleet example <fleet-id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -652,6 +654,7 @@ class Fleet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -668,13 +671,14 @@ class Fleet(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import GameLift Fleets using the ID. For example:
 
         ```sh
-         $ pulumi import aws:gamelift/fleet:Fleet example <fleet-id>
+        $ pulumi import aws:gamelift/fleet:Fleet example <fleet-id>
         ```
 
         :param str resource_name: The name of the resource.

@@ -11,16 +11,21 @@ import * as utilities from "../utilities";
  * Provides an AWS App Mesh service mesh resource.
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const simple = new aws.appmesh.Mesh("simple", {name: "simpleapp"});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Egress Filter
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -34,13 +39,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import App Mesh service meshes using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:appmesh/mesh:Mesh simple simpleapp
+ * $ pulumi import aws:appmesh/mesh:Mesh simple simpleapp
  * ```
  */
 export class Mesh extends pulumi.CustomResource {

@@ -155,19 +155,21 @@ class Account(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.securityhub.Account("example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import an existing Security Hub enabled account using the AWS account ID. For example:
 
         ```sh
-         $ pulumi import aws:securityhub/account:Account example 123456789012
+        $ pulumi import aws:securityhub/account:Account example 123456789012
         ```
 
         :param str resource_name: The name of the resource.
@@ -189,19 +191,21 @@ class Account(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.securityhub.Account("example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import an existing Security Hub enabled account using the AWS account ID. For example:
 
         ```sh
-         $ pulumi import aws:securityhub/account:Account example 123456789012
+        $ pulumi import aws:securityhub/account:Account example 123456789012
         ```
 
         :param str resource_name: The name of the resource.

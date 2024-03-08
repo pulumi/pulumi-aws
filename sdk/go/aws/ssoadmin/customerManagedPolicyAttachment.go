@@ -16,87 +16,12 @@ import (
 //
 // > **NOTE:** Creating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"encoding/json"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssoadmin"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func notImplemented(message string) pulumi.AnyOutput {
-//		panic(message)
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssoadmin.GetInstances(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			examplePermissionSet, err := ssoadmin.NewPermissionSet(ctx, "example", &ssoadmin.PermissionSetArgs{
-//				Name:        pulumi.String("Example"),
-//				InstanceArn: notImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			tmpJSON0, err := json.Marshal(map[string]interface{}{
-//				"version": "2012-10-17",
-//				"statement": []map[string]interface{}{
-//					map[string]interface{}{
-//						"action": []string{
-//							"ec2:Describe*",
-//						},
-//						"effect":   "Allow",
-//						"resource": "*",
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			json0 := string(tmpJSON0)
-//			examplePolicy, err := iam.NewPolicy(ctx, "example", &iam.PolicyArgs{
-//				Name:        pulumi.String("TestPolicy"),
-//				Description: pulumi.String("My test policy"),
-//				Policy:      pulumi.String(json0),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ssoadmin.NewCustomerManagedPolicyAttachment(ctx, "example", &ssoadmin.CustomerManagedPolicyAttachmentArgs{
-//				InstanceArn:      examplePermissionSet.InstanceArn,
-//				PermissionSetArn: examplePermissionSet.Arn,
-//				CustomerManagedPolicyReference: &ssoadmin.CustomerManagedPolicyAttachmentCustomerManagedPolicyReferenceArgs{
-//					Name: examplePolicy.Name,
-//					Path: pulumi.String("/"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import SSO Managed Policy Attachments using the `name`, `path`, `permission_set_arn`, and `instance_arn` separated by a comma (`,`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment example TestPolicy,/,arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
-//
+// $ pulumi import aws:ssoadmin/customerManagedPolicyAttachment:CustomerManagedPolicyAttachment example TestPolicy,/,arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
 // ```
 type CustomerManagedPolicyAttachment struct {
 	pulumi.CustomResourceState

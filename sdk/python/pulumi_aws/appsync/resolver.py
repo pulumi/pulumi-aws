@@ -482,6 +482,7 @@ class Resolver(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -558,8 +559,11 @@ class Resolver(pulumi.CustomResource):
                 ],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### JS
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -579,13 +583,14 @@ class Resolver(pulumi.CustomResource):
                 functions=[test["functionId"]],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_appsync_resolver` using the `api_id`, a hyphen, `type`, a hypen and `field`. For example:
 
         ```sh
-         $ pulumi import aws:appsync/resolver:Resolver example abcdef123456-exampleType-exampleField
+        $ pulumi import aws:appsync/resolver:Resolver example abcdef123456-exampleType-exampleField
         ```
 
         :param str resource_name: The name of the resource.
@@ -615,6 +620,7 @@ class Resolver(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -691,8 +697,11 @@ class Resolver(pulumi.CustomResource):
                 ],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### JS
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -712,13 +721,14 @@ class Resolver(pulumi.CustomResource):
                 functions=[test["functionId"]],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_appsync_resolver` using the `api_id`, a hyphen, `type`, a hypen and `field`. For example:
 
         ```sh
-         $ pulumi import aws:appsync/resolver:Resolver example abcdef123456-exampleType-exampleField
+        $ pulumi import aws:appsync/resolver:Resolver example abcdef123456-exampleType-exampleField
         ```
 
         :param str resource_name: The name of the resource.

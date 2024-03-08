@@ -20,7 +20,10 @@ import javax.annotation.Nullable;
  * Provides a CodeDeploy deployment config for an application
  * 
  * ## Example Usage
+ * 
  * ### Server Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -85,7 +88,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Lambda Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -143,13 +150,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import CodeDeploy Deployment Configurations using the `deployment_config_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:codedeploy/deploymentConfig:DeploymentConfig example my-deployment-config
+ * $ pulumi import aws:codedeploy/deploymentConfig:DeploymentConfig example my-deployment-config
  * ```
  * 
  */

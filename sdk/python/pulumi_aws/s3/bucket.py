@@ -827,8 +827,10 @@ class Bucket(pulumi.CustomResource):
         > **NOTE:** This resource might not work well if using an alternative s3-compatible provider. Please use `aws.s3.BucketV2` instead.
 
         ## Example Usage
+
         ### Private Bucket w/ Tags
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -841,8 +843,11 @@ class Bucket(pulumi.CustomResource):
                 "Environment": "Dev",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Static Website Hosting
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -866,8 +871,11 @@ class Bucket(pulumi.CustomResource):
         \"\"\",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Using CORS
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -886,8 +894,11 @@ class Bucket(pulumi.CustomResource):
                 max_age_seconds=3000,
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Using versioning
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -899,8 +910,11 @@ class Bucket(pulumi.CustomResource):
                 enabled=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Enable Logging
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -916,8 +930,11 @@ class Bucket(pulumi.CustomResource):
                 target_prefix="log/",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Using object lifecycle
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -981,10 +998,13 @@ class Bucket(pulumi.CustomResource):
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Using replication configuration
 
         > **NOTE:** See the `s3.BucketReplicationConfig` resource to support bi-directional replication configuration and additional features.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1080,8 +1100,11 @@ class Bucket(pulumi.CustomResource):
             role=replication.name,
             policy_arn=replication_policy.arn)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Enable Default Server Side Encryption
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1100,8 +1123,11 @@ class Bucket(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Using ACL policy grants
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1125,15 +1151,16 @@ class Bucket(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         S3 bucket can be imported using the `bucket`, e.g.,
 
         ```sh
-         $ pulumi import aws:s3/bucket:Bucket bucket bucket-name
+        $ pulumi import aws:s3/bucket:Bucket bucket bucket-name
         ```
-         The `policy` argument is not imported and will be deprecated in a future version of the provider. Use the `aws_s3_bucket_policy` resource to manage the S3 Bucket Policy instead.
+        The `policy` argument is not imported and will be deprecated in a future version of the provider. Use the `aws_s3_bucket_policy` resource to manage the S3 Bucket Policy instead.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -1178,8 +1205,10 @@ class Bucket(pulumi.CustomResource):
         > **NOTE:** This resource might not work well if using an alternative s3-compatible provider. Please use `aws.s3.BucketV2` instead.
 
         ## Example Usage
+
         ### Private Bucket w/ Tags
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1192,8 +1221,11 @@ class Bucket(pulumi.CustomResource):
                 "Environment": "Dev",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Static Website Hosting
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1217,8 +1249,11 @@ class Bucket(pulumi.CustomResource):
         \"\"\",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Using CORS
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1237,8 +1272,11 @@ class Bucket(pulumi.CustomResource):
                 max_age_seconds=3000,
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Using versioning
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1250,8 +1288,11 @@ class Bucket(pulumi.CustomResource):
                 enabled=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Enable Logging
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1267,8 +1308,11 @@ class Bucket(pulumi.CustomResource):
                 target_prefix="log/",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Using object lifecycle
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1332,10 +1376,13 @@ class Bucket(pulumi.CustomResource):
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Using replication configuration
 
         > **NOTE:** See the `s3.BucketReplicationConfig` resource to support bi-directional replication configuration and additional features.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1431,8 +1478,11 @@ class Bucket(pulumi.CustomResource):
             role=replication.name,
             policy_arn=replication_policy.arn)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Enable Default Server Side Encryption
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1451,8 +1501,11 @@ class Bucket(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Using ACL policy grants
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1476,15 +1529,16 @@ class Bucket(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         S3 bucket can be imported using the `bucket`, e.g.,
 
         ```sh
-         $ pulumi import aws:s3/bucket:Bucket bucket bucket-name
+        $ pulumi import aws:s3/bucket:Bucket bucket bucket-name
         ```
-         The `policy` argument is not imported and will be deprecated in a future version of the provider. Use the `aws_s3_bucket_policy` resource to manage the S3 Bucket Policy instead.
+        The `policy` argument is not imported and will be deprecated in a future version of the provider. Use the `aws_s3_bucket_policy` resource to manage the S3 Bucket Policy instead.
 
         :param str resource_name: The name of the resource.
         :param BucketArgs args: The arguments to use to populate this resource's properties.

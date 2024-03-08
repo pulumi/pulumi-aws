@@ -17,8 +17,10 @@ import {RestApi} from "./index";
  * !> **WARNING:** It is recommended to use the `aws.apigateway.Stage` resource instead of managing an API Gateway Stage via the `stageName` argument of this resource. When this resource is recreated (REST API redeployment) with the `stageName` configured, the stage is deleted and recreated. This will cause a temporary service interruption, increase provide plan differences, and can require a second apply to recreate any downstream stage configuration such as associated `awsApiMethodSettings` resources.
  *
  * ## Example Usage
+ *
  * ### OpenAPI Specification
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -60,8 +62,11 @@ import {RestApi} from "./index";
  *     stageName: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Resources
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -103,15 +108,16 @@ import {RestApi} from "./index";
  *     stageName: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_api_gateway_deployment` using `REST-API-ID/DEPLOYMENT-ID`. For example:
  *
  * ```sh
- *  $ pulumi import aws:apigateway/deployment:Deployment example aabbccddee/1122334
+ * $ pulumi import aws:apigateway/deployment:Deployment example aabbccddee/1122334
  * ```
- *  The `stage_name`, `stage_description`, and `variables` arguments cannot be imported. Use the `aws_api_gateway_stage` resource to import and manage stages.
+ * The `stage_name`, `stage_description`, and `variables` arguments cannot be imported. Use the `aws_api_gateway_stage` resource to import and manage stages.
  *
  * The `triggers` argument cannot be imported.
  */

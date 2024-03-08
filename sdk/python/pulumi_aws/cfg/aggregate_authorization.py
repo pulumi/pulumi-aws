@@ -173,6 +173,7 @@ class AggregateAuthorization(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -181,13 +182,14 @@ class AggregateAuthorization(pulumi.CustomResource):
             account_id="123456789012",
             region="eu-west-2")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Config aggregate authorizations using `account_id:region`. For example:
 
         ```sh
-         $ pulumi import aws:cfg/aggregateAuthorization:AggregateAuthorization example 123456789012:us-east-1
+        $ pulumi import aws:cfg/aggregateAuthorization:AggregateAuthorization example 123456789012:us-east-1
         ```
 
         :param str resource_name: The name of the resource.
@@ -207,6 +209,7 @@ class AggregateAuthorization(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -215,13 +218,14 @@ class AggregateAuthorization(pulumi.CustomResource):
             account_id="123456789012",
             region="eu-west-2")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Config aggregate authorizations using `account_id:region`. For example:
 
         ```sh
-         $ pulumi import aws:cfg/aggregateAuthorization:AggregateAuthorization example 123456789012:us-east-1
+        $ pulumi import aws:cfg/aggregateAuthorization:AggregateAuthorization example 123456789012:us-east-1
         ```
 
         :param str resource_name: The name of the resource.

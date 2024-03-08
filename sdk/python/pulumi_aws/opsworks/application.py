@@ -599,6 +599,7 @@ class Application(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -633,13 +634,14 @@ class Application(pulumi.CustomResource):
             auto_bundle_on_deploy="true",
             rails_env="staging")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Opsworks Application using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:opsworks/application:Application test <id>
+        $ pulumi import aws:opsworks/application:Application test <id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -673,6 +675,7 @@ class Application(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -707,13 +710,14 @@ class Application(pulumi.CustomResource):
             auto_bundle_on_deploy="true",
             rails_env="staging")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Opsworks Application using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:opsworks/application:Application test <id>
+        $ pulumi import aws:opsworks/application:Application test <id>
         ```
 
         :param str resource_name: The name of the resource.

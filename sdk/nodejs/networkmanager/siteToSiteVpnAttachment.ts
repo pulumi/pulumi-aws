@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS Network Manager SiteToSiteAttachment.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,90 +21,14 @@ import * as utilities from "../utilities";
  *     vpnConnectionArn: exampleAwsVpnConnection.arn,
  * });
  * ```
- * ### Full Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as awscc from "@pulumi/awscc";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const testCustomerGateway = new aws.ec2.CustomerGateway("test", {
- *     bgpAsn: "65000",
- *     ipAddress: "172.0.0.1",
- *     type: "ipsec.1",
- * });
- * const testVpnConnection = new aws.ec2.VpnConnection("test", {
- *     customerGatewayId: testCustomerGateway.id,
- *     type: "ipsec.1",
- *     tags: {
- *         Name: "test",
- *     },
- * });
- * const testGlobalNetwork = new aws.networkmanager.GlobalNetwork("test", {tags: {
- *     Name: "test",
- * }});
- * const testNetworkmanagerCoreNetwork = new awscc.index.NetworkmanagerCoreNetwork("test", {
- *     globalNetworkId: testGlobalNetwork.id,
- *     policyDocument: JSON.stringify(notImplemented("jsondecode(data.aws_networkmanager_core_network_policy_document.test.json)")),
- * });
- * const test = aws.networkmanager.getCoreNetworkPolicyDocument({
- *     coreNetworkConfigurations: [{
- *         vpnEcmpSupport: false,
- *         asnRanges: ["64512-64555"],
- *         edgeLocations: [{
- *             location: current.name,
- *             asn: "64512",
- *         }],
- *     }],
- *     segments: [{
- *         name: "shared",
- *         description: "SegmentForSharedServices",
- *         requireAttachmentAcceptance: true,
- *     }],
- *     segmentActions: [{
- *         action: "share",
- *         mode: "attachment-route",
- *         segment: "shared",
- *         shareWiths: ["*"],
- *     }],
- *     attachmentPolicies: [{
- *         ruleNumber: 1,
- *         conditionLogic: "or",
- *         conditions: [{
- *             type: "tag-value",
- *             operator: "equals",
- *             key: "segment",
- *             value: "shared",
- *         }],
- *         action: {
- *             associationMethod: "constant",
- *             segment: "shared",
- *         },
- *     }],
- * });
- * const testSiteToSiteVpnAttachment = new aws.networkmanager.SiteToSiteVpnAttachment("test", {
- *     coreNetworkId: testNetworkmanagerCoreNetwork.id,
- *     vpnConnectionArn: testVpnConnection.arn,
- *     tags: {
- *         segment: "shared",
- *     },
- * });
- * const testAttachmentAccepter = new aws.networkmanager.AttachmentAccepter("test", {
- *     attachmentId: testSiteToSiteVpnAttachment.id,
- *     attachmentType: testSiteToSiteVpnAttachment.attachmentType,
- * });
- * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_networkmanager_site_to_site_vpn_attachment` using the attachment ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment example attachment-0f8fa60d2238d1bd8
+ * $ pulumi import aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment example attachment-0f8fa60d2238d1bd8
  * ```
  */
 export class SiteToSiteVpnAttachment extends pulumi.CustomResource {

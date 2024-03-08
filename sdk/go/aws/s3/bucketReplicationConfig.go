@@ -19,8 +19,10 @@ import (
 // > This resource cannot be used with S3 directory buckets.
 //
 // ## Example Usage
+//
 // ### Using replication configuration
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -182,8 +184,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Bi-Directional Replication
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -272,15 +277,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import S3 bucket replication configuration using the `bucket`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:s3/bucketReplicationConfig:BucketReplicationConfig replication bucket-name
-//
+// $ pulumi import aws:s3/bucketReplicationConfig:BucketReplicationConfig replication bucket-name
 // ```
 type BucketReplicationConfig struct {
 	pulumi.CustomResourceState

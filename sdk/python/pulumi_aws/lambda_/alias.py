@@ -238,6 +238,7 @@ class Alias(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -253,13 +254,14 @@ class Alias(pulumi.CustomResource):
                 },
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Lambda Function Aliases using the `function_name/alias`. For example:
 
         ```sh
-         $ pulumi import aws:lambda/alias:Alias test_lambda_alias my_test_lambda_function/my_alias
+        $ pulumi import aws:lambda/alias:Alias test_lambda_alias my_test_lambda_function/my_alias
         ```
 
         :param str resource_name: The name of the resource.
@@ -284,6 +286,7 @@ class Alias(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -299,13 +302,14 @@ class Alias(pulumi.CustomResource):
                 },
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Lambda Function Aliases using the `function_name/alias`. For example:
 
         ```sh
-         $ pulumi import aws:lambda/alias:Alias test_lambda_alias my_test_lambda_function/my_alias
+        $ pulumi import aws:lambda/alias:Alias test_lambda_alias my_test_lambda_function/my_alias
         ```
 
         :param str resource_name: The name of the resource.

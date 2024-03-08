@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  *
  * By `name`
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,9 +24,11 @@ import * as utilities from "../utilities";
  *     name: "Test",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * By `hoursOfOperationId`
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -35,6 +38,7 @@ import * as utilities from "../utilities";
  *     hoursOfOperationId: "cccccccc-bbbb-cccc-dddd-111111111111",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getHoursOfOperation(args: GetHoursOfOperationArgs, opts?: pulumi.InvokeOptions): Promise<GetHoursOfOperationResult> {
 
@@ -117,6 +121,7 @@ export interface GetHoursOfOperationResult {
  *
  * By `name`
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -126,9 +131,11 @@ export interface GetHoursOfOperationResult {
  *     name: "Test",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * By `hoursOfOperationId`
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -138,6 +145,7 @@ export interface GetHoursOfOperationResult {
  *     hoursOfOperationId: "cccccccc-bbbb-cccc-dddd-111111111111",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getHoursOfOperationOutput(args: GetHoursOfOperationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetHoursOfOperationResult> {
     return pulumi.output(args).apply((a: any) => getHoursOfOperation(a, opts))

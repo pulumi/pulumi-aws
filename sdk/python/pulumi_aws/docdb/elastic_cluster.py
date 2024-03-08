@@ -480,8 +480,10 @@ class ElasticCluster(pulumi.CustomResource):
         Manages an AWS DocDB (DocumentDB) Elastic Cluster.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -494,13 +496,14 @@ class ElasticCluster(pulumi.CustomResource):
             shard_capacity=2,
             shard_count=1)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DocDB (DocumentDB) Elastic Cluster using the `arn` argument. For example,
 
         ```sh
-         $ pulumi import aws:docdb/elasticCluster:ElasticCluster example arn:aws:docdb-elastic:us-east-1:000011112222:cluster/12345678-7abc-def0-1234-56789abcdef
+        $ pulumi import aws:docdb/elasticCluster:ElasticCluster example arn:aws:docdb-elastic:us-east-1:000011112222:cluster/12345678-7abc-def0-1234-56789abcdef
         ```
 
         :param str resource_name: The name of the resource.
@@ -529,8 +532,10 @@ class ElasticCluster(pulumi.CustomResource):
         Manages an AWS DocDB (DocumentDB) Elastic Cluster.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -543,13 +548,14 @@ class ElasticCluster(pulumi.CustomResource):
             shard_capacity=2,
             shard_count=1)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DocDB (DocumentDB) Elastic Cluster using the `arn` argument. For example,
 
         ```sh
-         $ pulumi import aws:docdb/elasticCluster:ElasticCluster example arn:aws:docdb-elastic:us-east-1:000011112222:cluster/12345678-7abc-def0-1234-56789abcdef
+        $ pulumi import aws:docdb/elasticCluster:ElasticCluster example arn:aws:docdb-elastic:us-east-1:000011112222:cluster/12345678-7abc-def0-1234-56789abcdef
         ```
 
         :param str resource_name: The name of the resource.

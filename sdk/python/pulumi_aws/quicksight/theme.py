@@ -411,8 +411,10 @@ class Theme(pulumi.CustomResource):
         Resource for managing a QuickSight Theme.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -443,13 +445,14 @@ class Theme(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a QuickSight Theme using the AWS account ID and theme ID separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:quicksight/theme:Theme example 123456789012,example-id
+        $ pulumi import aws:quicksight/theme:Theme example 123456789012,example-id
         ```
 
         :param str resource_name: The name of the resource.
@@ -475,8 +478,10 @@ class Theme(pulumi.CustomResource):
         Resource for managing a QuickSight Theme.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -507,13 +512,14 @@ class Theme(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a QuickSight Theme using the AWS account ID and theme ID separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:quicksight/theme:Theme example 123456789012,example-id
+        $ pulumi import aws:quicksight/theme:Theme example 123456789012,example-id
         ```
 
         :param str resource_name: The name of the resource.

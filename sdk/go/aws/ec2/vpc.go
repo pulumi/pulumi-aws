@@ -17,6 +17,7 @@ import (
 //
 // Basic usage:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,9 +41,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // Basic usage with tags:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -70,9 +73,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // VPC with CIDR from AWS IPAM:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -127,15 +132,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import VPCs using the VPC `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/vpc:Vpc test_vpc vpc-a01106c2
-//
+// $ pulumi import aws:ec2/vpc:Vpc test_vpc vpc-a01106c2
 // ```
 type Vpc struct {
 	pulumi.CustomResourceState

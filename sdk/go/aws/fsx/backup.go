@@ -15,6 +15,7 @@ import (
 //
 // ## Lustre Example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -47,9 +48,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Windows Example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -85,9 +88,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## ONTAP Example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -121,9 +126,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## OpenZFS Example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -156,15 +163,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import FSx Backups using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:fsx/backup:Backup example fs-543ab12b1ca672f33
-//
+// $ pulumi import aws:fsx/backup:Backup example fs-543ab12b1ca672f33
 // ```
 type Backup struct {
 	pulumi.CustomResourceState

@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -76,15 +77,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Amazon File Cache cache using the resource `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:fsx/fileCache:FileCache example fc-8012925589
-//
+// $ pulumi import aws:fsx/fileCache:FileCache example fc-8012925589
 // ```
 type FileCache struct {
 	pulumi.CustomResourceState

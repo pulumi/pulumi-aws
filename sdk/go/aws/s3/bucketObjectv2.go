@@ -15,8 +15,10 @@ import (
 // Provides an S3 object resource.
 //
 // ## Example Usage
+//
 // ### Uploading a file to a bucket
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -50,8 +52,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Encrypting with KMS Key
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -99,8 +104,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Server Side Encryption with S3 Default Master Key
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -140,8 +148,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Server Side Encryption with AWS-Managed Key
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -181,8 +192,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### S3 Object Lock
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -235,6 +249,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Ignoring Provider `defaultTags`
 //
 // S3 objects support a [maximum of 10 tags](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html).
@@ -242,6 +258,7 @@ import (
 //
 // > S3 objects stored in Amazon S3 Express directory buckets do not support tags, so any provider-level `defaultTags` must be suppressed.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -281,6 +298,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -291,17 +309,12 @@ import (
 // Import using the `id`, which is the bucket name and the key together:
 //
 // ```sh
-//
-//	$ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 example some-bucket-name/some/key.txt
-//
+// $ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 example some-bucket-name/some/key.txt
 // ```
-//
-//	Import using S3 URL syntax:
+// Import using S3 URL syntax:
 //
 // ```sh
-//
-//	$ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 example s3://some-bucket-name/some/key.txt
-//
+// $ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 example s3://some-bucket-name/some/key.txt
 // ```
 type BucketObjectv2 struct {
 	pulumi.CustomResourceState

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Backup
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -72,13 +73,14 @@ namespace Pulumi.Aws.Backup
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Backup vault policy using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:backup/vaultPolicy:VaultPolicy test TestVault
+    /// $ pulumi import aws:backup/vaultPolicy:VaultPolicy test TestVault
     /// ```
     /// </summary>
     [AwsResourceType("aws:backup/vaultPolicy:VaultPolicy")]

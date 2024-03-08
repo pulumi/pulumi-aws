@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -84,15 +85,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Directory Service Log Subscriptions using the directory id. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:directoryservice/logService:LogService msad d-1234567890
-//
+// $ pulumi import aws:directoryservice/logService:LogService msad d-1234567890
 // ```
 type LogService struct {
 	pulumi.CustomResourceState

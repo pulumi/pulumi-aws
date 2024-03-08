@@ -202,8 +202,10 @@ class V2modelsBotVersion(pulumi.CustomResource):
         Resource for managing an AWS Lex V2 Models Bot Version.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -216,13 +218,14 @@ class V2modelsBotVersion(pulumi.CustomResource):
                 ),
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Lex V2 Models Bot Version using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:lex/v2modelsBotVersion:V2modelsBotVersion example id-12345678,1
+        $ pulumi import aws:lex/v2modelsBotVersion:V2modelsBotVersion example id-12345678,1
         ```
 
         :param str resource_name: The name of the resource.
@@ -244,8 +247,10 @@ class V2modelsBotVersion(pulumi.CustomResource):
         Resource for managing an AWS Lex V2 Models Bot Version.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -258,13 +263,14 @@ class V2modelsBotVersion(pulumi.CustomResource):
                 ),
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Lex V2 Models Bot Version using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:lex/v2modelsBotVersion:V2modelsBotVersion example id-12345678,1
+        $ pulumi import aws:lex/v2modelsBotVersion:V2modelsBotVersion example id-12345678,1
         ```
 
         :param str resource_name: The name of the resource.

@@ -11,10 +11,12 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS Lightsail Distribution.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
  * Below is a basic example with a bucket as an origin.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -51,10 +53,13 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### instance origin example
  *
  * Below is an example of an instance as the origin.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -89,10 +94,13 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### lb origin example
  *
  * Below is an example with a load balancer as an origin
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -134,13 +142,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Lightsail Distribution using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:lightsail/distribution:Distribution example rft-8012925589
+ * $ pulumi import aws:lightsail/distribution:Distribution example rft-8012925589
  * ```
  */
 export class Distribution extends pulumi.CustomResource {

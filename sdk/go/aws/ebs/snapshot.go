@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -52,15 +53,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import EBS Snapshot using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ebs/snapshot:Snapshot id snap-049df61146c4d7901
-//
+// $ pulumi import aws:ebs/snapshot:Snapshot id snap-049df61146c4d7901
 // ```
 type Snapshot struct {
 	pulumi.CustomResourceState

@@ -13,10 +13,12 @@ import * as utilities from "../utilities";
  * > **NOTE:** Deleting a replication set also deletes all Incident Manager related data including response plans, incident records, contacts and escalation plans.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
  * Create a replication set.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -30,9 +32,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * Add a Region to a replication set. (You can add only one Region at a time.)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -46,9 +50,11 @@ import * as utilities from "../utilities";
  *     },
  * ]});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * Delete a Region from a replication set. (You can delete only one Region at a time.)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -57,10 +63,13 @@ import * as utilities from "../utilities";
  *     name: "us-west-2",
  * }]});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Basic Usage with an AWS Customer Managed Key
  *
  * Create a replication set with an AWS Key Management Service (AWS KMS) customer manager key:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -76,13 +85,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import an Incident Manager replication. For example:
  *
  * ```sh
- *  $ pulumi import aws:ssmincidents/replicationSet:ReplicationSet replicationSetName import
+ * $ pulumi import aws:ssmincidents/replicationSet:ReplicationSet replicationSetName import
  * ```
  */
 export class ReplicationSet extends pulumi.CustomResource {

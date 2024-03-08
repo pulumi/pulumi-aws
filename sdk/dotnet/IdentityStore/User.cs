@@ -18,47 +18,13 @@ namespace Pulumi.Aws.IdentityStore
     /// users using this resource.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// 	
-    /// object NotImplemented(string errorMessage) 
-    /// {
-    ///     throw new System.NotImplementedException(errorMessage);
-    /// }
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.IdentityStore.User("example", new()
-    ///     {
-    ///         IdentityStoreId = NotImplemented("tolist(data.aws_ssoadmin_instances.example.identity_store_ids)")[0],
-    ///         DisplayName = "John Doe",
-    ///         UserName = "johndoe",
-    ///         Name = new Aws.IdentityStore.Inputs.UserNameArgs
-    ///         {
-    ///             GivenName = "John",
-    ///             FamilyName = "Doe",
-    ///         },
-    ///         Emails = new Aws.IdentityStore.Inputs.UserEmailsArgs
-    ///         {
-    ///             Value = "john@example.com",
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import an Identity Store User using the combination `identity_store_id/user_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:identitystore/user:User example d-9c6705e95c/065212b4-9061-703b-5876-13a517ae2a7c
+    /// $ pulumi import aws:identitystore/user:User example d-9c6705e95c/065212b4-9061-703b-5876-13a517ae2a7c
     /// ```
     /// </summary>
     [AwsResourceType("aws:identitystore/user:User")]

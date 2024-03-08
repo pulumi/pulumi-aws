@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Manages an EC2 Carrier Gateway. See the AWS [documentation](https://docs.aws.amazon.com/vpc/latest/userguide/Carrier_Gateway.html) for more information.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,13 +50,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_ec2_carrier_gateway` using the carrier gateway&#39;s ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/carrierGateway:CarrierGateway example cgw-12345
+ * $ pulumi import aws:ec2/carrierGateway:CarrierGateway example cgw-12345
  * ```
  * 
  */

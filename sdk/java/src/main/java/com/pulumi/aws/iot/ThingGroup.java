@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * Manages an AWS IoT Thing Group.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -68,13 +70,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import IoT Things Groups using the name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:iot/thingGroup:ThingGroup example example
+ * $ pulumi import aws:iot/thingGroup:ThingGroup example example
  * ```
  * 
  */

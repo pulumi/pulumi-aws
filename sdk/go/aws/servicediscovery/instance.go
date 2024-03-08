@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -80,7 +81,9 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -122,15 +125,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Service Discovery Instance using the service ID and instance ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:servicediscovery/instance:Instance example 0123456789/i-0123
-//
+// $ pulumi import aws:servicediscovery/instance:Instance example 0123456789/i-0123
 // ```
 type Instance struct {
 	pulumi.CustomResourceState

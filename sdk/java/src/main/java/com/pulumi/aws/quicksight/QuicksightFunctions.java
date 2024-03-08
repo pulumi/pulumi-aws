@@ -27,7 +27,10 @@ public final class QuicksightFunctions {
      * Data source for managing a QuickSight Data Set.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -56,6 +59,7 @@ public final class QuicksightFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDataSetResult> getDataSet(GetDataSetArgs args) {
@@ -65,7 +69,10 @@ public final class QuicksightFunctions {
      * Data source for managing a QuickSight Data Set.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -94,6 +101,7 @@ public final class QuicksightFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDataSetResult> getDataSetPlain(GetDataSetPlainArgs args) {
@@ -103,7 +111,10 @@ public final class QuicksightFunctions {
      * Data source for managing a QuickSight Data Set.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -132,6 +143,7 @@ public final class QuicksightFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDataSetResult> getDataSet(GetDataSetArgs args, InvokeOptions options) {
@@ -141,7 +153,10 @@ public final class QuicksightFunctions {
      * Data source for managing a QuickSight Data Set.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -170,6 +185,7 @@ public final class QuicksightFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDataSetResult> getDataSetPlain(GetDataSetPlainArgs args, InvokeOptions options) {
@@ -181,7 +197,10 @@ public final class QuicksightFunctions {
      * properties without having to hard code ARNs or unique IDs as input.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -210,6 +229,7 @@ public final class QuicksightFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetQuicksightGroupResult> getQuicksightGroup(GetQuicksightGroupArgs args) {
@@ -221,7 +241,10 @@ public final class QuicksightFunctions {
      * properties without having to hard code ARNs or unique IDs as input.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -250,6 +273,7 @@ public final class QuicksightFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetQuicksightGroupResult> getQuicksightGroupPlain(GetQuicksightGroupPlainArgs args) {
@@ -261,7 +285,10 @@ public final class QuicksightFunctions {
      * properties without having to hard code ARNs or unique IDs as input.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -290,6 +317,7 @@ public final class QuicksightFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetQuicksightGroupResult> getQuicksightGroup(GetQuicksightGroupArgs args, InvokeOptions options) {
@@ -301,7 +329,10 @@ public final class QuicksightFunctions {
      * properties without having to hard code ARNs or unique IDs as input.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -330,6 +361,7 @@ public final class QuicksightFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetQuicksightGroupResult> getQuicksightGroupPlain(GetQuicksightGroupPlainArgs args, InvokeOptions options) {
@@ -341,7 +373,10 @@ public final class QuicksightFunctions {
      * properties without having to hard code ARNs or unique IDs as input.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -370,6 +405,7 @@ public final class QuicksightFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetQuicksightUserResult> getQuicksightUser(GetQuicksightUserArgs args) {
@@ -381,7 +417,10 @@ public final class QuicksightFunctions {
      * properties without having to hard code ARNs or unique IDs as input.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -410,6 +449,7 @@ public final class QuicksightFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetQuicksightUserResult> getQuicksightUserPlain(GetQuicksightUserPlainArgs args) {
@@ -421,7 +461,10 @@ public final class QuicksightFunctions {
      * properties without having to hard code ARNs or unique IDs as input.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -450,6 +493,7 @@ public final class QuicksightFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetQuicksightUserResult> getQuicksightUser(GetQuicksightUserArgs args, InvokeOptions options) {
@@ -461,7 +505,10 @@ public final class QuicksightFunctions {
      * properties without having to hard code ARNs or unique IDs as input.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -490,6 +537,7 @@ public final class QuicksightFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetQuicksightUserResult> getQuicksightUserPlain(GetQuicksightUserPlainArgs args, InvokeOptions options) {
@@ -499,7 +547,10 @@ public final class QuicksightFunctions {
      * Data source for managing an AWS QuickSight Theme.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -528,6 +579,7 @@ public final class QuicksightFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetThemeResult> getTheme(GetThemeArgs args) {
@@ -537,7 +589,10 @@ public final class QuicksightFunctions {
      * Data source for managing an AWS QuickSight Theme.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -566,6 +621,7 @@ public final class QuicksightFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetThemeResult> getThemePlain(GetThemePlainArgs args) {
@@ -575,7 +631,10 @@ public final class QuicksightFunctions {
      * Data source for managing an AWS QuickSight Theme.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -604,6 +663,7 @@ public final class QuicksightFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetThemeResult> getTheme(GetThemeArgs args, InvokeOptions options) {
@@ -613,7 +673,10 @@ public final class QuicksightFunctions {
      * Data source for managing an AWS QuickSight Theme.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -642,6 +705,7 @@ public final class QuicksightFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetThemeResult> getThemePlain(GetThemePlainArgs args, InvokeOptions options) {

@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Provides a MediaStore Container Policy.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -79,13 +81,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import MediaStore Container Policy using the MediaStore Container Name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:mediastore/containerPolicy:ContainerPolicy example example
+ * $ pulumi import aws:mediastore/containerPolicy:ContainerPolicy example example
  * ```
  * 
  */

@@ -297,8 +297,10 @@ class PortfolioShare(pulumi.CustomResource):
         > **NOTE:** You can't share a shared resource, including portfolios that contain a shared product.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -308,13 +310,14 @@ class PortfolioShare(pulumi.CustomResource):
             portfolio_id=example_aws_servicecatalog_portfolio["id"],
             type="ACCOUNT")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_servicecatalog_portfolio_share` using the portfolio share ID. For example:
 
         ```sh
-         $ pulumi import aws:servicecatalog/portfolioShare:PortfolioShare example port-12344321:ACCOUNT:123456789012
+        $ pulumi import aws:servicecatalog/portfolioShare:PortfolioShare example port-12344321:ACCOUNT:123456789012
         ```
 
         :param str resource_name: The name of the resource.
@@ -347,8 +350,10 @@ class PortfolioShare(pulumi.CustomResource):
         > **NOTE:** You can't share a shared resource, including portfolios that contain a shared product.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -358,13 +363,14 @@ class PortfolioShare(pulumi.CustomResource):
             portfolio_id=example_aws_servicecatalog_portfolio["id"],
             type="ACCOUNT")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_servicecatalog_portfolio_share` using the portfolio share ID. For example:
 
         ```sh
-         $ pulumi import aws:servicecatalog/portfolioShare:PortfolioShare example port-12344321:ACCOUNT:123456789012
+        $ pulumi import aws:servicecatalog/portfolioShare:PortfolioShare example port-12344321:ACCOUNT:123456789012
         ```
 
         :param str resource_name: The name of the resource.

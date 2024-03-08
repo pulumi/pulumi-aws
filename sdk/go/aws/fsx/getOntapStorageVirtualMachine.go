@@ -14,8 +14,10 @@ import (
 // Retrieve information on FSx ONTAP Storage Virtual Machine (SVM).
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,8 +41,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Filter Example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -71,6 +76,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupOntapStorageVirtualMachine(ctx *pulumi.Context, args *LookupOntapStorageVirtualMachineArgs, opts ...pulumi.InvokeOption) (*LookupOntapStorageVirtualMachineResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupOntapStorageVirtualMachineResult

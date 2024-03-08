@@ -13,14 +13,17 @@ import * as utilities from "../utilities";
  * Use this data source to manage a replication set in AWS Systems Manager Incident Manager.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ssmincidents.getReplicationSet({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getReplicationSet(args?: GetReplicationSetArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationSetResult> {
     args = args || {};
@@ -82,14 +85,17 @@ export interface GetReplicationSetResult {
  * Use this data source to manage a replication set in AWS Systems Manager Incident Manager.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.ssmincidents.getReplicationSet({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getReplicationSetOutput(args?: GetReplicationSetOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationSetResult> {
     return pulumi.output(args).apply((a: any) => getReplicationSet(a, opts))

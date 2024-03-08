@@ -15,8 +15,10 @@ import * as utilities from "../utilities";
  * [Read more about this in the AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VpnTunnelOptionsSpecification.html).
  *
  * ## Example Usage
+ *
  * ### EC2 Transit Gateway
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -33,8 +35,11 @@ import * as utilities from "../utilities";
  *     type: exampleCustomerGateway.type,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Virtual Private Gateway
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -53,8 +58,11 @@ import * as utilities from "../utilities";
  *     staticRoutesOnly: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### AWS Site to Site Private VPN
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -96,13 +104,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import VPN Connections using the VPN connection `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/vpnConnection:VpnConnection testvpnconnection vpn-40f41529
+ * $ pulumi import aws:ec2/vpnConnection:VpnConnection testvpnconnection vpn-40f41529
  * ```
  */
 export class VpnConnection extends pulumi.CustomResource {

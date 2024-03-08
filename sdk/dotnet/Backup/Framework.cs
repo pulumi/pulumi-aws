@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Backup
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -140,13 +141,14 @@ namespace Pulumi.Aws.Backup
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Backup Framework using the `id` which corresponds to the name of the Backup Framework. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:backup/framework:Framework test &lt;id&gt;
+    /// $ pulumi import aws:backup/framework:Framework test &lt;id&gt;
     /// ```
     /// </summary>
     [AwsResourceType("aws:backup/framework:Framework")]

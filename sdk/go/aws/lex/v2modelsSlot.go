@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS Lex V2 Models Slot.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,15 +46,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Lex V2 Models Slot using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:lex/v2modelsSlot:V2modelsSlot example bot-1234,1,intent-5678,en-US,slot-9012
-//
+// $ pulumi import aws:lex/v2modelsSlot:V2modelsSlot example bot-1234,1,intent-5678,en-US,slot-9012
 // ```
 type V2modelsSlot struct {
 	pulumi.CustomResourceState

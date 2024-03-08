@@ -149,6 +149,7 @@ class WebsiteCertificateAuthorityAssociation(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -159,13 +160,14 @@ class WebsiteCertificateAuthorityAssociation(pulumi.CustomResource):
             fleet_arn=test_aws_worklink_fleet["arn"],
             certificate=std.file(input="certificate.pem").result)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import WorkLink Website Certificate Authority using `FLEET-ARN,WEBSITE-CA-ID`. For example:
 
         ```sh
-         $ pulumi import aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation example arn:aws:worklink::123456789012:fleet/example,abcdefghijk
+        $ pulumi import aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation example arn:aws:worklink::123456789012:fleet/example,abcdefghijk
         ```
 
         :param str resource_name: The name of the resource.
@@ -183,6 +185,7 @@ class WebsiteCertificateAuthorityAssociation(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -193,13 +196,14 @@ class WebsiteCertificateAuthorityAssociation(pulumi.CustomResource):
             fleet_arn=test_aws_worklink_fleet["arn"],
             certificate=std.file(input="certificate.pem").result)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import WorkLink Website Certificate Authority using `FLEET-ARN,WEBSITE-CA-ID`. For example:
 
         ```sh
-         $ pulumi import aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation example arn:aws:worklink::123456789012:fleet/example,abcdefghijk
+        $ pulumi import aws:worklink/websiteCertificateAuthorityAssociation:WebsiteCertificateAuthorityAssociation example arn:aws:worklink::123456789012:fleet/example,abcdefghijk
         ```
 
         :param str resource_name: The name of the resource.

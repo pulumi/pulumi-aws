@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -57,15 +58,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import IoT Things Groups using the name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:iot/thingGroup:ThingGroup example example
-//
+// $ pulumi import aws:iot/thingGroup:ThingGroup example example
 // ```
 type ThingGroup struct {
 	pulumi.CustomResourceState

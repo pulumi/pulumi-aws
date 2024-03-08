@@ -582,6 +582,7 @@ class VpcIpamPool(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -595,9 +596,11 @@ class VpcIpamPool(pulumi.CustomResource):
             ipam_scope_id=example.private_default_scope_id,
             locale=current.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         Nested Pools:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -621,13 +624,14 @@ class VpcIpamPool(pulumi.CustomResource):
             ipam_pool_id=child.id,
             cidr="172.20.0.0/24")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IPAMs using the IPAM pool `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/vpcIpamPool:VpcIpamPool example ipam-pool-0958f95207d978e1e
+        $ pulumi import aws:ec2/vpcIpamPool:VpcIpamPool example ipam-pool-0958f95207d978e1e
         ```
 
         :param str resource_name: The name of the resource.
@@ -661,6 +665,7 @@ class VpcIpamPool(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -674,9 +679,11 @@ class VpcIpamPool(pulumi.CustomResource):
             ipam_scope_id=example.private_default_scope_id,
             locale=current.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         Nested Pools:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -700,13 +707,14 @@ class VpcIpamPool(pulumi.CustomResource):
             ipam_pool_id=child.id,
             cidr="172.20.0.0/24")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IPAMs using the IPAM pool `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/vpcIpamPool:VpcIpamPool example ipam-pool-0958f95207d978e1e
+        $ pulumi import aws:ec2/vpcIpamPool:VpcIpamPool example ipam-pool-0958f95207d978e1e
         ```
 
         :param str resource_name: The name of the resource.

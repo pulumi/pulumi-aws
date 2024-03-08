@@ -7,44 +7,12 @@ import * as utilities from "../utilities";
 /**
  * Resource for managing an AWS IdentityStore Group Membership.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const example = aws.ssoadmin.getInstances({});
- * const exampleUser = new aws.identitystore.User("example", {
- *     identityStoreId: notImplemented("tolist(data.aws_ssoadmin_instances.example.identity_store_ids)")[0],
- *     displayName: "John Doe",
- *     userName: "john.doe@example.com",
- *     name: {
- *         familyName: "Doe",
- *         givenName: "John",
- *     },
- * });
- * const exampleGroup = new aws.identitystore.Group("example", {
- *     identityStoreId: notImplemented("tolist(data.aws_ssoadmin_instances.example.identity_store_ids)")[0],
- *     displayName: "MyGroup",
- *     description: "Some group name",
- * });
- * const exampleGroupMembership = new aws.identitystore.GroupMembership("example", {
- *     identityStoreId: notImplemented("tolist(data.aws_ssoadmin_instances.example.identity_store_ids)")[0],
- *     groupId: exampleGroup.groupId,
- *     memberId: exampleUser.userId,
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import `aws_identitystore_group_membership` using the `identity_store_id/membership_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:identitystore/groupMembership:GroupMembership example d-0000000000/00000000-0000-0000-0000-000000000000
+ * $ pulumi import aws:identitystore/groupMembership:GroupMembership example d-0000000000/00000000-0000-0000-0000-000000000000
  * ```
  */
 export class GroupMembership extends pulumi.CustomResource {

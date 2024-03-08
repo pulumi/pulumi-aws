@@ -685,8 +685,10 @@ class Certificate(pulumi.CustomResource):
         To renew the certificate earlier than 60 days before expiration, configure `early_renewal_duration`.
 
         ## Example Usage
+
         ### Create Certificate
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -698,8 +700,11 @@ class Certificate(pulumi.CustomResource):
                 "Environment": "test",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Custom Domain Validation Options
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -712,8 +717,11 @@ class Certificate(pulumi.CustomResource):
                 validation_domain="example.com",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Existing Certificate Body Import
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -737,10 +745,13 @@ class Certificate(pulumi.CustomResource):
             private_key=example.private_key_pem,
             certificate_body=example_self_signed_cert.cert_pem)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Referencing domain_validation_options With for_each Based Resources
 
         See the `acm.CertificateValidation` resource for a full example of performing DNS validation.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -759,13 +770,14 @@ class Certificate(pulumi.CustomResource):
                 type=aws.route53/recordtype.RecordType(range["value"]["type"]),
                 zone_id=example_aws_route53_zone["zoneId"]))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import certificates using their ARN. For example:
 
         ```sh
-         $ pulumi import aws:acm/certificate:Certificate cert arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
+        $ pulumi import aws:acm/certificate:Certificate cert arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
         ```
 
         :param str resource_name: The name of the resource.
@@ -836,8 +848,10 @@ class Certificate(pulumi.CustomResource):
         To renew the certificate earlier than 60 days before expiration, configure `early_renewal_duration`.
 
         ## Example Usage
+
         ### Create Certificate
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -849,8 +863,11 @@ class Certificate(pulumi.CustomResource):
                 "Environment": "test",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Custom Domain Validation Options
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -863,8 +880,11 @@ class Certificate(pulumi.CustomResource):
                 validation_domain="example.com",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Existing Certificate Body Import
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -888,10 +908,13 @@ class Certificate(pulumi.CustomResource):
             private_key=example.private_key_pem,
             certificate_body=example_self_signed_cert.cert_pem)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Referencing domain_validation_options With for_each Based Resources
 
         See the `acm.CertificateValidation` resource for a full example of performing DNS validation.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -910,13 +933,14 @@ class Certificate(pulumi.CustomResource):
                 type=aws.route53/recordtype.RecordType(range["value"]["type"]),
                 zone_id=example_aws_route53_zone["zoneId"]))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import certificates using their ARN. For example:
 
         ```sh
-         $ pulumi import aws:acm/certificate:Certificate cert arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
+        $ pulumi import aws:acm/certificate:Certificate cert arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
         ```
 
         :param str resource_name: The name of the resource.

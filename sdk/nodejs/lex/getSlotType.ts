@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,6 +22,7 @@ import * as utilities from "../utilities";
  *     version: "1",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSlotType(args: GetSlotTypeArgs, opts?: pulumi.InvokeOptions): Promise<GetSlotTypeResult> {
 
@@ -97,6 +99,7 @@ export interface GetSlotTypeResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -106,6 +109,7 @@ export interface GetSlotTypeResult {
  *     version: "1",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSlotTypeOutput(args: GetSlotTypeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSlotTypeResult> {
     return pulumi.output(args).apply((a: any) => getSlotType(a, opts))

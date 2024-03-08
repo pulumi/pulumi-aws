@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,15 +45,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import GameLift Aliases using the ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:gamelift/alias:Alias example <alias-id>
-//
+// $ pulumi import aws:gamelift/alias:Alias example <alias-id>
 // ```
 type Alias struct {
 	pulumi.CustomResourceState

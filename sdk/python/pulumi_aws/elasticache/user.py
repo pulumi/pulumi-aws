@@ -343,6 +343,7 @@ class User(pulumi.CustomResource):
         > **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -354,7 +355,9 @@ class User(pulumi.CustomResource):
             engine="REDIS",
             passwords=["password123456789"])
         ```
+        <!--End PulumiCodeChooser -->
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -368,7 +371,9 @@ class User(pulumi.CustomResource):
                 type="iam",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -386,13 +391,14 @@ class User(pulumi.CustomResource):
                 ],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ElastiCache users using the `user_id`. For example:
 
         ```sh
-         $ pulumi import aws:elasticache/user:User my_user userId1
+        $ pulumi import aws:elasticache/user:User my_user userId1
         ```
 
         :param str resource_name: The name of the resource.
@@ -420,6 +426,7 @@ class User(pulumi.CustomResource):
         > **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -431,7 +438,9 @@ class User(pulumi.CustomResource):
             engine="REDIS",
             passwords=["password123456789"])
         ```
+        <!--End PulumiCodeChooser -->
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -445,7 +454,9 @@ class User(pulumi.CustomResource):
                 type="iam",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -463,13 +474,14 @@ class User(pulumi.CustomResource):
                 ],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ElastiCache users using the `user_id`. For example:
 
         ```sh
-         $ pulumi import aws:elasticache/user:User my_user userId1
+        $ pulumi import aws:elasticache/user:User my_user userId1
         ```
 
         :param str resource_name: The name of the resource.

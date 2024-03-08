@@ -72,6 +72,7 @@ def get_global_networks(tags: Optional[Mapping[str, str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -80,6 +81,7 @@ def get_global_networks(tags: Optional[Mapping[str, str]] = None,
         "Env": "test",
     })
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Mapping[str, str] tags: Restricts the list to the global networks with these tags.
@@ -103,6 +105,7 @@ def get_global_networks_output(tags: Optional[pulumi.Input[Optional[Mapping[str,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -111,6 +114,7 @@ def get_global_networks_output(tags: Optional[pulumi.Input[Optional[Mapping[str,
         "Env": "test",
     })
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Mapping[str, str] tags: Restricts the list to the global networks with these tags.

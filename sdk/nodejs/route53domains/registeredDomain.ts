@@ -16,6 +16,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -35,13 +36,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import domains using the domain name. For example:
  *
  * ```sh
- *  $ pulumi import aws:route53domains/registeredDomain:RegisteredDomain example example.com
+ * $ pulumi import aws:route53domains/registeredDomain:RegisteredDomain example example.com
  * ```
  */
 export class RegisteredDomain extends pulumi.CustomResource {

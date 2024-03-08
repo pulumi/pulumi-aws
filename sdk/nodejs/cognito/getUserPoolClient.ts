@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,6 +22,7 @@ import * as utilities from "../utilities";
  *     userPoolId: "us-west-2_aaaaaaaaa",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getUserPoolClient(args: GetUserPoolClientArgs, opts?: pulumi.InvokeOptions): Promise<GetUserPoolClientResult> {
 
@@ -139,6 +141,7 @@ export interface GetUserPoolClientResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -148,6 +151,7 @@ export interface GetUserPoolClientResult {
  *     userPoolId: "us-west-2_aaaaaaaaa",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getUserPoolClientOutput(args: GetUserPoolClientOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserPoolClientResult> {
     return pulumi.output(args).apply((a: any) => getUserPoolClient(a, opts))

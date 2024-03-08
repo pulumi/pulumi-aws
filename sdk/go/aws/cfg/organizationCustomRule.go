@@ -20,6 +20,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -67,15 +68,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Config Organization Custom Rules using the name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cfg/organizationCustomRule:OrganizationCustomRule example example
-//
+// $ pulumi import aws:cfg/organizationCustomRule:OrganizationCustomRule example example
 // ```
 type OrganizationCustomRule struct {
 	pulumi.CustomResourceState

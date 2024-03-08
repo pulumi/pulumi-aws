@@ -343,6 +343,7 @@ class EndpointConfiguration(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -359,13 +360,14 @@ class EndpointConfiguration(pulumi.CustomResource):
                 "Name": "foo",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import endpoint configurations using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/endpointConfiguration:EndpointConfiguration test_endpoint_config endpoint-config-foo
+        $ pulumi import aws:sagemaker/endpointConfiguration:EndpointConfiguration test_endpoint_config endpoint-config-foo
         ```
 
         :param str resource_name: The name of the resource.
@@ -392,6 +394,7 @@ class EndpointConfiguration(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -408,13 +411,14 @@ class EndpointConfiguration(pulumi.CustomResource):
                 "Name": "foo",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import endpoint configurations using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/endpointConfiguration:EndpointConfiguration test_endpoint_config endpoint-config-foo
+        $ pulumi import aws:sagemaker/endpointConfiguration:EndpointConfiguration test_endpoint_config endpoint-config-foo
         ```
 
         :param str resource_name: The name of the resource.

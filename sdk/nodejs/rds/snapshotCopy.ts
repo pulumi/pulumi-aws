@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -34,13 +35,14 @@ import * as utilities from "../utilities";
  *     targetDbSnapshotIdentifier: "testsnapshot1234-copy",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_db_snapshot_copy` using the snapshot identifier. For example:
  *
  * ```sh
- *  $ pulumi import aws:rds/snapshotCopy:SnapshotCopy example my-snapshot
+ * $ pulumi import aws:rds/snapshotCopy:SnapshotCopy example my-snapshot
  * ```
  */
 export class SnapshotCopy extends pulumi.CustomResource {

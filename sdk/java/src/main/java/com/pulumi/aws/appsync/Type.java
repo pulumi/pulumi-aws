@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Provides an AppSync Type.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -61,13 +63,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Appsync Types using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:appsync/type:Type example api-id:format:name
+ * $ pulumi import aws:appsync/type:Type example api-id:format:name
  * ```
  * 
  */

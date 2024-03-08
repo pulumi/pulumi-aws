@@ -134,6 +134,7 @@ class LocalGatewayRoute(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -143,13 +144,14 @@ class LocalGatewayRoute(pulumi.CustomResource):
             local_gateway_route_table_id=example_aws_ec2_local_gateway_route_table["id"],
             local_gateway_virtual_interface_group_id=example_aws_ec2_local_gateway_virtual_interface_group["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ec2_local_gateway_route` using the EC2 Local Gateway Route Table identifier and destination CIDR block separated by underscores (`_`). For example:
 
         ```sh
-         $ pulumi import aws:ec2/localGatewayRoute:LocalGatewayRoute example lgw-rtb-12345678_172.16.0.0/16
+        $ pulumi import aws:ec2/localGatewayRoute:LocalGatewayRoute example lgw-rtb-12345678_172.16.0.0/16
         ```
 
         :param str resource_name: The name of the resource.
@@ -169,6 +171,7 @@ class LocalGatewayRoute(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -178,13 +181,14 @@ class LocalGatewayRoute(pulumi.CustomResource):
             local_gateway_route_table_id=example_aws_ec2_local_gateway_route_table["id"],
             local_gateway_virtual_interface_group_id=example_aws_ec2_local_gateway_virtual_interface_group["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ec2_local_gateway_route` using the EC2 Local Gateway Route Table identifier and destination CIDR block separated by underscores (`_`). For example:
 
         ```sh
-         $ pulumi import aws:ec2/localGatewayRoute:LocalGatewayRoute example lgw-rtb-12345678_172.16.0.0/16
+        $ pulumi import aws:ec2/localGatewayRoute:LocalGatewayRoute example lgw-rtb-12345678_172.16.0.0/16
         ```
 
         :param str resource_name: The name of the resource.

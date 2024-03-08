@@ -120,8 +120,10 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
         Provides an Elastic Container Registry Scanning Configuration. Can't be completely deleted, instead reverts to the default `BASIC` scanning configuration without rules.
 
         ## Example Usage
+
         ### Basic example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -136,8 +138,11 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
                 )],
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Multiple rules
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -161,13 +166,14 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ECR Scanning Configurations using the `registry_id`. For example:
 
         ```sh
-         $ pulumi import aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration example 012345678901
+        $ pulumi import aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration example 012345678901
         ```
 
         :param str resource_name: The name of the resource.
@@ -185,8 +191,10 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
         Provides an Elastic Container Registry Scanning Configuration. Can't be completely deleted, instead reverts to the default `BASIC` scanning configuration without rules.
 
         ## Example Usage
+
         ### Basic example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -201,8 +209,11 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
                 )],
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Multiple rules
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -226,13 +237,14 @@ class RegistryScanningConfiguration(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ECR Scanning Configurations using the `registry_id`. For example:
 
         ```sh
-         $ pulumi import aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration example 012345678901
+        $ pulumi import aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration example 012345678901
         ```
 
         :param str resource_name: The name of the resource.

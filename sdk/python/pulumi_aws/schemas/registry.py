@@ -177,6 +177,7 @@ class Registry(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -185,13 +186,14 @@ class Registry(pulumi.CustomResource):
             name="my_own_registry",
             description="A custom schema registry")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EventBridge schema registries using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:schemas/registry:Registry test my_own_registry
+        $ pulumi import aws:schemas/registry:Registry test my_own_registry
         ```
 
         :param str resource_name: The name of the resource.
@@ -213,6 +215,7 @@ class Registry(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -221,13 +224,14 @@ class Registry(pulumi.CustomResource):
             name="my_own_registry",
             description="A custom schema registry")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EventBridge schema registries using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:schemas/registry:Registry test my_own_registry
+        $ pulumi import aws:schemas/registry:Registry test my_own_registry
         ```
 
         :param str resource_name: The name of the resource.

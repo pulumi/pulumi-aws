@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -33,13 +34,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Internet Gateways using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/internetGateway:InternetGateway gw igw-c0a643a9
+    /// $ pulumi import aws:ec2/internetGateway:InternetGateway gw igw-c0a643a9
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/internetGateway:InternetGateway")]
@@ -62,6 +64,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// &gt; **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -79,6 +82,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         [Output("tags")]
         public Output<ImmutableDictionary<string, string>?> Tags { get; private set; } = null!;
@@ -149,6 +153,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// &gt; **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -166,6 +171,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public InputMap<string> Tags
         {
@@ -207,6 +213,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// &gt; **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -224,6 +231,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public InputMap<string> Tags
         {

@@ -889,8 +889,10 @@ class TargetGroup(pulumi.CustomResource):
         > **Note:** `alb.TargetGroup` is known as `lb.TargetGroup`. The functionality is identical.
 
         ## Example Usage
+
         ### Instance Target Group
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -902,8 +904,11 @@ class TargetGroup(pulumi.CustomResource):
             protocol="HTTP",
             vpc_id=main.id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### IP Target Group
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -916,8 +921,11 @@ class TargetGroup(pulumi.CustomResource):
             target_type="ip",
             vpc_id=main.id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Lambda Target Group
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -926,8 +934,11 @@ class TargetGroup(pulumi.CustomResource):
             name="tf-example-lb-tg",
             target_type="lambda")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### ALB Target Group
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -939,8 +950,11 @@ class TargetGroup(pulumi.CustomResource):
             protocol="TCP",
             vpc_id=main["id"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Target group with unhealthy connection termination disabled
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -954,13 +968,14 @@ class TargetGroup(pulumi.CustomResource):
                 enable_unhealthy_connection_termination=False,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Target Groups using their ARN. For example:
 
         ```sh
-         $ pulumi import aws:lb/targetGroup:TargetGroup app_front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:targetgroup/app-front-end/20cfe21448b66314
+        $ pulumi import aws:lb/targetGroup:TargetGroup app_front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:targetgroup/app-front-end/20cfe21448b66314
         ```
 
         :param str resource_name: The name of the resource.
@@ -1013,8 +1028,10 @@ class TargetGroup(pulumi.CustomResource):
         > **Note:** `alb.TargetGroup` is known as `lb.TargetGroup`. The functionality is identical.
 
         ## Example Usage
+
         ### Instance Target Group
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1026,8 +1043,11 @@ class TargetGroup(pulumi.CustomResource):
             protocol="HTTP",
             vpc_id=main.id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### IP Target Group
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1040,8 +1060,11 @@ class TargetGroup(pulumi.CustomResource):
             target_type="ip",
             vpc_id=main.id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Lambda Target Group
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1050,8 +1073,11 @@ class TargetGroup(pulumi.CustomResource):
             name="tf-example-lb-tg",
             target_type="lambda")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### ALB Target Group
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1063,8 +1089,11 @@ class TargetGroup(pulumi.CustomResource):
             protocol="TCP",
             vpc_id=main["id"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Target group with unhealthy connection termination disabled
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1078,13 +1107,14 @@ class TargetGroup(pulumi.CustomResource):
                 enable_unhealthy_connection_termination=False,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Target Groups using their ARN. For example:
 
         ```sh
-         $ pulumi import aws:lb/targetGroup:TargetGroup app_front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:targetgroup/app-front-end/20cfe21448b66314
+        $ pulumi import aws:lb/targetGroup:TargetGroup app_front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:targetgroup/app-front-end/20cfe21448b66314
         ```
 
         :param str resource_name: The name of the resource.

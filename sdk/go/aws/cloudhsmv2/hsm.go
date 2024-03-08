@@ -18,6 +18,7 @@ import (
 //
 // The following example below creates an HSM module in CloudHSM cluster.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -48,15 +49,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import HSM modules using their HSM ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cloudhsmv2/hsm:Hsm bar hsm-quo8dahtaca
-//
+// $ pulumi import aws:cloudhsmv2/hsm:Hsm bar hsm-quo8dahtaca
 // ```
 type Hsm struct {
 	pulumi.CustomResourceState

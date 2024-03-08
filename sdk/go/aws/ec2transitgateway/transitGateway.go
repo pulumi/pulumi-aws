@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,15 +39,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_ec2_transit_gateway` using the EC2 Transit Gateway identifier. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2transitgateway/transitGateway:TransitGateway example tgw-12345678
-//
+// $ pulumi import aws:ec2transitgateway/transitGateway:TransitGateway example tgw-12345678
 // ```
 type TransitGateway struct {
 	pulumi.CustomResourceState

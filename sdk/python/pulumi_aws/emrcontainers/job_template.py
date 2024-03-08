@@ -208,8 +208,10 @@ class JobTemplate(pulumi.CustomResource):
         Manages an EMR Containers (EMR on EKS) Job Template.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -226,13 +228,14 @@ class JobTemplate(pulumi.CustomResource):
             ),
             name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EKS job templates using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:emrcontainers/jobTemplate:JobTemplate example a1b2c3d4e5f6g7h8i9j10k11l
+        $ pulumi import aws:emrcontainers/jobTemplate:JobTemplate example a1b2c3d4e5f6g7h8i9j10k11l
         ```
 
         :param str resource_name: The name of the resource.
@@ -252,8 +255,10 @@ class JobTemplate(pulumi.CustomResource):
         Manages an EMR Containers (EMR on EKS) Job Template.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -270,13 +275,14 @@ class JobTemplate(pulumi.CustomResource):
             ),
             name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EKS job templates using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:emrcontainers/jobTemplate:JobTemplate example a1b2c3d4e5f6g7h8i9j10k11l
+        $ pulumi import aws:emrcontainers/jobTemplate:JobTemplate example a1b2c3d4e5f6g7h8i9j10k11l
         ```
 
         :param str resource_name: The name of the resource.

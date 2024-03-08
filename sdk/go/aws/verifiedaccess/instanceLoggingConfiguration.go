@@ -15,8 +15,10 @@ import (
 // Resource for managing a Verified Access Logging Configuration.
 //
 // ## Example Usage
+//
 // ### With CloudWatch Logging
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -46,8 +48,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With Kinesis Data Firehose Logging
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -77,8 +82,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With S3 logging
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -109,8 +117,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With all three logging options
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -148,8 +159,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With `includeTrustContext`
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -176,8 +190,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With `logVersion`
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -204,15 +221,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Verified Access Logging Configuration using the Verified Access Instance `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration example vai-1234567890abcdef0
-//
+// $ pulumi import aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration example vai-1234567890abcdef0
 // ```
 type InstanceLoggingConfiguration struct {
 	pulumi.CustomResourceState

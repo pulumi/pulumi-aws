@@ -276,6 +276,7 @@ class Workgroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -294,13 +295,14 @@ class Workgroup(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Athena Workgroups using their name. For example:
 
         ```sh
-         $ pulumi import aws:athena/workgroup:Workgroup example example
+        $ pulumi import aws:athena/workgroup:Workgroup example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -323,6 +325,7 @@ class Workgroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -341,13 +344,14 @@ class Workgroup(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Athena Workgroups using their name. For example:
 
         ```sh
-         $ pulumi import aws:athena/workgroup:Workgroup example example
+        $ pulumi import aws:athena/workgroup:Workgroup example example
         ```
 
         :param str resource_name: The name of the resource.

@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Transcribe
     /// Resource for managing an AWS Transcribe VocabularyFilter.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -41,13 +43,14 @@ namespace Pulumi.Aws.Transcribe
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Transcribe VocabularyFilter using the `vocabulary_filter_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:transcribe/vocabularyFilter:VocabularyFilter example example-name
+    /// $ pulumi import aws:transcribe/vocabularyFilter:VocabularyFilter example example-name
     /// ```
     /// </summary>
     [AwsResourceType("aws:transcribe/vocabularyFilter:VocabularyFilter")]

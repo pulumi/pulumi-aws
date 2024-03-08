@@ -13,46 +13,10 @@ import * as utilities from "../utilities";
  * > **NOTE:** A permission set can have at most one permissions boundary attached; using more than one `aws.ssoadmin.PermissionsBoundaryAttachment` references the same permission set will show a permanent difference.
  *
  * ## Example Usage
- * ### Attaching a customer-managed policy
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const example = aws.ssoadmin.getInstances({});
- * const examplePermissionSet = new aws.ssoadmin.PermissionSet("example", {
- *     name: "Example",
- *     instanceArn: notImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
- * });
- * const examplePolicy = new aws.iam.Policy("example", {
- *     name: "TestPolicy",
- *     description: "My test policy",
- *     policy: JSON.stringify({
- *         version: "2012-10-17",
- *         statement: [{
- *             action: ["ec2:Describe*"],
- *             effect: "Allow",
- *             resource: "*",
- *         }],
- *     }),
- * });
- * const examplePermissionsBoundaryAttachment = new aws.ssoadmin.PermissionsBoundaryAttachment("example", {
- *     instanceArn: examplePermissionSet.instanceArn,
- *     permissionSetArn: examplePermissionSet.arn,
- *     permissionsBoundary: {
- *         customerManagedPolicyReference: {
- *             name: examplePolicy.name,
- *             path: "/",
- *         },
- *     },
- * });
- * ```
  * ### Attaching an AWS-managed policy
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -65,13 +29,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SSO Admin Permissions Boundary Attachments using the `permission_set_arn` and `instance_arn`, separated by a comma (`,`). For example:
  *
  * ```sh
- *  $ pulumi import aws:ssoadmin/permissionsBoundaryAttachment:PermissionsBoundaryAttachment example arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
+ * $ pulumi import aws:ssoadmin/permissionsBoundaryAttachment:PermissionsBoundaryAttachment example arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
  * ```
  */
 export class PermissionsBoundaryAttachment extends pulumi.CustomResource {

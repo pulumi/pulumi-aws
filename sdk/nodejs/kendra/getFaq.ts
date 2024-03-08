@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,6 +22,7 @@ import * as utilities from "../utilities";
  *     indexId: "12345678-1234-1234-1234-123456789123",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFaq(args: GetFaqArgs, opts?: pulumi.InvokeOptions): Promise<GetFaqResult> {
 
@@ -114,6 +116,7 @@ export interface GetFaqResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -123,6 +126,7 @@ export interface GetFaqResult {
  *     indexId: "12345678-1234-1234-1234-123456789123",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFaqOutput(args: GetFaqOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFaqResult> {
     return pulumi.output(args).apply((a: any) => getFaq(a, opts))

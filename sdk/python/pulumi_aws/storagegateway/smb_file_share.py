@@ -931,10 +931,12 @@ class SmbFileShare(pulumi.CustomResource):
         Manages an AWS Storage Gateway SMB File Share.
 
         ## Example Usage
+
         ### Active Directory Authentication
 
         > **NOTE:** The gateway must have already joined the Active Directory domain prior to SMB file share creationE.g., via "SMB Settings" in the AWS Storage Gateway console or `smb_active_directory_settings` in the `storagegateway.Gateway` resource.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -945,10 +947,13 @@ class SmbFileShare(pulumi.CustomResource):
             location_arn=example_aws_s3_bucket["arn"],
             role_arn=example_aws_iam_role["arn"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Guest Authentication
 
         > **NOTE:** The gateway must have already had the SMB guest password set prior to SMB file share creationE.g., via "SMB Settings" in the AWS Storage Gateway console or `smb_guest_password` in the `storagegateway.Gateway` resource.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -959,13 +964,14 @@ class SmbFileShare(pulumi.CustomResource):
             location_arn=example_aws_s3_bucket["arn"],
             role_arn=example_aws_iam_role["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_storagegateway_smb_file_share` using the SMB File Share Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:storagegateway/smbFileShare:SmbFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
+        $ pulumi import aws:storagegateway/smbFileShare:SmbFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -1006,10 +1012,12 @@ class SmbFileShare(pulumi.CustomResource):
         Manages an AWS Storage Gateway SMB File Share.
 
         ## Example Usage
+
         ### Active Directory Authentication
 
         > **NOTE:** The gateway must have already joined the Active Directory domain prior to SMB file share creationE.g., via "SMB Settings" in the AWS Storage Gateway console or `smb_active_directory_settings` in the `storagegateway.Gateway` resource.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1020,10 +1028,13 @@ class SmbFileShare(pulumi.CustomResource):
             location_arn=example_aws_s3_bucket["arn"],
             role_arn=example_aws_iam_role["arn"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Guest Authentication
 
         > **NOTE:** The gateway must have already had the SMB guest password set prior to SMB file share creationE.g., via "SMB Settings" in the AWS Storage Gateway console or `smb_guest_password` in the `storagegateway.Gateway` resource.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1034,13 +1045,14 @@ class SmbFileShare(pulumi.CustomResource):
             location_arn=example_aws_s3_bucket["arn"],
             role_arn=example_aws_iam_role["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_storagegateway_smb_file_share` using the SMB File Share Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:storagegateway/smbFileShare:SmbFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
+        $ pulumi import aws:storagegateway/smbFileShare:SmbFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
         ```
 
         :param str resource_name: The name of the resource.

@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Provides a AWS Transfer Workflow resource.
  *
  * ## Example Usage
+ *
  * ### Basic single step example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -25,8 +27,11 @@ import * as utilities from "../utilities";
  *     type: "DELETE",
  * }]});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Multistep example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -54,13 +59,14 @@ import * as utilities from "../utilities";
  *     },
  * ]});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Transfer Workflows using the `worflow_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:transfer/workflow:Workflow example example
+ * $ pulumi import aws:transfer/workflow:Workflow example example
  * ```
  */
 export class Workflow extends pulumi.CustomResource {

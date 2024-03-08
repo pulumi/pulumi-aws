@@ -102,6 +102,7 @@ class ResourcePolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -121,13 +122,14 @@ class ResourcePolicy(pulumi.CustomResource):
                 }],
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Serverless Resource Policies using the `resource_arn`. For example:
 
         ```sh
-         $ pulumi import aws:redshiftserverless/resourcePolicy:ResourcePolicy example example
+        $ pulumi import aws:redshiftserverless/resourcePolicy:ResourcePolicy example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -146,6 +148,7 @@ class ResourcePolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -165,13 +168,14 @@ class ResourcePolicy(pulumi.CustomResource):
                 }],
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Serverless Resource Policies using the `resource_arn`. For example:
 
         ```sh
-         $ pulumi import aws:redshiftserverless/resourcePolicy:ResourcePolicy example example
+        $ pulumi import aws:redshiftserverless/resourcePolicy:ResourcePolicy example example
         ```
 
         :param str resource_name: The name of the resource.

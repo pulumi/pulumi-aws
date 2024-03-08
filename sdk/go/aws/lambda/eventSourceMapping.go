@@ -18,8 +18,10 @@ import (
 // For information about event source mappings, see [CreateEventSourceMapping](http://docs.aws.amazon.com/lambda/latest/dg/API_CreateEventSourceMapping.html) in the API docs.
 //
 // ## Example Usage
+//
 // ### DynamoDB
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,8 +47,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Kinesis
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -72,8 +77,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Managed Streaming for Apache Kafka (MSK)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -102,8 +110,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Self Managed Apache Kafka
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -150,8 +161,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### SQS
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -176,8 +190,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### SQS with event filter
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -232,8 +249,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Amazon MQ (ActiveMQ)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -267,8 +287,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Amazon MQ (RabbitMQ)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -306,15 +329,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Lambda event source mappings using the `UUID` (event source mapping identifier). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:lambda/eventSourceMapping:EventSourceMapping event_source_mapping 12345kxodurf3443
-//
+// $ pulumi import aws:lambda/eventSourceMapping:EventSourceMapping event_source_mapping 12345kxodurf3443
 // ```
 type EventSourceMapping struct {
 	pulumi.CustomResourceState

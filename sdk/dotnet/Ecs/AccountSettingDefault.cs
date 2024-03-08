@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,13 +35,14 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import ECS Account Setting defaults using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ecs/accountSettingDefault:AccountSettingDefault example taskLongArnFormat
+    /// $ pulumi import aws:ecs/accountSettingDefault:AccountSettingDefault example taskLongArnFormat
     /// ```
     /// </summary>
     [AwsResourceType("aws:ecs/accountSettingDefault:AccountSettingDefault")]

@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,13 +23,14 @@ import * as utilities from "../utilities";
  *     feature: "CONTENT_MODERATION",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Rekognition Project using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:rekognition/project:Project example project-id-12345678
+ * $ pulumi import aws:rekognition/project:Project example project-id-12345678
  * ```
  */
 export class Project extends pulumi.CustomResource {

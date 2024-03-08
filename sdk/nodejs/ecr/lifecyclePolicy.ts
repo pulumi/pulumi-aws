@@ -14,8 +14,10 @@ import {LifecyclePolicyDocument} from "./index";
  * > **NOTE:** The AWS ECR API seems to reorder rules based on `rulePriority`. If you define multiple rules that are not sorted in ascending `rulePriority` order in the this provider code, the resource will be flagged for recreation every deployment.
  *
  * ## Example Usage
+ *
  * ### Policy on untagged image
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -43,8 +45,11 @@ import {LifecyclePolicyDocument} from "./index";
  * `,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Policy on tagged image
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -72,13 +77,14 @@ import {LifecyclePolicyDocument} from "./index";
  * `,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import ECR Lifecycle Policy using the name of the repository. For example:
  *
  * ```sh
- *  $ pulumi import aws:ecr/lifecyclePolicy:LifecyclePolicy example tf-example
+ * $ pulumi import aws:ecr/lifecyclePolicy:LifecyclePolicy example tf-example
  * ```
  */
 export class LifecyclePolicy extends pulumi.CustomResource {

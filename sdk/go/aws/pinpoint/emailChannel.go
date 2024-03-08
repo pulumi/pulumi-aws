@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -105,15 +106,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Pinpoint Email Channel using the `application-id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:pinpoint/emailChannel:EmailChannel email application-id
-//
+// $ pulumi import aws:pinpoint/emailChannel:EmailChannel email application-id
 // ```
 type EmailChannel struct {
 	pulumi.CustomResourceState

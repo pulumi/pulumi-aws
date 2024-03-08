@@ -54,6 +54,8 @@ public final class ImagebuilderFunctions {
      * Provides details about an Image Builder Component.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -82,6 +84,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetComponentResult> getComponent(GetComponentArgs args) {
@@ -91,6 +94,8 @@ public final class ImagebuilderFunctions {
      * Provides details about an Image Builder Component.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -119,6 +124,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetComponentResult> getComponentPlain(GetComponentPlainArgs args) {
@@ -128,6 +134,8 @@ public final class ImagebuilderFunctions {
      * Provides details about an Image Builder Component.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -156,6 +164,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetComponentResult> getComponent(GetComponentArgs args, InvokeOptions options) {
@@ -165,6 +174,8 @@ public final class ImagebuilderFunctions {
      * Provides details about an Image Builder Component.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -193,6 +204,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetComponentResult> getComponentPlain(GetComponentPlainArgs args, InvokeOptions options) {
@@ -202,6 +214,8 @@ public final class ImagebuilderFunctions {
      * Use this data source to get the ARNs and names of Image Builder Components matching the specified criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -234,6 +248,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetComponentsResult> getComponents() {
@@ -243,6 +258,8 @@ public final class ImagebuilderFunctions {
      * Use this data source to get the ARNs and names of Image Builder Components matching the specified criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -275,6 +292,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetComponentsResult> getComponentsPlain() {
@@ -284,6 +302,8 @@ public final class ImagebuilderFunctions {
      * Use this data source to get the ARNs and names of Image Builder Components matching the specified criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -316,6 +336,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetComponentsResult> getComponents(GetComponentsArgs args) {
@@ -325,6 +346,8 @@ public final class ImagebuilderFunctions {
      * Use this data source to get the ARNs and names of Image Builder Components matching the specified criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -357,6 +380,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetComponentsResult> getComponentsPlain(GetComponentsPlainArgs args) {
@@ -366,6 +390,8 @@ public final class ImagebuilderFunctions {
      * Use this data source to get the ARNs and names of Image Builder Components matching the specified criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -398,6 +424,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetComponentsResult> getComponents(GetComponentsArgs args, InvokeOptions options) {
@@ -407,6 +434,8 @@ public final class ImagebuilderFunctions {
      * Use this data source to get the ARNs and names of Image Builder Components matching the specified criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -439,6 +468,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetComponentsResult> getComponentsPlain(GetComponentsPlainArgs args, InvokeOptions options) {
@@ -448,6 +478,8 @@ public final class ImagebuilderFunctions {
      * Provides details about an Image builder Container Recipe.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -476,6 +508,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetContainerRecipeResult> getContainerRecipe(GetContainerRecipeArgs args) {
@@ -485,6 +518,8 @@ public final class ImagebuilderFunctions {
      * Provides details about an Image builder Container Recipe.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -513,6 +548,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetContainerRecipeResult> getContainerRecipePlain(GetContainerRecipePlainArgs args) {
@@ -522,6 +558,8 @@ public final class ImagebuilderFunctions {
      * Provides details about an Image builder Container Recipe.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -550,6 +588,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetContainerRecipeResult> getContainerRecipe(GetContainerRecipeArgs args, InvokeOptions options) {
@@ -559,6 +598,8 @@ public final class ImagebuilderFunctions {
      * Provides details about an Image builder Container Recipe.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -587,6 +628,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetContainerRecipeResult> getContainerRecipePlain(GetContainerRecipePlainArgs args, InvokeOptions options) {
@@ -596,6 +638,8 @@ public final class ImagebuilderFunctions {
      * Use this data source to get the ARNs and names of Image Builder Container Recipes matching the specified criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -628,6 +672,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetContainerRecipesResult> getContainerRecipes() {
@@ -637,6 +682,8 @@ public final class ImagebuilderFunctions {
      * Use this data source to get the ARNs and names of Image Builder Container Recipes matching the specified criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -669,6 +716,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetContainerRecipesResult> getContainerRecipesPlain() {
@@ -678,6 +726,8 @@ public final class ImagebuilderFunctions {
      * Use this data source to get the ARNs and names of Image Builder Container Recipes matching the specified criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -710,6 +760,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetContainerRecipesResult> getContainerRecipes(GetContainerRecipesArgs args) {
@@ -719,6 +770,8 @@ public final class ImagebuilderFunctions {
      * Use this data source to get the ARNs and names of Image Builder Container Recipes matching the specified criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -751,6 +804,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetContainerRecipesResult> getContainerRecipesPlain(GetContainerRecipesPlainArgs args) {
@@ -760,6 +814,8 @@ public final class ImagebuilderFunctions {
      * Use this data source to get the ARNs and names of Image Builder Container Recipes matching the specified criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -792,6 +848,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetContainerRecipesResult> getContainerRecipes(GetContainerRecipesArgs args, InvokeOptions options) {
@@ -801,6 +858,8 @@ public final class ImagebuilderFunctions {
      * Use this data source to get the ARNs and names of Image Builder Container Recipes matching the specified criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -833,6 +892,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetContainerRecipesResult> getContainerRecipesPlain(GetContainerRecipesPlainArgs args, InvokeOptions options) {
@@ -842,6 +902,8 @@ public final class ImagebuilderFunctions {
      * Provides details about an Image Builder Distribution Configuration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -870,6 +932,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDistributionConfigurationResult> getDistributionConfiguration(GetDistributionConfigurationArgs args) {
@@ -879,6 +942,8 @@ public final class ImagebuilderFunctions {
      * Provides details about an Image Builder Distribution Configuration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -907,6 +972,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDistributionConfigurationResult> getDistributionConfigurationPlain(GetDistributionConfigurationPlainArgs args) {
@@ -916,6 +982,8 @@ public final class ImagebuilderFunctions {
      * Provides details about an Image Builder Distribution Configuration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -944,6 +1012,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDistributionConfigurationResult> getDistributionConfiguration(GetDistributionConfigurationArgs args, InvokeOptions options) {
@@ -953,6 +1022,8 @@ public final class ImagebuilderFunctions {
      * Provides details about an Image Builder Distribution Configuration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -981,6 +1052,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDistributionConfigurationResult> getDistributionConfigurationPlain(GetDistributionConfigurationPlainArgs args, InvokeOptions options) {
@@ -990,6 +1062,8 @@ public final class ImagebuilderFunctions {
      * Use this data source to get the ARNs and names of Image Builder Distribution Configurations matching the specified criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1021,6 +1095,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDistributionConfigurationsResult> getDistributionConfigurations() {
@@ -1030,6 +1105,8 @@ public final class ImagebuilderFunctions {
      * Use this data source to get the ARNs and names of Image Builder Distribution Configurations matching the specified criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1061,6 +1138,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDistributionConfigurationsResult> getDistributionConfigurationsPlain() {
@@ -1070,6 +1148,8 @@ public final class ImagebuilderFunctions {
      * Use this data source to get the ARNs and names of Image Builder Distribution Configurations matching the specified criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1101,6 +1181,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDistributionConfigurationsResult> getDistributionConfigurations(GetDistributionConfigurationsArgs args) {
@@ -1110,6 +1191,8 @@ public final class ImagebuilderFunctions {
      * Use this data source to get the ARNs and names of Image Builder Distribution Configurations matching the specified criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1141,6 +1224,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDistributionConfigurationsResult> getDistributionConfigurationsPlain(GetDistributionConfigurationsPlainArgs args) {
@@ -1150,6 +1234,8 @@ public final class ImagebuilderFunctions {
      * Use this data source to get the ARNs and names of Image Builder Distribution Configurations matching the specified criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1181,6 +1267,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDistributionConfigurationsResult> getDistributionConfigurations(GetDistributionConfigurationsArgs args, InvokeOptions options) {
@@ -1190,6 +1277,8 @@ public final class ImagebuilderFunctions {
      * Use this data source to get the ARNs and names of Image Builder Distribution Configurations matching the specified criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1221,6 +1310,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDistributionConfigurationsResult> getDistributionConfigurationsPlain(GetDistributionConfigurationsPlainArgs args, InvokeOptions options) {
@@ -1230,7 +1320,10 @@ public final class ImagebuilderFunctions {
      * Provides details about an Image Builder Image.
      * 
      * ## Example Usage
+     * 
      * ### Latest
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1259,6 +1352,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetImageResult> getImage(GetImageArgs args) {
@@ -1268,7 +1362,10 @@ public final class ImagebuilderFunctions {
      * Provides details about an Image Builder Image.
      * 
      * ## Example Usage
+     * 
      * ### Latest
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1297,6 +1394,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetImageResult> getImagePlain(GetImagePlainArgs args) {
@@ -1306,7 +1404,10 @@ public final class ImagebuilderFunctions {
      * Provides details about an Image Builder Image.
      * 
      * ## Example Usage
+     * 
      * ### Latest
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1335,6 +1436,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetImageResult> getImage(GetImageArgs args, InvokeOptions options) {
@@ -1344,7 +1446,10 @@ public final class ImagebuilderFunctions {
      * Provides details about an Image Builder Image.
      * 
      * ## Example Usage
+     * 
      * ### Latest
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1373,6 +1478,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetImageResult> getImagePlain(GetImagePlainArgs args, InvokeOptions options) {
@@ -1382,6 +1488,8 @@ public final class ImagebuilderFunctions {
      * Provides details about an Image Builder Image Pipeline.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1410,6 +1518,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetImagePipelineResult> getImagePipeline(GetImagePipelineArgs args) {
@@ -1419,6 +1528,8 @@ public final class ImagebuilderFunctions {
      * Provides details about an Image Builder Image Pipeline.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1447,6 +1558,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetImagePipelineResult> getImagePipelinePlain(GetImagePipelinePlainArgs args) {
@@ -1456,6 +1568,8 @@ public final class ImagebuilderFunctions {
      * Provides details about an Image Builder Image Pipeline.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1484,6 +1598,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetImagePipelineResult> getImagePipeline(GetImagePipelineArgs args, InvokeOptions options) {
@@ -1493,6 +1608,8 @@ public final class ImagebuilderFunctions {
      * Provides details about an Image Builder Image Pipeline.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1521,6 +1638,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetImagePipelineResult> getImagePipelinePlain(GetImagePipelinePlainArgs args, InvokeOptions options) {
@@ -1530,6 +1648,8 @@ public final class ImagebuilderFunctions {
      * Use this data source to get the ARNs and names of Image Builder Image Pipelines matching the specified criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1561,6 +1681,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetImagePipelinesResult> getImagePipelines() {
@@ -1570,6 +1691,8 @@ public final class ImagebuilderFunctions {
      * Use this data source to get the ARNs and names of Image Builder Image Pipelines matching the specified criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1601,6 +1724,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetImagePipelinesResult> getImagePipelinesPlain() {
@@ -1610,6 +1734,8 @@ public final class ImagebuilderFunctions {
      * Use this data source to get the ARNs and names of Image Builder Image Pipelines matching the specified criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1641,6 +1767,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetImagePipelinesResult> getImagePipelines(GetImagePipelinesArgs args) {
@@ -1650,6 +1777,8 @@ public final class ImagebuilderFunctions {
      * Use this data source to get the ARNs and names of Image Builder Image Pipelines matching the specified criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1681,6 +1810,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetImagePipelinesResult> getImagePipelinesPlain(GetImagePipelinesPlainArgs args) {
@@ -1690,6 +1820,8 @@ public final class ImagebuilderFunctions {
      * Use this data source to get the ARNs and names of Image Builder Image Pipelines matching the specified criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1721,6 +1853,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetImagePipelinesResult> getImagePipelines(GetImagePipelinesArgs args, InvokeOptions options) {
@@ -1730,6 +1863,8 @@ public final class ImagebuilderFunctions {
      * Use this data source to get the ARNs and names of Image Builder Image Pipelines matching the specified criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1761,6 +1896,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetImagePipelinesResult> getImagePipelinesPlain(GetImagePipelinesPlainArgs args, InvokeOptions options) {
@@ -1770,6 +1906,8 @@ public final class ImagebuilderFunctions {
      * Provides details about an Image Builder Image Recipe.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1798,6 +1936,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetImageRecipeResult> getImageRecipe(GetImageRecipeArgs args) {
@@ -1807,6 +1946,8 @@ public final class ImagebuilderFunctions {
      * Provides details about an Image Builder Image Recipe.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1835,6 +1976,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetImageRecipeResult> getImageRecipePlain(GetImageRecipePlainArgs args) {
@@ -1844,6 +1986,8 @@ public final class ImagebuilderFunctions {
      * Provides details about an Image Builder Image Recipe.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1872,6 +2016,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetImageRecipeResult> getImageRecipe(GetImageRecipeArgs args, InvokeOptions options) {
@@ -1881,6 +2026,8 @@ public final class ImagebuilderFunctions {
      * Provides details about an Image Builder Image Recipe.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1909,6 +2056,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetImageRecipeResult> getImageRecipePlain(GetImageRecipePlainArgs args, InvokeOptions options) {
@@ -1918,6 +2066,8 @@ public final class ImagebuilderFunctions {
      * Use this data source to get the ARNs and names of Image Builder Image Recipes matching the specified criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1950,6 +2100,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetImageRecipesResult> getImageRecipes() {
@@ -1959,6 +2110,8 @@ public final class ImagebuilderFunctions {
      * Use this data source to get the ARNs and names of Image Builder Image Recipes matching the specified criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1991,6 +2144,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetImageRecipesResult> getImageRecipesPlain() {
@@ -2000,6 +2154,8 @@ public final class ImagebuilderFunctions {
      * Use this data source to get the ARNs and names of Image Builder Image Recipes matching the specified criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2032,6 +2188,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetImageRecipesResult> getImageRecipes(GetImageRecipesArgs args) {
@@ -2041,6 +2198,8 @@ public final class ImagebuilderFunctions {
      * Use this data source to get the ARNs and names of Image Builder Image Recipes matching the specified criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2073,6 +2232,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetImageRecipesResult> getImageRecipesPlain(GetImageRecipesPlainArgs args) {
@@ -2082,6 +2242,8 @@ public final class ImagebuilderFunctions {
      * Use this data source to get the ARNs and names of Image Builder Image Recipes matching the specified criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2114,6 +2276,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetImageRecipesResult> getImageRecipes(GetImageRecipesArgs args, InvokeOptions options) {
@@ -2123,6 +2286,8 @@ public final class ImagebuilderFunctions {
      * Use this data source to get the ARNs and names of Image Builder Image Recipes matching the specified criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2155,6 +2320,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetImageRecipesResult> getImageRecipesPlain(GetImageRecipesPlainArgs args, InvokeOptions options) {
@@ -2164,6 +2330,8 @@ public final class ImagebuilderFunctions {
      * Provides details about an Image Builder Infrastructure Configuration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2192,6 +2360,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetInfrastructureConfigurationResult> getInfrastructureConfiguration(GetInfrastructureConfigurationArgs args) {
@@ -2201,6 +2370,8 @@ public final class ImagebuilderFunctions {
      * Provides details about an Image Builder Infrastructure Configuration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2229,6 +2400,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetInfrastructureConfigurationResult> getInfrastructureConfigurationPlain(GetInfrastructureConfigurationPlainArgs args) {
@@ -2238,6 +2410,8 @@ public final class ImagebuilderFunctions {
      * Provides details about an Image Builder Infrastructure Configuration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2266,6 +2440,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetInfrastructureConfigurationResult> getInfrastructureConfiguration(GetInfrastructureConfigurationArgs args, InvokeOptions options) {
@@ -2275,6 +2450,8 @@ public final class ImagebuilderFunctions {
      * Provides details about an Image Builder Infrastructure Configuration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2303,6 +2480,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetInfrastructureConfigurationResult> getInfrastructureConfigurationPlain(GetInfrastructureConfigurationPlainArgs args, InvokeOptions options) {
@@ -2312,6 +2490,8 @@ public final class ImagebuilderFunctions {
      * Use this data source to get the ARNs and names of Image Builder Infrastructure Configurations matching the specified criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2343,6 +2523,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetInfrastructureConfigurationsResult> getInfrastructureConfigurations() {
@@ -2352,6 +2533,8 @@ public final class ImagebuilderFunctions {
      * Use this data source to get the ARNs and names of Image Builder Infrastructure Configurations matching the specified criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2383,6 +2566,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetInfrastructureConfigurationsResult> getInfrastructureConfigurationsPlain() {
@@ -2392,6 +2576,8 @@ public final class ImagebuilderFunctions {
      * Use this data source to get the ARNs and names of Image Builder Infrastructure Configurations matching the specified criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2423,6 +2609,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetInfrastructureConfigurationsResult> getInfrastructureConfigurations(GetInfrastructureConfigurationsArgs args) {
@@ -2432,6 +2619,8 @@ public final class ImagebuilderFunctions {
      * Use this data source to get the ARNs and names of Image Builder Infrastructure Configurations matching the specified criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2463,6 +2652,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetInfrastructureConfigurationsResult> getInfrastructureConfigurationsPlain(GetInfrastructureConfigurationsPlainArgs args) {
@@ -2472,6 +2662,8 @@ public final class ImagebuilderFunctions {
      * Use this data source to get the ARNs and names of Image Builder Infrastructure Configurations matching the specified criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2503,6 +2695,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetInfrastructureConfigurationsResult> getInfrastructureConfigurations(GetInfrastructureConfigurationsArgs args, InvokeOptions options) {
@@ -2512,6 +2705,8 @@ public final class ImagebuilderFunctions {
      * Use this data source to get the ARNs and names of Image Builder Infrastructure Configurations matching the specified criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2543,6 +2738,7 @@ public final class ImagebuilderFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetInfrastructureConfigurationsResult> getInfrastructureConfigurationsPlain(GetInfrastructureConfigurationsPlainArgs args, InvokeOptions options) {

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,15 +50,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_appsync_api_cache` using the AppSync API ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:appsync/apiCache:ApiCache example xxxxx
-//
+// $ pulumi import aws:appsync/apiCache:ApiCache example xxxxx
 // ```
 type ApiCache struct {
 	pulumi.CustomResourceState

@@ -16,36 +16,13 @@ import * as utilities from "../utilities";
  * users using this resource.
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const example = new aws.identitystore.User("example", {
- *     identityStoreId: notImplemented("tolist(data.aws_ssoadmin_instances.example.identity_store_ids)")[0],
- *     displayName: "John Doe",
- *     userName: "johndoe",
- *     name: {
- *         givenName: "John",
- *         familyName: "Doe",
- *     },
- *     emails: {
- *         value: "john@example.com",
- *     },
- * });
- * ```
  *
  * ## Import
  *
  * Using `pulumi import`, import an Identity Store User using the combination `identity_store_id/user_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:identitystore/user:User example d-9c6705e95c/065212b4-9061-703b-5876-13a517ae2a7c
+ * $ pulumi import aws:identitystore/user:User example d-9c6705e95c/065212b4-9061-703b-5876-13a517ae2a7c
  * ```
  */
 export class User extends pulumi.CustomResource {

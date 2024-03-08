@@ -18,7 +18,10 @@ public final class CodestarconnectionsFunctions {
      * Provides details about CodeStar Connection.
      * 
      * ## Example Usage
+     * 
      * ### By ARN
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -47,7 +50,11 @@ public final class CodestarconnectionsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -76,6 +83,7 @@ public final class CodestarconnectionsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetConnectionResult> getConnection() {
@@ -85,7 +93,10 @@ public final class CodestarconnectionsFunctions {
      * Provides details about CodeStar Connection.
      * 
      * ## Example Usage
+     * 
      * ### By ARN
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -114,7 +125,11 @@ public final class CodestarconnectionsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -143,6 +158,7 @@ public final class CodestarconnectionsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetConnectionResult> getConnectionPlain() {
@@ -152,7 +168,10 @@ public final class CodestarconnectionsFunctions {
      * Provides details about CodeStar Connection.
      * 
      * ## Example Usage
+     * 
      * ### By ARN
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -181,7 +200,11 @@ public final class CodestarconnectionsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -210,6 +233,7 @@ public final class CodestarconnectionsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetConnectionResult> getConnection(GetConnectionArgs args) {
@@ -219,7 +243,10 @@ public final class CodestarconnectionsFunctions {
      * Provides details about CodeStar Connection.
      * 
      * ## Example Usage
+     * 
      * ### By ARN
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -248,7 +275,11 @@ public final class CodestarconnectionsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -277,6 +308,7 @@ public final class CodestarconnectionsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetConnectionResult> getConnectionPlain(GetConnectionPlainArgs args) {
@@ -286,7 +318,10 @@ public final class CodestarconnectionsFunctions {
      * Provides details about CodeStar Connection.
      * 
      * ## Example Usage
+     * 
      * ### By ARN
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -315,7 +350,11 @@ public final class CodestarconnectionsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -344,6 +383,7 @@ public final class CodestarconnectionsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetConnectionResult> getConnection(GetConnectionArgs args, InvokeOptions options) {
@@ -353,7 +393,10 @@ public final class CodestarconnectionsFunctions {
      * Provides details about CodeStar Connection.
      * 
      * ## Example Usage
+     * 
      * ### By ARN
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -382,7 +425,11 @@ public final class CodestarconnectionsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### By Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -411,6 +458,7 @@ public final class CodestarconnectionsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetConnectionResult> getConnectionPlain(GetConnectionPlainArgs args, InvokeOptions options) {

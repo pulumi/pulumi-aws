@@ -164,6 +164,7 @@ def get_access_entry(cluster_name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -172,6 +173,7 @@ def get_access_entry(cluster_name: Optional[str] = None,
         principal_arn=example_aws_iam_role["arn"])
     pulumi.export("eksAccessEntryOutputs", example_aws_eks_access_entry)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str cluster_name: Name of the EKS Cluster.
@@ -208,6 +210,7 @@ def get_access_entry_output(cluster_name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -216,6 +219,7 @@ def get_access_entry_output(cluster_name: Optional[pulumi.Input[str]] = None,
         principal_arn=example_aws_iam_role["arn"])
     pulumi.export("eksAccessEntryOutputs", example_aws_eks_access_entry)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str cluster_name: Name of the EKS Cluster.

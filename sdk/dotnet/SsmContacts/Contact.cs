@@ -13,8 +13,10 @@ namespace Pulumi.Aws.SsmContacts
     /// Resource for managing an AWS SSM Contact.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,8 +33,11 @@ namespace Pulumi.Aws.SsmContacts
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Usage With All Fields
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -54,13 +59,14 @@ namespace Pulumi.Aws.SsmContacts
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SSM Contact using the `ARN`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ssmcontacts/contact:Contact example {ARNValue}
+    /// $ pulumi import aws:ssmcontacts/contact:Contact example {ARNValue}
     /// ```
     /// </summary>
     [AwsResourceType("aws:ssmcontacts/contact:Contact")]

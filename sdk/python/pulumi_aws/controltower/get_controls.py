@@ -72,6 +72,7 @@ def get_controls(target_identifier: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -80,6 +81,7 @@ def get_controls(target_identifier: Optional[str] = None,
     this_get_organizational_units = aws.organizations.get_organizational_units(parent_id=this.roots[0].id)
     this_get_controls = aws.controltower.get_controls(target_identifier=[x.arn for x in this_get_organizational_units.children if x.name == "Security"][0])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str target_identifier: The ARN of the organizational unit.
@@ -103,6 +105,7 @@ def get_controls_output(target_identifier: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -111,6 +114,7 @@ def get_controls_output(target_identifier: Optional[pulumi.Input[str]] = None,
     this_get_organizational_units = aws.organizations.get_organizational_units(parent_id=this.roots[0].id)
     this_get_controls = aws.controltower.get_controls(target_identifier=[x.arn for x in this_get_organizational_units.children if x.name == "Security"][0])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str target_identifier: The ARN of the organizational unit.

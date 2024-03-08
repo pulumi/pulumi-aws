@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** The proper Lambda permission to allow the AWS Config service invoke the Lambda Function must be in place before the rule will successfully create or update. See also the `aws.lambda.Permission` resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -69,13 +71,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Config Organization Custom Rules using the name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cfg/organizationCustomRule:OrganizationCustomRule example example
+ * $ pulumi import aws:cfg/organizationCustomRule:OrganizationCustomRule example example
  * ```
  * 
  */

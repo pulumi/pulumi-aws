@@ -14,6 +14,7 @@ namespace Pulumi.Aws.MediaConvert
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,13 +30,14 @@ namespace Pulumi.Aws.MediaConvert
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Media Convert Queue using the queue name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:mediaconvert/queue:Queue test tf-test-queue
+    /// $ pulumi import aws:mediaconvert/queue:Queue test tf-test-queue
     /// ```
     /// </summary>
     [AwsResourceType("aws:mediaconvert/queue:Queue")]

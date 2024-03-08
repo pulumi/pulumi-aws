@@ -21,6 +21,7 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -56,13 +57,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Redshift Cluster Snapshots using `snapshot_identifier`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:redshift/clusterSnapshot:ClusterSnapshot test example
+ * $ pulumi import aws:redshift/clusterSnapshot:ClusterSnapshot test example
  * ```
  * 
  */

@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * Provides a CE Cost Category.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -85,13 +87,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_ce_cost_category` using the id. For example:
  * 
  * ```sh
- *  $ pulumi import aws:costexplorer/costCategory:CostCategory example costCategoryARN
+ * $ pulumi import aws:costexplorer/costCategory:CostCategory example costCategoryARN
  * ```
  * 
  */

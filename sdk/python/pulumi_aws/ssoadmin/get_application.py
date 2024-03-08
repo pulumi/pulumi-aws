@@ -146,14 +146,17 @@ def get_application(application_arn: Optional[str] = None,
     Data source for managing an AWS SSO Admin Application.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.ssoadmin.get_application(application_arn="arn:aws:sso::012345678901:application/ssoins-1234/apl-5678")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str application_arn: ARN of the application.
@@ -185,14 +188,17 @@ def get_application_output(application_arn: Optional[pulumi.Input[str]] = None,
     Data source for managing an AWS SSO Admin Application.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.ssoadmin.get_application(application_arn="arn:aws:sso::012345678901:application/ssoins-1234/apl-5678")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str application_arn: ARN of the application.

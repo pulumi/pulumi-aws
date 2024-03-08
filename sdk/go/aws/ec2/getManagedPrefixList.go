@@ -15,8 +15,10 @@ import (
 // customer-managed prefix list in the current region.
 //
 // ## Example Usage
+//
 // ### Find the regional DynamoDB prefix list
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -47,8 +49,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Find a managed prefix list using filters
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -79,6 +84,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupManagedPrefixList(ctx *pulumi.Context, args *LookupManagedPrefixListArgs, opts ...pulumi.InvokeOption) (*LookupManagedPrefixListResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupManagedPrefixListResult

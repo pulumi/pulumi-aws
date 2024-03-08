@@ -125,12 +125,14 @@ def get_cluster(cluster_id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     cluster = aws.cloudhsmv2.get_cluster(cluster_id="cluster-testclusterid")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str cluster_id: ID of Cloud HSM v2 cluster.
@@ -161,12 +163,14 @@ def get_cluster_output(cluster_id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     cluster = aws.cloudhsmv2.get_cluster(cluster_id="cluster-testclusterid")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str cluster_id: ID of Cloud HSM v2 cluster.

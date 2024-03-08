@@ -182,8 +182,10 @@ class TrustStoreRevocation(pulumi.CustomResource):
         Provides a ELBv2 Trust Store Revocation for use with Application Load Balancer Listener resources.
 
         ## Example Usage
+
         ### Trust Store With Revocations
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -197,13 +199,14 @@ class TrustStoreRevocation(pulumi.CustomResource):
             revocations_s3_bucket="...",
             revocations_s3_key="...")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Trust Store Revocations using their ARN. For example:
 
         ```sh
-         $ pulumi import aws:lb/trustStoreRevocation:TrustStoreRevocation example arn:aws:elasticloadbalancing:us-west-2:187416307283:truststore/my-trust-store/20cfe21448b66314,6
+        $ pulumi import aws:lb/trustStoreRevocation:TrustStoreRevocation example arn:aws:elasticloadbalancing:us-west-2:187416307283:truststore/my-trust-store/20cfe21448b66314,6
         ```
 
         :param str resource_name: The name of the resource.
@@ -223,8 +226,10 @@ class TrustStoreRevocation(pulumi.CustomResource):
         Provides a ELBv2 Trust Store Revocation for use with Application Load Balancer Listener resources.
 
         ## Example Usage
+
         ### Trust Store With Revocations
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -238,13 +243,14 @@ class TrustStoreRevocation(pulumi.CustomResource):
             revocations_s3_bucket="...",
             revocations_s3_key="...")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Trust Store Revocations using their ARN. For example:
 
         ```sh
-         $ pulumi import aws:lb/trustStoreRevocation:TrustStoreRevocation example arn:aws:elasticloadbalancing:us-west-2:187416307283:truststore/my-trust-store/20cfe21448b66314,6
+        $ pulumi import aws:lb/trustStoreRevocation:TrustStoreRevocation example arn:aws:elasticloadbalancing:us-west-2:187416307283:truststore/my-trust-store/20cfe21448b66314,6
         ```
 
         :param str resource_name: The name of the resource.

@@ -131,14 +131,17 @@ def get_public_ipv4_pool(pool_id: Optional[str] = None,
     Provides details about a specific AWS EC2 Public IPv4 Pool.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.ec2.get_public_ipv4_pool(pool_id="ipv4pool-ec2-000df99cff0c1ec10")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str pool_id: AWS resource IDs of a public IPv4 pool (as a string) for which this data source will fetch detailed information.
@@ -169,14 +172,17 @@ def get_public_ipv4_pool_output(pool_id: Optional[pulumi.Input[str]] = None,
     Provides details about a specific AWS EC2 Public IPv4 Pool.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.ec2.get_public_ipv4_pool(pool_id="ipv4pool-ec2-000df99cff0c1ec10")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str pool_id: AWS resource IDs of a public IPv4 pool (as a string) for which this data source will fetch detailed information.

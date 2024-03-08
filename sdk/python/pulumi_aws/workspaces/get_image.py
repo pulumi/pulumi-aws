@@ -117,12 +117,14 @@ def get_image(image_id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.workspaces.get_image(image_id="wsi-ten5h0y19")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str image_id: ID of the image.
@@ -150,12 +152,14 @@ def get_image_output(image_id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.workspaces.get_image(image_id="wsi-ten5h0y19")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str image_id: ID of the image.

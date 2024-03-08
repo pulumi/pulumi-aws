@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Ecr
     /// Provides an Elastic Container Registry Scanning Configuration. Can't be completely deleted, instead reverts to the default `BASIC` scanning configuration without rules.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic example
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -45,8 +47,11 @@ namespace Pulumi.Aws.Ecr
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Multiple rules
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -89,13 +94,14 @@ namespace Pulumi.Aws.Ecr
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import ECR Scanning Configurations using the `registry_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration example 012345678901
+    /// $ pulumi import aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration example 012345678901
     /// ```
     /// </summary>
     [AwsResourceType("aws:ecr/registryScanningConfiguration:RegistryScanningConfiguration")]

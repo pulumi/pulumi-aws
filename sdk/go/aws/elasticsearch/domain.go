@@ -14,8 +14,10 @@ import (
 // Manages an AWS Elasticsearch Domain.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -46,10 +48,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Access Policy
 //
 // > See also: `elasticsearch.DomainPolicy` resource
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -107,8 +112,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Log Publishing to CloudWatch Logs
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -178,8 +186,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### VPC based ES
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -303,15 +314,14 @@ import (
 // })
 // }
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Elasticsearch domains using the `domain_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:elasticsearch/domain:Domain example domain_name
-//
+// $ pulumi import aws:elasticsearch/domain:Domain example domain_name
 // ```
 type Domain struct {
 	pulumi.CustomResourceState

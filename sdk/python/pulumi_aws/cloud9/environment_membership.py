@@ -150,6 +150,7 @@ class EnvironmentMembership(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -163,13 +164,14 @@ class EnvironmentMembership(pulumi.CustomResource):
             permissions="read-only",
             user_arn=test_user.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Cloud9 environment membership using the `environment-id#user-arn`. For example:
 
         ```sh
-         $ pulumi import aws:cloud9/environmentMembership:EnvironmentMembership test environment-id#user-arn
+        $ pulumi import aws:cloud9/environmentMembership:EnvironmentMembership test environment-id#user-arn
         ```
 
         :param str resource_name: The name of the resource.
@@ -189,6 +191,7 @@ class EnvironmentMembership(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -202,13 +205,14 @@ class EnvironmentMembership(pulumi.CustomResource):
             permissions="read-only",
             user_arn=test_user.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Cloud9 environment membership using the `environment-id#user-arn`. For example:
 
         ```sh
-         $ pulumi import aws:cloud9/environmentMembership:EnvironmentMembership test environment-id#user-arn
+        $ pulumi import aws:cloud9/environmentMembership:EnvironmentMembership test environment-id#user-arn
         ```
 
         :param str resource_name: The name of the resource.

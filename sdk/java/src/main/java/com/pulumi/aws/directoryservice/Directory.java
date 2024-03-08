@@ -24,7 +24,10 @@ import javax.annotation.Nullable;
  * Provides a Simple or Managed Microsoft directory in AWS Directory Service.
  * 
  * ## Example Usage
+ * 
  * ### SimpleAD
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -83,7 +86,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Microsoft Active Directory (MicrosoftAD)
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -143,7 +150,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Microsoft Active Directory Connector (ADConnector)
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -204,13 +215,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import DirectoryService directories using the directory `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:directoryservice/directory:Directory sample d-926724cf57
+ * $ pulumi import aws:directoryservice/directory:Directory sample d-926724cf57
  * ```
  * 
  */

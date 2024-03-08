@@ -297,6 +297,7 @@ class FargateProfile(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -310,8 +311,11 @@ class FargateProfile(pulumi.CustomResource):
                 namespace="example",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example IAM Role for EKS Fargate Profile
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -333,13 +337,14 @@ class FargateProfile(pulumi.CustomResource):
             policy_arn="arn:aws:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy",
             role=example.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EKS Fargate Profiles using the `cluster_name` and `fargate_profile_name` separated by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:eks/fargateProfile:FargateProfile my_fargate_profile my_cluster:my_fargate_profile
+        $ pulumi import aws:eks/fargateProfile:FargateProfile my_fargate_profile my_cluster:my_fargate_profile
         ```
 
         :param str resource_name: The name of the resource.
@@ -364,6 +369,7 @@ class FargateProfile(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -377,8 +383,11 @@ class FargateProfile(pulumi.CustomResource):
                 namespace="example",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example IAM Role for EKS Fargate Profile
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -400,13 +409,14 @@ class FargateProfile(pulumi.CustomResource):
             policy_arn="arn:aws:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy",
             role=example.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EKS Fargate Profiles using the `cluster_name` and `fargate_profile_name` separated by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:eks/fargateProfile:FargateProfile my_fargate_profile my_cluster:my_fargate_profile
+        $ pulumi import aws:eks/fargateProfile:FargateProfile my_fargate_profile my_cluster:my_fargate_profile
         ```
 
         :param str resource_name: The name of the resource.

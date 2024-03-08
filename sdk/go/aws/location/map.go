@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,15 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_location_map` resources using the map name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:location/map:Map example example
-//
+// $ pulumi import aws:location/map:Map example example
 // ```
 type Map struct {
 	pulumi.CustomResourceState

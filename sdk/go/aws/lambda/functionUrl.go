@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -68,15 +69,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Lambda function URLs using the `function_name` or `function_name/qualifier`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:lambda/functionUrl:FunctionUrl test_lambda_url my_test_lambda_function
-//
+// $ pulumi import aws:lambda/functionUrl:FunctionUrl test_lambda_url my_test_lambda_function
 // ```
 type FunctionUrl struct {
 	pulumi.CustomResourceState

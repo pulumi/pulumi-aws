@@ -8,29 +8,35 @@ import * as utilities from "../utilities";
  * Resource for managing AWS Audit Manager Account Registration.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.auditmanager.AccountRegistration("example", {});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Deregister On Destroy
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.auditmanager.AccountRegistration("example", {deregisterOnDestroy: true});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Audit Manager Account Registration resources using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:auditmanager/accountRegistration:AccountRegistration example us-east-1
+ * $ pulumi import aws:auditmanager/accountRegistration:AccountRegistration example us-east-1
  * ```
  */
 export class AccountRegistration extends pulumi.CustomResource {

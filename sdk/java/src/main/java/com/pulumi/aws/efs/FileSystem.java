@@ -26,7 +26,10 @@ import javax.annotation.Nullable;
  * Provides an Elastic File System (EFS) File System resource.
  * 
  * ## Example Usage
+ * 
  * ### EFS File System w/ tags
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -56,7 +59,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Using lifecycle policy
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -89,13 +96,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import the EFS file systems using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:efs/fileSystem:FileSystem foo fs-6fa144c6
+ * $ pulumi import aws:efs/fileSystem:FileSystem foo fs-6fa144c6
  * ```
  * 
  */

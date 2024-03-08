@@ -199,8 +199,10 @@ class Model(pulumi.CustomResource):
         Manages an Amazon API Gateway Version 2 [model](https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html#models-mappings-models).
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -221,13 +223,14 @@ class Model(pulumi.CustomResource):
                 },
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_apigatewayv2_model` using the API identifier and model identifier. For example:
 
         ```sh
-         $ pulumi import aws:apigatewayv2/model:Model example aabbccddee/1122334
+        $ pulumi import aws:apigatewayv2/model:Model example aabbccddee/1122334
         ```
 
         :param str resource_name: The name of the resource.
@@ -248,8 +251,10 @@ class Model(pulumi.CustomResource):
         Manages an Amazon API Gateway Version 2 [model](https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html#models-mappings-models).
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -270,13 +275,14 @@ class Model(pulumi.CustomResource):
                 },
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_apigatewayv2_model` using the API identifier and model identifier. For example:
 
         ```sh
-         $ pulumi import aws:apigatewayv2/model:Model example aabbccddee/1122334
+        $ pulumi import aws:apigatewayv2/model:Model example aabbccddee/1122334
         ```
 
         :param str resource_name: The name of the resource.

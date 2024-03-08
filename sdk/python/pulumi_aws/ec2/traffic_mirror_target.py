@@ -268,6 +268,7 @@ class TrafficMirrorTarget(pulumi.CustomResource):
 
         To create a basic traffic mirror session
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -282,13 +283,14 @@ class TrafficMirrorTarget(pulumi.CustomResource):
             description="GWLB target",
             gateway_load_balancer_endpoint_id=example["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import traffic mirror targets using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/trafficMirrorTarget:TrafficMirrorTarget target tmt-0c13a005422b86606
+        $ pulumi import aws:ec2/trafficMirrorTarget:TrafficMirrorTarget target tmt-0c13a005422b86606
         ```
 
         :param str resource_name: The name of the resource.
@@ -315,6 +317,7 @@ class TrafficMirrorTarget(pulumi.CustomResource):
 
         To create a basic traffic mirror session
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -329,13 +332,14 @@ class TrafficMirrorTarget(pulumi.CustomResource):
             description="GWLB target",
             gateway_load_balancer_endpoint_id=example["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import traffic mirror targets using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/trafficMirrorTarget:TrafficMirrorTarget target tmt-0c13a005422b86606
+        $ pulumi import aws:ec2/trafficMirrorTarget:TrafficMirrorTarget target tmt-0c13a005422b86606
         ```
 
         :param str resource_name: The name of the resource.

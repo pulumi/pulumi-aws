@@ -202,6 +202,7 @@ class UserGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -237,13 +238,14 @@ class UserGroup(pulumi.CustomResource):
             precedence=42,
             role_arn=group_role_role.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Cognito User Groups using the `user_pool_id`/`name` attributes concatenated. For example:
 
         ```sh
-         $ pulumi import aws:cognito/userGroup:UserGroup group us-east-1_vG78M4goG/user-group
+        $ pulumi import aws:cognito/userGroup:UserGroup group us-east-1_vG78M4goG/user-group
         ```
 
         :param str resource_name: The name of the resource.
@@ -265,6 +267,7 @@ class UserGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -300,13 +303,14 @@ class UserGroup(pulumi.CustomResource):
             precedence=42,
             role_arn=group_role_role.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Cognito User Groups using the `user_pool_id`/`name` attributes concatenated. For example:
 
         ```sh
-         $ pulumi import aws:cognito/userGroup:UserGroup group us-east-1_vG78M4goG/user-group
+        $ pulumi import aws:cognito/userGroup:UserGroup group us-east-1_vG78M4goG/user-group
         ```
 
         :param str resource_name: The name of the resource.

@@ -19,8 +19,10 @@ import (
 // > A "provisioning artifact" is also referred to as a "version." A "distributor" is also referred to as a "vendor."
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -52,15 +54,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_servicecatalog_product` using the product ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:servicecatalog/product:Product example prod-dnigbtea24ste
-//
+// $ pulumi import aws:servicecatalog/product:Product example prod-dnigbtea24ste
 // ```
 type Product struct {
 	pulumi.CustomResourceState

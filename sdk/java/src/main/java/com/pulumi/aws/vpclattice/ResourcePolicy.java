@@ -17,7 +17,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS VPC Lattice Resource Policy.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -77,13 +80,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import VPC Lattice Resource Policy using the `resource_arn`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:vpclattice/resourcePolicy:ResourcePolicy example rft-8012925589
+ * $ pulumi import aws:vpclattice/resourcePolicy:ResourcePolicy example rft-8012925589
  * ```
  * 
  */

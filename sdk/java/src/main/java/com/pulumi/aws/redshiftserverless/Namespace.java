@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Creates a new Amazon Redshift Serverless Namespace.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,13 +51,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Redshift Serverless Namespaces using the `namespace_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:redshiftserverless/namespace:Namespace example example
+ * $ pulumi import aws:redshiftserverless/namespace:Namespace example example
  * ```
  * 
  */

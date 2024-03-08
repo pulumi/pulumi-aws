@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Schemas
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -37,13 +38,14 @@ namespace Pulumi.Aws.Schemas
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EventBridge discoverers using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:schemas/discoverer:Discoverer test 123
+    /// $ pulumi import aws:schemas/discoverer:Discoverer test 123
     /// ```
     /// </summary>
     [AwsResourceType("aws:schemas/discoverer:Discoverer")]

@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * Basic usage:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -52,13 +54,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import endpoints using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:sagemaker/endpoint:Endpoint test_endpoint my-endpoint
+ * $ pulumi import aws:sagemaker/endpoint:Endpoint test_endpoint my-endpoint
  * ```
  * 
  */

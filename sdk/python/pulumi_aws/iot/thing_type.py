@@ -210,19 +210,21 @@ class ThingType(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         foo = aws.iot.ThingType("foo", name="my_iot_thing")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IOT Thing Types using the name. For example:
 
         ```sh
-         $ pulumi import aws:iot/thingType:ThingType example example
+        $ pulumi import aws:iot/thingType:ThingType example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -243,19 +245,21 @@ class ThingType(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         foo = aws.iot.ThingType("foo", name="my_iot_thing")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IOT Thing Types using the name. For example:
 
         ```sh
-         $ pulumi import aws:iot/thingType:ThingType example example
+        $ pulumi import aws:iot/thingType:ThingType example example
         ```
 
         :param str resource_name: The name of the resource.

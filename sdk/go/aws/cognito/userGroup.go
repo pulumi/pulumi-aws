@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -94,15 +95,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Cognito User Groups using the `user_pool_id`/`name` attributes concatenated. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cognito/userGroup:UserGroup group us-east-1_vG78M4goG/user-group
-//
+// $ pulumi import aws:cognito/userGroup:UserGroup group us-east-1_vG78M4goG/user-group
 // ```
 type UserGroup struct {
 	pulumi.CustomResourceState

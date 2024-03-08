@@ -320,8 +320,10 @@ class Route(pulumi.CustomResource):
         Provides an AWS App Mesh route resource.
 
         ## Example Usage
+
         ### HTTP Routing
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -350,8 +352,11 @@ class Route(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### HTTP Header Routing
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -382,8 +387,11 @@ class Route(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Retry Policy
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -414,8 +422,11 @@ class Route(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### TCP Routing
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -435,13 +446,14 @@ class Route(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import App Mesh virtual routes using `mesh_name` and `virtual_router_name` together with the route's `name`. For example:
 
         ```sh
-         $ pulumi import aws:appmesh/route:Route serviceb simpleapp/serviceB/serviceB-route
+        $ pulumi import aws:appmesh/route:Route serviceb simpleapp/serviceB/serviceB-route
         ```
 
         :param str resource_name: The name of the resource.
@@ -463,8 +475,10 @@ class Route(pulumi.CustomResource):
         Provides an AWS App Mesh route resource.
 
         ## Example Usage
+
         ### HTTP Routing
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -493,8 +507,11 @@ class Route(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### HTTP Header Routing
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -525,8 +542,11 @@ class Route(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Retry Policy
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -557,8 +577,11 @@ class Route(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### TCP Routing
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -578,13 +601,14 @@ class Route(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import App Mesh virtual routes using `mesh_name` and `virtual_router_name` together with the route's `name`. For example:
 
         ```sh
-         $ pulumi import aws:appmesh/route:Route serviceb simpleapp/serviceB/serviceB-route
+        $ pulumi import aws:appmesh/route:Route serviceb simpleapp/serviceB/serviceB-route
         ```
 
         :param str resource_name: The name of the resource.

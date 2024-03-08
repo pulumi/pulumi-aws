@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Ses
     /// Provides an SES configuration set resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Example
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,8 +32,11 @@ namespace Pulumi.Aws.Ses
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Require TLS Connections
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -51,8 +56,11 @@ namespace Pulumi.Aws.Ses
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Tracking Options
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -72,13 +80,14 @@ namespace Pulumi.Aws.Ses
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SES Configuration Sets using their `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ses/configurationSet:ConfigurationSet test some-configuration-set-test
+    /// $ pulumi import aws:ses/configurationSet:ConfigurationSet test some-configuration-set-test
     /// ```
     /// </summary>
     [AwsResourceType("aws:ses/configurationSet:ConfigurationSet")]

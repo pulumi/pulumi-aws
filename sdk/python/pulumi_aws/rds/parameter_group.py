@@ -290,8 +290,10 @@ class ParameterGroup(pulumi.CustomResource):
         the `apply_method` of a parameter, its value must also change.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -310,6 +312,8 @@ class ParameterGroup(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### `create_before_destroy` Lifecycle Configuration
 
         The `create_before_destroy`
@@ -318,6 +322,7 @@ class ParameterGroup(pulumi.CustomResource):
         bumping the `family` version during a major version upgrade. This configuration will prevent destruction
         of the deposed parameter group while still in use by the database during upgrade.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -333,13 +338,14 @@ class ParameterGroup(pulumi.CustomResource):
             parameter_group_name=example.name,
             apply_immediately=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DB Parameter groups using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:rds/parameterGroup:ParameterGroup rds_pg rds-pg
+        $ pulumi import aws:rds/parameterGroup:ParameterGroup rds_pg rds-pg
         ```
 
         :param str resource_name: The name of the resource.
@@ -373,8 +379,10 @@ class ParameterGroup(pulumi.CustomResource):
         the `apply_method` of a parameter, its value must also change.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -393,6 +401,8 @@ class ParameterGroup(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### `create_before_destroy` Lifecycle Configuration
 
         The `create_before_destroy`
@@ -401,6 +411,7 @@ class ParameterGroup(pulumi.CustomResource):
         bumping the `family` version during a major version upgrade. This configuration will prevent destruction
         of the deposed parameter group while still in use by the database during upgrade.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -416,13 +427,14 @@ class ParameterGroup(pulumi.CustomResource):
             parameter_group_name=example.name,
             apply_immediately=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DB Parameter groups using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:rds/parameterGroup:ParameterGroup rds_pg rds-pg
+        $ pulumi import aws:rds/parameterGroup:ParameterGroup rds_pg rds-pg
         ```
 
         :param str resource_name: The name of the resource.

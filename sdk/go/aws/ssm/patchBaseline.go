@@ -18,10 +18,12 @@ import (
 // of them is specified.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
 // Using `approvedPatches` only.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -48,8 +50,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Advanced Usage, specifying patch filters
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -142,8 +147,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Advanced usage, specifying Microsoft application and Windows patch rules
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -208,8 +216,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Advanced usage, specifying alternate patch source repository
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -263,15 +274,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SSM Patch Baselines using their baseline ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ssm/patchBaseline:PatchBaseline example pb-12345678
-//
+// $ pulumi import aws:ssm/patchBaseline:PatchBaseline example pb-12345678
 // ```
 type PatchBaseline struct {
 	pulumi.CustomResourceState

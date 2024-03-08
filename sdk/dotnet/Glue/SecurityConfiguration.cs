@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Glue
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -45,13 +46,14 @@ namespace Pulumi.Aws.Glue
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Glue Security Configurations using `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:glue/securityConfiguration:SecurityConfiguration example example
+    /// $ pulumi import aws:glue/securityConfiguration:SecurityConfiguration example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:glue/securityConfiguration:SecurityConfiguration")]

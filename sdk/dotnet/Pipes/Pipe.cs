@@ -19,8 +19,10 @@ namespace Pulumi.Aws.Pipes
     /// &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -120,8 +122,11 @@ namespace Pulumi.Aws.Pipes
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Enrichment Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -158,8 +163,11 @@ namespace Pulumi.Aws.Pipes
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Filter Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -198,13 +206,14 @@ namespace Pulumi.Aws.Pipes
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import pipes using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:pipes/pipe:Pipe example my-pipe
+    /// $ pulumi import aws:pipes/pipe:Pipe example my-pipe
     /// ```
     /// </summary>
     [AwsResourceType("aws:pipes/pipe:Pipe")]

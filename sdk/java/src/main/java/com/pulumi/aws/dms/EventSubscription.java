@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Provides a DMS (Data Migration Service) event subscription resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -57,13 +59,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import event subscriptions using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:dms/eventSubscription:EventSubscription test my-awesome-event-subscription
+ * $ pulumi import aws:dms/eventSubscription:EventSubscription test my-awesome-event-subscription
  * ```
  * 
  */

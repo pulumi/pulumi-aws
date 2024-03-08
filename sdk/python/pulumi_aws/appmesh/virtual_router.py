@@ -299,6 +299,7 @@ class VirtualRouter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -315,13 +316,14 @@ class VirtualRouter(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import App Mesh virtual routers using `mesh_name` together with the virtual router's `name`. For example:
 
         ```sh
-         $ pulumi import aws:appmesh/virtualRouter:VirtualRouter serviceb simpleapp/serviceB
+        $ pulumi import aws:appmesh/virtualRouter:VirtualRouter serviceb simpleapp/serviceB
         ```
 
         :param str resource_name: The name of the resource.
@@ -353,6 +355,7 @@ class VirtualRouter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -369,13 +372,14 @@ class VirtualRouter(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import App Mesh virtual routers using `mesh_name` together with the virtual router's `name`. For example:
 
         ```sh
-         $ pulumi import aws:appmesh/virtualRouter:VirtualRouter serviceb simpleapp/serviceB
+        $ pulumi import aws:appmesh/virtualRouter:VirtualRouter serviceb simpleapp/serviceB
         ```
 
         :param str resource_name: The name of the resource.

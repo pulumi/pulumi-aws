@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -96,13 +97,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Replicated Regions using directory ID,Region name. For example:
  *
  * ```sh
- *  $ pulumi import aws:directoryservice/serviceRegion:ServiceRegion example d-9267651497,us-east-2
+ * $ pulumi import aws:directoryservice/serviceRegion:ServiceRegion example d-9267651497,us-east-2
  * ```
  */
 export class ServiceRegion extends pulumi.CustomResource {

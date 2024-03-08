@@ -14,8 +14,10 @@ import (
 // Data source for managing AWS SSO Admin Application Assignments.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetApplicationAssignments(ctx *pulumi.Context, args *GetApplicationAssignmentsArgs, opts ...pulumi.InvokeOption) (*GetApplicationAssignmentsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetApplicationAssignmentsResult

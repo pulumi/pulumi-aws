@@ -15,8 +15,10 @@ namespace Pulumi.Aws.Ssm
     /// &gt; **Note:** `overwrite` also makes it possible to overwrite an existing SSM Parameter that's not created by the provider before. This argument has been deprecated and will be removed in v6.0.0 of the provider. For more information on how this affects the behavior of this resource, see this issue comment.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic example
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,8 +36,11 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Encrypted string using default SSM KMS key
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -72,13 +77,14 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SSM Parameters using the parameter store `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ssm/parameter:Parameter my_param /my_path/my_paramname
+    /// $ pulumi import aws:ssm/parameter:Parameter my_param /my_path/my_paramname
     /// ```
     /// </summary>
     [AwsResourceType("aws:ssm/parameter:Parameter")]

@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Manages a Neptune Parameter Group
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -55,13 +57,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Neptune Parameter Groups using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:neptune/parameterGroup:ParameterGroup some_pg some-pg
+ * $ pulumi import aws:neptune/parameterGroup:ParameterGroup some_pg some-pg
  * ```
  * 
  */

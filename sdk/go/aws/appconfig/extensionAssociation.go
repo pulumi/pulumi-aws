@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -103,15 +104,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import AppConfig Extension Associations using their extension association ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:appconfig/extensionAssociation:ExtensionAssociation example 71rxuzt
-//
+// $ pulumi import aws:appconfig/extensionAssociation:ExtensionAssociation example 71rxuzt
 // ```
 type ExtensionAssociation struct {
 	pulumi.CustomResourceState

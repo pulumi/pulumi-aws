@@ -25,6 +25,8 @@ import javax.annotation.Nullable;
  * Resource for managing QuickSight Data Source
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -66,13 +68,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import a QuickSight data source using the AWS account ID, and data source ID separated by a slash (`/`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:quicksight/dataSource:DataSource example 123456789123/my-data-source-id
+ * $ pulumi import aws:quicksight/dataSource:DataSource example 123456789123/my-data-source-id
  * ```
  * 
  */

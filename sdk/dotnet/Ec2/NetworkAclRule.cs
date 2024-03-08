@@ -20,6 +20,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -47,6 +48,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// &gt; **Note:** One of either `cidr_block` or `ipv6_cidr_block` is required.
     /// 
@@ -59,12 +61,12 @@ namespace Pulumi.Aws.Ec2
     /// Using the procotol's string value:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:tcp:false
+    /// $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:tcp:false
     /// ```
-    ///  Using the procotol's decimal value:
+    /// Using the procotol's decimal value:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:6:false
+    /// $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:6:false
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/networkAclRule:NetworkAclRule")]

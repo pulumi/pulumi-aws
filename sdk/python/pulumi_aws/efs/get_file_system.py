@@ -237,6 +237,7 @@ def get_file_system(creation_token: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -250,6 +251,7 @@ def get_file_system(creation_token: Optional[str] = None,
         "Environment": "dev",
     })
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str creation_token: Restricts the list to the file system with this creation token.
@@ -293,6 +295,7 @@ def get_file_system_output(creation_token: Optional[pulumi.Input[Optional[str]]]
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -306,6 +309,7 @@ def get_file_system_output(creation_token: Optional[pulumi.Input[Optional[str]]]
         "Environment": "dev",
     })
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str creation_token: Restricts the list to the file system with this creation token.

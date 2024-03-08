@@ -26,6 +26,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// Basic usage with tags:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -44,13 +45,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Default VPCs using the VPC `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/defaultVpc:DefaultVpc default vpc-a01106c2
+    /// $ pulumi import aws:ec2/defaultVpc:DefaultVpc default vpc-a01106c2
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/defaultVpc:DefaultVpc")]

@@ -15,8 +15,10 @@ import (
 // Provides a SageMaker Image resource.
 //
 // ## Example Usage
+//
 // ### Basic usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,15 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SageMaker Code Images using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sagemaker/image:Image test_image my-code-repo
-//
+// $ pulumi import aws:sagemaker/image:Image test_image my-code-repo
 // ```
 type Image struct {
 	pulumi.CustomResourceState

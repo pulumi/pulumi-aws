@@ -47,7 +47,10 @@ import javax.annotation.Nullable;
  * `regional_certificate_arn = aws_acm_certificate_validation.cert.certificate_arn`.
  * 
  * ## Example Usage
+ * 
  * ### Edge Optimized (ACM Certificate)
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -91,7 +94,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Regional (ACM Certificate)
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -139,13 +146,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import API Gateway domain names using their `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:apigateway/domainName:DomainName example dev.example.com
+ * $ pulumi import aws:apigateway/domainName:DomainName example dev.example.com
  * ```
  * 
  */

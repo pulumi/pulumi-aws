@@ -30,8 +30,10 @@ import * as utilities from "../utilities";
  * the separate resource.
  *
  * ## Example Usage
+ *
  * ### Basic example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -53,9 +55,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * To subsequently remove all managed routes:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -68,12 +72,15 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Adopting an existing local route
  *
  * AWS creates certain routes that the AWS provider mostly ignores. You can manage them by importing or adopting them. See Import below for information on importing. This example shows adopting a route and then updating its target.
  *
  * First, adopt an existing AWS-created route:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -87,9 +94,11 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * Next, update the target of the route:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -108,6 +117,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * The target could then be updated again back to `local`.
  *
@@ -116,7 +126,7 @@ import * as utilities from "../utilities";
  * Using `pulumi import`, import Route Tables using the route table `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/routeTable:RouteTable public_rt rtb-4e616f6d69
+ * $ pulumi import aws:ec2/routeTable:RouteTable public_rt rtb-4e616f6d69
  * ```
  */
 export class RouteTable extends pulumi.CustomResource {

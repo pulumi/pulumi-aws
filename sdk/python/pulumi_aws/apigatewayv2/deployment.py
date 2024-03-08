@@ -154,8 +154,10 @@ class Deployment(pulumi.CustomResource):
         > **Note:** Creating a deployment for an API requires at least one `apigatewayv2.Route` resource associated with that API. To avoid race conditions when all resources are being created together, you need to add implicit resource references via the `triggers` argument or explicit resource references using the [resource `dependsOn` meta-argument](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson).
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -164,37 +166,16 @@ class Deployment(pulumi.CustomResource):
             api_id=example_aws_apigatewayv2_api["id"],
             description="Example deployment")
         ```
-        ### Redeployment Triggers
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.apigatewayv2.Deployment("example",
-            api_id=example_aws_apigatewayv2_api["id"],
-            description="Example deployment",
-            triggers={
-                "redeployment": std.sha1(input=std.join(separator=",",
-                    input=not_implemented(\"\"\"tolist([
-        jsonencode(aws_apigatewayv2_integration.example),
-        jsonencode(aws_apigatewayv2_route.example),
-        ])\"\"\")).result).result,
-            })
-        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_apigatewayv2_deployment` using the API identifier and deployment identifier. For example:
 
         ```sh
-         $ pulumi import aws:apigatewayv2/deployment:Deployment example aabbccddee/1122334
+        $ pulumi import aws:apigatewayv2/deployment:Deployment example aabbccddee/1122334
         ```
-         The `triggers` argument cannot be imported.
+        The `triggers` argument cannot be imported.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -215,8 +196,10 @@ class Deployment(pulumi.CustomResource):
         > **Note:** Creating a deployment for an API requires at least one `apigatewayv2.Route` resource associated with that API. To avoid race conditions when all resources are being created together, you need to add implicit resource references via the `triggers` argument or explicit resource references using the [resource `dependsOn` meta-argument](https://www.pulumi.com/docs/intro/concepts/programming-model/#dependson).
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -225,37 +208,16 @@ class Deployment(pulumi.CustomResource):
             api_id=example_aws_apigatewayv2_api["id"],
             description="Example deployment")
         ```
-        ### Redeployment Triggers
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.apigatewayv2.Deployment("example",
-            api_id=example_aws_apigatewayv2_api["id"],
-            description="Example deployment",
-            triggers={
-                "redeployment": std.sha1(input=std.join(separator=",",
-                    input=not_implemented(\"\"\"tolist([
-        jsonencode(aws_apigatewayv2_integration.example),
-        jsonencode(aws_apigatewayv2_route.example),
-        ])\"\"\")).result).result,
-            })
-        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_apigatewayv2_deployment` using the API identifier and deployment identifier. For example:
 
         ```sh
-         $ pulumi import aws:apigatewayv2/deployment:Deployment example aabbccddee/1122334
+        $ pulumi import aws:apigatewayv2/deployment:Deployment example aabbccddee/1122334
         ```
-         The `triggers` argument cannot be imported.
+        The `triggers` argument cannot be imported.
 
         :param str resource_name: The name of the resource.
         :param DeploymentArgs args: The arguments to use to populate this resource's properties.

@@ -25,6 +25,8 @@ import javax.annotation.Nullable;
  * `default`, and no application versions
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -60,13 +62,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Elastic Beanstalk Applications using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:elasticbeanstalk/application:Application tf_test tf-test-name
+ * $ pulumi import aws:elasticbeanstalk/application:Application tf_test tf-test-name
  * ```
  * 
  */

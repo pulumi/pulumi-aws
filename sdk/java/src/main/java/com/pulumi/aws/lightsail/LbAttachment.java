@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Attaches a Lightsail Instance to a Lightsail Load Balancer.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -74,13 +76,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_lightsail_lb_attachment` using the name attribute. For example:
  * 
  * ```sh
- *  $ pulumi import aws:lightsail/lbAttachment:LbAttachment test example-load-balancer,example-instance
+ * $ pulumi import aws:lightsail/lbAttachment:LbAttachment test example-load-balancer,example-instance
  * ```
  * 
  */

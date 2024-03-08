@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -46,15 +47,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_appstream_directory_config` using the id. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:appstream/directoryConfig:DirectoryConfig example directoryNameExample
-//
+// $ pulumi import aws:appstream/directoryConfig:DirectoryConfig example directoryNameExample
 // ```
 type DirectoryConfig struct {
 	pulumi.CustomResourceState

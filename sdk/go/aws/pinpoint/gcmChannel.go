@@ -17,6 +17,7 @@ import (
 // > **Note:** Api Key argument will be stored in the raw state as plain-text.
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,15 +46,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Pinpoint GCM Channel using the `application-id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:pinpoint/gcmChannel:GcmChannel gcm application-id
-//
+// $ pulumi import aws:pinpoint/gcmChannel:GcmChannel gcm application-id
 // ```
 type GcmChannel struct {
 	pulumi.CustomResourceState

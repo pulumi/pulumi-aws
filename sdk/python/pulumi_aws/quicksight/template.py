@@ -394,8 +394,10 @@ class Template(pulumi.CustomResource):
         Resource for managing a QuickSight Template.
 
         ## Example Usage
+
         ### From Source Template
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -410,13 +412,14 @@ class Template(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a QuickSight Template using the AWS account ID and template ID separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:quicksight/template:Template example 123456789012,example-id
+        $ pulumi import aws:quicksight/template:Template example 123456789012,example-id
         ```
 
         :param str resource_name: The name of the resource.
@@ -441,8 +444,10 @@ class Template(pulumi.CustomResource):
         Resource for managing a QuickSight Template.
 
         ## Example Usage
+
         ### From Source Template
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -457,13 +462,14 @@ class Template(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a QuickSight Template using the AWS account ID and template ID separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:quicksight/template:Template example 123456789012,example-id
+        $ pulumi import aws:quicksight/template:Template example 123456789012,example-id
         ```
 
         :param str resource_name: The name of the resource.

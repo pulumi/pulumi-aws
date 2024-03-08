@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,15 +42,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Backup Global Settings using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:backup/globalSettings:GlobalSettings example 123456789012
-//
+// $ pulumi import aws:backup/globalSettings:GlobalSettings example 123456789012
 // ```
 type GlobalSettings struct {
 	pulumi.CustomResourceState

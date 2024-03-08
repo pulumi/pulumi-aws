@@ -206,6 +206,7 @@ class LogDestination(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -215,13 +216,14 @@ class LogDestination(pulumi.CustomResource):
             role_arn=iam_for_cloudwatch["arn"],
             target_arn=kinesis_for_cloudwatch["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudWatch Logs destinations using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/logDestination:LogDestination test_destination test_destination
+        $ pulumi import aws:cloudwatch/logDestination:LogDestination test_destination test_destination
         ```
 
         :param str resource_name: The name of the resource.
@@ -242,6 +244,7 @@ class LogDestination(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -251,13 +254,14 @@ class LogDestination(pulumi.CustomResource):
             role_arn=iam_for_cloudwatch["arn"],
             target_arn=kinesis_for_cloudwatch["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudWatch Logs destinations using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/logDestination:LogDestination test_destination test_destination
+        $ pulumi import aws:cloudwatch/logDestination:LogDestination test_destination test_destination
         ```
 
         :param str resource_name: The name of the resource.

@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -37,13 +38,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_appstream_fleet` using the id. For example:
  *
  * ```sh
- *  $ pulumi import aws:appstream/fleet:Fleet example fleetNameExample
+ * $ pulumi import aws:appstream/fleet:Fleet example fleetNameExample
  * ```
  */
 export class Fleet extends pulumi.CustomResource {

@@ -14,10 +14,9 @@ namespace Pulumi.Aws.GlobalAccelerator
         /// <summary>
         /// Provides information about a Global Accelerator custom routing accelerator.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -37,8 +36,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetCustomRoutingAcceleratorResult> InvokeAsync(GetCustomRoutingAcceleratorArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomRoutingAcceleratorResult>("aws:globalaccelerator/getCustomRoutingAccelerator:getCustomRoutingAccelerator", args ?? new GetCustomRoutingAcceleratorArgs(), options.WithDefaults());
@@ -46,10 +44,9 @@ namespace Pulumi.Aws.GlobalAccelerator
         /// <summary>
         /// Provides information about a Global Accelerator custom routing accelerator.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -69,8 +66,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetCustomRoutingAcceleratorResult> Invoke(GetCustomRoutingAcceleratorInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomRoutingAcceleratorResult>("aws:globalaccelerator/getCustomRoutingAccelerator:getCustomRoutingAccelerator", args ?? new GetCustomRoutingAcceleratorInvokeArgs(), options.WithDefaults());

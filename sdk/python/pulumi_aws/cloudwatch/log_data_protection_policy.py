@@ -104,6 +104,7 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -142,13 +143,14 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
                 ],
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import this resource using the `log_group_name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy example my-log-group
+        $ pulumi import aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy example my-log-group
         ```
 
         :param str resource_name: The name of the resource.
@@ -169,6 +171,7 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -207,13 +210,14 @@ class LogDataProtectionPolicy(pulumi.CustomResource):
                 ],
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import this resource using the `log_group_name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy example my-log-group
+        $ pulumi import aws:cloudwatch/logDataProtectionPolicy:LogDataProtectionPolicy example my-log-group
         ```
 
         :param str resource_name: The name of the resource.

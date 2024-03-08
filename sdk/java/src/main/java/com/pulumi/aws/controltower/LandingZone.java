@@ -21,14 +21,12 @@ import javax.annotation.Nullable;
  * Creates a new landing zone using Control Tower. For more information on usage, please see the
  * [AWS Control Tower Landing Zone User Guide](https://docs.aws.amazon.com/controltower/latest/userguide/how-control-tower-works.html).
  * 
- * ## Example Usage
- * 
  * ## Import
  * 
  * Using `pulumi import`, import a Control Tower Landing Zone using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:controltower/landingZone:LandingZone example 1A2B3C4D5E6F7G8H
+ * $ pulumi import aws:controltower/landingZone:LandingZone example 1A2B3C4D5E6F7G8H
  * ```
  * 
  */

@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Data source for managing an AWS SFN (Step Functions) State Machine Versions.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -18,6 +20,7 @@ import * as utilities from "../utilities";
  *     statemachineArn: testAwsSfnStateMachine.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getStateMachineVersions(args: GetStateMachineVersionsArgs, opts?: pulumi.InvokeOptions): Promise<GetStateMachineVersionsResult> {
 
@@ -55,8 +58,10 @@ export interface GetStateMachineVersionsResult {
  * Data source for managing an AWS SFN (Step Functions) State Machine Versions.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -65,6 +70,7 @@ export interface GetStateMachineVersionsResult {
  *     statemachineArn: testAwsSfnStateMachine.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getStateMachineVersionsOutput(args: GetStateMachineVersionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStateMachineVersionsResult> {
     return pulumi.output(args).apply((a: any) => getStateMachineVersions(a, opts))

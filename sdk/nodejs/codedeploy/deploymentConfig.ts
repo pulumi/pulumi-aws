@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Provides a CodeDeploy deployment config for an application
  *
  * ## Example Usage
+ *
  * ### Server Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -49,8 +51,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Lambda Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -81,13 +86,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import CodeDeploy Deployment Configurations using the `deployment_config_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:codedeploy/deploymentConfig:DeploymentConfig example my-deployment-config
+ * $ pulumi import aws:codedeploy/deploymentConfig:DeploymentConfig example my-deployment-config
  * ```
  */
 export class DeploymentConfig extends pulumi.CustomResource {

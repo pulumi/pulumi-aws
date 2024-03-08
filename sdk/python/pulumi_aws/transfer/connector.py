@@ -285,8 +285,10 @@ class Connector(pulumi.CustomResource):
         Provides a AWS Transfer AS2 Connector resource.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -305,8 +307,11 @@ class Connector(pulumi.CustomResource):
             ),
             url="http://www.test.com")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### SFTP Connector
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -319,13 +324,14 @@ class Connector(pulumi.CustomResource):
             ),
             url="sftp://test.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Transfer AS2 Connector using the `connector_id`. For example:
 
         ```sh
-         $ pulumi import aws:transfer/connector:Connector example c-4221a88afd5f4362a
+        $ pulumi import aws:transfer/connector:Connector example c-4221a88afd5f4362a
         ```
 
         :param str resource_name: The name of the resource.
@@ -347,8 +353,10 @@ class Connector(pulumi.CustomResource):
         Provides a AWS Transfer AS2 Connector resource.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -367,8 +375,11 @@ class Connector(pulumi.CustomResource):
             ),
             url="http://www.test.com")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### SFTP Connector
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -381,13 +392,14 @@ class Connector(pulumi.CustomResource):
             ),
             url="sftp://test.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Transfer AS2 Connector using the `connector_id`. For example:
 
         ```sh
-         $ pulumi import aws:transfer/connector:Connector example c-4221a88afd5f4362a
+        $ pulumi import aws:transfer/connector:Connector example c-4221a88afd5f4362a
         ```
 
         :param str resource_name: The name of the resource.

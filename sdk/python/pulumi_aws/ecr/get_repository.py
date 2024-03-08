@@ -156,12 +156,14 @@ def get_repository(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     service = aws.ecr.get_repository(name="ecr-repository")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the ECR Repository.
@@ -198,12 +200,14 @@ def get_repository_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     service = aws.ecr.get_repository(name="ecr-repository")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the ECR Repository.

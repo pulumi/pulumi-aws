@@ -19,6 +19,7 @@ import {Metric} from "./index";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -70,8 +71,11 @@ import {Metric} from "./index";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With Latest Version Of Launch Template
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -92,8 +96,11 @@ import {Metric} from "./index";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Mixed Instances Policy
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -127,8 +134,11 @@ import {Metric} from "./index";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Mixed Instances Policy with Spot Instances and Capacity Rebalance
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -171,10 +181,13 @@ import {Metric} from "./index";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Mixed Instances Policy with Instance level LaunchTemplateSpecification Overrides
  *
  * When using a diverse instance set, some instance types might require a launch template with configuration values unique to that instance type such as a different AMI (Graviton2), architecture specific user data script, different EBS configuration, or different networking configuration.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -215,10 +228,13 @@ import {Metric} from "./index";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Mixed Instances Policy with Attribute-based Instance Type Selection
  *
  * As an alternative to manually choosing instance types when creating a mixed instances group, you can specify a set of instance attributes that describe your compute requirements.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -252,8 +268,11 @@ import {Metric} from "./index";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Dynamic tagging
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -294,8 +313,11 @@ import {Metric} from "./index";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Automatically refresh all instances after the group is updated
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -335,8 +357,11 @@ import {Metric} from "./index";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Auto Scaling group with Warm Pool
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -361,8 +386,11 @@ import {Metric} from "./index";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Auto Scaling group with Traffic Sources
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -378,6 +406,8 @@ import {Metric} from "./index";
  *     forceDelete: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Waiting for Capacity
  *
  * A newly-created ASG is initially empty and begins to scale to `minSize` (or
@@ -445,7 +475,7 @@ import {Metric} from "./index";
  * Using `pulumi import`, import Auto Scaling Groups using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:autoscaling/group:Group web web-asg
+ * $ pulumi import aws:autoscaling/group:Group web web-asg
  * ```
  */
 export class Group extends pulumi.CustomResource {

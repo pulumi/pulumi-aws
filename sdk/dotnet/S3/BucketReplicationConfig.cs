@@ -17,8 +17,10 @@ namespace Pulumi.Aws.S3
     /// &gt; This resource cannot be used with S3 directory buckets.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Using replication configuration
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -178,8 +180,11 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Bi-Directional Replication
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -265,13 +270,14 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import S3 bucket replication configuration using the `bucket`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:s3/bucketReplicationConfig:BucketReplicationConfig replication bucket-name
+    /// $ pulumi import aws:s3/bucketReplicationConfig:BucketReplicationConfig replication bucket-name
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3/bucketReplicationConfig:BucketReplicationConfig")]

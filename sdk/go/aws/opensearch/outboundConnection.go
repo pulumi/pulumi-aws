@@ -15,8 +15,10 @@ import (
 // Manages an AWS Opensearch Outbound Connection.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -60,15 +62,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import AWS Opensearch Outbound Connections using the Outbound Connection ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:opensearch/outboundConnection:OutboundConnection foo connection-id
-//
+// $ pulumi import aws:opensearch/outboundConnection:OutboundConnection foo connection-id
 // ```
 type OutboundConnection struct {
 	pulumi.CustomResourceState

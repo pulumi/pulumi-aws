@@ -20,6 +20,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -86,15 +87,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import ECR Public Repository Policy using the repository name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ecrpublic/repositoryPolicy:RepositoryPolicy example example
-//
+// $ pulumi import aws:ecrpublic/repositoryPolicy:RepositoryPolicy example example
 // ```
 type RepositoryPolicy struct {
 	pulumi.CustomResourceState

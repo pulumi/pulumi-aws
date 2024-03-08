@@ -460,6 +460,7 @@ class EventRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -489,13 +490,14 @@ class EventRule(pulumi.CustomResource):
             arn=aws_logins.arn,
             policy=sns_topic_policy.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EventBridge Rules using the `event_bus_name/rule_name` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/eventRule:EventRule console example-event-bus/capture-console-sign-in
+        $ pulumi import aws:cloudwatch/eventRule:EventRule console example-event-bus/capture-console-sign-in
         ```
 
         :param str resource_name: The name of the resource.
@@ -534,6 +536,7 @@ class EventRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -563,13 +566,14 @@ class EventRule(pulumi.CustomResource):
             arn=aws_logins.arn,
             policy=sns_topic_policy.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EventBridge Rules using the `event_bus_name/rule_name` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/eventRule:EventRule console example-event-bus/capture-console-sign-in
+        $ pulumi import aws:cloudwatch/eventRule:EventRule console example-event-bus/capture-console-sign-in
         ```
 
         :param str resource_name: The name of the resource.

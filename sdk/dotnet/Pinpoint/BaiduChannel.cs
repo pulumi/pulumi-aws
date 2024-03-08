@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Pinpoint
     /// &gt; **Note:** All arguments including the Api Key and Secret Key will be stored in the raw state as plain-text.
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,13 +35,14 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Pinpoint Baidu Channel using the `application-id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:pinpoint/baiduChannel:BaiduChannel channel application-id
+    /// $ pulumi import aws:pinpoint/baiduChannel:BaiduChannel channel application-id
     /// ```
     /// </summary>
     [AwsResourceType("aws:pinpoint/baiduChannel:BaiduChannel")]

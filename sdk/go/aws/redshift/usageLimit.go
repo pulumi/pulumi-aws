@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,15 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Redshift usage limits using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:redshift/usageLimit:UsageLimit example example-id
-//
+// $ pulumi import aws:redshift/usageLimit:UsageLimit example example-id
 // ```
 type UsageLimit struct {
 	pulumi.CustomResourceState

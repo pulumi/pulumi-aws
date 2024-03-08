@@ -412,6 +412,7 @@ class Pipeline(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -429,13 +430,14 @@ class Pipeline(pulumi.CustomResource):
                 storage_class="Standard",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Elastic Transcoder pipelines using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:elastictranscoder/pipeline:Pipeline basic_pipeline 1407981661351-cttk8b
+        $ pulumi import aws:elastictranscoder/pipeline:Pipeline basic_pipeline 1407981661351-cttk8b
         ```
 
         :param str resource_name: The name of the resource.
@@ -469,6 +471,7 @@ class Pipeline(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -486,13 +489,14 @@ class Pipeline(pulumi.CustomResource):
                 storage_class="Standard",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Elastic Transcoder pipelines using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:elastictranscoder/pipeline:Pipeline basic_pipeline 1407981661351-cttk8b
+        $ pulumi import aws:elastictranscoder/pipeline:Pipeline basic_pipeline 1407981661351-cttk8b
         ```
 
         :param str resource_name: The name of the resource.

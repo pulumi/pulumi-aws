@@ -16,8 +16,10 @@ import (
 // join the collaboration and can create memberships.
 //
 // ## Example Usage
+//
 // ### Collaboration with tags
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -64,15 +66,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_cleanrooms_collaboration` using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cleanrooms/collaboration:Collaboration collaboration 1234abcd-12ab-34cd-56ef-1234567890ab
-//
+// $ pulumi import aws:cleanrooms/collaboration:Collaboration collaboration 1234abcd-12ab-34cd-56ef-1234567890ab
 // ```
 type Collaboration struct {
 	pulumi.CustomResourceState

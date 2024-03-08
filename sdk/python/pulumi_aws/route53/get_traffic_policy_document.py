@@ -123,8 +123,10 @@ def get_traffic_policy_document(endpoints: Optional[Sequence[pulumi.InputType['G
     Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as `route53.TrafficPolicy`.
 
     ## Example Usage
+
     ### Basic Example
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -160,10 +162,13 @@ def get_traffic_policy_document(endpoints: Optional[Sequence[pulumi.InputType['G
         comment="example comment",
         document=example.json)
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Complex Example
 
     The following example showcases the use of nested rules within the traffic policy document and introduces the `geoproximity` rule type.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -233,6 +238,7 @@ def get_traffic_policy_document(endpoints: Optional[Sequence[pulumi.InputType['G
         comment="example comment",
         document=example.json)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetTrafficPolicyDocumentEndpointArgs']] endpoints: Configuration block for the definitions of the endpoints that you want to use in this traffic policy. See below
@@ -275,8 +281,10 @@ def get_traffic_policy_document_output(endpoints: Optional[pulumi.Input[Optional
     Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as `route53.TrafficPolicy`.
 
     ## Example Usage
+
     ### Basic Example
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -312,10 +320,13 @@ def get_traffic_policy_document_output(endpoints: Optional[pulumi.Input[Optional
         comment="example comment",
         document=example.json)
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Complex Example
 
     The following example showcases the use of nested rules within the traffic policy document and introduces the `geoproximity` rule type.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -385,6 +396,7 @@ def get_traffic_policy_document_output(endpoints: Optional[pulumi.Input[Optional
         comment="example comment",
         document=example.json)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetTrafficPolicyDocumentEndpointArgs']] endpoints: Configuration block for the definitions of the endpoints that you want to use in this traffic policy. See below

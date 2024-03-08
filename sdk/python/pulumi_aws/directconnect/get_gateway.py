@@ -84,12 +84,14 @@ def get_gateway(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.directconnect.get_gateway(name="example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the gateway to retrieve.
@@ -114,12 +116,14 @@ def get_gateway_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.directconnect.get_gateway(name="example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the gateway to retrieve.

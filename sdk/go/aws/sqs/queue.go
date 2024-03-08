@@ -13,6 +13,7 @@ import (
 
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -54,8 +55,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## FIFO queue
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -81,9 +85,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## High-throughput FIFO queue
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -110,9 +116,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Dead-letter queue
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -170,11 +178,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Server-side encryption (SSE)
 //
 // Using [SSE-SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html):
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -199,9 +209,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // Using [SSE-KMS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html):
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -227,15 +239,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SQS Queues using the queue `url`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sqs/queue:Queue public_queue https://queue.amazonaws.com/80398EXAMPLE/MyQueue
-//
+// $ pulumi import aws:sqs/queue:Queue public_queue https://queue.amazonaws.com/80398EXAMPLE/MyQueue
 // ```
 type Queue struct {
 	pulumi.CustomResourceState

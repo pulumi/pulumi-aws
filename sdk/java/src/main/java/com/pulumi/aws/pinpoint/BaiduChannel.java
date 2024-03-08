@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** All arguments including the Api Key and Secret Key will be stored in the raw state as plain-text.
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -54,13 +56,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Pinpoint Baidu Channel using the `application-id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:pinpoint/baiduChannel:BaiduChannel channel application-id
+ * $ pulumi import aws:pinpoint/baiduChannel:BaiduChannel channel application-id
  * ```
  * 
  */

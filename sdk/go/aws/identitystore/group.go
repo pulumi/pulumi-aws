@@ -15,46 +15,13 @@ import (
 // Resource for managing an AWS IdentityStore Group.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/identitystore"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func notImplemented(message string) pulumi.AnyOutput {
-//		panic(message)
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := identitystore.NewGroup(ctx, "this", &identitystore.GroupArgs{
-//				DisplayName:     pulumi.String("Example group"),
-//				Description:     pulumi.String("Example description"),
-//				IdentityStoreId: notImplemented("tolist(data.aws_ssoadmin_instances.example.identity_store_ids)")[0],
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //
 // Using `pulumi import`, import an Identity Store Group using the combination `identity_store_id/group_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:identitystore/group:Group example d-9c6705e95c/b8a1c340-8031-7071-a2fb-7dc540320c30
-//
+// $ pulumi import aws:identitystore/group:Group example d-9c6705e95c/b8a1c340-8031-7071-a2fb-7dc540320c30
 // ```
 type Group struct {
 	pulumi.CustomResourceState

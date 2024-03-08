@@ -173,19 +173,21 @@ class RouteTable(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ec2transitgateway.RouteTable("example", transit_gateway_id=example_aws_ec2_transit_gateway["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ec2_transit_gateway_route_table` using the EC2 Transit Gateway Route Table identifier. For example:
 
         ```sh
-         $ pulumi import aws:ec2transitgateway/routeTable:RouteTable example tgw-rtb-12345678
+        $ pulumi import aws:ec2transitgateway/routeTable:RouteTable example tgw-rtb-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -204,19 +206,21 @@ class RouteTable(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ec2transitgateway.RouteTable("example", transit_gateway_id=example_aws_ec2_transit_gateway["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ec2_transit_gateway_route_table` using the EC2 Transit Gateway Route Table identifier. For example:
 
         ```sh
-         $ pulumi import aws:ec2transitgateway/routeTable:RouteTable example tgw-rtb-12345678
+        $ pulumi import aws:ec2transitgateway/routeTable:RouteTable example tgw-rtb-12345678
         ```
 
         :param str resource_name: The name of the resource.

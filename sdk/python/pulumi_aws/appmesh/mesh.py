@@ -240,16 +240,21 @@ class Mesh(pulumi.CustomResource):
         Provides an AWS App Mesh service mesh resource.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         simple = aws.appmesh.Mesh("simple", name="simpleapp")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Egress Filter
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -262,13 +267,14 @@ class Mesh(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import App Mesh service meshes using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:appmesh/mesh:Mesh simple simpleapp
+        $ pulumi import aws:appmesh/mesh:Mesh simple simpleapp
         ```
 
         :param str resource_name: The name of the resource.
@@ -287,16 +293,21 @@ class Mesh(pulumi.CustomResource):
         Provides an AWS App Mesh service mesh resource.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         simple = aws.appmesh.Mesh("simple", name="simpleapp")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Egress Filter
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -309,13 +320,14 @@ class Mesh(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import App Mesh service meshes using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:appmesh/mesh:Mesh simple simpleapp
+        $ pulumi import aws:appmesh/mesh:Mesh simple simpleapp
         ```
 
         :param str resource_name: The name of the resource.

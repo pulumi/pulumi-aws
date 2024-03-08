@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,15 +41,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_ce_cost_allocation_tag` using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:costexplorer/costAllocationTag:CostAllocationTag example key
-//
+// $ pulumi import aws:costexplorer/costAllocationTag:CostAllocationTag example key
 // ```
 type CostAllocationTag struct {
 	pulumi.CustomResourceState

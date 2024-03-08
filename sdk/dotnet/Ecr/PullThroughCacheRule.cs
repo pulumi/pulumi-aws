@@ -17,6 +17,7 @@ namespace Pulumi.Aws.Ecr
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,13 +35,14 @@ namespace Pulumi.Aws.Ecr
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import a pull-through cache rule using the `ecr_repository_prefix`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ecr/pullThroughCacheRule:PullThroughCacheRule example ecr-public
+    /// $ pulumi import aws:ecr/pullThroughCacheRule:PullThroughCacheRule example ecr-public
     /// ```
     /// </summary>
     [AwsResourceType("aws:ecr/pullThroughCacheRule:PullThroughCacheRule")]

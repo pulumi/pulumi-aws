@@ -134,6 +134,7 @@ class RouteTablePropagation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -142,13 +143,14 @@ class RouteTablePropagation(pulumi.CustomResource):
             transit_gateway_attachment_id=example_aws_ec2_transit_gateway_vpc_attachment["id"],
             transit_gateway_route_table_id=example_aws_ec2_transit_gateway_route_table["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ec2_transit_gateway_route_table_propagation` using the EC2 Transit Gateway Route Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier. For example:
 
         ```sh
-         $ pulumi import aws:ec2transitgateway/routeTablePropagation:RouteTablePropagation example tgw-rtb-12345678_tgw-attach-87654321
+        $ pulumi import aws:ec2transitgateway/routeTablePropagation:RouteTablePropagation example tgw-rtb-12345678_tgw-attach-87654321
         ```
 
         :param str resource_name: The name of the resource.
@@ -167,6 +169,7 @@ class RouteTablePropagation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -175,13 +178,14 @@ class RouteTablePropagation(pulumi.CustomResource):
             transit_gateway_attachment_id=example_aws_ec2_transit_gateway_vpc_attachment["id"],
             transit_gateway_route_table_id=example_aws_ec2_transit_gateway_route_table["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ec2_transit_gateway_route_table_propagation` using the EC2 Transit Gateway Route Table identifier, an underscore, and the EC2 Transit Gateway Attachment identifier. For example:
 
         ```sh
-         $ pulumi import aws:ec2transitgateway/routeTablePropagation:RouteTablePropagation example tgw-rtb-12345678_tgw-attach-87654321
+        $ pulumi import aws:ec2transitgateway/routeTablePropagation:RouteTablePropagation example tgw-rtb-12345678_tgw-attach-87654321
         ```
 
         :param str resource_name: The name of the resource.

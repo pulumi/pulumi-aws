@@ -10,8 +10,10 @@ import * as utilities from "../utilities";
  * > **Tip:** A "resource" is either a Service Catalog portfolio or product.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,13 +23,14 @@ import * as utilities from "../utilities";
  *     resourceId: "prod-dnigbtea24ste",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_servicecatalog_budget_resource_association` using the budget name and resource ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation example budget-pjtvyakdlyo3m:prod-dnigbtea24ste
+ * $ pulumi import aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation example budget-pjtvyakdlyo3m:prod-dnigbtea24ste
  * ```
  */
 export class BudgetResourceAssociation extends pulumi.CustomResource {

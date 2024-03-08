@@ -72,8 +72,10 @@ class AwsLogSource(pulumi.CustomResource):
         Resource for managing an Amazon Security Lake AWS Log Source.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -85,13 +87,14 @@ class AwsLogSource(pulumi.CustomResource):
             source_version="1.0",
         ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AWS log sources using the source name. For example:
 
         ```sh
-         $ pulumi import aws:securitylake/awsLogSource:AwsLogSource example ROUTE53
+        $ pulumi import aws:securitylake/awsLogSource:AwsLogSource example ROUTE53
         ```
 
         :param str resource_name: The name of the resource.
@@ -108,8 +111,10 @@ class AwsLogSource(pulumi.CustomResource):
         Resource for managing an Amazon Security Lake AWS Log Source.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -121,13 +126,14 @@ class AwsLogSource(pulumi.CustomResource):
             source_version="1.0",
         ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AWS log sources using the source name. For example:
 
         ```sh
-         $ pulumi import aws:securitylake/awsLogSource:AwsLogSource example ROUTE53
+        $ pulumi import aws:securitylake/awsLogSource:AwsLogSource example ROUTE53
         ```
 
         :param str resource_name: The name of the resource.

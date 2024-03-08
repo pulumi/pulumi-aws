@@ -273,6 +273,7 @@ class AssessmentTemplate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -292,13 +293,14 @@ class AssessmentTemplate(pulumi.CustomResource):
                 topic_arn=example_aws_sns_topic["arn"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_inspector_assessment_template` using the template assessment ARN. For example:
 
         ```sh
-         $ pulumi import aws:inspector/assessmentTemplate:AssessmentTemplate example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH
+        $ pulumi import aws:inspector/assessmentTemplate:AssessmentTemplate example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH
         ```
 
         :param str resource_name: The name of the resource.
@@ -321,6 +323,7 @@ class AssessmentTemplate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -340,13 +343,14 @@ class AssessmentTemplate(pulumi.CustomResource):
                 topic_arn=example_aws_sns_topic["arn"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_inspector_assessment_template` using the template assessment ARN. For example:
 
         ```sh
-         $ pulumi import aws:inspector/assessmentTemplate:AssessmentTemplate example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH
+        $ pulumi import aws:inspector/assessmentTemplate:AssessmentTemplate example arn:aws:inspector:us-west-2:123456789012:target/0-9IaAzhGR/template/0-WEcjR8CH
         ```
 
         :param str resource_name: The name of the resource.

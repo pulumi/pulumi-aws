@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS Transcribe MedicalVocabulary.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -68,15 +70,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Transcribe MedicalVocabulary using the `vocabulary_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:transcribe/medicalVocabulary:MedicalVocabulary example example-name
-//
+// $ pulumi import aws:transcribe/medicalVocabulary:MedicalVocabulary example example-name
 // ```
 type MedicalVocabulary struct {
 	pulumi.CustomResourceState

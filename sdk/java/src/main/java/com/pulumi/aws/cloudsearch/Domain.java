@@ -25,6 +25,8 @@ import javax.annotation.Nullable;
  * The provider waits for the domain to become `Active` when applying a configuration.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -77,13 +79,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import CloudSearch Domains using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cloudsearch/domain:Domain example example-domain
+ * $ pulumi import aws:cloudsearch/domain:Domain example example-domain
  * ```
  * 
  */

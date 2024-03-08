@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,13 +25,14 @@ import * as utilities from "../utilities";
  * const exampleOrganizationAdminAccount = new aws.securityhub.OrganizationAdminAccount("example", {adminAccountId: "123456789012"});
  * const exampleOrganizationConfiguration = new aws.securityhub.OrganizationConfiguration("example", {autoEnable: true});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import an existing Security Hub enabled account using the AWS account ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:securityhub/organizationConfiguration:OrganizationConfiguration example 123456789012
+ * $ pulumi import aws:securityhub/organizationConfiguration:OrganizationConfiguration example 123456789012
  * ```
  */
 export class OrganizationConfiguration extends pulumi.CustomResource {

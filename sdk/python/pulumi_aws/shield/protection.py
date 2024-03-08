@@ -174,8 +174,10 @@ class Protection(pulumi.CustomResource):
         The resource can be an Amazon CloudFront distribution, Elastic Load Balancing load balancer, AWS Global Accelerator accelerator, Elastic IP Address, or an Amazon Route 53 hosted zone.
 
         ## Example Usage
+
         ### Create protection
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -191,13 +193,14 @@ class Protection(pulumi.CustomResource):
                 "Environment": "Dev",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Shield protection resources using specifying their ID. For example:
 
         ```sh
-         $ pulumi import aws:shield/protection:Protection example ff9592dc-22f3-4e88-afa1-7b29fde9669a
+        $ pulumi import aws:shield/protection:Protection example ff9592dc-22f3-4e88-afa1-7b29fde9669a
         ```
 
         :param str resource_name: The name of the resource.
@@ -217,8 +220,10 @@ class Protection(pulumi.CustomResource):
         The resource can be an Amazon CloudFront distribution, Elastic Load Balancing load balancer, AWS Global Accelerator accelerator, Elastic IP Address, or an Amazon Route 53 hosted zone.
 
         ## Example Usage
+
         ### Create protection
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -234,13 +239,14 @@ class Protection(pulumi.CustomResource):
                 "Environment": "Dev",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Shield protection resources using specifying their ID. For example:
 
         ```sh
-         $ pulumi import aws:shield/protection:Protection example ff9592dc-22f3-4e88-afa1-7b29fde9669a
+        $ pulumi import aws:shield/protection:Protection example ff9592dc-22f3-4e88-afa1-7b29fde9669a
         ```
 
         :param str resource_name: The name of the resource.

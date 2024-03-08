@@ -536,8 +536,10 @@ class Directory(pulumi.CustomResource):
         Provides a Simple or Managed Microsoft directory in AWS Directory Service.
 
         ## Example Usage
+
         ### SimpleAD
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -566,8 +568,11 @@ class Directory(pulumi.CustomResource):
                 "Project": "foo",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Microsoft Active Directory (MicrosoftAD)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -597,8 +602,11 @@ class Directory(pulumi.CustomResource):
                 "Project": "foo",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Microsoft Active Directory Connector (ADConnector)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -627,13 +635,14 @@ class Directory(pulumi.CustomResource):
                 vpc_id=main.id,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DirectoryService directories using the directory `id`. For example:
 
         ```sh
-         $ pulumi import aws:directoryservice/directory:Directory sample d-926724cf57
+        $ pulumi import aws:directoryservice/directory:Directory sample d-926724cf57
         ```
 
         :param str resource_name: The name of the resource.
@@ -662,8 +671,10 @@ class Directory(pulumi.CustomResource):
         Provides a Simple or Managed Microsoft directory in AWS Directory Service.
 
         ## Example Usage
+
         ### SimpleAD
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -692,8 +703,11 @@ class Directory(pulumi.CustomResource):
                 "Project": "foo",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Microsoft Active Directory (MicrosoftAD)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -723,8 +737,11 @@ class Directory(pulumi.CustomResource):
                 "Project": "foo",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Microsoft Active Directory Connector (ADConnector)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -753,13 +770,14 @@ class Directory(pulumi.CustomResource):
                 vpc_id=main.id,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DirectoryService directories using the directory `id`. For example:
 
         ```sh
-         $ pulumi import aws:directoryservice/directory:Directory sample d-926724cf57
+        $ pulumi import aws:directoryservice/directory:Directory sample d-926724cf57
         ```
 
         :param str resource_name: The name of the resource.

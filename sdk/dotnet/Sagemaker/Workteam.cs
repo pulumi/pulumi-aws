@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Sagemaker
     /// Provides a SageMaker Workteam resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Cognito Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -44,8 +46,11 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Oidc Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -76,13 +81,14 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SageMaker Workteams using the `workteam_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:sagemaker/workteam:Workteam example example
+    /// $ pulumi import aws:sagemaker/workteam:Workteam example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/workteam:Workteam")]

@@ -71,19 +71,6 @@ def get_policies(filter: Optional[str] = None,
     Data source for managing an AWS Organizations Policies.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-
-    def not_implemented(msg):
-        raise NotImplementedError(msg)
-
-    example = aws.organizations.get_policies(filter="SERVICE_CONTROL_POLICY")
-    example_get_policy = {__key: aws.organizations.get_policy(policy_id=__value) for __key, __value in not_implemented("toset(data.aws_organizations_policies.example.ids)")}
-    ```
 
 
     :param str filter: The type of policies to be returned in the response. Valid values are `SERVICE_CONTROL_POLICY | TAG_POLICY | BACKUP_POLICY | AISERVICES_OPT_OUT_POLICY`
@@ -106,19 +93,6 @@ def get_policies_output(filter: Optional[pulumi.Input[str]] = None,
     Data source for managing an AWS Organizations Policies.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-
-    def not_implemented(msg):
-        raise NotImplementedError(msg)
-
-    example = aws.organizations.get_policies(filter="SERVICE_CONTROL_POLICY")
-    example_get_policy = {__key: aws.organizations.get_policy(policy_id=__value) for __key, __value in not_implemented("toset(data.aws_organizations_policies.example.ids)")}
-    ```
 
 
     :param str filter: The type of policies to be returned in the response. Valid values are `SERVICE_CONTROL_POLICY | TAG_POLICY | BACKUP_POLICY | AISERVICES_OPT_OUT_POLICY`

@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * Provides an AppSync Resolver.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -132,7 +134,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### JS
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -176,13 +182,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_appsync_resolver` using the `api_id`, a hyphen, `type`, a hypen and `field`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:appsync/resolver:Resolver example abcdef123456-exampleType-exampleField
+ * $ pulumi import aws:appsync/resolver:Resolver example abcdef123456-exampleType-exampleField
  * ```
  * 
  */

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -77,8 +78,11 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -118,13 +122,14 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import VPC Lattice Listener Rule using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:vpclattice/listenerRule:ListenerRule example service123/listener456/rule789
+    /// $ pulumi import aws:vpclattice/listenerRule:ListenerRule example service123/listener456/rule789
     /// ```
     /// </summary>
     [AwsResourceType("aws:vpclattice/listenerRule:ListenerRule")]

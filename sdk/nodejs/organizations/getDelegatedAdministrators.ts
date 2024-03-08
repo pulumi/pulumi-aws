@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,6 +21,7 @@ import * as utilities from "../utilities";
  *     servicePrincipal: "SERVICE PRINCIPAL",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDelegatedAdministrators(args?: GetDelegatedAdministratorsArgs, opts?: pulumi.InvokeOptions): Promise<GetDelegatedAdministratorsResult> {
     args = args || {};
@@ -59,6 +61,7 @@ export interface GetDelegatedAdministratorsResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -67,6 +70,7 @@ export interface GetDelegatedAdministratorsResult {
  *     servicePrincipal: "SERVICE PRINCIPAL",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDelegatedAdministratorsOutput(args?: GetDelegatedAdministratorsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDelegatedAdministratorsResult> {
     return pulumi.output(args).apply((a: any) => getDelegatedAdministrators(a, opts))

@@ -11,21 +11,24 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS WorkSpaces Connection Alias.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.workspaces.ConnectionAlias("example", {connectionString: "testdomain.test"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import WorkSpaces Connection Alias using the connection alias ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:workspaces/connectionAlias:ConnectionAlias example rft-8012925589
+ * $ pulumi import aws:workspaces/connectionAlias:ConnectionAlias example rft-8012925589
  * ```
  */
 export class ConnectionAlias extends pulumi.CustomResource {

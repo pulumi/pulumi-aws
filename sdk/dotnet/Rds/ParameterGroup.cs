@@ -25,8 +25,10 @@ namespace Pulumi.Aws.Rds
     /// the `apply_method` of a parameter, its value must also change.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -56,6 +58,8 @@ namespace Pulumi.Aws.Rds
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### `create_before_destroy` Lifecycle Configuration
     /// 
     /// The `create_before_destroy`
@@ -64,6 +68,7 @@ namespace Pulumi.Aws.Rds
     /// bumping the `family` version during a major version upgrade. This configuration will prevent destruction
     /// of the deposed parameter group while still in use by the database during upgrade.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -94,13 +99,14 @@ namespace Pulumi.Aws.Rds
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DB Parameter groups using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:rds/parameterGroup:ParameterGroup rds_pg rds-pg
+    /// $ pulumi import aws:rds/parameterGroup:ParameterGroup rds_pg rds-pg
     /// ```
     /// </summary>
     [AwsResourceType("aws:rds/parameterGroup:ParameterGroup")]

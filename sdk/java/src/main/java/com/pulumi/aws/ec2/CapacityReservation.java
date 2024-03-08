@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Provides an EC2 Capacity Reservation. This allows you to reserve capacity for your Amazon EC2 instances in a specific Availability Zone for any duration.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -52,13 +54,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Capacity Reservations using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/capacityReservation:CapacityReservation web cr-0123456789abcdef0
+ * $ pulumi import aws:ec2/capacityReservation:CapacityReservation web cr-0123456789abcdef0
  * ```
  * 
  */

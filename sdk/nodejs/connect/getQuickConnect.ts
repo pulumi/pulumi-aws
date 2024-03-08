@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  *
  * By `name`
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,9 +24,11 @@ import * as utilities from "../utilities";
  *     name: "Example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * By `quickConnectId`
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -35,6 +38,7 @@ import * as utilities from "../utilities";
  *     quickConnectId: "cccccccc-bbbb-cccc-dddd-111111111111",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getQuickConnect(args: GetQuickConnectArgs, opts?: pulumi.InvokeOptions): Promise<GetQuickConnectResult> {
 
@@ -107,6 +111,7 @@ export interface GetQuickConnectResult {
  *
  * By `name`
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -116,9 +121,11 @@ export interface GetQuickConnectResult {
  *     name: "Example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * By `quickConnectId`
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -128,6 +135,7 @@ export interface GetQuickConnectResult {
  *     quickConnectId: "cccccccc-bbbb-cccc-dddd-111111111111",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getQuickConnectOutput(args: GetQuickConnectOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQuickConnectResult> {
     return pulumi.output(args).apply((a: any) => getQuickConnect(a, opts))

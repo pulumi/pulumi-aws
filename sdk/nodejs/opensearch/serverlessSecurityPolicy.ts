@@ -10,8 +10,10 @@ import * as utilities from "../utilities";
  * ## Example Usage
  *
  * ### Encryption Security Policy
+ *
  * ### Applies to a single collection
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -29,8 +31,11 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Applies to multiple collections
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -48,8 +53,11 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Using a customer managed key
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -68,9 +76,13 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Network Security Policy
+ *
  * ### Allow public access to the collection endpoint and the Dashboards endpoint
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -95,8 +107,11 @@ import * as utilities from "../utilities";
  *     }]),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Allow VPC access to the collection endpoint and the Dashboards endpoint
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -122,8 +137,11 @@ import * as utilities from "../utilities";
  *     }]),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Mixed access for different collections
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -159,13 +177,14 @@ import * as utilities from "../utilities";
  *     ]),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import OpenSearchServerless Security Policy using the `name` and `type` arguments separated by a slash (`/`). For example:
  *
  * ```sh
- *  $ pulumi import aws:opensearch/serverlessSecurityPolicy:ServerlessSecurityPolicy example example/encryption
+ * $ pulumi import aws:opensearch/serverlessSecurityPolicy:ServerlessSecurityPolicy example example/encryption
  * ```
  */
 export class ServerlessSecurityPolicy extends pulumi.CustomResource {

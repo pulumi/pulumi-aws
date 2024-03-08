@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Provides an environment member to an AWS Cloud9 development environment.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -60,13 +62,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Cloud9 environment membership using the `environment-id#user-arn`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cloud9/environmentMembership:EnvironmentMembership test environment-id#user-arn
+ * $ pulumi import aws:cloud9/environmentMembership:EnvironmentMembership test environment-id#user-arn
  * ```
  * 
  */

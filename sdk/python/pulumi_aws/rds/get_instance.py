@@ -551,12 +551,14 @@ def get_instance(db_instance_identifier: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     database = aws.rds.get_instance(db_instance_identifier="my-test-database")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str db_instance_identifier: Name of the RDS instance.
@@ -623,12 +625,14 @@ def get_instance_output(db_instance_identifier: Optional[pulumi.Input[Optional[s
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     database = aws.rds.get_instance(db_instance_identifier="my-test-database")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str db_instance_identifier: Name of the RDS instance.

@@ -24,6 +24,8 @@ public final class MskconnectFunctions {
      * Get information on an Amazon MSK Connect Connector.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -52,6 +54,7 @@ public final class MskconnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetConnectorResult> getConnector(GetConnectorArgs args) {
@@ -61,6 +64,8 @@ public final class MskconnectFunctions {
      * Get information on an Amazon MSK Connect Connector.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -89,6 +94,7 @@ public final class MskconnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetConnectorResult> getConnectorPlain(GetConnectorPlainArgs args) {
@@ -98,6 +104,8 @@ public final class MskconnectFunctions {
      * Get information on an Amazon MSK Connect Connector.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -126,6 +134,7 @@ public final class MskconnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetConnectorResult> getConnector(GetConnectorArgs args, InvokeOptions options) {
@@ -135,6 +144,8 @@ public final class MskconnectFunctions {
      * Get information on an Amazon MSK Connect Connector.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -163,6 +174,7 @@ public final class MskconnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetConnectorResult> getConnectorPlain(GetConnectorPlainArgs args, InvokeOptions options) {
@@ -172,6 +184,8 @@ public final class MskconnectFunctions {
      * Get information on an Amazon MSK Connect custom plugin.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -200,6 +214,7 @@ public final class MskconnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCustomPluginResult> getCustomPlugin(GetCustomPluginArgs args) {
@@ -209,6 +224,8 @@ public final class MskconnectFunctions {
      * Get information on an Amazon MSK Connect custom plugin.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -237,6 +254,7 @@ public final class MskconnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCustomPluginResult> getCustomPluginPlain(GetCustomPluginPlainArgs args) {
@@ -246,6 +264,8 @@ public final class MskconnectFunctions {
      * Get information on an Amazon MSK Connect custom plugin.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -274,6 +294,7 @@ public final class MskconnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCustomPluginResult> getCustomPlugin(GetCustomPluginArgs args, InvokeOptions options) {
@@ -283,6 +304,8 @@ public final class MskconnectFunctions {
      * Get information on an Amazon MSK Connect custom plugin.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -311,6 +334,7 @@ public final class MskconnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCustomPluginResult> getCustomPluginPlain(GetCustomPluginPlainArgs args, InvokeOptions options) {
@@ -320,6 +344,8 @@ public final class MskconnectFunctions {
      * Get information on an Amazon MSK Connect Worker Configuration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -348,6 +374,7 @@ public final class MskconnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetWorkerConfigurationResult> getWorkerConfiguration(GetWorkerConfigurationArgs args) {
@@ -357,6 +384,8 @@ public final class MskconnectFunctions {
      * Get information on an Amazon MSK Connect Worker Configuration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -385,6 +414,7 @@ public final class MskconnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetWorkerConfigurationResult> getWorkerConfigurationPlain(GetWorkerConfigurationPlainArgs args) {
@@ -394,6 +424,8 @@ public final class MskconnectFunctions {
      * Get information on an Amazon MSK Connect Worker Configuration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -422,6 +454,7 @@ public final class MskconnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetWorkerConfigurationResult> getWorkerConfiguration(GetWorkerConfigurationArgs args, InvokeOptions options) {
@@ -431,6 +464,8 @@ public final class MskconnectFunctions {
      * Get information on an Amazon MSK Connect Worker Configuration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -459,6 +494,7 @@ public final class MskconnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetWorkerConfigurationResult> getWorkerConfigurationPlain(GetWorkerConfigurationPlainArgs args, InvokeOptions options) {

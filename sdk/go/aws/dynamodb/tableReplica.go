@@ -19,8 +19,10 @@ import (
 // > **Note:** Do not use the `replica` configuration block of dynamodb.Table together with this resource as the two configuration options are mutually exclusive.
 //
 // ## Example Usage
+//
 // ### Basic Example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -64,6 +66,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -72,9 +75,7 @@ import (
 // ~> __Note:__ When importing, use the region where the initial or _main_ global table resides, _not_ the region of the replica.
 //
 // ```sh
-//
-//	$ pulumi import aws:dynamodb/tableReplica:TableReplica example TestTable:us-west-2
-//
+// $ pulumi import aws:dynamodb/tableReplica:TableReplica example TestTable:us-west-2
 // ```
 type TableReplica struct {
 	pulumi.CustomResourceState

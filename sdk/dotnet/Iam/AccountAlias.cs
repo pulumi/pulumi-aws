@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,13 +32,14 @@ namespace Pulumi.Aws.Iam
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import the current Account Alias using the `account_alias`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:iam/accountAlias:AccountAlias alias my-account-alias
+    /// $ pulumi import aws:iam/accountAlias:AccountAlias alias my-account-alias
     /// ```
     /// </summary>
     [AwsResourceType("aws:iam/accountAlias:AccountAlias")]

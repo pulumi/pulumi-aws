@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -25,13 +26,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import GameLift Aliases using the ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:gamelift/alias:Alias example <alias-id>
+ * $ pulumi import aws:gamelift/alias:Alias example <alias-id>
  * ```
  */
 export class Alias extends pulumi.CustomResource {

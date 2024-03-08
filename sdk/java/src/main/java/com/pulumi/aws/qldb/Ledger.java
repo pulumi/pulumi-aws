@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** Deletion protection is enabled by default. To successfully delete this resource via this provider, `deletion_protection = false` must be applied before attempting deletion.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -51,13 +53,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import QLDB Ledgers using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:qldb/ledger:Ledger sample-ledger sample-ledger
+ * $ pulumi import aws:qldb/ledger:Ledger sample-ledger sample-ledger
  * ```
  * 
  */

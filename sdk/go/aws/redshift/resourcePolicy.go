@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -60,15 +61,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Redshift Resource Policies using the `resource_arn`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:redshift/resourcePolicy:ResourcePolicy example example
-//
+// $ pulumi import aws:redshift/resourcePolicy:ResourcePolicy example example
 // ```
 type ResourcePolicy struct {
 	pulumi.CustomResourceState

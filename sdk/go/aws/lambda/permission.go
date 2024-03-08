@@ -15,8 +15,10 @@ import (
 // Gives an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -91,8 +93,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With SNS
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -172,8 +177,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With API Gateway REST API
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -213,8 +221,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With CloudWatch Log Group
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -300,8 +311,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With Cross-Account Invocation Policy
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -336,10 +350,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With `replaceTriggeredBy` Lifecycle Configuration
 //
 // If omitting the `qualifier` argument (which forces re-creation each time a function version is published), a `lifecycle` block can be used to ensure permissions are re-applied on any change to the underlying function.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -366,15 +383,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Lambda permission statements using function_name/statement_id with an optional qualifier. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:lambda/permission:Permission test_lambda_permission my_test_lambda_function/AllowExecutionFromCloudWatch
-//
+// $ pulumi import aws:lambda/permission:Permission test_lambda_permission my_test_lambda_function/AllowExecutionFromCloudWatch
 // ```
 // ```sh
 // $ pulumi import aws:lambda/permission:Permission test_lambda_permission my_test_lambda_function:qualifier_name/AllowExecutionFromCloudWatch

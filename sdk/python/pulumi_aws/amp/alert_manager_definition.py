@@ -102,6 +102,7 @@ class AlertManagerDefinition(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -116,13 +117,14 @@ class AlertManagerDefinition(pulumi.CustomResource):
             - name: 'default'
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import the prometheus alert manager definition using the workspace identifier. For example:
 
         ```sh
-         $ pulumi import aws:amp/alertManagerDefinition:AlertManagerDefinition demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
+        $ pulumi import aws:amp/alertManagerDefinition:AlertManagerDefinition demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
         ```
 
         :param str resource_name: The name of the resource.
@@ -141,6 +143,7 @@ class AlertManagerDefinition(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -155,13 +158,14 @@ class AlertManagerDefinition(pulumi.CustomResource):
             - name: 'default'
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import the prometheus alert manager definition using the workspace identifier. For example:
 
         ```sh
-         $ pulumi import aws:amp/alertManagerDefinition:AlertManagerDefinition demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
+        $ pulumi import aws:amp/alertManagerDefinition:AlertManagerDefinition demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
         ```
 
         :param str resource_name: The name of the resource.

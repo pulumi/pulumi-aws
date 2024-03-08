@@ -241,8 +241,10 @@ class DataShareConsumerAssociation(pulumi.CustomResource):
         Resource for managing an AWS Redshift Data Share Consumer Association.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -251,8 +253,11 @@ class DataShareConsumerAssociation(pulumi.CustomResource):
             data_share_arn="arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example",
             associate_entire_account=True)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Consumer Region
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -261,13 +266,14 @@ class DataShareConsumerAssociation(pulumi.CustomResource):
             data_share_arn="arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example",
             consumer_region="us-west-2")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Data Share Consumer Association using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation example arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example,,,us-west-2
+        $ pulumi import aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation example arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example,,,us-west-2
         ```
 
         :param str resource_name: The name of the resource.
@@ -290,8 +296,10 @@ class DataShareConsumerAssociation(pulumi.CustomResource):
         Resource for managing an AWS Redshift Data Share Consumer Association.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -300,8 +308,11 @@ class DataShareConsumerAssociation(pulumi.CustomResource):
             data_share_arn="arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example",
             associate_entire_account=True)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Consumer Region
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -310,13 +321,14 @@ class DataShareConsumerAssociation(pulumi.CustomResource):
             data_share_arn="arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example",
             consumer_region="us-west-2")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Data Share Consumer Association using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation example arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example,,,us-west-2
+        $ pulumi import aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation example arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example,,,us-west-2
         ```
 
         :param str resource_name: The name of the resource.

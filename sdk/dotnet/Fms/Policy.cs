@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Fms
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -69,13 +70,14 @@ namespace Pulumi.Aws.Fms
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Firewall Manager policies using the policy ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:fms/policy:Policy example 5be49585-a7e3-4c49-dde1-a179fe4a619a
+    /// $ pulumi import aws:fms/policy:Policy example 5be49585-a7e3-4c49-dde1-a179fe4a619a
     /// ```
     /// </summary>
     [AwsResourceType("aws:fms/policy:Policy")]

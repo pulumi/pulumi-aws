@@ -22,7 +22,10 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** This resource must be created in the Organization master account or a delegated administrator account, and the Organization must have all features enabled. Every Organization account except those configured in the `excluded_accounts` argument must have a Configuration Recorder with proper IAM permissions before the Organization Conformance Pack will successfully create or update. See also the `aws.cfg.Recorder` resource.
  * 
  * ## Example Usage
+ * 
  * ### Using Template Body
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -76,7 +79,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Using Template S3 URI
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -140,13 +147,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Config Organization Conformance Packs using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cfg/organizationConformancePack:OrganizationConformancePack example example
+ * $ pulumi import aws:cfg/organizationConformancePack:OrganizationConformancePack example example
  * ```
  * 
  */

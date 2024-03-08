@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,15 +40,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Redshift HSM Client Certificates using `hsm_client_certificate_identifier`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:redshift/hsmClientCertificate:HsmClientCertificate test example
-//
+// $ pulumi import aws:redshift/hsmClientCertificate:HsmClientCertificate test example
 // ```
 type HsmClientCertificate struct {
 	pulumi.CustomResourceState

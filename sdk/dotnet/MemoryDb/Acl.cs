@@ -16,6 +16,7 @@ namespace Pulumi.Aws.MemoryDb
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -36,13 +37,14 @@ namespace Pulumi.Aws.MemoryDb
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import an ACL using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:memorydb/acl:Acl example my-acl
+    /// $ pulumi import aws:memorydb/acl:Acl example my-acl
     /// ```
     /// </summary>
     [AwsResourceType("aws:memorydb/acl:Acl")]

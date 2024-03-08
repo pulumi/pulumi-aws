@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Allows setting policy to an Elasticsearch domain while referencing domain attributes (e.g., ARN)
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -68,6 +70,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:elasticsearch/domainPolicy:DomainPolicy")

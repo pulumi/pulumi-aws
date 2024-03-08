@@ -8,16 +8,21 @@ import * as utilities from "../utilities";
  * Provides an SES domain identity resource
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ses.DomainIdentity("example", {domain: "example.com"});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With Route53 Record
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -31,13 +36,14 @@ import * as utilities from "../utilities";
  *     records: [example.verificationToken],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SES domain identities using the domain name. For example:
  *
  * ```sh
- *  $ pulumi import aws:ses/domainIdentity:DomainIdentity example example.com
+ * $ pulumi import aws:ses/domainIdentity:DomainIdentity example example.com
  * ```
  */
 export class DomainIdentity extends pulumi.CustomResource {

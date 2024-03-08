@@ -12,19 +12,21 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.efs.AccessPoint("test", {fileSystemId: foo.id});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import the EFS access points using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:efs/accessPoint:AccessPoint test fsap-52a643fb
+ * $ pulumi import aws:efs/accessPoint:AccessPoint test fsap-52a643fb
  * ```
  */
 export class AccessPoint extends pulumi.CustomResource {

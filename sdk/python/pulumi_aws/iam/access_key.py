@@ -232,6 +232,7 @@ class AccessKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -253,7 +254,9 @@ class AccessKey(pulumi.CustomResource):
             policy=lb_ro.json)
         pulumi.export("secret", lb.encrypted_secret)
         ```
+        <!--End PulumiCodeChooser -->
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -264,15 +267,16 @@ class AccessKey(pulumi.CustomResource):
         test_access_key = aws.iam.AccessKey("test", user=test.name)
         pulumi.export("awsIamSmtpPasswordV4", test_access_key.ses_smtp_password_v4)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM Access Keys using the identifier. For example:
 
         ```sh
-         $ pulumi import aws:iam/accessKey:AccessKey example AKIA1234567890
+        $ pulumi import aws:iam/accessKey:AccessKey example AKIA1234567890
         ```
-         Resource attributes such as `encrypted_secret`, `key_fingerprint`, `pgp_key`, `secret`, `ses_smtp_password_v4`, and `encrypted_ses_smtp_password_v4` are not available for imported resources as this information cannot be read from the IAM API.
+        Resource attributes such as `encrypted_secret`, `key_fingerprint`, `pgp_key`, `secret`, `ses_smtp_password_v4`, and `encrypted_ses_smtp_password_v4` are not available for imported resources as this information cannot be read from the IAM API.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -291,6 +295,7 @@ class AccessKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -312,7 +317,9 @@ class AccessKey(pulumi.CustomResource):
             policy=lb_ro.json)
         pulumi.export("secret", lb.encrypted_secret)
         ```
+        <!--End PulumiCodeChooser -->
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -323,15 +330,16 @@ class AccessKey(pulumi.CustomResource):
         test_access_key = aws.iam.AccessKey("test", user=test.name)
         pulumi.export("awsIamSmtpPasswordV4", test_access_key.ses_smtp_password_v4)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM Access Keys using the identifier. For example:
 
         ```sh
-         $ pulumi import aws:iam/accessKey:AccessKey example AKIA1234567890
+        $ pulumi import aws:iam/accessKey:AccessKey example AKIA1234567890
         ```
-         Resource attributes such as `encrypted_secret`, `key_fingerprint`, `pgp_key`, `secret`, `ses_smtp_password_v4`, and `encrypted_ses_smtp_password_v4` are not available for imported resources as this information cannot be read from the IAM API.
+        Resource attributes such as `encrypted_secret`, `key_fingerprint`, `pgp_key`, `secret`, `ses_smtp_password_v4`, and `encrypted_ses_smtp_password_v4` are not available for imported resources as this information cannot be read from the IAM API.
 
         :param str resource_name: The name of the resource.
         :param AccessKeyArgs args: The arguments to use to populate this resource's properties.

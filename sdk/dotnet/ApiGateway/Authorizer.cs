@@ -14,6 +14,7 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -141,13 +142,14 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AWS API Gateway Authorizer using the `REST-API-ID/AUTHORIZER-ID`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:apigateway/authorizer:Authorizer authorizer 12345abcde/example
+    /// $ pulumi import aws:apigateway/authorizer:Authorizer authorizer 12345abcde/example
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/authorizer:Authorizer")]

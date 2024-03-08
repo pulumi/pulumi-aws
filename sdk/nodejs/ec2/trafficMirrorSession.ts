@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * To create a basic traffic mirror session
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -29,13 +30,14 @@ import * as utilities from "../utilities";
  *     trafficMirrorTargetId: target.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import traffic mirror sessions using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/trafficMirrorSession:TrafficMirrorSession session tms-0d8aa3ca35897b82e
+ * $ pulumi import aws:ec2/trafficMirrorSession:TrafficMirrorSession session tms-0d8aa3ca35897b82e
  * ```
  */
 export class TrafficMirrorSession extends pulumi.CustomResource {

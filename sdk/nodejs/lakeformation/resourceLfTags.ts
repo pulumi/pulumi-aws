@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Manages an attachment between one or more existing LF-tags and an existing Lake Formation resource.
  *
  * ## Example Usage
+ *
  * ### Database Example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -40,8 +42,11 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Multiple Tags Example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -87,6 +92,7 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class ResourceLfTags extends pulumi.CustomResource {
     /**

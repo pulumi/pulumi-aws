@@ -169,12 +169,14 @@ def get_connection(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.directconnect.get_connection(name="tf-dx-connection")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the connection to retrieve.
@@ -209,12 +211,14 @@ def get_connection_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.directconnect.get_connection(name="tf-dx-connection")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the connection to retrieve.

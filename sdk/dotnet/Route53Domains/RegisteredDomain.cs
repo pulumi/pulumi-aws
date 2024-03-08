@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Route53Domains
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -48,13 +49,14 @@ namespace Pulumi.Aws.Route53Domains
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import domains using the domain name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:route53domains/registeredDomain:RegisteredDomain example example.com
+    /// $ pulumi import aws:route53domains/registeredDomain:RegisteredDomain example example.com
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53domains/registeredDomain:RegisteredDomain")]

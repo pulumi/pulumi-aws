@@ -230,12 +230,14 @@ def get_directory(directory_id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.workspaces.get_directory(directory_id="d-9067783251")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str directory_id: Directory identifier for registration in WorkSpaces service.
@@ -275,12 +277,14 @@ def get_directory_output(directory_id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.workspaces.get_directory(directory_id="d-9067783251")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str directory_id: Directory identifier for registration in WorkSpaces service.

@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Data source for managing an AWS Redshift Serverless Workgroup.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,6 +23,7 @@ import * as utilities from "../utilities";
  *     workgroupName: exampleAwsRedshiftserverlessWorkgroup.workgroupName,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getWorkgroup(args: GetWorkgroupArgs, opts?: pulumi.InvokeOptions): Promise<GetWorkgroupResult> {
 
@@ -83,8 +86,10 @@ export interface GetWorkgroupResult {
  * Data source for managing an AWS Redshift Serverless Workgroup.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -93,6 +98,7 @@ export interface GetWorkgroupResult {
  *     workgroupName: exampleAwsRedshiftserverlessWorkgroup.workgroupName,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getWorkgroupOutput(args: GetWorkgroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetWorkgroupResult> {
     return pulumi.output(args).apply((a: any) => getWorkgroup(a, opts))

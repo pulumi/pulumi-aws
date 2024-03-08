@@ -21,6 +21,8 @@ public final class EmrFunctions {
      * Retrieve information about EMR Release Labels.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -53,6 +55,7 @@ public final class EmrFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetReleaseLabelsResult> getReleaseLabels() {
@@ -62,6 +65,8 @@ public final class EmrFunctions {
      * Retrieve information about EMR Release Labels.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -94,6 +99,7 @@ public final class EmrFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetReleaseLabelsResult> getReleaseLabelsPlain() {
@@ -103,6 +109,8 @@ public final class EmrFunctions {
      * Retrieve information about EMR Release Labels.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -135,6 +143,7 @@ public final class EmrFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetReleaseLabelsResult> getReleaseLabels(GetReleaseLabelsArgs args) {
@@ -144,6 +153,8 @@ public final class EmrFunctions {
      * Retrieve information about EMR Release Labels.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -176,6 +187,7 @@ public final class EmrFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetReleaseLabelsResult> getReleaseLabelsPlain(GetReleaseLabelsPlainArgs args) {
@@ -185,6 +197,8 @@ public final class EmrFunctions {
      * Retrieve information about EMR Release Labels.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -217,6 +231,7 @@ public final class EmrFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetReleaseLabelsResult> getReleaseLabels(GetReleaseLabelsArgs args, InvokeOptions options) {
@@ -226,6 +241,8 @@ public final class EmrFunctions {
      * Retrieve information about EMR Release Labels.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -258,6 +275,7 @@ public final class EmrFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetReleaseLabelsResult> getReleaseLabelsPlain(GetReleaseLabelsPlainArgs args, InvokeOptions options) {
@@ -267,7 +285,10 @@ public final class EmrFunctions {
      * Data source for managing AWS EMR Supported Instance Types.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -296,9 +317,13 @@ public final class EmrFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### With a Lifecycle Pre-Condition
      * 
      * This data source can be used with a lifecycle precondition to ensure a given instance type is supported by EMR.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -341,6 +366,7 @@ public final class EmrFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSupportedInstanceTypesResult> getSupportedInstanceTypes(GetSupportedInstanceTypesArgs args) {
@@ -350,7 +376,10 @@ public final class EmrFunctions {
      * Data source for managing AWS EMR Supported Instance Types.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -379,9 +408,13 @@ public final class EmrFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### With a Lifecycle Pre-Condition
      * 
      * This data source can be used with a lifecycle precondition to ensure a given instance type is supported by EMR.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -424,6 +457,7 @@ public final class EmrFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSupportedInstanceTypesResult> getSupportedInstanceTypesPlain(GetSupportedInstanceTypesPlainArgs args) {
@@ -433,7 +467,10 @@ public final class EmrFunctions {
      * Data source for managing AWS EMR Supported Instance Types.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -462,9 +499,13 @@ public final class EmrFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### With a Lifecycle Pre-Condition
      * 
      * This data source can be used with a lifecycle precondition to ensure a given instance type is supported by EMR.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -507,6 +548,7 @@ public final class EmrFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSupportedInstanceTypesResult> getSupportedInstanceTypes(GetSupportedInstanceTypesArgs args, InvokeOptions options) {
@@ -516,7 +558,10 @@ public final class EmrFunctions {
      * Data source for managing AWS EMR Supported Instance Types.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -545,9 +590,13 @@ public final class EmrFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### With a Lifecycle Pre-Condition
      * 
      * This data source can be used with a lifecycle precondition to ensure a given instance type is supported by EMR.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -590,6 +639,7 @@ public final class EmrFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSupportedInstanceTypesResult> getSupportedInstanceTypesPlain(GetSupportedInstanceTypesPlainArgs args, InvokeOptions options) {

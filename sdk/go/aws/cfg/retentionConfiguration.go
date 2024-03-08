@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,15 +41,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import the AWS Config retention configuration using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cfg/retentionConfiguration:RetentionConfiguration example default
-//
+// $ pulumi import aws:cfg/retentionConfiguration:RetentionConfiguration example default
 // ```
 type RetentionConfiguration struct {
 	pulumi.CustomResourceState

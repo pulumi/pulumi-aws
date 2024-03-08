@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Backup
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -47,13 +48,14 @@ namespace Pulumi.Aws.Backup
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Backup Region Settings using the `region`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:backup/regionSettings:RegionSettings test us-west-2
+    /// $ pulumi import aws:backup/regionSettings:RegionSettings test us-west-2
     /// ```
     /// </summary>
     [AwsResourceType("aws:backup/regionSettings:RegionSettings")]

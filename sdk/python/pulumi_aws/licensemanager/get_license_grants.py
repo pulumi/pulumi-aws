@@ -76,6 +76,7 @@ def get_license_grants(filters: Optional[Sequence[pulumi.InputType['GetLicenseGr
 
     The following shows getting all license grant ARNs granted to your account.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -86,6 +87,7 @@ def get_license_grants(filters: Optional[Sequence[pulumi.InputType['GetLicenseGr
         values=[f"arn:aws:iam::{current.account_id}:root"],
     )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetLicenseGrantsFilterArgs']] filters: Custom filter block as described below.
@@ -114,6 +116,7 @@ def get_license_grants_output(filters: Optional[pulumi.Input[Optional[Sequence[p
 
     The following shows getting all license grant ARNs granted to your account.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -124,6 +127,7 @@ def get_license_grants_output(filters: Optional[pulumi.Input[Optional[Sequence[p
         values=[f"arn:aws:iam::{current.account_id}:root"],
     )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetLicenseGrantsFilterArgs']] filters: Custom filter block as described below.

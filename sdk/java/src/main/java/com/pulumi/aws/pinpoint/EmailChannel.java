@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides a Pinpoint Email Channel resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -96,13 +98,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Pinpoint Email Channel using the `application-id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:pinpoint/emailChannel:EmailChannel email application-id
+ * $ pulumi import aws:pinpoint/emailChannel:EmailChannel email application-id
  * ```
  * 
  */

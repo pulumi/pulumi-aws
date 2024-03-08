@@ -978,7 +978,7 @@ type LaunchScheduledSplitsConfigStepSegmentOverride struct {
 	EvaluationOrder int `pulumi:"evaluationOrder"`
 	// The name or ARN of the segment to use.
 	Segment string `pulumi:"segment"`
-	// The traffic allocation percentages among the feature variations to assign to this segment. This is a set of key-value pairs. The keys are variation names. The values represent the amount of traffic to allocate to that variation for this segment. This is expressed in thousandths of a percent, so a weight of 50000 represents 50% of traffic.
+	// The traffic allocation percentages among the feature variations to assign to this segment. This is a set of key-value pairs. The keys are variation names. The values represent the amount of traffic to allocate to that variation for this segment. This is expressed in thousandths of a percent, so a weight of 50000 represents 50%!o(MISSING)f traffic.
 	Weights map[string]int `pulumi:"weights"`
 }
 
@@ -998,7 +998,7 @@ type LaunchScheduledSplitsConfigStepSegmentOverrideArgs struct {
 	EvaluationOrder pulumi.IntInput `pulumi:"evaluationOrder"`
 	// The name or ARN of the segment to use.
 	Segment pulumi.StringInput `pulumi:"segment"`
-	// The traffic allocation percentages among the feature variations to assign to this segment. This is a set of key-value pairs. The keys are variation names. The values represent the amount of traffic to allocate to that variation for this segment. This is expressed in thousandths of a percent, so a weight of 50000 represents 50% of traffic.
+	// The traffic allocation percentages among the feature variations to assign to this segment. This is a set of key-value pairs. The keys are variation names. The values represent the amount of traffic to allocate to that variation for this segment. This is expressed in thousandths of a percent, so a weight of 50000 represents 50%!o(MISSING)f traffic.
 	Weights pulumi.IntMapInput `pulumi:"weights"`
 }
 
@@ -1063,7 +1063,7 @@ func (o LaunchScheduledSplitsConfigStepSegmentOverrideOutput) Segment() pulumi.S
 	return o.ApplyT(func(v LaunchScheduledSplitsConfigStepSegmentOverride) string { return v.Segment }).(pulumi.StringOutput)
 }
 
-// The traffic allocation percentages among the feature variations to assign to this segment. This is a set of key-value pairs. The keys are variation names. The values represent the amount of traffic to allocate to that variation for this segment. This is expressed in thousandths of a percent, so a weight of 50000 represents 50% of traffic.
+// The traffic allocation percentages among the feature variations to assign to this segment. This is a set of key-value pairs. The keys are variation names. The values represent the amount of traffic to allocate to that variation for this segment. This is expressed in thousandths of a percent, so a weight of 50000 represents 50%!o(MISSING)f traffic.
 func (o LaunchScheduledSplitsConfigStepSegmentOverrideOutput) Weights() pulumi.IntMapOutput {
 	return o.ApplyT(func(v LaunchScheduledSplitsConfigStepSegmentOverride) map[string]int { return v.Weights }).(pulumi.IntMapOutput)
 }

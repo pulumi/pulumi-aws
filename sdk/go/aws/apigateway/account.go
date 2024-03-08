@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -99,15 +100,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import API Gateway Accounts using the word `api-gateway-account`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:apigateway/account:Account demo api-gateway-account
-//
+// $ pulumi import aws:apigateway/account:Account demo api-gateway-account
 // ```
 type Account struct {
 	pulumi.CustomResourceState

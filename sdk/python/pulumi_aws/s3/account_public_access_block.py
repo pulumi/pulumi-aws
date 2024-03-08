@@ -227,6 +227,7 @@ class AccountPublicAccessBlock(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -235,13 +236,14 @@ class AccountPublicAccessBlock(pulumi.CustomResource):
             block_public_acls=True,
             block_public_policy=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_s3_account_public_access_block` using the AWS account ID. For example:
 
         ```sh
-         $ pulumi import aws:s3/accountPublicAccessBlock:AccountPublicAccessBlock example 123456789012
+        $ pulumi import aws:s3/accountPublicAccessBlock:AccountPublicAccessBlock example 123456789012
         ```
 
         :param str resource_name: The name of the resource.
@@ -272,6 +274,7 @@ class AccountPublicAccessBlock(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -280,13 +283,14 @@ class AccountPublicAccessBlock(pulumi.CustomResource):
             block_public_acls=True,
             block_public_policy=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_s3_account_public_access_block` using the AWS account ID. For example:
 
         ```sh
-         $ pulumi import aws:s3/accountPublicAccessBlock:AccountPublicAccessBlock example 123456789012
+        $ pulumi import aws:s3/accountPublicAccessBlock:AccountPublicAccessBlock example 123456789012
         ```
 
         :param str resource_name: The name of the resource.

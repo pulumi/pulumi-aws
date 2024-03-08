@@ -171,12 +171,14 @@ def get_compute_environment(compute_environment_name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     batch_mongo = aws.batch.get_compute_environment(compute_environment_name="batch-mongo-production")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str compute_environment_name: Name of the Batch Compute Environment
@@ -212,12 +214,14 @@ def get_compute_environment_output(compute_environment_name: Optional[pulumi.Inp
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     batch_mongo = aws.batch.get_compute_environment(compute_environment_name="batch-mongo-production")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str compute_environment_name: Name of the Batch Compute Environment

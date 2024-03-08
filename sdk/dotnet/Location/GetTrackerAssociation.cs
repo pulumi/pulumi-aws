@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Location
         /// <summary>
         /// Retrieve information about a Location Service Tracker Association.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,8 +35,7 @@ namespace Pulumi.Aws.Location
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetTrackerAssociationResult> InvokeAsync(GetTrackerAssociationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTrackerAssociationResult>("aws:location/getTrackerAssociation:getTrackerAssociation", args ?? new GetTrackerAssociationArgs(), options.WithDefaults());
@@ -44,11 +43,11 @@ namespace Pulumi.Aws.Location
         /// <summary>
         /// Retrieve information about a Location Service Tracker Association.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -65,8 +64,7 @@ namespace Pulumi.Aws.Location
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetTrackerAssociationResult> Invoke(GetTrackerAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrackerAssociationResult>("aws:location/getTrackerAssociation:getTrackerAssociation", args ?? new GetTrackerAssociationInvokeArgs(), options.WithDefaults());

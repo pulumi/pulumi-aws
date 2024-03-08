@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS SSM Contact.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,8 +43,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Usage With All Fields
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -71,15 +76,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SSM Contact using the `ARN`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ssmcontacts/contact:Contact example {ARNValue}
-//
+// $ pulumi import aws:ssmcontacts/contact:Contact example {ARNValue}
 // ```
 type Contact struct {
 	pulumi.CustomResourceState

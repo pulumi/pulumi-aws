@@ -165,8 +165,10 @@ class DefaultPatchBaseline(pulumi.CustomResource):
         Resource for registering an AWS Systems Manager Default Patch Baseline.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -178,6 +180,7 @@ class DefaultPatchBaseline(pulumi.CustomResource):
             baseline_id=example_patch_baseline.id,
             operating_system=example_patch_baseline.operating_system)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -190,17 +193,17 @@ class DefaultPatchBaseline(pulumi.CustomResource):
         Using the patch baseline ID:
 
         ```sh
-         $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example pb-1234567890abcdef1
+        $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example pb-1234567890abcdef1
         ```
-         Using the patch baseline ARN:
+        Using the patch baseline ARN:
 
         ```sh
-         $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example arn:aws:ssm:us-west-2:123456789012:patchbaseline/pb-1234567890abcdef1
+        $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example arn:aws:ssm:us-west-2:123456789012:patchbaseline/pb-1234567890abcdef1
         ```
-         Using the operating system value:
+        Using the operating system value:
 
         ```sh
-         $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example CENTOS
+        $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example CENTOS
         ```
 
         :param str resource_name: The name of the resource.
@@ -234,8 +237,10 @@ class DefaultPatchBaseline(pulumi.CustomResource):
         Resource for registering an AWS Systems Manager Default Patch Baseline.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -247,6 +252,7 @@ class DefaultPatchBaseline(pulumi.CustomResource):
             baseline_id=example_patch_baseline.id,
             operating_system=example_patch_baseline.operating_system)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -259,17 +265,17 @@ class DefaultPatchBaseline(pulumi.CustomResource):
         Using the patch baseline ID:
 
         ```sh
-         $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example pb-1234567890abcdef1
+        $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example pb-1234567890abcdef1
         ```
-         Using the patch baseline ARN:
+        Using the patch baseline ARN:
 
         ```sh
-         $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example arn:aws:ssm:us-west-2:123456789012:patchbaseline/pb-1234567890abcdef1
+        $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example arn:aws:ssm:us-west-2:123456789012:patchbaseline/pb-1234567890abcdef1
         ```
-         Using the operating system value:
+        Using the operating system value:
 
         ```sh
-         $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example CENTOS
+        $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example CENTOS
         ```
 
         :param str resource_name: The name of the resource.

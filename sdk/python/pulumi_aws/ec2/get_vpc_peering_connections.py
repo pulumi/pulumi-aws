@@ -88,6 +88,7 @@ def get_vpc_peering_connections(filters: Optional[Sequence[pulumi.InputType['Get
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -100,6 +101,7 @@ def get_vpc_peering_connections(filters: Optional[Sequence[pulumi.InputType['Get
     # get the details of each resource
     pc = [aws.ec2.get_vpc_peering_connection(id=pcs.ids[__index]) for __index in range(len(pcs.ids))]
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetVpcPeeringConnectionsFilterArgs']] filters: Custom filter block as described below.
@@ -135,6 +137,7 @@ def get_vpc_peering_connections_output(filters: Optional[pulumi.Input[Optional[S
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -147,6 +150,7 @@ def get_vpc_peering_connections_output(filters: Optional[pulumi.Input[Optional[S
     # get the details of each resource
     pc = [aws.ec2.get_vpc_peering_connection(id=pcs.ids[__index]) for __index in range(len(pcs.ids))]
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetVpcPeeringConnectionsFilterArgs']] filters: Custom filter block as described below.

@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * &gt; **Note:** Starting Configuration Recorder requires a Delivery Channel to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -114,13 +116,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Configuration Recorder Status using the name of the Configuration Recorder. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cfg/recorderStatus:RecorderStatus foo example
+ * $ pulumi import aws:cfg/recorderStatus:RecorderStatus foo example
  * ```
  * 
  */

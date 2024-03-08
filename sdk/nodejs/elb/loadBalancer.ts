@@ -21,6 +21,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -70,6 +71,8 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Note on ECDSA Key Algorithm
  *
  * If the ARN of the `sslCertificateId` that is pointed to references a
@@ -83,7 +86,7 @@ import * as utilities from "../utilities";
  * Using `pulumi import`, import ELBs using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:elb/loadBalancer:LoadBalancer bar elb-production-12345
+ * $ pulumi import aws:elb/loadBalancer:LoadBalancer bar elb-production-12345
  * ```
  */
 export class LoadBalancer extends pulumi.CustomResource {

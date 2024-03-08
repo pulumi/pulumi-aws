@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -48,15 +49,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import a parameter group using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:memorydb/parameterGroup:ParameterGroup example my-parameter-group
-//
+// $ pulumi import aws:memorydb/parameterGroup:ParameterGroup example my-parameter-group
 // ```
 type ParameterGroup struct {
 	pulumi.CustomResourceState

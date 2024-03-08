@@ -972,8 +972,10 @@ class LoadBalancer(pulumi.CustomResource):
         > **Note:** `alb.LoadBalancer` is known as `lb.LoadBalancer`. The functionality is identical.
 
         ## Example Usage
+
         ### Application Load Balancer
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -994,8 +996,11 @@ class LoadBalancer(pulumi.CustomResource):
                 "Environment": "production",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Network Load Balancer
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1010,8 +1015,11 @@ class LoadBalancer(pulumi.CustomResource):
                 "Environment": "production",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Specifying Elastic IPs
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1030,8 +1038,11 @@ class LoadBalancer(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Specifying private IP addresses for an internal-facing load balancer
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1050,13 +1061,14 @@ class LoadBalancer(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import LBs using their ARN. For example:
 
         ```sh
-         $ pulumi import aws:alb/loadBalancer:LoadBalancer bar arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188
+        $ pulumi import aws:alb/loadBalancer:LoadBalancer bar arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188
         ```
 
         :param str resource_name: The name of the resource.
@@ -1101,8 +1113,10 @@ class LoadBalancer(pulumi.CustomResource):
         > **Note:** `alb.LoadBalancer` is known as `lb.LoadBalancer`. The functionality is identical.
 
         ## Example Usage
+
         ### Application Load Balancer
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1123,8 +1137,11 @@ class LoadBalancer(pulumi.CustomResource):
                 "Environment": "production",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Network Load Balancer
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1139,8 +1156,11 @@ class LoadBalancer(pulumi.CustomResource):
                 "Environment": "production",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Specifying Elastic IPs
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1159,8 +1179,11 @@ class LoadBalancer(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Specifying private IP addresses for an internal-facing load balancer
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1179,13 +1202,14 @@ class LoadBalancer(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import LBs using their ARN. For example:
 
         ```sh
-         $ pulumi import aws:alb/loadBalancer:LoadBalancer bar arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188
+        $ pulumi import aws:alb/loadBalancer:LoadBalancer bar arn:aws:elasticloadbalancing:us-west-2:123456789012:loadbalancer/app/my-load-balancer/50dc6c495c0c9188
         ```
 
         :param str resource_name: The name of the resource.

@@ -242,6 +242,7 @@ class Certificate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -251,13 +252,14 @@ class Certificate(pulumi.CustomResource):
             domain_name="testdomain.com",
             subject_alternative_names=["www.testdomain.com"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_lightsail_certificate` using the certificate name. For example:
 
         ```sh
-         $ pulumi import aws:lightsail/certificate:Certificate test CertificateName
+        $ pulumi import aws:lightsail/certificate:Certificate test CertificateName
         ```
 
         :param str resource_name: The name of the resource.
@@ -278,6 +280,7 @@ class Certificate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -287,13 +290,14 @@ class Certificate(pulumi.CustomResource):
             domain_name="testdomain.com",
             subject_alternative_names=["www.testdomain.com"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_lightsail_certificate` using the certificate name. For example:
 
         ```sh
-         $ pulumi import aws:lightsail/certificate:Certificate test CertificateName
+        $ pulumi import aws:lightsail/certificate:Certificate test CertificateName
         ```
 
         :param str resource_name: The name of the resource.

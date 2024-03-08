@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -81,15 +82,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CloudWatch dashboards using the `dashboard_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cloudwatch/dashboard:Dashboard sample dashboard_name
-//
+// $ pulumi import aws:cloudwatch/dashboard:Dashboard sample dashboard_name
 // ```
 type Dashboard struct {
 	pulumi.CustomResourceState

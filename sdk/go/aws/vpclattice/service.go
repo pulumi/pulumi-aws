@@ -14,8 +14,10 @@ import (
 // Resource for managing an AWS VPC Lattice Service.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,15 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import VPC Lattice Service using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:vpclattice/service:Service example svc-06728e2357ea55f8a
-//
+// $ pulumi import aws:vpclattice/service:Service example svc-06728e2357ea55f8a
 // ```
 type Service struct {
 	pulumi.CustomResourceState

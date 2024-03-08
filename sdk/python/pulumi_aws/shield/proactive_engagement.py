@@ -105,8 +105,10 @@ class ProactiveEngagement(pulumi.CustomResource):
         Proactive engagement authorizes the Shield Response Team (SRT) to use email and phone to notify contacts about escalations to the SRT and to initiate proactive customer support.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -148,13 +150,14 @@ class ProactiveEngagement(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Shield proactive engagement using the AWS account ID. For example:
 
         ```sh
-         $ pulumi import aws:shield/proactiveEngagement:ProactiveEngagement example 123456789012
+        $ pulumi import aws:shield/proactiveEngagement:ProactiveEngagement example 123456789012
         ```
 
         :param str resource_name: The name of the resource.
@@ -173,8 +176,10 @@ class ProactiveEngagement(pulumi.CustomResource):
         Proactive engagement authorizes the Shield Response Team (SRT) to use email and phone to notify contacts about escalations to the SRT and to initiate proactive customer support.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -216,13 +221,14 @@ class ProactiveEngagement(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Shield proactive engagement using the AWS account ID. For example:
 
         ```sh
-         $ pulumi import aws:shield/proactiveEngagement:ProactiveEngagement example 123456789012
+        $ pulumi import aws:shield/proactiveEngagement:ProactiveEngagement example 123456789012
         ```
 
         :param str resource_name: The name of the resource.

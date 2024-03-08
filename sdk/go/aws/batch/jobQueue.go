@@ -15,8 +15,10 @@ import (
 // Provides a Batch Job Queue resource.
 //
 // ## Example Usage
+//
 // ### Basic Job Queue
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -46,8 +48,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Job Queue with a fair share scheduling policy
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -94,15 +99,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Batch Job Queue using the `arn`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:batch/jobQueue:JobQueue test_queue arn:aws:batch:us-east-1:123456789012:job-queue/sample
-//
+// $ pulumi import aws:batch/jobQueue:JobQueue test_queue arn:aws:batch:us-east-1:123456789012:job-queue/sample
 // ```
 type JobQueue struct {
 	pulumi.CustomResourceState

@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS OpenSearch Ingestion Pipeline.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -51,8 +53,11 @@ import * as utilities from "../utilities";
  *     minUnits: 1,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Using file function
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -67,13 +72,14 @@ import * as utilities from "../utilities";
  *     minUnits: 1,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import OpenSearch Ingestion Pipeline using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:opensearchingest/pipeline:Pipeline example example
+ * $ pulumi import aws:opensearchingest/pipeline:Pipeline example example
  * ```
  */
 export class Pipeline extends pulumi.CustomResource {

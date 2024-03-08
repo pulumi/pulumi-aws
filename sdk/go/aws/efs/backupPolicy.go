@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,15 +50,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import the EFS backup policies using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:efs/backupPolicy:BackupPolicy example fs-6fa144c6
-//
+// $ pulumi import aws:efs/backupPolicy:BackupPolicy example fs-6fa144c6
 // ```
 type BackupPolicy struct {
 	pulumi.CustomResourceState

@@ -17,8 +17,10 @@ import (
 // ## Example Usage
 //
 // ### Basic Usage
+//
 // ### Email Address Identity
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,8 +44,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Domain Identity
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -67,8 +72,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Configuration Set
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -99,8 +107,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### DKIM Signing Attributes (BYODKIM)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -128,15 +139,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity using the `email_identity`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sesv2/emailIdentity:EmailIdentity example example.com
-//
+// $ pulumi import aws:sesv2/emailIdentity:EmailIdentity example example.com
 // ```
 type EmailIdentity struct {
 	pulumi.CustomResourceState

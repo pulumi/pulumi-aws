@@ -288,8 +288,10 @@ class VirtualService(pulumi.CustomResource):
         Provides an AWS App Mesh virtual service resource.
 
         ## Example Usage
+
         ### Virtual Node Provider
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -305,8 +307,11 @@ class VirtualService(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Virtual Router Provider
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -322,13 +327,14 @@ class VirtualService(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import App Mesh virtual services using `mesh_name` together with the virtual service's `name`. For example:
 
         ```sh
-         $ pulumi import aws:appmesh/virtualService:VirtualService servicea simpleapp/servicea.simpleapp.local
+        $ pulumi import aws:appmesh/virtualService:VirtualService servicea simpleapp/servicea.simpleapp.local
         ```
 
         :param str resource_name: The name of the resource.
@@ -349,8 +355,10 @@ class VirtualService(pulumi.CustomResource):
         Provides an AWS App Mesh virtual service resource.
 
         ## Example Usage
+
         ### Virtual Node Provider
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -366,8 +374,11 @@ class VirtualService(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Virtual Router Provider
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -383,13 +394,14 @@ class VirtualService(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import App Mesh virtual services using `mesh_name` together with the virtual service's `name`. For example:
 
         ```sh
-         $ pulumi import aws:appmesh/virtualService:VirtualService servicea simpleapp/servicea.simpleapp.local
+        $ pulumi import aws:appmesh/virtualService:VirtualService servicea simpleapp/servicea.simpleapp.local
         ```
 
         :param str resource_name: The name of the resource.

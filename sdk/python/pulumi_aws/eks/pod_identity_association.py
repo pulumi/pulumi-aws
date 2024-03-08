@@ -268,8 +268,10 @@ class PodIdentityAssociation(pulumi.CustomResource):
         Pod Identity is a simpler method than IAM roles for service accounts, as this method doesn’t use OIDC identity providers. Additionally, you can configure a role for Pod Identity once, and reuse it across clusters.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -297,13 +299,14 @@ class PodIdentityAssociation(pulumi.CustomResource):
             service_account="example-sa",
             role_arn=example.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EKS (Elastic Kubernetes) Pod Identity Association using the `cluster_name` and `association_id` separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:eks/podIdentityAssociation:PodIdentityAssociation example example,a-12345678
+        $ pulumi import aws:eks/podIdentityAssociation:PodIdentityAssociation example example,a-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -334,8 +337,10 @@ class PodIdentityAssociation(pulumi.CustomResource):
         Pod Identity is a simpler method than IAM roles for service accounts, as this method doesn’t use OIDC identity providers. Additionally, you can configure a role for Pod Identity once, and reuse it across clusters.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -363,13 +368,14 @@ class PodIdentityAssociation(pulumi.CustomResource):
             service_account="example-sa",
             role_arn=example.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EKS (Elastic Kubernetes) Pod Identity Association using the `cluster_name` and `association_id` separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:eks/podIdentityAssociation:PodIdentityAssociation example example,a-12345678
+        $ pulumi import aws:eks/podIdentityAssociation:PodIdentityAssociation example example,a-12345678
         ```
 
         :param str resource_name: The name of the resource.

@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** Removing this resource disables default EBS encryption.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,13 +50,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import the default EBS encryption state. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ebs/encryptionByDefault:EncryptionByDefault example default
+ * $ pulumi import aws:ebs/encryptionByDefault:EncryptionByDefault example default
  * ```
  * 
  */

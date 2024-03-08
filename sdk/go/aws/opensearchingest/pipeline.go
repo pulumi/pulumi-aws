@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS OpenSearch Ingestion Pipeline.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -96,8 +98,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Using file function
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -131,15 +136,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import OpenSearch Ingestion Pipeline using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:opensearchingest/pipeline:Pipeline example example
-//
+// $ pulumi import aws:opensearchingest/pipeline:Pipeline example example
 // ```
 type Pipeline struct {
 	pulumi.CustomResourceState

@@ -15,8 +15,10 @@ import (
 // Provides a SageMaker Workforce resource.
 //
 // ## Example Usage
+//
 // ### Cognito Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -66,8 +68,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Oidc Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -101,15 +106,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SageMaker Workforces using the `workforce_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sagemaker/workforce:Workforce example example
-//
+// $ pulumi import aws:sagemaker/workforce:Workforce example example
 // ```
 type Workforce struct {
 	pulumi.CustomResourceState

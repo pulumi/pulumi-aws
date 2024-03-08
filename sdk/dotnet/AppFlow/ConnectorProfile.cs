@@ -18,6 +18,7 @@ namespace Pulumi.Aws.AppFlow
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -107,13 +108,14 @@ namespace Pulumi.Aws.AppFlow
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AppFlow Connector Profile using the connector profile `arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:appflow/connectorProfile:ConnectorProfile profile arn:aws:appflow:us-west-2:123456789012:connectorprofile/example-profile
+    /// $ pulumi import aws:appflow/connectorProfile:ConnectorProfile profile arn:aws:appflow:us-west-2:123456789012:connectorprofile/example-profile
     /// ```
     /// </summary>
     [AwsResourceType("aws:appflow/connectorProfile:ConnectorProfile")]

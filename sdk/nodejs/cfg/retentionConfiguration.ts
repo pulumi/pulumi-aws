@@ -10,19 +10,21 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.cfg.RetentionConfiguration("example", {retentionPeriodInDays: 90});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import the AWS Config retention configuration using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:cfg/retentionConfiguration:RetentionConfiguration example default
+ * $ pulumi import aws:cfg/retentionConfiguration:RetentionConfiguration example default
  * ```
  */
 export class RetentionConfiguration extends pulumi.CustomResource {

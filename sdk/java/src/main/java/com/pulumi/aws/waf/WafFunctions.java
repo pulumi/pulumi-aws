@@ -30,6 +30,8 @@ public final class WafFunctions {
      * `aws.waf.IpSet` Retrieves a WAF IP Set Resource Id.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -58,6 +60,7 @@ public final class WafFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetIpsetResult> getIpset(GetIpsetArgs args) {
@@ -67,6 +70,8 @@ public final class WafFunctions {
      * `aws.waf.IpSet` Retrieves a WAF IP Set Resource Id.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -95,6 +100,7 @@ public final class WafFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetIpsetResult> getIpsetPlain(GetIpsetPlainArgs args) {
@@ -104,6 +110,8 @@ public final class WafFunctions {
      * `aws.waf.IpSet` Retrieves a WAF IP Set Resource Id.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -132,6 +140,7 @@ public final class WafFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetIpsetResult> getIpset(GetIpsetArgs args, InvokeOptions options) {
@@ -141,6 +150,8 @@ public final class WafFunctions {
      * `aws.waf.IpSet` Retrieves a WAF IP Set Resource Id.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -169,6 +180,7 @@ public final class WafFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetIpsetResult> getIpsetPlain(GetIpsetPlainArgs args, InvokeOptions options) {
@@ -178,6 +190,8 @@ public final class WafFunctions {
      * `aws.waf.RateBasedRule` Retrieves a WAF Rate Based Rule Resource Id.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -206,6 +220,7 @@ public final class WafFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRateBasedRuleResult> getRateBasedRule(GetRateBasedRuleArgs args) {
@@ -215,6 +230,8 @@ public final class WafFunctions {
      * `aws.waf.RateBasedRule` Retrieves a WAF Rate Based Rule Resource Id.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -243,6 +260,7 @@ public final class WafFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRateBasedRuleResult> getRateBasedRulePlain(GetRateBasedRulePlainArgs args) {
@@ -252,6 +270,8 @@ public final class WafFunctions {
      * `aws.waf.RateBasedRule` Retrieves a WAF Rate Based Rule Resource Id.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -280,6 +300,7 @@ public final class WafFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRateBasedRuleResult> getRateBasedRule(GetRateBasedRuleArgs args, InvokeOptions options) {
@@ -289,6 +310,8 @@ public final class WafFunctions {
      * `aws.waf.RateBasedRule` Retrieves a WAF Rate Based Rule Resource Id.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -317,6 +340,7 @@ public final class WafFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRateBasedRuleResult> getRateBasedRulePlain(GetRateBasedRulePlainArgs args, InvokeOptions options) {
@@ -326,6 +350,8 @@ public final class WafFunctions {
      * `aws.waf.Rule` Retrieves a WAF Rule Resource Id.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -354,6 +380,7 @@ public final class WafFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRuleResult> getRule(GetRuleArgs args) {
@@ -363,6 +390,8 @@ public final class WafFunctions {
      * `aws.waf.Rule` Retrieves a WAF Rule Resource Id.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -391,6 +420,7 @@ public final class WafFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRuleResult> getRulePlain(GetRulePlainArgs args) {
@@ -400,6 +430,8 @@ public final class WafFunctions {
      * `aws.waf.Rule` Retrieves a WAF Rule Resource Id.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -428,6 +460,7 @@ public final class WafFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRuleResult> getRule(GetRuleArgs args, InvokeOptions options) {
@@ -437,6 +470,8 @@ public final class WafFunctions {
      * `aws.waf.Rule` Retrieves a WAF Rule Resource Id.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -465,6 +500,7 @@ public final class WafFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRuleResult> getRulePlain(GetRulePlainArgs args, InvokeOptions options) {
@@ -474,6 +510,8 @@ public final class WafFunctions {
      * `aws.waf.getSubscribedRuleGroup` retrieves information about a Managed WAF Rule Group from AWS Marketplace (needs to be subscribed to first).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -523,6 +561,7 @@ public final class WafFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSubscribedRuleGroupResult> getSubscribedRuleGroup() {
@@ -532,6 +571,8 @@ public final class WafFunctions {
      * `aws.waf.getSubscribedRuleGroup` retrieves information about a Managed WAF Rule Group from AWS Marketplace (needs to be subscribed to first).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -581,6 +622,7 @@ public final class WafFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSubscribedRuleGroupResult> getSubscribedRuleGroupPlain() {
@@ -590,6 +632,8 @@ public final class WafFunctions {
      * `aws.waf.getSubscribedRuleGroup` retrieves information about a Managed WAF Rule Group from AWS Marketplace (needs to be subscribed to first).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -639,6 +683,7 @@ public final class WafFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSubscribedRuleGroupResult> getSubscribedRuleGroup(GetSubscribedRuleGroupArgs args) {
@@ -648,6 +693,8 @@ public final class WafFunctions {
      * `aws.waf.getSubscribedRuleGroup` retrieves information about a Managed WAF Rule Group from AWS Marketplace (needs to be subscribed to first).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -697,6 +744,7 @@ public final class WafFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSubscribedRuleGroupResult> getSubscribedRuleGroupPlain(GetSubscribedRuleGroupPlainArgs args) {
@@ -706,6 +754,8 @@ public final class WafFunctions {
      * `aws.waf.getSubscribedRuleGroup` retrieves information about a Managed WAF Rule Group from AWS Marketplace (needs to be subscribed to first).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -755,6 +805,7 @@ public final class WafFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSubscribedRuleGroupResult> getSubscribedRuleGroup(GetSubscribedRuleGroupArgs args, InvokeOptions options) {
@@ -764,6 +815,8 @@ public final class WafFunctions {
      * `aws.waf.getSubscribedRuleGroup` retrieves information about a Managed WAF Rule Group from AWS Marketplace (needs to be subscribed to first).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -813,6 +866,7 @@ public final class WafFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSubscribedRuleGroupResult> getSubscribedRuleGroupPlain(GetSubscribedRuleGroupPlainArgs args, InvokeOptions options) {
@@ -822,6 +876,8 @@ public final class WafFunctions {
      * `aws.waf.WebAcl` Retrieves a WAF Web ACL Resource Id.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -850,6 +906,7 @@ public final class WafFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetWebAclResult> getWebAcl(GetWebAclArgs args) {
@@ -859,6 +916,8 @@ public final class WafFunctions {
      * `aws.waf.WebAcl` Retrieves a WAF Web ACL Resource Id.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -887,6 +946,7 @@ public final class WafFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetWebAclResult> getWebAclPlain(GetWebAclPlainArgs args) {
@@ -896,6 +956,8 @@ public final class WafFunctions {
      * `aws.waf.WebAcl` Retrieves a WAF Web ACL Resource Id.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -924,6 +986,7 @@ public final class WafFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetWebAclResult> getWebAcl(GetWebAclArgs args, InvokeOptions options) {
@@ -933,6 +996,8 @@ public final class WafFunctions {
      * `aws.waf.WebAcl` Retrieves a WAF Web ACL Resource Id.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -961,6 +1026,7 @@ public final class WafFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetWebAclResult> getWebAclPlain(GetWebAclPlainArgs args, InvokeOptions options) {

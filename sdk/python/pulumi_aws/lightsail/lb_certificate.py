@@ -227,6 +227,7 @@ class LbCertificate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -243,13 +244,14 @@ class LbCertificate(pulumi.CustomResource):
             lb_name=test.id,
             domain_name="test.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_lightsail_lb_certificate` using the id attribute. For example:
 
         ```sh
-         $ pulumi import aws:lightsail/lbCertificate:LbCertificate test example-load-balancer,example-load-balancer-certificate
+        $ pulumi import aws:lightsail/lbCertificate:LbCertificate test example-load-balancer,example-load-balancer-certificate
         ```
 
         :param str resource_name: The name of the resource.
@@ -270,6 +272,7 @@ class LbCertificate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -286,13 +289,14 @@ class LbCertificate(pulumi.CustomResource):
             lb_name=test.id,
             domain_name="test.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_lightsail_lb_certificate` using the id attribute. For example:
 
         ```sh
-         $ pulumi import aws:lightsail/lbCertificate:LbCertificate test example-load-balancer,example-load-balancer-certificate
+        $ pulumi import aws:lightsail/lbCertificate:LbCertificate test example-load-balancer,example-load-balancer-certificate
         ```
 
         :param str resource_name: The name of the resource.

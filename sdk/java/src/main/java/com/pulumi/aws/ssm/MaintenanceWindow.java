@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Provides an SSM Maintenance Window resource
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -52,15 +54,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import SSM
- * 
- * Maintenance Windows using the maintenance window `id`. For example:
+ * Using `pulumi import`, import SSM  Maintenance Windows using the maintenance window `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ssm/maintenanceWindow:MaintenanceWindow imported-window mw-0123456789
+ * $ pulumi import aws:ssm/maintenanceWindow:MaintenanceWindow imported-window mw-0123456789
  * ```
  * 
  */

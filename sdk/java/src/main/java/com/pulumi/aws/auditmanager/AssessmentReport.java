@@ -18,7 +18,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS Audit Manager Assessment Report.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,13 +51,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Audit Manager Assessment Reports using the assessment report `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:auditmanager/assessmentReport:AssessmentReport example abc123-de45
+ * $ pulumi import aws:auditmanager/assessmentReport:AssessmentReport example abc123-de45
  * ```
  * 
  */

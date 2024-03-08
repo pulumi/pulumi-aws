@@ -14,8 +14,10 @@ namespace Pulumi.Aws.CleanRooms
     /// join the collaboration and can create memberships.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Collaboration with tags
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -59,13 +61,14 @@ namespace Pulumi.Aws.CleanRooms
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_cleanrooms_collaboration` using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cleanrooms/collaboration:Collaboration collaboration 1234abcd-12ab-34cd-56ef-1234567890ab
+    /// $ pulumi import aws:cleanrooms/collaboration:Collaboration collaboration 1234abcd-12ab-34cd-56ef-1234567890ab
     /// ```
     /// </summary>
     [AwsResourceType("aws:cleanrooms/collaboration:Collaboration")]

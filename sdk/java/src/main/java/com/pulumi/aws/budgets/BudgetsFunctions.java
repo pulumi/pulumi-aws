@@ -18,7 +18,10 @@ public final class BudgetsFunctions {
      * Data source for managing an AWS Web Services Budgets Budget.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -47,6 +50,7 @@ public final class BudgetsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBudgetResult> getBudget(GetBudgetArgs args) {
@@ -56,7 +60,10 @@ public final class BudgetsFunctions {
      * Data source for managing an AWS Web Services Budgets Budget.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -85,6 +92,7 @@ public final class BudgetsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBudgetResult> getBudgetPlain(GetBudgetPlainArgs args) {
@@ -94,7 +102,10 @@ public final class BudgetsFunctions {
      * Data source for managing an AWS Web Services Budgets Budget.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -123,6 +134,7 @@ public final class BudgetsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBudgetResult> getBudget(GetBudgetArgs args, InvokeOptions options) {
@@ -132,7 +144,10 @@ public final class BudgetsFunctions {
      * Data source for managing an AWS Web Services Budgets Budget.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -161,6 +176,7 @@ public final class BudgetsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBudgetResult> getBudgetPlain(GetBudgetPlainArgs args, InvokeOptions options) {

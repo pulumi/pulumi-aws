@@ -362,8 +362,10 @@ class KxEnvironment(pulumi.CustomResource):
         Resource for managing an AWS FinSpace Kx Environment.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -375,8 +377,11 @@ class KxEnvironment(pulumi.CustomResource):
             name="my-tf-kx-environment",
             kms_key_id=example.arn)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Transit Gateway Configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -398,8 +403,11 @@ class KxEnvironment(pulumi.CustomResource):
                 custom_dns_server_ip="10.0.0.76",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Transit Gateway Attachment Network ACL Configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -435,13 +443,14 @@ class KxEnvironment(pulumi.CustomResource):
                 custom_dns_server_ip="10.0.0.76",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import an AWS FinSpace Kx Environment using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:finspace/kxEnvironment:KxEnvironment example n3ceo7wqxoxcti5tujqwzs
+        $ pulumi import aws:finspace/kxEnvironment:KxEnvironment example n3ceo7wqxoxcti5tujqwzs
         ```
 
         :param str resource_name: The name of the resource.
@@ -465,8 +474,10 @@ class KxEnvironment(pulumi.CustomResource):
         Resource for managing an AWS FinSpace Kx Environment.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -478,8 +489,11 @@ class KxEnvironment(pulumi.CustomResource):
             name="my-tf-kx-environment",
             kms_key_id=example.arn)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Transit Gateway Configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -501,8 +515,11 @@ class KxEnvironment(pulumi.CustomResource):
                 custom_dns_server_ip="10.0.0.76",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Transit Gateway Attachment Network ACL Configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -538,13 +555,14 @@ class KxEnvironment(pulumi.CustomResource):
                 custom_dns_server_ip="10.0.0.76",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import an AWS FinSpace Kx Environment using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:finspace/kxEnvironment:KxEnvironment example n3ceo7wqxoxcti5tujqwzs
+        $ pulumi import aws:finspace/kxEnvironment:KxEnvironment example n3ceo7wqxoxcti5tujqwzs
         ```
 
         :param str resource_name: The name of the resource.

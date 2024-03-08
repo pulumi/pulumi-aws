@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -53,15 +54,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import IoT Event Configurations using the AWS Region. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:iot/eventConfigurations:EventConfigurations example us-west-2
-//
+// $ pulumi import aws:iot/eventConfigurations:EventConfigurations example us-west-2
 // ```
 type EventConfigurations struct {
 	pulumi.CustomResourceState

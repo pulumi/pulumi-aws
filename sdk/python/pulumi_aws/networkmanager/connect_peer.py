@@ -402,8 +402,10 @@ class ConnectPeer(pulumi.CustomResource):
         Resource for managing an AWS Network Manager Connect Peer.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -427,8 +429,11 @@ class ConnectPeer(pulumi.CustomResource):
             ),
             inside_cidr_blocks=["172.16.0.0/16"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Usage with attachment accepter
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -458,8 +463,11 @@ class ConnectPeer(pulumi.CustomResource):
             ),
             inside_cidr_blocks=["172.16.0.0/16"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Usage with a Tunnel-less Connect attachment
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -483,13 +491,14 @@ class ConnectPeer(pulumi.CustomResource):
             ),
             subnet_arn=test2["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_networkmanager_connect_peer` using the connect peer ID. For example:
 
         ```sh
-         $ pulumi import aws:networkmanager/connectPeer:ConnectPeer example connect-peer-061f3e96275db1acc
+        $ pulumi import aws:networkmanager/connectPeer:ConnectPeer example connect-peer-061f3e96275db1acc
         ```
 
         :param str resource_name: The name of the resource.
@@ -514,8 +523,10 @@ class ConnectPeer(pulumi.CustomResource):
         Resource for managing an AWS Network Manager Connect Peer.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -539,8 +550,11 @@ class ConnectPeer(pulumi.CustomResource):
             ),
             inside_cidr_blocks=["172.16.0.0/16"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Usage with attachment accepter
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -570,8 +584,11 @@ class ConnectPeer(pulumi.CustomResource):
             ),
             inside_cidr_blocks=["172.16.0.0/16"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Usage with a Tunnel-less Connect attachment
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -595,13 +612,14 @@ class ConnectPeer(pulumi.CustomResource):
             ),
             subnet_arn=test2["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_networkmanager_connect_peer` using the connect peer ID. For example:
 
         ```sh
-         $ pulumi import aws:networkmanager/connectPeer:ConnectPeer example connect-peer-061f3e96275db1acc
+        $ pulumi import aws:networkmanager/connectPeer:ConnectPeer example connect-peer-061f3e96275db1acc
         ```
 
         :param str resource_name: The name of the resource.

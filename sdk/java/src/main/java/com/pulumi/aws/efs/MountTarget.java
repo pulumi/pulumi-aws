@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Provides an Elastic File System (EFS) mount target.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -61,13 +63,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import the EFS mount targets using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:efs/mountTarget:MountTarget alpha fsmt-52a643fb
+ * $ pulumi import aws:efs/mountTarget:MountTarget alpha fsmt-52a643fb
  * ```
  * 
  */

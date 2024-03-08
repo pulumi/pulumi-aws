@@ -20,6 +20,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -54,15 +55,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import domains using the domain name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:route53domains/registeredDomain:RegisteredDomain example example.com
-//
+// $ pulumi import aws:route53domains/registeredDomain:RegisteredDomain example example.com
 // ```
 type RegisteredDomain struct {
 	pulumi.CustomResourceState

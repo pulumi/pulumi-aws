@@ -209,8 +209,10 @@ class SdkvoiceSipRule(pulumi.CustomResource):
         A SIP rule associates your SIP media application with a phone number or a Request URI hostname. You can associate a SIP rule with more than one SIP media application. Each application then runs only that rule.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -225,13 +227,14 @@ class SdkvoiceSipRule(pulumi.CustomResource):
                 aws_region="us-east-1",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a ChimeSDKVoice SIP Rule using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:chime/sdkvoiceSipRule:SdkvoiceSipRule example abcdef123456
+        $ pulumi import aws:chime/sdkvoiceSipRule:SdkvoiceSipRule example abcdef123456
         ```
 
         :param str resource_name: The name of the resource.
@@ -254,8 +257,10 @@ class SdkvoiceSipRule(pulumi.CustomResource):
         A SIP rule associates your SIP media application with a phone number or a Request URI hostname. You can associate a SIP rule with more than one SIP media application. Each application then runs only that rule.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -270,13 +275,14 @@ class SdkvoiceSipRule(pulumi.CustomResource):
                 aws_region="us-east-1",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a ChimeSDKVoice SIP Rule using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:chime/sdkvoiceSipRule:SdkvoiceSipRule example abcdef123456
+        $ pulumi import aws:chime/sdkvoiceSipRule:SdkvoiceSipRule example abcdef123456
         ```
 
         :param str resource_name: The name of the resource.

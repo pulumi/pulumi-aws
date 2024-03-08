@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetRouteCalculator(ctx *pulumi.Context, args *GetRouteCalculatorArgs, opts ...pulumi.InvokeOption) (*GetRouteCalculatorResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRouteCalculatorResult

@@ -15,8 +15,10 @@ import (
 // Provides a AWS Transfer Access resource.
 //
 // ## Example Usage
+//
 // ### Basic S3
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,8 +47,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Basic EFS
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -79,15 +84,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Transfer Accesses using the `server_id` and `external_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:transfer/access:Access example s-12345678/S-1-1-12-1234567890-123456789-1234567890-1234
-//
+// $ pulumi import aws:transfer/access:Access example s-12345678/S-1-1-12-1234567890-123456789-1234567890-1234
 // ```
 type Access struct {
 	pulumi.CustomResourceState

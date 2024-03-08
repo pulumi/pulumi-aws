@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Data source for managing AWS EMR Supported Instance Types.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,10 +23,13 @@ import * as utilities from "../utilities";
  *     releaseLabel: "ebs-6.15.0",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With a Lifecycle Pre-Condition
  *
  * This data source can be used with a lifecycle precondition to ensure a given instance type is supported by EMR.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -41,6 +46,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSupportedInstanceTypes(args: GetSupportedInstanceTypesArgs, opts?: pulumi.InvokeOptions): Promise<GetSupportedInstanceTypesResult> {
 
@@ -80,8 +86,10 @@ export interface GetSupportedInstanceTypesResult {
  * Data source for managing AWS EMR Supported Instance Types.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -90,10 +98,13 @@ export interface GetSupportedInstanceTypesResult {
  *     releaseLabel: "ebs-6.15.0",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With a Lifecycle Pre-Condition
  *
  * This data source can be used with a lifecycle precondition to ensure a given instance type is supported by EMR.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -110,6 +121,7 @@ export interface GetSupportedInstanceTypesResult {
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSupportedInstanceTypesOutput(args: GetSupportedInstanceTypesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSupportedInstanceTypesResult> {
     return pulumi.output(args).apply((a: any) => getSupportedInstanceTypes(a, opts))

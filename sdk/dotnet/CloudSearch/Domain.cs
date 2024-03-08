@@ -16,6 +16,7 @@ namespace Pulumi.Aws.CloudSearch
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -58,13 +59,14 @@ namespace Pulumi.Aws.CloudSearch
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CloudSearch Domains using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cloudsearch/domain:Domain example example-domain
+    /// $ pulumi import aws:cloudsearch/domain:Domain example example-domain
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudsearch/domain:Domain")]

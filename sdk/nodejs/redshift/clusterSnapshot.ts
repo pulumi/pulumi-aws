@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  * Using `pulumi import`, import Redshift Cluster Snapshots using `snapshot_identifier`. For example:
  *
  * ```sh
- *  $ pulumi import aws:redshift/clusterSnapshot:ClusterSnapshot test example
+ * $ pulumi import aws:redshift/clusterSnapshot:ClusterSnapshot test example
  * ```
  */
 export class ClusterSnapshot extends pulumi.CustomResource {

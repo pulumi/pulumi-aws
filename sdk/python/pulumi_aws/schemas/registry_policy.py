@@ -101,8 +101,10 @@ class RegistryPolicy(pulumi.CustomResource):
         Resource for managing an AWS EventBridge Schemas Registry Policy.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -124,13 +126,14 @@ class RegistryPolicy(pulumi.CustomResource):
             registry_name="example",
             policy=example.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EventBridge Schema Registry Policy using the `registry_name`. For example:
 
         ```sh
-         $ pulumi import aws:schemas/registryPolicy:RegistryPolicy example example
+        $ pulumi import aws:schemas/registryPolicy:RegistryPolicy example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -148,8 +151,10 @@ class RegistryPolicy(pulumi.CustomResource):
         Resource for managing an AWS EventBridge Schemas Registry Policy.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -171,13 +176,14 @@ class RegistryPolicy(pulumi.CustomResource):
             registry_name="example",
             policy=example.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EventBridge Schema Registry Policy using the `registry_name`. For example:
 
         ```sh
-         $ pulumi import aws:schemas/registryPolicy:RegistryPolicy example example
+        $ pulumi import aws:schemas/registryPolicy:RegistryPolicy example example
         ```
 
         :param str resource_name: The name of the resource.

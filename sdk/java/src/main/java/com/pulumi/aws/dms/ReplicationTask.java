@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** Changing most arguments will stop the task if it is running. You can set `start_replication_task` to resume the task afterwards.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -58,13 +60,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import replication tasks using the `replication_task_id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:dms/replicationTask:ReplicationTask test test-dms-replication-task-tf
+ * $ pulumi import aws:dms/replicationTask:ReplicationTask test test-dms-replication-task-tf
  * ```
  * 
  */

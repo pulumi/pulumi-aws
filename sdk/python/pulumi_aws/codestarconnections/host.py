@@ -204,6 +204,7 @@ class Host(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -213,13 +214,14 @@ class Host(pulumi.CustomResource):
             provider_endpoint="https://example.com",
             provider_type="GitHubEnterpriseServer")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CodeStar Host using the ARN. For example:
 
         ```sh
-         $ pulumi import aws:codestarconnections/host:Host example-host arn:aws:codestar-connections:us-west-1:0123456789:host/79d4d357-a2ee-41e4-b350-2fe39ae59448
+        $ pulumi import aws:codestarconnections/host:Host example-host arn:aws:codestar-connections:us-west-1:0123456789:host/79d4d357-a2ee-41e4-b350-2fe39ae59448
         ```
 
         :param str resource_name: The name of the resource.
@@ -242,6 +244,7 @@ class Host(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -251,13 +254,14 @@ class Host(pulumi.CustomResource):
             provider_endpoint="https://example.com",
             provider_type="GitHubEnterpriseServer")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CodeStar Host using the ARN. For example:
 
         ```sh
-         $ pulumi import aws:codestarconnections/host:Host example-host arn:aws:codestar-connections:us-west-1:0123456789:host/79d4d357-a2ee-41e4-b350-2fe39ae59448
+        $ pulumi import aws:codestarconnections/host:Host example-host arn:aws:codestar-connections:us-west-1:0123456789:host/79d4d357-a2ee-41e4-b350-2fe39ae59448
         ```
 
         :param str resource_name: The name of the resource.

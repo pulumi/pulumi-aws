@@ -158,8 +158,10 @@ class Project(pulumi.CustomResource):
         Resource for managing an AWS CodeCatalyst Project.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -169,13 +171,14 @@ class Project(pulumi.CustomResource):
             display_name="MyProject",
             description="My CodeCatalyst Project created using Pulumi")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CodeCatalyst Project using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:codecatalyst/project:Project example project-id-12345678
+        $ pulumi import aws:codecatalyst/project:Project example project-id-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -196,8 +199,10 @@ class Project(pulumi.CustomResource):
         Resource for managing an AWS CodeCatalyst Project.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -207,13 +212,14 @@ class Project(pulumi.CustomResource):
             display_name="MyProject",
             description="My CodeCatalyst Project created using Pulumi")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CodeCatalyst Project using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:codecatalyst/project:Project example project-id-12345678
+        $ pulumi import aws:codecatalyst/project:Project example project-id-12345678
         ```
 
         :param str resource_name: The name of the resource.

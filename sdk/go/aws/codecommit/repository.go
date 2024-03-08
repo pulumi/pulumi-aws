@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,8 +41,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### AWS KMS Customer Managed Keys (CMK)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -75,15 +79,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CodeCommit repository using repository name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:codecommit/repository:Repository imported ExistingRepo
-//
+// $ pulumi import aws:codecommit/repository:Repository imported ExistingRepo
 // ```
 type Repository struct {
 	pulumi.CustomResourceState

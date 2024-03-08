@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -53,15 +54,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import WorkSpaces IP groups using their GroupID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:workspaces/ipGroup:IpGroup example wsipg-488lrtl3k
-//
+// $ pulumi import aws:workspaces/ipGroup:IpGroup example wsipg-488lrtl3k
 // ```
 type IpGroup struct {
 	pulumi.CustomResourceState

@@ -12,48 +12,6 @@ import (
 )
 
 // Use this data source to get an Identity Store User.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/identitystore"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssoadmin"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func notImplemented(message string) pulumi.AnyOutput {
-//		panic(message)
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssoadmin.GetInstances(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleGetUser, err := identitystore.LookupUser(ctx, &identitystore.LookupUserArgs{
-//				IdentityStoreId: notImplemented("tolist(data.aws_ssoadmin_instances.example.identity_store_ids)")[0],
-//				AlternateIdentifier: identitystore.GetUserAlternateIdentifier{
-//					UniqueAttribute: identitystore.GetUserAlternateIdentifierUniqueAttribute{
-//						AttributePath:  "UserName",
-//						AttributeValue: "ExampleUser",
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("userId", exampleGetUser.UserId)
-//			return nil
-//		})
-//	}
-//
-// ```
 func LookupUser(ctx *pulumi.Context, args *LookupUserArgs, opts ...pulumi.InvokeOption) (*LookupUserResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupUserResult

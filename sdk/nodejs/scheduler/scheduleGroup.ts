@@ -13,19 +13,21 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.scheduler.ScheduleGroup("example", {name: "my-schedule-group"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import schedule groups using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:scheduler/scheduleGroup:ScheduleGroup example my-schedule-group
+ * $ pulumi import aws:scheduler/scheduleGroup:ScheduleGroup example my-schedule-group
  * ```
  */
 export class ScheduleGroup extends pulumi.CustomResource {

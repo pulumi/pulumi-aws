@@ -11,20 +11,25 @@ import * as utilities from "../utilities";
  * Manages a Route53 Hosted Zone. For managing Domain Name System Security Extensions (DNSSEC), see the `aws.route53.KeySigningKey` and `aws.route53.HostedZoneDnsSec` resources.
  *
  * ## Example Usage
+ *
  * ### Public Zone
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const primary = new aws.route53.Zone("primary", {name: "example.com"});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Public Subdomain Zone
  *
  * For use in subdomains, note that you need to create a
  * `aws.route53.Record` of type `NS` as well as the subdomain
  * zone.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -44,12 +49,15 @@ import * as utilities from "../utilities";
  *     records: dev.nameServers,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Private Zone
  *
  * > **NOTE:** This provider provides both exclusive VPC associations defined in-line in this resource via `vpc` configuration blocks and a separate ` Zone VPC Association resource. At this time, you cannot use in-line VPC associations in conjunction with any  `aws.route53.ZoneAssociation`  resources with the same zone ID otherwise it will cause a perpetual difference in plan output. You can optionally use [ `ignoreChanges` ](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to manage additional associations via the  `aws.route53.ZoneAssociation` resource.
  *
  * > **NOTE:** Private zones require at least one VPC association at all times.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -61,13 +69,14 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Route53 Zones using the zone `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:route53/zone:Zone myzone Z1D633PJN98FT9
+ * $ pulumi import aws:route53/zone:Zone myzone Z1D633PJN98FT9
  * ```
  */
 export class Zone extends pulumi.CustomResource {

@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * Manages an RDS database cluster snapshot for Aurora clusters. For managing RDS database instance snapshots, see the `aws.rds.Snapshot` resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -51,13 +53,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_db_cluster_snapshot` using the cluster snapshot identifier. For example:
  * 
  * ```sh
- *  $ pulumi import aws:rds/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
+ * $ pulumi import aws:rds/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
  * ```
  * 
  */

@@ -365,6 +365,7 @@ class Schedule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -387,13 +388,14 @@ class Schedule(pulumi.CustomResource):
             end_time="2016-12-12T06:00:00Z",
             autoscaling_group_name=foobar.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AutoScaling ScheduledAction using the `auto-scaling-group-name` and `scheduled-action-name`. For example:
 
         ```sh
-         $ pulumi import aws:autoscaling/schedule:Schedule resource-name auto-scaling-group-name/scheduled-action-name
+        $ pulumi import aws:autoscaling/schedule:Schedule resource-name auto-scaling-group-name/scheduled-action-name
         ```
 
         :param str resource_name: The name of the resource.
@@ -423,6 +425,7 @@ class Schedule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -445,13 +448,14 @@ class Schedule(pulumi.CustomResource):
             end_time="2016-12-12T06:00:00Z",
             autoscaling_group_name=foobar.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AutoScaling ScheduledAction using the `auto-scaling-group-name` and `scheduled-action-name`. For example:
 
         ```sh
-         $ pulumi import aws:autoscaling/schedule:Schedule resource-name auto-scaling-group-name/scheduled-action-name
+        $ pulumi import aws:autoscaling/schedule:Schedule resource-name auto-scaling-group-name/scheduled-action-name
         ```
 
         :param str resource_name: The name of the resource.

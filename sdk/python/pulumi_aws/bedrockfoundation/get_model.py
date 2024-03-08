@@ -152,8 +152,10 @@ def get_model(model_id: Optional[str] = None,
     Data source for managing an AWS Bedrock Foundation Model.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -161,6 +163,7 @@ def get_model(model_id: Optional[str] = None,
     test = aws.bedrockfoundation.get_models()
     test_get_model = aws.bedrockfoundation.get_model(model_id=test.model_summaries[0].model_id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str model_id: Model identifier.
@@ -190,8 +193,10 @@ def get_model_output(model_id: Optional[pulumi.Input[str]] = None,
     Data source for managing an AWS Bedrock Foundation Model.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -199,6 +204,7 @@ def get_model_output(model_id: Optional[pulumi.Input[str]] = None,
     test = aws.bedrockfoundation.get_models()
     test_get_model = aws.bedrockfoundation.get_model(model_id=test.model_summaries[0].model_id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str model_id: Model identifier.

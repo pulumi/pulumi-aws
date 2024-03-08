@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -78,15 +79,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Glue Resource Policy using the account ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:glue/resourcePolicy:ResourcePolicy Test 12356789012
-//
+// $ pulumi import aws:glue/resourcePolicy:ResourcePolicy Test 12356789012
 // ```
 type ResourcePolicy struct {
 	pulumi.CustomResourceState

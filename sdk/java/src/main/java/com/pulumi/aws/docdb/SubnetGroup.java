@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides an DocumentDB subnet group resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -52,13 +54,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import DocumentDB Subnet groups using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:docdb/subnetGroup:SubnetGroup default production-subnet-group
+ * $ pulumi import aws:docdb/subnetGroup:SubnetGroup default production-subnet-group
  * ```
  * 
  */

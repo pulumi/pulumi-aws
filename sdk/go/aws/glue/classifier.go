@@ -16,8 +16,10 @@ import (
 // > **NOTE:** It is only valid to create one type of classifier (csv, grok, JSON, or XML). Changing classifier types will recreate the classifier.
 //
 // ## Example Usage
+//
 // ### Csv Classifier
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -52,8 +54,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Grok Classifier
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -81,8 +86,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### JSON Classifier
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -109,8 +117,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### XML Classifier
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -138,15 +149,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Glue Classifiers using their name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:glue/classifier:Classifier MyClassifier MyClassifier
-//
+// $ pulumi import aws:glue/classifier:Classifier MyClassifier MyClassifier
 // ```
 type Classifier struct {
 	pulumi.CustomResourceState

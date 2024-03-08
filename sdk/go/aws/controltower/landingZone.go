@@ -15,54 +15,12 @@ import (
 // Creates a new landing zone using Control Tower. For more information on usage, please see the
 // [AWS Control Tower Landing Zone User Guide](https://docs.aws.amazon.com/controltower/latest/userguide/how-control-tower-works.html).
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/controltower"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func notImplemented(message string) pulumi.AnyOutput {
-//		panic(message)
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			invokeFile, err := std.File(ctx, &std.FileArgs{
-//				Input: fmt.Sprintf("%v/LandingZoneManifest.json", notImplemented("path.module")),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = controltower.NewLandingZone(ctx, "example", &controltower.LandingZoneArgs{
-//				ManifestJson: invokeFile.Result,
-//				Version:      pulumi.String("3.2"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import a Control Tower Landing Zone using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:controltower/landingZone:LandingZone example 1A2B3C4D5E6F7G8H
-//
+// $ pulumi import aws:controltower/landingZone:LandingZone example 1A2B3C4D5E6F7G8H
 // ```
 type LandingZone struct {
 	pulumi.CustomResourceState

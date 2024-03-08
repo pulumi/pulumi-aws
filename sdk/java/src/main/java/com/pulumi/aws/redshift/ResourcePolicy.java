@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Creates a new Amazon Redshift Resource Policy.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -59,13 +61,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Redshift Resource Policies using the `resource_arn`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:redshift/resourcePolicy:ResourcePolicy example example
+ * $ pulumi import aws:redshift/resourcePolicy:ResourcePolicy example example
  * ```
  * 
  */

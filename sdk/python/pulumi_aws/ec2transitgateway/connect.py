@@ -256,6 +256,7 @@ class Connect(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -268,13 +269,14 @@ class Connect(pulumi.CustomResource):
             transport_attachment_id=example.id,
             transit_gateway_id=example_aws_ec2_transit_gateway["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ec2_transit_gateway_connect` using the EC2 Transit Gateway Connect identifier. For example:
 
         ```sh
-         $ pulumi import aws:ec2transitgateway/connect:Connect example tgw-attach-12345678
+        $ pulumi import aws:ec2transitgateway/connect:Connect example tgw-attach-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -297,6 +299,7 @@ class Connect(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -309,13 +312,14 @@ class Connect(pulumi.CustomResource):
             transport_attachment_id=example.id,
             transit_gateway_id=example_aws_ec2_transit_gateway["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ec2_transit_gateway_connect` using the EC2 Transit Gateway Connect identifier. For example:
 
         ```sh
-         $ pulumi import aws:ec2transitgateway/connect:Connect example tgw-attach-12345678
+        $ pulumi import aws:ec2transitgateway/connect:Connect example tgw-attach-12345678
         ```
 
         :param str resource_name: The name of the resource.

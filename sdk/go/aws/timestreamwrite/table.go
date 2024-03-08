@@ -15,8 +15,10 @@ import (
 // Provides a Timestream table resource.
 //
 // ## Example Usage
+//
 // ### Basic usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,8 +43,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Full usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -74,8 +79,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Customer-defined Partition Key
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -107,15 +115,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Timestream tables using the `table_name` and `database_name` separate by a colon (`:`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:timestreamwrite/table:Table example ExampleTable:ExampleDatabase
-//
+// $ pulumi import aws:timestreamwrite/table:Table example ExampleTable:ExampleDatabase
 // ```
 type Table struct {
 	pulumi.CustomResourceState

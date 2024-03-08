@@ -195,16 +195,21 @@ def get_job_definition(arn: Optional[str] = None,
     Data source for managing an AWS Batch Job Definition.
 
     ## Example Usage
+
     ### Lookup via Arn
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     arn = aws.batch.get_job_definition(arn="arn:aws:batch:us-east-1:012345678910:job-definition/example")
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Lookup via Name
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -212,6 +217,7 @@ def get_job_definition(arn: Optional[str] = None,
     name = aws.batch.get_job_definition(name="example",
         revision=2)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str arn: ARN of the Job Definition. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.
@@ -254,16 +260,21 @@ def get_job_definition_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     Data source for managing an AWS Batch Job Definition.
 
     ## Example Usage
+
     ### Lookup via Arn
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     arn = aws.batch.get_job_definition(arn="arn:aws:batch:us-east-1:012345678910:job-definition/example")
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Lookup via Name
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -271,6 +282,7 @@ def get_job_definition_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     name = aws.batch.get_job_definition(name="example",
         revision=2)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str arn: ARN of the Job Definition. Do not begin the description with "An", "The", "Defines", "Indicates", or "Specifies," as these are verbose. In other words, "Indicates the amount of storage," can be rewritten as "Amount of storage," without losing any information.

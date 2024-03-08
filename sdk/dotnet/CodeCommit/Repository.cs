@@ -14,6 +14,7 @@ namespace Pulumi.Aws.CodeCommit
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,8 +31,11 @@ namespace Pulumi.Aws.CodeCommit
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### AWS KMS Customer Managed Keys (CMK)
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -55,13 +59,14 @@ namespace Pulumi.Aws.CodeCommit
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CodeCommit repository using repository name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:codecommit/repository:Repository imported ExistingRepo
+    /// $ pulumi import aws:codecommit/repository:Repository imported ExistingRepo
     /// ```
     /// </summary>
     [AwsResourceType("aws:codecommit/repository:Repository")]

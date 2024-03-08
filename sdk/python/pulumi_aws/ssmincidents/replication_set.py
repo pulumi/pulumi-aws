@@ -210,10 +210,12 @@ class ReplicationSet(pulumi.CustomResource):
         > **NOTE:** Deleting a replication set also deletes all Incident Manager related data including response plans, incident records, contacts and escalation plans.
 
         ## Example Usage
+
         ### Basic Usage
 
         Create a replication set.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -226,9 +228,11 @@ class ReplicationSet(pulumi.CustomResource):
                 "exampleTag": "exampleValue",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         Add a Region to a replication set. (You can add only one Region at a time.)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -242,9 +246,11 @@ class ReplicationSet(pulumi.CustomResource):
             ),
         ])
         ```
+        <!--End PulumiCodeChooser -->
 
         Delete a Region from a replication set. (You can delete only one Region at a time.)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -253,10 +259,13 @@ class ReplicationSet(pulumi.CustomResource):
             name="us-west-2",
         )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Basic Usage with an AWS Customer Managed Key
 
         Create a replication set with an AWS Key Management Service (AWS KMS) customer manager key:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -271,13 +280,14 @@ class ReplicationSet(pulumi.CustomResource):
                 "exampleTag": "exampleValue",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import an Incident Manager replication. For example:
 
         ```sh
-         $ pulumi import aws:ssmincidents/replicationSet:ReplicationSet replicationSetName import
+        $ pulumi import aws:ssmincidents/replicationSet:ReplicationSet replicationSetName import
         ```
 
         :param str resource_name: The name of the resource.
@@ -298,10 +308,12 @@ class ReplicationSet(pulumi.CustomResource):
         > **NOTE:** Deleting a replication set also deletes all Incident Manager related data including response plans, incident records, contacts and escalation plans.
 
         ## Example Usage
+
         ### Basic Usage
 
         Create a replication set.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -314,9 +326,11 @@ class ReplicationSet(pulumi.CustomResource):
                 "exampleTag": "exampleValue",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         Add a Region to a replication set. (You can add only one Region at a time.)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -330,9 +344,11 @@ class ReplicationSet(pulumi.CustomResource):
             ),
         ])
         ```
+        <!--End PulumiCodeChooser -->
 
         Delete a Region from a replication set. (You can delete only one Region at a time.)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -341,10 +357,13 @@ class ReplicationSet(pulumi.CustomResource):
             name="us-west-2",
         )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Basic Usage with an AWS Customer Managed Key
 
         Create a replication set with an AWS Key Management Service (AWS KMS) customer manager key:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -359,13 +378,14 @@ class ReplicationSet(pulumi.CustomResource):
                 "exampleTag": "exampleValue",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import an Incident Manager replication. For example:
 
         ```sh
-         $ pulumi import aws:ssmincidents/replicationSet:ReplicationSet replicationSetName import
+        $ pulumi import aws:ssmincidents/replicationSet:ReplicationSet replicationSetName import
         ```
 
         :param str resource_name: The name of the resource.

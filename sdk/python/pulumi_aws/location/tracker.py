@@ -280,19 +280,21 @@ class Tracker(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.location.Tracker("example", tracker_name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_location_tracker` resources using the tracker name. For example:
 
         ```sh
-         $ pulumi import aws:location/tracker:Tracker example example
+        $ pulumi import aws:location/tracker:Tracker example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -316,19 +318,21 @@ class Tracker(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.location.Tracker("example", tracker_name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_location_tracker` resources using the tracker name. For example:
 
         ```sh
-         $ pulumi import aws:location/tracker:Tracker example example
+        $ pulumi import aws:location/tracker:Tracker example example
         ```
 
         :param str resource_name: The name of the resource.

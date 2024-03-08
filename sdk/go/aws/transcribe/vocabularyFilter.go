@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS Transcribe VocabularyFilter.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,15 +51,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Transcribe VocabularyFilter using the `vocabulary_filter_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:transcribe/vocabularyFilter:VocabularyFilter example example-name
-//
+// $ pulumi import aws:transcribe/vocabularyFilter:VocabularyFilter example example-name
 // ```
 type VocabularyFilter struct {
 	pulumi.CustomResourceState

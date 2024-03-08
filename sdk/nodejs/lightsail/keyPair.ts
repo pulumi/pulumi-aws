@@ -12,8 +12,10 @@ import * as utilities from "../utilities";
  * > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
  *
  * ## Example Usage
+ *
  * ### Create New Key Pair
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,8 +23,11 @@ import * as utilities from "../utilities";
  * // Create a new Lightsail Key Pair
  * const lgKeyPair = new aws.lightsail.KeyPair("lg_key_pair", {name: "lg_key_pair"});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Create New Key Pair with PGP Encrypted Private Key
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -32,8 +37,11 @@ import * as utilities from "../utilities";
  *     pgpKey: "keybase:keybaseusername",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Existing Public Key Import
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -46,6 +54,7 @@ import * as utilities from "../utilities";
  *     }).then(invoke => invoke.result),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

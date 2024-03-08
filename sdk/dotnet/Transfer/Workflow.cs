@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Transfer
     /// Provides a AWS Transfer Workflow resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic single step example
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -41,8 +43,11 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Multistep example
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -88,13 +93,14 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Transfer Workflows using the `worflow_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:transfer/workflow:Workflow example example
+    /// $ pulumi import aws:transfer/workflow:Workflow example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:transfer/workflow:Workflow")]

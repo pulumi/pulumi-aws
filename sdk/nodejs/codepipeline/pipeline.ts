@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -145,13 +146,14 @@ import * as utilities from "../utilities";
  *     policy: codepipelinePolicy.apply(codepipelinePolicy => codepipelinePolicy.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import CodePipelines using the name. For example:
  *
  * ```sh
- *  $ pulumi import aws:codepipeline/pipeline:Pipeline foo example
+ * $ pulumi import aws:codepipeline/pipeline:Pipeline foo example
  * ```
  */
 export class Pipeline extends pulumi.CustomResource {

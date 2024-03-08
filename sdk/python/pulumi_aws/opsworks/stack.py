@@ -825,6 +825,7 @@ class Stack(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -844,13 +845,14 @@ class Stack(pulumi.CustomResource):
         }
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import OpsWorks stacks using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:opsworks/stack:Stack bar 00000000-0000-0000-0000-000000000000
+        $ pulumi import aws:opsworks/stack:Stack bar 00000000-0000-0000-0000-000000000000
         ```
 
         :param str resource_name: The name of the resource.
@@ -893,6 +895,7 @@ class Stack(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -912,13 +915,14 @@ class Stack(pulumi.CustomResource):
         }
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import OpsWorks stacks using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:opsworks/stack:Stack bar 00000000-0000-0000-0000-000000000000
+        $ pulumi import aws:opsworks/stack:Stack bar 00000000-0000-0000-0000-000000000000
         ```
 
         :param str resource_name: The name of the resource.

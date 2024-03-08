@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,15 +40,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Backup vault using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:backup/vault:Vault test-vault TestVault
-//
+// $ pulumi import aws:backup/vault:Vault test-vault TestVault
 // ```
 type Vault struct {
 	pulumi.CustomResourceState

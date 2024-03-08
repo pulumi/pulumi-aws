@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -33,13 +34,14 @@ import * as utilities from "../utilities";
  *     policy: example.apply(example => example.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SES Identity Policies using the identity and policy name, separated by a pipe character (`|`). For example:
  *
  * ```sh
- *  $ pulumi import aws:ses/identityPolicy:IdentityPolicy example 'example.com|example'
+ * $ pulumi import aws:ses/identityPolicy:IdentityPolicy example 'example.com|example'
  * ```
  */
 export class IdentityPolicy extends pulumi.CustomResource {

@@ -14,8 +14,10 @@ import (
 // Resource for managing an AWS Audit Manager Framework.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,15 +51,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Audit Manager Framework using the framework `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:auditmanager/framework:Framework example abc123-de45
-//
+// $ pulumi import aws:auditmanager/framework:Framework example abc123-de45
 // ```
 type Framework struct {
 	pulumi.CustomResourceState

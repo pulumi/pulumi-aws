@@ -17,10 +17,12 @@ namespace Pulumi.Aws.CloudFront
     /// &gt; **NOTE:** CloudFront distributions take about 15 minutes to reach a deployed state after creation or modification. During this time, deletes to resources will be blocked. If you need to delete a distribution that is enabled and you do not want to wait, you need to use the `retain_on_delete` flag.
     /// 
     /// ## Example Usage
+    /// 
     /// ### S3 Origin
     /// 
     /// The example below creates a CloudFront distribution with an S3 origin.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -196,10 +198,13 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With Failover Routing
     /// 
     /// The example below creates a CloudFront distribution with an origin group for failover routing.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -267,10 +272,13 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With Managed Caching Policy
     /// 
     /// The example below creates a CloudFront distribution with an [AWS managed caching policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html).
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -332,13 +340,14 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CloudFront Distributions using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cloudfront/distribution:Distribution distribution E74FTE3EXAMPLE
+    /// $ pulumi import aws:cloudfront/distribution:Distribution distribution E74FTE3EXAMPLE
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudfront/distribution:Distribution")]

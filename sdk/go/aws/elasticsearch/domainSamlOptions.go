@@ -15,8 +15,10 @@ import (
 // Manages SAML authentication options for an AWS Elasticsearch Domain.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -70,15 +72,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Elasticsearch domains using the `domain_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:elasticsearch/domainSamlOptions:DomainSamlOptions example domain_name
-//
+// $ pulumi import aws:elasticsearch/domainSamlOptions:DomainSamlOptions example domain_name
 // ```
 type DomainSamlOptions struct {
 	pulumi.CustomResourceState

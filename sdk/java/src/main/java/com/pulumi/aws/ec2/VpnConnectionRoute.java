@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Provides a static route between a VPN connection and a customer gateway.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -75,6 +77,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:ec2/vpnConnectionRoute:VpnConnectionRoute")

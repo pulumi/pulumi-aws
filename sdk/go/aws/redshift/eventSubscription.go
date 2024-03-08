@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -68,15 +69,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Redshift Event Subscriptions using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:redshift/eventSubscription:EventSubscription default redshift-event-sub
-//
+// $ pulumi import aws:redshift/eventSubscription:EventSubscription default redshift-event-sub
 // ```
 type EventSubscription struct {
 	pulumi.CustomResourceState

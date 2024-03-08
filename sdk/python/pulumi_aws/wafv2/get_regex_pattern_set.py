@@ -107,6 +107,7 @@ def get_regex_pattern_set(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -114,6 +115,7 @@ def get_regex_pattern_set(name: Optional[str] = None,
     example = aws.wafv2.get_regex_pattern_set(name="some-regex-pattern-set",
         scope="REGIONAL")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the WAFv2 Regex Pattern Set.
@@ -143,6 +145,7 @@ def get_regex_pattern_set_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -150,6 +153,7 @@ def get_regex_pattern_set_output(name: Optional[pulumi.Input[str]] = None,
     example = aws.wafv2.get_regex_pattern_set(name="some-regex-pattern-set",
         scope="REGIONAL")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the WAFv2 Regex Pattern Set.

@@ -74,12 +74,14 @@ def get_active_receipt_rule_set(opts: Optional[pulumi.InvokeOptions] = None) -> 
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     main = aws.ses.get_active_receipt_rule_set()
     ```
+    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -98,11 +100,13 @@ def get_active_receipt_rule_set_output(opts: Optional[pulumi.InvokeOptions] = No
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     main = aws.ses.get_active_receipt_rule_set()
     ```
+    <!--End PulumiCodeChooser -->
     """
     ...

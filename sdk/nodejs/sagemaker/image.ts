@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Provides a SageMaker Image resource.
  *
  * ## Example Usage
+ *
  * ### Basic usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,13 +21,14 @@ import * as utilities from "../utilities";
  *     roleArn: test.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SageMaker Code Images using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:sagemaker/image:Image test_image my-code-repo
+ * $ pulumi import aws:sagemaker/image:Image test_image my-code-repo
  * ```
  */
 export class Image extends pulumi.CustomResource {

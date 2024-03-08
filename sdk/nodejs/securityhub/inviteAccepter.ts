@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,13 +25,14 @@ import * as utilities from "../utilities";
  * const invitee = new aws.securityhub.Account("invitee", {});
  * const inviteeInviteAccepter = new aws.securityhub.InviteAccepter("invitee", {masterId: exampleMember.masterId});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Security Hub invite acceptance using the account ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:securityhub/inviteAccepter:InviteAccepter example 123456789012
+ * $ pulumi import aws:securityhub/inviteAccepter:InviteAccepter example 123456789012
  * ```
  */
 export class InviteAccepter extends pulumi.CustomResource {

@@ -19,9 +19,7 @@ import (
 // GameLift Matchmaking Configurations can be imported using the ID, e.g.,
 //
 // ```sh
-//
-//	$ pulumi import aws:gamelift/matchmakingConfiguration:MatchmakingConfiguration example <matchmakingconfiguration-id>
-//
+// $ pulumi import aws:gamelift/matchmakingConfiguration:MatchmakingConfiguration example <matchmakingconfiguration-id>
 // ```
 type MatchmakingConfiguration struct {
 	pulumi.CustomResourceState

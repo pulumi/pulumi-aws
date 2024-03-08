@@ -254,6 +254,7 @@ class Extension(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -284,13 +285,14 @@ class Extension(pulumi.CustomResource):
                 "Type": "AppConfig Extension",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AppConfig Extensions using their extension ID. For example:
 
         ```sh
-         $ pulumi import aws:appconfig/extension:Extension example 71rxuzt
+        $ pulumi import aws:appconfig/extension:Extension example 71rxuzt
         ```
 
         :param str resource_name: The name of the resource.
@@ -312,6 +314,7 @@ class Extension(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -342,13 +345,14 @@ class Extension(pulumi.CustomResource):
                 "Type": "AppConfig Extension",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AppConfig Extensions using their extension ID. For example:
 
         ```sh
-         $ pulumi import aws:appconfig/extension:Extension example 71rxuzt
+        $ pulumi import aws:appconfig/extension:Extension example 71rxuzt
         ```
 
         :param str resource_name: The name of the resource.

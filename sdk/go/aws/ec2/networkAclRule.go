@@ -22,6 +22,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -58,6 +59,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // > **Note:** One of either `cidrBlock` or `ipv6CidrBlock` is required.
 //
@@ -70,17 +72,12 @@ import (
 // Using the procotol's string value:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:tcp:false
-//
+// $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:tcp:false
 // ```
-//
-//	Using the procotol's decimal value:
+// Using the procotol's decimal value:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:6:false
-//
+// $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:6:false
 // ```
 type NetworkAclRule struct {
 	pulumi.CustomResourceState

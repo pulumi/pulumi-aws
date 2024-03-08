@@ -558,6 +558,7 @@ class Stage(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -603,10 +604,13 @@ class Stage(pulumi.CustomResource):
                 logging_level="INFO",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Managing the API Logging CloudWatch Log Group
 
         API Gateway provides the ability to [enable CloudWatch API logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html). To manage the CloudWatch Log Group when this feature is enabled, the `cloudwatch.LogGroup` resource can be used where the name matches the API Gateway naming convention. If the CloudWatch Log Group previously exists, import the `cloudwatch.LogGroup` resource into Pulumi as a one time operation. You can recreate the environment without import.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -621,13 +625,14 @@ class Stage(pulumi.CustomResource):
             name=example.id.apply(lambda id: f"API-Gateway-Execution-Logs_{id}/{stage_name}"),
             retention_in_days=7)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_api_gateway_stage` using `REST-API-ID/STAGE-NAME`. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/stage:Stage example 12345abcde/example
+        $ pulumi import aws:apigateway/stage:Stage example 12345abcde/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -657,6 +662,7 @@ class Stage(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -702,10 +708,13 @@ class Stage(pulumi.CustomResource):
                 logging_level="INFO",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Managing the API Logging CloudWatch Log Group
 
         API Gateway provides the ability to [enable CloudWatch API logging](https://docs.aws.amazon.com/apigateway/latest/developerguide/set-up-logging.html). To manage the CloudWatch Log Group when this feature is enabled, the `cloudwatch.LogGroup` resource can be used where the name matches the API Gateway naming convention. If the CloudWatch Log Group previously exists, import the `cloudwatch.LogGroup` resource into Pulumi as a one time operation. You can recreate the environment without import.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -720,13 +729,14 @@ class Stage(pulumi.CustomResource):
             name=example.id.apply(lambda id: f"API-Gateway-Execution-Logs_{id}/{stage_name}"),
             retention_in_days=7)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_api_gateway_stage` using `REST-API-ID/STAGE-NAME`. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/stage:Stage example 12345abcde/example
+        $ pulumi import aws:apigateway/stage:Stage example 12345abcde/example
         ```
 
         :param str resource_name: The name of the resource.

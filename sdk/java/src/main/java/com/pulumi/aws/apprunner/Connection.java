@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** After creation, you must complete the authentication handshake using the App Runner console.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -51,13 +53,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import App Runner Connections using the `connection_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:apprunner/connection:Connection example example
+ * $ pulumi import aws:apprunner/connection:Connection example example
  * ```
  * 
  */

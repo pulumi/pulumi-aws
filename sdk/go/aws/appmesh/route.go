@@ -15,8 +15,10 @@ import (
 // Provides an AWS App Mesh route resource.
 //
 // ## Example Usage
+//
 // ### HTTP Routing
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -61,8 +63,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### HTTP Header Routing
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -113,8 +118,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Retry Policy
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -165,8 +173,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### TCP Routing
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -204,15 +215,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import App Mesh virtual routes using `mesh_name` and `virtual_router_name` together with the route's `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:appmesh/route:Route serviceb simpleapp/serviceB/serviceB-route
-//
+// $ pulumi import aws:appmesh/route:Route serviceb simpleapp/serviceB/serviceB-route
 // ```
 type Route struct {
 	pulumi.CustomResourceState

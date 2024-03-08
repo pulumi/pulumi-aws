@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// Basic usage:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -46,13 +47,14 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Feature Groups using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:sagemaker/featureGroup:FeatureGroup test_feature_group feature_group-foo
+    /// $ pulumi import aws:sagemaker/featureGroup:FeatureGroup test_feature_group feature_group-foo
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/featureGroup:FeatureGroup")]

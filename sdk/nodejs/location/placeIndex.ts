@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,13 +22,14 @@ import * as utilities from "../utilities";
  *     indexName: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_location_place_index` resources using the place index name. For example:
  *
  * ```sh
- *  $ pulumi import aws:location/placeIndex:PlaceIndex example example
+ * $ pulumi import aws:location/placeIndex:PlaceIndex example example
  * ```
  */
 export class PlaceIndex extends pulumi.CustomResource {

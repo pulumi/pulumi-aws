@@ -169,6 +169,7 @@ class RequestValidator(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -179,13 +180,14 @@ class RequestValidator(pulumi.CustomResource):
             validate_request_body=True,
             validate_request_parameters=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_api_gateway_request_validator` using `REST-API-ID/REQUEST-VALIDATOR-ID`. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/requestValidator:RequestValidator example 12345abcde/67890fghij
+        $ pulumi import aws:apigateway/requestValidator:RequestValidator example 12345abcde/67890fghij
         ```
 
         :param str resource_name: The name of the resource.
@@ -206,6 +208,7 @@ class RequestValidator(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -216,13 +219,14 @@ class RequestValidator(pulumi.CustomResource):
             validate_request_body=True,
             validate_request_parameters=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_api_gateway_request_validator` using `REST-API-ID/REQUEST-VALIDATOR-ID`. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/requestValidator:RequestValidator example 12345abcde/67890fghij
+        $ pulumi import aws:apigateway/requestValidator:RequestValidator example 12345abcde/67890fghij
         ```
 
         :param str resource_name: The name of the resource.

@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,13 +44,14 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Config Organization Managed Rules using the name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cfg/organizationManagedRule:OrganizationManagedRule example example
+    /// $ pulumi import aws:cfg/organizationManagedRule:OrganizationManagedRule example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:cfg/organizationManagedRule:OrganizationManagedRule")]

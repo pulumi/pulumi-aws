@@ -206,8 +206,10 @@ class Ingestion(pulumi.CustomResource):
         Resource for managing an AWS QuickSight Ingestion.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -217,13 +219,14 @@ class Ingestion(pulumi.CustomResource):
             ingestion_id="example-id",
             ingestion_type="FULL_REFRESH")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import QuickSight Ingestion using the AWS account ID, data set ID, and ingestion ID separated by commas (`,`). For example:
 
         ```sh
-         $ pulumi import aws:quicksight/ingestion:Ingestion example 123456789012,example-dataset-id,example-ingestion-id
+        $ pulumi import aws:quicksight/ingestion:Ingestion example 123456789012,example-dataset-id,example-ingestion-id
         ```
 
         :param str resource_name: The name of the resource.
@@ -245,8 +248,10 @@ class Ingestion(pulumi.CustomResource):
         Resource for managing an AWS QuickSight Ingestion.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -256,13 +261,14 @@ class Ingestion(pulumi.CustomResource):
             ingestion_id="example-id",
             ingestion_type="FULL_REFRESH")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import QuickSight Ingestion using the AWS account ID, data set ID, and ingestion ID separated by commas (`,`). For example:
 
         ```sh
-         $ pulumi import aws:quicksight/ingestion:Ingestion example 123456789012,example-dataset-id,example-ingestion-id
+        $ pulumi import aws:quicksight/ingestion:Ingestion example 123456789012,example-dataset-id,example-ingestion-id
         ```
 
         :param str resource_name: The name of the resource.

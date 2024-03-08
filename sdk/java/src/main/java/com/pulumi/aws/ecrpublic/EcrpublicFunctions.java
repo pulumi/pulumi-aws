@@ -19,6 +19,8 @@ public final class EcrpublicFunctions {
      * &gt; **NOTE:** This data source can only be used in the `us-east-1` region.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -44,6 +46,7 @@ public final class EcrpublicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAuthorizationTokenResult> getAuthorizationToken() {
@@ -55,6 +58,8 @@ public final class EcrpublicFunctions {
      * &gt; **NOTE:** This data source can only be used in the `us-east-1` region.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -80,6 +85,7 @@ public final class EcrpublicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAuthorizationTokenResult> getAuthorizationTokenPlain() {
@@ -91,6 +97,8 @@ public final class EcrpublicFunctions {
      * &gt; **NOTE:** This data source can only be used in the `us-east-1` region.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -116,6 +124,7 @@ public final class EcrpublicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAuthorizationTokenResult> getAuthorizationToken(InvokeArgs args) {
@@ -127,6 +136,8 @@ public final class EcrpublicFunctions {
      * &gt; **NOTE:** This data source can only be used in the `us-east-1` region.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -152,6 +163,7 @@ public final class EcrpublicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAuthorizationTokenResult> getAuthorizationTokenPlain(InvokeArgs args) {
@@ -163,6 +175,8 @@ public final class EcrpublicFunctions {
      * &gt; **NOTE:** This data source can only be used in the `us-east-1` region.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -188,6 +202,7 @@ public final class EcrpublicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAuthorizationTokenResult> getAuthorizationToken(InvokeArgs args, InvokeOptions options) {
@@ -199,6 +214,8 @@ public final class EcrpublicFunctions {
      * &gt; **NOTE:** This data source can only be used in the `us-east-1` region.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -224,6 +241,7 @@ public final class EcrpublicFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAuthorizationTokenResult> getAuthorizationTokenPlain(InvokeArgs args, InvokeOptions options) {

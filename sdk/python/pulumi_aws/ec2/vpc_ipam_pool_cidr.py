@@ -194,6 +194,7 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -210,9 +211,11 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
             ipam_pool_id=example_vpc_ipam_pool.id,
             cidr="172.20.0.0/16")
         ```
+        <!--End PulumiCodeChooser -->
 
         Provision Public IPv6 Pool CIDRs:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -233,6 +236,7 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
             ipam_pool_id=ipv6_test_public.id,
             netmask_length=52)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -241,7 +245,7 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
         __NOTE:__ Do not use the IPAM Pool Cidr ID as this was introduced after the resource already existed.
 
         ```sh
-         $ pulumi import aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr example 172.20.0.0/24_ipam-pool-0e634f5a1517cccdc
+        $ pulumi import aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr example 172.20.0.0/24_ipam-pool-0e634f5a1517cccdc
         ```
 
         :param str resource_name: The name of the resource.
@@ -269,6 +273,7 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -285,9 +290,11 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
             ipam_pool_id=example_vpc_ipam_pool.id,
             cidr="172.20.0.0/16")
         ```
+        <!--End PulumiCodeChooser -->
 
         Provision Public IPv6 Pool CIDRs:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -308,6 +315,7 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
             ipam_pool_id=ipv6_test_public.id,
             netmask_length=52)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -316,7 +324,7 @@ class VpcIpamPoolCidr(pulumi.CustomResource):
         __NOTE:__ Do not use the IPAM Pool Cidr ID as this was introduced after the resource already existed.
 
         ```sh
-         $ pulumi import aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr example 172.20.0.0/24_ipam-pool-0e634f5a1517cccdc
+        $ pulumi import aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr example 172.20.0.0/24_ipam-pool-0e634f5a1517cccdc
         ```
 
         :param str resource_name: The name of the resource.

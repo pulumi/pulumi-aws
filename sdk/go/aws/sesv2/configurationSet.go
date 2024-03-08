@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS SESv2 (Simple Email V2) Configuration Set.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -58,15 +60,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SESv2 (Simple Email V2) Configuration Set using the `configuration_set_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sesv2/configurationSet:ConfigurationSet example example
-//
+// $ pulumi import aws:sesv2/configurationSet:ConfigurationSet example example
 // ```
 type ConfigurationSet struct {
 	pulumi.CustomResourceState

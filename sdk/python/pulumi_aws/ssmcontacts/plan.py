@@ -103,8 +103,10 @@ class Plan(pulumi.CustomResource):
         Resource for managing an AWS SSM Contact Plan.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -115,8 +117,11 @@ class Plan(pulumi.CustomResource):
                 duration_in_minutes=1,
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Usage with SSM Contact
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -130,8 +135,11 @@ class Plan(pulumi.CustomResource):
                 duration_in_minutes=1,
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Usage With All Fields
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -171,13 +179,14 @@ class Plan(pulumi.CustomResource):
                 ],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SSM Contact Plan using the Contact ARN. For example:
 
         ```sh
-         $ pulumi import aws:ssmcontacts/plan:Plan example {ARNValue}
+        $ pulumi import aws:ssmcontacts/plan:Plan example {ARNValue}
         ```
 
         :param str resource_name: The name of the resource.
@@ -195,8 +204,10 @@ class Plan(pulumi.CustomResource):
         Resource for managing an AWS SSM Contact Plan.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -207,8 +218,11 @@ class Plan(pulumi.CustomResource):
                 duration_in_minutes=1,
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Usage with SSM Contact
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -222,8 +236,11 @@ class Plan(pulumi.CustomResource):
                 duration_in_minutes=1,
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Usage With All Fields
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -263,13 +280,14 @@ class Plan(pulumi.CustomResource):
                 ],
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SSM Contact Plan using the Contact ARN. For example:
 
         ```sh
-         $ pulumi import aws:ssmcontacts/plan:Plan example {ARNValue}
+        $ pulumi import aws:ssmcontacts/plan:Plan example {ARNValue}
         ```
 
         :param str resource_name: The name of the resource.

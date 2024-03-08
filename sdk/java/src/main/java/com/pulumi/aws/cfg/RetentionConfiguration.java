@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * The retention configuration defines the number of days that AWS Config stores historical information.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -47,13 +49,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import the AWS Config retention configuration using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cfg/retentionConfiguration:RetentionConfiguration example default
+ * $ pulumi import aws:cfg/retentionConfiguration:RetentionConfiguration example default
  * ```
  * 
  */

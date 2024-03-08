@@ -20,6 +20,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -51,8 +52,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Hive based Data Catalog
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -81,8 +85,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Glue based Data Catalog
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -111,8 +118,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Lambda based Data Catalog
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -142,15 +152,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import data catalogs using their `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:athena/dataCatalog:DataCatalog example example-data-catalog
-//
+// $ pulumi import aws:athena/dataCatalog:DataCatalog example example-data-catalog
 // ```
 type DataCatalog struct {
 	pulumi.CustomResourceState

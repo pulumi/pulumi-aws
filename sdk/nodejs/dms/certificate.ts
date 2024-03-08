@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,13 +23,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import certificates using the `certificate_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:dms/certificate:Certificate test test-dms-certificate-tf
+ * $ pulumi import aws:dms/certificate:Certificate test test-dms-certificate-tf
  * ```
  */
 export class Certificate extends pulumi.CustomResource {

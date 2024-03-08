@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * More information about keyspaces can be found in the [Keyspaces User Guide](https://docs.aws.amazon.com/keyspaces/latest/devguide/what-is-keyspaces.html).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,13 +51,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import a keyspace using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:keyspaces/keyspace:Keyspace example my_keyspace
+ * $ pulumi import aws:keyspaces/keyspace:Keyspace example my_keyspace
  * ```
  * 
  */

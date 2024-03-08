@@ -139,6 +139,7 @@ class ProxyDefaultTargetGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -172,13 +173,14 @@ class ProxyDefaultTargetGroup(pulumi.CustomResource):
                 session_pinning_filters=["EXCLUDE_VARIABLE_SETS"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DB proxy default target groups using the `db_proxy_name`. For example:
 
         ```sh
-         $ pulumi import aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup example example
+        $ pulumi import aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -199,6 +201,7 @@ class ProxyDefaultTargetGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -232,13 +235,14 @@ class ProxyDefaultTargetGroup(pulumi.CustomResource):
                 session_pinning_filters=["EXCLUDE_VARIABLE_SETS"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DB proxy default target groups using the `db_proxy_name`. For example:
 
         ```sh
-         $ pulumi import aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup example example
+        $ pulumi import aws:rds/proxyDefaultTargetGroup:ProxyDefaultTargetGroup example example
         ```
 
         :param str resource_name: The name of the resource.

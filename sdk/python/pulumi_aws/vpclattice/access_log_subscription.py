@@ -176,8 +176,10 @@ class AccessLogSubscription(pulumi.CustomResource):
         Resource for managing an AWS VPC Lattice Service Network or Service Access log subscription.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -186,13 +188,14 @@ class AccessLogSubscription(pulumi.CustomResource):
             resource_identifier=example_aws_vpclattice_service_network["id"],
             destination_arn=bucket["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import VPC Lattice Access Log Subscription using the access log subscription ID. For example:
 
         ```sh
-         $ pulumi import aws:vpclattice/accessLogSubscription:AccessLogSubscription example rft-8012925589
+        $ pulumi import aws:vpclattice/accessLogSubscription:AccessLogSubscription example rft-8012925589
         ```
 
         :param str resource_name: The name of the resource.
@@ -210,8 +213,10 @@ class AccessLogSubscription(pulumi.CustomResource):
         Resource for managing an AWS VPC Lattice Service Network or Service Access log subscription.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -220,13 +225,14 @@ class AccessLogSubscription(pulumi.CustomResource):
             resource_identifier=example_aws_vpclattice_service_network["id"],
             destination_arn=bucket["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import VPC Lattice Access Log Subscription using the access log subscription ID. For example:
 
         ```sh
-         $ pulumi import aws:vpclattice/accessLogSubscription:AccessLogSubscription example rft-8012925589
+        $ pulumi import aws:vpclattice/accessLogSubscription:AccessLogSubscription example rft-8012925589
         ```
 
         :param str resource_name: The name of the resource.

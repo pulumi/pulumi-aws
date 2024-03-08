@@ -518,6 +518,7 @@ class Studio(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -533,13 +534,14 @@ class Studio(pulumi.CustomResource):
             vpc_id=test_aws_vpc["id"],
             workspace_security_group_id=test_aws_security_group["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EMR studios using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:emr/studio:Studio studio es-123456ABCDEF
+        $ pulumi import aws:emr/studio:Studio studio es-123456ABCDEF
         ```
 
         :param str resource_name: The name of the resource.
@@ -571,6 +573,7 @@ class Studio(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -586,13 +589,14 @@ class Studio(pulumi.CustomResource):
             vpc_id=test_aws_vpc["id"],
             workspace_security_group_id=test_aws_security_group["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EMR studios using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:emr/studio:Studio studio es-123456ABCDEF
+        $ pulumi import aws:emr/studio:Studio studio es-123456ABCDEF
         ```
 
         :param str resource_name: The name of the resource.

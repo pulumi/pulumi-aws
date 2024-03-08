@@ -13,8 +13,10 @@ namespace Pulumi.Aws.TimestreamWrite
     /// Provides a Timestream database resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,8 +32,11 @@ namespace Pulumi.Aws.TimestreamWrite
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Full usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -52,13 +57,14 @@ namespace Pulumi.Aws.TimestreamWrite
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Timestream databases using the `database_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:timestreamwrite/database:Database example example
+    /// $ pulumi import aws:timestreamwrite/database:Database example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:timestreamwrite/database:Database")]

@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Workspaces
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -159,8 +160,11 @@ namespace Pulumi.Aws.Workspaces
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### IP Groups
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -185,13 +189,14 @@ namespace Pulumi.Aws.Workspaces
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Workspaces directory using the directory ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:workspaces/directory:Directory main d-4444444444
+    /// $ pulumi import aws:workspaces/directory:Directory main d-4444444444
     /// ```
     /// </summary>
     [AwsResourceType("aws:workspaces/directory:Directory")]

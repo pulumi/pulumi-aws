@@ -118,6 +118,7 @@ def get_prebuilt_ecr_image(dns_suffix: Optional[str] = None,
 
     Basic usage:
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -125,6 +126,7 @@ def get_prebuilt_ecr_image(dns_suffix: Optional[str] = None,
     test = aws.sagemaker.get_prebuilt_ecr_image(repository_name="sagemaker-scikit-learn",
         image_tag="2.2-1.0.11.0")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str dns_suffix: DNS suffix to use in the registry path. If not specified, the AWS provider sets it to the DNS suffix for the current region.
@@ -165,6 +167,7 @@ def get_prebuilt_ecr_image_output(dns_suffix: Optional[pulumi.Input[Optional[str
 
     Basic usage:
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -172,6 +175,7 @@ def get_prebuilt_ecr_image_output(dns_suffix: Optional[pulumi.Input[Optional[str
     test = aws.sagemaker.get_prebuilt_ecr_image(repository_name="sagemaker-scikit-learn",
         image_tag="2.2-1.0.11.0")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str dns_suffix: DNS suffix to use in the registry path. If not specified, the AWS provider sets it to the DNS suffix for the current region.

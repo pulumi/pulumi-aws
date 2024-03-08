@@ -101,8 +101,10 @@ class LogResourcePolicy(pulumi.CustomResource):
         Provides a resource to manage a CloudWatch log resource policy.
 
         ## Example Usage
+
         ### Elasticsearch Log Publishing
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -123,8 +125,11 @@ class LogResourcePolicy(pulumi.CustomResource):
             policy_document=elasticsearch_log_publishing_policy.json,
             policy_name="elasticsearch-log-publishing-policy")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Route53 Query Logging
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -144,13 +149,14 @@ class LogResourcePolicy(pulumi.CustomResource):
             policy_document=route53_query_logging_policy.json,
             policy_name="route53-query-logging-policy")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudWatch log resource policies using the policy name. For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/logResourcePolicy:LogResourcePolicy MyPolicy MyPolicy
+        $ pulumi import aws:cloudwatch/logResourcePolicy:LogResourcePolicy MyPolicy MyPolicy
         ```
 
         :param str resource_name: The name of the resource.
@@ -168,8 +174,10 @@ class LogResourcePolicy(pulumi.CustomResource):
         Provides a resource to manage a CloudWatch log resource policy.
 
         ## Example Usage
+
         ### Elasticsearch Log Publishing
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -190,8 +198,11 @@ class LogResourcePolicy(pulumi.CustomResource):
             policy_document=elasticsearch_log_publishing_policy.json,
             policy_name="elasticsearch-log-publishing-policy")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Route53 Query Logging
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -211,13 +222,14 @@ class LogResourcePolicy(pulumi.CustomResource):
             policy_document=route53_query_logging_policy.json,
             policy_name="route53-query-logging-policy")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudWatch log resource policies using the policy name. For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/logResourcePolicy:LogResourcePolicy MyPolicy MyPolicy
+        $ pulumi import aws:cloudwatch/logResourcePolicy:LogResourcePolicy MyPolicy MyPolicy
         ```
 
         :param str resource_name: The name of the resource.

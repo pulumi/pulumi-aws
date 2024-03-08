@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,13 +24,14 @@ import * as utilities from "../utilities";
  *     delegationSetId: main.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Route53 Delegation Sets using the delegation set `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:route53/delegationSet:DelegationSet set1 N1PA6795SAMPLE
+ * $ pulumi import aws:route53/delegationSet:DelegationSet set1 N1PA6795SAMPLE
  * ```
  */
 export class DelegationSet extends pulumi.CustomResource {

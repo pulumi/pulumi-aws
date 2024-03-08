@@ -15,8 +15,10 @@ import (
 // Manages a Glue Trigger resource.
 //
 // ## Example Usage
+//
 // ### Conditional Trigger
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -54,8 +56,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### On-Demand Trigger
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -85,8 +90,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Scheduled Trigger
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -117,10 +125,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Conditional Trigger with Crawler Action
 //
 // **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -158,10 +169,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Conditional Trigger with Crawler Condition
 //
 // **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -199,15 +213,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Glue Triggers using `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:glue/trigger:Trigger MyTrigger MyTrigger
-//
+// $ pulumi import aws:glue/trigger:Trigger MyTrigger MyTrigger
 // ```
 type Trigger struct {
 	pulumi.CustomResourceState

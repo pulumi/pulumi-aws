@@ -14,6 +14,7 @@ namespace Pulumi.Aws.ApplicationInsights
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -56,13 +57,14 @@ namespace Pulumi.Aws.ApplicationInsights
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import ApplicationInsights Applications using the `resource_group_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:applicationinsights/application:Application some some-application
+    /// $ pulumi import aws:applicationinsights/application:Application some some-application
     /// ```
     /// </summary>
     [AwsResourceType("aws:applicationinsights/application:Application")]

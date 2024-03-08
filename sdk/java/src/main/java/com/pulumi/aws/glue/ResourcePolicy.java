@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Provides a Glue resource policy. Only one can exist per region.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -69,13 +71,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Glue Resource Policy using the account ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:glue/resourcePolicy:ResourcePolicy Test 12356789012
+ * $ pulumi import aws:glue/resourcePolicy:ResourcePolicy Test 12356789012
  * ```
  * 
  */

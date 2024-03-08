@@ -19,8 +19,10 @@ import (
 // > This resource cannot be used with S3 directory buckets.
 //
 // ## Example Usage
+//
 // ### Add notification configuration to SNS Topic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -100,8 +102,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Add notification configuration to SQS Queue
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -181,8 +186,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Add notification configuration to Lambda Function
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -272,8 +280,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Trigger multiple Lambda functions
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -390,8 +401,106 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
+// ### Add multiple notification configurations to SQS Queue
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/s3"
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/sqs"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			bucket, err := s3.NewBucketV2(ctx, "bucket", &s3.BucketV2Args{
+//				Bucket: pulumi.String("your-bucket-name"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			queue := iam.GetPolicyDocumentOutput(ctx, iam.GetPolicyDocumentOutputArgs{
+//				Statements: iam.GetPolicyDocumentStatementArray{
+//					&iam.GetPolicyDocumentStatementArgs{
+//						Effect: pulumi.String("Allow"),
+//						Principals: iam.GetPolicyDocumentStatementPrincipalArray{
+//							&iam.GetPolicyDocumentStatementPrincipalArgs{
+//								Type: pulumi.String("*"),
+//								Identifiers: pulumi.StringArray{
+//									pulumi.String("*"),
+//								},
+//							},
+//						},
+//						Actions: pulumi.StringArray{
+//							pulumi.String("sqs:SendMessage"),
+//						},
+//						Resources: pulumi.StringArray{
+//							pulumi.String("arn:aws:sqs:*:*:s3-event-notification-queue"),
+//						},
+//						Conditions: iam.GetPolicyDocumentStatementConditionArray{
+//							&iam.GetPolicyDocumentStatementConditionArgs{
+//								Test:     pulumi.String("ArnEquals"),
+//								Variable: pulumi.String("aws:SourceArn"),
+//								Values: pulumi.StringArray{
+//									bucket.Arn,
+//								},
+//							},
+//						},
+//					},
+//				},
+//			}, nil)
+//			queueQueue, err := sqs.NewQueue(ctx, "queue", &sqs.QueueArgs{
+//				Name: pulumi.String("s3-event-notification-queue"),
+//				Policy: queue.ApplyT(func(queue iam.GetPolicyDocumentResult) (*string, error) {
+//					return &queue.Json, nil
+//				}).(pulumi.StringPtrOutput),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = s3.NewBucketNotification(ctx, "bucket_notification", &s3.BucketNotificationArgs{
+//				Bucket: bucket.ID(),
+//				Queues: s3.BucketNotificationQueueArray{
+//					&s3.BucketNotificationQueueArgs{
+//						Id:       pulumi.String("image-upload-event"),
+//						QueueArn: queueQueue.Arn,
+//						Events: pulumi.StringArray{
+//							pulumi.String("s3:ObjectCreated:*"),
+//						},
+//						FilterPrefix: pulumi.String("images/"),
+//					},
+//					&s3.BucketNotificationQueueArgs{
+//						Id:       pulumi.String("video-upload-event"),
+//						QueueArn: queueQueue.Arn,
+//						Events: pulumi.StringArray{
+//							pulumi.String("s3:ObjectCreated:*"),
+//						},
+//						FilterPrefix: pulumi.String("videos/"),
+//					},
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
+// For JSON syntax, use an array instead of defining the `queue` key twice.
+//
 // ### Emit events to EventBridge
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -422,15 +531,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import S3 bucket notification using the `bucket`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:s3/bucketNotification:BucketNotification bucket_notification bucket-name
-//
+// $ pulumi import aws:s3/bucketNotification:BucketNotification bucket_notification bucket-name
 // ```
 type BucketNotification struct {
 	pulumi.CustomResourceState

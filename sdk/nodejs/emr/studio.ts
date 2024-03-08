@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -25,13 +26,14 @@ import * as utilities from "../utilities";
  *     workspaceSecurityGroupId: testAwsSecurityGroup.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import EMR studios using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:emr/studio:Studio studio es-123456ABCDEF
+ * $ pulumi import aws:emr/studio:Studio studio es-123456ABCDEF
  * ```
  */
 export class Studio extends pulumi.CustomResource {

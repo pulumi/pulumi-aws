@@ -2774,8 +2774,10 @@ class Instance(pulumi.CustomResource):
         Enable low-downtime updates by setting `blue_green_update.enabled` to `true`.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2791,8 +2793,11 @@ class Instance(pulumi.CustomResource):
             parameter_group_name="default.mysql5.7",
             skip_final_snapshot=True)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### RDS Custom for Oracle Usage with Replica
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2838,8 +2843,11 @@ class Instance(pulumi.CustomResource):
             skip_final_snapshot=True,
             storage_encrypted=True)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### RDS Custom for SQL Server
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2871,8 +2879,11 @@ class Instance(pulumi.CustomResource):
             storage_encrypted=True,
             username="test")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### RDS Db2 Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2918,10 +2929,13 @@ class Instance(pulumi.CustomResource):
             password="avoid-plaintext-passwords",
             username="test")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Storage Autoscaling
 
         To enable Storage Autoscaling with instances that support the feature, define the `max_allocated_storage` argument higher than the `allocated_storage` argument. This provider will automatically hide differences with the `allocated_storage` argument value if autoscaling occurs.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2930,12 +2944,15 @@ class Instance(pulumi.CustomResource):
             allocated_storage=50,
             max_allocated_storage=100)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Managed Master Passwords via Secrets Manager, default KMS Key
 
         > More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
 
         You can specify the `manage_master_user_password` attribute to enable managing the master password with Secrets Manager. You can also update an existing cluster to use Secrets Manager by specify the `manage_master_user_password` attribute and removing the `password` attribute (removal is required).
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2950,12 +2967,15 @@ class Instance(pulumi.CustomResource):
             username="foo",
             parameter_group_name="default.mysql5.7")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Managed Master Passwords via Secrets Manager, specific KMS Key
 
         > More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
 
         You can specify the `master_user_secret_kms_key_id` attribute to specify a specific KMS Key.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2972,13 +2992,14 @@ class Instance(pulumi.CustomResource):
             username="foo",
             parameter_group_name="default.mysql5.7")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DB Instances using the `identifier`. For example:
 
         ```sh
-         $ pulumi import aws:rds/instance:Instance default mydb-rds-instance
+        $ pulumi import aws:rds/instance:Instance default mydb-rds-instance
         ```
 
         :param str resource_name: The name of the resource.
@@ -3175,8 +3196,10 @@ class Instance(pulumi.CustomResource):
         Enable low-downtime updates by setting `blue_green_update.enabled` to `true`.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -3192,8 +3215,11 @@ class Instance(pulumi.CustomResource):
             parameter_group_name="default.mysql5.7",
             skip_final_snapshot=True)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### RDS Custom for Oracle Usage with Replica
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -3239,8 +3265,11 @@ class Instance(pulumi.CustomResource):
             skip_final_snapshot=True,
             storage_encrypted=True)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### RDS Custom for SQL Server
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -3272,8 +3301,11 @@ class Instance(pulumi.CustomResource):
             storage_encrypted=True,
             username="test")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### RDS Db2 Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -3319,10 +3351,13 @@ class Instance(pulumi.CustomResource):
             password="avoid-plaintext-passwords",
             username="test")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Storage Autoscaling
 
         To enable Storage Autoscaling with instances that support the feature, define the `max_allocated_storage` argument higher than the `allocated_storage` argument. This provider will automatically hide differences with the `allocated_storage` argument value if autoscaling occurs.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -3331,12 +3366,15 @@ class Instance(pulumi.CustomResource):
             allocated_storage=50,
             max_allocated_storage=100)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Managed Master Passwords via Secrets Manager, default KMS Key
 
         > More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
 
         You can specify the `manage_master_user_password` attribute to enable managing the master password with Secrets Manager. You can also update an existing cluster to use Secrets Manager by specify the `manage_master_user_password` attribute and removing the `password` attribute (removal is required).
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -3351,12 +3389,15 @@ class Instance(pulumi.CustomResource):
             username="foo",
             parameter_group_name="default.mysql5.7")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Managed Master Passwords via Secrets Manager, specific KMS Key
 
         > More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
 
         You can specify the `master_user_secret_kms_key_id` attribute to specify a specific KMS Key.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -3373,13 +3414,14 @@ class Instance(pulumi.CustomResource):
             username="foo",
             parameter_group_name="default.mysql5.7")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DB Instances using the `identifier`. For example:
 
         ```sh
-         $ pulumi import aws:rds/instance:Instance default mydb-rds-instance
+        $ pulumi import aws:rds/instance:Instance default mydb-rds-instance
         ```
 
         :param str resource_name: The name of the resource.

@@ -225,6 +225,7 @@ class ServiceRegion(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -292,13 +293,14 @@ class ServiceRegion(pulumi.CustomResource):
                 "Name": "Secondary",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Replicated Regions using directory ID,Region name. For example:
 
         ```sh
-         $ pulumi import aws:directoryservice/serviceRegion:ServiceRegion example d-9267651497,us-east-2
+        $ pulumi import aws:directoryservice/serviceRegion:ServiceRegion example d-9267651497,us-east-2
         ```
 
         :param str resource_name: The name of the resource.
@@ -321,6 +323,7 @@ class ServiceRegion(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -388,13 +391,14 @@ class ServiceRegion(pulumi.CustomResource):
                 "Name": "Secondary",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Replicated Regions using directory ID,Region name. For example:
 
         ```sh
-         $ pulumi import aws:directoryservice/serviceRegion:ServiceRegion example d-9267651497,us-east-2
+        $ pulumi import aws:directoryservice/serviceRegion:ServiceRegion example d-9267651497,us-east-2
         ```
 
         :param str resource_name: The name of the resource.

@@ -129,8 +129,10 @@ class GroupAssociation(pulumi.CustomResource):
         Provides a Synthetics Group Association resource.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -139,13 +141,14 @@ class GroupAssociation(pulumi.CustomResource):
             group_name=example_aws_synthetics_group["name"],
             canary_arn=example_aws_synthetics_canary["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudWatch Synthetics Group Association using the `canary_arn,group_name`. For example:
 
         ```sh
-         $ pulumi import aws:synthetics/groupAssociation:GroupAssociation example arn:aws:synthetics:us-west-2:123456789012:canary:tf-acc-test-abcd1234,examplename
+        $ pulumi import aws:synthetics/groupAssociation:GroupAssociation example arn:aws:synthetics:us-west-2:123456789012:canary:tf-acc-test-abcd1234,examplename
         ```
 
         :param str resource_name: The name of the resource.
@@ -163,8 +166,10 @@ class GroupAssociation(pulumi.CustomResource):
         Provides a Synthetics Group Association resource.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -173,13 +178,14 @@ class GroupAssociation(pulumi.CustomResource):
             group_name=example_aws_synthetics_group["name"],
             canary_arn=example_aws_synthetics_canary["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudWatch Synthetics Group Association using the `canary_arn,group_name`. For example:
 
         ```sh
-         $ pulumi import aws:synthetics/groupAssociation:GroupAssociation example arn:aws:synthetics:us-west-2:123456789012:canary:tf-acc-test-abcd1234,examplename
+        $ pulumi import aws:synthetics/groupAssociation:GroupAssociation example arn:aws:synthetics:us-west-2:123456789012:canary:tf-acc-test-abcd1234,examplename
         ```
 
         :param str resource_name: The name of the resource.

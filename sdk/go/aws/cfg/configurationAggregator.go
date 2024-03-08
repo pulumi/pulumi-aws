@@ -14,8 +14,10 @@ import (
 // Manages an AWS Config Configuration Aggregator
 //
 // ## Example Usage
+//
 // ### Account Based Aggregation
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -47,8 +49,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Organization Based Aggregation
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -112,15 +117,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Configuration Aggregators using the name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cfg/configurationAggregator:ConfigurationAggregator example foo
-//
+// $ pulumi import aws:cfg/configurationAggregator:ConfigurationAggregator example foo
 // ```
 type ConfigurationAggregator struct {
 	pulumi.CustomResourceState

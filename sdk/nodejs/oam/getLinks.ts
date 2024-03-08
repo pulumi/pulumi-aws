@@ -8,14 +8,17 @@ import * as utilities from "../utilities";
  * Data source for managing an AWS CloudWatch Observability Access Manager Links.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.oam.getLinks({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getLinks(opts?: pulumi.InvokeOptions): Promise<GetLinksResult> {
 
@@ -41,14 +44,17 @@ export interface GetLinksResult {
  * Data source for managing an AWS CloudWatch Observability Access Manager Links.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.oam.getLinks({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getLinksOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetLinksResult> {
     return pulumi.output(getLinks(opts))

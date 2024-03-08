@@ -426,8 +426,10 @@ class Faq(pulumi.CustomResource):
         Resource for managing an AWS Kendra FAQ.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -444,8 +446,11 @@ class Faq(pulumi.CustomResource):
                 "Name": "Example Kendra Faq",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With File Format
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -460,8 +465,11 @@ class Faq(pulumi.CustomResource):
                 key=example_aws_s3_object["key"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Language Code
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -476,13 +484,14 @@ class Faq(pulumi.CustomResource):
                 key=example_aws_s3_object["key"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_kendra_faq` using the unique identifiers of the FAQ and index separated by a slash (`/`). For example:
 
         ```sh
-         $ pulumi import aws:kendra/faq:Faq example faq-123456780/idx-8012925589
+        $ pulumi import aws:kendra/faq:Faq example faq-123456780/idx-8012925589
         ```
 
         :param str resource_name: The name of the resource.
@@ -508,8 +517,10 @@ class Faq(pulumi.CustomResource):
         Resource for managing an AWS Kendra FAQ.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -526,8 +537,11 @@ class Faq(pulumi.CustomResource):
                 "Name": "Example Kendra Faq",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With File Format
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -542,8 +556,11 @@ class Faq(pulumi.CustomResource):
                 key=example_aws_s3_object["key"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Language Code
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -558,13 +575,14 @@ class Faq(pulumi.CustomResource):
                 key=example_aws_s3_object["key"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_kendra_faq` using the unique identifiers of the FAQ and index separated by a slash (`/`). For example:
 
         ```sh
-         $ pulumi import aws:kendra/faq:Faq example faq-123456780/idx-8012925589
+        $ pulumi import aws:kendra/faq:Faq example faq-123456780/idx-8012925589
         ```
 
         :param str resource_name: The name of the resource.

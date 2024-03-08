@@ -479,6 +479,7 @@ class Workgroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -487,13 +488,14 @@ class Workgroup(pulumi.CustomResource):
             namespace_name="concurrency-scaling",
             workgroup_name="concurrency-scaling")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Serverless Workgroups using the `workgroup_name`. For example:
 
         ```sh
-         $ pulumi import aws:redshiftserverless/workgroup:Workgroup example example
+        $ pulumi import aws:redshiftserverless/workgroup:Workgroup example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -523,6 +525,7 @@ class Workgroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -531,13 +534,14 @@ class Workgroup(pulumi.CustomResource):
             namespace_name="concurrency-scaling",
             workgroup_name="concurrency-scaling")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Serverless Workgroups using the `workgroup_name`. For example:
 
         ```sh
-         $ pulumi import aws:redshiftserverless/workgroup:Workgroup example example
+        $ pulumi import aws:redshiftserverless/workgroup:Workgroup example example
         ```
 
         :param str resource_name: The name of the resource.

@@ -315,6 +315,7 @@ class ProxyEndpoint(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -325,13 +326,14 @@ class ProxyEndpoint(pulumi.CustomResource):
             vpc_subnet_ids=[__item["id"] for __item in test_aws_subnet],
             target_role="READ_ONLY")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DB proxy endpoints using the `DB-PROXY-NAME/DB-PROXY-ENDPOINT-NAME`. For example:
 
         ```sh
-         $ pulumi import aws:rds/proxyEndpoint:ProxyEndpoint example example/example
+        $ pulumi import aws:rds/proxyEndpoint:ProxyEndpoint example example/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -354,6 +356,7 @@ class ProxyEndpoint(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -364,13 +367,14 @@ class ProxyEndpoint(pulumi.CustomResource):
             vpc_subnet_ids=[__item["id"] for __item in test_aws_subnet],
             target_role="READ_ONLY")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DB proxy endpoints using the `DB-PROXY-NAME/DB-PROXY-ENDPOINT-NAME`. For example:
 
         ```sh
-         $ pulumi import aws:rds/proxyEndpoint:ProxyEndpoint example example/example
+        $ pulumi import aws:rds/proxyEndpoint:ProxyEndpoint example example/example
         ```
 
         :param str resource_name: The name of the resource.

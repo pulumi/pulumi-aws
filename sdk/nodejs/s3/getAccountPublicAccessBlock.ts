@@ -9,12 +9,14 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.s3.getAccountPublicAccessBlock({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAccountPublicAccessBlock(args?: GetAccountPublicAccessBlockArgs, opts?: pulumi.InvokeOptions): Promise<GetAccountPublicAccessBlockResult> {
     args = args || {};
@@ -66,12 +68,14 @@ export interface GetAccountPublicAccessBlockResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.s3.getAccountPublicAccessBlock({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAccountPublicAccessBlockOutput(args?: GetAccountPublicAccessBlockOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountPublicAccessBlockResult> {
     return pulumi.output(args).apply((a: any) => getAccountPublicAccessBlock(a, opts))

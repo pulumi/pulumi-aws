@@ -171,8 +171,10 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
         !> **WARNING:** When logging from a WAFv2 Web ACL to a CloudWatch Log Group, the WAFv2 service tries to create or update a generic Log Resource Policy named `AWSWAF-LOGS`. However, if there are a large number of Web ACLs or if the account frequently creates and deletes Web ACLs, this policy may exceed the maximum policy size. As a result, this resource type will fail to be created. More details about this issue can be found in this issue. To prevent this issue, you can manage a specific resource policy. Please refer to the example below for managing a CloudWatch Log Group with a managed CloudWatch Log Resource Policy.
 
         ## Example Usage
+
         ### With Redacted Fields
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -186,8 +188,11 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Logging Filter
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -226,58 +231,14 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
                 ],
             ))
         ```
-        ### With CloudWatch Log Group and managed CloudWatch Log Resource Policy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example_log_group = aws.cloudwatch.LogGroup("example", name="aws-waf-logs-some-uniq-suffix")
-        example_web_acl_logging_configuration = aws.wafv2.WebAclLoggingConfiguration("example",
-            log_destination_configs=[example_log_group.arn],
-            resource_arn=example_aws_wafv2_web_acl["arn"])
-        current = aws.get_region()
-        current_get_caller_identity = aws.get_caller_identity()
-        example = example_log_group.arn.apply(lambda arn: aws.iam.get_policy_document_output(version="2012-10-17",
-            statements=[aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                    identifiers=["delivery.logs.amazonaws.com"],
-                    type="Service",
-                )],
-                actions=[
-                    "logs:CreateLogStream",
-                    "logs:PutLogEvents",
-                ],
-                resources=[f"{arn}:*"],
-                conditions=[
-                    aws.iam.GetPolicyDocumentStatementConditionArgs(
-                        test="ArnLike",
-                        values=[f"arn:aws:logs:{current.name}:{current_get_caller_identity.account_id}:*"],
-                        variable="aws:SourceArn",
-                    ),
-                    aws.iam.GetPolicyDocumentStatementConditionArgs(
-                        test="StringEquals",
-                        values=[not_implemented("tostring(data.aws_caller_identity.current.account_id)")],
-                        variable="aws:SourceAccount",
-                    ),
-                ],
-            )]))
-        example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("example",
-            policy_document=example.json,
-            policy_name="webacl-policy-uniq-name")
-        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import WAFv2 Web ACL Logging Configurations using the ARN of the WAFv2 Web ACL. For example:
 
         ```sh
-         $ pulumi import aws:wafv2/webAclLoggingConfiguration:WebAclLoggingConfiguration example arn:aws:wafv2:us-west-2:123456789012:regional/webacl/test-logs/a1b2c3d4-5678-90ab-cdef
+        $ pulumi import aws:wafv2/webAclLoggingConfiguration:WebAclLoggingConfiguration example arn:aws:wafv2:us-west-2:123456789012:regional/webacl/test-logs/a1b2c3d4-5678-90ab-cdef
         ```
 
         :param str resource_name: The name of the resource.
@@ -299,8 +260,10 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
         !> **WARNING:** When logging from a WAFv2 Web ACL to a CloudWatch Log Group, the WAFv2 service tries to create or update a generic Log Resource Policy named `AWSWAF-LOGS`. However, if there are a large number of Web ACLs or if the account frequently creates and deletes Web ACLs, this policy may exceed the maximum policy size. As a result, this resource type will fail to be created. More details about this issue can be found in this issue. To prevent this issue, you can manage a specific resource policy. Please refer to the example below for managing a CloudWatch Log Group with a managed CloudWatch Log Resource Policy.
 
         ## Example Usage
+
         ### With Redacted Fields
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -314,8 +277,11 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Logging Filter
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -354,58 +320,14 @@ class WebAclLoggingConfiguration(pulumi.CustomResource):
                 ],
             ))
         ```
-        ### With CloudWatch Log Group and managed CloudWatch Log Resource Policy
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example_log_group = aws.cloudwatch.LogGroup("example", name="aws-waf-logs-some-uniq-suffix")
-        example_web_acl_logging_configuration = aws.wafv2.WebAclLoggingConfiguration("example",
-            log_destination_configs=[example_log_group.arn],
-            resource_arn=example_aws_wafv2_web_acl["arn"])
-        current = aws.get_region()
-        current_get_caller_identity = aws.get_caller_identity()
-        example = example_log_group.arn.apply(lambda arn: aws.iam.get_policy_document_output(version="2012-10-17",
-            statements=[aws.iam.GetPolicyDocumentStatementArgs(
-                effect="Allow",
-                principals=[aws.iam.GetPolicyDocumentStatementPrincipalArgs(
-                    identifiers=["delivery.logs.amazonaws.com"],
-                    type="Service",
-                )],
-                actions=[
-                    "logs:CreateLogStream",
-                    "logs:PutLogEvents",
-                ],
-                resources=[f"{arn}:*"],
-                conditions=[
-                    aws.iam.GetPolicyDocumentStatementConditionArgs(
-                        test="ArnLike",
-                        values=[f"arn:aws:logs:{current.name}:{current_get_caller_identity.account_id}:*"],
-                        variable="aws:SourceArn",
-                    ),
-                    aws.iam.GetPolicyDocumentStatementConditionArgs(
-                        test="StringEquals",
-                        values=[not_implemented("tostring(data.aws_caller_identity.current.account_id)")],
-                        variable="aws:SourceAccount",
-                    ),
-                ],
-            )]))
-        example_log_resource_policy = aws.cloudwatch.LogResourcePolicy("example",
-            policy_document=example.json,
-            policy_name="webacl-policy-uniq-name")
-        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import WAFv2 Web ACL Logging Configurations using the ARN of the WAFv2 Web ACL. For example:
 
         ```sh
-         $ pulumi import aws:wafv2/webAclLoggingConfiguration:WebAclLoggingConfiguration example arn:aws:wafv2:us-west-2:123456789012:regional/webacl/test-logs/a1b2c3d4-5678-90ab-cdef
+        $ pulumi import aws:wafv2/webAclLoggingConfiguration:WebAclLoggingConfiguration example arn:aws:wafv2:us-west-2:123456789012:regional/webacl/test-logs/a1b2c3d4-5678-90ab-cdef
         ```
 
         :param str resource_name: The name of the resource.

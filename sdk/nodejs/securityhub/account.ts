@@ -11,19 +11,21 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.securityhub.Account("example", {});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import an existing Security Hub enabled account using the AWS account ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:securityhub/account:Account example 123456789012
+ * $ pulumi import aws:securityhub/account:Account example 123456789012
  * ```
  */
 export class Account extends pulumi.CustomResource {

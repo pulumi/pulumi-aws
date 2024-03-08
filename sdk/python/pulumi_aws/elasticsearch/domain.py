@@ -665,8 +665,10 @@ class Domain(pulumi.CustomResource):
         Manages an AWS Elasticsearch Domain.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -681,10 +683,13 @@ class Domain(pulumi.CustomResource):
                 "Domain": "TestDomain",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Access Policy
 
         > See also: `elasticsearch.DomainPolicy` resource
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -713,8 +718,11 @@ class Domain(pulumi.CustomResource):
         }}
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Log Publishing to CloudWatch Logs
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -741,8 +749,11 @@ class Domain(pulumi.CustomResource):
             log_type="INDEX_SLOW_LOGS",
         )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### VPC based ES
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -808,13 +819,14 @@ class Domain(pulumi.CustomResource):
                 "Domain": "TestDomain",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Elasticsearch domains using the `domain_name`. For example:
 
         ```sh
-         $ pulumi import aws:elasticsearch/domain:Domain example domain_name
+        $ pulumi import aws:elasticsearch/domain:Domain example domain_name
         ```
 
         :param str resource_name: The name of the resource.
@@ -848,8 +860,10 @@ class Domain(pulumi.CustomResource):
         Manages an AWS Elasticsearch Domain.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -864,10 +878,13 @@ class Domain(pulumi.CustomResource):
                 "Domain": "TestDomain",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Access Policy
 
         > See also: `elasticsearch.DomainPolicy` resource
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -896,8 +913,11 @@ class Domain(pulumi.CustomResource):
         }}
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Log Publishing to CloudWatch Logs
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -924,8 +944,11 @@ class Domain(pulumi.CustomResource):
             log_type="INDEX_SLOW_LOGS",
         )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### VPC based ES
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -991,13 +1014,14 @@ class Domain(pulumi.CustomResource):
                 "Domain": "TestDomain",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Elasticsearch domains using the `domain_name`. For example:
 
         ```sh
-         $ pulumi import aws:elasticsearch/domain:Domain example domain_name
+        $ pulumi import aws:elasticsearch/domain:Domain example domain_name
         ```
 
         :param str resource_name: The name of the resource.

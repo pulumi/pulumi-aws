@@ -352,6 +352,7 @@ class CustomDataIdentifier(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -365,13 +366,14 @@ class CustomDataIdentifier(pulumi.CustomResource):
             keywords=["keyword"],
             ignore_words=["ignore"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_macie2_custom_data_identifier` using the id. For example:
 
         ```sh
-         $ pulumi import aws:macie/customDataIdentifier:CustomDataIdentifier example abcd1
+        $ pulumi import aws:macie/customDataIdentifier:CustomDataIdentifier example abcd1
         ```
 
         :param str resource_name: The name of the resource.
@@ -396,6 +398,7 @@ class CustomDataIdentifier(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -409,13 +412,14 @@ class CustomDataIdentifier(pulumi.CustomResource):
             keywords=["keyword"],
             ignore_words=["ignore"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_macie2_custom_data_identifier` using the id. For example:
 
         ```sh
-         $ pulumi import aws:macie/customDataIdentifier:CustomDataIdentifier example abcd1
+        $ pulumi import aws:macie/customDataIdentifier:CustomDataIdentifier example abcd1
         ```
 
         :param str resource_name: The name of the resource.

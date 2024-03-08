@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * See the [AWS Lambda documentation](https://docs.aws.amazon.com/lambda/latest/dg/lambda-urls.html) for more information.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -69,13 +71,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Lambda function URLs using the `function_name` or `function_name/qualifier`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:lambda/functionUrl:FunctionUrl test_lambda_url my_test_lambda_function
+ * $ pulumi import aws:lambda/functionUrl:FunctionUrl test_lambda_url my_test_lambda_function
  * ```
  * 
  */

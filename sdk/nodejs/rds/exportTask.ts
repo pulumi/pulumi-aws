@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS RDS (Relational Database) Export Task.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -25,8 +27,11 @@ import * as utilities from "../utilities";
  *     kmsKeyId: exampleAwsKmsKey.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Complete Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -111,13 +116,14 @@ import * as utilities from "../utilities";
  *     s3Prefix: "my_prefix/example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import a RDS (Relational Database) Export Task using the `export_task_identifier`. For example:
  *
  * ```sh
- *  $ pulumi import aws:rds/exportTask:ExportTask example example
+ * $ pulumi import aws:rds/exportTask:ExportTask example example
  * ```
  */
 export class ExportTask extends pulumi.CustomResource {

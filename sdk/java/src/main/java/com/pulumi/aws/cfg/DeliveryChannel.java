@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * &gt; **Note:** Delivery Channel requires a Configuration Recorder to be present. Use of `depends_on` (as shown below) is recommended to avoid race conditions.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -102,13 +104,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Delivery Channel using the name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cfg/deliveryChannel:DeliveryChannel foo example
+ * $ pulumi import aws:cfg/deliveryChannel:DeliveryChannel foo example
  * ```
  * 
  */

@@ -20,7 +20,10 @@ import javax.annotation.Nullable;
  * You can have one S3 Access Grants instance per Region in your account.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,7 +49,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### AWS IAM Identity Center
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -75,13 +82,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import S3 Access Grants instances using the `account_id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:s3control/accessGrantsInstance:AccessGrantsInstance example 123456789012
+ * $ pulumi import aws:s3control/accessGrantsInstance:AccessGrantsInstance example 123456789012
  * ```
  * 
  */

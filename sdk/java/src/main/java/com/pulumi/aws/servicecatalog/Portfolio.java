@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides a resource to create a Service Catalog Portfolio.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,13 +51,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Service Catalog Portfolios using the Service Catalog Portfolio `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:servicecatalog/portfolio:Portfolio testfolio port-12344321
+ * $ pulumi import aws:servicecatalog/portfolio:Portfolio testfolio port-12344321
  * ```
  * 
  */

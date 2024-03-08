@@ -167,8 +167,10 @@ def get_permissions(catalog_id: Optional[str] = None,
     > **NOTE:** This data source deals with explicitly granted permissions. Lake Formation grants implicit permissions to data lake administrators, database creators, and table creators. For more information, see [Implicit Lake Formation Permissions](https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html).
 
     ## Example Usage
+
     ### Permissions For A Lake Formation S3 Resource
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -178,8 +180,11 @@ def get_permissions(catalog_id: Optional[str] = None,
             arn=test_aws_lakeformation_resource["arn"],
         ))
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Permissions For A Glue Catalog Database
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -190,8 +195,11 @@ def get_permissions(catalog_id: Optional[str] = None,
             catalog_id="110376042874",
         ))
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Permissions For Tag-Based Access Control
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -214,6 +222,7 @@ def get_permissions(catalog_id: Optional[str] = None,
             ],
         ))
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str catalog_id: Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
@@ -275,8 +284,10 @@ def get_permissions_output(catalog_id: Optional[pulumi.Input[Optional[str]]] = N
     > **NOTE:** This data source deals with explicitly granted permissions. Lake Formation grants implicit permissions to data lake administrators, database creators, and table creators. For more information, see [Implicit Lake Formation Permissions](https://docs.aws.amazon.com/lake-formation/latest/dg/implicit-permissions.html).
 
     ## Example Usage
+
     ### Permissions For A Lake Formation S3 Resource
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -286,8 +297,11 @@ def get_permissions_output(catalog_id: Optional[pulumi.Input[Optional[str]]] = N
             arn=test_aws_lakeformation_resource["arn"],
         ))
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Permissions For A Glue Catalog Database
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -298,8 +312,11 @@ def get_permissions_output(catalog_id: Optional[pulumi.Input[Optional[str]]] = N
             catalog_id="110376042874",
         ))
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Permissions For Tag-Based Access Control
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -322,6 +339,7 @@ def get_permissions_output(catalog_id: Optional[pulumi.Input[Optional[str]]] = N
             ],
         ))
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str catalog_id: Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.

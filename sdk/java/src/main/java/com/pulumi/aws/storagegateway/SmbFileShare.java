@@ -22,9 +22,12 @@ import javax.annotation.Nullable;
  * Manages an AWS Storage Gateway SMB File Share.
  * 
  * ## Example Usage
+ * 
  * ### Active Directory Authentication
  * 
  * &gt; **NOTE:** The gateway must have already joined the Active Directory domain prior to SMB file share creationE.g., via &#34;SMB Settings&#34; in the AWS Storage Gateway console or `smb_active_directory_settings` in the `aws.storagegateway.Gateway` resource.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -56,9 +59,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Guest Authentication
  * 
  * &gt; **NOTE:** The gateway must have already had the SMB guest password set prior to SMB file share creationE.g., via &#34;SMB Settings&#34; in the AWS Storage Gateway console or `smb_guest_password` in the `aws.storagegateway.Gateway` resource.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -90,13 +97,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_storagegateway_smb_file_share` using the SMB File Share Amazon Resource Name (ARN). For example:
  * 
  * ```sh
- *  $ pulumi import aws:storagegateway/smbFileShare:SmbFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
+ * $ pulumi import aws:storagegateway/smbFileShare:SmbFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
  * ```
  * 
  */

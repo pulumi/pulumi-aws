@@ -211,10 +211,12 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         Manages an asynchronous invocation configuration for a Lambda Function or Alias. More information about asynchronous invocations and the configurable values can be found in the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html).
 
         ## Example Usage
+
         ### Destination Configuration
 
         > **NOTE:** Ensure the Lambda Function IAM Role has necessary permissions for the destination, such as `sqs:SendMessage` or `sns:Publish`, otherwise the API will return a generic `InvalidParameterValueException: The destination ARN arn:PARTITION:SERVICE:REGION:ACCOUNT:RESOURCE is invalid.` error.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -230,8 +232,11 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Error Handling Configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -241,8 +246,11 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
             maximum_event_age_in_seconds=60,
             maximum_retry_attempts=0)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Configuration for Alias Name
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -251,8 +259,11 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
             function_name=example_aws_lambda_alias["functionName"],
             qualifier=example_aws_lambda_alias["name"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Configuration for Function Latest Unpublished Version
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -261,8 +272,11 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
             function_name=example_aws_lambda_function["functionName"],
             qualifier="$LATEST")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Configuration for Function Published Version
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -271,6 +285,7 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
             function_name=example_aws_lambda_function["functionName"],
             qualifier=example_aws_lambda_function["version"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -285,22 +300,22 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         ARN without qualifier (all versions and aliases):
 
         ```sh
-         $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function
+        $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function
         ```
-         ARN with qualifier:
+        ARN with qualifier:
 
         ```sh
-         $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function:production
+        $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function:production
         ```
-         Name without qualifier (all versions and aliases):
+        Name without qualifier (all versions and aliases):
 
         ```sh
-         $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function
+        $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function
         ```
-         Name with qualifier:
+        Name with qualifier:
 
         ```sh
-         $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function:production
+        $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function:production
         ```
 
         :param str resource_name: The name of the resource.
@@ -323,10 +338,12 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         Manages an asynchronous invocation configuration for a Lambda Function or Alias. More information about asynchronous invocations and the configurable values can be found in the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html).
 
         ## Example Usage
+
         ### Destination Configuration
 
         > **NOTE:** Ensure the Lambda Function IAM Role has necessary permissions for the destination, such as `sqs:SendMessage` or `sns:Publish`, otherwise the API will return a generic `InvalidParameterValueException: The destination ARN arn:PARTITION:SERVICE:REGION:ACCOUNT:RESOURCE is invalid.` error.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -342,8 +359,11 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Error Handling Configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -353,8 +373,11 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
             maximum_event_age_in_seconds=60,
             maximum_retry_attempts=0)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Configuration for Alias Name
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -363,8 +386,11 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
             function_name=example_aws_lambda_alias["functionName"],
             qualifier=example_aws_lambda_alias["name"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Configuration for Function Latest Unpublished Version
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -373,8 +399,11 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
             function_name=example_aws_lambda_function["functionName"],
             qualifier="$LATEST")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Configuration for Function Published Version
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -383,6 +412,7 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
             function_name=example_aws_lambda_function["functionName"],
             qualifier=example_aws_lambda_function["version"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -397,22 +427,22 @@ class FunctionEventInvokeConfig(pulumi.CustomResource):
         ARN without qualifier (all versions and aliases):
 
         ```sh
-         $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function
+        $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function
         ```
-         ARN with qualifier:
+        ARN with qualifier:
 
         ```sh
-         $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function:production
+        $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function:production
         ```
-         Name without qualifier (all versions and aliases):
+        Name without qualifier (all versions and aliases):
 
         ```sh
-         $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function
+        $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function
         ```
-         Name with qualifier:
+        Name with qualifier:
 
         ```sh
-         $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function:production
+        $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function:production
         ```
 
         :param str resource_name: The name of the resource.

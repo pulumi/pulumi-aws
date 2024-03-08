@@ -357,6 +357,7 @@ class ClusterSnapshot(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -365,13 +366,14 @@ class ClusterSnapshot(pulumi.CustomResource):
             db_cluster_identifier=example_aws_rds_cluster["id"],
             db_cluster_snapshot_identifier="resourcetestsnapshot1234")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_db_cluster_snapshot` using the cluster snapshot identifier. For example:
 
         ```sh
-         $ pulumi import aws:rds/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
+        $ pulumi import aws:rds/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
         ```
 
         :param str resource_name: The name of the resource.
@@ -391,6 +393,7 @@ class ClusterSnapshot(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -399,13 +402,14 @@ class ClusterSnapshot(pulumi.CustomResource):
             db_cluster_identifier=example_aws_rds_cluster["id"],
             db_cluster_snapshot_identifier="resourcetestsnapshot1234")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_db_cluster_snapshot` using the cluster snapshot identifier. For example:
 
         ```sh
-         $ pulumi import aws:rds/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
+        $ pulumi import aws:rds/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
         ```
 
         :param str resource_name: The name of the resource.

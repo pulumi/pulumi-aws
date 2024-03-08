@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS MediaLive Input.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -34,13 +36,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import MediaLive Input using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:medialive/input:Input example 12345678
+ * $ pulumi import aws:medialive/input:Input example 12345678
  * ```
  */
 export class Input extends pulumi.CustomResource {

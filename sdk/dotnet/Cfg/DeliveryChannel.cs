@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -103,13 +104,14 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Delivery Channel using the name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cfg/deliveryChannel:DeliveryChannel foo example
+    /// $ pulumi import aws:cfg/deliveryChannel:DeliveryChannel foo example
     /// ```
     /// </summary>
     [AwsResourceType("aws:cfg/deliveryChannel:DeliveryChannel")]

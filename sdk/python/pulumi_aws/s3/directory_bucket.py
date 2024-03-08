@@ -220,6 +220,7 @@ class DirectoryBucket(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -230,13 +231,14 @@ class DirectoryBucket(pulumi.CustomResource):
                 name="usw2-az1",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import S3 bucket using `bucket`. For example:
 
         ```sh
-         $ pulumi import aws:s3/directoryBucket:DirectoryBucket example example--usw2-az1--x-s3
+        $ pulumi import aws:s3/directoryBucket:DirectoryBucket example example--usw2-az1--x-s3
         ```
 
         :param str resource_name: The name of the resource.
@@ -258,6 +260,7 @@ class DirectoryBucket(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -268,13 +271,14 @@ class DirectoryBucket(pulumi.CustomResource):
                 name="usw2-az1",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import S3 bucket using `bucket`. For example:
 
         ```sh
-         $ pulumi import aws:s3/directoryBucket:DirectoryBucket example example--usw2-az1--x-s3
+        $ pulumi import aws:s3/directoryBucket:DirectoryBucket example example--usw2-az1--x-s3
         ```
 
         :param str resource_name: The name of the resource.

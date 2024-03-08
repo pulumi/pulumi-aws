@@ -331,8 +331,10 @@ def get_engine_version(default_only: Optional[bool] = None,
     Information about an RDS engine version.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -343,8 +345,11 @@ def get_engine_version(default_only: Optional[bool] = None,
             "8.0.26",
         ])
     ```
+    <!--End PulumiCodeChooser -->
+
     ### With `filter`
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -357,6 +362,7 @@ def get_engine_version(default_only: Optional[bool] = None,
             values=["serverless"],
         )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool default_only: When set to `true`, the default version for the specified `engine` or combination of `engine` and major `version` will be returned. Can be used to limit responses to a single version when they would otherwise fail for returning multiple versions.
@@ -430,8 +436,10 @@ def get_engine_version_output(default_only: Optional[pulumi.Input[Optional[bool]
     Information about an RDS engine version.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -442,8 +450,11 @@ def get_engine_version_output(default_only: Optional[pulumi.Input[Optional[bool]
             "8.0.26",
         ])
     ```
+    <!--End PulumiCodeChooser -->
+
     ### With `filter`
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -456,6 +467,7 @@ def get_engine_version_output(default_only: Optional[pulumi.Input[Optional[bool]
             values=["serverless"],
         )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool default_only: When set to `true`, the default version for the specified `engine` or combination of `engine` and major `version` will be returned. Can be used to limit responses to a single version when they would otherwise fail for returning multiple versions.

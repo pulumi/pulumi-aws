@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,15 +41,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Cloudwatch RUM App Monitor using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:rum/appMonitor:AppMonitor example example
-//
+// $ pulumi import aws:rum/appMonitor:AppMonitor example example
 // ```
 type AppMonitor struct {
 	pulumi.CustomResourceState

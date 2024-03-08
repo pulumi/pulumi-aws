@@ -12,12 +12,14 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.bedrock.getCustomModels({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getCustomModels(opts?: pulumi.InvokeOptions): Promise<GetCustomModelsResult> {
 
@@ -41,12 +43,14 @@ export interface GetCustomModelsResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = aws.bedrock.getCustomModels({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getCustomModelsOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomModelsResult> {
     return pulumi.output(getCustomModels(opts))

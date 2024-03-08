@@ -27,6 +27,8 @@ import javax.annotation.Nullable;
  * `production`.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -64,6 +66,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Option Settings
  * 
  * Some options can be stack-specific, check [AWS Docs](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html)
@@ -77,6 +81,8 @@ import javax.annotation.Nullable;
  * * `resource` - (Optional) resource name for [scheduled action](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html#command-options-general-autoscalingscheduledaction)
  * 
  * ### Example With Options
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -126,13 +132,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Elastic Beanstalk Environments using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:elasticbeanstalk/environment:Environment prodenv e-rpqsewtp2j
+ * $ pulumi import aws:elasticbeanstalk/environment:Environment prodenv e-rpqsewtp2j
  * ```
  * 
  */

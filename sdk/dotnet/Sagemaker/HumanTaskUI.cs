@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -37,13 +38,14 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SageMaker Human Task UIs using the `human_task_ui_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:sagemaker/humanTaskUI:HumanTaskUI example example
+    /// $ pulumi import aws:sagemaker/humanTaskUI:HumanTaskUI example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/humanTaskUI:HumanTaskUI")]

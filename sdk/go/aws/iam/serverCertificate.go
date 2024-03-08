@@ -27,6 +27,7 @@ import (
 //
 // **Using certs on file:**
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -65,9 +66,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // **Example with cert in-line:**
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -93,6 +96,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // **Use in combination with an AWS ELB resource:**
 //
@@ -103,6 +107,7 @@ import (
 // to create a new, updated `iam.ServerCertificate` resource and replace it in
 // dependant resources before attempting to destroy the old version.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -161,15 +166,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import IAM Server Certificates using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:iam/serverCertificate:ServerCertificate certificate example.com-certificate-until-2018
-//
+// $ pulumi import aws:iam/serverCertificate:ServerCertificate certificate example.com-certificate-until-2018
 // ```
 type ServerCertificate struct {
 	pulumi.CustomResourceState

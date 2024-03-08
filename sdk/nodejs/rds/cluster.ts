@@ -26,8 +26,10 @@ import * as utilities from "../utilities";
  * for more information.
  *
  * ## Example Usage
+ *
  * ### Aurora MySQL 2.x (MySQL 5.7)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -48,8 +50,11 @@ import * as utilities from "../utilities";
  *     preferredBackupWindow: "07:00-09:00",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Aurora MySQL 1.x (MySQL 5.6)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -68,8 +73,11 @@ import * as utilities from "../utilities";
  *     preferredBackupWindow: "07:00-09:00",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Aurora with PostgreSQL engine
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -89,12 +97,15 @@ import * as utilities from "../utilities";
  *     preferredBackupWindow: "07:00-09:00",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### RDS Multi-AZ Cluster
  *
  * > More information about RDS Multi-AZ Clusters can be found in the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/multi-az-db-clusters-concepts.html).
  *
  * To create a Multi-AZ RDS cluster, you must additionally specify the `engine`, `storageType`, `allocatedStorage`, `iops` and `dbClusterInstanceClass` attributes.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -115,6 +126,8 @@ import * as utilities from "../utilities";
  *     masterPassword: "mustbeeightcharaters",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### RDS Serverless v2 Cluster
  *
  * > More information about RDS Serverless v2 Clusters can be found in the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-serverless-v2.html).
@@ -124,6 +137,7 @@ import * as utilities from "../utilities";
  *
  * To create a Serverless v2 RDS cluster, you must additionally specify the `engineMode` and `serverlessv2ScalingConfiguration` attributes. An `aws.rds.ClusterInstance` resource must also be added to the cluster with the `instanceClass` attribute specified.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -149,12 +163,15 @@ import * as utilities from "../utilities";
  *     engineVersion: example.engineVersion,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### RDS/Aurora Managed Master Passwords via Secrets Manager, default KMS Key
  *
  * > More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
  *
  * You can specify the `manageMasterUserPassword` attribute to enable managing the master password with Secrets Manager. You can also update an existing cluster to use Secrets Manager by specify the `manageMasterUserPassword` attribute and removing the `masterPassword` attribute (removal is required).
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -166,12 +183,15 @@ import * as utilities from "../utilities";
  *     masterUsername: "test",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### RDS/Aurora Managed Master Passwords via Secrets Manager, specific KMS Key
  *
  * > More information about RDS/Aurora Aurora integrates with Secrets Manager to manage master user passwords for your DB clusters can be found in the [RDS User Guide](https://aws.amazon.com/about-aws/whats-new/2022/12/amazon-rds-integration-aws-secrets-manager/) and [Aurora User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/rds-secrets-manager.html).
  *
  * You can specify the `masterUserSecretKmsKeyId` attribute to specify a specific KMS Key.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -185,8 +205,11 @@ import * as utilities from "../utilities";
  *     masterUserSecretKmsKeyId: example.keyId,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Global Cluster Restored From Snapshot
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -207,13 +230,14 @@ import * as utilities from "../utilities";
  *     forceDestroy: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import RDS Clusters using the `cluster_identifier`. For example:
  *
  * ```sh
- *  $ pulumi import aws:rds/cluster:Cluster aurora_cluster aurora-prod-cluster
+ * $ pulumi import aws:rds/cluster:Cluster aurora_cluster aurora-prod-cluster
  * ```
  */
 export class Cluster extends pulumi.CustomResource {

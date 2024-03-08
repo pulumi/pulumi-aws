@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -56,15 +57,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_lightsail_disk` using the name attribute. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:lightsail/disk:Disk test test
-//
+// $ pulumi import aws:lightsail/disk:Disk test test
 // ```
 type Disk struct {
 	pulumi.CustomResourceState

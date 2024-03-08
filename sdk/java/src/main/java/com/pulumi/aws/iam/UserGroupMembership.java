@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * `aws.iam.GroupMembership` resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -79,13 +81,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import IAM user group membership using the user name and group names separated by `/`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:iam/userGroupMembership:UserGroupMembership example1 user1/group1/group2
+ * $ pulumi import aws:iam/userGroupMembership:UserGroupMembership example1 user1/group1/group2
  * ```
  * 
  */

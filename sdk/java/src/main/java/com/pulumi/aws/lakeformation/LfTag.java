@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Creates an LF-Tag with the specified name and values. Each key must have at least one value. The maximum number of values permitted is 15.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,13 +52,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Lake Formation LF-Tags using the `catalog_id:key`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For example:
  * 
  * ```sh
- *  $ pulumi import aws:lakeformation/lfTag:LfTag example 123456789012:some_key
+ * $ pulumi import aws:lakeformation/lfTag:LfTag example 123456789012:some_key
  * ```
  * 
  */

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,6 +20,7 @@ import * as utilities from "../utilities";
  *     name: "test",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getEventConnection(args: GetEventConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetEventConnectionResult> {
 
@@ -70,6 +72,7 @@ export interface GetEventConnectionResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -78,6 +81,7 @@ export interface GetEventConnectionResult {
  *     name: "test",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getEventConnectionOutput(args: GetEventConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEventConnectionResult> {
     return pulumi.output(args).apply((a: any) => getEventConnection(a, opts))

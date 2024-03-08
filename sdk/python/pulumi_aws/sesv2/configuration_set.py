@@ -336,8 +336,10 @@ class ConfigurationSet(pulumi.CustomResource):
         Resource for managing an AWS SESv2 (Simple Email V2) Configuration Set.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -363,13 +365,14 @@ class ConfigurationSet(pulumi.CustomResource):
                 custom_redirect_domain="example.com",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SESv2 (Simple Email V2) Configuration Set using the `configuration_set_name`. For example:
 
         ```sh
-         $ pulumi import aws:sesv2/configurationSet:ConfigurationSet example example
+        $ pulumi import aws:sesv2/configurationSet:ConfigurationSet example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -393,8 +396,10 @@ class ConfigurationSet(pulumi.CustomResource):
         Resource for managing an AWS SESv2 (Simple Email V2) Configuration Set.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -420,13 +425,14 @@ class ConfigurationSet(pulumi.CustomResource):
                 custom_redirect_domain="example.com",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SESv2 (Simple Email V2) Configuration Set using the `configuration_set_name`. For example:
 
         ```sh
-         $ pulumi import aws:sesv2/configurationSet:ConfigurationSet example example
+        $ pulumi import aws:sesv2/configurationSet:ConfigurationSet example example
         ```
 
         :param str resource_name: The name of the resource.

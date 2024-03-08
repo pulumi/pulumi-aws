@@ -14,8 +14,10 @@ namespace Pulumi.Aws.Shield
     /// For more information see [Configure AWS SRT Support](https://docs.aws.amazon.com/waf/latest/developerguide/authorize-srt.html)
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -60,13 +62,14 @@ namespace Pulumi.Aws.Shield
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Shield DRT access role ARN association using the AWS account ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:shield/drtAccessRoleArnAssociation:DrtAccessRoleArnAssociation example 123456789012
+    /// $ pulumi import aws:shield/drtAccessRoleArnAssociation:DrtAccessRoleArnAssociation example 123456789012
     /// ```
     /// </summary>
     [AwsResourceType("aws:shield/drtAccessRoleArnAssociation:DrtAccessRoleArnAssociation")]

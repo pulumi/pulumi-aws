@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -70,15 +71,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import DocumentDB Event Subscriptions using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:docdb/eventSubscription:EventSubscription example event-sub
-//
+// $ pulumi import aws:docdb/eventSubscription:EventSubscription example event-sub
 // ```
 type EventSubscription struct {
 	pulumi.CustomResourceState

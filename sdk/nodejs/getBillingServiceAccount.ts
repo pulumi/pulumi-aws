@@ -9,6 +9,7 @@ import * as utilities from "./utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -49,6 +50,7 @@ import * as utilities from "./utilities";
  *     policy: allowBillingLogging.apply(allowBillingLogging => allowBillingLogging.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getBillingServiceAccount(args?: GetBillingServiceAccountArgs, opts?: pulumi.InvokeOptions): Promise<GetBillingServiceAccountResult> {
     args = args || {};
@@ -87,6 +89,7 @@ export interface GetBillingServiceAccountResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -127,6 +130,7 @@ export interface GetBillingServiceAccountResult {
  *     policy: allowBillingLogging.apply(allowBillingLogging => allowBillingLogging.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getBillingServiceAccountOutput(args?: GetBillingServiceAccountOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBillingServiceAccountResult> {
     return pulumi.output(args).apply((a: any) => getBillingServiceAccount(a, opts))

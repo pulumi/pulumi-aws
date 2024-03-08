@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Manages a SES Identity Policy. More information about SES Sending Authorization Policies can be found in the [SES Developer Guide](https://docs.aws.amazon.com/ses/latest/DeveloperGuide/sending-authorization-policies.html).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -68,13 +70,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import SES Identity Policies using the identity and policy name, separated by a pipe character (`|`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:ses/identityPolicy:IdentityPolicy example &#39;example.com|example&#39;
+ * $ pulumi import aws:ses/identityPolicy:IdentityPolicy example &#39;example.com|example&#39;
  * ```
  * 
  */

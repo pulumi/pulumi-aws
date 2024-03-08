@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  *
  * The following shows outputting all Transit Gateway Route Table Ids.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -25,6 +26,7 @@ import * as utilities from "../utilities";
  *     };
  * }
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getTransitGatewayRouteTables(args?: GetTransitGatewayRouteTablesArgs, opts?: pulumi.InvokeOptions): Promise<GetTransitGatewayRouteTablesResult> {
     args = args || {};
@@ -76,6 +78,7 @@ export interface GetTransitGatewayRouteTablesResult {
  *
  * The following shows outputting all Transit Gateway Route Table Ids.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -87,6 +90,7 @@ export interface GetTransitGatewayRouteTablesResult {
  *     };
  * }
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getTransitGatewayRouteTablesOutput(args?: GetTransitGatewayRouteTablesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTransitGatewayRouteTablesResult> {
     return pulumi.output(args).apply((a: any) => getTransitGatewayRouteTables(a, opts))

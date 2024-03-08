@@ -14,71 +14,12 @@ import (
 
 // Resource for managing an AWS IdentityStore Group Membership.
 //
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/identitystore"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssoadmin"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func notImplemented(message string) pulumi.AnyOutput {
-//		panic(message)
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssoadmin.GetInstances(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			exampleUser, err := identitystore.NewUser(ctx, "example", &identitystore.UserArgs{
-//				IdentityStoreId: notImplemented("tolist(data.aws_ssoadmin_instances.example.identity_store_ids)")[0],
-//				DisplayName:     pulumi.String("John Doe"),
-//				UserName:        pulumi.String("john.doe@example.com"),
-//				Name: &identitystore.UserNameArgs{
-//					FamilyName: pulumi.String("Doe"),
-//					GivenName:  pulumi.String("John"),
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			exampleGroup, err := identitystore.NewGroup(ctx, "example", &identitystore.GroupArgs{
-//				IdentityStoreId: notImplemented("tolist(data.aws_ssoadmin_instances.example.identity_store_ids)")[0],
-//				DisplayName:     pulumi.String("MyGroup"),
-//				Description:     pulumi.String("Some group name"),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			_, err = identitystore.NewGroupMembership(ctx, "example", &identitystore.GroupMembershipArgs{
-//				IdentityStoreId: notImplemented("tolist(data.aws_ssoadmin_instances.example.identity_store_ids)")[0],
-//				GroupId:         exampleGroup.GroupId,
-//				MemberId:        exampleUser.UserId,
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
 // ## Import
 //
 // Using `pulumi import`, import `aws_identitystore_group_membership` using the `identity_store_id/membership_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:identitystore/groupMembership:GroupMembership example d-0000000000/00000000-0000-0000-0000-000000000000
-//
+// $ pulumi import aws:identitystore/groupMembership:GroupMembership example d-0000000000/00000000-0000-0000-0000-000000000000
 // ```
 type GroupMembership struct {
 	pulumi.CustomResourceState

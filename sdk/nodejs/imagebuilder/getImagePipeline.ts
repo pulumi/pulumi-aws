@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,6 +21,7 @@ import * as utilities from "../utilities";
  *     arn: "arn:aws:imagebuilder:us-west-2:aws:image-pipeline/example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getImagePipeline(args: GetImagePipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetImagePipelineResult> {
 
@@ -124,6 +126,7 @@ export interface GetImagePipelineResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -132,6 +135,7 @@ export interface GetImagePipelineResult {
  *     arn: "arn:aws:imagebuilder:us-west-2:aws:image-pipeline/example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getImagePipelineOutput(args: GetImagePipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetImagePipelineResult> {
     return pulumi.output(args).apply((a: any) => getImagePipeline(a, opts))

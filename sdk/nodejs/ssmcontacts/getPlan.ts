@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Data source for managing a Plan of an AWS SSM Contact.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,6 +23,7 @@ import * as utilities from "../utilities";
  *     contactId: "arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPlan(args: GetPlanArgs, opts?: pulumi.InvokeOptions): Promise<GetPlanResult> {
 
@@ -58,8 +61,10 @@ export interface GetPlanResult {
  * Data source for managing a Plan of an AWS SSM Contact.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -68,6 +73,7 @@ export interface GetPlanResult {
  *     contactId: "arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPlanOutput(args: GetPlanOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPlanResult> {
     return pulumi.output(args).apply((a: any) => getPlan(a, opts))

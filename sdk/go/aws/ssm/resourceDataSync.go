@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -110,15 +111,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SSM resource data sync using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ssm/resourceDataSync:ResourceDataSync example example-name
-//
+// $ pulumi import aws:ssm/resourceDataSync:ResourceDataSync example example-name
 // ```
 type ResourceDataSync struct {
 	pulumi.CustomResourceState

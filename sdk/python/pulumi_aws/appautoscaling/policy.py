@@ -299,8 +299,10 @@ class Policy(pulumi.CustomResource):
         Provides an Application AutoScaling Policy resource.
 
         ## Example Usage
+
         ### DynamoDB Table Autoscaling
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -324,8 +326,11 @@ class Policy(pulumi.CustomResource):
                 target_value=70,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### ECS Service Autoscaling
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -352,8 +357,11 @@ class Policy(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Preserve desired count when updating an autoscaled ECS Service
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -364,8 +372,11 @@ class Policy(pulumi.CustomResource):
             task_definition="taskDefinitionFamily:1",
             desired_count=2)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Aurora Read Replica Autoscaling
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -391,8 +402,11 @@ class Policy(pulumi.CustomResource):
                 scale_out_cooldown=300,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Create target tracking scaling policy using metric math
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -461,8 +475,11 @@ class Policy(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### MSK / Kafka Autoscaling
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -486,13 +503,14 @@ class Policy(pulumi.CustomResource):
                 target_value=55,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Application AutoScaling Policy using the `service-namespace` , `resource-id`, `scalable-dimension` and `policy-name` separated by `/`. For example:
 
         ```sh
-         $ pulumi import aws:appautoscaling/policy:Policy test-policy service-namespace/resource-id/scalable-dimension/policy-name
+        $ pulumi import aws:appautoscaling/policy:Policy test-policy service-namespace/resource-id/scalable-dimension/policy-name
         ```
 
         :param str resource_name: The name of the resource.
@@ -515,8 +533,10 @@ class Policy(pulumi.CustomResource):
         Provides an Application AutoScaling Policy resource.
 
         ## Example Usage
+
         ### DynamoDB Table Autoscaling
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -540,8 +560,11 @@ class Policy(pulumi.CustomResource):
                 target_value=70,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### ECS Service Autoscaling
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -568,8 +591,11 @@ class Policy(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Preserve desired count when updating an autoscaled ECS Service
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -580,8 +606,11 @@ class Policy(pulumi.CustomResource):
             task_definition="taskDefinitionFamily:1",
             desired_count=2)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Aurora Read Replica Autoscaling
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -607,8 +636,11 @@ class Policy(pulumi.CustomResource):
                 scale_out_cooldown=300,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Create target tracking scaling policy using metric math
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -677,8 +709,11 @@ class Policy(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### MSK / Kafka Autoscaling
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -702,13 +737,14 @@ class Policy(pulumi.CustomResource):
                 target_value=55,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Application AutoScaling Policy using the `service-namespace` , `resource-id`, `scalable-dimension` and `policy-name` separated by `/`. For example:
 
         ```sh
-         $ pulumi import aws:appautoscaling/policy:Policy test-policy service-namespace/resource-id/scalable-dimension/policy-name
+        $ pulumi import aws:appautoscaling/policy:Policy test-policy service-namespace/resource-id/scalable-dimension/policy-name
         ```
 
         :param str resource_name: The name of the resource.

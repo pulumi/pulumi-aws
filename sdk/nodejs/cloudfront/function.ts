@@ -12,34 +12,13 @@ import * as utilities from "../utilities";
  * > **NOTE:** You cannot delete a function if it’s associated with a cache behavior. First, update your distributions to remove the function association from all cache behaviors, then delete the function.
  *
  * ## Example Usage
- * ### Basic Example
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const test = new aws.cloudfront.Function("test", {
- *     name: "test",
- *     runtime: "cloudfront-js-2.0",
- *     comment: "my function",
- *     publish: true,
- *     code: std.file({
- *         input: `${notImplemented("path.module")}/function.js`,
- *     }).then(invoke => invoke.result),
- * });
- * ```
  *
  * ## Import
  *
  * Using `pulumi import`, import CloudFront Functions using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudfront/function:Function test my_test_function
+ * $ pulumi import aws:cloudfront/function:Function test my_test_function
  * ```
  */
 export class Function extends pulumi.CustomResource {

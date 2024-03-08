@@ -15,8 +15,10 @@ import (
 // Provides an SES domain identity resource
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,8 +42,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With Route53 Record
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -78,15 +83,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SES domain identities using the domain name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ses/domainIdentity:DomainIdentity example example.com
-//
+// $ pulumi import aws:ses/domainIdentity:DomainIdentity example example.com
 // ```
 type DomainIdentity struct {
 	pulumi.CustomResourceState

@@ -88,6 +88,7 @@ class RegistryPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -109,13 +110,14 @@ class RegistryPolicy(pulumi.CustomResource):
             }],
         }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ECR Registry Policy using the registry id. For example:
 
         ```sh
-         $ pulumi import aws:ecr/registryPolicy:RegistryPolicy example 123456789012
+        $ pulumi import aws:ecr/registryPolicy:RegistryPolicy example 123456789012
         ```
 
         :param str resource_name: The name of the resource.
@@ -135,6 +137,7 @@ class RegistryPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -156,13 +159,14 @@ class RegistryPolicy(pulumi.CustomResource):
             }],
         }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ECR Registry Policy using the registry id. For example:
 
         ```sh
-         $ pulumi import aws:ecr/registryPolicy:RegistryPolicy example 123456789012
+        $ pulumi import aws:ecr/registryPolicy:RegistryPolicy example 123456789012
         ```
 
         :param str resource_name: The name of the resource.

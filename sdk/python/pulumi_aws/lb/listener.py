@@ -394,8 +394,10 @@ class Listener(pulumi.CustomResource):
         > **Note:** `alb.Listener` is known as `lb.Listener`. The functionality is identical.
 
         ## Example Usage
+
         ### Forward Action
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -413,9 +415,11 @@ class Listener(pulumi.CustomResource):
                 target_group_arn=front_end_target_group.arn,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         To a NLB:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -431,8 +435,11 @@ class Listener(pulumi.CustomResource):
                 target_group_arn=front_end_aws_lb_target_group["arn"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Redirect Action
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -451,8 +458,11 @@ class Listener(pulumi.CustomResource):
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Fixed-response Action
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -471,8 +481,11 @@ class Listener(pulumi.CustomResource):
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Authenticate-cognito Action
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -501,8 +514,11 @@ class Listener(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Authenticate-OIDC Action
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -531,8 +547,11 @@ class Listener(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Gateway Load Balancer Listener
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -559,13 +578,14 @@ class Listener(pulumi.CustomResource):
                 type="forward",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import listeners using their ARN. For example:
 
         ```sh
-         $ pulumi import aws:lb/listener:Listener front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:listener/app/front-end-alb/8e4497da625e2d8a/9ab28ade35828f96
+        $ pulumi import aws:lb/listener:Listener front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:listener/app/front-end-alb/8e4497da625e2d8a/9ab28ade35828f96
         ```
 
         :param str resource_name: The name of the resource.
@@ -596,8 +616,10 @@ class Listener(pulumi.CustomResource):
         > **Note:** `alb.Listener` is known as `lb.Listener`. The functionality is identical.
 
         ## Example Usage
+
         ### Forward Action
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -615,9 +637,11 @@ class Listener(pulumi.CustomResource):
                 target_group_arn=front_end_target_group.arn,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         To a NLB:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -633,8 +657,11 @@ class Listener(pulumi.CustomResource):
                 target_group_arn=front_end_aws_lb_target_group["arn"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Redirect Action
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -653,8 +680,11 @@ class Listener(pulumi.CustomResource):
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Fixed-response Action
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -673,8 +703,11 @@ class Listener(pulumi.CustomResource):
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Authenticate-cognito Action
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -703,8 +736,11 @@ class Listener(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Authenticate-OIDC Action
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -733,8 +769,11 @@ class Listener(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Gateway Load Balancer Listener
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -761,13 +800,14 @@ class Listener(pulumi.CustomResource):
                 type="forward",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import listeners using their ARN. For example:
 
         ```sh
-         $ pulumi import aws:lb/listener:Listener front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:listener/app/front-end-alb/8e4497da625e2d8a/9ab28ade35828f96
+        $ pulumi import aws:lb/listener:Listener front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:listener/app/front-end-alb/8e4497da625e2d8a/9ab28ade35828f96
         ```
 
         :param str resource_name: The name of the resource.

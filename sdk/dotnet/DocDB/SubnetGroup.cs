@@ -14,6 +14,7 @@ namespace Pulumi.Aws.DocDB
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -38,13 +39,14 @@ namespace Pulumi.Aws.DocDB
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DocumentDB Subnet groups using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:docdb/subnetGroup:SubnetGroup default production-subnet-group
+    /// $ pulumi import aws:docdb/subnetGroup:SubnetGroup default production-subnet-group
     /// ```
     /// </summary>
     [AwsResourceType("aws:docdb/subnetGroup:SubnetGroup")]

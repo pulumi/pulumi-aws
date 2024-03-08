@@ -71,14 +71,17 @@ def get_queues(queue_name_prefix: Optional[str] = None,
     Data source for managing an AWS SQS (Simple Queue) Queues.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.sqs.get_queues(queue_name_prefix="example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str queue_name_prefix: A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned. Queue URLs and names are case-sensitive.
@@ -101,14 +104,17 @@ def get_queues_output(queue_name_prefix: Optional[pulumi.Input[Optional[str]]] =
     Data source for managing an AWS SQS (Simple Queue) Queues.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.sqs.get_queues(queue_name_prefix="example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str queue_name_prefix: A string to use for filtering the list results. Only those queues whose name begins with the specified string are returned. Queue URLs and names are case-sensitive.

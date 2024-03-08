@@ -112,8 +112,10 @@ class DomainSamlOptions(pulumi.CustomResource):
         Manages SAML authentication options for an AWS OpenSearch Domain.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -141,13 +143,14 @@ class DomainSamlOptions(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import OpenSearch domains using the `domain_name`. For example:
 
         ```sh
-         $ pulumi import aws:opensearch/domainSamlOptions:DomainSamlOptions example domain_name
+        $ pulumi import aws:opensearch/domainSamlOptions:DomainSamlOptions example domain_name
         ```
 
         :param str resource_name: The name of the resource.
@@ -167,8 +170,10 @@ class DomainSamlOptions(pulumi.CustomResource):
         Manages SAML authentication options for an AWS OpenSearch Domain.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -196,13 +201,14 @@ class DomainSamlOptions(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import OpenSearch domains using the `domain_name`. For example:
 
         ```sh
-         $ pulumi import aws:opensearch/domainSamlOptions:DomainSamlOptions example domain_name
+        $ pulumi import aws:opensearch/domainSamlOptions:DomainSamlOptions example domain_name
         ```
 
         :param str resource_name: The name of the resource.

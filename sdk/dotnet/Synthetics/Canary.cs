@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Synthetics
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -40,13 +41,14 @@ namespace Pulumi.Aws.Synthetics
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Synthetics Canaries using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:synthetics/canary:Canary some some-canary
+    /// $ pulumi import aws:synthetics/canary:Canary some some-canary
     /// ```
     /// </summary>
     [AwsResourceType("aws:synthetics/canary:Canary")]

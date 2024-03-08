@@ -231,6 +231,7 @@ class VoiceConnector(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -240,13 +241,14 @@ class VoiceConnector(pulumi.CustomResource):
             require_encryption=True,
             aws_region="us-east-1")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Configuration Recorder using the name. For example:
 
         ```sh
-         $ pulumi import aws:chime/voiceConnector:VoiceConnector test example
+        $ pulumi import aws:chime/voiceConnector:VoiceConnector test example
         ```
 
         :param str resource_name: The name of the resource.
@@ -269,6 +271,7 @@ class VoiceConnector(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -278,13 +281,14 @@ class VoiceConnector(pulumi.CustomResource):
             require_encryption=True,
             aws_region="us-east-1")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Configuration Recorder using the name. For example:
 
         ```sh
-         $ pulumi import aws:chime/voiceConnector:VoiceConnector test example
+        $ pulumi import aws:chime/voiceConnector:VoiceConnector test example
         ```
 
         :param str resource_name: The name of the resource.

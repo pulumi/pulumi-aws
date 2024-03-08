@@ -154,6 +154,7 @@ def get_virtual_router(mesh_name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -161,6 +162,7 @@ def get_virtual_router(mesh_name: Optional[str] = None,
     test = aws.appmesh.get_virtual_router(name="example-router-name",
         mesh_name="example-mesh-name")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str mesh_name: Name of the mesh in which the virtual router exists
@@ -199,6 +201,7 @@ def get_virtual_router_output(mesh_name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -206,6 +209,7 @@ def get_virtual_router_output(mesh_name: Optional[pulumi.Input[str]] = None,
     test = aws.appmesh.get_virtual_router(name="example-router-name",
         mesh_name="example-mesh-name")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str mesh_name: Name of the mesh in which the virtual router exists

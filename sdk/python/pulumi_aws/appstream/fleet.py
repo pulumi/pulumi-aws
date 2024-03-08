@@ -673,6 +673,7 @@ class Fleet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -697,13 +698,14 @@ class Fleet(pulumi.CustomResource):
                 "TagName": "tag-value",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_appstream_fleet` using the id. For example:
 
         ```sh
-         $ pulumi import aws:appstream/fleet:Fleet example fleetNameExample
+        $ pulumi import aws:appstream/fleet:Fleet example fleetNameExample
         ```
 
         :param str resource_name: The name of the resource.
@@ -739,6 +741,7 @@ class Fleet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -763,13 +766,14 @@ class Fleet(pulumi.CustomResource):
                 "TagName": "tag-value",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_appstream_fleet` using the id. For example:
 
         ```sh
-         $ pulumi import aws:appstream/fleet:Fleet example fleetNameExample
+        $ pulumi import aws:appstream/fleet:Fleet example fleetNameExample
         ```
 
         :param str resource_name: The name of the resource.

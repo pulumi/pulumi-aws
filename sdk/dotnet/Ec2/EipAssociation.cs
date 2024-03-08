@@ -20,6 +20,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -52,13 +53,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EIP Assocations using their association IDs. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/eipAssociation:EipAssociation test eipassoc-ab12c345
+    /// $ pulumi import aws:ec2/eipAssociation:EipAssociation test eipassoc-ab12c345
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/eipAssociation:EipAssociation")]

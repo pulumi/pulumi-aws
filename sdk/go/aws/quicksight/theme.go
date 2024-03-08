@@ -15,8 +15,10 @@ import (
 // Resource for managing a QuickSight Theme.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -63,15 +65,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import a QuickSight Theme using the AWS account ID and theme ID separated by a comma (`,`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:quicksight/theme:Theme example 123456789012,example-id
-//
+// $ pulumi import aws:quicksight/theme:Theme example 123456789012,example-id
 // ```
 type Theme struct {
 	pulumi.CustomResourceState

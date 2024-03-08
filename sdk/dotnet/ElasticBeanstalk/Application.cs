@@ -19,6 +19,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -41,13 +42,14 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Elastic Beanstalk Applications using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:elasticbeanstalk/application:Application tf_test tf-test-name
+    /// $ pulumi import aws:elasticbeanstalk/application:Application tf_test tf-test-name
     /// ```
     /// </summary>
     [AwsResourceType("aws:elasticbeanstalk/application:Application")]

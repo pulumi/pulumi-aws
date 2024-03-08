@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Associates a Direct Connect Connection with a LAG.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -62,6 +64,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:directconnect/connectionAssociation:ConnectionAssociation")

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -36,13 +37,14 @@ import * as utilities from "../utilities";
  *     policy: lbRo.then(lbRo => lbRo.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import IAM Users using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:iam/user:User lb loadbalancer
+ * $ pulumi import aws:iam/user:User lb loadbalancer
  * ```
  */
 export class User extends pulumi.CustomResource {

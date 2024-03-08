@@ -14,8 +14,10 @@ import (
 // Provides information for multiple EC2 Transit Gateway Route Table Associations, such as their identifiers.
 //
 // ## Example Usage
+//
 // ### By Transit Gateway Identifier
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetRouteTableAssociations(ctx *pulumi.Context, args *GetRouteTableAssociationsArgs, opts ...pulumi.InvokeOption) (*GetRouteTableAssociationsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRouteTableAssociationsResult

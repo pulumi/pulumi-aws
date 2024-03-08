@@ -18,6 +18,7 @@ import (
 //
 // # To create a basic traffic mirror filter
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,15 +45,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import traffic mirror filter using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/trafficMirrorFilter:TrafficMirrorFilter foo tmf-0fbb93ddf38198f64
-//
+// $ pulumi import aws:ec2/trafficMirrorFilter:TrafficMirrorFilter foo tmf-0fbb93ddf38198f64
 // ```
 type TrafficMirrorFilter struct {
 	pulumi.CustomResourceState

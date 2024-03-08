@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Provides information on a Service Catalog Constraint.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,6 +21,7 @@ import * as utilities from "../utilities";
  *     id: "cons-hrvy0335",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getConstraint(args: GetConstraintArgs, opts?: pulumi.InvokeOptions): Promise<GetConstraintResult> {
 
@@ -89,8 +92,10 @@ export interface GetConstraintResult {
  * Provides information on a Service Catalog Constraint.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -100,6 +105,7 @@ export interface GetConstraintResult {
  *     id: "cons-hrvy0335",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getConstraintOutput(args: GetConstraintOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConstraintResult> {
     return pulumi.output(args).apply((a: any) => getConstraint(a, opts))

@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -17,6 +18,7 @@ import * as utilities from "../utilities";
  *     userPoolId: myPool.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getUserPoolSigningCertificate(args: GetUserPoolSigningCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetUserPoolSigningCertificateResult> {
 
@@ -55,6 +57,7 @@ export interface GetUserPoolSigningCertificateResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -63,6 +66,7 @@ export interface GetUserPoolSigningCertificateResult {
  *     userPoolId: myPool.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getUserPoolSigningCertificateOutput(args: GetUserPoolSigningCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserPoolSigningCertificateResult> {
     return pulumi.output(args).apply((a: any) => getUserPoolSigningCertificate(a, opts))

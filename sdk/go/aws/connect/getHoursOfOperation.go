@@ -17,6 +17,7 @@ import (
 //
 // By `name`
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,9 +42,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // By `hoursOfOperationId`
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -68,6 +71,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupHoursOfOperation(ctx *pulumi.Context, args *LookupHoursOfOperationArgs, opts ...pulumi.InvokeOption) (*LookupHoursOfOperationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupHoursOfOperationResult

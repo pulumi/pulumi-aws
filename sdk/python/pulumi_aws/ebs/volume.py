@@ -479,6 +479,7 @@ class Volume(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -490,6 +491,7 @@ class Volume(pulumi.CustomResource):
                 "Name": "HelloWorld",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         > **NOTE:** At least one of `size` or `snapshot_id` is required when specifying an EBS volume
 
@@ -498,7 +500,7 @@ class Volume(pulumi.CustomResource):
         Using `pulumi import`, import EBS Volumes using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ebs/volume:Volume id vol-049df61146c4d7901
+        $ pulumi import aws:ebs/volume:Volume id vol-049df61146c4d7901
         ```
 
         :param str resource_name: The name of the resource.
@@ -529,6 +531,7 @@ class Volume(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -540,6 +543,7 @@ class Volume(pulumi.CustomResource):
                 "Name": "HelloWorld",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         > **NOTE:** At least one of `size` or `snapshot_id` is required when specifying an EBS volume
 
@@ -548,7 +552,7 @@ class Volume(pulumi.CustomResource):
         Using `pulumi import`, import EBS Volumes using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ebs/volume:Volume id vol-049df61146c4d7901
+        $ pulumi import aws:ebs/volume:Volume id vol-049df61146c4d7901
         ```
 
         :param str resource_name: The name of the resource.

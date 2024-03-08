@@ -270,6 +270,7 @@ class PlacementGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -278,13 +279,14 @@ class PlacementGroup(pulumi.CustomResource):
             name="hunky-dory-pg",
             strategy="cluster")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import placement groups using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/placementGroup:PlacementGroup prod_pg production-placement-group
+        $ pulumi import aws:ec2/placementGroup:PlacementGroup prod_pg production-placement-group
         ```
 
         :param str resource_name: The name of the resource.
@@ -310,6 +312,7 @@ class PlacementGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -318,13 +321,14 @@ class PlacementGroup(pulumi.CustomResource):
             name="hunky-dory-pg",
             strategy="cluster")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import placement groups using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/placementGroup:PlacementGroup prod_pg production-placement-group
+        $ pulumi import aws:ec2/placementGroup:PlacementGroup prod_pg production-placement-group
         ```
 
         :param str resource_name: The name of the resource.

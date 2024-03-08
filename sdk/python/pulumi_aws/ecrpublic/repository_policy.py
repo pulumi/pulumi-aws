@@ -122,6 +122,7 @@ class RepositoryPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -155,13 +156,14 @@ class RepositoryPolicy(pulumi.CustomResource):
             repository_name=example_repository.repository_name,
             policy=example.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ECR Public Repository Policy using the repository name. For example:
 
         ```sh
-         $ pulumi import aws:ecrpublic/repositoryPolicy:RepositoryPolicy example example
+        $ pulumi import aws:ecrpublic/repositoryPolicy:RepositoryPolicy example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -184,6 +186,7 @@ class RepositoryPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -217,13 +220,14 @@ class RepositoryPolicy(pulumi.CustomResource):
             repository_name=example_repository.repository_name,
             policy=example.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ECR Public Repository Policy using the repository name. For example:
 
         ```sh
-         $ pulumi import aws:ecrpublic/repositoryPolicy:RepositoryPolicy example example
+        $ pulumi import aws:ecrpublic/repositoryPolicy:RepositoryPolicy example example
         ```
 
         :param str resource_name: The name of the resource.

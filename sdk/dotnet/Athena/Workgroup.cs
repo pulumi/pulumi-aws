@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Athena
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,13 +44,14 @@ namespace Pulumi.Aws.Athena
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Athena Workgroups using their name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:athena/workgroup:Workgroup example example
+    /// $ pulumi import aws:athena/workgroup:Workgroup example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:athena/workgroup:Workgroup")]

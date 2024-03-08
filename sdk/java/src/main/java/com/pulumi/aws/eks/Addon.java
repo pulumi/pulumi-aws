@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Manages an EKS add-on.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,9 +51,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Example Update add-on usage with resolve_conflicts_on_update and PRESERVE
  * 
  * `resolve_conflicts_on_update` with `PRESERVE` can be used to retain the config changes applied to the add-on with kubectl while upgrading to a newer version of the add-on.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -83,9 +89,71 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Example add-on usage with custom configuration_values
+ * 
+ * Custom add-on configuration can be passed using `configuration_values` as a single JSON string while creating or updating the add-on.
+ * 
+ * &gt; **Note:** `configuration_values` is a single JSON string should match the valid JSON schema for each add-on with specific version.
+ * 
+ * To find the correct JSON schema for each add-on can be extracted using [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html) call.
+ * This below is an example for extracting the `configuration_values` schema for `coredns`.
+ * 
+ * Example to create a `coredns` managed addon with custom `configuration_values`.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.eks.Addon;
+ * import com.pulumi.aws.eks.AddonArgs;
+ * import static com.pulumi.codegen.internal.Serialization.*;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Addon(&#34;example&#34;, AddonArgs.builder()        
+ *             .clusterName(&#34;mycluster&#34;)
+ *             .addonName(&#34;coredns&#34;)
+ *             .addonVersion(&#34;v1.10.1-eksbuild.1&#34;)
+ *             .resolveConflictsOnCreate(&#34;OVERWRITE&#34;)
+ *             .configurationValues(serializeJson(
+ *                 jsonObject(
+ *                     jsonProperty(&#34;replicaCount&#34;, 4),
+ *                     jsonProperty(&#34;resources&#34;, jsonObject(
+ *                         jsonProperty(&#34;limits&#34;, jsonObject(
+ *                             jsonProperty(&#34;cpu&#34;, &#34;100m&#34;),
+ *                             jsonProperty(&#34;memory&#34;, &#34;150Mi&#34;)
+ *                         )),
+ *                         jsonProperty(&#34;requests&#34;, jsonObject(
+ *                             jsonProperty(&#34;cpu&#34;, &#34;100m&#34;),
+ *                             jsonProperty(&#34;memory&#34;, &#34;150Mi&#34;)
+ *                         ))
+ *                     ))
+ *                 )))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Example IAM Role for EKS Addon &#34;vpc-cni&#34; with AWS managed policy
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -157,13 +225,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import EKS add-on using the `cluster_name` and `addon_name` separated by a colon (`:`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:eks/addon:Addon my_eks_addon my_cluster_name:my_addon_name
+ * $ pulumi import aws:eks/addon:Addon my_eks_addon my_cluster_name:my_addon_name
  * ```
  * 
  */

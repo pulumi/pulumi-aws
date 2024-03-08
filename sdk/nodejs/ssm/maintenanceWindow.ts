@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,15 +21,14 @@ import * as utilities from "../utilities";
  *     cutoff: 1,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * Using `pulumi import`, import SSM
- *
- * Maintenance Windows using the maintenance window `id`. For example:
+ * Using `pulumi import`, import SSM  Maintenance Windows using the maintenance window `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ssm/maintenanceWindow:MaintenanceWindow imported-window mw-0123456789
+ * $ pulumi import aws:ssm/maintenanceWindow:MaintenanceWindow imported-window mw-0123456789
  * ```
  */
 export class MaintenanceWindow extends pulumi.CustomResource {

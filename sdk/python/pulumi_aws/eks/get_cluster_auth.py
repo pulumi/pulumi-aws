@@ -77,6 +77,7 @@ def get_cluster_auth(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -84,6 +85,7 @@ def get_cluster_auth(name: Optional[str] = None,
     example = aws.eks.get_cluster(name="example")
     example_get_cluster_auth = aws.eks.get_cluster_auth(name="example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the cluster
@@ -112,6 +114,7 @@ def get_cluster_auth_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -119,6 +122,7 @@ def get_cluster_auth_output(name: Optional[pulumi.Input[str]] = None,
     example = aws.eks.get_cluster(name="example")
     example_get_cluster_auth = aws.eks.get_cluster_auth(name="example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the cluster

@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -18,10 +19,13 @@ import * as utilities from "../utilities";
  *     addonName: "vpc-cni",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Example Update add-on usage with resolveConflictsOnUpdate and PRESERVE
  *
  * `resolveConflictsOnUpdate` with `PRESERVE` can be used to retain the config changes applied to the add-on with kubectl while upgrading to a newer version of the add-on.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -33,10 +37,49 @@ import * as utilities from "../utilities";
  *     resolveConflictsOnUpdate: "PRESERVE",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Example add-on usage with custom configurationValues
+ *
+ * Custom add-on configuration can be passed using `configurationValues` as a single JSON string while creating or updating the add-on.
+ *
+ * > **Note:** `configurationValues` is a single JSON string should match the valid JSON schema for each add-on with specific version.
+ *
+ * To find the correct JSON schema for each add-on can be extracted using [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html) call.
+ * This below is an example for extracting the `configurationValues` schema for `coredns`.
+ *
+ * Example to create a `coredns` managed addon with custom `configurationValues`.
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.eks.Addon("example", {
+ *     clusterName: "mycluster",
+ *     addonName: "coredns",
+ *     addonVersion: "v1.10.1-eksbuild.1",
+ *     resolveConflictsOnCreate: "OVERWRITE",
+ *     configurationValues: JSON.stringify({
+ *         replicaCount: 4,
+ *         resources: {
+ *             limits: {
+ *                 cpu: "100m",
+ *                 memory: "150Mi",
+ *             },
+ *             requests: {
+ *                 cpu: "100m",
+ *                 memory: "150Mi",
+ *             },
+ *         },
+ *     }),
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Example IAM Role for EKS Addon "vpc-cni" with AWS managed policy
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -80,13 +123,14 @@ import * as utilities from "../utilities";
  *     role: exampleRole.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import EKS add-on using the `cluster_name` and `addon_name` separated by a colon (`:`). For example:
  *
  * ```sh
- *  $ pulumi import aws:eks/addon:Addon my_eks_addon my_cluster_name:my_addon_name
+ * $ pulumi import aws:eks/addon:Addon my_eks_addon my_cluster_name:my_addon_name
  * ```
  */
 export class Addon extends pulumi.CustomResource {

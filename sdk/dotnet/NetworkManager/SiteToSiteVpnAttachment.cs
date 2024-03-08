@@ -13,8 +13,10 @@ namespace Pulumi.Aws.NetworkManager
     /// Resource for managing an AWS Network Manager SiteToSiteAttachment.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,148 +33,14 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// });
     /// ```
-    /// ### Full Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using System.Text.Json;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Awscc = Pulumi.Awscc;
-    /// 
-    /// 	
-    /// object NotImplemented(string errorMessage) 
-    /// {
-    ///     throw new System.NotImplementedException(errorMessage);
-    /// }
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var testCustomerGateway = new Aws.Ec2.CustomerGateway("test", new()
-    ///     {
-    ///         BgpAsn = "65000",
-    ///         IpAddress = "172.0.0.1",
-    ///         Type = "ipsec.1",
-    ///     });
-    /// 
-    ///     var testVpnConnection = new Aws.Ec2.VpnConnection("test", new()
-    ///     {
-    ///         CustomerGatewayId = testCustomerGateway.Id,
-    ///         Type = "ipsec.1",
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "test" },
-    ///         },
-    ///     });
-    /// 
-    ///     var testGlobalNetwork = new Aws.NetworkManager.GlobalNetwork("test", new()
-    ///     {
-    ///         Tags = 
-    ///         {
-    ///             { "Name", "test" },
-    ///         },
-    ///     });
-    /// 
-    ///     var testNetworkmanagerCoreNetwork = new Awscc.Index.NetworkmanagerCoreNetwork("test", new()
-    ///     {
-    ///         GlobalNetworkId = testGlobalNetwork.Id,
-    ///         PolicyDocument = JsonSerializer.Serialize(NotImplemented("jsondecode(data.aws_networkmanager_core_network_policy_document.test.json)")),
-    ///     });
-    /// 
-    ///     var test = Aws.NetworkManager.GetCoreNetworkPolicyDocument.Invoke(new()
-    ///     {
-    ///         CoreNetworkConfigurations = new[]
-    ///         {
-    ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationInputArgs
-    ///             {
-    ///                 VpnEcmpSupport = false,
-    ///                 AsnRanges = new[]
-    ///                 {
-    ///                     "64512-64555",
-    ///                 },
-    ///                 EdgeLocations = new[]
-    ///                 {
-    ///                     new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationInputArgs
-    ///                     {
-    ///                         Location = current.Name,
-    ///                         Asn = "64512",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///         Segments = new[]
-    ///         {
-    ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentSegmentInputArgs
-    ///             {
-    ///                 Name = "shared",
-    ///                 Description = "SegmentForSharedServices",
-    ///                 RequireAttachmentAcceptance = true,
-    ///             },
-    ///         },
-    ///         SegmentActions = new[]
-    ///         {
-    ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentSegmentActionInputArgs
-    ///             {
-    ///                 Action = "share",
-    ///                 Mode = "attachment-route",
-    ///                 Segment = "shared",
-    ///                 ShareWiths = new[]
-    ///                 {
-    ///                     "*",
-    ///                 },
-    ///             },
-    ///         },
-    ///         AttachmentPolicies = new[]
-    ///         {
-    ///             new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyInputArgs
-    ///             {
-    ///                 RuleNumber = 1,
-    ///                 ConditionLogic = "or",
-    ///                 Conditions = new[]
-    ///                 {
-    ///                     new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyConditionInputArgs
-    ///                     {
-    ///                         Type = "tag-value",
-    ///                         Operator = "equals",
-    ///                         Key = "segment",
-    ///                         Value = "shared",
-    ///                     },
-    ///                 },
-    ///                 Action = new Aws.NetworkManager.Inputs.GetCoreNetworkPolicyDocumentAttachmentPolicyActionInputArgs
-    ///                 {
-    ///                     AssociationMethod = "constant",
-    ///                     Segment = "shared",
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var testSiteToSiteVpnAttachment = new Aws.NetworkManager.SiteToSiteVpnAttachment("test", new()
-    ///     {
-    ///         CoreNetworkId = testNetworkmanagerCoreNetwork.Id,
-    ///         VpnConnectionArn = testVpnConnection.Arn,
-    ///         Tags = 
-    ///         {
-    ///             { "segment", "shared" },
-    ///         },
-    ///     });
-    /// 
-    ///     var testAttachmentAccepter = new Aws.NetworkManager.AttachmentAccepter("test", new()
-    ///     {
-    ///         AttachmentId = testSiteToSiteVpnAttachment.Id,
-    ///         AttachmentType = testSiteToSiteVpnAttachment.AttachmentType,
-    ///     });
-    /// 
-    /// });
-    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_networkmanager_site_to_site_vpn_attachment` using the attachment ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment example attachment-0f8fa60d2238d1bd8
+    /// $ pulumi import aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment example attachment-0f8fa60d2238d1bd8
     /// ```
     /// </summary>
     [AwsResourceType("aws:networkmanager/siteToSiteVpnAttachment:SiteToSiteVpnAttachment")]

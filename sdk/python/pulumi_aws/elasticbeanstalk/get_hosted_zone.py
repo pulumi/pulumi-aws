@@ -63,12 +63,14 @@ def get_hosted_zone(region: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     current = aws.elasticbeanstalk.get_hosted_zone()
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str region: Region you'd like the zone for. By default, fetches the current region.
@@ -91,12 +93,14 @@ def get_hosted_zone_output(region: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     current = aws.elasticbeanstalk.get_hosted_zone()
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str region: Region you'd like the zone for. By default, fetches the current region.

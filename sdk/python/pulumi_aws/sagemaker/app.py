@@ -305,8 +305,10 @@ class App(pulumi.CustomResource):
         Provides a SageMaker App resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -317,13 +319,14 @@ class App(pulumi.CustomResource):
             app_name="example",
             app_type="JupyterServer")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker Apps using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/app:App example arn:aws:sagemaker:us-west-2:012345678912:app/domain-id/user-profile-name/app-type/app-name
+        $ pulumi import aws:sagemaker/app:App example arn:aws:sagemaker:us-west-2:012345678912:app/domain-id/user-profile-name/app-type/app-name
         ```
 
         :param str resource_name: The name of the resource.
@@ -346,8 +349,10 @@ class App(pulumi.CustomResource):
         Provides a SageMaker App resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -358,13 +363,14 @@ class App(pulumi.CustomResource):
             app_name="example",
             app_type="JupyterServer")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker Apps using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/app:App example arn:aws:sagemaker:us-west-2:012345678912:app/domain-id/user-profile-name/app-type/app-name
+        $ pulumi import aws:sagemaker/app:App example arn:aws:sagemaker:us-west-2:012345678912:app/domain-id/user-profile-name/app-type/app-name
         ```
 
         :param str resource_name: The name of the resource.

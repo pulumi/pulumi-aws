@@ -14,6 +14,7 @@ namespace Pulumi.Aws.AppStream
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -45,13 +46,14 @@ namespace Pulumi.Aws.AppStream
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_appstream_image_builder` using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:appstream/imageBuilder:ImageBuilder example imageBuilderExample
+    /// $ pulumi import aws:appstream/imageBuilder:ImageBuilder example imageBuilderExample
     /// ```
     /// </summary>
     [AwsResourceType("aws:appstream/imageBuilder:ImageBuilder")]

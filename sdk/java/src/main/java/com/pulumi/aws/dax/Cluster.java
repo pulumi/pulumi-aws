@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * Provides a DAX Cluster resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -54,13 +56,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import DAX Clusters using the `cluster_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:dax/cluster:Cluster my_cluster my_cluster
+ * $ pulumi import aws:dax/cluster:Cluster my_cluster my_cluster
  * ```
  * 
  */

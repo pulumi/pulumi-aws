@@ -11,19 +11,21 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.keyspaces.Keyspace("example", {name: "my_keyspace"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import a keyspace using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:keyspaces/keyspace:Keyspace example my_keyspace
+ * $ pulumi import aws:keyspaces/keyspace:Keyspace example my_keyspace
  * ```
  */
 export class Keyspace extends pulumi.CustomResource {

@@ -15,8 +15,10 @@ import (
 // Provides a Route53 Resolver rule.
 //
 // ## Example Usage
+//
 // ### System rule
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,8 +43,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Forward rule
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -77,15 +82,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Route53 Resolver rules using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:route53/resolverRule:ResolverRule sys rslvr-rr-0123456789abcdef0
-//
+// $ pulumi import aws:route53/resolverRule:ResolverRule sys rslvr-rr-0123456789abcdef0
 // ```
 type ResolverRule struct {
 	pulumi.CustomResourceState

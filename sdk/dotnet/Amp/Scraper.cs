@@ -12,10 +12,11 @@ namespace Pulumi.Aws.Amp
     /// <summary>
     /// ## Import
     /// 
-    /// Using `pulumi import`, import the Managed Scraper using its identifier. For example:
+    /// Using `pulumi import`, import the Managed Scraper using its identifier.
+    /// For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:amp/scraper:Scraper example s-0123abc-0000-0123-a000-000000000000
+    /// $ pulumi import aws:amp/scraper:Scraper example s-0123abc-0000-0123-a000-000000000000
     /// ```
     /// </summary>
     [AwsResourceType("aws:amp/scraper:Scraper")]

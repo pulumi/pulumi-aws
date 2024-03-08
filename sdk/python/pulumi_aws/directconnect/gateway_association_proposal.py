@@ -199,6 +199,7 @@ class GatewayAssociationProposal(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -208,6 +209,7 @@ class GatewayAssociationProposal(pulumi.CustomResource):
             dx_gateway_owner_account_id=example_aws_dx_gateway["ownerAccountId"],
             associated_gateway_id=example_aws_vpn_gateway["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -218,14 +220,15 @@ class GatewayAssociationProposal(pulumi.CustomResource):
         Using a proposal ID:
 
         ```sh
-         $ pulumi import aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal example ac90e981-b718-4364-872d-65478c84fafe
+        $ pulumi import aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal example ac90e981-b718-4364-872d-65478c84fafe
         ```
-         Using a proposal ID, Direct Connect Gateway ID and associated gateway ID separated by `/`:
+        Using a proposal ID, Direct Connect Gateway ID and associated gateway ID separated by `/`:
 
         ```sh
-         $ pulumi import aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal example ac90e981-b718-4364-872d-65478c84fafe/abcd1234-dcba-5678-be23-cdef9876ab45/vgw-12345678
+        $ pulumi import aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal example ac90e981-b718-4364-872d-65478c84fafe/abcd1234-dcba-5678-be23-cdef9876ab45/vgw-12345678
         ```
-         The latter case is useful when a previous proposal has been accepted and deleted by AWS. The `aws_dx_gateway_association_proposal` resource will then represent a pseudo-proposal for the same Direct Connect Gateway and associated gateway. If no previous proposal is available, use a tool like [`uuidgen`](http://manpages.ubuntu.com/manpages/bionic/man1/uuidgen.1.html) to generate a new random pseudo-proposal ID.
+        The latter case is useful when a previous proposal has been accepted and deleted by AWS.
+        The `aws_dx_gateway_association_proposal` resource will then represent a pseudo-proposal for the same Direct Connect Gateway and associated gateway. If no previous proposal is available, use a tool like [`uuidgen`](http://manpages.ubuntu.com/manpages/bionic/man1/uuidgen.1.html) to generate a new random pseudo-proposal ID.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -245,6 +248,7 @@ class GatewayAssociationProposal(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -254,6 +258,7 @@ class GatewayAssociationProposal(pulumi.CustomResource):
             dx_gateway_owner_account_id=example_aws_dx_gateway["ownerAccountId"],
             associated_gateway_id=example_aws_vpn_gateway["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -264,14 +269,15 @@ class GatewayAssociationProposal(pulumi.CustomResource):
         Using a proposal ID:
 
         ```sh
-         $ pulumi import aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal example ac90e981-b718-4364-872d-65478c84fafe
+        $ pulumi import aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal example ac90e981-b718-4364-872d-65478c84fafe
         ```
-         Using a proposal ID, Direct Connect Gateway ID and associated gateway ID separated by `/`:
+        Using a proposal ID, Direct Connect Gateway ID and associated gateway ID separated by `/`:
 
         ```sh
-         $ pulumi import aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal example ac90e981-b718-4364-872d-65478c84fafe/abcd1234-dcba-5678-be23-cdef9876ab45/vgw-12345678
+        $ pulumi import aws:directconnect/gatewayAssociationProposal:GatewayAssociationProposal example ac90e981-b718-4364-872d-65478c84fafe/abcd1234-dcba-5678-be23-cdef9876ab45/vgw-12345678
         ```
-         The latter case is useful when a previous proposal has been accepted and deleted by AWS. The `aws_dx_gateway_association_proposal` resource will then represent a pseudo-proposal for the same Direct Connect Gateway and associated gateway. If no previous proposal is available, use a tool like [`uuidgen`](http://manpages.ubuntu.com/manpages/bionic/man1/uuidgen.1.html) to generate a new random pseudo-proposal ID.
+        The latter case is useful when a previous proposal has been accepted and deleted by AWS.
+        The `aws_dx_gateway_association_proposal` resource will then represent a pseudo-proposal for the same Direct Connect Gateway and associated gateway. If no previous proposal is available, use a tool like [`uuidgen`](http://manpages.ubuntu.com/manpages/bionic/man1/uuidgen.1.html) to generate a new random pseudo-proposal ID.
 
         :param str resource_name: The name of the resource.
         :param GatewayAssociationProposalArgs args: The arguments to use to populate this resource's properties.

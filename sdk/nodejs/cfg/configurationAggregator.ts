@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Manages an AWS Config Configuration Aggregator
  *
  * ## Example Usage
+ *
  * ### Account Based Aggregation
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -25,8 +27,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Organization Based Aggregation
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -57,13 +62,14 @@ import * as utilities from "../utilities";
  *     policyArn: "arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Configuration Aggregators using the name. For example:
  *
  * ```sh
- *  $ pulumi import aws:cfg/configurationAggregator:ConfigurationAggregator example foo
+ * $ pulumi import aws:cfg/configurationAggregator:ConfigurationAggregator example foo
  * ```
  */
 export class ConfigurationAggregator extends pulumi.CustomResource {

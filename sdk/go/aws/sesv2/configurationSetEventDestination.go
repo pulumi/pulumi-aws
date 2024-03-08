@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS SESv2 (Simple Email V2) Configuration Set Event Destination.
 //
 // ## Example Usage
+//
 // ### Cloud Watch Destination
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -62,8 +64,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Kinesis Firehose Destination
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -104,8 +109,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Pinpoint Destination
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -145,8 +153,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### SNS Destination
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -186,15 +197,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SESv2 (Simple Email V2) Configuration Set Event Destination using the `id` (`configuration_set_name|event_destination_name`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sesv2/configurationSetEventDestination:ConfigurationSetEventDestination example example_configuration_set|example_event_destination
-//
+// $ pulumi import aws:sesv2/configurationSetEventDestination:ConfigurationSetEventDestination example example_configuration_set|example_event_destination
 // ```
 type ConfigurationSetEventDestination struct {
 	pulumi.CustomResourceState

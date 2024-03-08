@@ -216,16 +216,21 @@ class Analyzer(pulumi.CustomResource):
         Manages an Access Analyzer Analyzer. More information can be found in the [Access Analyzer User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html).
 
         ## Example Usage
+
         ### Account Analyzer
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.accessanalyzer.Analyzer("example", analyzer_name="example")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Organization Analyzer
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -235,13 +240,14 @@ class Analyzer(pulumi.CustomResource):
             analyzer_name="example",
             type="ORGANIZATION")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Access Analyzer Analyzers using the `analyzer_name`. For example:
 
         ```sh
-         $ pulumi import aws:accessanalyzer/analyzer:Analyzer example example
+        $ pulumi import aws:accessanalyzer/analyzer:Analyzer example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -263,16 +269,21 @@ class Analyzer(pulumi.CustomResource):
         Manages an Access Analyzer Analyzer. More information can be found in the [Access Analyzer User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html).
 
         ## Example Usage
+
         ### Account Analyzer
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.accessanalyzer.Analyzer("example", analyzer_name="example")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Organization Analyzer
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -282,13 +293,14 @@ class Analyzer(pulumi.CustomResource):
             analyzer_name="example",
             type="ORGANIZATION")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Access Analyzer Analyzers using the `analyzer_name`. For example:
 
         ```sh
-         $ pulumi import aws:accessanalyzer/analyzer:Analyzer example example
+        $ pulumi import aws:accessanalyzer/analyzer:Analyzer example example
         ```
 
         :param str resource_name: The name of the resource.

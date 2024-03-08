@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Eks
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,10 +31,13 @@ namespace Pulumi.Aws.Eks
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Example Update add-on usage with resolve_conflicts_on_update and PRESERVE
     /// 
     /// `resolve_conflicts_on_update` with `PRESERVE` can be used to retain the config changes applied to the add-on with kubectl while upgrading to a newer version of the add-on.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -52,10 +56,61 @@ namespace Pulumi.Aws.Eks
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Example add-on usage with custom configuration_values
+    /// 
+    /// Custom add-on configuration can be passed using `configuration_values` as a single JSON string while creating or updating the add-on.
+    /// 
+    /// &gt; **Note:** `configuration_values` is a single JSON string should match the valid JSON schema for each add-on with specific version.
+    /// 
+    /// To find the correct JSON schema for each add-on can be extracted using [describe-addon-configuration](https://docs.aws.amazon.com/cli/latest/reference/eks/describe-addon-configuration.html) call.
+    /// This below is an example for extracting the `configuration_values` schema for `coredns`.
+    /// 
+    /// Example to create a `coredns` managed addon with custom `configuration_values`.
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using System.Text.Json;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Eks.Addon("example", new()
+    ///     {
+    ///         ClusterName = "mycluster",
+    ///         AddonName = "coredns",
+    ///         AddonVersion = "v1.10.1-eksbuild.1",
+    ///         ResolveConflictsOnCreate = "OVERWRITE",
+    ///         ConfigurationValues = JsonSerializer.Serialize(new Dictionary&lt;string, object?&gt;
+    ///         {
+    ///             ["replicaCount"] = 4,
+    ///             ["resources"] = new Dictionary&lt;string, object?&gt;
+    ///             {
+    ///                 ["limits"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["cpu"] = "100m",
+    ///                     ["memory"] = "150Mi",
+    ///                 },
+    ///                 ["requests"] = new Dictionary&lt;string, object?&gt;
+    ///                 {
+    ///                     ["cpu"] = "100m",
+    ///                     ["memory"] = "150Mi",
+    ///                 },
+    ///             },
+    ///         }),
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Example IAM Role for EKS Addon "vpc-cni" with AWS managed policy
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -143,13 +198,14 @@ namespace Pulumi.Aws.Eks
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EKS add-on using the `cluster_name` and `addon_name` separated by a colon (`:`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:eks/addon:Addon my_eks_addon my_cluster_name:my_addon_name
+    /// $ pulumi import aws:eks/addon:Addon my_eks_addon my_cluster_name:my_addon_name
     /// ```
     /// </summary>
     [AwsResourceType("aws:eks/addon:Addon")]

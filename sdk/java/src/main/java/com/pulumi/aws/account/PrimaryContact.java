@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Manages the specified primary contact information associated with an AWS Account.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -55,13 +57,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import the Primary Contact using the `account_id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:account/primaryContact:PrimaryContact test 1234567890
+ * $ pulumi import aws:account/primaryContact:PrimaryContact test 1234567890
  * ```
  * 
  */

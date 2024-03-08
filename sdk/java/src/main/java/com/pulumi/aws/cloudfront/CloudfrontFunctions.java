@@ -42,7 +42,10 @@ public final class CloudfrontFunctions {
      * Use this data source to retrieve information about a CloudFront cache policy.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -71,9 +74,13 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### AWS-Managed Policies
      * 
      * AWS managed cache policy names are prefixed with `Managed-`:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -102,6 +109,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCachePolicyResult> getCachePolicy() {
@@ -111,7 +119,10 @@ public final class CloudfrontFunctions {
      * Use this data source to retrieve information about a CloudFront cache policy.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -140,9 +151,13 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### AWS-Managed Policies
      * 
      * AWS managed cache policy names are prefixed with `Managed-`:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -171,6 +186,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCachePolicyResult> getCachePolicyPlain() {
@@ -180,7 +196,10 @@ public final class CloudfrontFunctions {
      * Use this data source to retrieve information about a CloudFront cache policy.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -209,9 +228,13 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### AWS-Managed Policies
      * 
      * AWS managed cache policy names are prefixed with `Managed-`:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -240,6 +263,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCachePolicyResult> getCachePolicy(GetCachePolicyArgs args) {
@@ -249,7 +273,10 @@ public final class CloudfrontFunctions {
      * Use this data source to retrieve information about a CloudFront cache policy.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -278,9 +305,13 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### AWS-Managed Policies
      * 
      * AWS managed cache policy names are prefixed with `Managed-`:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -309,6 +340,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCachePolicyResult> getCachePolicyPlain(GetCachePolicyPlainArgs args) {
@@ -318,7 +350,10 @@ public final class CloudfrontFunctions {
      * Use this data source to retrieve information about a CloudFront cache policy.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -347,9 +382,13 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### AWS-Managed Policies
      * 
      * AWS managed cache policy names are prefixed with `Managed-`:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -378,6 +417,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCachePolicyResult> getCachePolicy(GetCachePolicyArgs args, InvokeOptions options) {
@@ -387,7 +427,10 @@ public final class CloudfrontFunctions {
      * Use this data source to retrieve information about a CloudFront cache policy.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -416,9 +459,13 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### AWS-Managed Policies
      * 
      * AWS managed cache policy names are prefixed with `Managed-`:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -447,6 +494,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCachePolicyResult> getCachePolicyPlain(GetCachePolicyPlainArgs args, InvokeOptions options) {
@@ -456,6 +504,8 @@ public final class CloudfrontFunctions {
      * Use this data source to retrieve information about a CloudFront distribution.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -484,6 +534,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDistributionResult> getDistribution(GetDistributionArgs args) {
@@ -493,6 +544,8 @@ public final class CloudfrontFunctions {
      * Use this data source to retrieve information about a CloudFront distribution.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -521,6 +574,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDistributionResult> getDistributionPlain(GetDistributionPlainArgs args) {
@@ -530,6 +584,8 @@ public final class CloudfrontFunctions {
      * Use this data source to retrieve information about a CloudFront distribution.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -558,6 +614,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDistributionResult> getDistribution(GetDistributionArgs args, InvokeOptions options) {
@@ -567,6 +624,8 @@ public final class CloudfrontFunctions {
      * Use this data source to retrieve information about a CloudFront distribution.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -595,6 +654,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDistributionResult> getDistributionPlain(GetDistributionPlainArgs args, InvokeOptions options) {
@@ -604,6 +664,8 @@ public final class CloudfrontFunctions {
      * Provides information about a CloudFront Function.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -634,6 +696,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFunctionResult> getFunction(GetFunctionArgs args) {
@@ -643,6 +706,8 @@ public final class CloudfrontFunctions {
      * Provides information about a CloudFront Function.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -673,6 +738,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFunctionResult> getFunctionPlain(GetFunctionPlainArgs args) {
@@ -682,6 +748,8 @@ public final class CloudfrontFunctions {
      * Provides information about a CloudFront Function.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -712,6 +780,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFunctionResult> getFunction(GetFunctionArgs args, InvokeOptions options) {
@@ -721,6 +790,8 @@ public final class CloudfrontFunctions {
      * Provides information about a CloudFront Function.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -751,6 +822,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFunctionResult> getFunctionPlain(GetFunctionPlainArgs args, InvokeOptions options) {
@@ -761,6 +833,8 @@ public final class CloudfrontFunctions {
      * See the [Amazon CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html) for more information.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -809,6 +883,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLogDeliveryCanonicalUserIdResult> getLogDeliveryCanonicalUserId() {
@@ -819,6 +894,8 @@ public final class CloudfrontFunctions {
      * See the [Amazon CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html) for more information.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -867,6 +944,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLogDeliveryCanonicalUserIdResult> getLogDeliveryCanonicalUserIdPlain() {
@@ -877,6 +955,8 @@ public final class CloudfrontFunctions {
      * See the [Amazon CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html) for more information.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -925,6 +1005,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLogDeliveryCanonicalUserIdResult> getLogDeliveryCanonicalUserId(GetLogDeliveryCanonicalUserIdArgs args) {
@@ -935,6 +1016,8 @@ public final class CloudfrontFunctions {
      * See the [Amazon CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html) for more information.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -983,6 +1066,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLogDeliveryCanonicalUserIdResult> getLogDeliveryCanonicalUserIdPlain(GetLogDeliveryCanonicalUserIdPlainArgs args) {
@@ -993,6 +1077,8 @@ public final class CloudfrontFunctions {
      * See the [Amazon CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html) for more information.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1041,6 +1127,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLogDeliveryCanonicalUserIdResult> getLogDeliveryCanonicalUserId(GetLogDeliveryCanonicalUserIdArgs args, InvokeOptions options) {
@@ -1051,6 +1138,8 @@ public final class CloudfrontFunctions {
      * See the [Amazon CloudFront Developer Guide](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/AccessLogs.html) for more information.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1099,6 +1188,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLogDeliveryCanonicalUserIdResult> getLogDeliveryCanonicalUserIdPlain(GetLogDeliveryCanonicalUserIdPlainArgs args, InvokeOptions options) {
@@ -1108,7 +1198,10 @@ public final class CloudfrontFunctions {
      * Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.
      * 
      * ## Example Usage
+     * 
      * ### All origin access identities in the account
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1135,9 +1228,13 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Origin access identities filtered by comment/name
      * 
      * Origin access identities whose comments are `example-comment1`, `example-comment2`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1168,6 +1265,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOriginAccessIdentitiesResult> getOriginAccessIdentities() {
@@ -1177,7 +1275,10 @@ public final class CloudfrontFunctions {
      * Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.
      * 
      * ## Example Usage
+     * 
      * ### All origin access identities in the account
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1204,9 +1305,13 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Origin access identities filtered by comment/name
      * 
      * Origin access identities whose comments are `example-comment1`, `example-comment2`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1237,6 +1342,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOriginAccessIdentitiesResult> getOriginAccessIdentitiesPlain() {
@@ -1246,7 +1352,10 @@ public final class CloudfrontFunctions {
      * Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.
      * 
      * ## Example Usage
+     * 
      * ### All origin access identities in the account
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1273,9 +1382,13 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Origin access identities filtered by comment/name
      * 
      * Origin access identities whose comments are `example-comment1`, `example-comment2`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1306,6 +1419,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOriginAccessIdentitiesResult> getOriginAccessIdentities(GetOriginAccessIdentitiesArgs args) {
@@ -1315,7 +1429,10 @@ public final class CloudfrontFunctions {
      * Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.
      * 
      * ## Example Usage
+     * 
      * ### All origin access identities in the account
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1342,9 +1459,13 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Origin access identities filtered by comment/name
      * 
      * Origin access identities whose comments are `example-comment1`, `example-comment2`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1375,6 +1496,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOriginAccessIdentitiesResult> getOriginAccessIdentitiesPlain(GetOriginAccessIdentitiesPlainArgs args) {
@@ -1384,7 +1506,10 @@ public final class CloudfrontFunctions {
      * Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.
      * 
      * ## Example Usage
+     * 
      * ### All origin access identities in the account
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1411,9 +1536,13 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Origin access identities filtered by comment/name
      * 
      * Origin access identities whose comments are `example-comment1`, `example-comment2`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1444,6 +1573,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOriginAccessIdentitiesResult> getOriginAccessIdentities(GetOriginAccessIdentitiesArgs args, InvokeOptions options) {
@@ -1453,7 +1583,10 @@ public final class CloudfrontFunctions {
      * Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.
      * 
      * ## Example Usage
+     * 
      * ### All origin access identities in the account
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1480,9 +1613,13 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Origin access identities filtered by comment/name
      * 
      * Origin access identities whose comments are `example-comment1`, `example-comment2`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1513,6 +1650,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOriginAccessIdentitiesResult> getOriginAccessIdentitiesPlain(GetOriginAccessIdentitiesPlainArgs args, InvokeOptions options) {
@@ -1524,6 +1662,8 @@ public final class CloudfrontFunctions {
      * ## Example Usage
      * 
      * The following example below creates a CloudFront origin access identity.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1552,6 +1692,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOriginAccessIdentityResult> getOriginAccessIdentity(GetOriginAccessIdentityArgs args) {
@@ -1563,6 +1704,8 @@ public final class CloudfrontFunctions {
      * ## Example Usage
      * 
      * The following example below creates a CloudFront origin access identity.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1591,6 +1734,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOriginAccessIdentityResult> getOriginAccessIdentityPlain(GetOriginAccessIdentityPlainArgs args) {
@@ -1602,6 +1746,8 @@ public final class CloudfrontFunctions {
      * ## Example Usage
      * 
      * The following example below creates a CloudFront origin access identity.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1630,6 +1776,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOriginAccessIdentityResult> getOriginAccessIdentity(GetOriginAccessIdentityArgs args, InvokeOptions options) {
@@ -1641,6 +1788,8 @@ public final class CloudfrontFunctions {
      * ## Example Usage
      * 
      * The following example below creates a CloudFront origin access identity.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1669,6 +1818,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOriginAccessIdentityResult> getOriginAccessIdentityPlain(GetOriginAccessIdentityPlainArgs args, InvokeOptions options) {
@@ -1676,7 +1826,10 @@ public final class CloudfrontFunctions {
     }
     /**
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1705,9 +1858,13 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### AWS-Managed Policies
      * 
      * AWS managed origin request policy names are prefixed with `Managed-`:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1736,6 +1893,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOriginRequestPolicyResult> getOriginRequestPolicy() {
@@ -1743,7 +1901,10 @@ public final class CloudfrontFunctions {
     }
     /**
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1772,9 +1933,13 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### AWS-Managed Policies
      * 
      * AWS managed origin request policy names are prefixed with `Managed-`:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1803,6 +1968,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOriginRequestPolicyResult> getOriginRequestPolicyPlain() {
@@ -1810,7 +1976,10 @@ public final class CloudfrontFunctions {
     }
     /**
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1839,9 +2008,13 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### AWS-Managed Policies
      * 
      * AWS managed origin request policy names are prefixed with `Managed-`:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1870,6 +2043,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOriginRequestPolicyResult> getOriginRequestPolicy(GetOriginRequestPolicyArgs args) {
@@ -1877,7 +2051,10 @@ public final class CloudfrontFunctions {
     }
     /**
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1906,9 +2083,13 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### AWS-Managed Policies
      * 
      * AWS managed origin request policy names are prefixed with `Managed-`:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1937,6 +2118,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOriginRequestPolicyResult> getOriginRequestPolicyPlain(GetOriginRequestPolicyPlainArgs args) {
@@ -1944,7 +2126,10 @@ public final class CloudfrontFunctions {
     }
     /**
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1973,9 +2158,13 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### AWS-Managed Policies
      * 
      * AWS managed origin request policy names are prefixed with `Managed-`:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2004,6 +2193,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOriginRequestPolicyResult> getOriginRequestPolicy(GetOriginRequestPolicyArgs args, InvokeOptions options) {
@@ -2011,7 +2201,10 @@ public final class CloudfrontFunctions {
     }
     /**
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2040,9 +2233,13 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### AWS-Managed Policies
      * 
      * AWS managed origin request policy names are prefixed with `Managed-`:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2071,6 +2268,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOriginRequestPolicyResult> getOriginRequestPolicyPlain(GetOriginRequestPolicyPlainArgs args, InvokeOptions options) {
@@ -2080,6 +2278,8 @@ public final class CloudfrontFunctions {
      * Provides a CloudFront real-time log configuration resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2108,6 +2308,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRealtimeLogConfigResult> getRealtimeLogConfig(GetRealtimeLogConfigArgs args) {
@@ -2117,6 +2318,8 @@ public final class CloudfrontFunctions {
      * Provides a CloudFront real-time log configuration resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2145,6 +2348,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRealtimeLogConfigResult> getRealtimeLogConfigPlain(GetRealtimeLogConfigPlainArgs args) {
@@ -2154,6 +2358,8 @@ public final class CloudfrontFunctions {
      * Provides a CloudFront real-time log configuration resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2182,6 +2388,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRealtimeLogConfigResult> getRealtimeLogConfig(GetRealtimeLogConfigArgs args, InvokeOptions options) {
@@ -2191,6 +2398,8 @@ public final class CloudfrontFunctions {
      * Provides a CloudFront real-time log configuration resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2219,6 +2428,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRealtimeLogConfigResult> getRealtimeLogConfigPlain(GetRealtimeLogConfigPlainArgs args, InvokeOptions options) {
@@ -2228,7 +2438,10 @@ public final class CloudfrontFunctions {
      * Use this data source to retrieve information about a CloudFront cache policy.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2257,9 +2470,13 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### AWS-Managed Policies
      * 
      * AWS managed response header policy names are prefixed with `Managed-`:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2288,6 +2505,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResponseHeadersPolicyResult> getResponseHeadersPolicy() {
@@ -2297,7 +2515,10 @@ public final class CloudfrontFunctions {
      * Use this data source to retrieve information about a CloudFront cache policy.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2326,9 +2547,13 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### AWS-Managed Policies
      * 
      * AWS managed response header policy names are prefixed with `Managed-`:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2357,6 +2582,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResponseHeadersPolicyResult> getResponseHeadersPolicyPlain() {
@@ -2366,7 +2592,10 @@ public final class CloudfrontFunctions {
      * Use this data source to retrieve information about a CloudFront cache policy.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2395,9 +2624,13 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### AWS-Managed Policies
      * 
      * AWS managed response header policy names are prefixed with `Managed-`:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2426,6 +2659,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResponseHeadersPolicyResult> getResponseHeadersPolicy(GetResponseHeadersPolicyArgs args) {
@@ -2435,7 +2669,10 @@ public final class CloudfrontFunctions {
      * Use this data source to retrieve information about a CloudFront cache policy.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2464,9 +2701,13 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### AWS-Managed Policies
      * 
      * AWS managed response header policy names are prefixed with `Managed-`:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2495,6 +2736,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResponseHeadersPolicyResult> getResponseHeadersPolicyPlain(GetResponseHeadersPolicyPlainArgs args) {
@@ -2504,7 +2746,10 @@ public final class CloudfrontFunctions {
      * Use this data source to retrieve information about a CloudFront cache policy.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2533,9 +2778,13 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### AWS-Managed Policies
      * 
      * AWS managed response header policy names are prefixed with `Managed-`:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2564,6 +2813,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResponseHeadersPolicyResult> getResponseHeadersPolicy(GetResponseHeadersPolicyArgs args, InvokeOptions options) {
@@ -2573,7 +2823,10 @@ public final class CloudfrontFunctions {
      * Use this data source to retrieve information about a CloudFront cache policy.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2602,9 +2855,13 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### AWS-Managed Policies
      * 
      * AWS managed response header policy names are prefixed with `Managed-`:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2633,6 +2890,7 @@ public final class CloudfrontFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResponseHeadersPolicyResult> getResponseHeadersPolicyPlain(GetResponseHeadersPolicyPlainArgs args, InvokeOptions options) {

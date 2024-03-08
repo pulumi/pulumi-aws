@@ -20,6 +20,7 @@ import * as utilities from "../utilities";
  * via RAM, and using that pool id to create a VPC with a CIDR derived from
  * AWS IPAM.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -41,6 +42,7 @@ import * as utilities from "../utilities";
  *     ipv4NetmaskLength: 28,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 /** @deprecated aws.ec2/getvpciampool.getVpcIamPool has been deprecated in favor of aws.ec2/getvpcipampool.getVpcIpamPool */
 export function getVpcIamPool(args?: GetVpcIamPoolArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcIamPoolResult> {
@@ -166,6 +168,7 @@ export interface GetVpcIamPoolResult {
  * via RAM, and using that pool id to create a VPC with a CIDR derived from
  * AWS IPAM.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -187,6 +190,7 @@ export interface GetVpcIamPoolResult {
  *     ipv4NetmaskLength: 28,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 /** @deprecated aws.ec2/getvpciampool.getVpcIamPool has been deprecated in favor of aws.ec2/getvpcipampool.getVpcIpamPool */
 export function getVpcIamPoolOutput(args?: GetVpcIamPoolOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcIamPoolResult> {

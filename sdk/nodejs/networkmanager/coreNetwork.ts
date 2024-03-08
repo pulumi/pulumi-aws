@@ -11,16 +11,21 @@ import * as utilities from "../utilities";
  * Provides a core network resource.
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.networkmanager.CoreNetwork("example", {globalNetworkId: exampleAwsNetworkmanagerGlobalNetwork.id});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With description
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -30,8 +35,11 @@ import * as utilities from "../utilities";
  *     description: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With tags
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -43,16 +51,20 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With VPC Attachment (Single Region)
  *
  * The example below illustrates the scenario where your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Set the `createBasePolicy` argument to `true` if your core network does not currently have any `LIVE` policies (e.g. this is the first `pulumi up` with the core network resource), since a `LIVE` policy is required before VPCs can be attached to the core network. Otherwise, if your core network already has a `LIVE` policy, you may exclude the `createBasePolicy` argument. There are 2 options to implement this:
  *
  * - Option 1: Use the `basePolicyDocument` argument that allows the most customizations to a base policy. Use this to customize the `edgeLocations` `asn`. In the example below, `us-west-2` and ASN `65500` are used in the base policy.
  * - Option 2: Use the `createBasePolicy` argument only. This creates a base policy in the region specified in the `provider` block.
+ *
  * ### Option 1 - using basePolicyDocument
  *
  * If you require a custom ASN for the edge location, please use the `basePolicyDocument` argument to pass a specific ASN. For example:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -103,8 +115,11 @@ import * as utilities from "../utilities";
  *     policyDocument: example.apply(example => example.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Option 2 - createBasePolicy only
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -141,14 +156,18 @@ import * as utilities from "../utilities";
  *     policyDocument: example.apply(example => example.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With VPC Attachment (Multi-Region)
  *
  * The example below illustrates the scenario where your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Set the `createBasePolicy` argument of the `aws.networkmanager.CoreNetwork` resource to `true` if your core network does not currently have any `LIVE` policies (e.g. this is the first `pulumi up` with the core network resource), since a `LIVE` policy is required before VPCs can be attached to the core network. Otherwise, if your core network already has a `LIVE` policy, you may exclude the `createBasePolicy` argument. For multi-region in a core network that does not yet have a `LIVE` policy, there are 2 options:
  *
  * - Option 1: Use the `basePolicyDocument` argument that allows the most customizations to a base policy. Use this to customize the `edgeLocations` `asn`. In the example below, `us-west-2`, `us-east-1` and specific ASNs are used in the base policy.
  * - Option 2: Pass a list of regions to the `aws.networkmanager.CoreNetwork` `basePolicyRegions` argument. In the example below, `us-west-2` and `us-east-1` are specified in the base policy.
+ *
  * ### Option 1 - using basePolicyDocument
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -229,8 +248,11 @@ import * as utilities from "../utilities";
  *     policyDocument: example.apply(example => example.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Option 2 - using basePolicyRegions
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -294,13 +316,14 @@ import * as utilities from "../utilities";
  *     policyDocument: example.apply(example => example.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_networkmanager_core_network` using the core network ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:networkmanager/coreNetwork:CoreNetwork example core-network-0d47f6t230mz46dy4
+ * $ pulumi import aws:networkmanager/coreNetwork:CoreNetwork example core-network-0d47f6t230mz46dy4
  * ```
  */
 export class CoreNetwork extends pulumi.CustomResource {
@@ -351,6 +374,31 @@ export class CoreNetwork extends pulumi.CustomResource {
     public readonly basePolicyRegions!: pulumi.Output<string[] | undefined>;
     /**
      * Specifies whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. An example of this Pulumi snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown below. This base policy is overridden with the policy that you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
+     *
+     * ```json
+     * {
+     * "version": "2021.12",
+     * "core-network-configuration": {
+     * "asn-ranges": [
+     * "64512-65534"
+     * ],
+     * "vpn-ecmp-support": false,
+     * "edge-locations": [
+     * {
+     * "location": "us-east-1"
+     * }
+     * ]
+     * },
+     * "segments": [
+     * {
+     * "name": "segment",
+     * "description": "base-policy",
+     * "isolate-attachments": false,
+     * "require-attachment-acceptance": false
+     * }
+     * ]
+     * }
+     * ```
      */
     public readonly createBasePolicy!: pulumi.Output<boolean | undefined>;
     /**
@@ -462,6 +510,31 @@ export interface CoreNetworkState {
     basePolicyRegions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. An example of this Pulumi snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown below. This base policy is overridden with the policy that you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
+     *
+     * ```json
+     * {
+     * "version": "2021.12",
+     * "core-network-configuration": {
+     * "asn-ranges": [
+     * "64512-65534"
+     * ],
+     * "vpn-ecmp-support": false,
+     * "edge-locations": [
+     * {
+     * "location": "us-east-1"
+     * }
+     * ]
+     * },
+     * "segments": [
+     * {
+     * "name": "segment",
+     * "description": "base-policy",
+     * "isolate-attachments": false,
+     * "require-attachment-acceptance": false
+     * }
+     * ]
+     * }
+     * ```
      */
     createBasePolicy?: pulumi.Input<boolean>;
     /**
@@ -520,6 +593,31 @@ export interface CoreNetworkArgs {
     basePolicyRegions?: pulumi.Input<pulumi.Input<string>[]>;
     /**
      * Specifies whether to create a base policy when a core network is created or updated. A base policy is created and set to `LIVE` to allow attachments to the core network (e.g. VPC Attachments) before applying a policy document provided using the `aws.networkmanager.CoreNetworkPolicyAttachment` resource. This base policy is needed if your core network does not have any `LIVE` policies and your policy document has static routes pointing to VPC attachments and you want to attach your VPCs to the core network before applying the desired policy document. Valid values are `true` or `false`. An example of this Pulumi snippet can be found above for VPC Attachment in a single region and for VPC Attachment multi-region. An example base policy is shown below. This base policy is overridden with the policy that you specify in the `aws.networkmanager.CoreNetworkPolicyAttachment` resource.
+     *
+     * ```json
+     * {
+     * "version": "2021.12",
+     * "core-network-configuration": {
+     * "asn-ranges": [
+     * "64512-65534"
+     * ],
+     * "vpn-ecmp-support": false,
+     * "edge-locations": [
+     * {
+     * "location": "us-east-1"
+     * }
+     * ]
+     * },
+     * "segments": [
+     * {
+     * "name": "segment",
+     * "description": "base-policy",
+     * "isolate-attachments": false,
+     * "require-attachment-acceptance": false
+     * }
+     * ]
+     * }
+     * ```
      */
     createBasePolicy?: pulumi.Input<boolean>;
     /**

@@ -19,7 +19,10 @@ import javax.annotation.Nullable;
  * Provides an Application AutoScaling ScheduledAction resource.
  * 
  * ## Example Usage
+ * 
  * ### DynamoDB Table Autoscaling
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -67,7 +70,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### ECS Service Autoscaling
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -115,6 +122,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:appautoscaling/scheduledAction:ScheduledAction")

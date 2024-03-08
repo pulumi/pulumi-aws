@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Use this data source to retrieve information about a CloudFront cache policy.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,10 +23,13 @@ import * as utilities from "../utilities";
  *     name: "example-policy",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### AWS-Managed Policies
  *
  * AWS managed response header policy names are prefixed with `Managed-`:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -33,6 +38,7 @@ import * as utilities from "../utilities";
  *     name: "Managed-SimpleCORS",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getResponseHeadersPolicy(args?: GetResponseHeadersPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetResponseHeadersPolicyResult> {
     args = args || {};
@@ -97,8 +103,10 @@ export interface GetResponseHeadersPolicyResult {
  * Use this data source to retrieve information about a CloudFront cache policy.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -107,10 +115,13 @@ export interface GetResponseHeadersPolicyResult {
  *     name: "example-policy",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### AWS-Managed Policies
  *
  * AWS managed response header policy names are prefixed with `Managed-`:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -119,6 +130,7 @@ export interface GetResponseHeadersPolicyResult {
  *     name: "Managed-SimpleCORS",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getResponseHeadersPolicyOutput(args?: GetResponseHeadersPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResponseHeadersPolicyResult> {
     return pulumi.output(args).apply((a: any) => getResponseHeadersPolicy(a, opts))

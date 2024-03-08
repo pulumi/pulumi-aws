@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Domain ownership needs to be confirmed first using ses_domain_identity Resource
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -68,13 +70,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import DKIM tokens using the `domain` attribute. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ses/domainDkim:DomainDkim example example.com
+ * $ pulumi import aws:ses/domainDkim:DomainDkim example example.com
  * ```
  * 
  */

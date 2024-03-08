@@ -460,8 +460,10 @@ class MetricStream(pulumi.CustomResource):
         Provides a CloudWatch Metric Stream resource.
 
         ## Example Usage
+
         ### Filters
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -549,8 +551,11 @@ class MetricStream(pulumi.CustomResource):
             role=firehose_to_s3_role.id,
             policy=firehose_to_s3.json)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Additional Statistics
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -580,13 +585,14 @@ class MetricStream(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudWatch metric streams using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/metricStream:MetricStream sample sample-stream-name
+        $ pulumi import aws:cloudwatch/metricStream:MetricStream sample sample-stream-name
         ```
 
         :param str resource_name: The name of the resource.
@@ -614,8 +620,10 @@ class MetricStream(pulumi.CustomResource):
         Provides a CloudWatch Metric Stream resource.
 
         ## Example Usage
+
         ### Filters
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -703,8 +711,11 @@ class MetricStream(pulumi.CustomResource):
             role=firehose_to_s3_role.id,
             policy=firehose_to_s3.json)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Additional Statistics
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -734,13 +745,14 @@ class MetricStream(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudWatch metric streams using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/metricStream:MetricStream sample sample-stream-name
+        $ pulumi import aws:cloudwatch/metricStream:MetricStream sample sample-stream-name
         ```
 
         :param str resource_name: The name of the resource.

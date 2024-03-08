@@ -14,6 +14,7 @@ namespace Pulumi.Aws.GameLift
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -48,13 +49,14 @@ namespace Pulumi.Aws.GameLift
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import GameLift Game Session Queues using their `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example
+    /// $ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:gamelift/gameSessionQueue:GameSessionQueue")]

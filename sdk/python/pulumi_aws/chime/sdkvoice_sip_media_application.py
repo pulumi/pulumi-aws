@@ -215,8 +215,10 @@ class SdkvoiceSipMediaApplication(pulumi.CustomResource):
         A ChimeSDKVoice SIP Media Application is a managed object that passes values from a SIP rule to a target AWS Lambda function.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -228,13 +230,14 @@ class SdkvoiceSipMediaApplication(pulumi.CustomResource):
                 lambda_arn=test["arn"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a ChimeSDKVoice SIP Media Application using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:chime/sdkvoiceSipMediaApplication:SdkvoiceSipMediaApplication example abcdef123456
+        $ pulumi import aws:chime/sdkvoiceSipMediaApplication:SdkvoiceSipMediaApplication example abcdef123456
         ```
 
         :param str resource_name: The name of the resource.
@@ -256,8 +259,10 @@ class SdkvoiceSipMediaApplication(pulumi.CustomResource):
         A ChimeSDKVoice SIP Media Application is a managed object that passes values from a SIP rule to a target AWS Lambda function.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -269,13 +274,14 @@ class SdkvoiceSipMediaApplication(pulumi.CustomResource):
                 lambda_arn=test["arn"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a ChimeSDKVoice SIP Media Application using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:chime/sdkvoiceSipMediaApplication:SdkvoiceSipMediaApplication example abcdef123456
+        $ pulumi import aws:chime/sdkvoiceSipMediaApplication:SdkvoiceSipMediaApplication example abcdef123456
         ```
 
         :param str resource_name: The name of the resource.

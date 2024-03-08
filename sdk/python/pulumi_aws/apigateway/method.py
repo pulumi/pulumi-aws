@@ -409,6 +409,7 @@ class Method(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -426,8 +427,11 @@ class Method(pulumi.CustomResource):
             http_method="GET",
             authorization="NONE")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Usage with Cognito User Pool Authorizer
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -455,13 +459,14 @@ class Method(pulumi.CustomResource):
                 "method.request.path.proxy": True,
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_api_gateway_method` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD`. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/method:Method example 12345abcde/67890fghij/GET
+        $ pulumi import aws:apigateway/method:Method example 12345abcde/67890fghij/GET
         ```
 
         :param str resource_name: The name of the resource.
@@ -492,6 +497,7 @@ class Method(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -509,8 +515,11 @@ class Method(pulumi.CustomResource):
             http_method="GET",
             authorization="NONE")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Usage with Cognito User Pool Authorizer
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -538,13 +547,14 @@ class Method(pulumi.CustomResource):
                 "method.request.path.proxy": True,
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_api_gateway_method` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD`. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/method:Method example 12345abcde/67890fghij/GET
+        $ pulumi import aws:apigateway/method:Method example 12345abcde/67890fghij/GET
         ```
 
         :param str resource_name: The name of the resource.

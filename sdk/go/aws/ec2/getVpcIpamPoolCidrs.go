@@ -19,6 +19,7 @@ import (
 //
 // Basic usage:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -61,52 +62,9 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // Filtering:
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			c, err := ec2.GetVpcIpamPoolCidrs(ctx, &ec2.GetVpcIpamPoolCidrsArgs{
-//				IpamPoolId: "ipam-pool-123",
-//				Filters: []ec2.GetVpcIpamPoolCidrsFilter{
-//					{
-//						Name: "cidr",
-//						Values: []string{
-//							"10.*",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			mycidrs := "TODO: For expression"
-//			_, err = ec2.NewManagedPrefixList(ctx, "pls", &ec2.ManagedPrefixListArgs{
-//				Entries:       "TODO: For expression",
-//				Name:          pulumi.String(fmt.Sprintf("IPAM Pool (%v) Cidrs", test.Id)),
-//				AddressFamily: pulumi.String("IPv4"),
-//				MaxEntries:    len(mycidrs),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetVpcIpamPoolCidrs(ctx *pulumi.Context, args *GetVpcIpamPoolCidrsArgs, opts ...pulumi.InvokeOption) (*GetVpcIpamPoolCidrsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetVpcIpamPoolCidrsResult

@@ -14,8 +14,10 @@ import (
 // Data source for managing an AWS OpenSearch Serverless Collection.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupServerlessCollection(ctx *pulumi.Context, args *LookupServerlessCollectionArgs, opts ...pulumi.InvokeOption) (*LookupServerlessCollectionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupServerlessCollectionResult

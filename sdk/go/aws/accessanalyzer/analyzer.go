@@ -15,8 +15,10 @@ import (
 // Manages an Access Analyzer Analyzer. More information can be found in the [Access Analyzer User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html).
 //
 // ## Example Usage
+//
 // ### Account Analyzer
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,8 +42,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Organization Analyzer
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -75,15 +80,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Access Analyzer Analyzers using the `analyzer_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:accessanalyzer/analyzer:Analyzer example example
-//
+// $ pulumi import aws:accessanalyzer/analyzer:Analyzer example example
 // ```
 type Analyzer struct {
 	pulumi.CustomResourceState

@@ -11,19 +11,21 @@ import * as utilities from "../utilities";
  *
  * Usage:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sagemaker.ServicecatalogPortfolioStatus("example", {status: "Enabled"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import models using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:sagemaker/servicecatalogPortfolioStatus:ServicecatalogPortfolioStatus example us-east-1
+ * $ pulumi import aws:sagemaker/servicecatalogPortfolioStatus:ServicecatalogPortfolioStatus example us-east-1
  * ```
  */
 export class ServicecatalogPortfolioStatus extends pulumi.CustomResource {

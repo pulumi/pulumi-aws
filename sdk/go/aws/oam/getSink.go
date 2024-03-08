@@ -14,8 +14,10 @@ import (
 // Data source for managing an AWS CloudWatch Observability Access Manager Sink.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupSink(ctx *pulumi.Context, args *LookupSinkArgs, opts ...pulumi.InvokeOption) (*LookupSinkResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSinkResult

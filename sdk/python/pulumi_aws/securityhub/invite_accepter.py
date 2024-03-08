@@ -88,6 +88,7 @@ class InviteAccepter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -100,13 +101,14 @@ class InviteAccepter(pulumi.CustomResource):
         invitee = aws.securityhub.Account("invitee")
         invitee_invite_accepter = aws.securityhub.InviteAccepter("invitee", master_id=example_member.master_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Security Hub invite acceptance using the account ID. For example:
 
         ```sh
-         $ pulumi import aws:securityhub/inviteAccepter:InviteAccepter example 123456789012
+        $ pulumi import aws:securityhub/inviteAccepter:InviteAccepter example 123456789012
         ```
 
         :param str resource_name: The name of the resource.
@@ -126,6 +128,7 @@ class InviteAccepter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -138,13 +141,14 @@ class InviteAccepter(pulumi.CustomResource):
         invitee = aws.securityhub.Account("invitee")
         invitee_invite_accepter = aws.securityhub.InviteAccepter("invitee", master_id=example_member.master_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Security Hub invite acceptance using the account ID. For example:
 
         ```sh
-         $ pulumi import aws:securityhub/inviteAccepter:InviteAccepter example 123456789012
+        $ pulumi import aws:securityhub/inviteAccepter:InviteAccepter example 123456789012
         ```
 
         :param str resource_name: The name of the resource.

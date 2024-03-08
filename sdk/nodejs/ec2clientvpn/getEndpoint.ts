@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Get information on an EC2 Client VPN endpoint.
  *
  * ## Example Usage
+ *
  * ### By Filter
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,8 +26,11 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### By Identifier
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -34,6 +39,7 @@ import * as utilities from "../utilities";
  *     clientVpnEndpointId: "cvpn-endpoint-083cf50d6eb314f21",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getEndpoint(args?: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
     args = args || {};
@@ -152,8 +158,10 @@ export interface GetEndpointResult {
  * Get information on an EC2 Client VPN endpoint.
  *
  * ## Example Usage
+ *
  * ### By Filter
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -165,8 +173,11 @@ export interface GetEndpointResult {
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### By Identifier
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -175,6 +186,7 @@ export interface GetEndpointResult {
  *     clientVpnEndpointId: "cvpn-endpoint-083cf50d6eb314f21",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getEndpointOutput(args?: GetEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointResult> {
     return pulumi.output(args).apply((a: any) => getEndpoint(a, opts))

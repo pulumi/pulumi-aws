@@ -191,6 +191,7 @@ def get_experience(experience_id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -198,6 +199,7 @@ def get_experience(experience_id: Optional[str] = None,
     example = aws.kendra.get_experience(experience_id="87654321-1234-4321-4321-321987654321",
         index_id="12345678-1234-1234-1234-123456789123")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str experience_id: Identifier of the Experience.
@@ -234,6 +236,7 @@ def get_experience_output(experience_id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -241,6 +244,7 @@ def get_experience_output(experience_id: Optional[pulumi.Input[str]] = None,
     example = aws.kendra.get_experience(experience_id="87654321-1234-4321-4321-321987654321",
         index_id="12345678-1234-1234-1234-123456789123")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str experience_id: Identifier of the Experience.

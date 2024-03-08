@@ -15,8 +15,10 @@ import * as utilities from "../utilities";
  * > This resource cannot be used with S3 directory buckets.
  *
  * ## Example Usage
+ *
  * ### Add notification configuration to SNS Topic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -51,8 +53,11 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Add notification configuration to SQS Queue
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -87,8 +92,11 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Add notification configuration to Lambda Function
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -132,8 +140,11 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Trigger multiple Lambda functions
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -198,8 +209,61 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * ### Add multiple notification configurations to SQS Queue
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const bucket = new aws.s3.BucketV2("bucket", {bucket: "your-bucket-name"});
+ * const queue = aws.iam.getPolicyDocumentOutput({
+ *     statements: [{
+ *         effect: "Allow",
+ *         principals: [{
+ *             type: "*",
+ *             identifiers: ["*"],
+ *         }],
+ *         actions: ["sqs:SendMessage"],
+ *         resources: ["arn:aws:sqs:*:*:s3-event-notification-queue"],
+ *         conditions: [{
+ *             test: "ArnEquals",
+ *             variable: "aws:SourceArn",
+ *             values: [bucket.arn],
+ *         }],
+ *     }],
+ * });
+ * const queueQueue = new aws.sqs.Queue("queue", {
+ *     name: "s3-event-notification-queue",
+ *     policy: queue.apply(queue => queue.json),
+ * });
+ * const bucketNotification = new aws.s3.BucketNotification("bucket_notification", {
+ *     bucket: bucket.id,
+ *     queues: [
+ *         {
+ *             id: "image-upload-event",
+ *             queueArn: queueQueue.arn,
+ *             events: ["s3:ObjectCreated:*"],
+ *             filterPrefix: "images/",
+ *         },
+ *         {
+ *             id: "video-upload-event",
+ *             queueArn: queueQueue.arn,
+ *             events: ["s3:ObjectCreated:*"],
+ *             filterPrefix: "videos/",
+ *         },
+ *     ],
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
+ * For JSON syntax, use an array instead of defining the `queue` key twice.
+ *
  * ### Emit events to EventBridge
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -210,13 +274,14 @@ import * as utilities from "../utilities";
  *     eventbridge: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import S3 bucket notification using the `bucket`. For example:
  *
  * ```sh
- *  $ pulumi import aws:s3/bucketNotification:BucketNotification bucket_notification bucket-name
+ * $ pulumi import aws:s3/bucketNotification:BucketNotification bucket_notification bucket-name
  * ```
  */
 export class BucketNotification extends pulumi.CustomResource {

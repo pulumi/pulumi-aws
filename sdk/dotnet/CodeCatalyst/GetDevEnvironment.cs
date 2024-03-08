@@ -14,11 +14,11 @@ namespace Pulumi.Aws.CodeCatalyst
         /// <summary>
         /// Data source for managing an AWS CodeCatalyst Dev Environment.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -36,8 +36,7 @@ namespace Pulumi.Aws.CodeCatalyst
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetDevEnvironmentResult> InvokeAsync(GetDevEnvironmentArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDevEnvironmentResult>("aws:codecatalyst/getDevEnvironment:getDevEnvironment", args ?? new GetDevEnvironmentArgs(), options.WithDefaults());
@@ -45,11 +44,11 @@ namespace Pulumi.Aws.CodeCatalyst
         /// <summary>
         /// Data source for managing an AWS CodeCatalyst Dev Environment.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -67,8 +66,7 @@ namespace Pulumi.Aws.CodeCatalyst
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetDevEnvironmentResult> Invoke(GetDevEnvironmentInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDevEnvironmentResult>("aws:codecatalyst/getDevEnvironment:getDevEnvironment", args ?? new GetDevEnvironmentInvokeArgs(), options.WithDefaults());

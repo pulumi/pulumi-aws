@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,15 +41,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_docdb_cluster_snapshot` using the cluster snapshot identifier. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:docdb/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
-//
+// $ pulumi import aws:docdb/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
 // ```
 type ClusterSnapshot struct {
 	pulumi.CustomResourceState

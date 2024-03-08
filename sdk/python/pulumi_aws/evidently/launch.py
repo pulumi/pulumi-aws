@@ -435,8 +435,10 @@ class Launch(pulumi.CustomResource):
         Provides a CloudWatch Evidently Launch resource.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -458,8 +460,11 @@ class Launch(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With description
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -482,8 +487,11 @@ class Launch(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With multiple groups
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -515,8 +523,11 @@ class Launch(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With metric_monitors
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -558,8 +569,11 @@ class Launch(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With randomization_salt
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -582,8 +596,11 @@ class Launch(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With multiple steps
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -622,8 +639,11 @@ class Launch(pulumi.CustomResource):
                 ],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With segment overrides
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -670,6 +690,7 @@ class Launch(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -680,12 +701,12 @@ class Launch(pulumi.CustomResource):
         Import using the `name` of the launch and `name` of the project separated by a `:`:
 
         ```sh
-         $ pulumi import aws:evidently/launch:Launch example exampleLaunchName:exampleProjectName
+        $ pulumi import aws:evidently/launch:Launch example exampleLaunchName:exampleProjectName
         ```
-         Import using the `name` of the launch and `arn` of the project separated by a `:`:
+        Import using the `name` of the launch and `arn` of the project separated by a `:`:
 
         ```sh
-         $ pulumi import aws:evidently/launch:Launch example exampleLaunchName:arn:aws:evidently:us-east-1:123456789012:project/exampleProjectName
+        $ pulumi import aws:evidently/launch:Launch example exampleLaunchName:arn:aws:evidently:us-east-1:123456789012:project/exampleProjectName
         ```
 
         :param str resource_name: The name of the resource.
@@ -709,8 +730,10 @@ class Launch(pulumi.CustomResource):
         Provides a CloudWatch Evidently Launch resource.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -732,8 +755,11 @@ class Launch(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With description
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -756,8 +782,11 @@ class Launch(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With multiple groups
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -789,8 +818,11 @@ class Launch(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With metric_monitors
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -832,8 +864,11 @@ class Launch(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With randomization_salt
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -856,8 +891,11 @@ class Launch(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With multiple steps
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -896,8 +934,11 @@ class Launch(pulumi.CustomResource):
                 ],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With segment overrides
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -944,6 +985,7 @@ class Launch(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -954,12 +996,12 @@ class Launch(pulumi.CustomResource):
         Import using the `name` of the launch and `name` of the project separated by a `:`:
 
         ```sh
-         $ pulumi import aws:evidently/launch:Launch example exampleLaunchName:exampleProjectName
+        $ pulumi import aws:evidently/launch:Launch example exampleLaunchName:exampleProjectName
         ```
-         Import using the `name` of the launch and `arn` of the project separated by a `:`:
+        Import using the `name` of the launch and `arn` of the project separated by a `:`:
 
         ```sh
-         $ pulumi import aws:evidently/launch:Launch example exampleLaunchName:arn:aws:evidently:us-east-1:123456789012:project/exampleProjectName
+        $ pulumi import aws:evidently/launch:Launch example exampleLaunchName:arn:aws:evidently:us-east-1:123456789012:project/exampleProjectName
         ```
 
         :param str resource_name: The name of the resource.

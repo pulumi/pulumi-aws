@@ -199,29 +199,35 @@ class AccessGrantsInstance(pulumi.CustomResource):
         You can have one S3 Access Grants instance per Region in your account.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.s3control.AccessGrantsInstance("example")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### AWS IAM Identity Center
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.s3control.AccessGrantsInstance("example", identity_center_arn="arn:aws:sso:::instance/ssoins-890759e9c7bfdc1d")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import S3 Access Grants instances using the `account_id`. For example:
 
         ```sh
-         $ pulumi import aws:s3control/accessGrantsInstance:AccessGrantsInstance example 123456789012
+        $ pulumi import aws:s3control/accessGrantsInstance:AccessGrantsInstance example 123456789012
         ```
 
         :param str resource_name: The name of the resource.
@@ -240,29 +246,35 @@ class AccessGrantsInstance(pulumi.CustomResource):
         You can have one S3 Access Grants instance per Region in your account.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.s3control.AccessGrantsInstance("example")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### AWS IAM Identity Center
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.s3control.AccessGrantsInstance("example", identity_center_arn="arn:aws:sso:::instance/ssoins-890759e9c7bfdc1d")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import S3 Access Grants instances using the `account_id`. For example:
 
         ```sh
-         $ pulumi import aws:s3control/accessGrantsInstance:AccessGrantsInstance example 123456789012
+        $ pulumi import aws:s3control/accessGrantsInstance:AccessGrantsInstance example 123456789012
         ```
 
         :param str resource_name: The name of the resource.

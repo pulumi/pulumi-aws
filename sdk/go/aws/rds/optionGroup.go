@@ -21,6 +21,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -70,6 +71,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // > **Note:** Any modifications to the `rds.OptionGroup` are set to happen immediately as we default to applying immediately.
 //
@@ -86,9 +88,7 @@ import (
 // Using `pulumi import`, import DB option groups using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group
-//
+// $ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group
 // ```
 type OptionGroup struct {
 	pulumi.CustomResourceState

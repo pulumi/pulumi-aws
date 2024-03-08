@@ -17,8 +17,10 @@ import (
 // [Managing AWS Shield Advanced protection groups](https://docs.aws.amazon.com/waf/latest/developerguide/manage-protection-group.html)
 //
 // ## Example Usage
+//
 // ### Create protection group for all resources
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,8 +46,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Create protection group for arbitrary number of resources
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -103,8 +108,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Create protection group for a type of resource
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -131,15 +139,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Shield protection group resources using their protection group id. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:shield/protectionGroup:ProtectionGroup example example
-//
+// $ pulumi import aws:shield/protectionGroup:ProtectionGroup example example
 // ```
 type ProtectionGroup struct {
 	pulumi.CustomResourceState

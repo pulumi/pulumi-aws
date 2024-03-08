@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -34,13 +35,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import resource groups using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:resourcegroups/group:Group foo resource-group-name
+ * $ pulumi import aws:resourcegroups/group:Group foo resource-group-name
  * ```
  */
 export class Group extends pulumi.CustomResource {

@@ -214,6 +214,7 @@ def get_vpc_peering_connection(cidr_block: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -229,6 +230,7 @@ def get_vpc_peering_connection(cidr_block: Optional[str] = None,
         destination_cidr_block=pc.peer_cidr_block,
         vpc_peering_connection_id=pc.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str cidr_block: Primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
@@ -303,6 +305,7 @@ def get_vpc_peering_connection_output(cidr_block: Optional[pulumi.Input[Optional
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -318,6 +321,7 @@ def get_vpc_peering_connection_output(cidr_block: Optional[pulumi.Input[Optional
         destination_cidr_block=pc.peer_cidr_block,
         vpc_peering_connection_id=pc.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str cidr_block: Primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.

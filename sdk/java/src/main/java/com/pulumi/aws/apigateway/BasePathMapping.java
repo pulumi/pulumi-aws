@@ -19,8 +19,6 @@ import javax.annotation.Nullable;
  * with a deployed API so that its methods can be called via the
  * custom domain name.
  * 
- * ## Example Usage
- * 
  * ## Import
  * 
  * For a non-root `base_path`:
@@ -30,12 +28,12 @@ import javax.annotation.Nullable;
  * For an empty `base_path` or, in other words, a root path (`/`):
  * 
  * ```sh
- *  $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/
+ * $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/
  * ```
- *  For a non-root `base_path`:
+ * For a non-root `base_path`:
  * 
  * ```sh
- *  $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/base-path
+ * $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/base-path
  * ```
  * 
  */

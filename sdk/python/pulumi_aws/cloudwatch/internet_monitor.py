@@ -349,19 +349,21 @@ class InternetMonitor(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.cloudwatch.InternetMonitor("example", monitor_name="exmple")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Internet Monitor Monitors using the `monitor_name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/internetMonitor:InternetMonitor some some-monitor
+        $ pulumi import aws:cloudwatch/internetMonitor:InternetMonitor some some-monitor
         ```
 
         :param str resource_name: The name of the resource.
@@ -388,19 +390,21 @@ class InternetMonitor(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.cloudwatch.InternetMonitor("example", monitor_name="exmple")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Internet Monitor Monitors using the `monitor_name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/internetMonitor:InternetMonitor some some-monitor
+        $ pulumi import aws:cloudwatch/internetMonitor:InternetMonitor some some-monitor
         ```
 
         :param str resource_name: The name of the resource.

@@ -305,8 +305,10 @@ class JobQueue(pulumi.CustomResource):
         Provides a Batch Job Queue resource.
 
         ## Example Usage
+
         ### Basic Job Queue
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -320,8 +322,11 @@ class JobQueue(pulumi.CustomResource):
                 test_environment2["arn"],
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Job Queue with a fair share scheduling policy
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -346,13 +351,14 @@ class JobQueue(pulumi.CustomResource):
                 test_environment2["arn"],
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Batch Job Queue using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:batch/jobQueue:JobQueue test_queue arn:aws:batch:us-east-1:123456789012:job-queue/sample
+        $ pulumi import aws:batch/jobQueue:JobQueue test_queue arn:aws:batch:us-east-1:123456789012:job-queue/sample
         ```
 
         :param str resource_name: The name of the resource.
@@ -376,8 +382,10 @@ class JobQueue(pulumi.CustomResource):
         Provides a Batch Job Queue resource.
 
         ## Example Usage
+
         ### Basic Job Queue
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -391,8 +399,11 @@ class JobQueue(pulumi.CustomResource):
                 test_environment2["arn"],
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Job Queue with a fair share scheduling policy
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -417,13 +428,14 @@ class JobQueue(pulumi.CustomResource):
                 test_environment2["arn"],
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Batch Job Queue using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:batch/jobQueue:JobQueue test_queue arn:aws:batch:us-east-1:123456789012:job-queue/sample
+        $ pulumi import aws:batch/jobQueue:JobQueue test_queue arn:aws:batch:us-east-1:123456789012:job-queue/sample
         ```
 
         :param str resource_name: The name of the resource.

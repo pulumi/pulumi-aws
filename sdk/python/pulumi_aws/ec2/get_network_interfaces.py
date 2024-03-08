@@ -84,6 +84,7 @@ def get_network_interfaces(filters: Optional[Sequence[pulumi.InputType['GetNetwo
 
     The following shows outputting all network interface ids in a region.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -91,9 +92,11 @@ def get_network_interfaces(filters: Optional[Sequence[pulumi.InputType['GetNetwo
     example = aws.ec2.get_network_interfaces()
     pulumi.export("example", example.ids)
     ```
+    <!--End PulumiCodeChooser -->
 
     The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -103,10 +106,12 @@ def get_network_interfaces(filters: Optional[Sequence[pulumi.InputType['GetNetwo
     })
     pulumi.export("example1", example.ids)
     ```
+    <!--End PulumiCodeChooser -->
 
     The following example retrieves a network interface ids which associated
     with specific subnet.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -117,6 +122,7 @@ def get_network_interfaces(filters: Optional[Sequence[pulumi.InputType['GetNetwo
     )])
     pulumi.export("example", example.ids)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetNetworkInterfacesFilterArgs']] filters: Custom filter block as described below.
@@ -148,6 +154,7 @@ def get_network_interfaces_output(filters: Optional[pulumi.Input[Optional[Sequen
 
     The following shows outputting all network interface ids in a region.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -155,9 +162,11 @@ def get_network_interfaces_output(filters: Optional[pulumi.Input[Optional[Sequen
     example = aws.ec2.get_network_interfaces()
     pulumi.export("example", example.ids)
     ```
+    <!--End PulumiCodeChooser -->
 
     The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -167,10 +176,12 @@ def get_network_interfaces_output(filters: Optional[pulumi.Input[Optional[Sequen
     })
     pulumi.export("example1", example.ids)
     ```
+    <!--End PulumiCodeChooser -->
 
     The following example retrieves a network interface ids which associated
     with specific subnet.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -181,6 +192,7 @@ def get_network_interfaces_output(filters: Optional[pulumi.Input[Optional[Sequen
     )])
     pulumi.export("example", example.ids)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetNetworkInterfacesFilterArgs']] filters: Custom filter block as described below.

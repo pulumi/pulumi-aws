@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -57,15 +58,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_macie2_findings_filter` using the id. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:macie/findingsFilter:FindingsFilter example abcd1
-//
+// $ pulumi import aws:macie/findingsFilter:FindingsFilter example abcd1
 // ```
 type FindingsFilter struct {
 	pulumi.CustomResourceState

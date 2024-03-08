@@ -474,8 +474,10 @@ class Input(pulumi.CustomResource):
         Resource for managing an AWS MediaLive Input.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -495,13 +497,14 @@ class Input(pulumi.CustomResource):
                 "ENVIRONMENT": "prod",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import MediaLive Input using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:medialive/input:Input example 12345678
+        $ pulumi import aws:medialive/input:Input example 12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -529,8 +532,10 @@ class Input(pulumi.CustomResource):
         Resource for managing an AWS MediaLive Input.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -550,13 +555,14 @@ class Input(pulumi.CustomResource):
                 "ENVIRONMENT": "prod",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import MediaLive Input using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:medialive/input:Input example 12345678
+        $ pulumi import aws:medialive/input:Input example 12345678
         ```
 
         :param str resource_name: The name of the resource.

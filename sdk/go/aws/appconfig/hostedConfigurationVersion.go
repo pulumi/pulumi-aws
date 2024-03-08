@@ -15,8 +15,10 @@ import (
 // Provides an AppConfig Hosted Configuration Version resource.
 //
 // ## Example Usage
+//
 // ### Freeform
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -59,8 +61,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Feature Flags
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -132,15 +137,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import AppConfig Hosted Configuration Versions using the application ID, configuration profile ID, and version number separated by a slash (`/`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion example 71abcde/11xxxxx/2
-//
+// $ pulumi import aws:appconfig/hostedConfigurationVersion:HostedConfigurationVersion example 71abcde/11xxxxx/2
 // ```
 type HostedConfigurationVersion struct {
 	pulumi.CustomResourceState

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Emr
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -45,13 +46,14 @@ namespace Pulumi.Aws.Emr
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EMR Security Configurations using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:emr/securityConfiguration:SecurityConfiguration sc example-sc-name
+    /// $ pulumi import aws:emr/securityConfiguration:SecurityConfiguration sc example-sc-name
     /// ```
     /// </summary>
     [AwsResourceType("aws:emr/securityConfiguration:SecurityConfiguration")]

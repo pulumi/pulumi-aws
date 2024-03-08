@@ -219,8 +219,10 @@ class ResourceLfTags(pulumi.CustomResource):
         Manages an attachment between one or more existing LF-tags and an existing Lake Formation resource.
 
         ## Example Usage
+
         ### Database Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -246,8 +248,11 @@ class ResourceLfTags(pulumi.CustomResource):
                 value="stowe",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Multiple Tags Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -290,6 +295,7 @@ class ResourceLfTags(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -313,8 +319,10 @@ class ResourceLfTags(pulumi.CustomResource):
         Manages an attachment between one or more existing LF-tags and an existing Lake Formation resource.
 
         ## Example Usage
+
         ### Database Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -340,8 +348,11 @@ class ResourceLfTags(pulumi.CustomResource):
                 value="stowe",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Multiple Tags Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -384,6 +395,7 @@ class ResourceLfTags(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param ResourceLfTagsArgs args: The arguments to use to populate this resource's properties.

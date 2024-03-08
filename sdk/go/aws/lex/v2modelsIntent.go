@@ -17,9 +17,7 @@ import (
 // Using `pulumi import`, import Lex V2 Models Intent using the `intent_id:bot_id:bot_version:locale_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:lex/v2modelsIntent:V2modelsIntent example intent-42874:bot-11376:DRAFT:en_US
-//
+// $ pulumi import aws:lex/v2modelsIntent:V2modelsIntent example intent-42874:bot-11376:DRAFT:en_US
 // ```
 type V2modelsIntent struct {
 	pulumi.CustomResourceState

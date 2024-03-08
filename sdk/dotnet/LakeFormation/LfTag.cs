@@ -14,6 +14,7 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,13 +36,14 @@ namespace Pulumi.Aws.LakeFormation
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Lake Formation LF-Tags using the `catalog_id:key`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:lakeformation/lfTag:LfTag example 123456789012:some_key
+    /// $ pulumi import aws:lakeformation/lfTag:LfTag example 123456789012:some_key
     /// ```
     /// </summary>
     [AwsResourceType("aws:lakeformation/lfTag:LfTag")]

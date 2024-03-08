@@ -14,8 +14,10 @@ import (
 // Provides an AWS App Mesh service mesh resource.
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,8 +41,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Egress Filter
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -69,15 +74,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import App Mesh service meshes using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:appmesh/mesh:Mesh simple simpleapp
-//
+// $ pulumi import aws:appmesh/mesh:Mesh simple simpleapp
 // ```
 type Mesh struct {
 	pulumi.CustomResourceState

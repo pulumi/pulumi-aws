@@ -15,8 +15,10 @@ import (
 // Manages a Glue Crawler. More information can be found in the [AWS Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/add-crawler.html)
 //
 // ## Example Usage
+//
 // ### DynamoDB Target Example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -47,8 +49,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### JDBC Target Example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -80,8 +85,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### S3 Target Example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -114,8 +122,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Catalog Target Example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -161,8 +172,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### MongoDB Target Example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -194,8 +208,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Configuration Settings Example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -247,15 +264,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Glue Crawlers using `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:glue/crawler:Crawler MyJob MyJob
-//
+// $ pulumi import aws:glue/crawler:Crawler MyJob MyJob
 // ```
 type Crawler struct {
 	pulumi.CustomResourceState

@@ -258,8 +258,10 @@ class Vocabulary(pulumi.CustomResource):
         Resource for managing an AWS Transcribe Vocabulary.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -280,13 +282,14 @@ class Vocabulary(pulumi.CustomResource):
                 "tag2": "value3",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Transcribe Vocabulary using the `vocabulary_name`. For example:
 
         ```sh
-         $ pulumi import aws:transcribe/vocabulary:Vocabulary example example-name
+        $ pulumi import aws:transcribe/vocabulary:Vocabulary example example-name
         ```
 
         :param str resource_name: The name of the resource.
@@ -309,8 +312,10 @@ class Vocabulary(pulumi.CustomResource):
         Resource for managing an AWS Transcribe Vocabulary.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -331,13 +336,14 @@ class Vocabulary(pulumi.CustomResource):
                 "tag2": "value3",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Transcribe Vocabulary using the `vocabulary_name`. For example:
 
         ```sh
-         $ pulumi import aws:transcribe/vocabulary:Vocabulary example example-name
+        $ pulumi import aws:transcribe/vocabulary:Vocabulary example example-name
         ```
 
         :param str resource_name: The name of the resource.

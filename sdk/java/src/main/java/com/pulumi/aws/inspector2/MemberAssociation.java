@@ -17,7 +17,10 @@ import javax.annotation.Nullable;
  * Resource for associating accounts to existing Inspector instances.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,13 +49,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Amazon Inspector Member Association using the `account_id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:inspector2/memberAssociation:MemberAssociation example 123456789012
+ * $ pulumi import aws:inspector2/memberAssociation:MemberAssociation example 123456789012
  * ```
  * 
  */

@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +40,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupCatalogTable(ctx *pulumi.Context, args *LookupCatalogTableArgs, opts ...pulumi.InvokeOption) (*LookupCatalogTableResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCatalogTableResult

@@ -19,8 +19,10 @@ import (
 // > **NOTE:** If you use this resource's `managedPolicyArns` argument or `inlinePolicy` configuration blocks, this resource will take over exclusive management of the role's respective policy types (e.g., both policy types if both arguments are used). These arguments are incompatible with other ways of managing a role's policies, such as `iam.PolicyAttachment`, `iam.RolePolicyAttachment`, and `iam.RolePolicy`. If you attempt to manage a role's policies by multiple means, you will get resource cycling and/or errors.
 //
 // ## Example Usage
+//
 // ### Basic Example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -67,8 +69,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example of Using Data Source for Assume Role Policy
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -114,10 +119,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example of Exclusive Inline Policies
 //
 // This example creates an IAM role with two inline IAM policies. If someone adds another inline policy out-of-band, on the next apply, this provider will remove that policy. If someone deletes these policies out-of-band, this provider will recreate them.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -185,10 +193,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example of Removing Inline Policies
 //
 // This example creates an IAM role with what appears to be empty IAM `inlinePolicy` argument instead of using `inlinePolicy` as a configuration block. The result is that if someone were to add an inline policy out-of-band, on the next apply, this provider will remove that policy.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -216,10 +227,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example of Exclusive Managed Policies
 //
 // This example creates an IAM role and attaches two managed IAM policies. If someone attaches another managed policy out-of-band, on the next apply, this provider will detach that policy. If someone detaches these policies out-of-band, this provider will attach them again.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -298,10 +312,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example of Removing Managed Policies
 //
 // This example creates an IAM role with an empty `managedPolicyArns` argument. If someone attaches a policy out-of-band, on the next apply, this provider will detach that policy.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -327,15 +344,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import IAM Roles using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:iam/role:Role developer developer_name
-//
+// $ pulumi import aws:iam/role:Role developer developer_name
 // ```
 type Role struct {
 	pulumi.CustomResourceState

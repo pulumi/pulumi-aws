@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Data source for managing an AWS QuickSight Theme.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,6 +23,7 @@ import * as utilities from "../utilities";
  *     themeId: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getTheme(args: GetThemeArgs, opts?: pulumi.InvokeOptions): Promise<GetThemeResult> {
 
@@ -111,8 +114,10 @@ export interface GetThemeResult {
  * Data source for managing an AWS QuickSight Theme.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -121,6 +126,7 @@ export interface GetThemeResult {
  *     themeId: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getThemeOutput(args: GetThemeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetThemeResult> {
     return pulumi.output(args).apply((a: any) => getTheme(a, opts))

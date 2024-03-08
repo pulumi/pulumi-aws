@@ -14,6 +14,7 @@ namespace Pulumi.Aws.CloudControl
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -42,6 +43,7 @@ namespace Pulumi.Aws.CloudControl
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:cloudcontrol/resource:Resource")]
     public partial class Resource : global::Pulumi.CustomResource

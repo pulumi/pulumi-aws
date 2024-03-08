@@ -14,6 +14,7 @@ namespace Pulumi.Aws.AppStream
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -87,13 +88,14 @@ namespace Pulumi.Aws.AppStream
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_appstream_stack` using the id. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:appstream/stack:Stack example stackID
+    /// $ pulumi import aws:appstream/stack:Stack example stackID
     /// ```
     /// </summary>
     [AwsResourceType("aws:appstream/stack:Stack")]

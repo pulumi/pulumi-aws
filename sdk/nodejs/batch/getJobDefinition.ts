@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Data source for managing an AWS Batch Job Definition.
  *
  * ## Example Usage
+ *
  * ### Lookup via Arn
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,8 +23,11 @@ import * as utilities from "../utilities";
  *     arn: "arn:aws:batch:us-east-1:012345678910:job-definition/example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Lookup via Name
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -32,6 +37,7 @@ import * as utilities from "../utilities";
  *     revision: 2,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getJobDefinition(args?: GetJobDefinitionArgs, opts?: pulumi.InvokeOptions): Promise<GetJobDefinitionResult> {
     args = args || {};
@@ -117,8 +123,10 @@ export interface GetJobDefinitionResult {
  * Data source for managing an AWS Batch Job Definition.
  *
  * ## Example Usage
+ *
  * ### Lookup via Arn
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -127,8 +135,11 @@ export interface GetJobDefinitionResult {
  *     arn: "arn:aws:batch:us-east-1:012345678910:job-definition/example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Lookup via Name
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -138,6 +149,7 @@ export interface GetJobDefinitionResult {
  *     revision: 2,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getJobDefinitionOutput(args?: GetJobDefinitionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetJobDefinitionResult> {
     return pulumi.output(args).apply((a: any) => getJobDefinition(a, opts))

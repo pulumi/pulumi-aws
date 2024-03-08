@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,13 +23,14 @@ import * as utilities from "../utilities";
  *     value: "enabled",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import ECS Account Setting defaults using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ecs/accountSettingDefault:AccountSettingDefault example taskLongArnFormat
+ * $ pulumi import aws:ecs/accountSettingDefault:AccountSettingDefault example taskLongArnFormat
  * ```
  */
 export class AccountSettingDefault extends pulumi.CustomResource {

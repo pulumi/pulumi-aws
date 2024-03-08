@@ -17,8 +17,10 @@ import (
 // > **Note:** _Starting_ the Configuration Recorder requires a delivery channel (while delivery channel creation requires Configuration Recorder). This is why `cfg.RecorderStatus` is a separate resource.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -72,8 +74,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Exclude Resources Types Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -113,8 +118,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Periodic Recording
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -157,15 +165,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Configuration Recorder using the name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cfg/recorder:Recorder foo example
-//
+// $ pulumi import aws:cfg/recorder:Recorder foo example
 // ```
 type Recorder struct {
 	pulumi.CustomResourceState

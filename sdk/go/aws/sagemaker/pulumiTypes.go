@@ -14968,9 +14968,9 @@ func (o EndpointDeploymentConfigBlueGreenUpdatePolicyPtrOutput) TrafficRoutingCo
 }
 
 type EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration struct {
-	// Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50% of the variant's total instance count. See Canary Size.
+	// Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50%!o(MISSING)f the variant's total instance count. See Canary Size.
 	CanarySize *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize `pulumi:"canarySize"`
-	// Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50% of the variant's total instance count. See Linear Step Size.
+	// Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50%!o(MISSING)f the variant's total instance count. See Linear Step Size.
 	LinearStepSize *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize `pulumi:"linearStepSize"`
 	// Traffic routing strategy type. Valid values are: `ALL_AT_ONCE`, `CANARY`, and `LINEAR`.
 	Type string `pulumi:"type"`
@@ -14990,9 +14990,9 @@ type EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationInp
 }
 
 type EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs struct {
-	// Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50% of the variant's total instance count. See Canary Size.
+	// Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50%!o(MISSING)f the variant's total instance count. See Canary Size.
 	CanarySize EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrInput `pulumi:"canarySize"`
-	// Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50% of the variant's total instance count. See Linear Step Size.
+	// Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50%!o(MISSING)f the variant's total instance count. See Linear Step Size.
 	LinearStepSize EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrInput `pulumi:"linearStepSize"`
 	// Traffic routing strategy type. Valid values are: `ALL_AT_ONCE`, `CANARY`, and `LINEAR`.
 	Type pulumi.StringInput `pulumi:"type"`
@@ -15077,14 +15077,14 @@ func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration
 	}).(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutput)
 }
 
-// Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50% of the variant's total instance count. See Canary Size.
+// Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50%!o(MISSING)f the variant's total instance count. See Canary Size.
 func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationOutput) CanarySize() EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutput {
 	return o.ApplyT(func(v EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration) *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize {
 		return v.CanarySize
 	}).(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutput)
 }
 
-// Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50% of the variant's total instance count. See Linear Step Size.
+// Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50%!o(MISSING)f the variant's total instance count. See Linear Step Size.
 func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationOutput) LinearStepSize() EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutput {
 	return o.ApplyT(func(v EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration) *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize {
 		return v.LinearStepSize
@@ -15127,7 +15127,7 @@ func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration
 	}).(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationOutput)
 }
 
-// Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50% of the variant's total instance count. See Canary Size.
+// Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50%!o(MISSING)f the variant's total instance count. See Canary Size.
 func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutput) CanarySize() EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutput {
 	return o.ApplyT(func(v *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration) *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize {
 		if v == nil {
@@ -15137,7 +15137,7 @@ func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration
 	}).(EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizePtrOutput)
 }
 
-// Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50% of the variant's total instance count. See Linear Step Size.
+// Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50%!o(MISSING)f the variant's total instance count. See Linear Step Size.
 func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationPtrOutput) LinearStepSize() EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizePtrOutput {
 	return o.ApplyT(func(v *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration) *EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize {
 		if v == nil {
@@ -15488,11 +15488,11 @@ func (o EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration
 }
 
 type EndpointDeploymentConfigRollingUpdatePolicy struct {
-	// Batch size for each rolling step to provision capacity and turn on traffic on the new endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between 5% to 50% of the variant's total instance count. See Maximum Batch Size.
+	// Batch size for each rolling step to provision capacity and turn on traffic on the new endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between 5%!t(MISSING)o 50%!o(MISSING)f the variant's total instance count. See Maximum Batch Size.
 	MaximumBatchSize EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize `pulumi:"maximumBatchSize"`
 	// The time limit for the total deployment. Exceeding this limit causes a timeout. Valid values are between `600` and `14400`.
 	MaximumExecutionTimeoutInSeconds *int `pulumi:"maximumExecutionTimeoutInSeconds"`
-	// Batch size for rollback to the old endpoint fleet. Each rolling step to provision capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new endpoint fleet. If this field is absent, the default value will be set to 100% of total capacity which means to bring up the whole capacity of the old fleet at once during rollback. See Rollback Maximum Batch Size.
+	// Batch size for rollback to the old endpoint fleet. Each rolling step to provision capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new endpoint fleet. If this field is absent, the default value will be set to 100%!o(MISSING)f total capacity which means to bring up the whole capacity of the old fleet at once during rollback. See Rollback Maximum Batch Size.
 	RollbackMaximumBatchSize *EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize `pulumi:"rollbackMaximumBatchSize"`
 	// The length of the baking period, during which SageMaker monitors alarms for each batch on the new fleet. Valid values are between `0` and `3600`.
 	WaitIntervalInSeconds int `pulumi:"waitIntervalInSeconds"`
@@ -15510,11 +15510,11 @@ type EndpointDeploymentConfigRollingUpdatePolicyInput interface {
 }
 
 type EndpointDeploymentConfigRollingUpdatePolicyArgs struct {
-	// Batch size for each rolling step to provision capacity and turn on traffic on the new endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between 5% to 50% of the variant's total instance count. See Maximum Batch Size.
+	// Batch size for each rolling step to provision capacity and turn on traffic on the new endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between 5%!t(MISSING)o 50%!o(MISSING)f the variant's total instance count. See Maximum Batch Size.
 	MaximumBatchSize EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeInput `pulumi:"maximumBatchSize"`
 	// The time limit for the total deployment. Exceeding this limit causes a timeout. Valid values are between `600` and `14400`.
 	MaximumExecutionTimeoutInSeconds pulumi.IntPtrInput `pulumi:"maximumExecutionTimeoutInSeconds"`
-	// Batch size for rollback to the old endpoint fleet. Each rolling step to provision capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new endpoint fleet. If this field is absent, the default value will be set to 100% of total capacity which means to bring up the whole capacity of the old fleet at once during rollback. See Rollback Maximum Batch Size.
+	// Batch size for rollback to the old endpoint fleet. Each rolling step to provision capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new endpoint fleet. If this field is absent, the default value will be set to 100%!o(MISSING)f total capacity which means to bring up the whole capacity of the old fleet at once during rollback. See Rollback Maximum Batch Size.
 	RollbackMaximumBatchSize EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrInput `pulumi:"rollbackMaximumBatchSize"`
 	// The length of the baking period, during which SageMaker monitors alarms for each batch on the new fleet. Valid values are between `0` and `3600`.
 	WaitIntervalInSeconds pulumi.IntInput `pulumi:"waitIntervalInSeconds"`
@@ -15597,7 +15597,7 @@ func (o EndpointDeploymentConfigRollingUpdatePolicyOutput) ToEndpointDeploymentC
 	}).(EndpointDeploymentConfigRollingUpdatePolicyPtrOutput)
 }
 
-// Batch size for each rolling step to provision capacity and turn on traffic on the new endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between 5% to 50% of the variant's total instance count. See Maximum Batch Size.
+// Batch size for each rolling step to provision capacity and turn on traffic on the new endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between 5%!t(MISSING)o 50%!o(MISSING)f the variant's total instance count. See Maximum Batch Size.
 func (o EndpointDeploymentConfigRollingUpdatePolicyOutput) MaximumBatchSize() EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeOutput {
 	return o.ApplyT(func(v EndpointDeploymentConfigRollingUpdatePolicy) EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize {
 		return v.MaximumBatchSize
@@ -15609,7 +15609,7 @@ func (o EndpointDeploymentConfigRollingUpdatePolicyOutput) MaximumExecutionTimeo
 	return o.ApplyT(func(v EndpointDeploymentConfigRollingUpdatePolicy) *int { return v.MaximumExecutionTimeoutInSeconds }).(pulumi.IntPtrOutput)
 }
 
-// Batch size for rollback to the old endpoint fleet. Each rolling step to provision capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new endpoint fleet. If this field is absent, the default value will be set to 100% of total capacity which means to bring up the whole capacity of the old fleet at once during rollback. See Rollback Maximum Batch Size.
+// Batch size for rollback to the old endpoint fleet. Each rolling step to provision capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new endpoint fleet. If this field is absent, the default value will be set to 100%!o(MISSING)f total capacity which means to bring up the whole capacity of the old fleet at once during rollback. See Rollback Maximum Batch Size.
 func (o EndpointDeploymentConfigRollingUpdatePolicyOutput) RollbackMaximumBatchSize() EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput {
 	return o.ApplyT(func(v EndpointDeploymentConfigRollingUpdatePolicy) *EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize {
 		return v.RollbackMaximumBatchSize
@@ -15645,7 +15645,7 @@ func (o EndpointDeploymentConfigRollingUpdatePolicyPtrOutput) Elem() EndpointDep
 	}).(EndpointDeploymentConfigRollingUpdatePolicyOutput)
 }
 
-// Batch size for each rolling step to provision capacity and turn on traffic on the new endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between 5% to 50% of the variant's total instance count. See Maximum Batch Size.
+// Batch size for each rolling step to provision capacity and turn on traffic on the new endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between 5%!t(MISSING)o 50%!o(MISSING)f the variant's total instance count. See Maximum Batch Size.
 func (o EndpointDeploymentConfigRollingUpdatePolicyPtrOutput) MaximumBatchSize() EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizePtrOutput {
 	return o.ApplyT(func(v *EndpointDeploymentConfigRollingUpdatePolicy) *EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize {
 		if v == nil {
@@ -15665,7 +15665,7 @@ func (o EndpointDeploymentConfigRollingUpdatePolicyPtrOutput) MaximumExecutionTi
 	}).(pulumi.IntPtrOutput)
 }
 
-// Batch size for rollback to the old endpoint fleet. Each rolling step to provision capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new endpoint fleet. If this field is absent, the default value will be set to 100% of total capacity which means to bring up the whole capacity of the old fleet at once during rollback. See Rollback Maximum Batch Size.
+// Batch size for rollback to the old endpoint fleet. Each rolling step to provision capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new endpoint fleet. If this field is absent, the default value will be set to 100%!o(MISSING)f total capacity which means to bring up the whole capacity of the old fleet at once during rollback. See Rollback Maximum Batch Size.
 func (o EndpointDeploymentConfigRollingUpdatePolicyPtrOutput) RollbackMaximumBatchSize() EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizePtrOutput {
 	return o.ApplyT(func(v *EndpointDeploymentConfigRollingUpdatePolicy) *EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize {
 		if v == nil {

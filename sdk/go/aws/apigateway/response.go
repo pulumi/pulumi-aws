@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -53,15 +54,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_api_gateway_gateway_response` using `REST-API-ID/RESPONSE-TYPE`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:apigateway/response:Response example 12345abcde/UNAUTHORIZED
-//
+// $ pulumi import aws:apigateway/response:Response example 12345abcde/UNAUTHORIZED
 // ```
 type Response struct {
 	pulumi.CustomResourceState

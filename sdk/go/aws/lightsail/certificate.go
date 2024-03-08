@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,15 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_lightsail_certificate` using the certificate name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:lightsail/certificate:Certificate test CertificateName
-//
+// $ pulumi import aws:lightsail/certificate:Certificate test CertificateName
 // ```
 type Certificate struct {
 	pulumi.CustomResourceState

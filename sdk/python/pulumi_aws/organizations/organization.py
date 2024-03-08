@@ -255,6 +255,7 @@ class Organization(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -266,13 +267,14 @@ class Organization(pulumi.CustomResource):
             ],
             feature_set="ALL")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import the AWS organization using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:organizations/organization:Organization my_org o-1234567
+        $ pulumi import aws:organizations/organization:Organization my_org o-1234567
         ```
 
         :param str resource_name: The name of the resource.
@@ -296,6 +298,7 @@ class Organization(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -307,13 +310,14 @@ class Organization(pulumi.CustomResource):
             ],
             feature_set="ALL")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import the AWS organization using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:organizations/organization:Organization my_org o-1234567
+        $ pulumi import aws:organizations/organization:Organization my_org o-1234567
         ```
 
         :param str resource_name: The name of the resource.

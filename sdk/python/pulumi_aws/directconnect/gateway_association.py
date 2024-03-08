@@ -302,8 +302,10 @@ class GatewayAssociation(pulumi.CustomResource):
         by creating an `directconnect.GatewayAssociation` resource with the `proposal_id` and `associated_gateway_owner_account_id` attributes set.
 
         ## Example Usage
+
         ### VPN Gateway Association
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -317,8 +319,11 @@ class GatewayAssociation(pulumi.CustomResource):
             dx_gateway_id=example.id,
             associated_gateway_id=example_vpn_gateway.id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Transit Gateway Association
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -335,8 +340,11 @@ class GatewayAssociation(pulumi.CustomResource):
                 "10.255.255.8/30",
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Allowed Prefixes
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -354,13 +362,14 @@ class GatewayAssociation(pulumi.CustomResource):
                 "175.45.176.0/22",
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Direct Connect gateway associations using `dx_gateway_id` together with `associated_gateway_id`. For example:
 
         ```sh
-         $ pulumi import aws:directconnect/gatewayAssociation:GatewayAssociation example 345508c3-7215-4aef-9832-07c125d5bd0f/vgw-98765432
+        $ pulumi import aws:directconnect/gatewayAssociation:GatewayAssociation example 345508c3-7215-4aef-9832-07c125d5bd0f/vgw-98765432
         ```
 
         :param str resource_name: The name of the resource.
@@ -388,8 +397,10 @@ class GatewayAssociation(pulumi.CustomResource):
         by creating an `directconnect.GatewayAssociation` resource with the `proposal_id` and `associated_gateway_owner_account_id` attributes set.
 
         ## Example Usage
+
         ### VPN Gateway Association
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -403,8 +414,11 @@ class GatewayAssociation(pulumi.CustomResource):
             dx_gateway_id=example.id,
             associated_gateway_id=example_vpn_gateway.id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Transit Gateway Association
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -421,8 +435,11 @@ class GatewayAssociation(pulumi.CustomResource):
                 "10.255.255.8/30",
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Allowed Prefixes
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -440,13 +457,14 @@ class GatewayAssociation(pulumi.CustomResource):
                 "175.45.176.0/22",
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Direct Connect gateway associations using `dx_gateway_id` together with `associated_gateway_id`. For example:
 
         ```sh
-         $ pulumi import aws:directconnect/gatewayAssociation:GatewayAssociation example 345508c3-7215-4aef-9832-07c125d5bd0f/vgw-98765432
+        $ pulumi import aws:directconnect/gatewayAssociation:GatewayAssociation example 345508c3-7215-4aef-9832-07c125d5bd0f/vgw-98765432
         ```
 
         :param str resource_name: The name of the resource.

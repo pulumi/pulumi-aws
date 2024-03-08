@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Provides a CloudWatch Logs subscription filter resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -51,13 +53,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import CloudWatch Logs subscription filter using the log group name and subscription filter name separated by `|`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter test_lambdafunction_logfilter &#34;/aws/lambda/example_lambda_name|test_lambdafunction_logfilter&#34;
+ * $ pulumi import aws:cloudwatch/logSubscriptionFilter:LogSubscriptionFilter test_lambdafunction_logfilter &#34;/aws/lambda/example_lambda_name|test_lambdafunction_logfilter&#34;
  * ```
  * 
  */

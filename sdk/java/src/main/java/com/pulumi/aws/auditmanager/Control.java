@@ -21,7 +21,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS Audit Manager Control.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -56,13 +59,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import an Audit Manager Control using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:auditmanager/control:Control example abc123-de45
+ * $ pulumi import aws:auditmanager/control:Control example abc123-de45
  * ```
  * 
  */

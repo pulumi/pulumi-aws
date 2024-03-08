@@ -15,11 +15,13 @@ import * as utilities from "../utilities";
  * > **Tip:** For an organization trail, this resource must be in the master account of the organization.
  *
  * ## Example Usage
+ *
  * ### Basic
  *
  * Enable CloudTrail to capture all compatible management events in region.
  * For capturing events from services like IAM, `includeGlobalServiceEvents` must be enabled.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -83,14 +85,18 @@ import * as utilities from "../utilities";
  *     policy: example.apply(example => example.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Data Event Logging
  *
  * CloudTrail can log [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) for certain services such as S3 objects and Lambda function invocations. Additional information about data event configuration can be found in the following links:
  *
  * * [CloudTrail API DataResource documentation](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DataResource.html) (for basic event selector).
  * * [CloudTrail API AdvancedFieldSelector documentation](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html) (for advanced event selector).
+ *
  * ### Logging All Lambda Function Invocations By Using Basic Event Selectors
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -104,8 +110,11 @@ import * as utilities from "../utilities";
  *     }],
  * }]});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Logging All S3 Object Events By Using Basic Event Selectors
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -119,8 +128,11 @@ import * as utilities from "../utilities";
  *     }],
  * }]});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Logging Individual S3 Bucket Events By Using Basic Event Selectors
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -137,8 +149,11 @@ import * as utilities from "../utilities";
  *     }],
  * }]});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Logging All S3 Object Events Except For Two S3 Buckets By Using Advanced Event Selectors
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -179,8 +194,11 @@ import * as utilities from "../utilities";
  *     },
  * ]});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Logging Individual S3 Buckets And Specific Event Names By Using Advanced Event Selectors
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -253,8 +271,11 @@ import * as utilities from "../utilities";
  *     },
  * ]});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Sending Events to CloudWatch Logs
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -262,13 +283,14 @@ import * as utilities from "../utilities";
  * const example = new aws.cloudwatch.LogGroup("example", {name: "Example"});
  * const exampleTrail = new aws.cloudtrail.Trail("example", {cloudWatchLogsGroupArn: pulumi.interpolate`${example.arn}:*`});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Cloudtrails using the `arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudtrail/trail:Trail sample arn:aws:cloudtrail:us-east-1:123456789012:trail/my-sample-trail
+ * $ pulumi import aws:cloudtrail/trail:Trail sample arn:aws:cloudtrail:us-east-1:123456789012:trail/my-sample-trail
  * ```
  */
 export class Trail extends pulumi.CustomResource {

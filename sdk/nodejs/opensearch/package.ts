@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Manages an AWS Opensearch Package.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -36,13 +38,14 @@ import * as utilities from "../utilities";
  *     packageType: "TXT-DICTIONARY",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import AWS Opensearch Packages using the Package ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:opensearch/package:Package example package-id
+ * $ pulumi import aws:opensearch/package:Package example package-id
  * ```
  */
 export class Package extends pulumi.CustomResource {

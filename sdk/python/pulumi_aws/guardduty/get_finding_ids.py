@@ -80,14 +80,17 @@ def get_finding_ids(detector_id: Optional[str] = None,
     Data source for managing an AWS GuardDuty Finding Ids.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.guardduty.get_finding_ids(detector_id=example_aws_guardduty_detector["id"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str detector_id: ID of the GuardDuty detector.
@@ -111,14 +114,17 @@ def get_finding_ids_output(detector_id: Optional[pulumi.Input[str]] = None,
     Data source for managing an AWS GuardDuty Finding Ids.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.guardduty.get_finding_ids(detector_id=example_aws_guardduty_detector["id"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str detector_id: ID of the GuardDuty detector.

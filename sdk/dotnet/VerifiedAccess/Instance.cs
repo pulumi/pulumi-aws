@@ -13,8 +13,10 @@ namespace Pulumi.Aws.VerifiedAccess
     /// Resource for managing a Verified Access Instance.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,8 +36,11 @@ namespace Pulumi.Aws.VerifiedAccess
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With `fips_enabled`
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -51,15 +56,14 @@ namespace Pulumi.Aws.VerifiedAccess
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Verified Access Instances using the
-    /// 
-    /// `id`. For example:
+    /// Using `pulumi import`, import Verified Access Instances using the  `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:verifiedaccess/instance:Instance example vai-1234567890abcdef0
+    /// $ pulumi import aws:verifiedaccess/instance:Instance example vai-1234567890abcdef0
     /// ```
     /// </summary>
     [AwsResourceType("aws:verifiedaccess/instance:Instance")]

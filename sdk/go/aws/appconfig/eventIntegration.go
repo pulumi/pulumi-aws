@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -47,15 +48,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Amazon AppIntegrations Event Integrations using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:appconfig/eventIntegration:EventIntegration example example-name
-//
+// $ pulumi import aws:appconfig/eventIntegration:EventIntegration example example-name
 // ```
 type EventIntegration struct {
 	pulumi.CustomResourceState

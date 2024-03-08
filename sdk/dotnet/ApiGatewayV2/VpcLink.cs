@@ -17,6 +17,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -41,13 +42,14 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_apigatewayv2_vpc_link` using the VPC Link identifier. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:apigatewayv2/vpcLink:VpcLink example aabbccddee
+    /// $ pulumi import aws:apigatewayv2/vpcLink:VpcLink example aabbccddee
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigatewayv2/vpcLink:VpcLink")]

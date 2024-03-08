@@ -422,6 +422,7 @@ class Directory(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -504,8 +505,11 @@ class Directory(pulumi.CustomResource):
             role=workspaces_default.name,
             policy_arn="arn:aws:iam::aws:policy/AmazonWorkSpacesSelfServiceAccess")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### IP Groups
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -515,13 +519,14 @@ class Directory(pulumi.CustomResource):
             directory_id=example_aws_directory_service_directory["id"],
             ip_group_ids=[example_ip_group.id])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Workspaces directory using the directory ID. For example:
 
         ```sh
-         $ pulumi import aws:workspaces/directory:Directory main d-4444444444
+        $ pulumi import aws:workspaces/directory:Directory main d-4444444444
         ```
 
         :param str resource_name: The name of the resource.
@@ -547,6 +552,7 @@ class Directory(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -629,8 +635,11 @@ class Directory(pulumi.CustomResource):
             role=workspaces_default.name,
             policy_arn="arn:aws:iam::aws:policy/AmazonWorkSpacesSelfServiceAccess")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### IP Groups
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -640,13 +649,14 @@ class Directory(pulumi.CustomResource):
             directory_id=example_aws_directory_service_directory["id"],
             ip_group_ids=[example_ip_group.id])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Workspaces directory using the directory ID. For example:
 
         ```sh
-         $ pulumi import aws:workspaces/directory:Directory main d-4444444444
+        $ pulumi import aws:workspaces/directory:Directory main d-4444444444
         ```
 
         :param str resource_name: The name of the resource.

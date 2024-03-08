@@ -11,42 +11,6 @@ import {RestApi} from "./index";
  * with a deployed API so that its methods can be called via the
  * custom domain name.
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const example = new aws.apigateway.Stage("example", {
- *     deployment: exampleAwsApiGatewayDeployment.id,
- *     restApi: exampleAwsApiGatewayRestApi.id,
- *     stageName: "example",
- * });
- * const exampleDomainName = new aws.apigateway.DomainName("example", {
- *     domainName: "example.com",
- *     certificateName: "example-api",
- *     certificateBody: std.file({
- *         input: `${notImplemented("path.module")}/example.com/example.crt`,
- *     }).then(invoke => invoke.result),
- *     certificateChain: std.file({
- *         input: `${notImplemented("path.module")}/example.com/ca.crt`,
- *     }).then(invoke => invoke.result),
- *     certificatePrivateKey: std.file({
- *         input: `${notImplemented("path.module")}/example.com/example.key`,
- *     }).then(invoke => invoke.result),
- * });
- * const exampleBasePathMapping = new aws.apigateway.BasePathMapping("example", {
- *     restApi: exampleAwsApiGatewayRestApi.id,
- *     stageName: example.stageName,
- *     domainName: exampleDomainName.domainName,
- * });
- * ```
- *
  * ## Import
  *
  * For a non-root `base_path`:
@@ -56,12 +20,12 @@ import {RestApi} from "./index";
  * For an empty `base_path` or, in other words, a root path (`/`):
  *
  * ```sh
- *  $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/
+ * $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/
  * ```
- *  For a non-root `base_path`:
+ * For a non-root `base_path`:
  *
  * ```sh
- *  $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/base-path
+ * $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/base-path
  * ```
  */
 export class BasePathMapping extends pulumi.CustomResource {

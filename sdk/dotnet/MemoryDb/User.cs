@@ -17,6 +17,7 @@ namespace Pulumi.Aws.MemoryDb
     /// &gt; **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -47,15 +48,16 @@ namespace Pulumi.Aws.MemoryDb
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import a user using the `user_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:memorydb/user:User example my-user
+    /// $ pulumi import aws:memorydb/user:User example my-user
     /// ```
-    ///  The `passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
+    /// The `passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
     /// </summary>
     [AwsResourceType("aws:memorydb/user:User")]
     public partial class User : global::Pulumi.CustomResource

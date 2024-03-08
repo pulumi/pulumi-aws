@@ -24,6 +24,8 @@ public final class MqFunctions {
      * Provides information about a MQ Broker.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -59,6 +61,7 @@ public final class MqFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBrokerResult> getBroker() {
@@ -68,6 +71,8 @@ public final class MqFunctions {
      * Provides information about a MQ Broker.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -103,6 +108,7 @@ public final class MqFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBrokerResult> getBrokerPlain() {
@@ -112,6 +118,8 @@ public final class MqFunctions {
      * Provides information about a MQ Broker.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -147,6 +155,7 @@ public final class MqFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBrokerResult> getBroker(GetBrokerArgs args) {
@@ -156,6 +165,8 @@ public final class MqFunctions {
      * Provides information about a MQ Broker.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -191,6 +202,7 @@ public final class MqFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBrokerResult> getBrokerPlain(GetBrokerPlainArgs args) {
@@ -200,6 +212,8 @@ public final class MqFunctions {
      * Provides information about a MQ Broker.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -235,6 +249,7 @@ public final class MqFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBrokerResult> getBroker(GetBrokerArgs args, InvokeOptions options) {
@@ -244,6 +259,8 @@ public final class MqFunctions {
      * Provides information about a MQ Broker.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -279,6 +296,7 @@ public final class MqFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBrokerResult> getBrokerPlain(GetBrokerPlainArgs args, InvokeOptions options) {
@@ -288,7 +306,10 @@ public final class MqFunctions {
      * Retrieve information about available broker engines.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -317,6 +338,7 @@ public final class MqFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBrokerEngineTypesResult> getBrokerEngineTypes() {
@@ -326,7 +348,10 @@ public final class MqFunctions {
      * Retrieve information about available broker engines.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -355,6 +380,7 @@ public final class MqFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBrokerEngineTypesResult> getBrokerEngineTypesPlain() {
@@ -364,7 +390,10 @@ public final class MqFunctions {
      * Retrieve information about available broker engines.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -393,6 +422,7 @@ public final class MqFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBrokerEngineTypesResult> getBrokerEngineTypes(GetBrokerEngineTypesArgs args) {
@@ -402,7 +432,10 @@ public final class MqFunctions {
      * Retrieve information about available broker engines.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -431,6 +464,7 @@ public final class MqFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBrokerEngineTypesResult> getBrokerEngineTypesPlain(GetBrokerEngineTypesPlainArgs args) {
@@ -440,7 +474,10 @@ public final class MqFunctions {
      * Retrieve information about available broker engines.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -469,6 +506,7 @@ public final class MqFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBrokerEngineTypesResult> getBrokerEngineTypes(GetBrokerEngineTypesArgs args, InvokeOptions options) {
@@ -478,7 +516,10 @@ public final class MqFunctions {
      * Retrieve information about available broker engines.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -507,6 +548,7 @@ public final class MqFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBrokerEngineTypesResult> getBrokerEngineTypesPlain(GetBrokerEngineTypesPlainArgs args, InvokeOptions options) {
@@ -516,6 +558,8 @@ public final class MqFunctions {
      * Provides information about a MQ Broker Instance Offerings.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -560,6 +604,7 @@ public final class MqFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetInstanceTypeOfferingsResult> getInstanceTypeOfferings() {
@@ -569,6 +614,8 @@ public final class MqFunctions {
      * Provides information about a MQ Broker Instance Offerings.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -613,6 +660,7 @@ public final class MqFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetInstanceTypeOfferingsResult> getInstanceTypeOfferingsPlain() {
@@ -622,6 +670,8 @@ public final class MqFunctions {
      * Provides information about a MQ Broker Instance Offerings.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -666,6 +716,7 @@ public final class MqFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetInstanceTypeOfferingsResult> getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs args) {
@@ -675,6 +726,8 @@ public final class MqFunctions {
      * Provides information about a MQ Broker Instance Offerings.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -719,6 +772,7 @@ public final class MqFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetInstanceTypeOfferingsResult> getInstanceTypeOfferingsPlain(GetInstanceTypeOfferingsPlainArgs args) {
@@ -728,6 +782,8 @@ public final class MqFunctions {
      * Provides information about a MQ Broker Instance Offerings.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -772,6 +828,7 @@ public final class MqFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetInstanceTypeOfferingsResult> getInstanceTypeOfferings(GetInstanceTypeOfferingsArgs args, InvokeOptions options) {
@@ -781,6 +838,8 @@ public final class MqFunctions {
      * Provides information about a MQ Broker Instance Offerings.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -825,6 +884,7 @@ public final class MqFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetInstanceTypeOfferingsResult> getInstanceTypeOfferingsPlain(GetInstanceTypeOfferingsPlainArgs args, InvokeOptions options) {

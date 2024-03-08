@@ -27,6 +27,8 @@ import javax.annotation.Nullable;
  * * SSH public key file format as specified in RFC4716
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -56,15 +58,16 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Key Pairs using the `key_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/keyPair:KeyPair deployer deployer-key
+ * $ pulumi import aws:ec2/keyPair:KeyPair deployer deployer-key
  * ```
- *  ~&gt; __NOTE:__ The AWS API does not include the public key in the response, so `pulumi up` will attempt to replace the key pair. There is currently no supported workaround for this limitation.
+ * ~&gt; __NOTE:__ The AWS API does not include the public key in the response, so `pulumi up` will attempt to replace the key pair. There is currently no supported workaround for this limitation.
  * 
  */
 @ResourceType(type="aws:ec2/keyPair:KeyPair")

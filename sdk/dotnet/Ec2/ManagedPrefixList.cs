@@ -28,6 +28,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// Basic usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -62,13 +63,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Prefix Lists using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/managedPrefixList:ManagedPrefixList default pl-0570a1d2d725c16be
+    /// $ pulumi import aws:ec2/managedPrefixList:ManagedPrefixList default pl-0570a1d2d725c16be
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/managedPrefixList:ManagedPrefixList")]

@@ -13,8 +13,10 @@ namespace Pulumi.Aws.SsoAdmin
     /// Resource for managing an AWS SSO Admin Application Assignment.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,8 +34,11 @@ namespace Pulumi.Aws.SsoAdmin
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Group Type
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -51,13 +56,14 @@ namespace Pulumi.Aws.SsoAdmin
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SSO Admin Application Assignment using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ssoadmin/applicationAssignment:ApplicationAssignment example arn:aws:sso::012345678901:application/id-12345678,abcd1234,USER
+    /// $ pulumi import aws:ssoadmin/applicationAssignment:ApplicationAssignment example arn:aws:sso::012345678901:application/id-12345678,abcd1234,USER
     /// ```
     /// </summary>
     [AwsResourceType("aws:ssoadmin/applicationAssignment:ApplicationAssignment")]

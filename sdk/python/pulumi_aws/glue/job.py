@@ -691,8 +691,10 @@ class Job(pulumi.CustomResource):
         > Glue functionality, such as monitoring and logging of jobs, is typically managed with the `default_arguments` argument. See the [Special Parameters Used by AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html) topic in the Glue developer guide for additional information.
 
         ## Example Usage
+
         ### Python Job
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -704,8 +706,11 @@ class Job(pulumi.CustomResource):
                 script_location=f"s3://{example_aws_s3_bucket['bucket']}/example.py",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Ray Job
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -722,8 +727,11 @@ class Job(pulumi.CustomResource):
                 script_location=f"s3://{example_aws_s3_bucket['bucket']}/example.py",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Scala Job
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -738,8 +746,11 @@ class Job(pulumi.CustomResource):
                 "--job-language": "scala",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Streaming Job
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -752,8 +763,11 @@ class Job(pulumi.CustomResource):
                 script_location=f"s3://{example_aws_s3_bucket['bucket']}/example.script",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Enabling CloudWatch Logs and Metrics
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -768,13 +782,14 @@ class Job(pulumi.CustomResource):
             "--enable-metrics": "",
         })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Glue Jobs using `name`. For example:
 
         ```sh
-         $ pulumi import aws:glue/job:Job MyJob MyJob
+        $ pulumi import aws:glue/job:Job MyJob MyJob
         ```
 
         :param str resource_name: The name of the resource.
@@ -815,8 +830,10 @@ class Job(pulumi.CustomResource):
         > Glue functionality, such as monitoring and logging of jobs, is typically managed with the `default_arguments` argument. See the [Special Parameters Used by AWS Glue](https://docs.aws.amazon.com/glue/latest/dg/aws-glue-programming-etl-glue-arguments.html) topic in the Glue developer guide for additional information.
 
         ## Example Usage
+
         ### Python Job
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -828,8 +845,11 @@ class Job(pulumi.CustomResource):
                 script_location=f"s3://{example_aws_s3_bucket['bucket']}/example.py",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Ray Job
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -846,8 +866,11 @@ class Job(pulumi.CustomResource):
                 script_location=f"s3://{example_aws_s3_bucket['bucket']}/example.py",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Scala Job
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -862,8 +885,11 @@ class Job(pulumi.CustomResource):
                 "--job-language": "scala",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Streaming Job
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -876,8 +902,11 @@ class Job(pulumi.CustomResource):
                 script_location=f"s3://{example_aws_s3_bucket['bucket']}/example.script",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Enabling CloudWatch Logs and Metrics
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -892,13 +921,14 @@ class Job(pulumi.CustomResource):
             "--enable-metrics": "",
         })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Glue Jobs using `name`. For example:
 
         ```sh
-         $ pulumi import aws:glue/job:Job MyJob MyJob
+        $ pulumi import aws:glue/job:Job MyJob MyJob
         ```
 
         :param str resource_name: The name of the resource.

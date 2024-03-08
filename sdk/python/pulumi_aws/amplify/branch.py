@@ -699,6 +699,7 @@ class Branch(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -713,8 +714,11 @@ class Branch(pulumi.CustomResource):
                 "REACT_APP_API_SERVER": "https://api.example.com",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Basic Authentication
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -727,10 +731,13 @@ class Branch(pulumi.CustomResource):
             enable_basic_auth=True,
             basic_auth_credentials=std.base64encode(input="username:password").result)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Notifications
 
         Amplify Console uses EventBridge (formerly known as CloudWatch Events) and SNS for email notifications.  To implement the same functionality, you need to set `enable_notification` in a `amplify.Branch` resource, as well as creating an EventBridge Rule, an SNS topic, and SNS subscriptions.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -792,13 +799,14 @@ class Branch(pulumi.CustomResource):
             protocol="email",
             endpoint="user@acme.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amplify branch using `app_id` and `branch_name`. For example:
 
         ```sh
-         $ pulumi import aws:amplify/branch:Branch master d2ypk4k47z8u6/master
+        $ pulumi import aws:amplify/branch:Branch master d2ypk4k47z8u6/master
         ```
 
         :param str resource_name: The name of the resource.
@@ -832,6 +840,7 @@ class Branch(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -846,8 +855,11 @@ class Branch(pulumi.CustomResource):
                 "REACT_APP_API_SERVER": "https://api.example.com",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Basic Authentication
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -860,10 +872,13 @@ class Branch(pulumi.CustomResource):
             enable_basic_auth=True,
             basic_auth_credentials=std.base64encode(input="username:password").result)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Notifications
 
         Amplify Console uses EventBridge (formerly known as CloudWatch Events) and SNS for email notifications.  To implement the same functionality, you need to set `enable_notification` in a `amplify.Branch` resource, as well as creating an EventBridge Rule, an SNS topic, and SNS subscriptions.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -925,13 +940,14 @@ class Branch(pulumi.CustomResource):
             protocol="email",
             endpoint="user@acme.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amplify branch using `app_id` and `branch_name`. For example:
 
         ```sh
-         $ pulumi import aws:amplify/branch:Branch master d2ypk4k47z8u6/master
+        $ pulumi import aws:amplify/branch:Branch master d2ypk4k47z8u6/master
         ```
 
         :param str resource_name: The name of the resource.

@@ -155,12 +155,14 @@ def get_cost_category(cost_category_arn: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.costexplorer.get_cost_category(cost_category_arn="costCategoryARN")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str cost_category_arn: Unique name for the Cost Category.
@@ -194,12 +196,14 @@ def get_cost_category_output(cost_category_arn: Optional[pulumi.Input[str]] = No
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.costexplorer.get_cost_category(cost_category_arn="costCategoryARN")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str cost_category_arn: Unique name for the Cost Category.

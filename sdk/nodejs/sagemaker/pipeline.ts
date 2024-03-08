@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Provides a SageMaker Pipeline resource.
  *
  * ## Example Usage
+ *
  * ### Basic usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -33,13 +35,14 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import pipelines using the `pipeline_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:sagemaker/pipeline:Pipeline test_pipeline pipeline
+ * $ pulumi import aws:sagemaker/pipeline:Pipeline test_pipeline pipeline
  * ```
  */
 export class Pipeline extends pulumi.CustomResource {

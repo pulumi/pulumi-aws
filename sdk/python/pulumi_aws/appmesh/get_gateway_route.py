@@ -164,6 +164,7 @@ def get_gateway_route(mesh_name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -172,6 +173,7 @@ def get_gateway_route(mesh_name: Optional[str] = None,
         mesh_name="test-mesh",
         virtual_gateway_name="test-gateway")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str mesh_name: Name of the service mesh in which the virtual gateway exists.
@@ -215,6 +217,7 @@ def get_gateway_route_output(mesh_name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -223,6 +226,7 @@ def get_gateway_route_output(mesh_name: Optional[pulumi.Input[str]] = None,
         mesh_name="test-mesh",
         virtual_gateway_name="test-gateway")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str mesh_name: Name of the service mesh in which the virtual gateway exists.

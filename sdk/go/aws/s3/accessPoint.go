@@ -21,8 +21,10 @@ import (
 // > This resource cannot be used with S3 directory buckets.
 //
 // ## Example Usage
+//
 // ### AWS Partition General Purpose Bucket
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -53,8 +55,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### S3 on Outposts Bucket
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -96,6 +101,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -106,17 +112,12 @@ import (
 // Import using the `account_id` and `name` separated by a colon (`:`) for Access Points associated with an AWS Partition S3 Bucket:
 //
 // ```sh
-//
-//	$ pulumi import aws:s3/accessPoint:AccessPoint example 123456789012:example
-//
+// $ pulumi import aws:s3/accessPoint:AccessPoint example 123456789012:example
 // ```
-//
-//	Import using the ARN for Access Points associated with an S3 on Outposts Bucket:
+// Import using the ARN for Access Points associated with an S3 on Outposts Bucket:
 //
 // ```sh
-//
-//	$ pulumi import aws:s3/accessPoint:AccessPoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-1234567890123456/accesspoint/example
-//
+// $ pulumi import aws:s3/accessPoint:AccessPoint example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-1234567890123456/accesspoint/example
 // ```
 type AccessPoint struct {
 	pulumi.CustomResourceState

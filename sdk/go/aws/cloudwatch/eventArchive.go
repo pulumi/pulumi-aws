@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -48,8 +49,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Example all optional arguments
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -94,15 +98,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import an EventBridge archive using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cloudwatch/eventArchive:EventArchive imported_event_archive order-archive
-//
+// $ pulumi import aws:cloudwatch/eventArchive:EventArchive imported_event_archive order-archive
 // ```
 type EventArchive struct {
 	pulumi.CustomResourceState

@@ -105,6 +105,7 @@ class ResourceDataSync(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -147,13 +148,14 @@ class ResourceDataSync(pulumi.CustomResource):
                 region=hoge_bucket_v2.region,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SSM resource data sync using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:ssm/resourceDataSync:ResourceDataSync example example-name
+        $ pulumi import aws:ssm/resourceDataSync:ResourceDataSync example example-name
         ```
 
         :param str resource_name: The name of the resource.
@@ -172,6 +174,7 @@ class ResourceDataSync(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -214,13 +217,14 @@ class ResourceDataSync(pulumi.CustomResource):
                 region=hoge_bucket_v2.region,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SSM resource data sync using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:ssm/resourceDataSync:ResourceDataSync example example-name
+        $ pulumi import aws:ssm/resourceDataSync:ResourceDataSync example example-name
         ```
 
         :param str resource_name: The name of the resource.

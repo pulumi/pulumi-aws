@@ -12,8 +12,10 @@ import * as utilities from "../utilities";
  * > **Note:** The EventBridge bus policy resource  (`aws.cloudwatch.EventBusPolicy`) is incompatible with the EventBridge permission resource (`aws.cloudwatch.EventPermission`) and will overwrite permissions.
  *
  * ## Example Usage
+ *
  * ### Account Access
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -35,8 +37,11 @@ import * as utilities from "../utilities";
  *     eventBusName: testAwsCloudwatchEventBus.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Organization Access
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -71,8 +76,11 @@ import * as utilities from "../utilities";
  *     eventBusName: testAwsCloudwatchEventBus.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Multiple Statements
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -119,13 +127,14 @@ import * as utilities from "../utilities";
  *     eventBusName: testAwsCloudwatchEventBus.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import an EventBridge policy using the `event_bus_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudwatch/eventBusPolicy:EventBusPolicy DevAccountAccess example-event-bus
+ * $ pulumi import aws:cloudwatch/eventBusPolicy:EventBusPolicy DevAccountAccess example-event-bus
  * ```
  */
 export class EventBusPolicy extends pulumi.CustomResource {

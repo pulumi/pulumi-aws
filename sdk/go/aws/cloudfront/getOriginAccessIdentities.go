@@ -14,8 +14,10 @@ import (
 // Use this data source to get ARNs, ids and S3 canonical user IDs of Amazon CloudFront origin access identities.
 //
 // ## Example Usage
+//
 // ### All origin access identities in the account
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -37,10 +39,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Origin access identities filtered by comment/name
 //
 // Origin access identities whose comments are `example-comment1`, `example-comment2`
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -67,6 +72,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetOriginAccessIdentities(ctx *pulumi.Context, args *GetOriginAccessIdentitiesArgs, opts ...pulumi.InvokeOption) (*GetOriginAccessIdentitiesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOriginAccessIdentitiesResult

@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -74,15 +75,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Glue Workflows using `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
-//
+// $ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
 // ```
 type Workflow struct {
 	pulumi.CustomResourceState

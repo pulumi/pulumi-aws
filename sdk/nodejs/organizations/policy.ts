@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -25,13 +26,14 @@ import * as utilities from "../utilities";
  *     content: example.then(example => example.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_organizations_policy` using the policy ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:organizations/policy:Policy example p-12345678
+ * $ pulumi import aws:organizations/policy:Policy example p-12345678
  * ```
  */
 export class Policy extends pulumi.CustomResource {

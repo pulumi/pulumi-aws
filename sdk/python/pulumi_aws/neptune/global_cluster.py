@@ -302,8 +302,10 @@ class GlobalCluster(pulumi.CustomResource):
         More information about Neptune Global Clusters can be found in the [Neptune User Guide](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-global-database.html).
 
         ## Example Usage
+
         ### New Neptune Global Cluster
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -339,8 +341,11 @@ class GlobalCluster(pulumi.CustomResource):
             instance_class="db.r5.large",
             neptune_subnet_group_name="default")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### New Global Cluster From Existing DB Cluster
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -350,15 +355,16 @@ class GlobalCluster(pulumi.CustomResource):
             global_cluster_identifier="example",
             source_db_cluster_identifier=example.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_neptune_global_cluster` using the Global Cluster identifier. For example:
 
         ```sh
-         $ pulumi import aws:neptune/globalCluster:GlobalCluster example example
+        $ pulumi import aws:neptune/globalCluster:GlobalCluster example example
         ```
-         Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+        Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -382,8 +388,10 @@ class GlobalCluster(pulumi.CustomResource):
         More information about Neptune Global Clusters can be found in the [Neptune User Guide](https://docs.aws.amazon.com/neptune/latest/userguide/neptune-global-database.html).
 
         ## Example Usage
+
         ### New Neptune Global Cluster
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -419,8 +427,11 @@ class GlobalCluster(pulumi.CustomResource):
             instance_class="db.r5.large",
             neptune_subnet_group_name="default")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### New Global Cluster From Existing DB Cluster
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -430,15 +441,16 @@ class GlobalCluster(pulumi.CustomResource):
             global_cluster_identifier="example",
             source_db_cluster_identifier=example.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_neptune_global_cluster` using the Global Cluster identifier. For example:
 
         ```sh
-         $ pulumi import aws:neptune/globalCluster:GlobalCluster example example
+        $ pulumi import aws:neptune/globalCluster:GlobalCluster example example
         ```
-         Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+        Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
 
         :param str resource_name: The name of the resource.
         :param GlobalClusterArgs args: The arguments to use to populate this resource's properties.

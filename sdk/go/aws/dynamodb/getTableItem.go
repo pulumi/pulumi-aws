@@ -14,8 +14,10 @@ import (
 // Data source for retrieving a value from an AWS DynamoDB table.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,6 +46,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupTableItem(ctx *pulumi.Context, args *LookupTableItemArgs, opts ...pulumi.InvokeOption) (*LookupTableItemResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupTableItemResult

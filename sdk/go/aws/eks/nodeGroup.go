@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -59,10 +60,13 @@ import (
 // return pulumiArr
 // }
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Ignoring Changes to Desired Size
 //
 // You can utilize [ignoreChanges](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) create an EKS Node Group with an initial size of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -88,63 +92,11 @@ import (
 //	}
 //
 // ```
-// ### Tracking the latest EKS Node Group AMI releases
+// <!--End PulumiCodeChooser -->
 //
-// You can have the node group track the latest version of the Amazon EKS optimized Amazon Linux AMI for a given EKS version by querying an Amazon provided SSM parameter. Replace `amazon-linux-2` in the parameter name below with `amazon-linux-2-gpu` to retrieve the  accelerated AMI version and `amazon-linux-2-arm64` to retrieve the Arm version.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"fmt"
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssm"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func notImplemented(message string) pulumi.AnyOutput {
-//	  panic(message)
-//	}
-//
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// _, err := ssm.LookupParameter(ctx, &ssm.LookupParameterArgs{
-// Name: fmt.Sprintf("/aws/service/eks/optimized-ami/%v/amazon-linux-2/recommended/release_version", exampleAwsEksCluster.Version),
-// }, nil);
-// if err != nil {
-// return err
-// }
-// var splat0 []interface{}
-// for _, val0 := range exampleAwsSubnet {
-// splat0 = append(splat0, val0.Id)
-// }
-// _, err = eks.NewNodeGroup(ctx, "example", &eks.NodeGroupArgs{
-// ClusterName: pulumi.Any(exampleAwsEksCluster.Name),
-// NodeGroupName: pulumi.String("example"),
-// Version: pulumi.Any(exampleAwsEksCluster.Version),
-// ReleaseVersion: notImplemented("nonsensitive(data.aws_ssm_parameter.eks_ami_release_version.value)"),
-// NodeRoleArn: pulumi.Any(exampleAwsIamRole.Arn),
-// SubnetIds: toPulumiArray(splat0),
-// })
-// if err != nil {
-// return err
-// }
-// return nil
-// })
-// }
-// func toPulumiArray(arr []) pulumi.Array {
-// var pulumiArr pulumi.Array
-// for _, v := range arr {
-// pulumiArr = append(pulumiArr, pulumi.(v))
-// }
-// return pulumiArr
-// }
-// ```
 // ### Example IAM Role for EKS Node Group
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -208,8 +160,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example Subnets for EKS Node Group
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -257,15 +212,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import EKS Node Groups using the `cluster_name` and `node_group_name` separated by a colon (`:`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:eks/nodeGroup:NodeGroup my_node_group my_cluster:my_node_group
-//
+// $ pulumi import aws:eks/nodeGroup:NodeGroup my_node_group my_cluster:my_node_group
 // ```
 type NodeGroup struct {
 	pulumi.CustomResourceState

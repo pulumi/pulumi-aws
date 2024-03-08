@@ -13,8 +13,10 @@ namespace Pulumi.Aws.VpcLattice
     /// Resource for managing an AWS VPC Lattice Service Network or Service Access log subscription.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,13 +33,14 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import VPC Lattice Access Log Subscription using the access log subscription ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:vpclattice/accessLogSubscription:AccessLogSubscription example rft-8012925589
+    /// $ pulumi import aws:vpclattice/accessLogSubscription:AccessLogSubscription example rft-8012925589
     /// ```
     /// </summary>
     [AwsResourceType("aws:vpclattice/accessLogSubscription:AccessLogSubscription")]

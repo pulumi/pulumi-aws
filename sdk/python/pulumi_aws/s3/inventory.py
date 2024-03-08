@@ -301,8 +301,10 @@ class Inventory(pulumi.CustomResource):
         > This resource cannot be used with S3 directory buckets.
 
         ## Example Usage
+
         ### Add inventory configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -323,8 +325,11 @@ class Inventory(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Add inventory configuration with S3 object prefix
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -349,13 +354,14 @@ class Inventory(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import S3 bucket inventory configurations using `bucket:inventory`. For example:
 
         ```sh
-         $ pulumi import aws:s3/inventory:Inventory my-bucket-entire-bucket my-bucket:EntireBucket
+        $ pulumi import aws:s3/inventory:Inventory my-bucket-entire-bucket my-bucket:EntireBucket
         ```
 
         :param str resource_name: The name of the resource.
@@ -381,8 +387,10 @@ class Inventory(pulumi.CustomResource):
         > This resource cannot be used with S3 directory buckets.
 
         ## Example Usage
+
         ### Add inventory configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -403,8 +411,11 @@ class Inventory(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Add inventory configuration with S3 object prefix
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -429,13 +440,14 @@ class Inventory(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import S3 bucket inventory configurations using `bucket:inventory`. For example:
 
         ```sh
-         $ pulumi import aws:s3/inventory:Inventory my-bucket-entire-bucket my-bucket:EntireBucket
+        $ pulumi import aws:s3/inventory:Inventory my-bucket-entire-bucket my-bucket:EntireBucket
         ```
 
         :param str resource_name: The name of the resource.

@@ -171,8 +171,10 @@ class MethodSettings(pulumi.CustomResource):
         ## Example Usage
 
         ### End-to-end
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -226,11 +228,15 @@ class MethodSettings(pulumi.CustomResource):
                 logging_level="INFO",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### CloudWatch Logging and Tracing
 
         The AWS Console API Gateway Editor displays multiple options for CloudWatch Logs that don't directly map to the options in the AWS API and Pulumi. These examples show the `settings` blocks that are equivalent to the options the AWS Console gives for CloudWatch Logs.
+
         ### Off
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -243,8 +249,11 @@ class MethodSettings(pulumi.CustomResource):
                 logging_level="OFF",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Errors Only
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -259,8 +268,11 @@ class MethodSettings(pulumi.CustomResource):
                 data_trace_enabled=False,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Errors and Info Logs
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -275,8 +287,11 @@ class MethodSettings(pulumi.CustomResource):
                 data_trace_enabled=False,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Full Request and Response Logs
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -291,13 +306,14 @@ class MethodSettings(pulumi.CustomResource):
                 data_trace_enabled=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_api_gateway_method_settings` using `REST-API-ID/STAGE-NAME/METHOD-PATH`. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/methodSettings:MethodSettings example 12345abcde/example/test/GET
+        $ pulumi import aws:apigateway/methodSettings:MethodSettings example 12345abcde/example/test/GET
         ```
 
         :param str resource_name: The name of the resource.
@@ -321,8 +337,10 @@ class MethodSettings(pulumi.CustomResource):
         ## Example Usage
 
         ### End-to-end
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -376,11 +394,15 @@ class MethodSettings(pulumi.CustomResource):
                 logging_level="INFO",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### CloudWatch Logging and Tracing
 
         The AWS Console API Gateway Editor displays multiple options for CloudWatch Logs that don't directly map to the options in the AWS API and Pulumi. These examples show the `settings` blocks that are equivalent to the options the AWS Console gives for CloudWatch Logs.
+
         ### Off
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -393,8 +415,11 @@ class MethodSettings(pulumi.CustomResource):
                 logging_level="OFF",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Errors Only
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -409,8 +434,11 @@ class MethodSettings(pulumi.CustomResource):
                 data_trace_enabled=False,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Errors and Info Logs
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -425,8 +453,11 @@ class MethodSettings(pulumi.CustomResource):
                 data_trace_enabled=False,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Full Request and Response Logs
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -441,13 +472,14 @@ class MethodSettings(pulumi.CustomResource):
                 data_trace_enabled=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_api_gateway_method_settings` using `REST-API-ID/STAGE-NAME/METHOD-PATH`. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/methodSettings:MethodSettings example 12345abcde/example/test/GET
+        $ pulumi import aws:apigateway/methodSettings:MethodSettings example 12345abcde/example/test/GET
         ```
 
         :param str resource_name: The name of the resource.

@@ -21,7 +21,10 @@ import javax.annotation.Nullable;
  * Provides a Cognito User Resource.
  * 
  * ## Example Usage
+ * 
  * ### Basic configuration
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -57,7 +60,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Setting user attributes
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -117,13 +124,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Cognito User using the `user_pool_id`/`name` attributes concatenated. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cognito/user:User user us-east-1_vG78M4goG/user
+ * $ pulumi import aws:cognito/user:User user us-east-1_vG78M4goG/user
  * ```
  * 
  */

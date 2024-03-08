@@ -355,6 +355,7 @@ class LinkAggregationGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -365,13 +366,14 @@ class LinkAggregationGroup(pulumi.CustomResource):
             location="EqDC2",
             force_destroy=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Direct Connect LAGs using the LAG `id`. For example:
 
         ```sh
-         $ pulumi import aws:directconnect/linkAggregationGroup:LinkAggregationGroup test_lag dxlag-fgnsp5rq
+        $ pulumi import aws:directconnect/linkAggregationGroup:LinkAggregationGroup test_lag dxlag-fgnsp5rq
         ```
 
         :param str resource_name: The name of the resource.
@@ -397,6 +399,7 @@ class LinkAggregationGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -407,13 +410,14 @@ class LinkAggregationGroup(pulumi.CustomResource):
             location="EqDC2",
             force_destroy=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Direct Connect LAGs using the LAG `id`. For example:
 
         ```sh
-         $ pulumi import aws:directconnect/linkAggregationGroup:LinkAggregationGroup test_lag dxlag-fgnsp5rq
+        $ pulumi import aws:directconnect/linkAggregationGroup:LinkAggregationGroup test_lag dxlag-fgnsp5rq
         ```
 
         :param str resource_name: The name of the resource.

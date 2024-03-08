@@ -107,12 +107,14 @@ def get_http_namespace(name: Optional[str] = None,
     """
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.servicediscovery.get_http_namespace(name="development")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the http namespace.
@@ -140,12 +142,14 @@ def get_http_namespace_output(name: Optional[pulumi.Input[str]] = None,
     """
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.servicediscovery.get_http_namespace(name="development")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the http namespace.

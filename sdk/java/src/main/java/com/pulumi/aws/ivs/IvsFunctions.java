@@ -18,7 +18,10 @@ public final class IvsFunctions {
      * Data source for managing an AWS IVS (Interactive Video) Stream Key.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -47,6 +50,7 @@ public final class IvsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetStreamKeyResult> getStreamKey(GetStreamKeyArgs args) {
@@ -56,7 +60,10 @@ public final class IvsFunctions {
      * Data source for managing an AWS IVS (Interactive Video) Stream Key.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -85,6 +92,7 @@ public final class IvsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetStreamKeyResult> getStreamKeyPlain(GetStreamKeyPlainArgs args) {
@@ -94,7 +102,10 @@ public final class IvsFunctions {
      * Data source for managing an AWS IVS (Interactive Video) Stream Key.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -123,6 +134,7 @@ public final class IvsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetStreamKeyResult> getStreamKey(GetStreamKeyArgs args, InvokeOptions options) {
@@ -132,7 +144,10 @@ public final class IvsFunctions {
      * Data source for managing an AWS IVS (Interactive Video) Stream Key.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -161,6 +176,7 @@ public final class IvsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetStreamKeyResult> getStreamKeyPlain(GetStreamKeyPlainArgs args, InvokeOptions options) {

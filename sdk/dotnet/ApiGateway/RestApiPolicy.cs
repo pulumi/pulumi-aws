@@ -15,8 +15,10 @@ namespace Pulumi.Aws.ApiGateway
     /// &gt; **Note:** Amazon API Gateway Version 1 resources are used for creating and deploying REST APIs. To create and deploy WebSocket and HTTP APIs, use Amazon API Gateway Version 2 resources.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -80,13 +82,14 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_api_gateway_rest_api_policy` using the REST API ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:apigateway/restApiPolicy:RestApiPolicy example 12345abcde
+    /// $ pulumi import aws:apigateway/restApiPolicy:RestApiPolicy example 12345abcde
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/restApiPolicy:RestApiPolicy")]

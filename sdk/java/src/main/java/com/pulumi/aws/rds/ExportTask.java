@@ -21,7 +21,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS RDS (Relational Database) Export Task.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -54,7 +57,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Complete Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -187,13 +194,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import a RDS (Relational Database) Export Task using the `export_task_identifier`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:rds/exportTask:ExportTask example example
+ * $ pulumi import aws:rds/exportTask:ExportTask example example
  * ```
  * 
  */

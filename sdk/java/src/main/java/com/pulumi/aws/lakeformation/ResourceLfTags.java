@@ -22,7 +22,10 @@ import javax.annotation.Nullable;
  * Manages an attachment between one or more existing LF-tags and an existing Lake Formation resource.
  * 
  * ## Example Usage
+ * 
  * ### Database Example
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -74,7 +77,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Multiple Tags Example
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -143,6 +150,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:lakeformation/resourceLfTags:ResourceLfTags")

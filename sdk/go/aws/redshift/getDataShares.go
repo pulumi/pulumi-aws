@@ -14,8 +14,10 @@ import (
 // Data source for managing AWS Redshift Data Shares.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -37,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetDataShares(ctx *pulumi.Context, args *GetDataSharesArgs, opts ...pulumi.InvokeOption) (*GetDataSharesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetDataSharesResult

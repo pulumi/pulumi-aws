@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides an Amazon S3 Express directory bucket resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -52,13 +54,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import S3 bucket using `bucket`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:s3/directoryBucket:DirectoryBucket example example--usw2-az1--x-s3
+ * $ pulumi import aws:s3/directoryBucket:DirectoryBucket example example--usw2-az1--x-s3
  * ```
  * 
  */

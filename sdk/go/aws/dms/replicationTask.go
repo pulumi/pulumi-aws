@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -52,15 +53,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import replication tasks using the `replication_task_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:dms/replicationTask:ReplicationTask test test-dms-replication-task-tf
-//
+// $ pulumi import aws:dms/replicationTask:ReplicationTask test test-dms-replication-task-tf
 // ```
 type ReplicationTask struct {
 	pulumi.CustomResourceState

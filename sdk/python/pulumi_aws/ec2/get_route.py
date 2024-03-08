@@ -194,6 +194,7 @@ def get_route(carrier_gateway_id: Optional[str] = None,
 
     The following example shows how one might use a CIDR value to find a network interface id and use this to create a data source of that network interface.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -205,6 +206,7 @@ def get_route(carrier_gateway_id: Optional[str] = None,
         destination_cidr_block="10.0.1.0/24")
     interface = aws.ec2.get_network_interface(id=route.network_interface_id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str carrier_gateway_id: EC2 Carrier Gateway ID of the Route belonging to the Route Table.
@@ -285,6 +287,7 @@ def get_route_output(carrier_gateway_id: Optional[pulumi.Input[Optional[str]]] =
 
     The following example shows how one might use a CIDR value to find a network interface id and use this to create a data source of that network interface.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -296,6 +299,7 @@ def get_route_output(carrier_gateway_id: Optional[pulumi.Input[Optional[str]]] =
         destination_cidr_block="10.0.1.0/24")
     interface = aws.ec2.get_network_interface(id=route.network_interface_id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str carrier_gateway_id: EC2 Carrier Gateway ID of the Route belonging to the Route Table.

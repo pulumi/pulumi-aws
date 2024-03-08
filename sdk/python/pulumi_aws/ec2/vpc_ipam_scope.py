@@ -232,6 +232,7 @@ class VpcIpamScope(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -244,13 +245,14 @@ class VpcIpamScope(pulumi.CustomResource):
             ipam_id=example.id,
             description="Another Scope")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IPAMs using the `scope_id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/vpcIpamScope:VpcIpamScope example ipam-scope-0513c69f283d11dfb
+        $ pulumi import aws:ec2/vpcIpamScope:VpcIpamScope example ipam-scope-0513c69f283d11dfb
         ```
 
         :param str resource_name: The name of the resource.
@@ -272,6 +274,7 @@ class VpcIpamScope(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -284,13 +287,14 @@ class VpcIpamScope(pulumi.CustomResource):
             ipam_id=example.id,
             description="Another Scope")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IPAMs using the `scope_id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/vpcIpamScope:VpcIpamScope example ipam-scope-0513c69f283d11dfb
+        $ pulumi import aws:ec2/vpcIpamScope:VpcIpamScope example ipam-scope-0513c69f283d11dfb
         ```
 
         :param str resource_name: The name of the resource.

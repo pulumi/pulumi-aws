@@ -26,7 +26,10 @@ import javax.annotation.Nullable;
  * See example below which uses `jq` to extract the `Content` attribute and saves it to a local file.
  * 
  * ## Example Usage
+ * 
  * ### Basic
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -112,13 +115,62 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### With External Content
+ * 
+ * Use the AWS CLI to extract Contact Flow Content:
+ * 
+ * Use the generated file as input:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.connect.ContactFlowModule;
+ * import com.pulumi.aws.connect.ContactFlowModuleArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new ContactFlowModule(&#34;example&#34;, ContactFlowModuleArgs.builder()        
+ *             .instanceId(&#34;aaaaaaaa-bbbb-cccc-dddd-111111111111&#34;)
+ *             .name(&#34;Example&#34;)
+ *             .description(&#34;Example Contact Flow Module Description&#34;)
+ *             .filename(&#34;contact_flow_module.json&#34;)
+ *             .contentHash(StdFunctions.filebase64sha256(Filebase64sha256Args.builder()
+ *                 .input(&#34;contact_flow_module.json&#34;)
+ *                 .build()).result())
+ *             .tags(Map.ofEntries(
+ *                 Map.entry(&#34;Name&#34;, &#34;Example Contact Flow Module&#34;),
+ *                 Map.entry(&#34;Application&#34;, &#34;Example&#34;),
+ *                 Map.entry(&#34;Method&#34;, &#34;Create&#34;)
+ *             ))
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Amazon Connect Contact Flow Modules using the `instance_id` and `contact_flow_module_id` separated by a colon (`:`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:connect/contactFlowModule:ContactFlowModule example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+ * $ pulumi import aws:connect/contactFlowModule:ContactFlowModule example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
  * ```
  * 
  */

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,6 +30,7 @@ namespace Pulumi.Aws.DirectConnect
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:directconnect/connectionConfirmation:ConnectionConfirmation")]
     public partial class ConnectionConfirmation : global::Pulumi.CustomResource

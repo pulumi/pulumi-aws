@@ -136,6 +136,7 @@ class LinkAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -145,13 +146,14 @@ class LinkAssociation(pulumi.CustomResource):
             link_id=example_aws_networkmanager_link["id"],
             device_id=example_aws_networkmanager_device["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_networkmanager_link_association` using the global network ID, link ID and device ID. For example:
 
         ```sh
-         $ pulumi import aws:networkmanager/linkAssociation:LinkAssociation example global-network-0d47f6t230mz46dy4,link-444555aaabbb11223,device-07f6fd08867abc123
+        $ pulumi import aws:networkmanager/linkAssociation:LinkAssociation example global-network-0d47f6t230mz46dy4,link-444555aaabbb11223,device-07f6fd08867abc123
         ```
 
         :param str resource_name: The name of the resource.
@@ -173,6 +175,7 @@ class LinkAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -182,13 +185,14 @@ class LinkAssociation(pulumi.CustomResource):
             link_id=example_aws_networkmanager_link["id"],
             device_id=example_aws_networkmanager_device["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_networkmanager_link_association` using the global network ID, link ID and device ID. For example:
 
         ```sh
-         $ pulumi import aws:networkmanager/linkAssociation:LinkAssociation example global-network-0d47f6t230mz46dy4,link-444555aaabbb11223,device-07f6fd08867abc123
+        $ pulumi import aws:networkmanager/linkAssociation:LinkAssociation example global-network-0d47f6t230mz46dy4,link-444555aaabbb11223,device-07f6fd08867abc123
         ```
 
         :param str resource_name: The name of the resource.

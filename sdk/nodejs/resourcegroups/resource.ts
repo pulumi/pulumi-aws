@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS Resource Groups Resource.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -26,6 +28,7 @@ import * as utilities from "../utilities";
  *     resourceArn: example.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class Resource extends pulumi.CustomResource {
     /**

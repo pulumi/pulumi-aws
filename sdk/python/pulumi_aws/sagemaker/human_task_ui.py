@@ -175,6 +175,7 @@ class HumanTaskUI(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -186,13 +187,14 @@ class HumanTaskUI(pulumi.CustomResource):
                 content=std.file(input="sagemaker-human-task-ui-template.html").result,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker Human Task UIs using the `human_task_ui_name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/humanTaskUI:HumanTaskUI example example
+        $ pulumi import aws:sagemaker/humanTaskUI:HumanTaskUI example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -212,6 +214,7 @@ class HumanTaskUI(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -223,13 +226,14 @@ class HumanTaskUI(pulumi.CustomResource):
                 content=std.file(input="sagemaker-human-task-ui-template.html").result,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker Human Task UIs using the `human_task_ui_name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/humanTaskUI:HumanTaskUI example example
+        $ pulumi import aws:sagemaker/humanTaskUI:HumanTaskUI example example
         ```
 
         :param str resource_name: The name of the resource.

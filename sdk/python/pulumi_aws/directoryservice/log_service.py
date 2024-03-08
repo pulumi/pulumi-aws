@@ -102,6 +102,7 @@ class LogService(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -128,13 +129,14 @@ class LogService(pulumi.CustomResource):
             directory_id=example_aws_directory_service_directory["id"],
             log_group_name=example.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Directory Service Log Subscriptions using the directory id. For example:
 
         ```sh
-         $ pulumi import aws:directoryservice/logService:LogService msad d-1234567890
+        $ pulumi import aws:directoryservice/logService:LogService msad d-1234567890
         ```
 
         :param str resource_name: The name of the resource.
@@ -153,6 +155,7 @@ class LogService(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -179,13 +182,14 @@ class LogService(pulumi.CustomResource):
             directory_id=example_aws_directory_service_directory["id"],
             log_group_name=example.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Directory Service Log Subscriptions using the directory id. For example:
 
         ```sh
-         $ pulumi import aws:directoryservice/logService:LogService msad d-1234567890
+        $ pulumi import aws:directoryservice/logService:LogService msad d-1234567890
         ```
 
         :param str resource_name: The name of the resource.

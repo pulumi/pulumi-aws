@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -64,9 +65,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // Create a budget for *$100*.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -92,9 +95,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // Create a budget with planned budget limits.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -129,9 +134,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // Create a budget for s3 with a limit of *3 GB* of storage.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -157,9 +164,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // # Create a Savings Plan Utilization Budget
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -197,9 +206,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // # Create a RI Utilization Budget
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -245,9 +256,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // # Create a Cost Filter using Resource Tags
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -278,9 +291,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // # Create a costFilter using resource tags, obtaining the tag value from a variable
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -313,15 +328,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import budgets using `AccountID:BudgetName`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:budgets/budget:Budget myBudget 123456789012:myBudget
-//
+// $ pulumi import aws:budgets/budget:Budget myBudget 123456789012:myBudget
 // ```
 type Budget struct {
 	pulumi.CustomResourceState

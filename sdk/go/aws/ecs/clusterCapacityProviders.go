@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -57,15 +58,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import ECS cluster capacity providers using the `cluster_name` attribute. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ecs/clusterCapacityProviders:ClusterCapacityProviders example my-cluster
-//
+// $ pulumi import aws:ecs/clusterCapacityProviders:ClusterCapacityProviders example my-cluster
 // ```
 type ClusterCapacityProviders struct {
 	pulumi.CustomResourceState

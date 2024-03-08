@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Dax
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,13 +35,14 @@ namespace Pulumi.Aws.Dax
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DAX Subnet Group using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:dax/subnetGroup:SubnetGroup example my_dax_sg
+    /// $ pulumi import aws:dax/subnetGroup:SubnetGroup example my_dax_sg
     /// ```
     /// </summary>
     [AwsResourceType("aws:dax/subnetGroup:SubnetGroup")]

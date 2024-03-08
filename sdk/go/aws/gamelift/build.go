@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,15 +46,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import GameLift Builds using the ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:gamelift/build:Build example <build-id>
-//
+// $ pulumi import aws:gamelift/build:Build example <build-id>
 // ```
 type Build struct {
 	pulumi.CustomResourceState

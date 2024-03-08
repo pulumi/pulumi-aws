@@ -153,14 +153,17 @@ def get_quicksight_user(aws_account_id: Optional[str] = None,
     properties without having to hard code ARNs or unique IDs as input.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.quicksight.get_quicksight_user(user_name="example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str aws_account_id: AWS account ID.
@@ -200,14 +203,17 @@ def get_quicksight_user_output(aws_account_id: Optional[pulumi.Input[Optional[st
     properties without having to hard code ARNs or unique IDs as input.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.quicksight.get_quicksight_user(user_name="example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str aws_account_id: AWS account ID.

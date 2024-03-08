@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -58,8 +59,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Multiple Region Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -107,9 +111,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Repository Filter Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -159,15 +165,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import ECR Replication Configuration using the `registry_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ecr/replicationConfiguration:ReplicationConfiguration service 012345678912
-//
+// $ pulumi import aws:ecr/replicationConfiguration:ReplicationConfiguration service 012345678912
 // ```
 type ReplicationConfiguration struct {
 	pulumi.CustomResourceState

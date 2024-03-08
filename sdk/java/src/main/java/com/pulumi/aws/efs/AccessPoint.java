@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Provides an Elastic File System (EFS) access point.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,13 +51,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import the EFS access points using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:efs/accessPoint:AccessPoint test fsap-52a643fb
+ * $ pulumi import aws:efs/accessPoint:AccessPoint test fsap-52a643fb
  * ```
  * 
  */

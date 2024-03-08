@@ -226,6 +226,7 @@ class VpcIpamResourceDiscovery(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -240,13 +241,14 @@ class VpcIpamResourceDiscovery(pulumi.CustomResource):
                 "Test": "Main",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IPAMs using the IPAM resource discovery `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/vpcIpamResourceDiscovery:VpcIpamResourceDiscovery example ipam-res-disco-0178368ad2146a492
+        $ pulumi import aws:ec2/vpcIpamResourceDiscovery:VpcIpamResourceDiscovery example ipam-res-disco-0178368ad2146a492
         ```
 
         :param str resource_name: The name of the resource.
@@ -268,6 +270,7 @@ class VpcIpamResourceDiscovery(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -282,13 +285,14 @@ class VpcIpamResourceDiscovery(pulumi.CustomResource):
                 "Test": "Main",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IPAMs using the IPAM resource discovery `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/vpcIpamResourceDiscovery:VpcIpamResourceDiscovery example ipam-res-disco-0178368ad2146a492
+        $ pulumi import aws:ec2/vpcIpamResourceDiscovery:VpcIpamResourceDiscovery example ipam-res-disco-0178368ad2146a492
         ```
 
         :param str resource_name: The name of the resource.

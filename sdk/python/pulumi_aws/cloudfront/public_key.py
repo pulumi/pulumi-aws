@@ -209,6 +209,7 @@ class PublicKey(pulumi.CustomResource):
 
         The following example below creates a CloudFront public key.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -219,13 +220,14 @@ class PublicKey(pulumi.CustomResource):
             encoded_key=std.file(input="public_key.pem").result,
             name="test_key")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudFront Public Key using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:cloudfront/publicKey:PublicKey example K3D5EWEUDCCXON
+        $ pulumi import aws:cloudfront/publicKey:PublicKey example K3D5EWEUDCCXON
         ```
 
         :param str resource_name: The name of the resource.
@@ -248,6 +250,7 @@ class PublicKey(pulumi.CustomResource):
 
         The following example below creates a CloudFront public key.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -258,13 +261,14 @@ class PublicKey(pulumi.CustomResource):
             encoded_key=std.file(input="public_key.pem").result,
             name="test_key")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudFront Public Key using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:cloudfront/publicKey:PublicKey example K3D5EWEUDCCXON
+        $ pulumi import aws:cloudfront/publicKey:PublicKey example K3D5EWEUDCCXON
         ```
 
         :param str resource_name: The name of the resource.

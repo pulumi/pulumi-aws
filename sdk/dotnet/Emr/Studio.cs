@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Emr
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -40,13 +41,14 @@ namespace Pulumi.Aws.Emr
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EMR studios using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:emr/studio:Studio studio es-123456ABCDEF
+    /// $ pulumi import aws:emr/studio:Studio studio es-123456ABCDEF
     /// ```
     /// </summary>
     [AwsResourceType("aws:emr/studio:Studio")]

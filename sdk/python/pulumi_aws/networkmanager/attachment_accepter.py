@@ -229,8 +229,10 @@ class AttachmentAccepter(pulumi.CustomResource):
         Resource for managing an AWS Network Manager Attachment Accepter.
 
         ## Example Usage
+
         ### Example with VPC attachment
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -239,8 +241,11 @@ class AttachmentAccepter(pulumi.CustomResource):
             attachment_id=vpc["id"],
             attachment_type=vpc["attachmentType"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example with site-to-site VPN attachment
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -249,6 +254,7 @@ class AttachmentAccepter(pulumi.CustomResource):
             attachment_id=vpn["id"],
             attachment_type=vpn["attachmentType"])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -265,8 +271,10 @@ class AttachmentAccepter(pulumi.CustomResource):
         Resource for managing an AWS Network Manager Attachment Accepter.
 
         ## Example Usage
+
         ### Example with VPC attachment
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -275,8 +283,11 @@ class AttachmentAccepter(pulumi.CustomResource):
             attachment_id=vpc["id"],
             attachment_type=vpc["attachmentType"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example with site-to-site VPN attachment
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -285,6 +296,7 @@ class AttachmentAccepter(pulumi.CustomResource):
             attachment_id=vpn["id"],
             attachment_type=vpn["attachmentType"])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param AttachmentAccepterArgs args: The arguments to use to populate this resource's properties.

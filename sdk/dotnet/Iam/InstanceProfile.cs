@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -63,13 +64,14 @@ namespace Pulumi.Aws.Iam
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Instance Profiles using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:iam/instanceProfile:InstanceProfile test_profile app-instance-profile-1
+    /// $ pulumi import aws:iam/instanceProfile:InstanceProfile test_profile app-instance-profile-1
     /// ```
     /// </summary>
     [AwsResourceType("aws:iam/instanceProfile:InstanceProfile")]

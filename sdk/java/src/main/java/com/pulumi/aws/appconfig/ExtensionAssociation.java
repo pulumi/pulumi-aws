@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Associates an AppConfig Extension with a Resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -97,13 +99,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import AppConfig Extension Associations using their extension association ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:appconfig/extensionAssociation:ExtensionAssociation example 71rxuzt
+ * $ pulumi import aws:appconfig/extensionAssociation:ExtensionAssociation example 71rxuzt
  * ```
  * 
  */

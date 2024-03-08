@@ -21,6 +21,7 @@ import (
 //
 // The following example will create a neptune cluster with two neptune instances(one writer and one reader).
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -65,15 +66,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_neptune_cluster_instance` using the instance identifier. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:neptune/clusterInstance:ClusterInstance example my-instance
-//
+// $ pulumi import aws:neptune/clusterInstance:ClusterInstance example my-instance
 // ```
 type ClusterInstance struct {
 	pulumi.CustomResourceState

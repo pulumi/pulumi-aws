@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,13 +22,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Cloudwatch Log Groups using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudwatch/logGroup:LogGroup test_group yada
+ * $ pulumi import aws:cloudwatch/logGroup:LogGroup test_group yada
  * ```
  */
 export class LogGroup extends pulumi.CustomResource {

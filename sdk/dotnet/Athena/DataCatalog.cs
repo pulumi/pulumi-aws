@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Athena
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,8 +44,11 @@ namespace Pulumi.Aws.Athena
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Hive based Data Catalog
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -66,8 +70,11 @@ namespace Pulumi.Aws.Athena
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Glue based Data Catalog
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -89,8 +96,11 @@ namespace Pulumi.Aws.Athena
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Lambda based Data Catalog
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -113,13 +123,14 @@ namespace Pulumi.Aws.Athena
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import data catalogs using their `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:athena/dataCatalog:DataCatalog example example-data-catalog
+    /// $ pulumi import aws:athena/dataCatalog:DataCatalog example example-data-catalog
     /// ```
     /// </summary>
     [AwsResourceType("aws:athena/dataCatalog:DataCatalog")]

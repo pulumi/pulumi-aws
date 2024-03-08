@@ -18,8 +18,10 @@ import (
 // > **Note:** Do not use `networkInterface` to associate the EIP to `lb.LoadBalancer` or `ec2.NatGateway` resources. Instead use the `allocationId` available in those resources to allow AWS to manage the association, otherwise you will see `AuthFailure` errors.
 //
 // ## Example Usage
+//
 // ### Single EIP associated with an instance
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,8 +46,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Multiple EIPs associated with a single network interface
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -89,8 +94,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Attaching an EIP to an Instance with a pre-assigned private ip (VPC Only)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -146,8 +154,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Allocating EIP from the BYOIP pool
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -172,15 +183,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import EIPs in a VPC using their Allocation ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/eip:Eip bar eipalloc-00a10e96
-//
+// $ pulumi import aws:ec2/eip:Eip bar eipalloc-00a10e96
 // ```
 type Eip struct {
 	pulumi.CustomResourceState

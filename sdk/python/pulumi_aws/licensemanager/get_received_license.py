@@ -232,12 +232,14 @@ def get_received_license(license_arn: Optional[str] = None,
 
     The following shows getting the received license data using and ARN.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.licensemanager.get_received_license(license_arn="arn:aws:license-manager::111111111111:license:l-ecbaa94eb71a4830b6d7e49268fecaa0")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str license_arn: The ARN of the received license you want data for.
@@ -276,12 +278,14 @@ def get_received_license_output(license_arn: Optional[pulumi.Input[str]] = None,
 
     The following shows getting the received license data using and ARN.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.licensemanager.get_received_license(license_arn="arn:aws:license-manager::111111111111:license:l-ecbaa94eb71a4830b6d7e49268fecaa0")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str license_arn: The ARN of the received license you want data for.

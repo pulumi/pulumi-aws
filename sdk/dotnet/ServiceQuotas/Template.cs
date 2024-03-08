@@ -15,8 +15,10 @@ namespace Pulumi.Aws.ServiceQuotas
     /// &gt; Only the management account of an organization can alter Service Quota templates, and this must be done from the `us-east-1` region.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,13 +37,14 @@ namespace Pulumi.Aws.ServiceQuotas
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Service Quotas Template using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:servicequotas/template:Template example us-east-1,L-2ACBD22F,lambda
+    /// $ pulumi import aws:servicequotas/template:Template example us-east-1,L-2ACBD22F,lambda
     /// ```
     /// </summary>
     [AwsResourceType("aws:servicequotas/template:Template")]

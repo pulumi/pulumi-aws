@@ -316,14 +316,18 @@ class Domain(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.customerprofiles.Domain("example", domain_name="example")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With SQS DLQ and KMS set
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -376,13 +380,14 @@ class Domain(pulumi.CustomResource):
             default_encryption_key=example_key.arn,
             default_expiration_days=365)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amazon Customer Profiles Domain using the resource `id`. For example:
 
         ```sh
-         $ pulumi import aws:customerprofiles/domain:Domain example e6f777be-22d0-4b40-b307-5d2720ef16b2
+        $ pulumi import aws:customerprofiles/domain:Domain example e6f777be-22d0-4b40-b307-5d2720ef16b2
         ```
 
         :param str resource_name: The name of the resource.
@@ -409,14 +414,18 @@ class Domain(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.customerprofiles.Domain("example", domain_name="example")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With SQS DLQ and KMS set
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -469,13 +478,14 @@ class Domain(pulumi.CustomResource):
             default_encryption_key=example_key.arn,
             default_expiration_days=365)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amazon Customer Profiles Domain using the resource `id`. For example:
 
         ```sh
-         $ pulumi import aws:customerprofiles/domain:Domain example e6f777be-22d0-4b40-b307-5d2720ef16b2
+        $ pulumi import aws:customerprofiles/domain:Domain example e6f777be-22d0-4b40-b307-5d2720ef16b2
         ```
 
         :param str resource_name: The name of the resource.

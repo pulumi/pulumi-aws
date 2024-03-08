@@ -134,6 +134,7 @@ class Instance(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -167,7 +168,9 @@ class Instance(pulumi.CustomResource):
                 "custom_attribute": "custom",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -185,13 +188,14 @@ class Instance(pulumi.CustomResource):
                 "AWS_EC2_INSTANCE_ID": "i-0abdg374kd892cj6dl",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Service Discovery Instance using the service ID and instance ID. For example:
 
         ```sh
-         $ pulumi import aws:servicediscovery/instance:Instance example 0123456789/i-0123
+        $ pulumi import aws:servicediscovery/instance:Instance example 0123456789/i-0123
         ```
 
         :param str resource_name: The name of the resource.
@@ -211,6 +215,7 @@ class Instance(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -244,7 +249,9 @@ class Instance(pulumi.CustomResource):
                 "custom_attribute": "custom",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -262,13 +269,14 @@ class Instance(pulumi.CustomResource):
                 "AWS_EC2_INSTANCE_ID": "i-0abdg374kd892cj6dl",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Service Discovery Instance using the service ID and instance ID. For example:
 
         ```sh
-         $ pulumi import aws:servicediscovery/instance:Instance example 0123456789/i-0123
+        $ pulumi import aws:servicediscovery/instance:Instance example 0123456789/i-0123
         ```
 
         :param str resource_name: The name of the resource.

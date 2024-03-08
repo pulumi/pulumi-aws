@@ -107,6 +107,7 @@ class UserGroupMembership(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -125,13 +126,14 @@ class UserGroupMembership(pulumi.CustomResource):
             user=user1.name,
             groups=[group3.name])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM user group membership using the user name and group names separated by `/`. For example:
 
         ```sh
-         $ pulumi import aws:iam/userGroupMembership:UserGroupMembership example1 user1/group1/group2
+        $ pulumi import aws:iam/userGroupMembership:UserGroupMembership example1 user1/group1/group2
         ```
 
         :param str resource_name: The name of the resource.
@@ -155,6 +157,7 @@ class UserGroupMembership(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -173,13 +176,14 @@ class UserGroupMembership(pulumi.CustomResource):
             user=user1.name,
             groups=[group3.name])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM user group membership using the user name and group names separated by `/`. For example:
 
         ```sh
-         $ pulumi import aws:iam/userGroupMembership:UserGroupMembership example1 user1/group1/group2
+        $ pulumi import aws:iam/userGroupMembership:UserGroupMembership example1 user1/group1/group2
         ```
 
         :param str resource_name: The name of the resource.

@@ -25,7 +25,10 @@ import javax.annotation.Nullable;
  * &gt; A &#34;provisioning artifact&#34; is also referred to as a &#34;version.&#34; A &#34;distributor&#34; is also referred to as a &#34;vendor.&#34;
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -61,13 +64,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_servicecatalog_product` using the product ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:servicecatalog/product:Product example prod-dnigbtea24ste
+ * $ pulumi import aws:servicecatalog/product:Product example prod-dnigbtea24ste
  * ```
  * 
  */

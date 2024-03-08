@@ -27,6 +27,8 @@ public final class LexFunctions {
      * Provides details about a specific Amazon Lex Bot.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -56,6 +58,7 @@ public final class LexFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBotResult> getBot(GetBotArgs args) {
@@ -65,6 +68,8 @@ public final class LexFunctions {
      * Provides details about a specific Amazon Lex Bot.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -94,6 +99,7 @@ public final class LexFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBotResult> getBotPlain(GetBotPlainArgs args) {
@@ -103,6 +109,8 @@ public final class LexFunctions {
      * Provides details about a specific Amazon Lex Bot.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -132,6 +140,7 @@ public final class LexFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBotResult> getBot(GetBotArgs args, InvokeOptions options) {
@@ -141,6 +150,8 @@ public final class LexFunctions {
      * Provides details about a specific Amazon Lex Bot.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -170,6 +181,7 @@ public final class LexFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBotResult> getBotPlain(GetBotPlainArgs args, InvokeOptions options) {
@@ -179,6 +191,8 @@ public final class LexFunctions {
      * Provides details about a specific Amazon Lex Bot Alias.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -208,6 +222,7 @@ public final class LexFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBotAliasResult> getBotAlias(GetBotAliasArgs args) {
@@ -217,6 +232,8 @@ public final class LexFunctions {
      * Provides details about a specific Amazon Lex Bot Alias.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -246,6 +263,7 @@ public final class LexFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBotAliasResult> getBotAliasPlain(GetBotAliasPlainArgs args) {
@@ -255,6 +273,8 @@ public final class LexFunctions {
      * Provides details about a specific Amazon Lex Bot Alias.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -284,6 +304,7 @@ public final class LexFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBotAliasResult> getBotAlias(GetBotAliasArgs args, InvokeOptions options) {
@@ -293,6 +314,8 @@ public final class LexFunctions {
      * Provides details about a specific Amazon Lex Bot Alias.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -322,6 +345,7 @@ public final class LexFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBotAliasResult> getBotAliasPlain(GetBotAliasPlainArgs args, InvokeOptions options) {
@@ -331,6 +355,8 @@ public final class LexFunctions {
      * Provides details about a specific Amazon Lex Intent.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -360,6 +386,7 @@ public final class LexFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetIntentResult> getIntent(GetIntentArgs args) {
@@ -369,6 +396,8 @@ public final class LexFunctions {
      * Provides details about a specific Amazon Lex Intent.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -398,6 +427,7 @@ public final class LexFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetIntentResult> getIntentPlain(GetIntentPlainArgs args) {
@@ -407,6 +437,8 @@ public final class LexFunctions {
      * Provides details about a specific Amazon Lex Intent.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -436,6 +468,7 @@ public final class LexFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetIntentResult> getIntent(GetIntentArgs args, InvokeOptions options) {
@@ -445,6 +478,8 @@ public final class LexFunctions {
      * Provides details about a specific Amazon Lex Intent.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -474,6 +509,7 @@ public final class LexFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetIntentResult> getIntentPlain(GetIntentPlainArgs args, InvokeOptions options) {
@@ -483,6 +519,8 @@ public final class LexFunctions {
      * Provides details about a specific Amazon Lex Slot Type.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -512,6 +550,7 @@ public final class LexFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSlotTypeResult> getSlotType(GetSlotTypeArgs args) {
@@ -521,6 +560,8 @@ public final class LexFunctions {
      * Provides details about a specific Amazon Lex Slot Type.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -550,6 +591,7 @@ public final class LexFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSlotTypeResult> getSlotTypePlain(GetSlotTypePlainArgs args) {
@@ -559,6 +601,8 @@ public final class LexFunctions {
      * Provides details about a specific Amazon Lex Slot Type.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -588,6 +632,7 @@ public final class LexFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSlotTypeResult> getSlotType(GetSlotTypeArgs args, InvokeOptions options) {
@@ -597,6 +642,8 @@ public final class LexFunctions {
      * Provides details about a specific Amazon Lex Slot Type.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -626,6 +673,7 @@ public final class LexFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSlotTypeResult> getSlotTypePlain(GetSlotTypePlainArgs args, InvokeOptions options) {

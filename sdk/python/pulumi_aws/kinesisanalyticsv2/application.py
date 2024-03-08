@@ -439,8 +439,10 @@ class Application(pulumi.CustomResource):
         > **Note:** Kinesis Data Analytics for SQL applications created using this resource cannot currently be viewed in the AWS Console. To manage Kinesis Data Analytics for SQL applications that can also be viewed in the AWS Console, use the `kinesis.AnalyticsApplication` resource.
 
         ## Example Usage
+
         ### Apache Flink Application
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -502,8 +504,11 @@ class Application(pulumi.CustomResource):
                 "Environment": "test",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### SQL Application
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -603,8 +608,11 @@ class Application(pulumi.CustomResource):
                 log_stream_arn=example_log_stream.arn,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### VPC Configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -637,13 +645,14 @@ class Application(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_kinesisanalyticsv2_application` using the application ARN. For example:
 
         ```sh
-         $ pulumi import aws:kinesisanalyticsv2/application:Application example arn:aws:kinesisanalytics:us-west-2:123456789012:application/example-sql-application
+        $ pulumi import aws:kinesisanalyticsv2/application:Application example arn:aws:kinesisanalytics:us-west-2:123456789012:application/example-sql-application
         ```
 
         :param str resource_name: The name of the resource.
@@ -671,8 +680,10 @@ class Application(pulumi.CustomResource):
         > **Note:** Kinesis Data Analytics for SQL applications created using this resource cannot currently be viewed in the AWS Console. To manage Kinesis Data Analytics for SQL applications that can also be viewed in the AWS Console, use the `kinesis.AnalyticsApplication` resource.
 
         ## Example Usage
+
         ### Apache Flink Application
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -734,8 +745,11 @@ class Application(pulumi.CustomResource):
                 "Environment": "test",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### SQL Application
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -835,8 +849,11 @@ class Application(pulumi.CustomResource):
                 log_stream_arn=example_log_stream.arn,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### VPC Configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -869,13 +886,14 @@ class Application(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_kinesisanalyticsv2_application` using the application ARN. For example:
 
         ```sh
-         $ pulumi import aws:kinesisanalyticsv2/application:Application example arn:aws:kinesisanalytics:us-west-2:123456789012:application/example-sql-application
+        $ pulumi import aws:kinesisanalyticsv2/application:Application example arn:aws:kinesisanalytics:us-west-2:123456789012:application/example-sql-application
         ```
 
         :param str resource_name: The name of the resource.

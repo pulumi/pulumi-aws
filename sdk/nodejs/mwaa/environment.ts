@@ -13,8 +13,10 @@ import * as utilities from "../utilities";
  * ## Example Usage
  *
  * A MWAA Environment requires an IAM role (`aws.iam.Role`), two subnets in the private zone (`aws.ec2.Subnet`) and a versioned S3 bucket (`aws.s3.BucketV2`).
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -30,8 +32,11 @@ import * as utilities from "../utilities";
  *     sourceBucketArn: exampleAwsS3Bucket.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Example with Airflow configuration options
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -51,10 +56,13 @@ import * as utilities from "../utilities";
  *     sourceBucketArn: exampleAwsS3Bucket.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Example with logging configurations
  *
  * Note that Airflow task logs are enabled by default with the `INFO` log level.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -92,8 +100,11 @@ import * as utilities from "../utilities";
  *     sourceBucketArn: exampleAwsS3Bucket.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Example with tags
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -113,13 +124,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import MWAA Environment using `Name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:mwaa/environment:Environment example MyAirflowEnvironment
+ * $ pulumi import aws:mwaa/environment:Environment example MyAirflowEnvironment
  * ```
  */
 export class Environment extends pulumi.CustomResource {

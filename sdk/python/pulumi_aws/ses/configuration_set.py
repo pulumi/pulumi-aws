@@ -244,16 +244,21 @@ class ConfigurationSet(pulumi.CustomResource):
         Provides an SES configuration set resource.
 
         ## Example Usage
+
         ### Basic Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.ses.ConfigurationSet("test", name="some-configuration-set-test")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Require TLS Connections
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -264,8 +269,11 @@ class ConfigurationSet(pulumi.CustomResource):
                 tls_policy="Require",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Tracking Options
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -276,13 +284,14 @@ class ConfigurationSet(pulumi.CustomResource):
                 custom_redirect_domain="sub.example.com",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SES Configuration Sets using their `name`. For example:
 
         ```sh
-         $ pulumi import aws:ses/configurationSet:ConfigurationSet test some-configuration-set-test
+        $ pulumi import aws:ses/configurationSet:ConfigurationSet test some-configuration-set-test
         ```
 
         :param str resource_name: The name of the resource.
@@ -305,16 +314,21 @@ class ConfigurationSet(pulumi.CustomResource):
         Provides an SES configuration set resource.
 
         ## Example Usage
+
         ### Basic Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         test = aws.ses.ConfigurationSet("test", name="some-configuration-set-test")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Require TLS Connections
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -325,8 +339,11 @@ class ConfigurationSet(pulumi.CustomResource):
                 tls_policy="Require",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Tracking Options
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -337,13 +354,14 @@ class ConfigurationSet(pulumi.CustomResource):
                 custom_redirect_domain="sub.example.com",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SES Configuration Sets using their `name`. For example:
 
         ```sh
-         $ pulumi import aws:ses/configurationSet:ConfigurationSet test some-configuration-set-test
+        $ pulumi import aws:ses/configurationSet:ConfigurationSet test some-configuration-set-test
         ```
 
         :param str resource_name: The name of the resource.

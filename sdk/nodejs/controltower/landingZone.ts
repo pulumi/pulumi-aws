@@ -11,31 +11,12 @@ import * as utilities from "../utilities";
  * Creates a new landing zone using Control Tower. For more information on usage, please see the
  * [AWS Control Tower Landing Zone User Guide](https://docs.aws.amazon.com/controltower/latest/userguide/how-control-tower-works.html).
  *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const example = new aws.controltower.LandingZone("example", {
- *     manifestJson: std.file({
- *         input: `${notImplemented("path.module")}/LandingZoneManifest.json`,
- *     }).then(invoke => invoke.result),
- *     version: "3.2",
- * });
- * ```
- *
  * ## Import
  *
  * Using `pulumi import`, import a Control Tower Landing Zone using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:controltower/landingZone:LandingZone example 1A2B3C4D5E6F7G8H
+ * $ pulumi import aws:controltower/landingZone:LandingZone example 1A2B3C4D5E6F7G8H
  * ```
  */
 export class LandingZone extends pulumi.CustomResource {

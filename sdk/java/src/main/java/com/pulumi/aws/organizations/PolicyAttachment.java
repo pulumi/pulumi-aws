@@ -19,7 +19,10 @@ import javax.annotation.Nullable;
  * Provides a resource to attach an AWS Organizations policy to an organization account, root, or unit.
  * 
  * ## Example Usage
+ * 
  * ### Organization Account
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,7 +52,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Organization Root
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -79,7 +86,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Organization Unit
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -109,6 +120,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
@@ -117,7 +129,7 @@ import javax.annotation.Nullable;
  * With an account target:
  * 
  * ```sh
- *  $ pulumi import aws:organizations/policyAttachment:PolicyAttachment account 123456789012:p-12345678
+ * $ pulumi import aws:organizations/policyAttachment:PolicyAttachment account 123456789012:p-12345678
  * ```
  * 
  */

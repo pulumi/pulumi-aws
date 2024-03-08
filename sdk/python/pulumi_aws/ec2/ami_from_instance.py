@@ -681,6 +681,7 @@ class AmiFromInstance(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -689,6 +690,7 @@ class AmiFromInstance(pulumi.CustomResource):
             name="example",
             source_instance_id="i-xxxxxxxx")
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -733,6 +735,7 @@ class AmiFromInstance(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -741,6 +744,7 @@ class AmiFromInstance(pulumi.CustomResource):
             name="example",
             source_instance_id="i-xxxxxxxx")
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param AmiFromInstanceArgs args: The arguments to use to populate this resource's properties.

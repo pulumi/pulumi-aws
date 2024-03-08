@@ -505,6 +505,7 @@ class FileCache(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -538,13 +539,14 @@ class FileCache(pulumi.CustomResource):
             subnet_ids=[test1["id"]],
             storage_capacity=1200)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amazon File Cache cache using the resource `id`. For example:
 
         ```sh
-         $ pulumi import aws:fsx/fileCache:FileCache example fc-8012925589
+        $ pulumi import aws:fsx/fileCache:FileCache example fc-8012925589
         ```
 
         :param str resource_name: The name of the resource.
@@ -575,6 +577,7 @@ class FileCache(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -608,13 +611,14 @@ class FileCache(pulumi.CustomResource):
             subnet_ids=[test1["id"]],
             storage_capacity=1200)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amazon File Cache cache using the resource `id`. For example:
 
         ```sh
-         $ pulumi import aws:fsx/fileCache:FileCache example fc-8012925589
+        $ pulumi import aws:fsx/fileCache:FileCache example fc-8012925589
         ```
 
         :param str resource_name: The name of the resource.

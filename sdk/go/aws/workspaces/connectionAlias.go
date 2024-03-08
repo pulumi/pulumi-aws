@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS WorkSpaces Connection Alias.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,15 +42,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import WorkSpaces Connection Alias using the connection alias ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:workspaces/connectionAlias:ConnectionAlias example rft-8012925589
-//
+// $ pulumi import aws:workspaces/connectionAlias:ConnectionAlias example rft-8012925589
 // ```
 type ConnectionAlias struct {
 	pulumi.CustomResourceState

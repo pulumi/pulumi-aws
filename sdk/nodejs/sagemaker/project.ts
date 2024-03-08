@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -25,13 +26,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SageMaker Projects using the `project_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:sagemaker/project:Project example example
+ * $ pulumi import aws:sagemaker/project:Project example example
  * ```
  */
 export class Project extends pulumi.CustomResource {

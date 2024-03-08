@@ -201,6 +201,7 @@ class NamedQuery(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -228,13 +229,14 @@ class NamedQuery(pulumi.CustomResource):
             database=hoge_database.name,
             query=hoge_database.name.apply(lambda name: f"SELECT * FROM {name} limit 10;"))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Athena Named Query using the query ID. For example:
 
         ```sh
-         $ pulumi import aws:athena/namedQuery:NamedQuery example 0123456789
+        $ pulumi import aws:athena/namedQuery:NamedQuery example 0123456789
         ```
 
         :param str resource_name: The name of the resource.
@@ -256,6 +258,7 @@ class NamedQuery(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -283,13 +286,14 @@ class NamedQuery(pulumi.CustomResource):
             database=hoge_database.name,
             query=hoge_database.name.apply(lambda name: f"SELECT * FROM {name} limit 10;"))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Athena Named Query using the query ID. For example:
 
         ```sh
-         $ pulumi import aws:athena/namedQuery:NamedQuery example 0123456789
+        $ pulumi import aws:athena/namedQuery:NamedQuery example 0123456789
         ```
 
         :param str resource_name: The name of the resource.

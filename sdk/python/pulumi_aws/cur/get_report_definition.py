@@ -184,12 +184,14 @@ def get_report_definition(report_name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     report_definition = aws.cur.get_report_definition(report_name="example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str report_name: Name of the report definition to match.
@@ -226,12 +228,14 @@ def get_report_definition_output(report_name: Optional[pulumi.Input[str]] = None
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     report_definition = aws.cur.get_report_definition(report_name="example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str report_name: Name of the report definition to match.
