@@ -68,7 +68,7 @@ import (
 //				return err
 //			}
 //			_, err = glue.NewResourcePolicy(ctx, "example", &glue.ResourcePolicyArgs{
-//				Policy: *pulumi.String(glue_example_policy.Json),
+//				Policy: pulumi.String(glue_example_policy.Json),
 //			})
 //			if err != nil {
 //				return err

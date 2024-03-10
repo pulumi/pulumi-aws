@@ -37,7 +37,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewVpcEndpointRouteTableAssociation(ctx, "private_s3", &ec2.VpcEndpointRouteTableAssociationArgs{
-//				VpcEndpointId: *pulumi.String(s3.Id),
+//				VpcEndpointId: pulumi.String(s3.Id),
 //				RouteTableId:  pulumi.Any(private.Id),
 //			})
 //			if err != nil {

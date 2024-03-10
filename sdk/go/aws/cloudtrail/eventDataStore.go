@@ -97,7 +97,7 @@ import (
 //							&cloudtrail.EventDataStoreAdvancedEventSelectorFieldSelectorArgs{
 //								Field: pulumi.String("resources.ARN"),
 //								Equals: pulumi.StringArray{
-//									*pulumi.String(table.Arn),
+//									pulumi.String(table.Arn),
 //								},
 //							},
 //						},

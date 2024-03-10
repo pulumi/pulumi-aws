@@ -65,7 +65,7 @@ import (
 //			}
 //			firehoseRole, err := iam.NewRole(ctx, "firehose_role", &iam.RoleArgs{
 //				Name:             pulumi.String("firehose_test_role"),
-//				AssumeRolePolicy: *pulumi.String(firehoseAssumeRole.Json),
+//				AssumeRolePolicy: pulumi.String(firehoseAssumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -93,7 +93,7 @@ import (
 //			}
 //			lambdaIam, err := iam.NewRole(ctx, "lambda_iam", &iam.RoleArgs{
 //				Name:             pulumi.String("lambda_iam"),
-//				AssumeRolePolicy: *pulumi.String(lambdaAssumeRole.Json),
+//				AssumeRolePolicy: pulumi.String(lambdaAssumeRole.Json),
 //			})
 //			if err != nil {
 //				return err

@@ -104,7 +104,7 @@ import (
 //			_, err = iam.NewRole(ctx, "instance", &iam.RoleArgs{
 //				Name:             pulumi.String("instance_role"),
 //				Path:             pulumi.String("/system/"),
-//				AssumeRolePolicy: *pulumi.String(instanceAssumeRolePolicy.Json),
+//				AssumeRolePolicy: pulumi.String(instanceAssumeRolePolicy.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -173,7 +173,7 @@ import (
 //					},
 //					&iam.RoleInlinePolicyArgs{
 //						Name:   pulumi.String("policy-8675309"),
-//						Policy: *pulumi.String(inlinePolicy.Json),
+//						Policy: pulumi.String(inlinePolicy.Json),
 //					},
 //				},
 //			})

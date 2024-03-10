@@ -37,8 +37,8 @@ import (
 //				return err
 //			}
 //			_, err = cloudhsmv2.NewHsm(ctx, "cloudhsm_v2_hsm", &cloudhsmv2.HsmArgs{
-//				SubnetId:  *pulumi.String(cluster.SubnetIds[0]),
-//				ClusterId: *pulumi.String(cluster.ClusterId),
+//				SubnetId:  pulumi.String(cluster.SubnetIds[0]),
+//				ClusterId: pulumi.String(cluster.ClusterId),
 //			})
 //			if err != nil {
 //				return err

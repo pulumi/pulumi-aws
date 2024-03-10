@@ -74,7 +74,7 @@ import (
 //			}
 //			_, err = ecr.NewRepositoryPolicy(ctx, "foopolicy", &ecr.RepositoryPolicyArgs{
 //				Repository: foo.Name,
-//				Policy:     *pulumi.String(foopolicy.Json),
+//				Policy:     pulumi.String(foopolicy.Json),
 //			})
 //			if err != nil {
 //				return err

@@ -97,7 +97,7 @@ import (
 // }
 // exampleCoreNetwork, err := networkmanager.NewCoreNetwork(ctx, "example", &networkmanager.CoreNetworkArgs{
 // GlobalNetworkId: exampleGlobalNetwork.ID(),
-// BasePolicyDocument: *pulumi.String(base.Json),
+// BasePolicyDocument: pulumi.String(base.Json),
 // CreateBasePolicy: pulumi.Bool(true),
 // })
 // if err != nil {
@@ -306,7 +306,7 @@ import (
 // }
 // exampleCoreNetwork, err := networkmanager.NewCoreNetwork(ctx, "example", &networkmanager.CoreNetworkArgs{
 // GlobalNetworkId: exampleGlobalNetwork.ID(),
-// BasePolicyDocument: *pulumi.String(base.Json),
+// BasePolicyDocument: pulumi.String(base.Json),
 // CreateBasePolicy: pulumi.Bool(true),
 // })
 // if err != nil {

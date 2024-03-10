@@ -96,7 +96,7 @@ import (
 //					exampleAwsSubnet.Arn,
 //				},
 //				VpcEndpointId:       exampleVpcEndpoint.ID(),
-//				PrivateLinkEndpoint: *pulumi.String(example.PrivateIp),
+//				PrivateLinkEndpoint: pulumi.String(example.PrivateIp),
 //				Name:                pulumi.String("example"),
 //			})
 //			if err != nil {

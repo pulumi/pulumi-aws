@@ -59,8 +59,8 @@ import (
 //			}
 //			_, err = ssoadmin.NewAccountAssignment(ctx, "example", &ssoadmin.AccountAssignmentArgs{
 //				InstanceArn:      notImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
-//				PermissionSetArn: *pulumi.String(exampleGetPermissionSet.Arn),
-//				PrincipalId:      *pulumi.String(exampleGetGroup.GroupId),
+//				PermissionSetArn: pulumi.String(exampleGetPermissionSet.Arn),
+//				PrincipalId:      pulumi.String(exampleGetGroup.GroupId),
 //				PrincipalType:    pulumi.String("GROUP"),
 //				TargetId:         pulumi.String("123456789012"),
 //				TargetType:       pulumi.String("AWS_ACCOUNT"),

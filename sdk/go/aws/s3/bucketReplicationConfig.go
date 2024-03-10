@@ -59,7 +59,7 @@ import (
 //			}
 //			replicationRole, err := iam.NewRole(ctx, "replication", &iam.RoleArgs{
 //				Name:             pulumi.String("tf-iam-role-replication-12345"),
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err

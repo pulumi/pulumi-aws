@@ -46,7 +46,7 @@ import (
 //			_, err = ec2.NewInstance(ctx, "example", &ec2.InstanceArgs{
 //				InstanceType: pulumi.String("t2.micro"),
 //				Ami:          pulumi.String("ami-2757f631"),
-//				UserData:     *pulumi.String(bootstrapScript.Body),
+//				UserData:     pulumi.String(bootstrapScript.Body),
 //			})
 //			if err != nil {
 //				return err
@@ -85,9 +85,9 @@ import (
 //				return err
 //			}
 //			_, err = lambda.NewFunction(ctx, "test_lambda", &lambda.FunctionArgs{
-//				S3Bucket:        *pulumi.String(lambda.Id),
-//				S3Key:           *pulumi.String(lambda.Key),
-//				S3ObjectVersion: *pulumi.String(lambda.VersionId),
+//				S3Bucket:        pulumi.String(lambda.Id),
+//				S3Key:           pulumi.String(lambda.Key),
+//				S3ObjectVersion: pulumi.String(lambda.VersionId),
 //				Name:            pulumi.String("lambda_function_name"),
 //				Role:            pulumi.Any(iamForLambda.Arn),
 //				Handler:         pulumi.String("exports.test"),

@@ -45,7 +45,7 @@ import (
 //			_, err = eks.NewAddon(ctx, "vpc_cni", &eks.AddonArgs{
 //				ClusterName:  pulumi.Any(example.Name),
 //				AddonName:    pulumi.String("vpc-cni"),
-//				AddonVersion: *pulumi.String(latest.Version),
+//				AddonVersion: pulumi.String(latest.Version),
 //			})
 //			if err != nil {
 //				return err

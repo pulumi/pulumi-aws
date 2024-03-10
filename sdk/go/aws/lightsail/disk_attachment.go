@@ -46,14 +46,14 @@ import (
 //			test, err := lightsail.NewDisk(ctx, "test", &lightsail.DiskArgs{
 //				Name:             pulumi.String("test-disk"),
 //				SizeInGb:         pulumi.Int(8),
-//				AvailabilityZone: *pulumi.String(available.Names[0]),
+//				AvailabilityZone: pulumi.String(available.Names[0]),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			testInstance, err := lightsail.NewInstance(ctx, "test", &lightsail.InstanceArgs{
 //				Name:             pulumi.String("test-instance"),
-//				AvailabilityZone: *pulumi.String(available.Names[0]),
+//				AvailabilityZone: pulumi.String(available.Names[0]),
 //				BlueprintId:      pulumi.String("amazon_linux_2"),
 //				BundleId:         pulumi.String("nano_1_0"),
 //			})
