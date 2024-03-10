@@ -57,7 +57,7 @@ import (
 //			}
 //			_, err = ec2.NewLaunchConfiguration(ctx, "as_conf", &ec2.LaunchConfigurationArgs{
 //				Name:         pulumi.String("web_config"),
-//				ImageId:      *pulumi.String(ubuntu.Id),
+//				ImageId:      pulumi.String(ubuntu.Id),
 //				InstanceType: pulumi.String("t2.micro"),
 //			})
 //			if err != nil {
@@ -116,7 +116,7 @@ import (
 //			}
 //			asConf, err := ec2.NewLaunchConfiguration(ctx, "as_conf", &ec2.LaunchConfigurationArgs{
 //				NamePrefix:   pulumi.String("lc-example-"),
-//				ImageId:      *pulumi.String(ubuntu.Id),
+//				ImageId:      pulumi.String(ubuntu.Id),
 //				InstanceType: pulumi.String("t2.micro"),
 //			})
 //			if err != nil {
@@ -187,7 +187,7 @@ import (
 //				return err
 //			}
 //			asConf, err := ec2.NewLaunchConfiguration(ctx, "as_conf", &ec2.LaunchConfigurationArgs{
-//				ImageId:      *pulumi.String(ubuntu.Id),
+//				ImageId:      pulumi.String(ubuntu.Id),
 //				InstanceType: pulumi.String("m4.large"),
 //				SpotPrice:    pulumi.String("0.001"),
 //			})

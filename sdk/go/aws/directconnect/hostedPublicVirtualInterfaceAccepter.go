@@ -37,7 +37,7 @@ import (
 //			// Creator's side of the VIF
 //			creator, err := directconnect.NewHostedPublicVirtualInterface(ctx, "creator", &directconnect.HostedPublicVirtualInterfaceArgs{
 //				ConnectionId:    pulumi.String("dxcon-zzzzzzzz"),
-//				OwnerAccountId:  *pulumi.String(accepter.AccountId),
+//				OwnerAccountId:  pulumi.String(accepter.AccountId),
 //				Name:            pulumi.String("vif-foo"),
 //				Vlan:            pulumi.Int(4094),
 //				AddressFamily:   pulumi.String("ipv4"),

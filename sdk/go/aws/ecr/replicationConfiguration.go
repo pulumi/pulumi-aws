@@ -42,8 +42,8 @@ import (
 //						&ecr.ReplicationConfigurationReplicationConfigurationRuleArgs{
 //							Destinations: ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArray{
 //								&ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs{
-//									Region:     *pulumi.String(example.Names[0]),
-//									RegistryId: *pulumi.String(current.AccountId),
+//									Region:     pulumi.String(example.Names[0]),
+//									RegistryId: pulumi.String(current.AccountId),
 //								},
 //							},
 //						},
@@ -87,12 +87,12 @@ import (
 //						&ecr.ReplicationConfigurationReplicationConfigurationRuleArgs{
 //							Destinations: ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArray{
 //								&ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs{
-//									Region:     *pulumi.String(example.Names[0]),
-//									RegistryId: *pulumi.String(current.AccountId),
+//									Region:     pulumi.String(example.Names[0]),
+//									RegistryId: pulumi.String(current.AccountId),
 //								},
 //								&ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs{
-//									Region:     *pulumi.String(example.Names[1]),
-//									RegistryId: *pulumi.String(current.AccountId),
+//									Region:     pulumi.String(example.Names[1]),
+//									RegistryId: pulumi.String(current.AccountId),
 //								},
 //							},
 //						},
@@ -137,8 +137,8 @@ import (
 //						&ecr.ReplicationConfigurationReplicationConfigurationRuleArgs{
 //							Destinations: ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArray{
 //								&ecr.ReplicationConfigurationReplicationConfigurationRuleDestinationArgs{
-//									Region:     *pulumi.String(example.Names[0]),
-//									RegistryId: *pulumi.String(current.AccountId),
+//									Region:     pulumi.String(example.Names[0]),
+//									RegistryId: pulumi.String(current.AccountId),
 //								},
 //							},
 //							RepositoryFilters: ecr.ReplicationConfigurationReplicationConfigurationRuleRepositoryFilterArray{

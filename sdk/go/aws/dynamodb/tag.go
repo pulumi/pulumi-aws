@@ -45,7 +45,7 @@ import (
 //			example, err := dynamodb.NewTable(ctx, "example", &dynamodb.TableArgs{
 //				Replicas: dynamodb.TableReplicaTypeArray{
 //					&dynamodb.TableReplicaTypeArgs{
-//						RegionName: *pulumi.String(replica.Name),
+//						RegionName: pulumi.String(replica.Name),
 //					},
 //				},
 //			})

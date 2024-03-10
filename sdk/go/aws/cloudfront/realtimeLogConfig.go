@@ -51,7 +51,7 @@ import (
 // }
 // exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
 // Name: pulumi.String("cloudfront-realtime-log-config-example"),
-// AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+// AssumeRolePolicy: pulumi.String(assumeRole.Json),
 // })
 // if err != nil {
 // return err
@@ -78,7 +78,7 @@ import (
 // _, err = iam.NewRolePolicy(ctx, "example", &iam.RolePolicyArgs{
 // Name: pulumi.String("cloudfront-realtime-log-config-example"),
 // Role: exampleRole.ID(),
-// Policy: *pulumi.String(example.Json),
+// Policy: pulumi.String(example.Json),
 // })
 // if err != nil {
 // return err

@@ -48,7 +48,7 @@ import (
 //				return err
 //			}
 //			senderInvite, err := ram.NewPrincipalAssociation(ctx, "sender_invite", &ram.PrincipalAssociationArgs{
-//				Principal:        *pulumi.String(receiver.AccountId),
+//				Principal:        pulumi.String(receiver.AccountId),
 //				ResourceShareArn: senderShare.Arn,
 //			})
 //			if err != nil {

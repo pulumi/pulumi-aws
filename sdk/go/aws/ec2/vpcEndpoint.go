@@ -131,7 +131,7 @@ import (
 //			example, err := ec2.NewVpcEndpointService(ctx, "example", &ec2.VpcEndpointServiceArgs{
 //				AcceptanceRequired: pulumi.Bool(false),
 //				AllowedPrincipals: pulumi.StringArray{
-//					*pulumi.String(current.Arn),
+//					pulumi.String(current.Arn),
 //				},
 //				GatewayLoadBalancerArns: pulumi.StringArray{
 //					exampleAwsLb.Arn,

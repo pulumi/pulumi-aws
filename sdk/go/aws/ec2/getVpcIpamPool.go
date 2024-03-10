@@ -55,7 +55,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewVpc(ctx, "test", &ec2.VpcArgs{
-//				Ipv4IpamPoolId:    *pulumi.String(test.Id),
+//				Ipv4IpamPoolId:    pulumi.String(test.Id),
 //				Ipv4NetmaskLength: pulumi.Int(28),
 //			})
 //			if err != nil {

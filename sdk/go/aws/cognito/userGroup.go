@@ -74,7 +74,7 @@ import (
 //			}
 //			groupRoleRole, err := iam.NewRole(ctx, "group_role", &iam.RoleArgs{
 //				Name:             pulumi.String("user-group-role"),
-//				AssumeRolePolicy: *pulumi.String(groupRole.Json),
+//				AssumeRolePolicy: pulumi.String(groupRole.Json),
 //			})
 //			if err != nil {
 //				return err
