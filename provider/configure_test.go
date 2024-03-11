@@ -28,6 +28,35 @@ import (
 	version "github.com/pulumi/pulumi-aws/provider/v6/pkg/version"
 )
 
+func TestRegress3442(t *testing.T) {
+	// resourceNodeGroupUpdate seems to receive "20m" anyway in spite of the code here specifying 60s.
+	//
+	// panic(fmt.Sprintf("d.Timeout(schema.TimeoutUpdate) = %v", d.Timeout(schema.TimeoutUpdate)))
+
+	replaySequence(t, strings.ReplaceAll(`
+	[
+	  {
+            "method": "/pulumirpc.ResourceProvider/Update",
+	    "request": {
+	      "id": "0",
+	      "urn": "urn:pulumi:dev::aws-2880::aws:eks/nodeGroup:NodeGroup::default_6_5_0",
+	      "olds": {
+		"clusterName": "eks"
+	      },
+	      "news": {
+		"clusterName": "eks",
+                "scalingConfig": { "desiredSize": 2, "maxSize": 2, "minSize": 2 }
+	      },
+              "timeout": 60
+	    },
+	    "response": {
+	      "properties": "*"
+	    }
+	  }
+	]
+	`, "'''", "`"))
+}
+
 func TestCheckConfigWithUnknownKeys(t *testing.T) {
 	// Double checking that this is a failure, but no longer over-fitting the test on the exact
 	// error message. See pulumi/pulumi-terraform-bridge codebase instead for controlling the
