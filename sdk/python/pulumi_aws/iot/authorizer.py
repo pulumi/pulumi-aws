@@ -284,6 +284,7 @@ class Authorizer(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -299,13 +300,14 @@ class Authorizer(pulumi.CustomResource):
                 "Key1": std.file(input="test-fixtures/iot-authorizer-signing-key.pem").result,
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IOT Authorizers using the name. For example:
 
         ```sh
-         $ pulumi import aws:iot/authorizer:Authorizer example example
+        $ pulumi import aws:iot/authorizer:Authorizer example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -329,6 +331,7 @@ class Authorizer(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -344,13 +347,14 @@ class Authorizer(pulumi.CustomResource):
                 "Key1": std.file(input="test-fixtures/iot-authorizer-signing-key.pem").result,
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IOT Authorizers using the name. For example:
 
         ```sh
-         $ pulumi import aws:iot/authorizer:Authorizer example example
+        $ pulumi import aws:iot/authorizer:Authorizer example example
         ```
 
         :param str resource_name: The name of the resource.

@@ -135,40 +135,12 @@ class PermissionSetInlinePolicy(pulumi.CustomResource):
         > **NOTE:** AWS Single Sign-On (SSO) only supports one IAM inline policy per `ssoadmin.PermissionSet` resource.
         Creating or updating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.ssoadmin.get_instances()
-        example_permission_set = aws.ssoadmin.PermissionSet("example",
-            name="Example",
-            instance_arn=not_implemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0])
-        example_get_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="1",
-            actions=[
-                "s3:ListAllMyBuckets",
-                "s3:GetBucketLocation",
-            ],
-            resources=["arn:aws:s3:::*"],
-        )])
-        example_permission_set_inline_policy = aws.ssoadmin.PermissionSetInlinePolicy("example",
-            inline_policy=example_get_policy_document.json,
-            instance_arn=not_implemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
-            permission_set_arn=example_permission_set.arn)
-        ```
-
         ## Import
 
         Using `pulumi import`, import SSO Permission Set Inline Policies using the `permission_set_arn` and `instance_arn` separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:ssoadmin/permissionSetInlinePolicy:PermissionSetInlinePolicy example arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
+        $ pulumi import aws:ssoadmin/permissionSetInlinePolicy:PermissionSetInlinePolicy example arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
         ```
 
         :param str resource_name: The name of the resource.
@@ -189,40 +161,12 @@ class PermissionSetInlinePolicy(pulumi.CustomResource):
         > **NOTE:** AWS Single Sign-On (SSO) only supports one IAM inline policy per `ssoadmin.PermissionSet` resource.
         Creating or updating this resource will automatically [Provision the Permission Set](https://docs.aws.amazon.com/singlesignon/latest/APIReference/API_ProvisionPermissionSet.html) to apply the corresponding updates to all assigned accounts.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.ssoadmin.get_instances()
-        example_permission_set = aws.ssoadmin.PermissionSet("example",
-            name="Example",
-            instance_arn=not_implemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0])
-        example_get_policy_document = aws.iam.get_policy_document(statements=[aws.iam.GetPolicyDocumentStatementArgs(
-            sid="1",
-            actions=[
-                "s3:ListAllMyBuckets",
-                "s3:GetBucketLocation",
-            ],
-            resources=["arn:aws:s3:::*"],
-        )])
-        example_permission_set_inline_policy = aws.ssoadmin.PermissionSetInlinePolicy("example",
-            inline_policy=example_get_policy_document.json,
-            instance_arn=not_implemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
-            permission_set_arn=example_permission_set.arn)
-        ```
-
         ## Import
 
         Using `pulumi import`, import SSO Permission Set Inline Policies using the `permission_set_arn` and `instance_arn` separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:ssoadmin/permissionSetInlinePolicy:PermissionSetInlinePolicy example arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
+        $ pulumi import aws:ssoadmin/permissionSetInlinePolicy:PermissionSetInlinePolicy example arn:aws:sso:::permissionSet/ssoins-2938j0x8920sbj72/ps-80383020jr9302rk,arn:aws:sso:::instance/ssoins-2938j0x8920sbj72
         ```
 
         :param str resource_name: The name of the resource.

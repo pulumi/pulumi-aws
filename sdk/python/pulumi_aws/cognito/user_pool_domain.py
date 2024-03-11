@@ -230,8 +230,10 @@ class UserPoolDomain(pulumi.CustomResource):
         Provides a Cognito User Pool Domain resource.
 
         ## Example Usage
+
         ### Amazon Cognito domain
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -241,8 +243,11 @@ class UserPoolDomain(pulumi.CustomResource):
             domain="example-domain",
             user_pool_id=example.id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Custom Cognito domain
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -263,13 +268,14 @@ class UserPoolDomain(pulumi.CustomResource):
                 zone_id=main.cloudfront_distribution_zone_id,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Cognito User Pool Domains using the `domain`. For example:
 
         ```sh
-         $ pulumi import aws:cognito/userPoolDomain:UserPoolDomain main auth.example.org
+        $ pulumi import aws:cognito/userPoolDomain:UserPoolDomain main auth.example.org
         ```
 
         :param str resource_name: The name of the resource.
@@ -288,8 +294,10 @@ class UserPoolDomain(pulumi.CustomResource):
         Provides a Cognito User Pool Domain resource.
 
         ## Example Usage
+
         ### Amazon Cognito domain
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -299,8 +307,11 @@ class UserPoolDomain(pulumi.CustomResource):
             domain="example-domain",
             user_pool_id=example.id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Custom Cognito domain
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -321,13 +332,14 @@ class UserPoolDomain(pulumi.CustomResource):
                 zone_id=main.cloudfront_distribution_zone_id,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Cognito User Pool Domains using the `domain`. For example:
 
         ```sh
-         $ pulumi import aws:cognito/userPoolDomain:UserPoolDomain main auth.example.org
+        $ pulumi import aws:cognito/userPoolDomain:UserPoolDomain main auth.example.org
         ```
 
         :param str resource_name: The name of the resource.

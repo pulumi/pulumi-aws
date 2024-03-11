@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  *
  * Basic usage:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -39,6 +40,8 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Inference Execution Config
  *
  * * `mode` - (Required) How containers in a multi-container are run. The following values are valid `Serial` and `Direct`.
@@ -48,7 +51,7 @@ import * as utilities from "../utilities";
  * Using `pulumi import`, import models using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:sagemaker/model:Model test_model model-foo
+ * $ pulumi import aws:sagemaker/model:Model test_model model-foo
  * ```
  */
 export class Model extends pulumi.CustomResource {

@@ -19,11 +19,13 @@ import (
 // > **Tip:** For an organization trail, this resource must be in the master account of the organization.
 //
 // ## Example Usage
+//
 // ### Basic
 //
 // Enable CloudTrail to capture all compatible management events in region.
 // For capturing events from services like IAM, `includeGlobalServiceEvents` must be enabled.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -150,14 +152,18 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Data Event Logging
 //
 // CloudTrail can log [Data Events](https://docs.aws.amazon.com/awscloudtrail/latest/userguide/logging-data-events-with-cloudtrail.html) for certain services such as S3 objects and Lambda function invocations. Additional information about data event configuration can be found in the following links:
 //
 // * [CloudTrail API DataResource documentation](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_DataResource.html) (for basic event selector).
 // * [CloudTrail API AdvancedFieldSelector documentation](https://docs.aws.amazon.com/awscloudtrail/latest/APIReference/API_AdvancedFieldSelector.html) (for advanced event selector).
+//
 // ### Logging All Lambda Function Invocations By Using Basic Event Selectors
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -194,8 +200,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Logging All S3 Object Events By Using Basic Event Selectors
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -232,8 +241,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Logging Individual S3 Bucket Events By Using Basic Event Selectors
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -279,8 +291,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Logging All S3 Object Events Except For Two S3 Buckets By Using Advanced Event Selectors
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -355,8 +370,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Logging Individual S3 Buckets And Specific Event Names By Using Advanced Event Selectors
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -474,8 +492,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Sending Events to CloudWatch Logs
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -510,15 +531,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Cloudtrails using the `arn`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cloudtrail/trail:Trail sample arn:aws:cloudtrail:us-east-1:123456789012:trail/my-sample-trail
-//
+// $ pulumi import aws:cloudtrail/trail:Trail sample arn:aws:cloudtrail:us-east-1:123456789012:trail/my-sample-trail
 // ```
 type Trail struct {
 	pulumi.CustomResourceState

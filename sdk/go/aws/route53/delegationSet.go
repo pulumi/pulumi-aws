@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -52,15 +53,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Route53 Delegation Sets using the delegation set `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:route53/delegationSet:DelegationSet set1 N1PA6795SAMPLE
-//
+// $ pulumi import aws:route53/delegationSet:DelegationSet set1 N1PA6795SAMPLE
 // ```
 type DelegationSet struct {
 	pulumi.CustomResourceState

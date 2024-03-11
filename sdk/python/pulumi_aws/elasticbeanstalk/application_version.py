@@ -322,6 +322,7 @@ class ApplicationVersion(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -341,6 +342,7 @@ class ApplicationVersion(pulumi.CustomResource):
             bucket=default.id,
             key=default_bucket_objectv2.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -375,6 +377,7 @@ class ApplicationVersion(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -394,6 +397,7 @@ class ApplicationVersion(pulumi.CustomResource):
             bucket=default.id,
             key=default_bucket_objectv2.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param ApplicationVersionArgs args: The arguments to use to populate this resource's properties.

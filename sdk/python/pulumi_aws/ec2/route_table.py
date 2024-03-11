@@ -247,8 +247,10 @@ class RouteTable(pulumi.CustomResource):
         the separate resource.
 
         ## Example Usage
+
         ### Basic example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -269,9 +271,11 @@ class RouteTable(pulumi.CustomResource):
                 "Name": "example",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         To subsequently remove all managed routes:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -283,12 +287,15 @@ class RouteTable(pulumi.CustomResource):
                 "Name": "example",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Adopting an existing local route
 
         AWS creates certain routes that the AWS provider mostly ignores. You can manage them by importing or adopting them. See Import below for information on importing. This example shows adopting a route and then updating its target.
 
         First, adopt an existing AWS-created route:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -301,9 +308,11 @@ class RouteTable(pulumi.CustomResource):
                 gateway_id="local",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         Next, update the target of the route:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -320,6 +329,7 @@ class RouteTable(pulumi.CustomResource):
                 network_interface_id=test_network_interface.id,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         The target could then be updated again back to `local`.
 
@@ -328,7 +338,7 @@ class RouteTable(pulumi.CustomResource):
         Using `pulumi import`, import Route Tables using the route table `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/routeTable:RouteTable public_rt rtb-4e616f6d69
+        $ pulumi import aws:ec2/routeTable:RouteTable public_rt rtb-4e616f6d69
         ```
 
         :param str resource_name: The name of the resource.
@@ -368,8 +378,10 @@ class RouteTable(pulumi.CustomResource):
         the separate resource.
 
         ## Example Usage
+
         ### Basic example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -390,9 +402,11 @@ class RouteTable(pulumi.CustomResource):
                 "Name": "example",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         To subsequently remove all managed routes:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -404,12 +418,15 @@ class RouteTable(pulumi.CustomResource):
                 "Name": "example",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Adopting an existing local route
 
         AWS creates certain routes that the AWS provider mostly ignores. You can manage them by importing or adopting them. See Import below for information on importing. This example shows adopting a route and then updating its target.
 
         First, adopt an existing AWS-created route:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -422,9 +439,11 @@ class RouteTable(pulumi.CustomResource):
                 gateway_id="local",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         Next, update the target of the route:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -441,6 +460,7 @@ class RouteTable(pulumi.CustomResource):
                 network_interface_id=test_network_interface.id,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         The target could then be updated again back to `local`.
 
@@ -449,7 +469,7 @@ class RouteTable(pulumi.CustomResource):
         Using `pulumi import`, import Route Tables using the route table `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/routeTable:RouteTable public_rt rtb-4e616f6d69
+        $ pulumi import aws:ec2/routeTable:RouteTable public_rt rtb-4e616f6d69
         ```
 
         :param str resource_name: The name of the resource.

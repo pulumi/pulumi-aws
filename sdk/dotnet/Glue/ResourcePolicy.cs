@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Glue
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -64,13 +65,14 @@ namespace Pulumi.Aws.Glue
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Glue Resource Policy using the account ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:glue/resourcePolicy:ResourcePolicy Test 12356789012
+    /// $ pulumi import aws:glue/resourcePolicy:ResourcePolicy Test 12356789012
     /// ```
     /// </summary>
     [AwsResourceType("aws:glue/resourcePolicy:ResourcePolicy")]

@@ -19,6 +19,8 @@ public final class InspectorFunctions {
      * configured in the provider.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -66,6 +68,7 @@ public final class InspectorFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRulesPackagesResult> getRulesPackages() {
@@ -77,6 +80,8 @@ public final class InspectorFunctions {
      * configured in the provider.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -124,6 +129,7 @@ public final class InspectorFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRulesPackagesResult> getRulesPackagesPlain() {
@@ -135,6 +141,8 @@ public final class InspectorFunctions {
      * configured in the provider.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -182,6 +190,7 @@ public final class InspectorFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRulesPackagesResult> getRulesPackages(InvokeArgs args) {
@@ -193,6 +202,8 @@ public final class InspectorFunctions {
      * configured in the provider.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -240,6 +251,7 @@ public final class InspectorFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRulesPackagesResult> getRulesPackagesPlain(InvokeArgs args) {
@@ -251,6 +263,8 @@ public final class InspectorFunctions {
      * configured in the provider.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -298,6 +312,7 @@ public final class InspectorFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRulesPackagesResult> getRulesPackages(InvokeArgs args, InvokeOptions options) {
@@ -309,6 +324,8 @@ public final class InspectorFunctions {
      * configured in the provider.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -356,6 +373,7 @@ public final class InspectorFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRulesPackagesResult> getRulesPackagesPlain(InvokeArgs args, InvokeOptions options) {

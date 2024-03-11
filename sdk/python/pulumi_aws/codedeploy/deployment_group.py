@@ -670,6 +670,7 @@ class DeploymentGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -723,8 +724,11 @@ class DeploymentGroup(pulumi.CustomResource):
             ),
             outdated_instances_strategy="UPDATE")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Blue Green Deployments with ECS
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -774,8 +778,11 @@ class DeploymentGroup(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Blue Green Deployments with Servers and Classic ELB
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -807,13 +814,14 @@ class DeploymentGroup(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CodeDeploy Deployment Groups using `app_name`, a colon, and `deployment_group_name`. For example:
 
         ```sh
-         $ pulumi import aws:codedeploy/deploymentGroup:DeploymentGroup example my-application:my-deployment-group
+        $ pulumi import aws:codedeploy/deploymentGroup:DeploymentGroup example my-application:my-deployment-group
         ```
 
         :param str resource_name: The name of the resource.
@@ -849,6 +857,7 @@ class DeploymentGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -902,8 +911,11 @@ class DeploymentGroup(pulumi.CustomResource):
             ),
             outdated_instances_strategy="UPDATE")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Blue Green Deployments with ECS
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -953,8 +965,11 @@ class DeploymentGroup(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Blue Green Deployments with Servers and Classic ELB
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -986,13 +1001,14 @@ class DeploymentGroup(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CodeDeploy Deployment Groups using `app_name`, a colon, and `deployment_group_name`. For example:
 
         ```sh
-         $ pulumi import aws:codedeploy/deploymentGroup:DeploymentGroup example my-application:my-deployment-group
+        $ pulumi import aws:codedeploy/deploymentGroup:DeploymentGroup example my-application:my-deployment-group
         ```
 
         :param str resource_name: The name of the resource.

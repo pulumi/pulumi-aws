@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Quicksight
     /// Resource for managing a QuickSight Template.
     /// 
     /// ## Example Usage
+    /// 
     /// ### From Source Template
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -39,13 +41,14 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import a QuickSight Template using the AWS account ID and template ID separated by a comma (`,`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:quicksight/template:Template example 123456789012,example-id
+    /// $ pulumi import aws:quicksight/template:Template example 123456789012,example-id
     /// ```
     /// </summary>
     [AwsResourceType("aws:quicksight/template:Template")]

@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -66,15 +67,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Configuration Recorder using the name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:chime/voiceConnectorGroup:VoiceConnectorGroup default example
-//
+// $ pulumi import aws:chime/voiceConnectorGroup:VoiceConnectorGroup default example
 // ```
 type VoiceConnectorGroup struct {
 	pulumi.CustomResourceState

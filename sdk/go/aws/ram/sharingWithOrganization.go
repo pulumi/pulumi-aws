@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,15 +39,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import the resource using the current AWS account ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ram/sharingWithOrganization:SharingWithOrganization example 123456789012
-//
+// $ pulumi import aws:ram/sharingWithOrganization:SharingWithOrganization example 123456789012
 // ```
 type SharingWithOrganization struct {
 	pulumi.CustomResourceState

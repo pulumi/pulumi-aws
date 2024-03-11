@@ -13,8 +13,10 @@ import * as utilities from "../utilities";
  * > **NOTE:** A Redshift cluster's default IAM role can be managed both by this resource's `defaultIamRoleArn` argument and the `aws.redshift.ClusterIamRoles` resource's `defaultIamRoleArn` argument. Do not configure different values for both arguments. Doing so will cause a conflict of default IAM roles.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -28,8 +30,11 @@ import * as utilities from "../utilities";
  *     clusterType: "single-node",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With Managed Credentials
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -43,13 +48,14 @@ import * as utilities from "../utilities";
  *     manageMasterPassword: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Redshift Clusters using the `cluster_identifier`. For example:
  *
  * ```sh
- *  $ pulumi import aws:redshift/cluster:Cluster myprodcluster tf-redshift-cluster-12345
+ * $ pulumi import aws:redshift/cluster:Cluster myprodcluster tf-redshift-cluster-12345
  * ```
  */
 export class Cluster extends pulumi.CustomResource {

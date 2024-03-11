@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  *
  * The following example will create a neptune cluster with two neptune instances(one writer and one reader).
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -37,13 +38,14 @@ import * as utilities from "../utilities";
  *     }));
  * }
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_neptune_cluster_instance` using the instance identifier. For example:
  *
  * ```sh
- *  $ pulumi import aws:neptune/clusterInstance:ClusterInstance example my-instance
+ * $ pulumi import aws:neptune/clusterInstance:ClusterInstance example my-instance
  * ```
  */
 export class ClusterInstance extends pulumi.CustomResource {

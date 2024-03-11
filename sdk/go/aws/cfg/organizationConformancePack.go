@@ -16,8 +16,10 @@ import (
 // > **NOTE:** This resource must be created in the Organization master account or a delegated administrator account, and the Organization must have all features enabled. Every Organization account except those configured in the `excludedAccounts` argument must have a Configuration Recorder with proper IAM permissions before the Organization Conformance Pack will successfully create or update. See also the `cfg.Recorder` resource.
 //
 // ## Example Usage
+//
 // ### Using Template Body
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -73,8 +75,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Using Template S3 URI
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -140,15 +145,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Config Organization Conformance Packs using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cfg/organizationConformancePack:OrganizationConformancePack example example
-//
+// $ pulumi import aws:cfg/organizationConformancePack:OrganizationConformancePack example example
 // ```
 type OrganizationConformancePack struct {
 	pulumi.CustomResourceState

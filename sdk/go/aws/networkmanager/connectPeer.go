@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS Network Manager Connect Peer.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -75,8 +77,11 @@ import (
 // return pulumiArr
 // }
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Usage with attachment accepter
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -149,8 +154,11 @@ import (
 // return pulumiArr
 // }
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Usage with a Tunnel-less Connect attachment
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -207,15 +215,14 @@ import (
 // return pulumiArr
 // }
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_networkmanager_connect_peer` using the connect peer ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:networkmanager/connectPeer:ConnectPeer example connect-peer-061f3e96275db1acc
-//
+// $ pulumi import aws:networkmanager/connectPeer:ConnectPeer example connect-peer-061f3e96275db1acc
 // ```
 type ConnectPeer struct {
 	pulumi.CustomResourceState

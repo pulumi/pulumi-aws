@@ -25,6 +25,8 @@ import javax.annotation.Nullable;
  * Provides an Elastic Transcoder preset resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -110,13 +112,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Elastic Transcoder presets using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:elastictranscoder/preset:Preset basic_preset 1407981661351-cttk8b
+ * $ pulumi import aws:elastictranscoder/preset:Preset basic_preset 1407981661351-cttk8b
  * ```
  * 
  */

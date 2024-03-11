@@ -70,6 +70,7 @@ class InvitationAccepter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -82,13 +83,14 @@ class InvitationAccepter(pulumi.CustomResource):
             message="Message of the invite")
         member = aws.detective.InvitationAccepter("member", graph_arn=primary.graph_arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_detective_invitation_accepter` using the graph ARN. For example:
 
         ```sh
-         $ pulumi import aws:detective/invitationAccepter:InvitationAccepter example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d
+        $ pulumi import aws:detective/invitationAccepter:InvitationAccepter example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d
         ```
 
         :param str resource_name: The name of the resource.
@@ -106,6 +108,7 @@ class InvitationAccepter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -118,13 +121,14 @@ class InvitationAccepter(pulumi.CustomResource):
             message="Message of the invite")
         member = aws.detective.InvitationAccepter("member", graph_arn=primary.graph_arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_detective_invitation_accepter` using the graph ARN. For example:
 
         ```sh
-         $ pulumi import aws:detective/invitationAccepter:InvitationAccepter example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d
+        $ pulumi import aws:detective/invitationAccepter:InvitationAccepter example arn:aws:detective:us-east-1:123456789101:graph:231684d34gh74g4bae1dbc7bd807d02d
         ```
 
         :param str resource_name: The name of the resource.

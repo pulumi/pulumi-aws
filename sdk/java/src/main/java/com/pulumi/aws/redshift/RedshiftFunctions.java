@@ -34,6 +34,7 @@ public final class RedshiftFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -87,6 +88,7 @@ public final class RedshiftFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetClusterResult> getCluster(GetClusterArgs args) {
@@ -97,6 +99,7 @@ public final class RedshiftFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -150,6 +153,7 @@ public final class RedshiftFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetClusterResult> getClusterPlain(GetClusterPlainArgs args) {
@@ -160,6 +164,7 @@ public final class RedshiftFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -213,6 +218,7 @@ public final class RedshiftFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetClusterResult> getCluster(GetClusterArgs args, InvokeOptions options) {
@@ -223,6 +229,7 @@ public final class RedshiftFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -276,6 +283,7 @@ public final class RedshiftFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetClusterResult> getClusterPlain(GetClusterPlainArgs args, InvokeOptions options) {
@@ -285,6 +293,8 @@ public final class RedshiftFunctions {
      * Provides redshift cluster temporary credentials.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -314,6 +324,7 @@ public final class RedshiftFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetClusterCredentialsResult> getClusterCredentials(GetClusterCredentialsArgs args) {
@@ -323,6 +334,8 @@ public final class RedshiftFunctions {
      * Provides redshift cluster temporary credentials.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -352,6 +365,7 @@ public final class RedshiftFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetClusterCredentialsResult> getClusterCredentialsPlain(GetClusterCredentialsPlainArgs args) {
@@ -361,6 +375,8 @@ public final class RedshiftFunctions {
      * Provides redshift cluster temporary credentials.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -390,6 +406,7 @@ public final class RedshiftFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetClusterCredentialsResult> getClusterCredentials(GetClusterCredentialsArgs args, InvokeOptions options) {
@@ -399,6 +416,8 @@ public final class RedshiftFunctions {
      * Provides redshift cluster temporary credentials.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -428,6 +447,7 @@ public final class RedshiftFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetClusterCredentialsResult> getClusterCredentialsPlain(GetClusterCredentialsPlainArgs args, InvokeOptions options) {
@@ -437,7 +457,10 @@ public final class RedshiftFunctions {
      * Data source for managing AWS Redshift Data Shares.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -464,6 +487,7 @@ public final class RedshiftFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDataSharesResult> getDataShares() {
@@ -473,7 +497,10 @@ public final class RedshiftFunctions {
      * Data source for managing AWS Redshift Data Shares.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -500,6 +527,7 @@ public final class RedshiftFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDataSharesResult> getDataSharesPlain() {
@@ -509,7 +537,10 @@ public final class RedshiftFunctions {
      * Data source for managing AWS Redshift Data Shares.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -536,6 +567,7 @@ public final class RedshiftFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDataSharesResult> getDataShares(GetDataSharesArgs args) {
@@ -545,7 +577,10 @@ public final class RedshiftFunctions {
      * Data source for managing AWS Redshift Data Shares.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -572,6 +607,7 @@ public final class RedshiftFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDataSharesResult> getDataSharesPlain(GetDataSharesPlainArgs args) {
@@ -581,7 +617,10 @@ public final class RedshiftFunctions {
      * Data source for managing AWS Redshift Data Shares.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -608,6 +647,7 @@ public final class RedshiftFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDataSharesResult> getDataShares(GetDataSharesArgs args, InvokeOptions options) {
@@ -617,7 +657,10 @@ public final class RedshiftFunctions {
      * Data source for managing AWS Redshift Data Shares.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -644,6 +687,7 @@ public final class RedshiftFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDataSharesResult> getDataSharesPlain(GetDataSharesPlainArgs args, InvokeOptions options) {
@@ -653,6 +697,8 @@ public final class RedshiftFunctions {
      * Information about Redshift Orderable Clusters and valid parameter combinations.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -684,6 +730,7 @@ public final class RedshiftFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOrderableClusterResult> getOrderableCluster() {
@@ -693,6 +740,8 @@ public final class RedshiftFunctions {
      * Information about Redshift Orderable Clusters and valid parameter combinations.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -724,6 +773,7 @@ public final class RedshiftFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOrderableClusterResult> getOrderableClusterPlain() {
@@ -733,6 +783,8 @@ public final class RedshiftFunctions {
      * Information about Redshift Orderable Clusters and valid parameter combinations.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -764,6 +816,7 @@ public final class RedshiftFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOrderableClusterResult> getOrderableCluster(GetOrderableClusterArgs args) {
@@ -773,6 +826,8 @@ public final class RedshiftFunctions {
      * Information about Redshift Orderable Clusters and valid parameter combinations.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -804,6 +859,7 @@ public final class RedshiftFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOrderableClusterResult> getOrderableClusterPlain(GetOrderableClusterPlainArgs args) {
@@ -813,6 +869,8 @@ public final class RedshiftFunctions {
      * Information about Redshift Orderable Clusters and valid parameter combinations.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -844,6 +902,7 @@ public final class RedshiftFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOrderableClusterResult> getOrderableCluster(GetOrderableClusterArgs args, InvokeOptions options) {
@@ -853,6 +912,8 @@ public final class RedshiftFunctions {
      * Information about Redshift Orderable Clusters and valid parameter combinations.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -884,6 +945,7 @@ public final class RedshiftFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOrderableClusterResult> getOrderableClusterPlain(GetOrderableClusterPlainArgs args, InvokeOptions options) {
@@ -897,6 +959,8 @@ public final class RedshiftFunctions {
      * The `aws.redshift.getServiceAccount` data source has been deprecated and will be removed in a future version.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -963,6 +1027,7 @@ public final class RedshiftFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceAccountResult> getServiceAccount() {
@@ -976,6 +1041,8 @@ public final class RedshiftFunctions {
      * The `aws.redshift.getServiceAccount` data source has been deprecated and will be removed in a future version.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1042,6 +1109,7 @@ public final class RedshiftFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceAccountResult> getServiceAccountPlain() {
@@ -1055,6 +1123,8 @@ public final class RedshiftFunctions {
      * The `aws.redshift.getServiceAccount` data source has been deprecated and will be removed in a future version.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1121,6 +1191,7 @@ public final class RedshiftFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceAccountResult> getServiceAccount(GetServiceAccountArgs args) {
@@ -1134,6 +1205,8 @@ public final class RedshiftFunctions {
      * The `aws.redshift.getServiceAccount` data source has been deprecated and will be removed in a future version.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1200,6 +1273,7 @@ public final class RedshiftFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceAccountResult> getServiceAccountPlain(GetServiceAccountPlainArgs args) {
@@ -1213,6 +1287,8 @@ public final class RedshiftFunctions {
      * The `aws.redshift.getServiceAccount` data source has been deprecated and will be removed in a future version.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1279,6 +1355,7 @@ public final class RedshiftFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceAccountResult> getServiceAccount(GetServiceAccountArgs args, InvokeOptions options) {
@@ -1292,6 +1369,8 @@ public final class RedshiftFunctions {
      * The `aws.redshift.getServiceAccount` data source has been deprecated and will be removed in a future version.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1358,6 +1437,7 @@ public final class RedshiftFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceAccountResult> getServiceAccountPlain(GetServiceAccountPlainArgs args, InvokeOptions options) {
@@ -1367,6 +1447,8 @@ public final class RedshiftFunctions {
      * Provides details about a specific redshift subnet group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1395,6 +1477,7 @@ public final class RedshiftFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSubnetGroupResult> getSubnetGroup(GetSubnetGroupArgs args) {
@@ -1404,6 +1487,8 @@ public final class RedshiftFunctions {
      * Provides details about a specific redshift subnet group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1432,6 +1517,7 @@ public final class RedshiftFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSubnetGroupResult> getSubnetGroupPlain(GetSubnetGroupPlainArgs args) {
@@ -1441,6 +1527,8 @@ public final class RedshiftFunctions {
      * Provides details about a specific redshift subnet group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1469,6 +1557,7 @@ public final class RedshiftFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSubnetGroupResult> getSubnetGroup(GetSubnetGroupArgs args, InvokeOptions options) {
@@ -1478,6 +1567,8 @@ public final class RedshiftFunctions {
      * Provides details about a specific redshift subnet group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1506,6 +1597,7 @@ public final class RedshiftFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSubnetGroupResult> getSubnetGroupPlain(GetSubnetGroupPlainArgs args, InvokeOptions options) {

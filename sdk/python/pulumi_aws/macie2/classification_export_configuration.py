@@ -73,6 +73,7 @@ class ClassificationExportConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -84,13 +85,14 @@ class ClassificationExportConfiguration(pulumi.CustomResource):
             kms_key_arn=example_aws_kms_key["arn"],
         ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_macie2_classification_export_configuration` using the account ID and region. For example:
 
         ```sh
-         $ pulumi import aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration example 123456789012:us-west-2
+        $ pulumi import aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration example 123456789012:us-west-2
         ```
 
         :param str resource_name: The name of the resource.
@@ -108,6 +110,7 @@ class ClassificationExportConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -119,13 +122,14 @@ class ClassificationExportConfiguration(pulumi.CustomResource):
             kms_key_arn=example_aws_kms_key["arn"],
         ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_macie2_classification_export_configuration` using the account ID and region. For example:
 
         ```sh
-         $ pulumi import aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration example 123456789012:us-west-2
+        $ pulumi import aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration example 123456789012:us-west-2
         ```
 
         :param str resource_name: The name of the resource.

@@ -24,7 +24,10 @@ public final class OamFunctions {
      * Data source for managing an AWS CloudWatch Observability Access Manager Link.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -53,6 +56,7 @@ public final class OamFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLinkResult> getLink(GetLinkArgs args) {
@@ -62,7 +66,10 @@ public final class OamFunctions {
      * Data source for managing an AWS CloudWatch Observability Access Manager Link.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -91,6 +98,7 @@ public final class OamFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLinkResult> getLinkPlain(GetLinkPlainArgs args) {
@@ -100,7 +108,10 @@ public final class OamFunctions {
      * Data source for managing an AWS CloudWatch Observability Access Manager Link.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -129,6 +140,7 @@ public final class OamFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLinkResult> getLink(GetLinkArgs args, InvokeOptions options) {
@@ -138,7 +150,10 @@ public final class OamFunctions {
      * Data source for managing an AWS CloudWatch Observability Access Manager Link.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -167,6 +182,7 @@ public final class OamFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLinkResult> getLinkPlain(GetLinkPlainArgs args, InvokeOptions options) {
@@ -176,7 +192,10 @@ public final class OamFunctions {
      * Data source for managing an AWS CloudWatch Observability Access Manager Links.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -202,6 +221,7 @@ public final class OamFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLinksResult> getLinks() {
@@ -211,7 +231,10 @@ public final class OamFunctions {
      * Data source for managing an AWS CloudWatch Observability Access Manager Links.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -237,6 +260,7 @@ public final class OamFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLinksResult> getLinksPlain() {
@@ -246,7 +270,10 @@ public final class OamFunctions {
      * Data source for managing an AWS CloudWatch Observability Access Manager Links.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -272,6 +299,7 @@ public final class OamFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLinksResult> getLinks(InvokeArgs args) {
@@ -281,7 +309,10 @@ public final class OamFunctions {
      * Data source for managing an AWS CloudWatch Observability Access Manager Links.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -307,6 +338,7 @@ public final class OamFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLinksResult> getLinksPlain(InvokeArgs args) {
@@ -316,7 +348,10 @@ public final class OamFunctions {
      * Data source for managing an AWS CloudWatch Observability Access Manager Links.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -342,6 +377,7 @@ public final class OamFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLinksResult> getLinks(InvokeArgs args, InvokeOptions options) {
@@ -351,7 +387,10 @@ public final class OamFunctions {
      * Data source for managing an AWS CloudWatch Observability Access Manager Links.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -377,6 +416,7 @@ public final class OamFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLinksResult> getLinksPlain(InvokeArgs args, InvokeOptions options) {
@@ -386,7 +426,10 @@ public final class OamFunctions {
      * Data source for managing an AWS CloudWatch Observability Access Manager Sink.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -415,6 +458,7 @@ public final class OamFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSinkResult> getSink(GetSinkArgs args) {
@@ -424,7 +468,10 @@ public final class OamFunctions {
      * Data source for managing an AWS CloudWatch Observability Access Manager Sink.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -453,6 +500,7 @@ public final class OamFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSinkResult> getSinkPlain(GetSinkPlainArgs args) {
@@ -462,7 +510,10 @@ public final class OamFunctions {
      * Data source for managing an AWS CloudWatch Observability Access Manager Sink.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -491,6 +542,7 @@ public final class OamFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSinkResult> getSink(GetSinkArgs args, InvokeOptions options) {
@@ -500,7 +552,10 @@ public final class OamFunctions {
      * Data source for managing an AWS CloudWatch Observability Access Manager Sink.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -529,6 +584,7 @@ public final class OamFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSinkResult> getSinkPlain(GetSinkPlainArgs args, InvokeOptions options) {
@@ -538,7 +594,10 @@ public final class OamFunctions {
      * Data source for managing an AWS CloudWatch Observability Access Manager Sinks.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -564,6 +623,7 @@ public final class OamFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSinksResult> getSinks() {
@@ -573,7 +633,10 @@ public final class OamFunctions {
      * Data source for managing an AWS CloudWatch Observability Access Manager Sinks.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -599,6 +662,7 @@ public final class OamFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSinksResult> getSinksPlain() {
@@ -608,7 +672,10 @@ public final class OamFunctions {
      * Data source for managing an AWS CloudWatch Observability Access Manager Sinks.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -634,6 +701,7 @@ public final class OamFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSinksResult> getSinks(InvokeArgs args) {
@@ -643,7 +711,10 @@ public final class OamFunctions {
      * Data source for managing an AWS CloudWatch Observability Access Manager Sinks.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -669,6 +740,7 @@ public final class OamFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSinksResult> getSinksPlain(InvokeArgs args) {
@@ -678,7 +750,10 @@ public final class OamFunctions {
      * Data source for managing an AWS CloudWatch Observability Access Manager Sinks.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -704,6 +779,7 @@ public final class OamFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSinksResult> getSinks(InvokeArgs args, InvokeOptions options) {
@@ -713,7 +789,10 @@ public final class OamFunctions {
      * Data source for managing an AWS CloudWatch Observability Access Manager Sinks.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -739,6 +818,7 @@ public final class OamFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSinksResult> getSinksPlain(InvokeArgs args, InvokeOptions options) {

@@ -16,6 +16,7 @@ namespace Pulumi.Aws.AppRunner
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -36,13 +37,14 @@ namespace Pulumi.Aws.AppRunner
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import App Runner Connections using the `connection_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:apprunner/connection:Connection example example
+    /// $ pulumi import aws:apprunner/connection:Connection example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:apprunner/connection:Connection")]

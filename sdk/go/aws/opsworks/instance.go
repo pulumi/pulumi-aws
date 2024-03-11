@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,6 +46,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Block devices
 //
 // Each of the `*_block_device` attributes controls a portion of the AWS
@@ -94,9 +97,7 @@ import (
 // Using `pulumi import`, import Opsworks Instances using the instance `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:opsworks/instance:Instance my_instance 4d6d1710-ded9-42a1-b08e-b043ad7af1e2
-//
+// $ pulumi import aws:opsworks/instance:Instance my_instance 4d6d1710-ded9-42a1-b08e-b043ad7af1e2
 // ```
 type Instance struct {
 	pulumi.CustomResourceState

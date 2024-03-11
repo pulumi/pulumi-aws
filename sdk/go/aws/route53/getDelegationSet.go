@@ -19,6 +19,7 @@ import (
 //
 // The following example shows how to get a delegation set from its id.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,6 +43,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupDelegationSet(ctx *pulumi.Context, args *LookupDelegationSetArgs, opts ...pulumi.InvokeOption) (*LookupDelegationSetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDelegationSetResult

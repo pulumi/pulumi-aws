@@ -273,6 +273,7 @@ class Policy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -286,13 +287,14 @@ class Policy(pulumi.CustomResource):
             name="example",
             content=example.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_organizations_policy` using the policy ID. For example:
 
         ```sh
-         $ pulumi import aws:organizations/policy:Policy example p-12345678
+        $ pulumi import aws:organizations/policy:Policy example p-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -315,6 +317,7 @@ class Policy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -328,13 +331,14 @@ class Policy(pulumi.CustomResource):
             name="example",
             content=example.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_organizations_policy` using the policy ID. For example:
 
         ```sh
-         $ pulumi import aws:organizations/policy:Policy example p-12345678
+        $ pulumi import aws:organizations/policy:Policy example p-12345678
         ```
 
         :param str resource_name: The name of the resource.

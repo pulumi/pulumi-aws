@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides an API Gateway Authorizer.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -123,13 +125,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import AWS API Gateway Authorizer using the `REST-API-ID/AUTHORIZER-ID`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:apigateway/authorizer:Authorizer authorizer 12345abcde/example
+ * $ pulumi import aws:apigateway/authorizer:Authorizer authorizer 12345abcde/example
  * ```
  * 
  */

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Ses
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -66,13 +67,14 @@ namespace Pulumi.Aws.Ses
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SES Identity Policies using the identity and policy name, separated by a pipe character (`|`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ses/identityPolicy:IdentityPolicy example 'example.com|example'
+    /// $ pulumi import aws:ses/identityPolicy:IdentityPolicy example 'example.com|example'
     /// ```
     /// </summary>
     [AwsResourceType("aws:ses/identityPolicy:IdentityPolicy")]

@@ -79,12 +79,14 @@ def get_delegation_set(id: Optional[str] = None,
 
     The following example shows how to get a delegation set from its id.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     dset = aws.route53.get_delegation_set(id="MQWGHCBFAKEID")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str id: Delegation set ID.
@@ -115,12 +117,14 @@ def get_delegation_set_output(id: Optional[pulumi.Input[str]] = None,
 
     The following example shows how to get a delegation set from its id.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     dset = aws.route53.get_delegation_set(id="MQWGHCBFAKEID")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str id: Delegation set ID.

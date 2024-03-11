@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -73,13 +74,14 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import FSx Data Repository Associations using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation example dra-0b1cfaeca11088b10
+    /// $ pulumi import aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation example dra-0b1cfaeca11088b10
     /// ```
     /// </summary>
     [AwsResourceType("aws:fsx/dataRepositoryAssociation:DataRepositoryAssociation")]

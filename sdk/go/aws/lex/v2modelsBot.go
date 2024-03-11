@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS Lex V2 Models Bot.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -50,15 +52,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Lex V2 Models Bot using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:lex/v2modelsBot:V2modelsBot example bot-id-12345678
-//
+// $ pulumi import aws:lex/v2modelsBot:V2modelsBot example bot-id-12345678
 // ```
 type V2modelsBot struct {
 	pulumi.CustomResourceState

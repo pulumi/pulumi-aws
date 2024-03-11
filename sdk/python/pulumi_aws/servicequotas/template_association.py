@@ -80,21 +80,24 @@ class TemplateAssociation(pulumi.CustomResource):
         > Only the management account of an organization can associate Service Quota templates, and this must be done from the `us-east-1` region.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.servicequotas.TemplateAssociation("example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Service Quotas Template Association using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:servicequotas/templateAssociation:TemplateAssociation example 012345678901
+        $ pulumi import aws:servicequotas/templateAssociation:TemplateAssociation example 012345678901
         ```
 
         :param str resource_name: The name of the resource.
@@ -112,21 +115,24 @@ class TemplateAssociation(pulumi.CustomResource):
         > Only the management account of an organization can associate Service Quota templates, and this must be done from the `us-east-1` region.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.servicequotas.TemplateAssociation("example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Service Quotas Template Association using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:servicequotas/templateAssociation:TemplateAssociation example 012345678901
+        $ pulumi import aws:servicequotas/templateAssociation:TemplateAssociation example 012345678901
         ```
 
         :param str resource_name: The name of the resource.

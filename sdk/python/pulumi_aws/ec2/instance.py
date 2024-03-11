@@ -1800,8 +1800,10 @@ class Instance(pulumi.CustomResource):
         Provides an EC2 instance resource. This allows instances to be created, updated, and deleted.
 
         ## Example Usage
+
         ### Basic example using AMI lookup
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1825,8 +1827,11 @@ class Instance(pulumi.CustomResource):
                 "Name": "HelloWorld",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Spot instance example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1855,8 +1860,11 @@ class Instance(pulumi.CustomResource):
                 "Name": "test-spot",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Network and credit specification example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1890,8 +1898,11 @@ class Instance(pulumi.CustomResource):
                 cpu_credits="unlimited",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### CPU options example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1926,12 +1937,15 @@ class Instance(pulumi.CustomResource):
                 "Name": "tf-example",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Host resource group or Licence Manager registered AMI example
 
         A host resource group is a collection of Dedicated Hosts that you can manage as a single entity. As you launch instances, License Manager allocates the hosts and launches instances on them based on the settings that you configured. You can add existing Dedicated Hosts to a host resource group and take advantage of automated host management through License Manager.
 
         > **NOTE:** A dedicated host is automatically associated with a License Manager host resource group if **Allocate hosts automatically** is enabled. Otherwise, use the `host_resource_group_arn` argument to explicitly associate the instance with the host resource group.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1942,6 +1956,8 @@ class Instance(pulumi.CustomResource):
             host_resource_group_arn="arn:aws:resource-groups:us-west-2:012345678901:group/win-testhost",
             tenancy="host")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Tag Guide
 
         These are the five types of tags you might encounter relative to an `ec2.Instance`:
@@ -1959,7 +1975,7 @@ class Instance(pulumi.CustomResource):
         Using `pulumi import`, import instances using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/instance:Instance web i-12345678
+        $ pulumi import aws:ec2/instance:Instance web i-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -2027,8 +2043,10 @@ class Instance(pulumi.CustomResource):
         Provides an EC2 instance resource. This allows instances to be created, updated, and deleted.
 
         ## Example Usage
+
         ### Basic example using AMI lookup
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2052,8 +2070,11 @@ class Instance(pulumi.CustomResource):
                 "Name": "HelloWorld",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Spot instance example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2082,8 +2103,11 @@ class Instance(pulumi.CustomResource):
                 "Name": "test-spot",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Network and credit specification example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2117,8 +2141,11 @@ class Instance(pulumi.CustomResource):
                 cpu_credits="unlimited",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### CPU options example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2153,12 +2180,15 @@ class Instance(pulumi.CustomResource):
                 "Name": "tf-example",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Host resource group or Licence Manager registered AMI example
 
         A host resource group is a collection of Dedicated Hosts that you can manage as a single entity. As you launch instances, License Manager allocates the hosts and launches instances on them based on the settings that you configured. You can add existing Dedicated Hosts to a host resource group and take advantage of automated host management through License Manager.
 
         > **NOTE:** A dedicated host is automatically associated with a License Manager host resource group if **Allocate hosts automatically** is enabled. Otherwise, use the `host_resource_group_arn` argument to explicitly associate the instance with the host resource group.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2169,6 +2199,8 @@ class Instance(pulumi.CustomResource):
             host_resource_group_arn="arn:aws:resource-groups:us-west-2:012345678901:group/win-testhost",
             tenancy="host")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Tag Guide
 
         These are the five types of tags you might encounter relative to an `ec2.Instance`:
@@ -2186,7 +2218,7 @@ class Instance(pulumi.CustomResource):
         Using `pulumi import`, import instances using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/instance:Instance web i-12345678
+        $ pulumi import aws:ec2/instance:Instance web i-12345678
         ```
 
         :param str resource_name: The name of the resource.

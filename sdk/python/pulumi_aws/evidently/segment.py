@@ -270,8 +270,10 @@ class Segment(pulumi.CustomResource):
         Provides a CloudWatch Evidently Segment resource.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -283,8 +285,11 @@ class Segment(pulumi.CustomResource):
                 "Key1": "example Segment",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With JSON object in pattern
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -303,8 +308,11 @@ class Segment(pulumi.CustomResource):
                 "Key1": "example Segment",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Description
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -314,13 +322,14 @@ class Segment(pulumi.CustomResource):
             pattern="{\\"Price\\":[{\\"numeric\\":[\\">\\",10,\\"<=\\",20]}]}",
             description="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudWatch Evidently Segment using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:evidently/segment:Segment example arn:aws:evidently:us-west-2:123456789012:segment/example
+        $ pulumi import aws:evidently/segment:Segment example arn:aws:evidently:us-west-2:123456789012:segment/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -340,8 +349,10 @@ class Segment(pulumi.CustomResource):
         Provides a CloudWatch Evidently Segment resource.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -353,8 +364,11 @@ class Segment(pulumi.CustomResource):
                 "Key1": "example Segment",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With JSON object in pattern
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -373,8 +387,11 @@ class Segment(pulumi.CustomResource):
                 "Key1": "example Segment",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Description
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -384,13 +401,14 @@ class Segment(pulumi.CustomResource):
             pattern="{\\"Price\\":[{\\"numeric\\":[\\">\\",10,\\"<=\\",20]}]}",
             description="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudWatch Evidently Segment using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:evidently/segment:Segment example arn:aws:evidently:us-west-2:123456789012:segment/example
+        $ pulumi import aws:evidently/segment:Segment example arn:aws:evidently:us-west-2:123456789012:segment/example
         ```
 
         :param str resource_name: The name of the resource.

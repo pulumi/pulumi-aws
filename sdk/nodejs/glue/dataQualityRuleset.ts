@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Provides a Glue Data Quality Ruleset Resource. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/glue-data-quality.html) for a full explanation of the Glue Data Quality Ruleset functionality
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,8 +24,11 @@ import * as utilities from "../utilities";
  *     ruleset: "Rules = [Completeness \"colA\" between 0.4 and 0.8]",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With description
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -34,8 +39,11 @@ import * as utilities from "../utilities";
  *     ruleset: "Rules = [Completeness \"colA\" between 0.4 and 0.8]",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With tags
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -48,8 +56,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With targetTable
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -63,13 +74,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Glue Data Quality Ruleset using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:glue/dataQualityRuleset:DataQualityRuleset example exampleName
+ * $ pulumi import aws:glue/dataQualityRuleset:DataQualityRuleset example exampleName
  * ```
  */
 export class DataQualityRuleset extends pulumi.CustomResource {

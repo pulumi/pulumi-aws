@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** Removing this resource from the provider has no effect to the encryption configuration within X-Ray.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,7 +50,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With KMS Key
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -105,13 +111,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import XRay Encryption Config using the region name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:xray/encryptionConfig:EncryptionConfig example us-west-2
+ * $ pulumi import aws:xray/encryptionConfig:EncryptionConfig example us-west-2
  * ```
  * 
  */

@@ -22,7 +22,10 @@ import javax.annotation.Nullable;
  * [Managing AWS Shield Advanced protection groups](https://docs.aws.amazon.com/waf/latest/developerguide/manage-protection-group.html)
  * 
  * ## Example Usage
+ * 
  * ### Create protection group for all resources
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -53,7 +56,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Create protection group for arbitrary number of resources
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -105,7 +112,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Create protection group for a type of resource
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -137,13 +148,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Shield protection group resources using their protection group id. For example:
  * 
  * ```sh
- *  $ pulumi import aws:shield/protectionGroup:ProtectionGroup example example
+ * $ pulumi import aws:shield/protectionGroup:ProtectionGroup example example
  * ```
  * 
  */

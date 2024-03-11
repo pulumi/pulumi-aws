@@ -224,6 +224,7 @@ class Vault(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -232,13 +233,14 @@ class Vault(pulumi.CustomResource):
             name="example_backup_vault",
             kms_key_arn=example_aws_kms_key["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Backup vault using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:backup/vault:Vault test-vault TestVault
+        $ pulumi import aws:backup/vault:Vault test-vault TestVault
         ```
 
         :param str resource_name: The name of the resource.
@@ -259,6 +261,7 @@ class Vault(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -267,13 +270,14 @@ class Vault(pulumi.CustomResource):
             name="example_backup_vault",
             kms_key_arn=example_aws_kms_key["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Backup vault using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:backup/vault:Vault test-vault TestVault
+        $ pulumi import aws:backup/vault:Vault test-vault TestVault
         ```
 
         :param str resource_name: The name of the resource.

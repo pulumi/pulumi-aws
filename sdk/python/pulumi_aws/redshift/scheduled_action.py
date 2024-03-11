@@ -298,8 +298,10 @@ class ScheduledAction(pulumi.CustomResource):
                  __props__=None):
         """
         ## Example Usage
+
         ### Pause Cluster Action
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -340,8 +342,11 @@ class ScheduledAction(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Resize Cluster Action
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -359,13 +364,14 @@ class ScheduledAction(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Scheduled Action using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:redshift/scheduledAction:ScheduledAction example tf-redshift-scheduled-action
+        $ pulumi import aws:redshift/scheduledAction:ScheduledAction example tf-redshift-scheduled-action
         ```
 
         :param str resource_name: The name of the resource.
@@ -387,8 +393,10 @@ class ScheduledAction(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
+
         ### Pause Cluster Action
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -429,8 +437,11 @@ class ScheduledAction(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Resize Cluster Action
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -448,13 +459,14 @@ class ScheduledAction(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Scheduled Action using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:redshift/scheduledAction:ScheduledAction example tf-redshift-scheduled-action
+        $ pulumi import aws:redshift/scheduledAction:ScheduledAction example tf-redshift-scheduled-action
         ```
 
         :param str resource_name: The name of the resource.

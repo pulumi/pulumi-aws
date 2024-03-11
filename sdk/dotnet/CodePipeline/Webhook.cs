@@ -17,7 +17,7 @@ namespace Pulumi.Aws.CodePipeline
     /// Using `pulumi import`, import CodePipeline Webhooks using their ARN. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:codepipeline/webhook:Webhook example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
+    /// $ pulumi import aws:codepipeline/webhook:Webhook example arn:aws:codepipeline:us-west-2:123456789012:webhook:example
     /// ```
     /// </summary>
     [AwsResourceType("aws:codepipeline/webhook:Webhook")]

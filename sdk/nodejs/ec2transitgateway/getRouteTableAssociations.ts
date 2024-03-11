@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Provides information for multiple EC2 Transit Gateway Route Table Associations, such as their identifiers.
  *
  * ## Example Usage
+ *
  * ### By Transit Gateway Identifier
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,6 +23,7 @@ import * as utilities from "../utilities";
  *     transitGatewayRouteTableId: exampleAwsEc2TransitGatewayRouteTable.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRouteTableAssociations(args: GetRouteTableAssociationsArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTableAssociationsResult> {
 
@@ -69,8 +72,10 @@ export interface GetRouteTableAssociationsResult {
  * Provides information for multiple EC2 Transit Gateway Route Table Associations, such as their identifiers.
  *
  * ## Example Usage
+ *
  * ### By Transit Gateway Identifier
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -79,6 +84,7 @@ export interface GetRouteTableAssociationsResult {
  *     transitGatewayRouteTableId: exampleAwsEc2TransitGatewayRouteTable.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRouteTableAssociationsOutput(args: GetRouteTableAssociationsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteTableAssociationsResult> {
     return pulumi.output(args).apply((a: any) => getRouteTableAssociations(a, opts))

@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -68,15 +69,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Instance Profiles using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:iam/instanceProfile:InstanceProfile test_profile app-instance-profile-1
-//
+// $ pulumi import aws:iam/instanceProfile:InstanceProfile test_profile app-instance-profile-1
 // ```
 type InstanceProfile struct {
 	pulumi.CustomResourceState

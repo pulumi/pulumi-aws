@@ -278,6 +278,7 @@ class EipAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -294,13 +295,14 @@ class EipAssociation(pulumi.CustomResource):
             instance_id=web.id,
             allocation_id=example.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EIP Assocations using their association IDs. For example:
 
         ```sh
-         $ pulumi import aws:ec2/eipAssociation:EipAssociation test eipassoc-ab12c345
+        $ pulumi import aws:ec2/eipAssociation:EipAssociation test eipassoc-ab12c345
         ```
 
         :param str resource_name: The name of the resource.
@@ -338,6 +340,7 @@ class EipAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -354,13 +357,14 @@ class EipAssociation(pulumi.CustomResource):
             instance_id=web.id,
             allocation_id=example.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EIP Assocations using their association IDs. For example:
 
         ```sh
-         $ pulumi import aws:ec2/eipAssociation:EipAssociation test eipassoc-ab12c345
+        $ pulumi import aws:ec2/eipAssociation:EipAssociation test eipassoc-ab12c345
         ```
 
         :param str resource_name: The name of the resource.

@@ -13,8 +13,10 @@ namespace Pulumi.Aws.VerifiedAccess
     /// Resource for managing an AWS EC2 (Elastic Compute Cloud) Verified Access Endpoint.
     /// 
     /// ## Example Usage
+    /// 
     /// ### ALB Example
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -50,8 +52,11 @@ namespace Pulumi.Aws.VerifiedAccess
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Network Interface Example
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -83,15 +88,14 @@ namespace Pulumi.Aws.VerifiedAccess
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import Verified Access Instances using the
-    /// 
-    /// `id`. For example:
+    /// Using `pulumi import`, import Verified Access Instances using the  `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:verifiedaccess/endpoint:Endpoint example vae-8012925589
+    /// $ pulumi import aws:verifiedaccess/endpoint:Endpoint example vae-8012925589
     /// ```
     /// </summary>
     [AwsResourceType("aws:verifiedaccess/endpoint:Endpoint")]

@@ -2117,8 +2117,10 @@ class VpnConnection(pulumi.CustomResource):
         [Read more about this in the AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VpnTunnelOptionsSpecification.html).
 
         ## Example Usage
+
         ### EC2 Transit Gateway
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2133,8 +2135,11 @@ class VpnConnection(pulumi.CustomResource):
             transit_gateway_id=example.id,
             type=example_customer_gateway.type)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Virtual Private Gateway
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2151,8 +2156,11 @@ class VpnConnection(pulumi.CustomResource):
             type="ipsec.1",
             static_routes_only=True)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### AWS Site to Site Private VPN
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2187,13 +2195,14 @@ class VpnConnection(pulumi.CustomResource):
                 "Name": "example_ipsec_vpn_example",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import VPN Connections using the VPN connection `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/vpnConnection:VpnConnection testvpnconnection vpn-40f41529
+        $ pulumi import aws:ec2/vpnConnection:VpnConnection testvpnconnection vpn-40f41529
         ```
 
         :param str resource_name: The name of the resource.
@@ -2267,8 +2276,10 @@ class VpnConnection(pulumi.CustomResource):
         [Read more about this in the AWS documentation](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_VpnTunnelOptionsSpecification.html).
 
         ## Example Usage
+
         ### EC2 Transit Gateway
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2283,8 +2294,11 @@ class VpnConnection(pulumi.CustomResource):
             transit_gateway_id=example.id,
             type=example_customer_gateway.type)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Virtual Private Gateway
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2301,8 +2315,11 @@ class VpnConnection(pulumi.CustomResource):
             type="ipsec.1",
             static_routes_only=True)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### AWS Site to Site Private VPN
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2337,13 +2354,14 @@ class VpnConnection(pulumi.CustomResource):
                 "Name": "example_ipsec_vpn_example",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import VPN Connections using the VPN connection `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/vpnConnection:VpnConnection testvpnconnection vpn-40f41529
+        $ pulumi import aws:ec2/vpnConnection:VpnConnection testvpnconnection vpn-40f41529
         ```
 
         :param str resource_name: The name of the resource.

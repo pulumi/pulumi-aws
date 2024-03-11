@@ -101,8 +101,10 @@ class ResourcePolicy(pulumi.CustomResource):
         Provides an AWS Network Firewall Resource Policy Resource for a rule group or firewall policy.
 
         ## Example Usage
+
         ### For a Firewall Policy resource
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -127,8 +129,11 @@ class ResourcePolicy(pulumi.CustomResource):
                 "version": "2012-10-17",
             }))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### For a Rule Group resource
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -152,14 +157,15 @@ class ResourcePolicy(pulumi.CustomResource):
                 "version": "2012-10-17",
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Network Firewall Resource Policies using the `resource_arn`. For example:
 
-        ```sh
-         $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
-        ```
+        <break>```sh<break>
+        $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
+        <break>```<break>
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -176,8 +182,10 @@ class ResourcePolicy(pulumi.CustomResource):
         Provides an AWS Network Firewall Resource Policy Resource for a rule group or firewall policy.
 
         ## Example Usage
+
         ### For a Firewall Policy resource
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -202,8 +210,11 @@ class ResourcePolicy(pulumi.CustomResource):
                 "version": "2012-10-17",
             }))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### For a Rule Group resource
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -227,14 +238,15 @@ class ResourcePolicy(pulumi.CustomResource):
                 "version": "2012-10-17",
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Network Firewall Resource Policies using the `resource_arn`. For example:
 
-        ```sh
-         $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
-        ```
+        <break>```sh<break>
+        $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
+        <break>```<break>
 
         :param str resource_name: The name of the resource.
         :param ResourcePolicyArgs args: The arguments to use to populate this resource's properties.

@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -29,6 +30,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleVerification = new aws.ses.DomainIdentityVerification("example_verification", {domain: example.id});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class DomainIdentityVerification extends pulumi.CustomResource {
     /**

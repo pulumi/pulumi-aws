@@ -102,6 +102,7 @@ class FleetStackAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -118,13 +119,14 @@ class FleetStackAssociation(pulumi.CustomResource):
             fleet_name=example.name,
             stack_name=example_stack.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AppStream Stack Fleet Association using the `fleet_name` and `stack_name` separated by a slash (`/`). For example:
 
         ```sh
-         $ pulumi import aws:appstream/fleetStackAssociation:FleetStackAssociation example fleetName/stackName
+        $ pulumi import aws:appstream/fleetStackAssociation:FleetStackAssociation example fleetName/stackName
         ```
 
         :param str resource_name: The name of the resource.
@@ -143,6 +145,7 @@ class FleetStackAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -159,13 +162,14 @@ class FleetStackAssociation(pulumi.CustomResource):
             fleet_name=example.name,
             stack_name=example_stack.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AppStream Stack Fleet Association using the `fleet_name` and `stack_name` separated by a slash (`/`). For example:
 
         ```sh
-         $ pulumi import aws:appstream/fleetStackAssociation:FleetStackAssociation example fleetName/stackName
+        $ pulumi import aws:appstream/fleetStackAssociation:FleetStackAssociation example fleetName/stackName
         ```
 
         :param str resource_name: The name of the resource.

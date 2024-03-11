@@ -21,7 +21,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS VPC Lattice Listener.
  * 
  * ## Example Usage
+ * 
  * ### Fixed response action
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -65,7 +68,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Forward action
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -123,7 +130,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Forward action with weighted target groups
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -197,13 +208,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import VPC Lattice Listener using the `listener_id` of the listener and the `id` of the VPC Lattice service combined with a `/` character. For example:
  * 
  * ```sh
- *  $ pulumi import aws:vpclattice/listener:Listener example svc-1a2b3c4d/listener-987654321
+ * $ pulumi import aws:vpclattice/listener:Listener example svc-1a2b3c4d/listener-987654321
  * ```
  * 
  */

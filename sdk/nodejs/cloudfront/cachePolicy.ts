@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * Use the `aws.cloudfront.CachePolicy` resource to create a cache policy for CloudFront.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -44,13 +45,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import CloudFront cache policies using the `id` of the cache policy. For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudfront/cachePolicy:CachePolicy policy 658327ea-f89d-4fab-a63d-7e88639e58f6
+ * $ pulumi import aws:cloudfront/cachePolicy:CachePolicy policy 658327ea-f89d-4fab-a63d-7e88639e58f6
  * ```
  */
 export class CachePolicy extends pulumi.CustomResource {

@@ -106,6 +106,7 @@ class VpnGatewayRoutePropagation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -114,6 +115,7 @@ class VpnGatewayRoutePropagation(pulumi.CustomResource):
             vpn_gateway_id=example_aws_vpn_gateway["id"],
             route_table_id=example_aws_route_table["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -135,6 +137,7 @@ class VpnGatewayRoutePropagation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -143,6 +146,7 @@ class VpnGatewayRoutePropagation(pulumi.CustomResource):
             vpn_gateway_id=example_aws_vpn_gateway["id"],
             route_table_id=example_aws_route_table["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param VpnGatewayRoutePropagationArgs args: The arguments to use to populate this resource's properties.

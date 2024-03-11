@@ -17,8 +17,10 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// a particular domain name. An API stage can be associated with the domain name using the `aws.apigatewayv2.ApiMapping` resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -40,8 +42,11 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Associated Route 53 Resource Record
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -79,13 +84,14 @@ namespace Pulumi.Aws.ApiGatewayV2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_apigatewayv2_domain_name` using the domain name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:apigatewayv2/domainName:DomainName example ws-api.example.com
+    /// $ pulumi import aws:apigatewayv2/domainName:DomainName example ws-api.example.com
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigatewayv2/domainName:DomainName")]

@@ -31,6 +31,8 @@ import javax.annotation.Nullable;
  * (see documentation below).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -65,6 +67,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &gt; **Note:** AWS Neptune does not support user name/password–based access control.
  * See the AWS [Docs](https://docs.aws.amazon.com/neptune/latest/userguide/limits.html) for more information.
@@ -74,7 +77,7 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import `aws_neptune_cluster` using the cluster identifier. For example:
  * 
  * ```sh
- *  $ pulumi import aws:neptune/cluster:Cluster example my-cluster
+ * $ pulumi import aws:neptune/cluster:Cluster example my-cluster
  * ```
  * 
  */

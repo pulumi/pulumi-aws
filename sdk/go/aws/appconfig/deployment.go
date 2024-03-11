@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -48,15 +49,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import AppConfig Deployments using the application ID, environment ID, and deployment number separated by a slash (`/`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:appconfig/deployment:Deployment example 71abcde/11xxxxx/1
-//
+// $ pulumi import aws:appconfig/deployment:Deployment example 71abcde/11xxxxx/1
 // ```
 type Deployment struct {
 	pulumi.CustomResourceState

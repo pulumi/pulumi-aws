@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Creates a Snapshot of a snapshot.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -66,6 +68,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:ebs/snapshotCopy:SnapshotCopy")

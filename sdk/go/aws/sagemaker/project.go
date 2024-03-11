@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,15 +45,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SageMaker Projects using the `project_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sagemaker/project:Project example example
-//
+// $ pulumi import aws:sagemaker/project:Project example example
 // ```
 type Project struct {
 	pulumi.CustomResourceState

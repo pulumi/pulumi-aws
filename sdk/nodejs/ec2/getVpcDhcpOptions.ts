@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Retrieve information about an EC2 DHCP Options configuration.
  *
  * ## Example Usage
+ *
  * ### Lookup by DHCP Options ID
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,8 +23,11 @@ import * as utilities from "../utilities";
  *     dhcpOptionsId: "dopts-12345678",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Lookup by Filter
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -40,6 +45,7 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVpcDhcpOptions(args?: GetVpcDhcpOptionsArgs, opts?: pulumi.InvokeOptions): Promise<GetVpcDhcpOptionsResult> {
     args = args || {};
@@ -120,8 +126,10 @@ export interface GetVpcDhcpOptionsResult {
  * Retrieve information about an EC2 DHCP Options configuration.
  *
  * ## Example Usage
+ *
  * ### Lookup by DHCP Options ID
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -130,8 +138,11 @@ export interface GetVpcDhcpOptionsResult {
  *     dhcpOptionsId: "dopts-12345678",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Lookup by Filter
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -149,6 +160,7 @@ export interface GetVpcDhcpOptionsResult {
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVpcDhcpOptionsOutput(args?: GetVpcDhcpOptionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpcDhcpOptionsResult> {
     return pulumi.output(args).apply((a: any) => getVpcDhcpOptions(a, opts))

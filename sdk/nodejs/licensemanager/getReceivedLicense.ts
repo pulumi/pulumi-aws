@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  *
  * The following shows getting the received license data using and ARN.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,6 +23,7 @@ import * as utilities from "../utilities";
  *     licenseArn: "arn:aws:license-manager::111111111111:license:l-ecbaa94eb71a4830b6d7e49268fecaa0",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getReceivedLicense(args: GetReceivedLicenseArgs, opts?: pulumi.InvokeOptions): Promise<GetReceivedLicenseResult> {
 
@@ -115,6 +117,7 @@ export interface GetReceivedLicenseResult {
  *
  * The following shows getting the received license data using and ARN.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -123,6 +126,7 @@ export interface GetReceivedLicenseResult {
  *     licenseArn: "arn:aws:license-manager::111111111111:license:l-ecbaa94eb71a4830b6d7e49268fecaa0",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getReceivedLicenseOutput(args: GetReceivedLicenseOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReceivedLicenseResult> {
     return pulumi.output(args).apply((a: any) => getReceivedLicense(a, opts))

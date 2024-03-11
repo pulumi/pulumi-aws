@@ -16,11 +16,11 @@ namespace Pulumi.Aws.SsmIncidents
         /// 
         /// Use this data source to manage a replication set in AWS Systems Manager Incident Manager.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,8 +33,7 @@ namespace Pulumi.Aws.SsmIncidents
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetReplicationSetResult> InvokeAsync(GetReplicationSetArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReplicationSetResult>("aws:ssmincidents/getReplicationSet:getReplicationSet", args ?? new GetReplicationSetArgs(), options.WithDefaults());
@@ -44,11 +43,11 @@ namespace Pulumi.Aws.SsmIncidents
         /// 
         /// Use this data source to manage a replication set in AWS Systems Manager Incident Manager.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,8 +60,7 @@ namespace Pulumi.Aws.SsmIncidents
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetReplicationSetResult> Invoke(GetReplicationSetInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReplicationSetResult>("aws:ssmincidents/getReplicationSet:getReplicationSet", args ?? new GetReplicationSetInvokeArgs(), options.WithDefaults());

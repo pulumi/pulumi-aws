@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Manages the account alias for the AWS Account.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -47,13 +49,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import the current Account Alias using the `account_alias`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:iam/accountAlias:AccountAlias alias my-account-alias
+ * $ pulumi import aws:iam/accountAlias:AccountAlias alias my-account-alias
  * ```
  * 
  */

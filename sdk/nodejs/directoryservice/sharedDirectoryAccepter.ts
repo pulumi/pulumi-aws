@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,13 +25,14 @@ import * as utilities from "../utilities";
  * });
  * const exampleSharedDirectoryAccepter = new aws.directoryservice.SharedDirectoryAccepter("example", {sharedDirectoryId: example.sharedDirectoryId});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Directory Service Shared Directories using the shared directory ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter example d-9267633ece
+ * $ pulumi import aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter example d-9267633ece
  * ```
  */
 export class SharedDirectoryAccepter extends pulumi.CustomResource {

@@ -134,8 +134,10 @@ class AuthPolicy(pulumi.CustomResource):
         Resource for managing an AWS VPC Lattice Auth Policy.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -162,13 +164,14 @@ class AuthPolicy(pulumi.CustomResource):
                 }],
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import VPC Lattice Auth Policy using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:vpclattice/authPolicy:AuthPolicy example abcd-12345678
+        $ pulumi import aws:vpclattice/authPolicy:AuthPolicy example abcd-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -187,8 +190,10 @@ class AuthPolicy(pulumi.CustomResource):
         Resource for managing an AWS VPC Lattice Auth Policy.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -215,13 +220,14 @@ class AuthPolicy(pulumi.CustomResource):
                 }],
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import VPC Lattice Auth Policy using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:vpclattice/authPolicy:AuthPolicy example abcd-12345678
+        $ pulumi import aws:vpclattice/authPolicy:AuthPolicy example abcd-12345678
         ```
 
         :param str resource_name: The name of the resource.

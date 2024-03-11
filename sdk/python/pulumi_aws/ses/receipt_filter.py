@@ -151,6 +151,7 @@ class ReceiptFilter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -160,13 +161,14 @@ class ReceiptFilter(pulumi.CustomResource):
             cidr="10.10.10.10",
             policy="Block")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SES Receipt Filter using their `name`. For example:
 
         ```sh
-         $ pulumi import aws:ses/receiptFilter:ReceiptFilter test some-filter
+        $ pulumi import aws:ses/receiptFilter:ReceiptFilter test some-filter
         ```
 
         :param str resource_name: The name of the resource.
@@ -186,6 +188,7 @@ class ReceiptFilter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -195,13 +198,14 @@ class ReceiptFilter(pulumi.CustomResource):
             cidr="10.10.10.10",
             policy="Block")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SES Receipt Filter using their `name`. For example:
 
         ```sh
-         $ pulumi import aws:ses/receiptFilter:ReceiptFilter test some-filter
+        $ pulumi import aws:ses/receiptFilter:ReceiptFilter test some-filter
         ```
 
         :param str resource_name: The name of the resource.

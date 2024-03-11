@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Provides a resource to create an organizational unit.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,13 +52,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import AWS Organizations Organizational Units using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:organizations/organizationalUnit:OrganizationalUnit example ou-1234567
+ * $ pulumi import aws:organizations/organizationalUnit:OrganizationalUnit example ou-1234567
  * ```
  * 
  */

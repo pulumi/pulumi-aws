@@ -173,6 +173,7 @@ class LogMetricFilter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -188,13 +189,14 @@ class LogMetricFilter(pulumi.CustomResource):
                 value="1",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudWatch Log Metric Filter using the `log_group_name:name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/logMetricFilter:LogMetricFilter test /aws/lambda/function:test
+        $ pulumi import aws:cloudwatch/logMetricFilter:LogMetricFilter test /aws/lambda/function:test
         ```
 
         :param str resource_name: The name of the resource.
@@ -216,6 +218,7 @@ class LogMetricFilter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -231,13 +234,14 @@ class LogMetricFilter(pulumi.CustomResource):
                 value="1",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudWatch Log Metric Filter using the `log_group_name:name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/logMetricFilter:LogMetricFilter test /aws/lambda/function:test
+        $ pulumi import aws:cloudwatch/logMetricFilter:LogMetricFilter test /aws/lambda/function:test
         ```
 
         :param str resource_name: The name of the resource.

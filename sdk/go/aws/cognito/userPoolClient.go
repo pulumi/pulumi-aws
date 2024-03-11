@@ -18,8 +18,10 @@ import (
 // use the `cognito.ManagedUserPoolClient` resource instead.
 //
 // ## Example Usage
+//
 // ### Create a basic user pool client
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -50,8 +52,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Create a user pool client with no SRP authentication
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -86,8 +91,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Create a user pool client with pinpoint analytics
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -193,8 +201,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Create a user pool client with Cognito as the identity provider
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -240,15 +251,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Cognito User Pool Clients using the `id` of the Cognito User Pool, and the `id` of the Cognito User Pool Client. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cognito/userPoolClient:UserPoolClient client us-west-2_abc123/3ho4ek12345678909nh3fmhpko
-//
+// $ pulumi import aws:cognito/userPoolClient:UserPoolClient client us-west-2_abc123/3ho4ek12345678909nh3fmhpko
 // ```
 type UserPoolClient struct {
 	pulumi.CustomResourceState

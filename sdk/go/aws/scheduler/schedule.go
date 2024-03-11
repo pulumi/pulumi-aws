@@ -19,8 +19,10 @@ import (
 // > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -53,8 +55,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Universal Target
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -105,15 +110,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import schedules using the combination `group_name/name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:scheduler/schedule:Schedule example my-schedule-group/my-schedule
-//
+// $ pulumi import aws:scheduler/schedule:Schedule example my-schedule-group/my-schedule
 // ```
 type Schedule struct {
 	pulumi.CustomResourceState

@@ -13,8 +13,10 @@ namespace Pulumi.Aws.ServiceCatalog
     /// Manages a Service Catalog self-service action.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,13 +37,14 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_servicecatalog_service_action` using the service action ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:servicecatalog/serviceAction:ServiceAction example act-f1w12eperfslh
+    /// $ pulumi import aws:servicecatalog/serviceAction:ServiceAction example act-f1w12eperfslh
     /// ```
     /// </summary>
     [AwsResourceType("aws:servicecatalog/serviceAction:ServiceAction")]

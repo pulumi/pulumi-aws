@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides a customer gateway inside a VPC. These objects can be connected to VPN gateways via VPN connections, and allow you to establish tunnels between your network and the VPC.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,13 +52,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Customer Gateways using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/customerGateway:CustomerGateway main cgw-b4dc3961
+ * $ pulumi import aws:ec2/customerGateway:CustomerGateway main cgw-b4dc3961
  * ```
  * 
  */

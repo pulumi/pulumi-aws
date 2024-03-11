@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * &gt; *NOTE:* The AWS Cost and Usage Report service is only available in `us-east-1` currently.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -61,13 +63,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Report Definitions using the `report_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cur/reportDefinition:ReportDefinition example_cur_report_definition example-cur-report-definition
+ * $ pulumi import aws:cur/reportDefinition:ReportDefinition example_cur_report_definition example-cur-report-definition
  * ```
  * 
  */

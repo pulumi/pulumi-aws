@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,13 +32,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import placement groups using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/placementGroup:PlacementGroup prod_pg production-placement-group
+    /// $ pulumi import aws:ec2/placementGroup:PlacementGroup prod_pg production-placement-group
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/placementGroup:PlacementGroup")]

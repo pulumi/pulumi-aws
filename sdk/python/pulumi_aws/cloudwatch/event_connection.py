@@ -204,6 +204,7 @@ class EventConnection(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -219,8 +220,11 @@ class EventConnection(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Basic Authorization
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -236,8 +240,11 @@ class EventConnection(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### OAuth Authorization
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -274,8 +281,11 @@ class EventConnection(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Invocation Http Parameters
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -315,13 +325,14 @@ class EventConnection(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EventBridge EventBridge connection using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/eventConnection:EventConnection test ngrok-connection
+        $ pulumi import aws:cloudwatch/eventConnection:EventConnection test ngrok-connection
         ```
 
         :param str resource_name: The name of the resource.
@@ -344,6 +355,7 @@ class EventConnection(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -359,8 +371,11 @@ class EventConnection(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Basic Authorization
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -376,8 +391,11 @@ class EventConnection(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### OAuth Authorization
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -414,8 +432,11 @@ class EventConnection(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Invocation Http Parameters
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -455,13 +476,14 @@ class EventConnection(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EventBridge EventBridge connection using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/eventConnection:EventConnection test ngrok-connection
+        $ pulumi import aws:cloudwatch/eventConnection:EventConnection test ngrok-connection
         ```
 
         :param str resource_name: The name of the resource.

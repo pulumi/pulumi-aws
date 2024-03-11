@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Creates and manages an AWS IoT Thing Type.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,13 +51,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import IOT Thing Types using the name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:iot/thingType:ThingType example example
+ * $ pulumi import aws:iot/thingType:ThingType example example
  * ```
  * 
  */

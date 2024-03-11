@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,15 +39,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Media Convert Queue using the queue name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:mediaconvert/queue:Queue test tf-test-queue
-//
+// $ pulumi import aws:mediaconvert/queue:Queue test tf-test-queue
 // ```
 type Queue struct {
 	pulumi.CustomResourceState

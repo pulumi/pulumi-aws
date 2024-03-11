@@ -741,6 +741,7 @@ class NodeGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -759,10 +760,13 @@ class NodeGroup(pulumi.CustomResource):
                 max_unavailable=1,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Ignoring Changes to Desired Size
 
         You can utilize [ignoreChanges](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) create an EKS Node Group with an initial size of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -771,29 +775,11 @@ class NodeGroup(pulumi.CustomResource):
             desired_size=2,
         ))
         ```
-        ### Tracking the latest EKS Node Group AMI releases
+        <!--End PulumiCodeChooser -->
 
-        You can have the node group track the latest version of the Amazon EKS optimized Amazon Linux AMI for a given EKS version by querying an Amazon provided SSM parameter. Replace `amazon-linux-2` in the parameter name below with `amazon-linux-2-gpu` to retrieve the  accelerated AMI version and `amazon-linux-2-arm64` to retrieve the Arm version.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        eks_ami_release_version = aws.ssm.get_parameter(name=f"/aws/service/eks/optimized-ami/{example_aws_eks_cluster['version']}/amazon-linux-2/recommended/release_version")
-        example = aws.eks.NodeGroup("example",
-            cluster_name=example_aws_eks_cluster["name"],
-            node_group_name="example",
-            version=example_aws_eks_cluster["version"],
-            release_version=not_implemented("nonsensitive(data.aws_ssm_parameter.eks_ami_release_version.value)"),
-            node_role_arn=example_aws_iam_role["arn"],
-            subnet_ids=[__item["id"] for __item in example_aws_subnet])
-        ```
         ### Example IAM Role for EKS Node Group
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -821,8 +807,11 @@ class NodeGroup(pulumi.CustomResource):
             policy_arn="arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly",
             role=example.name)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example Subnets for EKS Node Group
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -838,13 +827,14 @@ class NodeGroup(pulumi.CustomResource):
                     netnum=range["value"]).result,
                 vpc_id=example_aws_vpc["id"]))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EKS Node Groups using the `cluster_name` and `node_group_name` separated by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:eks/nodeGroup:NodeGroup my_node_group my_cluster:my_node_group
+        $ pulumi import aws:eks/nodeGroup:NodeGroup my_node_group my_cluster:my_node_group
         ```
 
         :param str resource_name: The name of the resource.
@@ -882,6 +872,7 @@ class NodeGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -900,10 +891,13 @@ class NodeGroup(pulumi.CustomResource):
                 max_unavailable=1,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Ignoring Changes to Desired Size
 
         You can utilize [ignoreChanges](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) create an EKS Node Group with an initial size of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -912,29 +906,11 @@ class NodeGroup(pulumi.CustomResource):
             desired_size=2,
         ))
         ```
-        ### Tracking the latest EKS Node Group AMI releases
+        <!--End PulumiCodeChooser -->
 
-        You can have the node group track the latest version of the Amazon EKS optimized Amazon Linux AMI for a given EKS version by querying an Amazon provided SSM parameter. Replace `amazon-linux-2` in the parameter name below with `amazon-linux-2-gpu` to retrieve the  accelerated AMI version and `amazon-linux-2-arm64` to retrieve the Arm version.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        eks_ami_release_version = aws.ssm.get_parameter(name=f"/aws/service/eks/optimized-ami/{example_aws_eks_cluster['version']}/amazon-linux-2/recommended/release_version")
-        example = aws.eks.NodeGroup("example",
-            cluster_name=example_aws_eks_cluster["name"],
-            node_group_name="example",
-            version=example_aws_eks_cluster["version"],
-            release_version=not_implemented("nonsensitive(data.aws_ssm_parameter.eks_ami_release_version.value)"),
-            node_role_arn=example_aws_iam_role["arn"],
-            subnet_ids=[__item["id"] for __item in example_aws_subnet])
-        ```
         ### Example IAM Role for EKS Node Group
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -962,8 +938,11 @@ class NodeGroup(pulumi.CustomResource):
             policy_arn="arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly",
             role=example.name)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example Subnets for EKS Node Group
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -979,13 +958,14 @@ class NodeGroup(pulumi.CustomResource):
                     netnum=range["value"]).result,
                 vpc_id=example_aws_vpc["id"]))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EKS Node Groups using the `cluster_name` and `node_group_name` separated by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:eks/nodeGroup:NodeGroup my_node_group my_cluster:my_node_group
+        $ pulumi import aws:eks/nodeGroup:NodeGroup my_node_group my_cluster:my_node_group
         ```
 
         :param str resource_name: The name of the resource.

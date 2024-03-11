@@ -72,19 +72,21 @@ class ServicecatalogPortfolioStatus(pulumi.CustomResource):
 
         Usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.sagemaker.ServicecatalogPortfolioStatus("example", status="Enabled")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import models using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/servicecatalogPortfolioStatus:ServicecatalogPortfolioStatus example us-east-1
+        $ pulumi import aws:sagemaker/servicecatalogPortfolioStatus:ServicecatalogPortfolioStatus example us-east-1
         ```
 
         :param str resource_name: The name of the resource.
@@ -104,19 +106,21 @@ class ServicecatalogPortfolioStatus(pulumi.CustomResource):
 
         Usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.sagemaker.ServicecatalogPortfolioStatus("example", status="Enabled")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import models using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/servicecatalogPortfolioStatus:ServicecatalogPortfolioStatus example us-east-1
+        $ pulumi import aws:sagemaker/servicecatalogPortfolioStatus:ServicecatalogPortfolioStatus example us-east-1
         ```
 
         :param str resource_name: The name of the resource.

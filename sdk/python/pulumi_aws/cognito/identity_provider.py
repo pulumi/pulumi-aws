@@ -232,6 +232,7 @@ class IdentityProvider(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -253,13 +254,14 @@ class IdentityProvider(pulumi.CustomResource):
                 "username": "sub",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_cognito_identity_provider` resources using their User Pool ID and Provider Name. For example:
 
         ```sh
-         $ pulumi import aws:cognito/identityProvider:IdentityProvider example us-west-2_abc123:CorpAD
+        $ pulumi import aws:cognito/identityProvider:IdentityProvider example us-west-2_abc123:CorpAD
         ```
 
         :param str resource_name: The name of the resource.
@@ -282,6 +284,7 @@ class IdentityProvider(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -303,13 +306,14 @@ class IdentityProvider(pulumi.CustomResource):
                 "username": "sub",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_cognito_identity_provider` resources using their User Pool ID and Provider Name. For example:
 
         ```sh
-         $ pulumi import aws:cognito/identityProvider:IdentityProvider example us-west-2_abc123:CorpAD
+        $ pulumi import aws:cognito/identityProvider:IdentityProvider example us-west-2_abc123:CorpAD
         ```
 
         :param str resource_name: The name of the resource.

@@ -174,8 +174,10 @@ class CodeRepository(pulumi.CustomResource):
         Provides a SageMaker Code Repository resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -186,8 +188,11 @@ class CodeRepository(pulumi.CustomResource):
                 repository_url="https://github.com/github/docs.git",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example with Secret
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -207,13 +212,14 @@ class CodeRepository(pulumi.CustomResource):
                 secret_arn=example.arn,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker Code Repositories using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/codeRepository:CodeRepository test_code_repository my-code-repo
+        $ pulumi import aws:sagemaker/codeRepository:CodeRepository test_code_repository my-code-repo
         ```
 
         :param str resource_name: The name of the resource.
@@ -232,8 +238,10 @@ class CodeRepository(pulumi.CustomResource):
         Provides a SageMaker Code Repository resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -244,8 +252,11 @@ class CodeRepository(pulumi.CustomResource):
                 repository_url="https://github.com/github/docs.git",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example with Secret
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -265,13 +276,14 @@ class CodeRepository(pulumi.CustomResource):
                 secret_arn=example.arn,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker Code Repositories using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/codeRepository:CodeRepository test_code_repository my-code-repo
+        $ pulumi import aws:sagemaker/codeRepository:CodeRepository test_code_repository my-code-repo
         ```
 
         :param str resource_name: The name of the resource.

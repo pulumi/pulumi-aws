@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Schemas
     /// Resource for managing an AWS EventBridge Schemas Registry Policy.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -63,13 +65,14 @@ namespace Pulumi.Aws.Schemas
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EventBridge Schema Registry Policy using the `registry_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:schemas/registryPolicy:RegistryPolicy example example
+    /// $ pulumi import aws:schemas/registryPolicy:RegistryPolicy example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:schemas/registryPolicy:RegistryPolicy")]

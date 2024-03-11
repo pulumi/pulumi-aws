@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -97,13 +98,14 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Pinpoint Event Stream using the `application-id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:pinpoint/eventStream:EventStream stream application-id
+    /// $ pulumi import aws:pinpoint/eventStream:EventStream stream application-id
     /// ```
     /// </summary>
     [AwsResourceType("aws:pinpoint/eventStream:EventStream")]

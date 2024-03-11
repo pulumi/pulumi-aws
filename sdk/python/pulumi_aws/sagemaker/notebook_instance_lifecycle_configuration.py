@@ -155,6 +155,7 @@ class NotebookInstanceLifecycleConfiguration(pulumi.CustomResource):
 
         Usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -165,13 +166,14 @@ class NotebookInstanceLifecycleConfiguration(pulumi.CustomResource):
             on_create=std.base64encode(input="echo foo").result,
             on_start=std.base64encode(input="echo bar").result)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import models using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration lc foo
+        $ pulumi import aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration lc foo
         ```
 
         :param str resource_name: The name of the resource.
@@ -193,6 +195,7 @@ class NotebookInstanceLifecycleConfiguration(pulumi.CustomResource):
 
         Usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -203,13 +206,14 @@ class NotebookInstanceLifecycleConfiguration(pulumi.CustomResource):
             on_create=std.base64encode(input="echo foo").result,
             on_start=std.base64encode(input="echo bar").result)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import models using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration lc foo
+        $ pulumi import aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration lc foo
         ```
 
         :param str resource_name: The name of the resource.

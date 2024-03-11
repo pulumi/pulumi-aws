@@ -549,8 +549,10 @@ class CustomDbEngineVersion(pulumi.CustomResource):
         Provides an custom engine version (CEV) resource for Amazon RDS Custom. For additional information, see [Working with CEVs for RDS Custom for Oracle](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html) and [Working with CEVs for RDS Custom for SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev-sqlserver.html) in the the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html).
 
         ## Example Usage
+
         ### RDS Custom for Oracle Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -571,8 +573,11 @@ class CustomDbEngineVersion(pulumi.CustomResource):
                 "Key": "value",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### RDS Custom for Oracle External Manifest Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -592,8 +597,11 @@ class CustomDbEngineVersion(pulumi.CustomResource):
                 "Key": "value",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### RDS Custom for SQL Server Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -604,8 +612,11 @@ class CustomDbEngineVersion(pulumi.CustomResource):
             engine_version="15.00.4249.2.cev-1",
             source_image_id="ami-0aa12345678a12ab1")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### RDS Custom for SQL Server Usage with AMI from another region
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -621,13 +632,14 @@ class CustomDbEngineVersion(pulumi.CustomResource):
             engine_version="15.00.4249.2.cev-1",
             source_image_id=example.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import custom engine versions for Amazon RDS custom using the `engine` and `engine_version` separated by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:rds/customDbEngineVersion:CustomDbEngineVersion example custom-oracle-ee-cdb:19.cdb_cev1
+        $ pulumi import aws:rds/customDbEngineVersion:CustomDbEngineVersion example custom-oracle-ee-cdb:19.cdb_cev1
         ```
 
         :param str resource_name: The name of the resource.
@@ -655,8 +667,10 @@ class CustomDbEngineVersion(pulumi.CustomResource):
         Provides an custom engine version (CEV) resource for Amazon RDS Custom. For additional information, see [Working with CEVs for RDS Custom for Oracle](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev.html) and [Working with CEVs for RDS Custom for SQL Server](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/custom-cev-sqlserver.html) in the the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Welcome.html).
 
         ## Example Usage
+
         ### RDS Custom for Oracle Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -677,8 +691,11 @@ class CustomDbEngineVersion(pulumi.CustomResource):
                 "Key": "value",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### RDS Custom for Oracle External Manifest Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -698,8 +715,11 @@ class CustomDbEngineVersion(pulumi.CustomResource):
                 "Key": "value",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### RDS Custom for SQL Server Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -710,8 +730,11 @@ class CustomDbEngineVersion(pulumi.CustomResource):
             engine_version="15.00.4249.2.cev-1",
             source_image_id="ami-0aa12345678a12ab1")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### RDS Custom for SQL Server Usage with AMI from another region
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -727,13 +750,14 @@ class CustomDbEngineVersion(pulumi.CustomResource):
             engine_version="15.00.4249.2.cev-1",
             source_image_id=example.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import custom engine versions for Amazon RDS custom using the `engine` and `engine_version` separated by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:rds/customDbEngineVersion:CustomDbEngineVersion example custom-oracle-ee-cdb:19.cdb_cev1
+        $ pulumi import aws:rds/customDbEngineVersion:CustomDbEngineVersion example custom-oracle-ee-cdb:19.cdb_cev1
         ```
 
         :param str resource_name: The name of the resource.

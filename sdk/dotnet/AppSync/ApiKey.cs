@@ -14,6 +14,7 @@ namespace Pulumi.Aws.AppSync
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -36,13 +37,14 @@ namespace Pulumi.Aws.AppSync
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_appsync_api_key` using the AppSync API ID and key separated by `:`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:appsync/apiKey:ApiKey example xxxxx:yyyyy
+    /// $ pulumi import aws:appsync/apiKey:ApiKey example xxxxx:yyyyy
     /// ```
     /// </summary>
     [AwsResourceType("aws:appsync/apiKey:ApiKey")]

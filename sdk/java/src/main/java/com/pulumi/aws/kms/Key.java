@@ -25,6 +25,8 @@ import javax.annotation.Nullable;
  * Configuring with both will cause inconsistencies and may overwrite configuration.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -54,13 +56,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import KMS Keys using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:kms/key:Key a 1234abcd-12ab-34cd-56ef-1234567890ab
+ * $ pulumi import aws:kms/key:Key a 1234abcd-12ab-34cd-56ef-1234567890ab
  * ```
  * 
  */

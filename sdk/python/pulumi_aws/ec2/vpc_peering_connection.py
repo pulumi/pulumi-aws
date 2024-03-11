@@ -370,6 +370,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -379,9 +380,11 @@ class VpcPeeringConnection(pulumi.CustomResource):
             peer_vpc_id=bar["id"],
             vpc_id=foo_aws_vpc["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         Basic usage with connection options:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -397,9 +400,11 @@ class VpcPeeringConnection(pulumi.CustomResource):
                 allow_remote_vpc_dns_resolution=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         Basic usage with tags:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -415,9 +420,11 @@ class VpcPeeringConnection(pulumi.CustomResource):
                 "Name": "VPC Peering between foo and bar",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         Basic usage with region:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -430,6 +437,8 @@ class VpcPeeringConnection(pulumi.CustomResource):
             vpc_id=foo_vpc.id,
             peer_region="us-east-1")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Notes
 
         If both VPCs are not in the same AWS account and region do not enable the `auto_accept` attribute.
@@ -441,7 +450,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
         Using `pulumi import`, import VPC Peering resources using the VPC peering `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/vpcPeeringConnection:VpcPeeringConnection test_connection pcx-111aaa111
+        $ pulumi import aws:ec2/vpcPeeringConnection:VpcPeeringConnection test_connection pcx-111aaa111
         ```
 
         :param str resource_name: The name of the resource.
@@ -484,6 +493,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -493,9 +503,11 @@ class VpcPeeringConnection(pulumi.CustomResource):
             peer_vpc_id=bar["id"],
             vpc_id=foo_aws_vpc["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         Basic usage with connection options:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -511,9 +523,11 @@ class VpcPeeringConnection(pulumi.CustomResource):
                 allow_remote_vpc_dns_resolution=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         Basic usage with tags:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -529,9 +543,11 @@ class VpcPeeringConnection(pulumi.CustomResource):
                 "Name": "VPC Peering between foo and bar",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         Basic usage with region:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -544,6 +560,8 @@ class VpcPeeringConnection(pulumi.CustomResource):
             vpc_id=foo_vpc.id,
             peer_region="us-east-1")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Notes
 
         If both VPCs are not in the same AWS account and region do not enable the `auto_accept` attribute.
@@ -555,7 +573,7 @@ class VpcPeeringConnection(pulumi.CustomResource):
         Using `pulumi import`, import VPC Peering resources using the VPC peering `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/vpcPeeringConnection:VpcPeeringConnection test_connection pcx-111aaa111
+        $ pulumi import aws:ec2/vpcPeeringConnection:VpcPeeringConnection test_connection pcx-111aaa111
         ```
 
         :param str resource_name: The name of the resource.

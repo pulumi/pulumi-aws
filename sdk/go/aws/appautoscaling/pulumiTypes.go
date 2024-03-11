@@ -24,6 +24,7 @@ type PolicyStepScalingPolicyConfiguration struct {
 	MinAdjustmentMagnitude *int `pulumi:"minAdjustmentMagnitude"`
 	// Set of adjustments that manage scaling. These have the following structure:
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -57,6 +58,7 @@ type PolicyStepScalingPolicyConfiguration struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	StepAdjustments []PolicyStepScalingPolicyConfigurationStepAdjustment `pulumi:"stepAdjustments"`
 }
 
@@ -82,6 +84,7 @@ type PolicyStepScalingPolicyConfigurationArgs struct {
 	MinAdjustmentMagnitude pulumi.IntPtrInput `pulumi:"minAdjustmentMagnitude"`
 	// Set of adjustments that manage scaling. These have the following structure:
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -115,6 +118,7 @@ type PolicyStepScalingPolicyConfigurationArgs struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	StepAdjustments PolicyStepScalingPolicyConfigurationStepAdjustmentArrayInput `pulumi:"stepAdjustments"`
 }
 
@@ -217,6 +221,7 @@ func (o PolicyStepScalingPolicyConfigurationOutput) MinAdjustmentMagnitude() pul
 
 // Set of adjustments that manage scaling. These have the following structure:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -253,6 +258,7 @@ func (o PolicyStepScalingPolicyConfigurationOutput) MinAdjustmentMagnitude() pul
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func (o PolicyStepScalingPolicyConfigurationOutput) StepAdjustments() PolicyStepScalingPolicyConfigurationStepAdjustmentArrayOutput {
 	return o.ApplyT(func(v PolicyStepScalingPolicyConfiguration) []PolicyStepScalingPolicyConfigurationStepAdjustment {
 		return v.StepAdjustments
@@ -325,6 +331,7 @@ func (o PolicyStepScalingPolicyConfigurationPtrOutput) MinAdjustmentMagnitude() 
 
 // Set of adjustments that manage scaling. These have the following structure:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -361,6 +368,7 @@ func (o PolicyStepScalingPolicyConfigurationPtrOutput) MinAdjustmentMagnitude() 
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func (o PolicyStepScalingPolicyConfigurationPtrOutput) StepAdjustments() PolicyStepScalingPolicyConfigurationStepAdjustmentArrayOutput {
 	return o.ApplyT(func(v *PolicyStepScalingPolicyConfiguration) []PolicyStepScalingPolicyConfigurationStepAdjustment {
 		if v == nil {

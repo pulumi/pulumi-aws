@@ -14,6 +14,7 @@ namespace Pulumi.Aws.DataPipeline
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,13 +30,14 @@ namespace Pulumi.Aws.DataPipeline
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_datapipeline_pipeline` using the id (Pipeline ID). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:datapipeline/pipeline:Pipeline default df-1234567890
+    /// $ pulumi import aws:datapipeline/pipeline:Pipeline default df-1234567890
     /// ```
     /// </summary>
     [AwsResourceType("aws:datapipeline/pipeline:Pipeline")]

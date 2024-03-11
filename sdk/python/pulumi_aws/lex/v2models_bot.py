@@ -397,8 +397,10 @@ class V2modelsBot(pulumi.CustomResource):
         Resource for managing an AWS Lex V2 Models Bot.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -414,13 +416,14 @@ class V2modelsBot(pulumi.CustomResource):
                 "foo": "bar",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Lex V2 Models Bot using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:lex/v2modelsBot:V2modelsBot example bot-id-12345678
+        $ pulumi import aws:lex/v2modelsBot:V2modelsBot example bot-id-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -447,8 +450,10 @@ class V2modelsBot(pulumi.CustomResource):
         Resource for managing an AWS Lex V2 Models Bot.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -464,13 +469,14 @@ class V2modelsBot(pulumi.CustomResource):
                 "foo": "bar",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Lex V2 Models Bot using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:lex/v2modelsBot:V2modelsBot example bot-id-12345678
+        $ pulumi import aws:lex/v2modelsBot:V2modelsBot example bot-id-12345678
         ```
 
         :param str resource_name: The name of the resource.

@@ -256,12 +256,14 @@ def get_launch_configuration(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     ubuntu = aws.ec2.get_launch_configuration(name="test-launch-config")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the launch configuration.
@@ -300,12 +302,14 @@ def get_launch_configuration_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     ubuntu = aws.ec2.get_launch_configuration(name="test-launch-config")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the launch configuration.

@@ -17,8 +17,10 @@ import (
 // > This resource cannot be used with S3 directory buckets.
 //
 // ## Example Usage
+//
 // ### Add metrics configuration for entire S3 bucket
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,8 +51,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Add metrics configuration with S3 object filter
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -88,8 +93,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Add metrics configuration with S3 object filter for S3 Access Point
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -134,15 +142,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import S3 bucket metric configurations using `bucket:metric`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:s3/bucketMetric:BucketMetric my-bucket-entire-bucket my-bucket:EntireBucket
-//
+// $ pulumi import aws:s3/bucketMetric:BucketMetric my-bucket-entire-bucket my-bucket:EntireBucket
 // ```
 type BucketMetric struct {
 	pulumi.CustomResourceState

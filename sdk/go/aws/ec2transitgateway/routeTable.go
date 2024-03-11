@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,15 +40,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_ec2_transit_gateway_route_table` using the EC2 Transit Gateway Route Table identifier. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2transitgateway/routeTable:RouteTable example tgw-rtb-12345678
-//
+// $ pulumi import aws:ec2transitgateway/routeTable:RouteTable example tgw-rtb-12345678
 // ```
 type RouteTable struct {
 	pulumi.CustomResourceState

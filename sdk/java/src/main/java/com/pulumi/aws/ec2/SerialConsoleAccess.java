@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** Removing this resource disables serial console access.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,13 +50,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import serial console access state. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/serialConsoleAccess:SerialConsoleAccess example default
+ * $ pulumi import aws:ec2/serialConsoleAccess:SerialConsoleAccess example default
  * ```
  * 
  */

@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -53,15 +54,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import GameLift Game Session Queues using their `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example
-//
+// $ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example
 // ```
 type GameSessionQueue struct {
 	pulumi.CustomResourceState

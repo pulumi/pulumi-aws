@@ -103,8 +103,10 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
         Resource for managing a Verified Access Logging Configuration.
 
         ## Example Usage
+
         ### With CloudWatch Logging
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -118,8 +120,11 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
             ),
             verifiedaccess_instance_id=example_aws_verifiedaccess_instance["id"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Kinesis Data Firehose Logging
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -133,8 +138,11 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
             ),
             verifiedaccess_instance_id=example_aws_verifiedaccess_instance["id"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With S3 logging
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -149,8 +157,11 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
             ),
             verifiedaccess_instance_id=example_aws_verifiedaccess_instance["id"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With all three logging options
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -172,8 +183,11 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
             ),
             verifiedaccess_instance_id=example_aws_verifiedaccess_instance["id"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With `include_trust_context`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -184,8 +198,11 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
             ),
             verifiedaccess_instance_id=example_aws_verifiedaccess_instance["id"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With `log_version`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -196,13 +213,14 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
             ),
             verifiedaccess_instance_id=example_aws_verifiedaccess_instance["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Verified Access Logging Configuration using the Verified Access Instance `id`. For example:
 
         ```sh
-         $ pulumi import aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration example vai-1234567890abcdef0
+        $ pulumi import aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration example vai-1234567890abcdef0
         ```
 
         :param str resource_name: The name of the resource.
@@ -220,8 +238,10 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
         Resource for managing a Verified Access Logging Configuration.
 
         ## Example Usage
+
         ### With CloudWatch Logging
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -235,8 +255,11 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
             ),
             verifiedaccess_instance_id=example_aws_verifiedaccess_instance["id"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Kinesis Data Firehose Logging
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -250,8 +273,11 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
             ),
             verifiedaccess_instance_id=example_aws_verifiedaccess_instance["id"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With S3 logging
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -266,8 +292,11 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
             ),
             verifiedaccess_instance_id=example_aws_verifiedaccess_instance["id"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With all three logging options
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -289,8 +318,11 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
             ),
             verifiedaccess_instance_id=example_aws_verifiedaccess_instance["id"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With `include_trust_context`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -301,8 +333,11 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
             ),
             verifiedaccess_instance_id=example_aws_verifiedaccess_instance["id"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With `log_version`
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -313,13 +348,14 @@ class InstanceLoggingConfiguration(pulumi.CustomResource):
             ),
             verifiedaccess_instance_id=example_aws_verifiedaccess_instance["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Verified Access Logging Configuration using the Verified Access Instance `id`. For example:
 
         ```sh
-         $ pulumi import aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration example vai-1234567890abcdef0
+        $ pulumi import aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration example vai-1234567890abcdef0
         ```
 
         :param str resource_name: The name of the resource.

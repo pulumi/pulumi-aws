@@ -15,8 +15,10 @@ import (
 // Resource for managing AWS Audit Manager Organization Admin Account Registration.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,15 +42,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Audit Manager Organization Admin Account Registration using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:auditmanager/organizationAdminAccountRegistration:OrganizationAdminAccountRegistration example 012345678901
-//
+// $ pulumi import aws:auditmanager/organizationAdminAccountRegistration:OrganizationAdminAccountRegistration example 012345678901
 // ```
 type OrganizationAdminAccountRegistration struct {
 	pulumi.CustomResourceState

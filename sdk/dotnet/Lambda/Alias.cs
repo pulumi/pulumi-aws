@@ -17,6 +17,7 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -42,13 +43,14 @@ namespace Pulumi.Aws.Lambda
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Lambda Function Aliases using the `function_name/alias`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:lambda/alias:Alias test_lambda_alias my_test_lambda_function/my_alias
+    /// $ pulumi import aws:lambda/alias:Alias test_lambda_alias my_test_lambda_function/my_alias
     /// ```
     /// </summary>
     [AwsResourceType("aws:lambda/alias:Alias")]

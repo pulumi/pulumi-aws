@@ -12,6 +12,7 @@ namespace Pulumi.Aws.ServiceDiscovery
     /// <summary>
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,13 +29,14 @@ namespace Pulumi.Aws.ServiceDiscovery
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Service Discovery HTTP Namespace using the namespace ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:servicediscovery/httpNamespace:HttpNamespace example ns-1234567890
+    /// $ pulumi import aws:servicediscovery/httpNamespace:HttpNamespace example ns-1234567890
     /// ```
     /// </summary>
     [AwsResourceType("aws:servicediscovery/httpNamespace:HttpNamespace")]

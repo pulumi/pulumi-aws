@@ -167,6 +167,7 @@ def get_key_pair(filters: Optional[Sequence[pulumi.InputType['GetKeyPairFilterAr
 
     The following example shows how to get a EC2 Key Pair including the public key material from its name.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -181,6 +182,7 @@ def get_key_pair(filters: Optional[Sequence[pulumi.InputType['GetKeyPairFilterAr
     pulumi.export("name", example.key_name)
     pulumi.export("id", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetKeyPairFilterArgs']] filters: Custom filter block as described below.
@@ -226,6 +228,7 @@ def get_key_pair_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.
 
     The following example shows how to get a EC2 Key Pair including the public key material from its name.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -240,6 +243,7 @@ def get_key_pair_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.
     pulumi.export("name", example.key_name)
     pulumi.export("id", example.id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetKeyPairFilterArgs']] filters: Custom filter block as described below.

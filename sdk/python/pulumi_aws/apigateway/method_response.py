@@ -239,8 +239,10 @@ class MethodResponse(pulumi.CustomResource):
         Provides an HTTP Method Response for an API Gateway Resource. More information about API Gateway method responses can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-settings-method-response.html).
 
         ## Example Usage
+
         ### Basic Response
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -268,8 +270,11 @@ class MethodResponse(pulumi.CustomResource):
             http_method=my_demo_method.http_method,
             status_code="200")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Response with Custom Header and Model
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -320,13 +325,14 @@ class MethodResponse(pulumi.CustomResource):
                 "method-response-header.X-My-Demo-Header": False,
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_api_gateway_method_response` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/methodResponse:MethodResponse example 12345abcde/67890fghij/GET/200
+        $ pulumi import aws:apigateway/methodResponse:MethodResponse example 12345abcde/67890fghij/GET/200
         ```
 
         :param str resource_name: The name of the resource.
@@ -350,8 +356,10 @@ class MethodResponse(pulumi.CustomResource):
         Provides an HTTP Method Response for an API Gateway Resource. More information about API Gateway method responses can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-method-settings-method-response.html).
 
         ## Example Usage
+
         ### Basic Response
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -379,8 +387,11 @@ class MethodResponse(pulumi.CustomResource):
             http_method=my_demo_method.http_method,
             status_code="200")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Response with Custom Header and Model
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -431,13 +442,14 @@ class MethodResponse(pulumi.CustomResource):
                 "method-response-header.X-My-Demo-Header": False,
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_api_gateway_method_response` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/methodResponse:MethodResponse example 12345abcde/67890fghij/GET/200
+        $ pulumi import aws:apigateway/methodResponse:MethodResponse example 12345abcde/67890fghij/GET/200
         ```
 
         :param str resource_name: The name of the resource.

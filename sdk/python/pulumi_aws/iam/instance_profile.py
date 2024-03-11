@@ -273,6 +273,7 @@ class InstanceProfile(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -293,13 +294,14 @@ class InstanceProfile(pulumi.CustomResource):
             name="test_profile",
             role=role.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Instance Profiles using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:iam/instanceProfile:InstanceProfile test_profile app-instance-profile-1
+        $ pulumi import aws:iam/instanceProfile:InstanceProfile test_profile app-instance-profile-1
         ```
 
         :param str resource_name: The name of the resource.
@@ -321,6 +323,7 @@ class InstanceProfile(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -341,13 +344,14 @@ class InstanceProfile(pulumi.CustomResource):
             name="test_profile",
             role=role.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Instance Profiles using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:iam/instanceProfile:InstanceProfile test_profile app-instance-profile-1
+        $ pulumi import aws:iam/instanceProfile:InstanceProfile test_profile app-instance-profile-1
         ```
 
         :param str resource_name: The name of the resource.

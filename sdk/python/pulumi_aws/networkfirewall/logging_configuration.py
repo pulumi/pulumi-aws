@@ -103,8 +103,10 @@ class LoggingConfiguration(pulumi.CustomResource):
         Provides an AWS Network Firewall Logging Configuration Resource
 
         ## Example Usage
+
         ### Logging to S3
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -122,8 +124,11 @@ class LoggingConfiguration(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Logging to CloudWatch
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -140,8 +145,11 @@ class LoggingConfiguration(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Logging to Kinesis Data Firehose
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -158,13 +166,14 @@ class LoggingConfiguration(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Network Firewall Logging Configurations using the `firewall_arn`. For example:
 
         ```sh
-         $ pulumi import aws:networkfirewall/loggingConfiguration:LoggingConfiguration example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
+        $ pulumi import aws:networkfirewall/loggingConfiguration:LoggingConfiguration example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -182,8 +191,10 @@ class LoggingConfiguration(pulumi.CustomResource):
         Provides an AWS Network Firewall Logging Configuration Resource
 
         ## Example Usage
+
         ### Logging to S3
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -201,8 +212,11 @@ class LoggingConfiguration(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Logging to CloudWatch
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -219,8 +233,11 @@ class LoggingConfiguration(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Logging to Kinesis Data Firehose
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -237,13 +254,14 @@ class LoggingConfiguration(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Network Firewall Logging Configurations using the `firewall_arn`. For example:
 
         ```sh
-         $ pulumi import aws:networkfirewall/loggingConfiguration:LoggingConfiguration example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
+        $ pulumi import aws:networkfirewall/loggingConfiguration:LoggingConfiguration example arn:aws:network-firewall:us-west-1:123456789012:firewall/example
         ```
 
         :param str resource_name: The name of the resource.

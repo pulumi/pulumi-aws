@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -48,15 +49,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import DAX Parameter Group using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:dax/parameterGroup:ParameterGroup example my_dax_pg
-//
+// $ pulumi import aws:dax/parameterGroup:ParameterGroup example my_dax_pg
 // ```
 type ParameterGroup struct {
 	pulumi.CustomResourceState

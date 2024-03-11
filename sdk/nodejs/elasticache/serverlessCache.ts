@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Provides an ElastiCache Serverless Cache resource which manages memcached or redis.
  *
  * ## Example Usage
+ *
  * ### Memcached Serverless
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -36,8 +38,11 @@ import * as utilities from "../utilities";
  *     subnetIds: testAwsSubnet.map(__item => __item.id),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Redis Serverless
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -63,13 +68,14 @@ import * as utilities from "../utilities";
  *     subnetIds: testAwsSubnet.map(__item => __item.id),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import ElastiCache Serverless Cache using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:elasticache/serverlessCache:ServerlessCache my_cluster my_cluster
+ * $ pulumi import aws:elasticache/serverlessCache:ServerlessCache my_cluster my_cluster
  * ```
  */
 export class ServerlessCache extends pulumi.CustomResource {

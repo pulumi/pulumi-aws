@@ -20,8 +20,10 @@ import javax.annotation.Nullable;
  * Provides a AWS Transfer AS2 Profile resource.
  * 
  * ## Example Usage
+ * 
  * ### Basic
  * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -52,13 +54,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Transfer AS2 Profile using the `profile_id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:transfer/profile:Profile example p-4221a88afd5f4362a
+ * $ pulumi import aws:transfer/profile:Profile example p-4221a88afd5f4362a
  * ```
  * 
  */

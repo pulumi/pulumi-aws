@@ -17,7 +17,7 @@ namespace Pulumi.Aws.Iot
     /// Using `pulumi import`, import IOT Role Alias using the alias. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:iot/roleAlias:RoleAlias example myalias
+    /// $ pulumi import aws:iot/roleAlias:RoleAlias example myalias
     /// ```
     /// </summary>
     [AwsResourceType("aws:iot/roleAlias:RoleAlias")]

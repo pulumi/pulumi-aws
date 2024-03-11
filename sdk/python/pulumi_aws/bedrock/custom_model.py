@@ -556,6 +556,7 @@ class CustomModel(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -579,13 +580,14 @@ class CustomModel(pulumi.CustomResource):
                 s3_uri=f"s3://{training['id']}/data/train.jsonl",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Bedrock custom model using the `job_arn`. For example:
 
         ```sh
-         $ pulumi import aws:bedrock/customModel:CustomModel example arn:aws:bedrock:us-west-2:123456789012:model-customization-job/amazon.titan-text-express-v1:0:8k/1y5n57gh5y2e
+        $ pulumi import aws:bedrock/customModel:CustomModel example arn:aws:bedrock:us-west-2:123456789012:model-customization-job/amazon.titan-text-express-v1:0:8k/1y5n57gh5y2e
         ```
 
         :param str resource_name: The name of the resource.
@@ -612,6 +614,7 @@ class CustomModel(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -635,13 +638,14 @@ class CustomModel(pulumi.CustomResource):
                 s3_uri=f"s3://{training['id']}/data/train.jsonl",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Bedrock custom model using the `job_arn`. For example:
 
         ```sh
-         $ pulumi import aws:bedrock/customModel:CustomModel example arn:aws:bedrock:us-west-2:123456789012:model-customization-job/amazon.titan-text-express-v1:0:8k/1y5n57gh5y2e
+        $ pulumi import aws:bedrock/customModel:CustomModel example arn:aws:bedrock:us-west-2:123456789012:model-customization-job/amazon.titan-text-express-v1:0:8k/1y5n57gh5y2e
         ```
 
         :param str resource_name: The name of the resource.

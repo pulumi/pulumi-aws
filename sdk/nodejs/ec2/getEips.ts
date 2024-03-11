@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  *
  * The following shows outputting all Elastic IPs with the a specific tag value.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -26,6 +27,7 @@ import * as utilities from "../utilities";
  * export const allocationIds = example.then(example => example.allocationIds);
  * export const publicIps = example.then(example => example.publicIps);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getEips(args?: GetEipsArgs, opts?: pulumi.InvokeOptions): Promise<GetEipsResult> {
     args = args || {};
@@ -77,6 +79,7 @@ export interface GetEipsResult {
  *
  * The following shows outputting all Elastic IPs with the a specific tag value.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -89,6 +92,7 @@ export interface GetEipsResult {
  * export const allocationIds = example.then(example => example.allocationIds);
  * export const publicIps = example.then(example => example.publicIps);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getEipsOutput(args?: GetEipsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEipsResult> {
     return pulumi.output(args).apply((a: any) => getEips(a, opts))

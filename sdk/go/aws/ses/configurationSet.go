@@ -14,8 +14,10 @@ import (
 // Provides an SES configuration set resource.
 //
 // ## Example Usage
+//
 // ### Basic Example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,8 +41,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Require TLS Connections
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -67,8 +72,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Tracking Options
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -95,15 +103,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SES Configuration Sets using their `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ses/configurationSet:ConfigurationSet test some-configuration-set-test
-//
+// $ pulumi import aws:ses/configurationSet:ConfigurationSet test some-configuration-set-test
 // ```
 type ConfigurationSet struct {
 	pulumi.CustomResourceState

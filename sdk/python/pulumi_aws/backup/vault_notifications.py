@@ -150,6 +150,7 @@ class VaultNotifications(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -177,13 +178,14 @@ class VaultNotifications(pulumi.CustomResource):
                 "RESTORE_JOB_COMPLETED",
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Backup vault notifications using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:backup/vaultNotifications:VaultNotifications test TestVault
+        $ pulumi import aws:backup/vaultNotifications:VaultNotifications test TestVault
         ```
 
         :param str resource_name: The name of the resource.
@@ -203,6 +205,7 @@ class VaultNotifications(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -230,13 +233,14 @@ class VaultNotifications(pulumi.CustomResource):
                 "RESTORE_JOB_COMPLETED",
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Backup vault notifications using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:backup/vaultNotifications:VaultNotifications test TestVault
+        $ pulumi import aws:backup/vaultNotifications:VaultNotifications test TestVault
         ```
 
         :param str resource_name: The name of the resource.

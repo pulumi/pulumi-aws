@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Athena
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -65,13 +66,14 @@ namespace Pulumi.Aws.Athena
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Athena Named Query using the query ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:athena/namedQuery:NamedQuery example 0123456789
+    /// $ pulumi import aws:athena/namedQuery:NamedQuery example 0123456789
     /// ```
     /// </summary>
     [AwsResourceType("aws:athena/namedQuery:NamedQuery")]

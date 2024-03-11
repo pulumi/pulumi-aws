@@ -13,8 +13,10 @@ namespace Pulumi.Aws.VerifiedPermissions
     /// Resource for managing an AWS Verified Permissions Policy Template.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,13 +33,14 @@ namespace Pulumi.Aws.VerifiedPermissions
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Verified Permissions Policy Store using the `policy_store_id:policy_template_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:verifiedpermissions/policyTemplate:PolicyTemplate example policyStoreId:policyTemplateId
+    /// $ pulumi import aws:verifiedpermissions/policyTemplate:PolicyTemplate example policyStoreId:policyTemplateId
     /// ```
     /// </summary>
     [AwsResourceType("aws:verifiedpermissions/policyTemplate:PolicyTemplate")]

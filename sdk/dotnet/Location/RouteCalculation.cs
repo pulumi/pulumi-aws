@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Location
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,13 +31,14 @@ namespace Pulumi.Aws.Location
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_location_route_calculator` using the route calculator name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:location/routeCalculation:RouteCalculation example example
+    /// $ pulumi import aws:location/routeCalculation:RouteCalculation example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:location/routeCalculation:RouteCalculation")]

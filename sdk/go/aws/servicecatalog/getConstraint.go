@@ -14,8 +14,10 @@ import (
 // Provides information on a Service Catalog Constraint.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,6 +42,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupConstraint(ctx *pulumi.Context, args *LookupConstraintArgs, opts ...pulumi.InvokeOption) (*LookupConstraintResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupConstraintResult

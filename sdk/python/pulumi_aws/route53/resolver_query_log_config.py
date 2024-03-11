@@ -214,6 +214,7 @@ class ResolverQueryLogConfig(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -225,15 +226,14 @@ class ResolverQueryLogConfig(pulumi.CustomResource):
                 "Environment": "Prod",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Using `pulumi import`, import
-
-        Route 53 Resolver query logging configurations using the Route 53 Resolver query logging configuration ID. For example:
+        Using `pulumi import`, import  Route 53 Resolver query logging configurations using the Route 53 Resolver query logging configuration ID. For example:
 
         ```sh
-         $ pulumi import aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig example rqlc-92edc3b1838248bf
+        $ pulumi import aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig example rqlc-92edc3b1838248bf
         ```
 
         :param str resource_name: The name of the resource.
@@ -254,6 +254,7 @@ class ResolverQueryLogConfig(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -265,15 +266,14 @@ class ResolverQueryLogConfig(pulumi.CustomResource):
                 "Environment": "Prod",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Using `pulumi import`, import
-
-        Route 53 Resolver query logging configurations using the Route 53 Resolver query logging configuration ID. For example:
+        Using `pulumi import`, import  Route 53 Resolver query logging configurations using the Route 53 Resolver query logging configuration ID. For example:
 
         ```sh
-         $ pulumi import aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig example rqlc-92edc3b1838248bf
+        $ pulumi import aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig example rqlc-92edc3b1838248bf
         ```
 
         :param str resource_name: The name of the resource.

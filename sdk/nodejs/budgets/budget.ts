@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -37,9 +38,11 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * Create a budget for *$100*.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -50,9 +53,11 @@ import * as utilities from "../utilities";
  *     limitUnit: "USD",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * Create a budget with planned budget limits.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -70,9 +75,11 @@ import * as utilities from "../utilities";
  *     },
  * ]});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * Create a budget for s3 with a limit of *3 GB* of storage.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -83,9 +90,11 @@ import * as utilities from "../utilities";
  *     limitUnit: "GB",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * Create a Savings Plan Utilization Budget
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -108,9 +117,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * Create a RI Utilization Budget
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -137,9 +148,11 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * Create a Cost Filter using Resource Tags
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -149,9 +162,11 @@ import * as utilities from "../utilities";
  *     values: ["TagKey$TagValue"],
  * }]});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * Create a costFilter using resource tags, obtaining the tag value from a variable
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -161,13 +176,14 @@ import * as utilities from "../utilities";
  *     values: [`TagKey${"$"}${tagValue}`],
  * }]});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import budgets using `AccountID:BudgetName`. For example:
  *
  * ```sh
- *  $ pulumi import aws:budgets/budget:Budget myBudget 123456789012:myBudget
+ * $ pulumi import aws:budgets/budget:Budget myBudget 123456789012:myBudget
  * ```
  */
 export class Budget extends pulumi.CustomResource {

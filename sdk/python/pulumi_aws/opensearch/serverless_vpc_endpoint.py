@@ -202,8 +202,10 @@ class ServerlessVpcEndpoint(pulumi.CustomResource):
         Resource for managing an AWS OpenSearchServerless VPC Endpoint.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -213,13 +215,14 @@ class ServerlessVpcEndpoint(pulumi.CustomResource):
             subnet_ids=[example_aws_subnet["id"]],
             vpc_id=example_aws_vpc["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import OpenSearchServerless Vpc Endpointa using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint example vpce-8012925589
+        $ pulumi import aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint example vpce-8012925589
         ```
 
         :param str resource_name: The name of the resource.
@@ -241,8 +244,10 @@ class ServerlessVpcEndpoint(pulumi.CustomResource):
         Resource for managing an AWS OpenSearchServerless VPC Endpoint.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -252,13 +257,14 @@ class ServerlessVpcEndpoint(pulumi.CustomResource):
             subnet_ids=[example_aws_subnet["id"]],
             vpc_id=example_aws_vpc["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import OpenSearchServerless Vpc Endpointa using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint example vpce-8012925589
+        $ pulumi import aws:opensearch/serverlessVpcEndpoint:ServerlessVpcEndpoint example vpce-8012925589
         ```
 
         :param str resource_name: The name of the resource.

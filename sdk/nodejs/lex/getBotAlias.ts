@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -18,6 +19,7 @@ import * as utilities from "../utilities";
  *     name: "OrderFlowersProd",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getBotAlias(args: GetBotAliasArgs, opts?: pulumi.InvokeOptions): Promise<GetBotAliasResult> {
 
@@ -88,6 +90,7 @@ export interface GetBotAliasResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -97,6 +100,7 @@ export interface GetBotAliasResult {
  *     name: "OrderFlowersProd",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getBotAliasOutput(args: GetBotAliasOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBotAliasResult> {
     return pulumi.output(args).apply((a: any) => getBotAlias(a, opts))

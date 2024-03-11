@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,6 +21,7 @@ import * as utilities from "../utilities";
  *     accountId: "AWS ACCOUNT ID",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDelegatedServices(args: GetDelegatedServicesArgs, opts?: pulumi.InvokeOptions): Promise<GetDelegatedServicesResult> {
 
@@ -58,6 +60,7 @@ export interface GetDelegatedServicesResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -66,6 +69,7 @@ export interface GetDelegatedServicesResult {
  *     accountId: "AWS ACCOUNT ID",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDelegatedServicesOutput(args: GetDelegatedServicesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDelegatedServicesResult> {
     return pulumi.output(args).apply((a: any) => getDelegatedServices(a, opts))

@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -63,15 +64,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import ECR Public Repositories using the `repository_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ecrpublic/repository:Repository example example
-//
+// $ pulumi import aws:ecrpublic/repository:Repository example example
 // ```
 type Repository struct {
 	pulumi.CustomResourceState

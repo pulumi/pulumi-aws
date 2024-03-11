@@ -86,6 +86,7 @@ def get_infrastructure_configurations(filters: Optional[Sequence[pulumi.InputTyp
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -95,6 +96,7 @@ def get_infrastructure_configurations(filters: Optional[Sequence[pulumi.InputTyp
         values=["example"],
     )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetInfrastructureConfigurationsFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
@@ -119,6 +121,7 @@ def get_infrastructure_configurations_output(filters: Optional[pulumi.Input[Opti
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -128,6 +131,7 @@ def get_infrastructure_configurations_output(filters: Optional[pulumi.Input[Opti
         values=["example"],
     )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetInfrastructureConfigurationsFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -55,15 +56,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Appsync Types using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:appsync/type:Type example api-id:format:name
-//
+// $ pulumi import aws:appsync/type:Type example api-id:format:name
 // ```
 type Type struct {
 	pulumi.CustomResourceState

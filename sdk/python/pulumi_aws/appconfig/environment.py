@@ -276,6 +276,7 @@ class Environment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -298,13 +299,14 @@ class Environment(pulumi.CustomResource):
                 "Type": "AppConfig Environment",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AppConfig Environments using the environment ID and application ID separated by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:appconfig/environment:Environment example 71abcde:11xxxxx
+        $ pulumi import aws:appconfig/environment:Environment example 71abcde:11xxxxx
         ```
 
         :param str resource_name: The name of the resource.
@@ -326,6 +328,7 @@ class Environment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -348,13 +351,14 @@ class Environment(pulumi.CustomResource):
                 "Type": "AppConfig Environment",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AppConfig Environments using the environment ID and application ID separated by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:appconfig/environment:Environment example 71abcde:11xxxxx
+        $ pulumi import aws:appconfig/environment:Environment example 71abcde:11xxxxx
         ```
 
         :param str resource_name: The name of the resource.

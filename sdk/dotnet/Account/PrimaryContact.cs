@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Account
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -38,13 +39,14 @@ namespace Pulumi.Aws.Account
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import the Primary Contact using the `account_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:account/primaryContact:PrimaryContact test 1234567890
+    /// $ pulumi import aws:account/primaryContact:PrimaryContact test 1234567890
     /// ```
     /// </summary>
     [AwsResourceType("aws:account/primaryContact:PrimaryContact")]

@@ -377,6 +377,7 @@ class Member(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -389,13 +390,14 @@ class Member(pulumi.CustomResource):
             invitation_message="Message of the invitation",
             invitation_disable_email_notification=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_macie2_member` using the account ID of the member account. For example:
 
         ```sh
-         $ pulumi import aws:macie2/member:Member example 123456789012
+        $ pulumi import aws:macie2/member:Member example 123456789012
         ```
 
         :param str resource_name: The name of the resource.
@@ -419,6 +421,7 @@ class Member(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -431,13 +434,14 @@ class Member(pulumi.CustomResource):
             invitation_message="Message of the invitation",
             invitation_disable_email_notification=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_macie2_member` using the account ID of the member account. For example:
 
         ```sh
-         $ pulumi import aws:macie2/member:Member example 123456789012
+        $ pulumi import aws:macie2/member:Member example 123456789012
         ```
 
         :param str resource_name: The name of the resource.

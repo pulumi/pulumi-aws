@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -36,15 +37,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Firewall Manager administrator account association using the account ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:fms/adminAccount:AdminAccount example 123456789012
-//
+// $ pulumi import aws:fms/adminAccount:AdminAccount example 123456789012
 // ```
 type AdminAccount struct {
 	pulumi.CustomResourceState

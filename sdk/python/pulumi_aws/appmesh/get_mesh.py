@@ -144,13 +144,16 @@ def get_mesh(mesh_owner: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     simple = aws.appmesh.get_mesh(name="simpleapp")
     ```
+    <!--End PulumiCodeChooser -->
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -159,6 +162,7 @@ def get_mesh(mesh_owner: Optional[str] = None,
     simple = aws.appmesh.get_mesh(name="simpleapp",
         mesh_owner=current.account_id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str mesh_owner: AWS account ID of the service mesh's owner.
@@ -194,13 +198,16 @@ def get_mesh_output(mesh_owner: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     simple = aws.appmesh.get_mesh(name="simpleapp")
     ```
+    <!--End PulumiCodeChooser -->
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -209,6 +216,7 @@ def get_mesh_output(mesh_owner: Optional[pulumi.Input[Optional[str]]] = None,
     simple = aws.appmesh.get_mesh(name="simpleapp",
         mesh_owner=current.account_id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str mesh_owner: AWS account ID of the service mesh's owner.

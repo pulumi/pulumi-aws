@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS Comprehend Document Classifier.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -28,13 +30,14 @@ import * as utilities from "../utilities";
  * });
  * const entities = new aws.s3.BucketObjectv2("entities", {});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Comprehend Document Classifier using the ARN. For example:
  *
  * ```sh
- *  $ pulumi import aws:comprehend/documentClassifier:DocumentClassifier example arn:aws:comprehend:us-west-2:123456789012:document_classifier/example
+ * $ pulumi import aws:comprehend/documentClassifier:DocumentClassifier example arn:aws:comprehend:us-west-2:123456789012:document_classifier/example
  * ```
  */
 export class DocumentClassifier extends pulumi.CustomResource {

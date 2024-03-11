@@ -12,62 +12,6 @@ import (
 )
 
 // This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
-//
-// ## Example Usage
-//
-// The following adds a route for a particular cidr block to every (private
-// kops) route table in a specified vpc to use a particular vpc peering
-// connection.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func notImplemented(message string) pulumi.AnyOutput {
-//		panic(message)
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			rts, err := ec2.GetRouteTables(ctx, &ec2.GetRouteTablesArgs{
-//				VpcId: pulumi.StringRef(vpcId),
-//				Filters: []ec2.GetRouteTablesFilter{
-//					{
-//						Name: "tag:kubernetes.io/kops/role",
-//						Values: []string{
-//							"private*",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			var r []*ec2.Route
-//			for index := 0; index < len(rts.Ids); index++ {
-//				key0 := index
-//				val0 := index
-//				__res, err := ec2.NewRoute(ctx, fmt.Sprintf("r-%v", key0), &ec2.RouteArgs{
-//					RouteTableId:           notImplemented("tolist(data.aws_route_tables.rts.ids)")[val0],
-//					DestinationCidrBlock:   pulumi.String("10.0.0.0/22"),
-//					VpcPeeringConnectionId: pulumi.String("pcx-0e9a7a9ecd137dc54"),
-//				})
-//				if err != nil {
-//					return err
-//				}
-//				r = append(r, __res)
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetRouteTables(ctx *pulumi.Context, args *GetRouteTablesArgs, opts ...pulumi.InvokeOption) (*GetRouteTablesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRouteTablesResult

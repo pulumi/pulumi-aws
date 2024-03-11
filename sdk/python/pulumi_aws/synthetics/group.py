@@ -165,21 +165,24 @@ class Group(pulumi.CustomResource):
         Provides a Synthetics Group resource.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.synthetics.Group("example", name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudWatch Synthetics Group using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:synthetics/group:Group example example
+        $ pulumi import aws:synthetics/group:Group example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -199,21 +202,24 @@ class Group(pulumi.CustomResource):
         Provides a Synthetics Group resource.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.synthetics.Group("example", name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudWatch Synthetics Group using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:synthetics/group:Group example example
+        $ pulumi import aws:synthetics/group:Group example example
         ```
 
         :param str resource_name: The name of the resource.

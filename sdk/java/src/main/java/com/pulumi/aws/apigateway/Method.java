@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Provides a HTTP Method for an API Gateway Resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -67,7 +69,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Usage with Cognito User Pool Authorizer
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -132,13 +138,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_api_gateway_method` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:apigateway/method:Method example 12345abcde/67890fghij/GET
+ * $ pulumi import aws:apigateway/method:Method example 12345abcde/67890fghij/GET
  * ```
  * 
  */

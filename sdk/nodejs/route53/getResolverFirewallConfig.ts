@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  *
  * The following example shows how to get a firewall config using the VPC ID.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,6 +22,7 @@ import * as utilities from "../utilities";
  *     resourceId: "vpc-exampleid",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getResolverFirewallConfig(args: GetResolverFirewallConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetResolverFirewallConfigResult> {
 
@@ -63,6 +65,7 @@ export interface GetResolverFirewallConfigResult {
  *
  * The following example shows how to get a firewall config using the VPC ID.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -71,6 +74,7 @@ export interface GetResolverFirewallConfigResult {
  *     resourceId: "vpc-exampleid",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getResolverFirewallConfigOutput(args: GetResolverFirewallConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResolverFirewallConfigResult> {
     return pulumi.output(args).apply((a: any) => getResolverFirewallConfig(a, opts))

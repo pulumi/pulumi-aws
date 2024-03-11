@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -46,15 +47,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import DocumentDB Subnet groups using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:docdb/subnetGroup:SubnetGroup default production-subnet-group
-//
+// $ pulumi import aws:docdb/subnetGroup:SubnetGroup default production-subnet-group
 // ```
 type SubnetGroup struct {
 	pulumi.CustomResourceState

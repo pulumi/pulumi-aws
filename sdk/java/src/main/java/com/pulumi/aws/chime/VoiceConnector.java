@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Enables you to connect your phone system to the telephone network at a substantial cost savings by using SIP trunking.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,13 +52,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Configuration Recorder using the name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:chime/voiceConnector:VoiceConnector test example
+ * $ pulumi import aws:chime/voiceConnector:VoiceConnector test example
  * ```
  * 
  */

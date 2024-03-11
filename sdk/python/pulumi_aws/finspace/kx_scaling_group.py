@@ -325,8 +325,10 @@ class KxScalingGroup(pulumi.CustomResource):
         Resource for managing an AWS FinSpace Kx Scaling Group.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -337,13 +339,14 @@ class KxScalingGroup(pulumi.CustomResource):
             availability_zone_id="use1-az2",
             host_type="kx.sg.4xlarge")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import an AWS FinSpace Kx Scaling Group using the `id` (environment ID and scaling group name, comma-delimited). For example:
 
         ```sh
-         $ pulumi import aws:finspace/kxScalingGroup:KxScalingGroup example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-scalinggroup
+        $ pulumi import aws:finspace/kxScalingGroup:KxScalingGroup example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-scalinggroup
         ```
 
         :param str resource_name: The name of the resource.
@@ -366,8 +369,10 @@ class KxScalingGroup(pulumi.CustomResource):
         Resource for managing an AWS FinSpace Kx Scaling Group.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -378,13 +383,14 @@ class KxScalingGroup(pulumi.CustomResource):
             availability_zone_id="use1-az2",
             host_type="kx.sg.4xlarge")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import an AWS FinSpace Kx Scaling Group using the `id` (environment ID and scaling group name, comma-delimited). For example:
 
         ```sh
-         $ pulumi import aws:finspace/kxScalingGroup:KxScalingGroup example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-scalinggroup
+        $ pulumi import aws:finspace/kxScalingGroup:KxScalingGroup example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-scalinggroup
         ```
 
         :param str resource_name: The name of the resource.

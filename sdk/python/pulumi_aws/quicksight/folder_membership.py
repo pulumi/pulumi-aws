@@ -174,8 +174,10 @@ class FolderMembership(pulumi.CustomResource):
         Resource for managing an AWS QuickSight Folder Membership.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -185,13 +187,14 @@ class FolderMembership(pulumi.CustomResource):
             member_type="DATASET",
             member_id=example_aws_quicksight_data_set["dataSetId"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import QuickSight Folder Membership using the AWS account ID, folder ID, member type, and member ID separated by commas (`,`). For example:
 
         ```sh
-         $ pulumi import aws:quicksight/folderMembership:FolderMembership example 123456789012,example-folder,DATASET,example-dataset
+        $ pulumi import aws:quicksight/folderMembership:FolderMembership example 123456789012,example-folder,DATASET,example-dataset
         ```
 
         :param str resource_name: The name of the resource.
@@ -213,8 +216,10 @@ class FolderMembership(pulumi.CustomResource):
         Resource for managing an AWS QuickSight Folder Membership.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -224,13 +229,14 @@ class FolderMembership(pulumi.CustomResource):
             member_type="DATASET",
             member_id=example_aws_quicksight_data_set["dataSetId"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import QuickSight Folder Membership using the AWS account ID, folder ID, member type, and member ID separated by commas (`,`). For example:
 
         ```sh
-         $ pulumi import aws:quicksight/folderMembership:FolderMembership example 123456789012,example-folder,DATASET,example-dataset
+        $ pulumi import aws:quicksight/folderMembership:FolderMembership example 123456789012,example-folder,DATASET,example-dataset
         ```
 
         :param str resource_name: The name of the resource.

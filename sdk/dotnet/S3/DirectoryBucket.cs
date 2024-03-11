@@ -14,6 +14,7 @@ namespace Pulumi.Aws.S3
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -33,13 +34,14 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import S3 bucket using `bucket`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:s3/directoryBucket:DirectoryBucket example example--usw2-az1--x-s3
+    /// $ pulumi import aws:s3/directoryBucket:DirectoryBucket example example--usw2-az1--x-s3
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3/directoryBucket:DirectoryBucket")]

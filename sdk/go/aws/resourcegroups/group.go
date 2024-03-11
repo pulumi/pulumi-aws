@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -54,15 +55,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import resource groups using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:resourcegroups/group:Group foo resource-group-name
-//
+// $ pulumi import aws:resourcegroups/group:Group foo resource-group-name
 // ```
 type Group struct {
 	pulumi.CustomResourceState

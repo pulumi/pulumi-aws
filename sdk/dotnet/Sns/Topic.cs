@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Sns
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,8 +30,11 @@ namespace Pulumi.Aws.Sns
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Example with Delivery Policy
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -64,9 +68,11 @@ namespace Pulumi.Aws.Sns
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Example with Server-side encryption (SSE)
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -83,9 +89,11 @@ namespace Pulumi.Aws.Sns
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Example with First-In-First-Out (FIFO)
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -103,6 +111,7 @@ namespace Pulumi.Aws.Sns
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Message Delivery Status Arguments
     /// 
@@ -113,7 +122,7 @@ namespace Pulumi.Aws.Sns
     /// Using `pulumi import`, import SNS Topics using the topic `arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:sns/topic:Topic user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
+    /// $ pulumi import aws:sns/topic:Topic user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
     /// ```
     /// </summary>
     [AwsResourceType("aws:sns/topic:Topic")]

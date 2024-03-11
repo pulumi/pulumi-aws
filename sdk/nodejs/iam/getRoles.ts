@@ -8,18 +8,23 @@ import * as utilities from "../utilities";
  * Use this data source to get the ARNs and Names of IAM Roles.
  *
  * ## Example Usage
+ *
  * ### All roles in an account
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const roles = aws.iam.getRoles({});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Roles filtered by name regex
  *
  * Roles whose role-name contains `project`
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -28,8 +33,11 @@ import * as utilities from "../utilities";
  *     nameRegex: ".*project.*",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Roles filtered by path prefix
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -38,10 +46,13 @@ import * as utilities from "../utilities";
  *     pathPrefix: "/custom-path",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Roles provisioned by AWS SSO
  *
  * Roles in the account filtered by path prefix
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -50,9 +61,11 @@ import * as utilities from "../utilities";
  *     pathPrefix: "/aws-reserved/sso.amazonaws.com/",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * Specific role in the account filtered by name regex and path prefix
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -62,27 +75,7 @@ import * as utilities from "../utilities";
  *     pathPrefix: "/aws-reserved/sso.amazonaws.com/",
  * });
  * ```
- * ### Role ARNs with paths removed
- *
- * For services like Amazon EKS that do not permit a path in the role ARN when used in a cluster's configuration map
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const roles = aws.iam.getRoles({
- *     pathPrefix: "/aws-reserved/sso.amazonaws.com/",
- * });
- * export const arns = Promise.all([roles, std.split({
- *     separator: "/",
- *     text: arn,
- * })]).then(([roles, invoke]) => .map(arn => (invoke.result)).map(parts => (notImplemented("format(\"%s/%s\",parts[0],element(parts,length(parts)-1))"))));
- * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRoles(args?: GetRolesArgs, opts?: pulumi.InvokeOptions): Promise<GetRolesResult> {
     args = args || {};
@@ -131,18 +124,23 @@ export interface GetRolesResult {
  * Use this data source to get the ARNs and Names of IAM Roles.
  *
  * ## Example Usage
+ *
  * ### All roles in an account
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const roles = aws.iam.getRoles({});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Roles filtered by name regex
  *
  * Roles whose role-name contains `project`
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -151,8 +149,11 @@ export interface GetRolesResult {
  *     nameRegex: ".*project.*",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Roles filtered by path prefix
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -161,10 +162,13 @@ export interface GetRolesResult {
  *     pathPrefix: "/custom-path",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Roles provisioned by AWS SSO
  *
  * Roles in the account filtered by path prefix
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -173,9 +177,11 @@ export interface GetRolesResult {
  *     pathPrefix: "/aws-reserved/sso.amazonaws.com/",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * Specific role in the account filtered by name regex and path prefix
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -185,27 +191,7 @@ export interface GetRolesResult {
  *     pathPrefix: "/aws-reserved/sso.amazonaws.com/",
  * });
  * ```
- * ### Role ARNs with paths removed
- *
- * For services like Amazon EKS that do not permit a path in the role ARN when used in a cluster's configuration map
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- * import * as std from "@pulumi/std";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const roles = aws.iam.getRoles({
- *     pathPrefix: "/aws-reserved/sso.amazonaws.com/",
- * });
- * export const arns = Promise.all([roles, std.split({
- *     separator: "/",
- *     text: arn,
- * })]).then(([roles, invoke]) => .map(arn => (invoke.result)).map(parts => (notImplemented("format(\"%s/%s\",parts[0],element(parts,length(parts)-1))"))));
- * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRolesOutput(args?: GetRolesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRolesResult> {
     return pulumi.output(args).apply((a: any) => getRoles(a, opts))

@@ -141,6 +141,7 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
 
         Basic usage.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -157,13 +158,14 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
             description="Primary",
             prefix_list_id=example.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import prefix list entries using `prefix_list_id` and `cidr` separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry default pl-0570a1d2d725c16be,10.0.3.0/24
+        $ pulumi import aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry default pl-0570a1d2d725c16be,10.0.3.0/24
         ```
 
         :param str resource_name: The name of the resource.
@@ -189,6 +191,7 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
 
         Basic usage.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -205,13 +208,14 @@ class ManagedPrefixListEntry(pulumi.CustomResource):
             description="Primary",
             prefix_list_id=example.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import prefix list entries using `prefix_list_id` and `cidr` separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry default pl-0570a1d2d725c16be,10.0.3.0/24
+        $ pulumi import aws:ec2/managedPrefixListEntry:ManagedPrefixListEntry default pl-0570a1d2d725c16be,10.0.3.0/24
         ```
 
         :param str resource_name: The name of the resource.

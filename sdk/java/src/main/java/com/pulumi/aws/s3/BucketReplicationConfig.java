@@ -24,7 +24,10 @@ import javax.annotation.Nullable;
  * &gt; This resource cannot be used with S3 directory buckets.
  * 
  * ## Example Usage
+ * 
  * ### Using replication configuration
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -163,7 +166,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Bi-Directional Replication
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -250,13 +257,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import S3 bucket replication configuration using the `bucket`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:s3/bucketReplicationConfig:BucketReplicationConfig replication bucket-name
+ * $ pulumi import aws:s3/bucketReplicationConfig:BucketReplicationConfig replication bucket-name
  * ```
  * 
  */

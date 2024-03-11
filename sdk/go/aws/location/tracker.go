@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,15 +40,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_location_tracker` resources using the tracker name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:location/tracker:Tracker example example
-//
+// $ pulumi import aws:location/tracker:Tracker example example
 // ```
 type Tracker struct {
 	pulumi.CustomResourceState

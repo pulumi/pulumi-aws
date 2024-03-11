@@ -104,6 +104,7 @@ class DomainServiceAccessPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -130,13 +131,14 @@ class DomainServiceAccessPolicy(pulumi.CustomResource):
             domain_name=example_domain.id,
             access_policy=example.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudSearch domain service access policies using the domain name. For example:
 
         ```sh
-         $ pulumi import aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy example example-domain
+        $ pulumi import aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy example example-domain
         ```
 
         :param str resource_name: The name of the resource.
@@ -157,6 +159,7 @@ class DomainServiceAccessPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -183,13 +186,14 @@ class DomainServiceAccessPolicy(pulumi.CustomResource):
             domain_name=example_domain.id,
             access_policy=example.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudSearch domain service access policies using the domain name. For example:
 
         ```sh
-         $ pulumi import aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy example example-domain
+        $ pulumi import aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy example example-domain
         ```
 
         :param str resource_name: The name of the resource.

@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
  * > **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -26,13 +27,14 @@ import * as utilities from "../utilities";
  *     }).then(invoke => invoke.result),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Pinpoint APNs Channel using the `application-id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:pinpoint/apnsChannel:ApnsChannel apns application-id
+ * $ pulumi import aws:pinpoint/apnsChannel:ApnsChannel apns application-id
  * ```
  */
 export class ApnsChannel extends pulumi.CustomResource {

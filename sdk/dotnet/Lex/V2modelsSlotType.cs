@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Lex
     /// Resource for managing an AWS Lex V2 Models Slot Type.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -73,13 +75,14 @@ namespace Pulumi.Aws.Lex
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Lex V2 Models Slot Type using the `example_id_arg`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:lex/v2modelsSlotType:V2modelsSlotType example bot-1234,DRAFT,en_US,slot_type-id-12345678
+    /// $ pulumi import aws:lex/v2modelsSlotType:V2modelsSlotType example bot-1234,DRAFT,en_US,slot_type-id-12345678
     /// ```
     /// </summary>
     [AwsResourceType("aws:lex/v2modelsSlotType:V2modelsSlotType")]

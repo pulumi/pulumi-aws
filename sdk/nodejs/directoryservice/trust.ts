@@ -14,8 +14,10 @@ import * as utilities from "../utilities";
  * Once the second Trust is created, the first will update to the correct state.
  *
  * ## Example Usage
+ *
  * ### Two-Way Trust
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -43,8 +45,11 @@ import * as utilities from "../utilities";
  *     conditionalForwarderIpAddrs: oneDirectory.dnsIpAddresses,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### One-Way Trust
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -72,13 +77,14 @@ import * as utilities from "../utilities";
  *     conditionalForwarderIpAddrs: oneDirectory.dnsIpAddresses,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import the Trust relationship using the directory ID and remote domain name, separated by a `/`. For example:
  *
  * ```sh
- *  $ pulumi import aws:directoryservice/trust:Trust example d-926724cf57/directory.example.com
+ * $ pulumi import aws:directoryservice/trust:Trust example d-926724cf57/directory.example.com
  * ```
  */
 export class Trust extends pulumi.CustomResource {

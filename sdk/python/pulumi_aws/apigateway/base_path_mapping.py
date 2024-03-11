@@ -168,33 +168,6 @@ class BasePathMapping(pulumi.CustomResource):
         with a deployed API so that its methods can be called via the
         custom domain name.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.apigateway.Stage("example",
-            deployment=example_aws_api_gateway_deployment["id"],
-            rest_api=example_aws_api_gateway_rest_api["id"],
-            stage_name="example")
-        example_domain_name = aws.apigateway.DomainName("example",
-            domain_name="example.com",
-            certificate_name="example-api",
-            certificate_body=std.file(input=f"{not_implemented('path.module')}/example.com/example.crt").result,
-            certificate_chain=std.file(input=f"{not_implemented('path.module')}/example.com/ca.crt").result,
-            certificate_private_key=std.file(input=f"{not_implemented('path.module')}/example.com/example.key").result)
-        example_base_path_mapping = aws.apigateway.BasePathMapping("example",
-            rest_api=example_aws_api_gateway_rest_api["id"],
-            stage_name=example.stage_name,
-            domain_name=example_domain_name.domain_name)
-        ```
-
         ## Import
 
         For a non-root `base_path`:
@@ -204,12 +177,12 @@ class BasePathMapping(pulumi.CustomResource):
         For an empty `base_path` or, in other words, a root path (`/`):
 
         ```sh
-         $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/
+        $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/
         ```
-         For a non-root `base_path`:
+        For a non-root `base_path`:
 
         ```sh
-         $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/base-path
+        $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/base-path
         ```
 
         :param str resource_name: The name of the resource.
@@ -230,33 +203,6 @@ class BasePathMapping(pulumi.CustomResource):
         with a deployed API so that its methods can be called via the
         custom domain name.
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-        import pulumi_std as std
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.apigateway.Stage("example",
-            deployment=example_aws_api_gateway_deployment["id"],
-            rest_api=example_aws_api_gateway_rest_api["id"],
-            stage_name="example")
-        example_domain_name = aws.apigateway.DomainName("example",
-            domain_name="example.com",
-            certificate_name="example-api",
-            certificate_body=std.file(input=f"{not_implemented('path.module')}/example.com/example.crt").result,
-            certificate_chain=std.file(input=f"{not_implemented('path.module')}/example.com/ca.crt").result,
-            certificate_private_key=std.file(input=f"{not_implemented('path.module')}/example.com/example.key").result)
-        example_base_path_mapping = aws.apigateway.BasePathMapping("example",
-            rest_api=example_aws_api_gateway_rest_api["id"],
-            stage_name=example.stage_name,
-            domain_name=example_domain_name.domain_name)
-        ```
-
         ## Import
 
         For a non-root `base_path`:
@@ -266,12 +212,12 @@ class BasePathMapping(pulumi.CustomResource):
         For an empty `base_path` or, in other words, a root path (`/`):
 
         ```sh
-         $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/
+        $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/
         ```
-         For a non-root `base_path`:
+        For a non-root `base_path`:
 
         ```sh
-         $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/base-path
+        $ pulumi import aws:apigateway/basePathMapping:BasePathMapping example example.com/base-path
         ```
 
         :param str resource_name: The name of the resource.

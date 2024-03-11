@@ -62,6 +62,7 @@ def get_registration_code(opts: Optional[pulumi.InvokeOptions] = None) -> Awaita
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -76,6 +77,7 @@ def get_registration_code(opts: Optional[pulumi.InvokeOptions] = None) -> Awaita
             common_name=example.registration_code,
         ))
     ```
+    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -93,6 +95,7 @@ def get_registration_code_output(opts: Optional[pulumi.InvokeOptions] = None) ->
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -107,5 +110,6 @@ def get_registration_code_output(opts: Optional[pulumi.InvokeOptions] = None) ->
             common_name=example.registration_code,
         ))
     ```
+    <!--End PulumiCodeChooser -->
     """
     ...

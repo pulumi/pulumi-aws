@@ -152,6 +152,7 @@ class KeyGroup(pulumi.CustomResource):
 
         The following example below creates a CloudFront key group.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -166,13 +167,14 @@ class KeyGroup(pulumi.CustomResource):
             items=[example.id],
             name="example-key-group")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudFront Key Group using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:cloudfront/keyGroup:KeyGroup example 4b4f2r1c-315d-5c2e-f093-216t50jed10f
+        $ pulumi import aws:cloudfront/keyGroup:KeyGroup example 4b4f2r1c-315d-5c2e-f093-216t50jed10f
         ```
 
         :param str resource_name: The name of the resource.
@@ -192,6 +194,7 @@ class KeyGroup(pulumi.CustomResource):
 
         The following example below creates a CloudFront key group.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -206,13 +209,14 @@ class KeyGroup(pulumi.CustomResource):
             items=[example.id],
             name="example-key-group")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudFront Key Group using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:cloudfront/keyGroup:KeyGroup example 4b4f2r1c-315d-5c2e-f093-216t50jed10f
+        $ pulumi import aws:cloudfront/keyGroup:KeyGroup example 4b4f2r1c-315d-5c2e-f093-216t50jed10f
         ```
 
         :param str resource_name: The name of the resource.

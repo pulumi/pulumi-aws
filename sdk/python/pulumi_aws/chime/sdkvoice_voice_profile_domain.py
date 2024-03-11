@@ -196,8 +196,10 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
         Resource for managing an AWS Chime SDK Voice Profile Domain.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -215,13 +217,14 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
                 "key1": "value1",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AWS Chime SDK Voice Profile Domain using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain example abcdef123456
+        $ pulumi import aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain example abcdef123456
         ```
 
         :param str resource_name: The name of the resource.
@@ -240,8 +243,10 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
         Resource for managing an AWS Chime SDK Voice Profile Domain.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -259,13 +264,14 @@ class SdkvoiceVoiceProfileDomain(pulumi.CustomResource):
                 "key1": "value1",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AWS Chime SDK Voice Profile Domain using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain example abcdef123456
+        $ pulumi import aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain example abcdef123456
         ```
 
         :param str resource_name: The name of the resource.

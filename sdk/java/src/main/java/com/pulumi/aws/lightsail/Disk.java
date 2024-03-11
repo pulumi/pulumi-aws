@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides a Lightsail Disk resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -60,13 +62,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_lightsail_disk` using the name attribute. For example:
  * 
  * ```sh
- *  $ pulumi import aws:lightsail/disk:Disk test test
+ * $ pulumi import aws:lightsail/disk:Disk test test
  * ```
  * 
  */

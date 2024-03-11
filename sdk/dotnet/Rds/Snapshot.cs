@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -44,13 +45,14 @@ namespace Pulumi.Aws.Rds
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_db_snapshot` using the snapshot identifier. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:rds/snapshot:Snapshot example my-snapshot
+    /// $ pulumi import aws:rds/snapshot:Snapshot example my-snapshot
     /// ```
     /// </summary>
     [AwsResourceType("aws:rds/snapshot:Snapshot")]

@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** Global quotas apply to all AWS regions, but can only be accessed in `us-east-1` in the Commercial partition or `us-gov-west-1` in the GovCloud partition. In other regions, the AWS API will return the error `The request failed because the specified service does not exist.`
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -53,6 +55,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
@@ -61,7 +64,7 @@ import javax.annotation.Nullable;
  * ~&gt; __NOTE:__ This resource does not require explicit import and will assume management of an existing service quota on Pulumi resource creation.
  * 
  * ```sh
- *  $ pulumi import aws:servicequotas/serviceQuota:ServiceQuota example vpc/L-F678F1CE
+ * $ pulumi import aws:servicequotas/serviceQuota:ServiceQuota example vpc/L-F678F1CE
  * ```
  * 
  */

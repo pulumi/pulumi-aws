@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,15 +44,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import domain configurations using the name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:iot/domainConfiguration:DomainConfiguration example example
-//
+// $ pulumi import aws:iot/domainConfiguration:DomainConfiguration example example
 // ```
 type DomainConfiguration struct {
 	pulumi.CustomResourceState

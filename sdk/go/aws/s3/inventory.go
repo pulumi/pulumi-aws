@@ -17,8 +17,10 @@ import (
 // > This resource cannot be used with S3 directory buckets.
 //
 // ## Example Usage
+//
 // ### Add inventory configuration
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -65,8 +67,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Add inventory configuration with S3 object prefix
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -117,15 +122,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import S3 bucket inventory configurations using `bucket:inventory`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:s3/inventory:Inventory my-bucket-entire-bucket my-bucket:EntireBucket
-//
+// $ pulumi import aws:s3/inventory:Inventory my-bucket-entire-bucket my-bucket:EntireBucket
 // ```
 type Inventory struct {
 	pulumi.CustomResourceState

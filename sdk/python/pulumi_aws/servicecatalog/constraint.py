@@ -269,8 +269,10 @@ class Constraint(pulumi.CustomResource):
         > **NOTE:** This resource does not associate a Service Catalog product and portfolio. However, the product and portfolio must be associated (see the `servicecatalog.ProductPortfolioAssociation` resource) prior to creating a constraint or you will receive an error.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -285,13 +287,14 @@ class Constraint(pulumi.CustomResource):
                 "RoleArn": "arn:aws:iam::123456789012:role/LaunchRole",
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_servicecatalog_constraint` using the constraint ID. For example:
 
         ```sh
-         $ pulumi import aws:servicecatalog/constraint:Constraint example cons-nmdkb6cgxfcrs
+        $ pulumi import aws:servicecatalog/constraint:Constraint example cons-nmdkb6cgxfcrs
         ```
 
         :param str resource_name: The name of the resource.
@@ -317,8 +320,10 @@ class Constraint(pulumi.CustomResource):
         > **NOTE:** This resource does not associate a Service Catalog product and portfolio. However, the product and portfolio must be associated (see the `servicecatalog.ProductPortfolioAssociation` resource) prior to creating a constraint or you will receive an error.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -333,13 +338,14 @@ class Constraint(pulumi.CustomResource):
                 "RoleArn": "arn:aws:iam::123456789012:role/LaunchRole",
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_servicecatalog_constraint` using the constraint ID. For example:
 
         ```sh
-         $ pulumi import aws:servicecatalog/constraint:Constraint example cons-nmdkb6cgxfcrs
+        $ pulumi import aws:servicecatalog/constraint:Constraint example cons-nmdkb6cgxfcrs
         ```
 
         :param str resource_name: The name of the resource.

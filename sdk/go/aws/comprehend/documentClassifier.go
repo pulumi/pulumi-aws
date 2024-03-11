@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS Comprehend Document Classifier.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -58,15 +60,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Comprehend Document Classifier using the ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:comprehend/documentClassifier:DocumentClassifier example arn:aws:comprehend:us-west-2:123456789012:document_classifier/example
-//
+// $ pulumi import aws:comprehend/documentClassifier:DocumentClassifier example arn:aws:comprehend:us-west-2:123456789012:document_classifier/example
 // ```
 type DocumentClassifier struct {
 	pulumi.CustomResourceState

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.RedshiftServerless
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,13 +31,14 @@ namespace Pulumi.Aws.RedshiftServerless
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Redshift Serverless Workgroups using the `workgroup_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:redshiftserverless/workgroup:Workgroup example example
+    /// $ pulumi import aws:redshiftserverless/workgroup:Workgroup example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:redshiftserverless/workgroup:Workgroup")]

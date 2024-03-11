@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS CodeCatalyst Source Repository.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,15 +44,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CodeCatalyst Source Repository using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:codecatalyst/sourceRepository:SourceRepository example example-repo
-//
+// $ pulumi import aws:codecatalyst/sourceRepository:SourceRepository example example-repo
 // ```
 type SourceRepository struct {
 	pulumi.CustomResourceState

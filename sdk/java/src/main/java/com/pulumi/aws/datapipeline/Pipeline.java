@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides a DataPipeline Pipeline resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -47,13 +49,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_datapipeline_pipeline` using the id (Pipeline ID). For example:
  * 
  * ```sh
- *  $ pulumi import aws:datapipeline/pipeline:Pipeline default df-1234567890
+ * $ pulumi import aws:datapipeline/pipeline:Pipeline default df-1234567890
  * ```
  * 
  */

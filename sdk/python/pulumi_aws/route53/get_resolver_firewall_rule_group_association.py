@@ -172,12 +172,14 @@ def get_resolver_firewall_rule_group_association(firewall_rule_group_association
 
     The following example shows how to get a firewall rule group association from its id.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.route53.get_resolver_firewall_rule_group_association(firewall_rule_group_association_id="rslvr-frgassoc-example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str firewall_rule_group_association_id: The identifier for the association.
@@ -218,12 +220,14 @@ def get_resolver_firewall_rule_group_association_output(firewall_rule_group_asso
 
     The following example shows how to get a firewall rule group association from its id.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.route53.get_resolver_firewall_rule_group_association(firewall_rule_group_association_id="rslvr-frgassoc-example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str firewall_rule_group_association_id: The identifier for the association.

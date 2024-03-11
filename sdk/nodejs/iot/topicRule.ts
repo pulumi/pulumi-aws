@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -64,13 +65,14 @@ import * as utilities from "../utilities";
  *     policy: mypolicy.apply(mypolicy => mypolicy.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import IoT Topic Rules using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:iot/topicRule:TopicRule rule <name>
+ * $ pulumi import aws:iot/topicRule:TopicRule rule <name>
  * ```
  */
 export class TopicRule extends pulumi.CustomResource {

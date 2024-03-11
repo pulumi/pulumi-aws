@@ -674,6 +674,7 @@ class Cluster(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -684,13 +685,14 @@ class Cluster(pulumi.CustomResource):
             node_type="dax.r4.large",
             replication_factor=1)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DAX Clusters using the `cluster_name`. For example:
 
         ```sh
-         $ pulumi import aws:dax/cluster:Cluster my_cluster my_cluster
+        $ pulumi import aws:dax/cluster:Cluster my_cluster my_cluster
         ```
 
         :param str resource_name: The name of the resource.
@@ -738,6 +740,7 @@ class Cluster(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -748,13 +751,14 @@ class Cluster(pulumi.CustomResource):
             node_type="dax.r4.large",
             replication_factor=1)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DAX Clusters using the `cluster_name`. For example:
 
         ```sh
-         $ pulumi import aws:dax/cluster:Cluster my_cluster my_cluster
+        $ pulumi import aws:dax/cluster:Cluster my_cluster my_cluster
         ```
 
         :param str resource_name: The name of the resource.

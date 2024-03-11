@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS SESv2 (Simple Email V2) Email Identity Mail From Attributes.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,13 +23,14 @@ import * as utilities from "../utilities";
  *     mailFromDomain: pulumi.interpolate`subdomain.${example.emailIdentity}`,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity Mail From Attributes using the `email_identity`. For example:
  *
  * ```sh
- *  $ pulumi import aws:sesv2/emailIdentityMailFromAttributes:EmailIdentityMailFromAttributes example example.com
+ * $ pulumi import aws:sesv2/emailIdentityMailFromAttributes:EmailIdentityMailFromAttributes example example.com
  * ```
  */
 export class EmailIdentityMailFromAttributes extends pulumi.CustomResource {

@@ -213,6 +213,7 @@ def get_availability_zone(all_availability_zones: Optional[bool] = None,
     The following example shows how this data source might be used to derive
     VPC and subnet CIDR prefixes systematically for an availability zone.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -252,6 +253,7 @@ def get_availability_zone(all_availability_zones: Optional[bool] = None,
             newbits=4,
             netnum=az_number[example.name_suffix])).apply(lambda invoke: invoke.result))
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool all_availability_zones: Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.
@@ -311,6 +313,7 @@ def get_availability_zone_output(all_availability_zones: Optional[pulumi.Input[O
     The following example shows how this data source might be used to derive
     VPC and subnet CIDR prefixes systematically for an availability zone.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -350,6 +353,7 @@ def get_availability_zone_output(all_availability_zones: Optional[pulumi.Input[O
             newbits=4,
             netnum=az_number[example.name_suffix])).apply(lambda invoke: invoke.result))
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool all_availability_zones: Set to `true` to include all Availability Zones and Local Zones regardless of your opt in status.

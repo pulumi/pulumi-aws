@@ -14,6 +14,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,13 +35,14 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_lightsail_certificate` using the certificate name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:lightsail/certificate:Certificate test CertificateName
+    /// $ pulumi import aws:lightsail/certificate:Certificate test CertificateName
     /// ```
     /// </summary>
     [AwsResourceType("aws:lightsail/certificate:Certificate")]

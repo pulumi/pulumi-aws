@@ -40,7 +40,10 @@ import javax.annotation.Nullable;
  * the separate resource.
  * 
  * ## Example Usage
+ * 
  * ### Basic example
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -80,8 +83,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * To subsequently remove all managed routes:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -112,11 +118,15 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Adopting an existing local route
  * 
  * AWS creates certain routes that the AWS provider mostly ignores. You can manage them by importing or adopting them. See Import below for information on importing. This example shows adopting a route and then updating its target.
  * 
  * First, adopt an existing AWS-created route:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -156,8 +166,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Next, update the target of the route:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -210,6 +223,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * The target could then be updated again back to `local`.
  * 
@@ -218,7 +232,7 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import Route Tables using the route table `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/routeTable:RouteTable public_rt rtb-4e616f6d69
+ * $ pulumi import aws:ec2/routeTable:RouteTable public_rt rtb-4e616f6d69
  * ```
  * 
  */

@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Provides a Model for a REST API Gateway.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -61,13 +63,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_api_gateway_model` using `REST-API-ID/NAME`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:apigateway/model:Model example 12345abcde/example
+ * $ pulumi import aws:apigateway/model:Model example 12345abcde/example
  * ```
  * 
  */

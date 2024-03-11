@@ -214,6 +214,7 @@ class DelegatedAdministrator(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -222,13 +223,14 @@ class DelegatedAdministrator(pulumi.CustomResource):
             account_id="123456789012",
             service_principal="principal")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_organizations_delegated_administrator` using the account ID and its service principal. For example:
 
         ```sh
-         $ pulumi import aws:organizations/delegatedAdministrator:DelegatedAdministrator example 123456789012/config.amazonaws.com
+        $ pulumi import aws:organizations/delegatedAdministrator:DelegatedAdministrator example 123456789012/config.amazonaws.com
         ```
 
         :param str resource_name: The name of the resource.
@@ -247,6 +249,7 @@ class DelegatedAdministrator(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -255,13 +258,14 @@ class DelegatedAdministrator(pulumi.CustomResource):
             account_id="123456789012",
             service_principal="principal")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_organizations_delegated_administrator` using the account ID and its service principal. For example:
 
         ```sh
-         $ pulumi import aws:organizations/delegatedAdministrator:DelegatedAdministrator example 123456789012/config.amazonaws.com
+        $ pulumi import aws:organizations/delegatedAdministrator:DelegatedAdministrator example 123456789012/config.amazonaws.com
         ```
 
         :param str resource_name: The name of the resource.

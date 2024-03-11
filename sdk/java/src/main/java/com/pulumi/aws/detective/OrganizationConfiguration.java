@@ -17,6 +17,7 @@ import javax.annotation.Nullable;
 /**
  * ## Example Usage
  * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -52,13 +53,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_detective_organization_admin_account` using the Detective Graph ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:detective/organizationConfiguration:OrganizationConfiguration example 00b00fd5aecc0ab60a708659477e9617
+ * $ pulumi import aws:detective/organizationConfiguration:OrganizationConfiguration example 00b00fd5aecc0ab60a708659477e9617
  * ```
  * 
  */

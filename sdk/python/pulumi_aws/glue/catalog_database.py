@@ -375,14 +375,18 @@ class CatalogDatabase(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.glue.CatalogDatabase("example", name="MyCatalogDatabase")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Create Table Default Permissions
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -396,13 +400,14 @@ class CatalogDatabase(pulumi.CustomResource):
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Glue Catalog Databases using the `catalog_id:name`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For example:
 
         ```sh
-         $ pulumi import aws:glue/catalogDatabase:CatalogDatabase database 123456789012:my_database
+        $ pulumi import aws:glue/catalogDatabase:CatalogDatabase database 123456789012:my_database
         ```
 
         :param str resource_name: The name of the resource.
@@ -428,14 +433,18 @@ class CatalogDatabase(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.glue.CatalogDatabase("example", name="MyCatalogDatabase")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Create Table Default Permissions
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -449,13 +458,14 @@ class CatalogDatabase(pulumi.CustomResource):
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Glue Catalog Databases using the `catalog_id:name`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For example:
 
         ```sh
-         $ pulumi import aws:glue/catalogDatabase:CatalogDatabase database 123456789012:my_database
+        $ pulumi import aws:glue/catalogDatabase:CatalogDatabase database 123456789012:my_database
         ```
 
         :param str resource_name: The name of the resource.

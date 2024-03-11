@@ -19,6 +19,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -42,6 +43,8 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Option Settings
     /// 
     /// Some options can be stack-specific, check [AWS Docs](https://docs.aws.amazon.com/elasticbeanstalk/latest/dg/command-options-general.html)
@@ -56,6 +59,7 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// 
     /// ### Example With Options
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -94,13 +98,14 @@ namespace Pulumi.Aws.ElasticBeanstalk
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Elastic Beanstalk Environments using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:elasticbeanstalk/environment:Environment prodenv e-rpqsewtp2j
+    /// $ pulumi import aws:elasticbeanstalk/environment:Environment prodenv e-rpqsewtp2j
     /// ```
     /// </summary>
     [AwsResourceType("aws:elasticbeanstalk/environment:Environment")]

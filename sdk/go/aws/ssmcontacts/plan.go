@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS SSM Contact Plan.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,8 +47,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Usage with SSM Contact
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -82,8 +87,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Usage With All Fields
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -153,15 +161,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SSM Contact Plan using the Contact ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ssmcontacts/plan:Plan example {ARNValue}
-//
+// $ pulumi import aws:ssmcontacts/plan:Plan example {ARNValue}
 // ```
 type Plan struct {
 	pulumi.CustomResourceState

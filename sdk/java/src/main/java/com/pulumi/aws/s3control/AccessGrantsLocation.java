@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * When you register a location, you must include the IAM role that has permission to manage the S3 location that you are registering.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -54,13 +56,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import S3 Access Grants locations using the `account_id` and `access_grants_location_id`, separated by a comma (`,`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:s3control/accessGrantsLocation:AccessGrantsLocation example 123456789012,default
+ * $ pulumi import aws:s3control/accessGrantsLocation:AccessGrantsLocation example 123456789012,default
  * ```
  * 
  */

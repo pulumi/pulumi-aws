@@ -14,12 +14,10 @@ namespace Pulumi.Aws.GameLift
     /// 
     /// ## Import
     /// 
-    /// GameLift Matchmaking Rule Sets
-    /// 
-    /// can be imported using the ID, e.g.,
+    /// GameLift Matchmaking Rule Sets  can be imported using the ID, e.g.,
     /// 
     /// ```sh
-    ///  $ pulumi import aws:gamelift/matchmakingRuleSet:MatchmakingRuleSet example &lt;ruleset-id&gt;
+    /// $ pulumi import aws:gamelift/matchmakingRuleSet:MatchmakingRuleSet example &lt;ruleset-id&gt;
     /// ```
     /// </summary>
     [AwsResourceType("aws:gamelift/matchmakingRuleSet:MatchmakingRuleSet")]

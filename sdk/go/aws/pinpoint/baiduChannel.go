@@ -17,6 +17,7 @@ import (
 // > **Note:** All arguments including the Api Key and Secret Key will be stored in the raw state as plain-text.
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -46,15 +47,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Pinpoint Baidu Channel using the `application-id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:pinpoint/baiduChannel:BaiduChannel channel application-id
-//
+// $ pulumi import aws:pinpoint/baiduChannel:BaiduChannel channel application-id
 // ```
 type BaiduChannel struct {
 	pulumi.CustomResourceState

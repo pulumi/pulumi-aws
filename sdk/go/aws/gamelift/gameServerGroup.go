@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -53,9 +54,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // Full usage:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -111,8 +114,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example IAM Role for GameLift Game Server Group
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -173,15 +179,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import GameLift Game Server Group using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:gamelift/gameServerGroup:GameServerGroup example example
-//
+// $ pulumi import aws:gamelift/gameServerGroup:GameServerGroup example example
 // ```
 type GameServerGroup struct {
 	pulumi.CustomResourceState

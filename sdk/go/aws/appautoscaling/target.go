@@ -19,8 +19,10 @@ import (
 // > **NOTE:** The [Application Auto Scaling service automatically attempts to manage IAM Service-Linked Roles](https://docs.aws.amazon.com/autoscaling/application/userguide/security_iam_service-with-iam.html#security_iam_service-with-iam-roles) when registering certain service namespaces for the first time. To manually manage this role, see the `iam.ServiceLinkedRole` resource.
 //
 // ## Example Usage
+//
 // ### DynamoDB Table Autoscaling
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -50,8 +52,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### DynamoDB Index Autoscaling
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -81,8 +86,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### ECS Service Autoscaling
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -112,8 +120,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Aurora Read Replica Autoscaling
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -143,8 +154,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Suppressing `tagsAll` Differences For Older Resources
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -174,8 +188,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### MSK / Kafka Autoscaling
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -203,15 +220,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Application AutoScaling Target using the `service-namespace` , `resource-id` and `scalable-dimension` separated by `/`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:appautoscaling/target:Target test-target service-namespace/resource-id/scalable-dimension
-//
+// $ pulumi import aws:appautoscaling/target:Target test-target service-namespace/resource-id/scalable-dimension
 // ```
 type Target struct {
 	pulumi.CustomResourceState

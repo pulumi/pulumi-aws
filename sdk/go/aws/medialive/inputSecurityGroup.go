@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS MediaLive InputSecurityGroup.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -47,15 +49,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import MediaLive InputSecurityGroup using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:medialive/inputSecurityGroup:InputSecurityGroup example 123456
-//
+// $ pulumi import aws:medialive/inputSecurityGroup:InputSecurityGroup example 123456
 // ```
 type InputSecurityGroup struct {
 	pulumi.CustomResourceState

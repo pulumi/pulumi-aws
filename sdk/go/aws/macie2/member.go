@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -47,15 +48,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_macie2_member` using the account ID of the member account. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:macie2/member:Member example 123456789012
-//
+// $ pulumi import aws:macie2/member:Member example 123456789012
 // ```
 type Member struct {
 	pulumi.CustomResourceState

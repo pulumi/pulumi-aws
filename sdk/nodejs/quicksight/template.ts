@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Resource for managing a QuickSight Template.
  *
  * ## Example Usage
+ *
  * ### From Source Template
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -28,13 +30,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import a QuickSight Template using the AWS account ID and template ID separated by a comma (`,`). For example:
  *
  * ```sh
- *  $ pulumi import aws:quicksight/template:Template example 123456789012,example-id
+ * $ pulumi import aws:quicksight/template:Template example 123456789012,example-id
  * ```
  */
 export class Template extends pulumi.CustomResource {

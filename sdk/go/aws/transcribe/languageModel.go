@@ -17,8 +17,10 @@ import (
 // > This resource can take a significant amount of time to provision. See Language Model [FAQ](https://aws.amazon.com/transcribe/faqs/) for more details.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -127,15 +129,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Transcribe LanguageModel using the `model_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:transcribe/languageModel:LanguageModel example example-name
-//
+// $ pulumi import aws:transcribe/languageModel:LanguageModel example example-name
 // ```
 type LanguageModel struct {
 	pulumi.CustomResourceState

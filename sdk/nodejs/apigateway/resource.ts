@@ -11,6 +11,7 @@ import {RestApi} from "./index";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -25,13 +26,14 @@ import {RestApi} from "./index";
  *     pathPart: "mydemoresource",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_api_gateway_resource` using `REST-API-ID/RESOURCE-ID`. For example:
  *
  * ```sh
- *  $ pulumi import aws:apigateway/resource:Resource example 12345abcde/67890fghij
+ * $ pulumi import aws:apigateway/resource:Resource example 12345abcde/67890fghij
  * ```
  */
 export class Resource extends pulumi.CustomResource {

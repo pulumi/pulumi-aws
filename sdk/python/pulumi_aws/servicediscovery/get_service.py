@@ -163,6 +163,7 @@ def get_service(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -170,6 +171,7 @@ def get_service(name: Optional[str] = None,
     test = aws.servicediscovery.get_service(name="example",
         namespace_id="NAMESPACE_ID_VALUE")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the service.
@@ -209,6 +211,7 @@ def get_service_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -216,6 +219,7 @@ def get_service_output(name: Optional[pulumi.Input[str]] = None,
     test = aws.servicediscovery.get_service(name="example",
         namespace_id="NAMESPACE_ID_VALUE")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the service.

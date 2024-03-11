@@ -259,8 +259,10 @@ class IamPolicyAssignment(pulumi.CustomResource):
         Resource for managing an AWS QuickSight IAM Policy Assignment.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -273,13 +275,14 @@ class IamPolicyAssignment(pulumi.CustomResource):
                 users=[example_aws_quicksight_user["userName"]],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import QuickSight IAM Policy Assignment using the AWS account ID, namespace, and assignment name separated by commas (`,`). For example:
 
         ```sh
-         $ pulumi import aws:quicksight/iamPolicyAssignment:IamPolicyAssignment example 123456789012,default,example
+        $ pulumi import aws:quicksight/iamPolicyAssignment:IamPolicyAssignment example 123456789012,default,example
         ```
 
         :param str resource_name: The name of the resource.
@@ -303,8 +306,10 @@ class IamPolicyAssignment(pulumi.CustomResource):
         Resource for managing an AWS QuickSight IAM Policy Assignment.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -317,13 +322,14 @@ class IamPolicyAssignment(pulumi.CustomResource):
                 users=[example_aws_quicksight_user["userName"]],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import QuickSight IAM Policy Assignment using the AWS account ID, namespace, and assignment name separated by commas (`,`). For example:
 
         ```sh
-         $ pulumi import aws:quicksight/iamPolicyAssignment:IamPolicyAssignment example 123456789012,default,example
+        $ pulumi import aws:quicksight/iamPolicyAssignment:IamPolicyAssignment example 123456789012,default,example
         ```
 
         :param str resource_name: The name of the resource.

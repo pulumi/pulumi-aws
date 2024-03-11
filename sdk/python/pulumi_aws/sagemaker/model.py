@@ -351,6 +351,7 @@ class Model(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -371,6 +372,8 @@ class Model(pulumi.CustomResource):
                 image=test.registry_path,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Inference Execution Config
 
         * `mode` - (Required) How containers in a multi-container are run. The following values are valid `Serial` and `Direct`.
@@ -380,7 +383,7 @@ class Model(pulumi.CustomResource):
         Using `pulumi import`, import models using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/model:Model test_model model-foo
+        $ pulumi import aws:sagemaker/model:Model test_model model-foo
         ```
 
         :param str resource_name: The name of the resource.
@@ -409,6 +412,7 @@ class Model(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -429,6 +433,8 @@ class Model(pulumi.CustomResource):
                 image=test.registry_path,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Inference Execution Config
 
         * `mode` - (Required) How containers in a multi-container are run. The following values are valid `Serial` and `Direct`.
@@ -438,7 +444,7 @@ class Model(pulumi.CustomResource):
         Using `pulumi import`, import models using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/model:Model test_model model-foo
+        $ pulumi import aws:sagemaker/model:Model test_model model-foo
         ```
 
         :param str resource_name: The name of the resource.

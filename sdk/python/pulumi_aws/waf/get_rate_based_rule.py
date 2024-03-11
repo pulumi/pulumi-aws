@@ -60,12 +60,14 @@ def get_rate_based_rule(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.waf.get_rate_based_rule(name="tfWAFRateBasedRule")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the WAF rate based rule.
@@ -88,12 +90,14 @@ def get_rate_based_rule_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.waf.get_rate_based_rule(name="tfWAFRateBasedRule")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the WAF rate based rule.

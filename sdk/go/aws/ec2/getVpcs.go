@@ -19,6 +19,7 @@ import (
 //
 // The following shows outputting all VPC Ids.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,48 +46,9 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // An example use case would be interpolate the `ec2.getVpcs` output into `count` of an ec2.FlowLog resource.
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func notImplemented(message string) pulumi.AnyOutput {
-//		panic(message)
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			foo, err := ec2.GetVpcs(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			fooGetVpc := "TODO: For expression"
-//			var testFlowLog []*ec2.FlowLog
-//			for index := 0; index < len(foo.Ids); index++ {
-//				key0 := index
-//				val0 := index
-//				__res, err := ec2.NewFlowLog(ctx, fmt.Sprintf("test_flow_log-%v", key0), &ec2.FlowLogArgs{
-//					VpcId: fooGetVpc[val0].Id,
-//				})
-//				if err != nil {
-//					return err
-//				}
-//				testFlowLog = append(testFlowLog, __res)
-//			}
-//			ctx.Export("foo", foo.Ids)
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetVpcs(ctx *pulumi.Context, args *GetVpcsArgs, opts ...pulumi.InvokeOption) (*GetVpcsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetVpcsResult

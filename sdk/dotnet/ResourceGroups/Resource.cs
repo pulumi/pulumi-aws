@@ -13,8 +13,10 @@ namespace Pulumi.Aws.ResourceGroups
     /// Resource for managing an AWS Resource Groups Resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -44,6 +46,7 @@ namespace Pulumi.Aws.ResourceGroups
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:resourcegroups/resource:Resource")]
     public partial class Resource : global::Pulumi.CustomResource

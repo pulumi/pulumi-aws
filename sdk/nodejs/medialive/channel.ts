@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS MediaLive Channel.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -82,13 +84,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import MediaLive Channel using the `channel_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:medialive/channel:Channel example 1234567
+ * $ pulumi import aws:medialive/channel:Channel example 1234567
  * ```
  */
 export class Channel extends pulumi.CustomResource {

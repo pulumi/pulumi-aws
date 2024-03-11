@@ -14,8 +14,10 @@ import (
 // Retrieve information about available broker engines.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetBrokerEngineTypes(ctx *pulumi.Context, args *GetBrokerEngineTypesArgs, opts ...pulumi.InvokeOption) (*GetBrokerEngineTypesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetBrokerEngineTypesResult

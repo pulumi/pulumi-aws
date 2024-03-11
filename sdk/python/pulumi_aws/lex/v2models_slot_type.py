@@ -415,8 +415,10 @@ class V2modelsSlotType(pulumi.CustomResource):
         Resource for managing an AWS Lex V2 Models Slot Type.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -449,13 +451,14 @@ class V2modelsSlotType(pulumi.CustomResource):
             name="test",
             locale_id=test_v2models_bot_locale.locale_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Lex V2 Models Slot Type using the `example_id_arg`. For example:
 
         ```sh
-         $ pulumi import aws:lex/v2modelsSlotType:V2modelsSlotType example bot-1234,DRAFT,en_US,slot_type-id-12345678
+        $ pulumi import aws:lex/v2modelsSlotType:V2modelsSlotType example bot-1234,DRAFT,en_US,slot_type-id-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -483,8 +486,10 @@ class V2modelsSlotType(pulumi.CustomResource):
         Resource for managing an AWS Lex V2 Models Slot Type.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -517,13 +522,14 @@ class V2modelsSlotType(pulumi.CustomResource):
             name="test",
             locale_id=test_v2models_bot_locale.locale_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Lex V2 Models Slot Type using the `example_id_arg`. For example:
 
         ```sh
-         $ pulumi import aws:lex/v2modelsSlotType:V2modelsSlotType example bot-1234,DRAFT,en_US,slot_type-id-12345678
+        $ pulumi import aws:lex/v2modelsSlotType:V2modelsSlotType example bot-1234,DRAFT,en_US,slot_type-id-12345678
         ```
 
         :param str resource_name: The name of the resource.

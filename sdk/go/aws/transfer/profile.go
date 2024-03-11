@@ -21,9 +21,7 @@ import (
 // Using `pulumi import`, import Transfer AS2 Profile using the `profile_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:transfer/profile:Profile example p-4221a88afd5f4362a
-//
+// $ pulumi import aws:transfer/profile:Profile example p-4221a88afd5f4362a
 // ```
 type Profile struct {
 	pulumi.CustomResourceState

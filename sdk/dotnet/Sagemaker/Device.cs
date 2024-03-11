@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Sagemaker
     /// Provides a SageMaker Device resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,13 +36,14 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SageMaker Devices using the `device-fleet-name/device-name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:sagemaker/device:Device example my-fleet/my-device
+    /// $ pulumi import aws:sagemaker/device:Device example my-fleet/my-device
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/device:Device")]

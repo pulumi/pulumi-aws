@@ -209,6 +209,7 @@ class Alias(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -221,13 +222,14 @@ class Alias(pulumi.CustomResource):
                 type="TERMINAL",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import GameLift Aliases using the ID. For example:
 
         ```sh
-         $ pulumi import aws:gamelift/alias:Alias example <alias-id>
+        $ pulumi import aws:gamelift/alias:Alias example <alias-id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -248,6 +250,7 @@ class Alias(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -260,13 +263,14 @@ class Alias(pulumi.CustomResource):
                 type="TERMINAL",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import GameLift Aliases using the ID. For example:
 
         ```sh
-         $ pulumi import aws:gamelift/alias:Alias example <alias-id>
+        $ pulumi import aws:gamelift/alias:Alias example <alias-id>
         ```
 
         :param str resource_name: The name of the resource.

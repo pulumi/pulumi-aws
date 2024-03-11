@@ -13,8 +13,10 @@ namespace Pulumi.Aws.VerifiedAccess
     /// Resource for managing a Verified Access Logging Configuration.
     /// 
     /// ## Example Usage
+    /// 
     /// ### With CloudWatch Logging
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -38,8 +40,11 @@ namespace Pulumi.Aws.VerifiedAccess
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With Kinesis Data Firehose Logging
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -63,8 +68,11 @@ namespace Pulumi.Aws.VerifiedAccess
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With S3 logging
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -89,8 +97,11 @@ namespace Pulumi.Aws.VerifiedAccess
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With all three logging options
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -124,8 +135,11 @@ namespace Pulumi.Aws.VerifiedAccess
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With `include_trust_context`
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -145,8 +159,11 @@ namespace Pulumi.Aws.VerifiedAccess
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With `log_version`
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -166,13 +183,14 @@ namespace Pulumi.Aws.VerifiedAccess
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Verified Access Logging Configuration using the Verified Access Instance `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration example vai-1234567890abcdef0
+    /// $ pulumi import aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration example vai-1234567890abcdef0
     /// ```
     /// </summary>
     [AwsResourceType("aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration")]

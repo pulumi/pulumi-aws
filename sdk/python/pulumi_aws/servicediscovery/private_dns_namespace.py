@@ -223,6 +223,7 @@ class PrivateDnsNamespace(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -233,13 +234,14 @@ class PrivateDnsNamespace(pulumi.CustomResource):
             description="example",
             vpc=example.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Service Discovery Private DNS Namespace using the namespace ID and VPC ID. For example:
 
         ```sh
-         $ pulumi import aws:servicediscovery/privateDnsNamespace:PrivateDnsNamespace example 0123456789:vpc-123345
+        $ pulumi import aws:servicediscovery/privateDnsNamespace:PrivateDnsNamespace example 0123456789:vpc-123345
         ```
 
         :param str resource_name: The name of the resource.
@@ -260,6 +262,7 @@ class PrivateDnsNamespace(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -270,13 +273,14 @@ class PrivateDnsNamespace(pulumi.CustomResource):
             description="example",
             vpc=example.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Service Discovery Private DNS Namespace using the namespace ID and VPC ID. For example:
 
         ```sh
-         $ pulumi import aws:servicediscovery/privateDnsNamespace:PrivateDnsNamespace example 0123456789:vpc-123345
+        $ pulumi import aws:servicediscovery/privateDnsNamespace:PrivateDnsNamespace example 0123456789:vpc-123345
         ```
 
         :param str resource_name: The name of the resource.

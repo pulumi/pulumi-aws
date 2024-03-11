@@ -15,8 +15,10 @@ import (
 // Manages an [AWS Opensearch VPC Endpoint](https://docs.aws.amazon.com/opensearch-service/latest/APIReference/API_CreateVpcEndpoint.html). Creates an Amazon OpenSearch Service-managed VPC endpoint.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -50,15 +52,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import OpenSearch VPC endpoint connections using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:opensearch/vpcEndpoint:VpcEndpoint example endpoint-id
-//
+// $ pulumi import aws:opensearch/vpcEndpoint:VpcEndpoint example endpoint-id
 // ```
 type VpcEndpoint struct {
 	pulumi.CustomResourceState

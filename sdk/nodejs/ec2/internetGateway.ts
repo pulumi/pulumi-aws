@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,13 +21,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Internet Gateways using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/internetGateway:InternetGateway gw igw-c0a643a9
+ * $ pulumi import aws:ec2/internetGateway:InternetGateway gw igw-c0a643a9
  * ```
  */
 export class InternetGateway extends pulumi.CustomResource {
@@ -70,6 +72,7 @@ export class InternetGateway extends pulumi.CustomResource {
      *
      * > **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
      *
+     * <!--Start PulumiCodeChooser -->
      * ```typescript
      * import * as pulumi from "@pulumi/pulumi";
      * import * as aws from "@pulumi/aws";
@@ -77,6 +80,7 @@ export class InternetGateway extends pulumi.CustomResource {
      * const gw = new aws.ec2.InternetGateway("gw", {vpcId: main.id});
      * const foo = new aws.ec2.Instance("foo", {});
      * ```
+     * <!--End PulumiCodeChooser -->
      */
     public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
     /**
@@ -138,6 +142,7 @@ export interface InternetGatewayState {
      *
      * > **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
      *
+     * <!--Start PulumiCodeChooser -->
      * ```typescript
      * import * as pulumi from "@pulumi/pulumi";
      * import * as aws from "@pulumi/aws";
@@ -145,6 +150,7 @@ export interface InternetGatewayState {
      * const gw = new aws.ec2.InternetGateway("gw", {vpcId: main.id});
      * const foo = new aws.ec2.Instance("foo", {});
      * ```
+     * <!--End PulumiCodeChooser -->
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**
@@ -168,6 +174,7 @@ export interface InternetGatewayArgs {
      *
      * > **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
      *
+     * <!--Start PulumiCodeChooser -->
      * ```typescript
      * import * as pulumi from "@pulumi/pulumi";
      * import * as aws from "@pulumi/aws";
@@ -175,6 +182,7 @@ export interface InternetGatewayArgs {
      * const gw = new aws.ec2.InternetGateway("gw", {vpcId: main.id});
      * const foo = new aws.ec2.Instance("foo", {});
      * ```
+     * <!--End PulumiCodeChooser -->
      */
     tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
     /**

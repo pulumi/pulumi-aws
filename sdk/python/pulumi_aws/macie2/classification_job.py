@@ -475,6 +475,7 @@ class ClassificationJob(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -490,13 +491,14 @@ class ClassificationJob(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_macie2_classification_job` using the id. For example:
 
         ```sh
-         $ pulumi import aws:macie2/classificationJob:ClassificationJob example abcd1
+        $ pulumi import aws:macie2/classificationJob:ClassificationJob example abcd1
         ```
 
         :param str resource_name: The name of the resource.
@@ -524,6 +526,7 @@ class ClassificationJob(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -539,13 +542,14 @@ class ClassificationJob(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_macie2_classification_job` using the id. For example:
 
         ```sh
-         $ pulumi import aws:macie2/classificationJob:ClassificationJob example abcd1
+        $ pulumi import aws:macie2/classificationJob:ClassificationJob example abcd1
         ```
 
         :param str resource_name: The name of the resource.

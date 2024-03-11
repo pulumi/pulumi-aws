@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Fms
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -26,13 +27,14 @@ namespace Pulumi.Aws.Fms
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Firewall Manager administrator account association using the account ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:fms/adminAccount:AdminAccount example 123456789012
+    /// $ pulumi import aws:fms/adminAccount:AdminAccount example 123456789012
     /// ```
     /// </summary>
     [AwsResourceType("aws:fms/adminAccount:AdminAccount")]

@@ -106,8 +106,10 @@ class BotAssociation(pulumi.CustomResource):
         > **NOTE:** This resource only currently supports Amazon Lex (V1) Associations.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -119,8 +121,11 @@ class BotAssociation(pulumi.CustomResource):
                 name="Test",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Including a sample Lex bot
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -161,13 +166,14 @@ class BotAssociation(pulumi.CustomResource):
                 name=example_bot.name,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_connect_bot_association` using the Amazon Connect instance ID, Lex (V1) bot name, and Lex (V1) bot region separated by colons (`:`). For example:
 
         ```sh
-         $ pulumi import aws:connect/botAssociation:BotAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111:Example:us-west-2
+        $ pulumi import aws:connect/botAssociation:BotAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111:Example:us-west-2
         ```
 
         :param str resource_name: The name of the resource.
@@ -188,8 +194,10 @@ class BotAssociation(pulumi.CustomResource):
         > **NOTE:** This resource only currently supports Amazon Lex (V1) Associations.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -201,8 +209,11 @@ class BotAssociation(pulumi.CustomResource):
                 name="Test",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Including a sample Lex bot
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -243,13 +254,14 @@ class BotAssociation(pulumi.CustomResource):
                 name=example_bot.name,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_connect_bot_association` using the Amazon Connect instance ID, Lex (V1) bot name, and Lex (V1) bot region separated by colons (`:`). For example:
 
         ```sh
-         $ pulumi import aws:connect/botAssociation:BotAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111:Example:us-west-2
+        $ pulumi import aws:connect/botAssociation:BotAssociation example aaaaaaaa-bbbb-cccc-dddd-111111111111:Example:us-west-2
         ```
 
         :param str resource_name: The name of the resource.

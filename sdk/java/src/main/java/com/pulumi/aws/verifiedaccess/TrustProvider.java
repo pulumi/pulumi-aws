@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Resource for managing a Verified Access Trust Provider.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -51,15 +53,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Transfer Workflows using the
- * 
- * `id`. For example:
+ * Using `pulumi import`, import Transfer Workflows using the  `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:verifiedaccess/trustProvider:TrustProvider example vatp-8012925589
+ * $ pulumi import aws:verifiedaccess/trustProvider:TrustProvider example vatp-8012925589
  * ```
  * 
  */

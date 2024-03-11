@@ -116,6 +116,80 @@ def get_core_network_policy_document(attachment_policies: Optional[Sequence[pulu
 
     ## Example Usage
 
+    ### Basic Example
+
+    <!--Start PulumiCodeChooser -->
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.networkmanager.get_core_network_policy_document(core_network_configurations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs(
+            vpn_ecmp_support=False,
+            asn_ranges=["64512-64555"],
+            edge_locations=[
+                aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs(
+                    location="us-east-1",
+                    asn="64512",
+                ),
+                aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs(
+                    location="eu-central-1",
+                    asn="64513",
+                ),
+            ],
+        )],
+        segments=[
+            aws.networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs(
+                name="shared",
+                description="Segment for shared services",
+                require_attachment_acceptance=True,
+            ),
+            aws.networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs(
+                name="prod",
+                description="Segment for prod services",
+                require_attachment_acceptance=True,
+            ),
+        ],
+        segment_actions=[aws.networkmanager.GetCoreNetworkPolicyDocumentSegmentActionArgs(
+            action="share",
+            mode="attachment-route",
+            segment="shared",
+            share_withs=["*"],
+        )],
+        attachment_policies=[
+            aws.networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicyArgs(
+                rule_number=100,
+                condition_logic="or",
+                conditions=[aws.networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs(
+                    type="tag-value",
+                    operator="equals",
+                    key="segment",
+                    value="shared",
+                )],
+                action=aws.networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs(
+                    association_method="constant",
+                    segment="shared",
+                ),
+            ),
+            aws.networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicyArgs(
+                rule_number=200,
+                condition_logic="or",
+                conditions=[aws.networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs(
+                    type="tag-value",
+                    operator="equals",
+                    key="segment",
+                    value="prod",
+                )],
+                action=aws.networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs(
+                    association_method="constant",
+                    segment="prod",
+                ),
+            ),
+        ])
+    ```
+    <!--End PulumiCodeChooser -->
+
+    `data.aws_networkmanager_core_network_policy_document.test.json` will evaluate to:
+
 
     :param Sequence[pulumi.InputType['GetCoreNetworkPolicyDocumentAttachmentPolicyArgs']] attachment_policies: In a core network, all attachments use the block argument `attachment_policies` section to map an attachment to a segment. Instead of manually associating a segment to each attachment, attachments use tags, and then the tags are used to associate the attachment to the specified segment. Detailed below.
     :param Sequence[pulumi.InputType['GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs']] core_network_configurations: The core network configuration section defines the Regions where a core network should operate. For AWS Regions that are defined in the policy, the core network creates a Core Network Edge where you can connect attachments. After it's created, each Core Network Edge is peered with every other defined Region and is configured with consistent segment and routing across all Regions. Regions cannot be removed until the associated attachments are deleted. Detailed below.
@@ -154,6 +228,80 @@ def get_core_network_policy_document_output(attachment_policies: Optional[pulumi
     Using this data source to generate policy documents is *optional*. It is also valid to use literal JSON strings in your configuration or to use the `file` interpolation function to read a raw JSON policy document from a file.
 
     ## Example Usage
+
+    ### Basic Example
+
+    <!--Start PulumiCodeChooser -->
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    test = aws.networkmanager.get_core_network_policy_document(core_network_configurations=[aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationArgs(
+            vpn_ecmp_support=False,
+            asn_ranges=["64512-64555"],
+            edge_locations=[
+                aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs(
+                    location="us-east-1",
+                    asn="64512",
+                ),
+                aws.networkmanager.GetCoreNetworkPolicyDocumentCoreNetworkConfigurationEdgeLocationArgs(
+                    location="eu-central-1",
+                    asn="64513",
+                ),
+            ],
+        )],
+        segments=[
+            aws.networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs(
+                name="shared",
+                description="Segment for shared services",
+                require_attachment_acceptance=True,
+            ),
+            aws.networkmanager.GetCoreNetworkPolicyDocumentSegmentArgs(
+                name="prod",
+                description="Segment for prod services",
+                require_attachment_acceptance=True,
+            ),
+        ],
+        segment_actions=[aws.networkmanager.GetCoreNetworkPolicyDocumentSegmentActionArgs(
+            action="share",
+            mode="attachment-route",
+            segment="shared",
+            share_withs=["*"],
+        )],
+        attachment_policies=[
+            aws.networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicyArgs(
+                rule_number=100,
+                condition_logic="or",
+                conditions=[aws.networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs(
+                    type="tag-value",
+                    operator="equals",
+                    key="segment",
+                    value="shared",
+                )],
+                action=aws.networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs(
+                    association_method="constant",
+                    segment="shared",
+                ),
+            ),
+            aws.networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicyArgs(
+                rule_number=200,
+                condition_logic="or",
+                conditions=[aws.networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicyConditionArgs(
+                    type="tag-value",
+                    operator="equals",
+                    key="segment",
+                    value="prod",
+                )],
+                action=aws.networkmanager.GetCoreNetworkPolicyDocumentAttachmentPolicyActionArgs(
+                    association_method="constant",
+                    segment="prod",
+                ),
+            ),
+        ])
+    ```
+    <!--End PulumiCodeChooser -->
+
+    `data.aws_networkmanager_core_network_policy_document.test.json` will evaluate to:
 
 
     :param Sequence[pulumi.InputType['GetCoreNetworkPolicyDocumentAttachmentPolicyArgs']] attachment_policies: In a core network, all attachments use the block argument `attachment_policies` section to map an attachment to a segment. Instead of manually associating a segment to each attachment, attachments use tags, and then the tags are used to associate the attachment to the specified segment. Detailed below.

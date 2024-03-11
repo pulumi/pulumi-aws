@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** Destroying this resource removes the shared directory from the consumer account only.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -58,13 +60,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Directory Service Shared Directories using the shared directory ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter example d-9267633ece
+ * $ pulumi import aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter example d-9267633ece
  * ```
  * 
  */

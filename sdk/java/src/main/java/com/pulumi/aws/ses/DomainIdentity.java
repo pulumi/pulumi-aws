@@ -17,7 +17,10 @@ import javax.annotation.Nullable;
  * Provides an SES domain identity resource
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,7 +49,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With Route53 Record
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -85,13 +92,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import SES domain identities using the domain name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ses/domainIdentity:DomainIdentity example example.com
+ * $ pulumi import aws:ses/domainIdentity:DomainIdentity example example.com
  * ```
  * 
  */

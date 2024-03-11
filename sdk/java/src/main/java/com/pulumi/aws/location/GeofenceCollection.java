@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS Location Geofence Collection.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -47,13 +49,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Location Geofence Collection using the `collection_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:location/geofenceCollection:GeofenceCollection example example
+ * $ pulumi import aws:location/geofenceCollection:GeofenceCollection example example
  * ```
  * 
  */

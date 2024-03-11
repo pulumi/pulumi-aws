@@ -14,8 +14,10 @@ namespace Pulumi.Aws.Fsx
     /// See the [FSx ONTAP User Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html) for more information.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,10 +37,13 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Using Tiering Policy
     /// 
     /// Additional information on tiering policy with ONTAP Volumes can be found in the [FSx ONTAP Guide](https://docs.aws.amazon.com/fsx/latest/ONTAPGuide/managing-volumes.html).
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -63,13 +68,14 @@ namespace Pulumi.Aws.Fsx
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import FSx ONTAP volume using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:fsx/ontapVolume:OntapVolume example fsvol-12345678abcdef123
+    /// $ pulumi import aws:fsx/ontapVolume:OntapVolume example fsvol-12345678abcdef123
     /// ```
     /// </summary>
     [AwsResourceType("aws:fsx/ontapVolume:OntapVolume")]

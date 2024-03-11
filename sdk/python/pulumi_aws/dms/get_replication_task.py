@@ -201,14 +201,17 @@ def get_replication_task(replication_task_id: Optional[str] = None,
     Data source for managing an AWS DMS (Database Migration) Replication Task.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.dms.get_replication_task(replication_task_id=test_aws_dms_replication_task["replicationTaskId"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str replication_task_id: The replication task identifier.
@@ -249,14 +252,17 @@ def get_replication_task_output(replication_task_id: Optional[pulumi.Input[str]]
     Data source for managing an AWS DMS (Database Migration) Replication Task.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.dms.get_replication_task(replication_task_id=test_aws_dms_replication_task["replicationTaskId"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str replication_task_id: The replication task identifier.

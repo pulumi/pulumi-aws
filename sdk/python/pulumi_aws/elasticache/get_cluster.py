@@ -341,12 +341,14 @@ def get_cluster(cluster_id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     my_cluster = aws.elasticache.get_cluster(cluster_id="my-cluster-id")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str cluster_id: Group identifier.
@@ -395,12 +397,14 @@ def get_cluster_output(cluster_id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     my_cluster = aws.elasticache.get_cluster(cluster_id="my-cluster-id")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str cluster_id: Group identifier.

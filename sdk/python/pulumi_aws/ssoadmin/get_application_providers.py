@@ -64,14 +64,17 @@ def get_application_providers(application_providers: Optional[Sequence[pulumi.In
     Data source for managing AWS SSO Admin Application Providers.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.ssoadmin.get_application_providers()
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetApplicationProvidersApplicationProviderArgs']] application_providers: A list of application providers available in the current region. See `application_providers` below.
@@ -93,14 +96,17 @@ def get_application_providers_output(application_providers: Optional[pulumi.Inpu
     Data source for managing AWS SSO Admin Application Providers.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.ssoadmin.get_application_providers()
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetApplicationProvidersApplicationProviderArgs']] application_providers: A list of application providers available in the current region. See `application_providers` below.

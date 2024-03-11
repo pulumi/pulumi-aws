@@ -15,10 +15,12 @@ import (
 // Resource for managing an AWS Lightsail Distribution.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
 // Below is a basic example with a bucket as an origin.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -73,10 +75,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### instance origin example
 //
 // Below is an example of an instance as the origin.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -145,10 +150,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### lb origin example
 //
 // # Below is an example with a load balancer as an origin
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -222,15 +230,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Lightsail Distribution using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:lightsail/distribution:Distribution example rft-8012925589
-//
+// $ pulumi import aws:lightsail/distribution:Distribution example rft-8012925589
 // ```
 type Distribution struct {
 	pulumi.CustomResourceState

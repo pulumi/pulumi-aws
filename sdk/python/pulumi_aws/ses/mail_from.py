@@ -144,8 +144,10 @@ class MailFrom(pulumi.CustomResource):
         > **NOTE:** For the MAIL FROM domain to be fully usable, this resource should be paired with the ses.DomainIdentity resource. To validate the MAIL FROM domain, a DNS MX record is required. To pass SPF checks, a DNS TXT record may also be required. See the [Amazon SES MAIL FROM documentation](https://docs.aws.amazon.com/ses/latest/dg/mail-from.html) for more information.
 
         ## Example Usage
+
         ### Domain Identity MAIL FROM
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -170,8 +172,11 @@ class MailFrom(pulumi.CustomResource):
             ttl=600,
             records=["v=spf1 include:amazonses.com -all"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Email Identity MAIL FROM
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -182,13 +187,14 @@ class MailFrom(pulumi.CustomResource):
             domain=example.email,
             mail_from_domain="mail.example.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import MAIL FROM domain using the `domain` attribute. For example:
 
         ```sh
-         $ pulumi import aws:ses/mailFrom:MailFrom example example.com
+        $ pulumi import aws:ses/mailFrom:MailFrom example example.com
         ```
 
         :param str resource_name: The name of the resource.
@@ -211,8 +217,10 @@ class MailFrom(pulumi.CustomResource):
         > **NOTE:** For the MAIL FROM domain to be fully usable, this resource should be paired with the ses.DomainIdentity resource. To validate the MAIL FROM domain, a DNS MX record is required. To pass SPF checks, a DNS TXT record may also be required. See the [Amazon SES MAIL FROM documentation](https://docs.aws.amazon.com/ses/latest/dg/mail-from.html) for more information.
 
         ## Example Usage
+
         ### Domain Identity MAIL FROM
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -237,8 +245,11 @@ class MailFrom(pulumi.CustomResource):
             ttl=600,
             records=["v=spf1 include:amazonses.com -all"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Email Identity MAIL FROM
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -249,13 +260,14 @@ class MailFrom(pulumi.CustomResource):
             domain=example.email,
             mail_from_domain="mail.example.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import MAIL FROM domain using the `domain` attribute. For example:
 
         ```sh
-         $ pulumi import aws:ses/mailFrom:MailFrom example example.com
+        $ pulumi import aws:ses/mailFrom:MailFrom example example.com
         ```
 
         :param str resource_name: The name of the resource.

@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -60,6 +61,7 @@ namespace Pulumi.Aws.Route53
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -70,12 +72,12 @@ namespace Pulumi.Aws.Route53
     /// The VPC is in the same region where you have configured the AWS Provider:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678
+    /// $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678
     /// ```
-    ///  The VPC is _not_ in the same region where you have configured the AWS Provider:
+    /// The VPC is _not_ in the same region where you have configured the AWS Provider:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678:us-east-2
+    /// $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678:us-east-2
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53/zoneAssociation:ZoneAssociation")]

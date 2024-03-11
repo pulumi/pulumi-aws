@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Provides a confirmation of the creation of the specified hosted connection on an interconnect.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,6 +47,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:directconnect/connectionConfirmation:ConnectionConfirmation")

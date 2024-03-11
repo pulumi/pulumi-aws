@@ -16,6 +16,7 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -45,13 +46,14 @@ namespace Pulumi.Aws.ElastiCache
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import ElastiCache Parameter Groups using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:elasticache/parameterGroup:ParameterGroup default redis-params
+    /// $ pulumi import aws:elasticache/parameterGroup:ParameterGroup default redis-params
     /// ```
     /// </summary>
     [AwsResourceType("aws:elasticache/parameterGroup:ParameterGroup")]

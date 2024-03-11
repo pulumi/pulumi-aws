@@ -19,6 +19,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,15 +50,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_apigatewayv2_vpc_link` using the VPC Link identifier. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:apigatewayv2/vpcLink:VpcLink example aabbccddee
-//
+// $ pulumi import aws:apigatewayv2/vpcLink:VpcLink example aabbccddee
 // ```
 type VpcLink struct {
 	pulumi.CustomResourceState

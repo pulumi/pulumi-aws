@@ -233,6 +233,7 @@ class VoiceConnectorTermination(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -250,13 +251,14 @@ class VoiceConnectorTermination(pulumi.CustomResource):
             ],
             voice_connector_id=default.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Chime Voice Connector Termination using the `voice_connector_id`. For example:
 
         ```sh
-         $ pulumi import aws:chime/voiceConnectorTermination:VoiceConnectorTermination default abcdef1ghij2klmno3pqr4
+        $ pulumi import aws:chime/voiceConnectorTermination:VoiceConnectorTermination default abcdef1ghij2klmno3pqr4
         ```
 
         :param str resource_name: The name of the resource.
@@ -279,6 +281,7 @@ class VoiceConnectorTermination(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -296,13 +299,14 @@ class VoiceConnectorTermination(pulumi.CustomResource):
             ],
             voice_connector_id=default.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Chime Voice Connector Termination using the `voice_connector_id`. For example:
 
         ```sh
-         $ pulumi import aws:chime/voiceConnectorTermination:VoiceConnectorTermination default abcdef1ghij2klmno3pqr4
+        $ pulumi import aws:chime/voiceConnectorTermination:VoiceConnectorTermination default abcdef1ghij2klmno3pqr4
         ```
 
         :param str resource_name: The name of the resource.

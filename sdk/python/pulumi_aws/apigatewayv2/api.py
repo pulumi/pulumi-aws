@@ -604,8 +604,10 @@ class Api(pulumi.CustomResource):
         > **Note:** Amazon API Gateway Version 2 resources are used for creating and deploying WebSocket and HTTP APIs. To create and deploy REST APIs, use Amazon API Gateway Version 1 resources.
 
         ## Example Usage
+
         ### Basic WebSocket API
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -615,8 +617,11 @@ class Api(pulumi.CustomResource):
             protocol_type="WEBSOCKET",
             route_selection_expression="$request.body.action")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Basic HTTP API
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -625,13 +630,14 @@ class Api(pulumi.CustomResource):
             name="example-http-api",
             protocol_type="HTTP")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_apigatewayv2_api` using the API identifier. For example:
 
         ```sh
-         $ pulumi import aws:apigatewayv2/api:Api example aabbccddee
+        $ pulumi import aws:apigatewayv2/api:Api example aabbccddee
         ```
 
         :param str resource_name: The name of the resource.
@@ -670,8 +676,10 @@ class Api(pulumi.CustomResource):
         > **Note:** Amazon API Gateway Version 2 resources are used for creating and deploying WebSocket and HTTP APIs. To create and deploy REST APIs, use Amazon API Gateway Version 1 resources.
 
         ## Example Usage
+
         ### Basic WebSocket API
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -681,8 +689,11 @@ class Api(pulumi.CustomResource):
             protocol_type="WEBSOCKET",
             route_selection_expression="$request.body.action")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Basic HTTP API
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -691,13 +702,14 @@ class Api(pulumi.CustomResource):
             name="example-http-api",
             protocol_type="HTTP")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_apigatewayv2_api` using the API identifier. For example:
 
         ```sh
-         $ pulumi import aws:apigatewayv2/api:Api example aabbccddee
+        $ pulumi import aws:apigatewayv2/api:Api example aabbccddee
         ```
 
         :param str resource_name: The name of the resource.

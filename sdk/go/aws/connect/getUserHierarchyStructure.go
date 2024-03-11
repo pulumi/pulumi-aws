@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupUserHierarchyStructure(ctx *pulumi.Context, args *LookupUserHierarchyStructureArgs, opts ...pulumi.InvokeOption) (*LookupUserHierarchyStructureResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupUserHierarchyStructureResult

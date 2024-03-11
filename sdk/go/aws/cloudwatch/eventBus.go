@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,7 +41,9 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -71,15 +74,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import EventBridge event buses using the `name` (which can also be a partner event source name). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
-//
+// $ pulumi import aws:cloudwatch/eventBus:EventBus messenger chat-messages
 // ```
 type EventBus struct {
 	pulumi.CustomResourceState

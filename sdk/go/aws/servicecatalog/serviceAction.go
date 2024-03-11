@@ -15,8 +15,10 @@ import (
 // Manages a Service Catalog self-service action.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,15 +46,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_servicecatalog_service_action` using the service action ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:servicecatalog/serviceAction:ServiceAction example act-f1w12eperfslh
-//
+// $ pulumi import aws:servicecatalog/serviceAction:ServiceAction example act-f1w12eperfslh
 // ```
 type ServiceAction struct {
 	pulumi.CustomResourceState

@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Route53
     /// Manages a Route53 Hosted Zone. For managing Domain Name System Security Extensions (DNSSEC), see the `aws.route53.KeySigningKey` and `aws.route53.HostedZoneDnsSec` resources.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Public Zone
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,12 +32,15 @@ namespace Pulumi.Aws.Route53
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Public Subdomain Zone
     /// 
     /// For use in subdomains, note that you need to create a
     /// `aws.route53.Record` of type `NS` as well as the subdomain
     /// zone.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -69,12 +74,15 @@ namespace Pulumi.Aws.Route53
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Private Zone
     /// 
     /// &gt; **NOTE:** This provider provides both exclusive VPC associations defined in-line in this resource via `vpc` configuration blocks and a separate ` Zone VPC Association resource. At this time, you cannot use in-line VPC associations in conjunction with any  `aws.route53.ZoneAssociation`  resources with the same zone ID otherwise it will cause a perpetual difference in plan output. You can optionally use [ `ignoreChanges` ](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to manage additional associations via the  `aws.route53.ZoneAssociation` resource.
     /// 
     /// &gt; **NOTE:** Private zones require at least one VPC association at all times.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -97,13 +105,14 @@ namespace Pulumi.Aws.Route53
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Route53 Zones using the zone `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:route53/zone:Zone myzone Z1D633PJN98FT9
+    /// $ pulumi import aws:route53/zone:Zone myzone Z1D633PJN98FT9
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53/zone:Zone")]

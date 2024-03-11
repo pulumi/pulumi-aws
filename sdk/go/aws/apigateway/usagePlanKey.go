@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -66,15 +67,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import AWS API Gateway Usage Plan Key using the `USAGE-PLAN-ID/USAGE-PLAN-KEY-ID`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:apigateway/usagePlanKey:UsagePlanKey key 12345abcde/zzz
-//
+// $ pulumi import aws:apigateway/usagePlanKey:UsagePlanKey key 12345abcde/zzz
 // ```
 type UsagePlanKey struct {
 	pulumi.CustomResourceState

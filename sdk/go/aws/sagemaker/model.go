@@ -18,6 +18,7 @@ import (
 //
 // Basic usage:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -78,6 +79,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Inference Execution Config
 //
 // * `mode` - (Required) How containers in a multi-container are run. The following values are valid `Serial` and `Direct`.
@@ -87,9 +90,7 @@ import (
 // Using `pulumi import`, import models using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sagemaker/model:Model test_model model-foo
-//
+// $ pulumi import aws:sagemaker/model:Model test_model model-foo
 // ```
 type Model struct {
 	pulumi.CustomResourceState

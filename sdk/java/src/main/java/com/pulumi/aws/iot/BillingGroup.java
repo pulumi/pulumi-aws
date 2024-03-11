@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * Manages an AWS IoT Billing Group.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -56,13 +58,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import IoT Billing Groups using the name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:iot/billingGroup:BillingGroup example example
+ * $ pulumi import aws:iot/billingGroup:BillingGroup example example
  * ```
  * 
  */

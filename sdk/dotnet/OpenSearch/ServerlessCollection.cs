@@ -17,8 +17,10 @@ namespace Pulumi.Aws.OpenSearch
     /// &gt; **NOTE:** An `aws.opensearch.ServerlessCollection` is not accessible without configuring an applicable network security policy. Data cannot be accessed without configuring an applicable data access policy.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -56,13 +58,14 @@ namespace Pulumi.Aws.OpenSearch
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import OpenSearchServerless Collection using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:opensearch/serverlessCollection:ServerlessCollection example example
+    /// $ pulumi import aws:opensearch/serverlessCollection:ServerlessCollection example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:opensearch/serverlessCollection:ServerlessCollection")]

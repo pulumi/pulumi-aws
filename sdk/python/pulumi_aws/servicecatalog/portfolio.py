@@ -215,6 +215,7 @@ class Portfolio(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -224,13 +225,14 @@ class Portfolio(pulumi.CustomResource):
             description="List of my organizations apps",
             provider_name="Brett")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Service Catalog Portfolios using the Service Catalog Portfolio `id`. For example:
 
         ```sh
-         $ pulumi import aws:servicecatalog/portfolio:Portfolio testfolio port-12344321
+        $ pulumi import aws:servicecatalog/portfolio:Portfolio testfolio port-12344321
         ```
 
         :param str resource_name: The name of the resource.
@@ -251,6 +253,7 @@ class Portfolio(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -260,13 +263,14 @@ class Portfolio(pulumi.CustomResource):
             description="List of my organizations apps",
             provider_name="Brett")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Service Catalog Portfolios using the Service Catalog Portfolio `id`. For example:
 
         ```sh
-         $ pulumi import aws:servicecatalog/portfolio:Portfolio testfolio port-12344321
+        $ pulumi import aws:servicecatalog/portfolio:Portfolio testfolio port-12344321
         ```
 
         :param str resource_name: The name of the resource.

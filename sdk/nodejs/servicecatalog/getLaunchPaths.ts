@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Lists the paths to the specified product. A path is how the user has access to a specified product, and is necessary when provisioning a product. A path also determines the constraints put on the product.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,6 +23,7 @@ import * as utilities from "../utilities";
  *     productId: "prod-yakog5pdriver",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getLaunchPaths(args: GetLaunchPathsArgs, opts?: pulumi.InvokeOptions): Promise<GetLaunchPathsResult> {
 
@@ -66,8 +69,10 @@ export interface GetLaunchPathsResult {
  * Lists the paths to the specified product. A path is how the user has access to a specified product, and is necessary when provisioning a product. A path also determines the constraints put on the product.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -76,6 +81,7 @@ export interface GetLaunchPathsResult {
  *     productId: "prod-yakog5pdriver",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getLaunchPathsOutput(args: GetLaunchPathsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetLaunchPathsResult> {
     return pulumi.output(args).apply((a: any) => getLaunchPaths(a, opts))

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,15 +45,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Customer Gateways using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/customerGateway:CustomerGateway main cgw-b4dc3961
-//
+// $ pulumi import aws:ec2/customerGateway:CustomerGateway main cgw-b4dc3961
 // ```
 type CustomerGateway struct {
 	pulumi.CustomResourceState

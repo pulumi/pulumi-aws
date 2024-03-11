@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * Provides an RDS DB proxy resource. For additional information, see the [RDS User Guide](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/rds-proxy.html).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -69,13 +71,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import DB proxies using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:rds/proxy:Proxy example example
+ * $ pulumi import aws:rds/proxy:Proxy example example
  * ```
  * 
  */

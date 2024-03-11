@@ -15,8 +15,10 @@ import (
 // Provides a SageMaker Pipeline resource.
 //
 // ## Example Usage
+//
 // ### Basic usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -61,15 +63,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import pipelines using the `pipeline_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sagemaker/pipeline:Pipeline test_pipeline pipeline
-//
+// $ pulumi import aws:sagemaker/pipeline:Pipeline test_pipeline pipeline
 // ```
 type Pipeline struct {
 	pulumi.CustomResourceState

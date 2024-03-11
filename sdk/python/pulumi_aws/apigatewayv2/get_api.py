@@ -210,12 +210,14 @@ def get_api(api_id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.apigatewayv2.get_api(api_id="aabbccddee")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str api_id: API identifier.
@@ -253,12 +255,14 @@ def get_api_output(api_id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.apigatewayv2.get_api(api_id="aabbccddee")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str api_id: API identifier.

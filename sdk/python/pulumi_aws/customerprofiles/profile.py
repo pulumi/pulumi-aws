@@ -774,6 +774,7 @@ class Profile(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -781,13 +782,14 @@ class Profile(pulumi.CustomResource):
         example = aws.customerprofiles.Domain("example", domain_name="example")
         example_profile = aws.customerprofiles.Profile("example", domain_name=example.domain_name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amazon Customer Profiles Profile using the resource `id`. For example:
 
         ```sh
-         $ pulumi import aws:customerprofiles/profile:Profile example domain-name/5f2f473dfbe841eb8d05cfc2a4c926df
+        $ pulumi import aws:customerprofiles/profile:Profile example domain-name/5f2f473dfbe841eb8d05cfc2a4c926df
         ```
 
         :param str resource_name: The name of the resource.
@@ -829,6 +831,7 @@ class Profile(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -836,13 +839,14 @@ class Profile(pulumi.CustomResource):
         example = aws.customerprofiles.Domain("example", domain_name="example")
         example_profile = aws.customerprofiles.Profile("example", domain_name=example.domain_name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amazon Customer Profiles Profile using the resource `id`. For example:
 
         ```sh
-         $ pulumi import aws:customerprofiles/profile:Profile example domain-name/5f2f473dfbe841eb8d05cfc2a4c926df
+        $ pulumi import aws:customerprofiles/profile:Profile example domain-name/5f2f473dfbe841eb8d05cfc2a4c926df
         ```
 
         :param str resource_name: The name of the resource.

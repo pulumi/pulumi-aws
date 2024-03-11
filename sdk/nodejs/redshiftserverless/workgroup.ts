@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,13 +22,14 @@ import * as utilities from "../utilities";
  *     workgroupName: "concurrency-scaling",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Redshift Serverless Workgroups using the `workgroup_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:redshiftserverless/workgroup:Workgroup example example
+ * $ pulumi import aws:redshiftserverless/workgroup:Workgroup example example
  * ```
  */
 export class Workgroup extends pulumi.CustomResource {

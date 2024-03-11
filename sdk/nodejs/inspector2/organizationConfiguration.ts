@@ -15,8 +15,10 @@ import * as utilities from "../utilities";
  * > **NOTE:** When this resource is deleted, EC2, ECR, Lambda, and Lambda code scans will no longer be automatically enabled for new members of your Amazon Inspector organization.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -28,6 +30,7 @@ import * as utilities from "../utilities";
  *     lambdaCode: true,
  * }});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class OrganizationConfiguration extends pulumi.CustomResource {
     /**

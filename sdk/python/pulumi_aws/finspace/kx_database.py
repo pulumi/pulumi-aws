@@ -246,8 +246,10 @@ class KxDatabase(pulumi.CustomResource):
         Resource for managing an AWS FinSpace Kx Database.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -263,13 +265,14 @@ class KxDatabase(pulumi.CustomResource):
             name="my-tf-kx-database",
             description="Example database description")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import an AWS FinSpace Kx Database using the `id` (environment ID and database name, comma-delimited). For example:
 
         ```sh
-         $ pulumi import aws:finspace/kxDatabase:KxDatabase example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-database
+        $ pulumi import aws:finspace/kxDatabase:KxDatabase example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-database
         ```
 
         :param str resource_name: The name of the resource.
@@ -291,8 +294,10 @@ class KxDatabase(pulumi.CustomResource):
         Resource for managing an AWS FinSpace Kx Database.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -308,13 +313,14 @@ class KxDatabase(pulumi.CustomResource):
             name="my-tf-kx-database",
             description="Example database description")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import an AWS FinSpace Kx Database using the `id` (environment ID and database name, comma-delimited). For example:
 
         ```sh
-         $ pulumi import aws:finspace/kxDatabase:KxDatabase example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-database
+        $ pulumi import aws:finspace/kxDatabase:KxDatabase example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-database
         ```
 
         :param str resource_name: The name of the resource.

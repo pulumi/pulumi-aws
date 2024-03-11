@@ -9,12 +9,14 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.ebs.getEncryptionByDefault({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getEncryptionByDefault(opts?: pulumi.InvokeOptions): Promise<GetEncryptionByDefaultResult> {
 
@@ -41,12 +43,14 @@ export interface GetEncryptionByDefaultResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.ebs.getEncryptionByDefault({});
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getEncryptionByDefaultOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetEncryptionByDefaultResult> {
     return pulumi.output(getEncryptionByDefault(opts))

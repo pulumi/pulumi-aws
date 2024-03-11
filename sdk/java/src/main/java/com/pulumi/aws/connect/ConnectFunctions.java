@@ -63,7 +63,10 @@ public final class ConnectFunctions {
      * Provides details about a specific Lex (V1) Bot associated with an Amazon Connect instance.
      * 
      * ## Example Usage
+     * 
      * ### By name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -96,6 +99,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBotAssociationResult> getBotAssociation(GetBotAssociationArgs args) {
@@ -105,7 +109,10 @@ public final class ConnectFunctions {
      * Provides details about a specific Lex (V1) Bot associated with an Amazon Connect instance.
      * 
      * ## Example Usage
+     * 
      * ### By name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -138,6 +145,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBotAssociationResult> getBotAssociationPlain(GetBotAssociationPlainArgs args) {
@@ -147,7 +155,10 @@ public final class ConnectFunctions {
      * Provides details about a specific Lex (V1) Bot associated with an Amazon Connect instance.
      * 
      * ## Example Usage
+     * 
      * ### By name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -180,6 +191,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBotAssociationResult> getBotAssociation(GetBotAssociationArgs args, InvokeOptions options) {
@@ -189,7 +201,10 @@ public final class ConnectFunctions {
      * Provides details about a specific Lex (V1) Bot associated with an Amazon Connect instance.
      * 
      * ## Example Usage
+     * 
      * ### By name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -222,6 +237,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBotAssociationResult> getBotAssociationPlain(GetBotAssociationPlainArgs args, InvokeOptions options) {
@@ -233,6 +249,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -262,8 +280,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By contact_flow_id
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -293,6 +314,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetContactFlowResult> getContactFlow(GetContactFlowArgs args) {
@@ -304,6 +326,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -333,8 +357,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By contact_flow_id
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -364,6 +391,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetContactFlowResult> getContactFlowPlain(GetContactFlowPlainArgs args) {
@@ -375,6 +403,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -404,8 +434,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By contact_flow_id
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -435,6 +468,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetContactFlowResult> getContactFlow(GetContactFlowArgs args, InvokeOptions options) {
@@ -446,6 +480,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -475,8 +511,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By contact_flow_id
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -506,6 +545,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetContactFlowResult> getContactFlowPlain(GetContactFlowPlainArgs args, InvokeOptions options) {
@@ -517,6 +557,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By `name`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -546,8 +588,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `contact_flow_module_id`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -577,6 +622,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetContactFlowModuleResult> getContactFlowModule(GetContactFlowModuleArgs args) {
@@ -588,6 +634,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By `name`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -617,8 +665,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `contact_flow_module_id`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -648,6 +699,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetContactFlowModuleResult> getContactFlowModulePlain(GetContactFlowModulePlainArgs args) {
@@ -659,6 +711,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By `name`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -688,8 +742,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `contact_flow_module_id`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -719,6 +776,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetContactFlowModuleResult> getContactFlowModule(GetContactFlowModuleArgs args, InvokeOptions options) {
@@ -730,6 +788,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By `name`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -759,8 +819,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `contact_flow_module_id`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -790,6 +853,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetContactFlowModuleResult> getContactFlowModulePlain(GetContactFlowModulePlainArgs args, InvokeOptions options) {
@@ -801,6 +865,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By `name`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -830,8 +896,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `hours_of_operation_id`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -861,6 +930,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetHoursOfOperationResult> getHoursOfOperation(GetHoursOfOperationArgs args) {
@@ -872,6 +942,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By `name`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -901,8 +973,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `hours_of_operation_id`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -932,6 +1007,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetHoursOfOperationResult> getHoursOfOperationPlain(GetHoursOfOperationPlainArgs args) {
@@ -943,6 +1019,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By `name`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -972,8 +1050,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `hours_of_operation_id`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1003,6 +1084,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetHoursOfOperationResult> getHoursOfOperation(GetHoursOfOperationArgs args, InvokeOptions options) {
@@ -1014,6 +1096,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By `name`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1043,8 +1127,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `hours_of_operation_id`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1074,6 +1161,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetHoursOfOperationResult> getHoursOfOperationPlain(GetHoursOfOperationPlainArgs args, InvokeOptions options) {
@@ -1085,6 +1173,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By instance_alias
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1113,8 +1203,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By instance_id
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1143,6 +1236,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetInstanceResult> getInstance() {
@@ -1154,6 +1248,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By instance_alias
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1182,8 +1278,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By instance_id
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1212,6 +1311,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetInstanceResult> getInstancePlain() {
@@ -1223,6 +1323,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By instance_alias
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1251,8 +1353,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By instance_id
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1281,6 +1386,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetInstanceResult> getInstance(GetInstanceArgs args) {
@@ -1292,6 +1398,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By instance_alias
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1320,8 +1428,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By instance_id
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1350,6 +1461,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetInstanceResult> getInstancePlain(GetInstancePlainArgs args) {
@@ -1361,6 +1473,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By instance_alias
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1389,8 +1503,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By instance_id
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1419,6 +1536,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetInstanceResult> getInstance(GetInstanceArgs args, InvokeOptions options) {
@@ -1430,6 +1548,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By instance_alias
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1458,8 +1578,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By instance_id
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1488,6 +1611,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetInstanceResult> getInstancePlain(GetInstancePlainArgs args, InvokeOptions options) {
@@ -1497,6 +1621,8 @@ public final class ConnectFunctions {
      * Provides details about a specific Amazon Connect Instance Storage Config.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1527,6 +1653,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetInstanceStorageConfigResult> getInstanceStorageConfig(GetInstanceStorageConfigArgs args) {
@@ -1536,6 +1663,8 @@ public final class ConnectFunctions {
      * Provides details about a specific Amazon Connect Instance Storage Config.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1566,6 +1695,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetInstanceStorageConfigResult> getInstanceStorageConfigPlain(GetInstanceStorageConfigPlainArgs args) {
@@ -1575,6 +1705,8 @@ public final class ConnectFunctions {
      * Provides details about a specific Amazon Connect Instance Storage Config.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1605,6 +1737,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetInstanceStorageConfigResult> getInstanceStorageConfig(GetInstanceStorageConfigArgs args, InvokeOptions options) {
@@ -1614,6 +1747,8 @@ public final class ConnectFunctions {
      * Provides details about a specific Amazon Connect Instance Storage Config.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1644,6 +1779,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetInstanceStorageConfigResult> getInstanceStorageConfigPlain(GetInstanceStorageConfigPlainArgs args, InvokeOptions options) {
@@ -1653,6 +1789,8 @@ public final class ConnectFunctions {
      * Provides details about a specific Connect Lambda Function Association.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1682,6 +1820,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLambdaFunctionAssociationResult> getLambdaFunctionAssociation(GetLambdaFunctionAssociationArgs args) {
@@ -1691,6 +1830,8 @@ public final class ConnectFunctions {
      * Provides details about a specific Connect Lambda Function Association.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1720,6 +1861,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLambdaFunctionAssociationResult> getLambdaFunctionAssociationPlain(GetLambdaFunctionAssociationPlainArgs args) {
@@ -1729,6 +1871,8 @@ public final class ConnectFunctions {
      * Provides details about a specific Connect Lambda Function Association.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1758,6 +1902,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLambdaFunctionAssociationResult> getLambdaFunctionAssociation(GetLambdaFunctionAssociationArgs args, InvokeOptions options) {
@@ -1767,6 +1912,8 @@ public final class ConnectFunctions {
      * Provides details about a specific Connect Lambda Function Association.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1796,6 +1943,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLambdaFunctionAssociationResult> getLambdaFunctionAssociationPlain(GetLambdaFunctionAssociationPlainArgs args, InvokeOptions options) {
@@ -1807,6 +1955,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By `name`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1836,6 +1986,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPromptResult> getPrompt(GetPromptArgs args) {
@@ -1847,6 +1998,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By `name`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1876,6 +2029,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPromptResult> getPromptPlain(GetPromptPlainArgs args) {
@@ -1887,6 +2041,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By `name`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1916,6 +2072,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPromptResult> getPrompt(GetPromptArgs args, InvokeOptions options) {
@@ -1927,6 +2084,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By `name`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1956,6 +2115,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPromptResult> getPromptPlain(GetPromptPlainArgs args, InvokeOptions options) {
@@ -1967,6 +2127,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By `name`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1996,8 +2158,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `queue_id`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2027,6 +2192,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetQueueResult> getQueue(GetQueueArgs args) {
@@ -2038,6 +2204,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By `name`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2067,8 +2235,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `queue_id`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2098,6 +2269,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetQueueResult> getQueuePlain(GetQueuePlainArgs args) {
@@ -2109,6 +2281,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By `name`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2138,8 +2312,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `queue_id`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2169,6 +2346,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetQueueResult> getQueue(GetQueueArgs args, InvokeOptions options) {
@@ -2180,6 +2358,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By `name`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2209,8 +2389,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `queue_id`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2240,6 +2423,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetQueueResult> getQueuePlain(GetQueuePlainArgs args, InvokeOptions options) {
@@ -2251,6 +2435,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By `name`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2280,8 +2466,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `quick_connect_id`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2311,6 +2500,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetQuickConnectResult> getQuickConnect(GetQuickConnectArgs args) {
@@ -2322,6 +2512,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By `name`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2351,8 +2543,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `quick_connect_id`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2382,6 +2577,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetQuickConnectResult> getQuickConnectPlain(GetQuickConnectPlainArgs args) {
@@ -2393,6 +2589,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By `name`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2422,8 +2620,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `quick_connect_id`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2453,6 +2654,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetQuickConnectResult> getQuickConnect(GetQuickConnectArgs args, InvokeOptions options) {
@@ -2464,6 +2666,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By `name`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2493,8 +2697,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `quick_connect_id`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2524,6 +2731,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetQuickConnectResult> getQuickConnectPlain(GetQuickConnectPlainArgs args, InvokeOptions options) {
@@ -2535,6 +2743,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By `name`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2564,8 +2774,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `routing_profile_id`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2595,6 +2808,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRoutingProfileResult> getRoutingProfile(GetRoutingProfileArgs args) {
@@ -2606,6 +2820,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By `name`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2635,8 +2851,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `routing_profile_id`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2666,6 +2885,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRoutingProfileResult> getRoutingProfilePlain(GetRoutingProfilePlainArgs args) {
@@ -2677,6 +2897,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By `name`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2706,8 +2928,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `routing_profile_id`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2737,6 +2962,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRoutingProfileResult> getRoutingProfile(GetRoutingProfileArgs args, InvokeOptions options) {
@@ -2748,6 +2974,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By `name`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2777,8 +3005,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `routing_profile_id`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2808,6 +3039,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRoutingProfileResult> getRoutingProfilePlain(GetRoutingProfilePlainArgs args, InvokeOptions options) {
@@ -2819,6 +3051,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By `name`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2848,8 +3082,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `security_profile_id`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2879,6 +3116,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSecurityProfileResult> getSecurityProfile(GetSecurityProfileArgs args) {
@@ -2890,6 +3128,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By `name`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2919,8 +3159,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `security_profile_id`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2950,6 +3193,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSecurityProfileResult> getSecurityProfilePlain(GetSecurityProfilePlainArgs args) {
@@ -2961,6 +3205,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By `name`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2990,8 +3236,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `security_profile_id`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3021,6 +3270,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSecurityProfileResult> getSecurityProfile(GetSecurityProfileArgs args, InvokeOptions options) {
@@ -3032,6 +3282,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By `name`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3061,8 +3313,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `security_profile_id`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3092,6 +3347,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSecurityProfileResult> getSecurityProfilePlain(GetSecurityProfilePlainArgs args, InvokeOptions options) {
@@ -3103,6 +3359,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By `name`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3132,8 +3390,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `user_id`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3163,6 +3424,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserResult> getUser(GetUserArgs args) {
@@ -3174,6 +3436,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By `name`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3203,8 +3467,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `user_id`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3234,6 +3501,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserResult> getUserPlain(GetUserPlainArgs args) {
@@ -3245,6 +3513,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By `name`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3274,8 +3544,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `user_id`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3305,6 +3578,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserResult> getUser(GetUserArgs args, InvokeOptions options) {
@@ -3316,6 +3590,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By `name`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3345,8 +3621,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `user_id`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3376,6 +3655,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserResult> getUserPlain(GetUserPlainArgs args, InvokeOptions options) {
@@ -3387,6 +3667,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By `name`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3416,8 +3698,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `hierarchy_group_id`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3447,6 +3732,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserHierarchyGroupResult> getUserHierarchyGroup(GetUserHierarchyGroupArgs args) {
@@ -3458,6 +3744,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By `name`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3487,8 +3775,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `hierarchy_group_id`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3518,6 +3809,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserHierarchyGroupResult> getUserHierarchyGroupPlain(GetUserHierarchyGroupPlainArgs args) {
@@ -3529,6 +3821,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By `name`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3558,8 +3852,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `hierarchy_group_id`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3589,6 +3886,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserHierarchyGroupResult> getUserHierarchyGroup(GetUserHierarchyGroupArgs args, InvokeOptions options) {
@@ -3600,6 +3898,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By `name`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3629,8 +3929,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `hierarchy_group_id`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3660,6 +3963,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserHierarchyGroupResult> getUserHierarchyGroupPlain(GetUserHierarchyGroupPlainArgs args, InvokeOptions options) {
@@ -3669,6 +3973,8 @@ public final class ConnectFunctions {
      * Provides details about a specific Amazon Connect User Hierarchy Structure
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3697,6 +4003,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserHierarchyStructureResult> getUserHierarchyStructure(GetUserHierarchyStructureArgs args) {
@@ -3706,6 +4013,8 @@ public final class ConnectFunctions {
      * Provides details about a specific Amazon Connect User Hierarchy Structure
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3734,6 +4043,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserHierarchyStructureResult> getUserHierarchyStructurePlain(GetUserHierarchyStructurePlainArgs args) {
@@ -3743,6 +4053,8 @@ public final class ConnectFunctions {
      * Provides details about a specific Amazon Connect User Hierarchy Structure
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3771,6 +4083,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserHierarchyStructureResult> getUserHierarchyStructure(GetUserHierarchyStructureArgs args, InvokeOptions options) {
@@ -3780,6 +4093,8 @@ public final class ConnectFunctions {
      * Provides details about a specific Amazon Connect User Hierarchy Structure
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3808,6 +4123,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserHierarchyStructureResult> getUserHierarchyStructurePlain(GetUserHierarchyStructurePlainArgs args, InvokeOptions options) {
@@ -3819,6 +4135,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By `name`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3848,8 +4166,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `vocabulary_id`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3879,6 +4200,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVocabularyResult> getVocabulary(GetVocabularyArgs args) {
@@ -3890,6 +4212,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By `name`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3919,8 +4243,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `vocabulary_id`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3950,6 +4277,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVocabularyResult> getVocabularyPlain(GetVocabularyPlainArgs args) {
@@ -3961,6 +4289,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By `name`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3990,8 +4320,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `vocabulary_id`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4021,6 +4354,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVocabularyResult> getVocabulary(GetVocabularyArgs args, InvokeOptions options) {
@@ -4032,6 +4366,8 @@ public final class ConnectFunctions {
      * ## Example Usage
      * 
      * By `name`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4061,8 +4397,11 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * By `vocabulary_id`
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4092,6 +4431,7 @@ public final class ConnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVocabularyResult> getVocabularyPlain(GetVocabularyPlainArgs args, InvokeOptions options) {

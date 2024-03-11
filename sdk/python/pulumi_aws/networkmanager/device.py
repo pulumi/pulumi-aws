@@ -408,6 +408,7 @@ class Device(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -416,13 +417,14 @@ class Device(pulumi.CustomResource):
             global_network_id=example_aws_networkmanager_global_network["id"],
             site_id=example_aws_networkmanager_site["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_networkmanager_device` using the device ARN. For example:
 
         ```sh
-         $ pulumi import aws:networkmanager/device:Device example arn:aws:networkmanager::123456789012:device/global-network-0d47f6t230mz46dy4/device-07f6fd08867abc123
+        $ pulumi import aws:networkmanager/device:Device example arn:aws:networkmanager::123456789012:device/global-network-0d47f6t230mz46dy4/device-07f6fd08867abc123
         ```
 
         :param str resource_name: The name of the resource.
@@ -450,6 +452,7 @@ class Device(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -458,13 +461,14 @@ class Device(pulumi.CustomResource):
             global_network_id=example_aws_networkmanager_global_network["id"],
             site_id=example_aws_networkmanager_site["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_networkmanager_device` using the device ARN. For example:
 
         ```sh
-         $ pulumi import aws:networkmanager/device:Device example arn:aws:networkmanager::123456789012:device/global-network-0d47f6t230mz46dy4/device-07f6fd08867abc123
+        $ pulumi import aws:networkmanager/device:Device example arn:aws:networkmanager::123456789012:device/global-network-0d47f6t230mz46dy4/device-07f6fd08867abc123
         ```
 
         :param str resource_name: The name of the resource.

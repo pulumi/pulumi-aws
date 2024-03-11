@@ -388,6 +388,7 @@ class ServerCertificate(pulumi.CustomResource):
 
         **Using certs on file:**
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -398,9 +399,11 @@ class ServerCertificate(pulumi.CustomResource):
             certificate_body=std.file(input="self-ca-cert.pem").result,
             private_key=std.file(input="test-key.pem").result)
         ```
+        <!--End PulumiCodeChooser -->
 
         **Example with cert in-line:**
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -416,6 +419,7 @@ class ServerCertificate(pulumi.CustomResource):
         -----END RSA PRIVATE KEY-----
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
 
         **Use in combination with an AWS ELB resource:**
 
@@ -426,6 +430,7 @@ class ServerCertificate(pulumi.CustomResource):
         to create a new, updated `iam.ServerCertificate` resource and replace it in
         dependant resources before attempting to destroy the old version.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -447,13 +452,14 @@ class ServerCertificate(pulumi.CustomResource):
                 ssl_certificate_id=test_cert.arn,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM Server Certificates using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:iam/serverCertificate:ServerCertificate certificate example.com-certificate-until-2018
+        $ pulumi import aws:iam/serverCertificate:ServerCertificate certificate example.com-certificate-until-2018
         ```
 
         :param str resource_name: The name of the resource.
@@ -498,6 +504,7 @@ class ServerCertificate(pulumi.CustomResource):
 
         **Using certs on file:**
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -508,9 +515,11 @@ class ServerCertificate(pulumi.CustomResource):
             certificate_body=std.file(input="self-ca-cert.pem").result,
             private_key=std.file(input="test-key.pem").result)
         ```
+        <!--End PulumiCodeChooser -->
 
         **Example with cert in-line:**
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -526,6 +535,7 @@ class ServerCertificate(pulumi.CustomResource):
         -----END RSA PRIVATE KEY-----
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
 
         **Use in combination with an AWS ELB resource:**
 
@@ -536,6 +546,7 @@ class ServerCertificate(pulumi.CustomResource):
         to create a new, updated `iam.ServerCertificate` resource and replace it in
         dependant resources before attempting to destroy the old version.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -557,13 +568,14 @@ class ServerCertificate(pulumi.CustomResource):
                 ssl_certificate_id=test_cert.arn,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM Server Certificates using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:iam/serverCertificate:ServerCertificate certificate example.com-certificate-until-2018
+        $ pulumi import aws:iam/serverCertificate:ServerCertificate certificate example.com-certificate-until-2018
         ```
 
         :param str resource_name: The name of the resource.

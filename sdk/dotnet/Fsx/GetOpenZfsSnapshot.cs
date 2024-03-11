@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Fsx
         /// <summary>
         /// Use this data source to get information about an Amazon FSx for OpenZFS Snapshot for use when provisioning new Volumes.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Root volume Example
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -45,8 +45,7 @@ namespace Pulumi.Aws.Fsx
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetOpenZfsSnapshotResult> InvokeAsync(GetOpenZfsSnapshotArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOpenZfsSnapshotResult>("aws:fsx/getOpenZfsSnapshot:getOpenZfsSnapshot", args ?? new GetOpenZfsSnapshotArgs(), options.WithDefaults());
@@ -54,11 +53,11 @@ namespace Pulumi.Aws.Fsx
         /// <summary>
         /// Use this data source to get information about an Amazon FSx for OpenZFS Snapshot for use when provisioning new Volumes.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Root volume Example
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -85,8 +84,7 @@ namespace Pulumi.Aws.Fsx
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetOpenZfsSnapshotResult> Invoke(GetOpenZfsSnapshotInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOpenZfsSnapshotResult>("aws:fsx/getOpenZfsSnapshot:getOpenZfsSnapshot", args ?? new GetOpenZfsSnapshotInvokeArgs(), options.WithDefaults());

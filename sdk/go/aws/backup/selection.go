@@ -15,12 +15,14 @@ import (
 // Manages selection conditions for AWS Backup plan resources.
 //
 // ## Example Usage
+//
 // ### IAM Role
 //
 // > For more information about creating and managing IAM Roles for backups and restores, see the [AWS Backup Developer Guide](https://docs.aws.amazon.com/aws-backup/latest/devguide/iam-service-roles.html).
 //
 // The below example creates an IAM role with the default managed IAM Policy for allowing AWS Backup to create backups.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -80,8 +82,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Selecting Backups By Tag
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -114,8 +119,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Selecting Backups By Conditions
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -172,8 +180,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Selecting Backups By Resource
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -204,8 +215,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Selecting Backups By Not Resource
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -236,15 +250,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Backup selection using the role plan_id and id separated by `|`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:backup/selection:Selection example plan-id|selection-id
-//
+// $ pulumi import aws:backup/selection:Selection example plan-id|selection-id
 // ```
 type Selection struct {
 	pulumi.CustomResourceState

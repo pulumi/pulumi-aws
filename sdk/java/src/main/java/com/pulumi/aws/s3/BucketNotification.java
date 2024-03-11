@@ -27,7 +27,10 @@ import javax.annotation.Nullable;
  * &gt; This resource cannot be used with S3 directory buckets.
  * 
  * ## Example Usage
+ * 
  * ### Add notification configuration to SNS Topic
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -94,7 +97,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Add notification configuration to SQS Queue
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -161,7 +168,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Add notification configuration to Lambda Function
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -244,7 +255,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Trigger multiple Lambda functions
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -349,7 +364,92 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Add multiple notification configurations to SQS Queue
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.s3.BucketV2;
+ * import com.pulumi.aws.s3.BucketV2Args;
+ * import com.pulumi.aws.iam.IamFunctions;
+ * import com.pulumi.aws.iam.inputs.GetPolicyDocumentArgs;
+ * import com.pulumi.aws.sqs.Queue;
+ * import com.pulumi.aws.sqs.QueueArgs;
+ * import com.pulumi.aws.s3.BucketNotification;
+ * import com.pulumi.aws.s3.BucketNotificationArgs;
+ * import com.pulumi.aws.s3.inputs.BucketNotificationQueueArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var bucket = new BucketV2(&#34;bucket&#34;, BucketV2Args.builder()        
+ *             .bucket(&#34;your-bucket-name&#34;)
+ *             .build());
+ * 
+ *         final var queue = IamFunctions.getPolicyDocument(GetPolicyDocumentArgs.builder()
+ *             .statements(GetPolicyDocumentStatementArgs.builder()
+ *                 .effect(&#34;Allow&#34;)
+ *                 .principals(GetPolicyDocumentStatementPrincipalArgs.builder()
+ *                     .type(&#34;*&#34;)
+ *                     .identifiers(&#34;*&#34;)
+ *                     .build())
+ *                 .actions(&#34;sqs:SendMessage&#34;)
+ *                 .resources(&#34;arn:aws:sqs:*:*:s3-event-notification-queue&#34;)
+ *                 .conditions(GetPolicyDocumentStatementConditionArgs.builder()
+ *                     .test(&#34;ArnEquals&#34;)
+ *                     .variable(&#34;aws:SourceArn&#34;)
+ *                     .values(bucket.arn())
+ *                     .build())
+ *                 .build())
+ *             .build());
+ * 
+ *         var queueQueue = new Queue(&#34;queueQueue&#34;, QueueArgs.builder()        
+ *             .name(&#34;s3-event-notification-queue&#34;)
+ *             .policy(queue.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult).applyValue(queue -&gt; queue.applyValue(getPolicyDocumentResult -&gt; getPolicyDocumentResult.json())))
+ *             .build());
+ * 
+ *         var bucketNotification = new BucketNotification(&#34;bucketNotification&#34;, BucketNotificationArgs.builder()        
+ *             .bucket(bucket.id())
+ *             .queues(            
+ *                 BucketNotificationQueueArgs.builder()
+ *                     .id(&#34;image-upload-event&#34;)
+ *                     .queueArn(queueQueue.arn())
+ *                     .events(&#34;s3:ObjectCreated:*&#34;)
+ *                     .filterPrefix(&#34;images/&#34;)
+ *                     .build(),
+ *                 BucketNotificationQueueArgs.builder()
+ *                     .id(&#34;video-upload-event&#34;)
+ *                     .queueArn(queueQueue.arn())
+ *                     .events(&#34;s3:ObjectCreated:*&#34;)
+ *                     .filterPrefix(&#34;videos/&#34;)
+ *                     .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * For JSON syntax, use an array instead of defining the `queue` key twice.
+ * 
  * ### Emit events to EventBridge
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -385,13 +485,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import S3 bucket notification using the `bucket`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:s3/bucketNotification:BucketNotification bucket_notification bucket-name
+ * $ pulumi import aws:s3/bucketNotification:BucketNotification bucket_notification bucket-name
  * ```
  * 
  */

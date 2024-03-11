@@ -15,8 +15,10 @@ import (
 // Provides an AWS App Mesh virtual service resource.
 //
 // ## Example Usage
+//
 // ### Virtual Node Provider
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -48,8 +50,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Virtual Router Provider
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -81,15 +86,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import App Mesh virtual services using `mesh_name` together with the virtual service's `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:appmesh/virtualService:VirtualService servicea simpleapp/servicea.simpleapp.local
-//
+// $ pulumi import aws:appmesh/virtualService:VirtualService servicea simpleapp/servicea.simpleapp.local
 // ```
 type VirtualService struct {
 	pulumi.CustomResourceState

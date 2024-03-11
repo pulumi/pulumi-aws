@@ -391,6 +391,7 @@ class DomainConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -401,13 +402,14 @@ class DomainConfiguration(pulumi.CustomResource):
             service_type="DATA",
             server_certificate_arns=[cert["arn"]])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import domain configurations using the name. For example:
 
         ```sh
-         $ pulumi import aws:iot/domainConfiguration:DomainConfiguration example example
+        $ pulumi import aws:iot/domainConfiguration:DomainConfiguration example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -433,6 +435,7 @@ class DomainConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -443,13 +446,14 @@ class DomainConfiguration(pulumi.CustomResource):
             service_type="DATA",
             server_certificate_arns=[cert["arn"]])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import domain configurations using the name. For example:
 
         ```sh
-         $ pulumi import aws:iot/domainConfiguration:DomainConfiguration example example
+        $ pulumi import aws:iot/domainConfiguration:DomainConfiguration example example
         ```
 
         :param str resource_name: The name of the resource.

@@ -15,8 +15,10 @@ import (
 // Provides a Security Hub custom insight resource. See the [Managing custom insights section](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-custom-insights.html) of the AWS User Guide for more information.
 //
 // ## Example Usage
+//
 // ### Filter by AWS account ID
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -57,8 +59,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Filter by date range
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -97,8 +102,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Filter by destination IPv4 address
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -134,8 +142,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Filter by finding's confidence
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -171,8 +182,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Filter by resource tags
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -210,15 +224,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Security Hub insights using the ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:securityhub/insight:Insight example arn:aws:securityhub:us-west-2:1234567890:insight/1234567890/custom/91299ed7-abd0-4e44-a858-d0b15e37141a
-//
+// $ pulumi import aws:securityhub/insight:Insight example arn:aws:securityhub:us-west-2:1234567890:insight/1234567890/custom/91299ed7-abd0-4e44-a858-d0b15e37141a
 // ```
 type Insight struct {
 	pulumi.CustomResourceState

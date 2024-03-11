@@ -553,6 +553,7 @@ class AccountSubscription(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -563,6 +564,7 @@ class AccountSubscription(pulumi.CustomResource):
             edition="ENTERPRISE",
             notification_email="notification@email.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -599,6 +601,7 @@ class AccountSubscription(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -609,6 +612,7 @@ class AccountSubscription(pulumi.CustomResource):
             edition="ENTERPRISE",
             notification_email="notification@email.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

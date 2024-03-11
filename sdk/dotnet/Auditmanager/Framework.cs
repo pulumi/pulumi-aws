@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Auditmanager
     /// Resource for managing an AWS Audit Manager Framework.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -44,13 +46,14 @@ namespace Pulumi.Aws.Auditmanager
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Audit Manager Framework using the framework `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:auditmanager/framework:Framework example abc123-de45
+    /// $ pulumi import aws:auditmanager/framework:Framework example abc123-de45
     /// ```
     /// </summary>
     [AwsResourceType("aws:auditmanager/framework:Framework")]

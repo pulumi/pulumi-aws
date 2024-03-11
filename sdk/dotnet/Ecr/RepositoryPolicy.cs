@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Ecr
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -77,13 +78,14 @@ namespace Pulumi.Aws.Ecr
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import ECR Repository Policy using the repository name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ecr/repositoryPolicy:RepositoryPolicy example example
+    /// $ pulumi import aws:ecr/repositoryPolicy:RepositoryPolicy example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:ecr/repositoryPolicy:RepositoryPolicy")]

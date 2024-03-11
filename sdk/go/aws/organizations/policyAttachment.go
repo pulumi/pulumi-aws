@@ -15,8 +15,10 @@ import (
 // Provides a resource to attach an AWS Organizations policy to an organization account, root, or unit.
 //
 // ## Example Usage
+//
 // ### Organization Account
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,8 +43,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Organization Root
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -67,8 +72,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Organization Unit
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -93,6 +101,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -101,9 +110,7 @@ import (
 // With an account target:
 //
 // ```sh
-//
-//	$ pulumi import aws:organizations/policyAttachment:PolicyAttachment account 123456789012:p-12345678
-//
+// $ pulumi import aws:organizations/policyAttachment:PolicyAttachment account 123456789012:p-12345678
 // ```
 type PolicyAttachment struct {
 	pulumi.CustomResourceState

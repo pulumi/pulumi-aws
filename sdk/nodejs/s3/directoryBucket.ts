@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,13 +24,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import S3 bucket using `bucket`. For example:
  *
  * ```sh
- *  $ pulumi import aws:s3/directoryBucket:DirectoryBucket example example--usw2-az1--x-s3
+ * $ pulumi import aws:s3/directoryBucket:DirectoryBucket example example--usw2-az1--x-s3
  * ```
  */
 export class DirectoryBucket extends pulumi.CustomResource {

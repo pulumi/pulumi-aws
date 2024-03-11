@@ -71,14 +71,17 @@ def get_tracker_associations(tracker_name: Optional[str] = None,
     Retrieve information about Location Service Tracker Associations.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.location.get_tracker_associations(tracker_name="example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str tracker_name: Name of the tracker resource associated with a geofence collection.
@@ -101,14 +104,17 @@ def get_tracker_associations_output(tracker_name: Optional[pulumi.Input[str]] = 
     Retrieve information about Location Service Tracker Associations.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.location.get_tracker_associations(tracker_name="example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str tracker_name: Name of the tracker resource associated with a geofence collection.

@@ -15,8 +15,10 @@ namespace Pulumi.Aws.WafV2
     /// !&gt; **WARNING:** When logging from a WAFv2 Web ACL to a CloudWatch Log Group, the WAFv2 service tries to create or update a generic Log Resource Policy named `AWSWAF-LOGS`. However, if there are a large number of Web ACLs or if the account frequently creates and deletes Web ACLs, this policy may exceed the maximum policy size. As a result, this resource type will fail to be created. More details about this issue can be found in this issue. To prevent this issue, you can manage a specific resource policy. Please refer to the example below for managing a CloudWatch Log Group with a managed CloudWatch Log Resource Policy.
     /// 
     /// ## Example Usage
+    /// 
     /// ### With Redacted Fields
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -46,8 +48,11 @@ namespace Pulumi.Aws.WafV2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With Logging Filter
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -111,108 +116,14 @@ namespace Pulumi.Aws.WafV2
     /// 
     /// });
     /// ```
-    /// ### With CloudWatch Log Group and managed CloudWatch Log Resource Policy
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// 	
-    /// object NotImplemented(string errorMessage) 
-    /// {
-    ///     throw new System.NotImplementedException(errorMessage);
-    /// }
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var exampleLogGroup = new Aws.CloudWatch.LogGroup("example", new()
-    ///     {
-    ///         Name = "aws-waf-logs-some-uniq-suffix",
-    ///     });
-    /// 
-    ///     var exampleWebAclLoggingConfiguration = new Aws.WafV2.WebAclLoggingConfiguration("example", new()
-    ///     {
-    ///         LogDestinationConfigs = new[]
-    ///         {
-    ///             exampleLogGroup.Arn,
-    ///         },
-    ///         ResourceArn = exampleAwsWafv2WebAcl.Arn,
-    ///     });
-    /// 
-    ///     var current = Aws.GetRegion.Invoke();
-    /// 
-    ///     var currentGetCallerIdentity = Aws.GetCallerIdentity.Invoke();
-    /// 
-    ///     var example = Aws.Iam.GetPolicyDocument.Invoke(new()
-    ///     {
-    ///         Version = "2012-10-17",
-    ///         Statements = new[]
-    ///         {
-    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
-    ///             {
-    ///                 Effect = "Allow",
-    ///                 Principals = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
-    ///                     {
-    ///                         Identifiers = new[]
-    ///                         {
-    ///                             "delivery.logs.amazonaws.com",
-    ///                         },
-    ///                         Type = "Service",
-    ///                     },
-    ///                 },
-    ///                 Actions = new[]
-    ///                 {
-    ///                     "logs:CreateLogStream",
-    ///                     "logs:PutLogEvents",
-    ///                 },
-    ///                 Resources = new[]
-    ///                 {
-    ///                     $"{exampleLogGroup.Arn}:*",
-    ///                 },
-    ///                 Conditions = new[]
-    ///                 {
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
-    ///                     {
-    ///                         Test = "ArnLike",
-    ///                         Values = new[]
-    ///                         {
-    ///                             $"arn:aws:logs:{current.Apply(getRegionResult =&gt; getRegionResult.Name)}:{currentGetCallerIdentity.Apply(getCallerIdentityResult =&gt; getCallerIdentityResult.AccountId)}:*",
-    ///                         },
-    ///                         Variable = "aws:SourceArn",
-    ///                     },
-    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
-    ///                     {
-    ///                         Test = "StringEquals",
-    ///                         Values = new[]
-    ///                         {
-    ///                             NotImplemented("tostring(data.aws_caller_identity.current.account_id)"),
-    ///                         },
-    ///                         Variable = "aws:SourceAccount",
-    ///                     },
-    ///                 },
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleLogResourcePolicy = new Aws.CloudWatch.LogResourcePolicy("example", new()
-    ///     {
-    ///         PolicyDocument = example.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
-    ///         PolicyName = "webacl-policy-uniq-name",
-    ///     });
-    /// 
-    /// });
-    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import WAFv2 Web ACL Logging Configurations using the ARN of the WAFv2 Web ACL. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:wafv2/webAclLoggingConfiguration:WebAclLoggingConfiguration example arn:aws:wafv2:us-west-2:123456789012:regional/webacl/test-logs/a1b2c3d4-5678-90ab-cdef
+    /// $ pulumi import aws:wafv2/webAclLoggingConfiguration:WebAclLoggingConfiguration example arn:aws:wafv2:us-west-2:123456789012:regional/webacl/test-logs/a1b2c3d4-5678-90ab-cdef
     /// ```
     /// </summary>
     [AwsResourceType("aws:wafv2/webAclLoggingConfiguration:WebAclLoggingConfiguration")]

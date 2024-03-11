@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,15 +40,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Internet Monitor Monitors using the `monitor_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cloudwatch/internetMonitor:InternetMonitor some some-monitor
-//
+// $ pulumi import aws:cloudwatch/internetMonitor:InternetMonitor some some-monitor
 // ```
 type InternetMonitor struct {
 	pulumi.CustomResourceState

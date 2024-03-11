@@ -309,6 +309,7 @@ class UsagePlan(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -373,13 +374,14 @@ class UsagePlan(pulumi.CustomResource):
                 rate_limit=10,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AWS API Gateway Usage Plan using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/usagePlan:UsagePlan myusageplan <usage_plan_id>
+        $ pulumi import aws:apigateway/usagePlan:UsagePlan myusageplan <usage_plan_id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -403,6 +405,7 @@ class UsagePlan(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -467,13 +470,14 @@ class UsagePlan(pulumi.CustomResource):
                 rate_limit=10,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AWS API Gateway Usage Plan using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/usagePlan:UsagePlan myusageplan <usage_plan_id>
+        $ pulumi import aws:apigateway/usagePlan:UsagePlan myusageplan <usage_plan_id>
         ```
 
         :param str resource_name: The name of the resource.

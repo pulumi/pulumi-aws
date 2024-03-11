@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Dms
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -45,13 +46,14 @@ namespace Pulumi.Aws.Dms
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import event subscriptions using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:dms/eventSubscription:EventSubscription test my-awesome-event-subscription
+    /// $ pulumi import aws:dms/eventSubscription:EventSubscription test my-awesome-event-subscription
     /// ```
     /// </summary>
     [AwsResourceType("aws:dms/eventSubscription:EventSubscription")]

@@ -102,6 +102,7 @@ class VpcEndpointRouteTableAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -110,13 +111,14 @@ class VpcEndpointRouteTableAssociation(pulumi.CustomResource):
             route_table_id=example_aws_route_table["id"],
             vpc_endpoint_id=example_aws_vpc_endpoint["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import VPC Endpoint Route Table Associations using `vpc_endpoint_id` together with `route_table_id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation example vpce-aaaaaaaa/rtb-bbbbbbbb
+        $ pulumi import aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation example vpce-aaaaaaaa/rtb-bbbbbbbb
         ```
 
         :param str resource_name: The name of the resource.
@@ -135,6 +137,7 @@ class VpcEndpointRouteTableAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -143,13 +146,14 @@ class VpcEndpointRouteTableAssociation(pulumi.CustomResource):
             route_table_id=example_aws_route_table["id"],
             vpc_endpoint_id=example_aws_vpc_endpoint["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import VPC Endpoint Route Table Associations using `vpc_endpoint_id` together with `route_table_id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation example vpce-aaaaaaaa/rtb-bbbbbbbb
+        $ pulumi import aws:ec2/vpcEndpointRouteTableAssociation:VpcEndpointRouteTableAssociation example vpce-aaaaaaaa/rtb-bbbbbbbb
         ```
 
         :param str resource_name: The name of the resource.

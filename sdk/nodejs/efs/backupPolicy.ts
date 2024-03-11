@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -25,13 +26,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import the EFS backup policies using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:efs/backupPolicy:BackupPolicy example fs-6fa144c6
+ * $ pulumi import aws:efs/backupPolicy:BackupPolicy example fs-6fa144c6
  * ```
  */
 export class BackupPolicy extends pulumi.CustomResource {

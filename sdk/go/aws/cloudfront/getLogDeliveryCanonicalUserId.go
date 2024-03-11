@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -61,6 +62,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetLogDeliveryCanonicalUserId(ctx *pulumi.Context, args *GetLogDeliveryCanonicalUserIdArgs, opts ...pulumi.InvokeOption) (*GetLogDeliveryCanonicalUserIdResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetLogDeliveryCanonicalUserIdResult

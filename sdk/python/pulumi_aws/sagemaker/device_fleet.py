@@ -284,8 +284,10 @@ class DeviceFleet(pulumi.CustomResource):
         Provides a SageMaker Device Fleet resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -297,13 +299,14 @@ class DeviceFleet(pulumi.CustomResource):
                 s3_output_location=f"s3://{example_aws_s3_bucket['bucket']}/prefix/",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker Device Fleets using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/deviceFleet:DeviceFleet example my-fleet
+        $ pulumi import aws:sagemaker/deviceFleet:DeviceFleet example my-fleet
         ```
 
         :param str resource_name: The name of the resource.
@@ -325,8 +328,10 @@ class DeviceFleet(pulumi.CustomResource):
         Provides a SageMaker Device Fleet resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -338,13 +343,14 @@ class DeviceFleet(pulumi.CustomResource):
                 s3_output_location=f"s3://{example_aws_s3_bucket['bucket']}/prefix/",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker Device Fleets using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/deviceFleet:DeviceFleet example my-fleet
+        $ pulumi import aws:sagemaker/deviceFleet:DeviceFleet example my-fleet
         ```
 
         :param str resource_name: The name of the resource.

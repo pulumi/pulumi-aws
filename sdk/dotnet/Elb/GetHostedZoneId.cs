@@ -15,10 +15,9 @@ namespace Pulumi.Aws.Elb
         /// Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing HostedZoneId
         /// in a given region for the purpose of using in an AWS Route53 Alias.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -47,8 +46,7 @@ namespace Pulumi.Aws.Elb
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetHostedZoneIdResult> InvokeAsync(GetHostedZoneIdArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetHostedZoneIdResult>("aws:elb/getHostedZoneId:getHostedZoneId", args ?? new GetHostedZoneIdArgs(), options.WithDefaults());
@@ -57,10 +55,9 @@ namespace Pulumi.Aws.Elb
         /// Use this data source to get the HostedZoneId of the AWS Elastic Load Balancing HostedZoneId
         /// in a given region for the purpose of using in an AWS Route53 Alias.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -89,8 +86,7 @@ namespace Pulumi.Aws.Elb
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetHostedZoneIdResult> Invoke(GetHostedZoneIdInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetHostedZoneIdResult>("aws:elb/getHostedZoneId:getHostedZoneId", args ?? new GetHostedZoneIdInvokeArgs(), options.WithDefaults());

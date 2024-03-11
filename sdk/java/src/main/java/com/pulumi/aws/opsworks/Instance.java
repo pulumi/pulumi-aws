@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * Provides an OpsWorks instance resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -55,6 +57,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Block devices
  * 
  * Each of the `*_block_device` attributes controls a portion of the AWS
@@ -104,7 +108,7 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import Opsworks Instances using the instance `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:opsworks/instance:Instance my_instance 4d6d1710-ded9-42a1-b08e-b043ad7af1e2
+ * $ pulumi import aws:opsworks/instance:Instance my_instance 4d6d1710-ded9-42a1-b08e-b043ad7af1e2
  * ```
  * 
  */

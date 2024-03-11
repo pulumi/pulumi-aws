@@ -18,6 +18,8 @@ public final class S3controlFunctions {
      * Provides details on a specific S3 Multi-Region Access Point.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -46,6 +48,7 @@ public final class S3controlFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetMultiRegionAccessPointResult> getMultiRegionAccessPoint(GetMultiRegionAccessPointArgs args) {
@@ -55,6 +58,8 @@ public final class S3controlFunctions {
      * Provides details on a specific S3 Multi-Region Access Point.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -83,6 +88,7 @@ public final class S3controlFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetMultiRegionAccessPointResult> getMultiRegionAccessPointPlain(GetMultiRegionAccessPointPlainArgs args) {
@@ -92,6 +98,8 @@ public final class S3controlFunctions {
      * Provides details on a specific S3 Multi-Region Access Point.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -120,6 +128,7 @@ public final class S3controlFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetMultiRegionAccessPointResult> getMultiRegionAccessPoint(GetMultiRegionAccessPointArgs args, InvokeOptions options) {
@@ -129,6 +138,8 @@ public final class S3controlFunctions {
      * Provides details on a specific S3 Multi-Region Access Point.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -157,6 +168,7 @@ public final class S3controlFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetMultiRegionAccessPointResult> getMultiRegionAccessPointPlain(GetMultiRegionAccessPointPlainArgs args, InvokeOptions options) {

@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS Chime SDK Voice Profile Domain.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -55,15 +57,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import AWS Chime SDK Voice Profile Domain using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain example abcdef123456
-//
+// $ pulumi import aws:chime/sdkvoiceVoiceProfileDomain:SdkvoiceVoiceProfileDomain example abcdef123456
 // ```
 type SdkvoiceVoiceProfileDomain struct {
 	pulumi.CustomResourceState

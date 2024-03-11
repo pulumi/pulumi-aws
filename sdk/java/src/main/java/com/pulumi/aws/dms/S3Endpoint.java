@@ -25,9 +25,12 @@ import javax.annotation.Nullable;
  * &gt; **Note:** Some of this resource&#39;s arguments have default values that come from the AWS Provider. Other default values are provided by AWS and subject to change without notice. When relying on AWS defaults, the provider state will often have a zero value. For example, the AWS Provider does not provide a default for `cdc_max_batch_interval` but the AWS default is `60` (seconds). However, the provider state will show `0` since this is the value return by AWS when no value is present. Below, we aim to flag the defaults that come from AWS (_e.g._, &#34;AWS default...&#34;).
  * 
  * ## Example Usage
+ * 
  * ### Minimal Configuration
  * 
  * This is the minimal configuration for an `aws.dms.S3Endpoint`. This endpoint will rely on the AWS Provider and AWS defaults.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -59,7 +62,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Complete Configuration
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -136,13 +143,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import endpoints using the `endpoint_id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:dms/s3Endpoint:S3Endpoint example example-dms-endpoint-tf
+ * $ pulumi import aws:dms/s3Endpoint:S3Endpoint example example-dms-endpoint-tf
  * ```
  * 
  */

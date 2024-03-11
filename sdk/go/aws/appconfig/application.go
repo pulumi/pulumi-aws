@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,15 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import AppConfig Applications using their application ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:appconfig/application:Application example 71rxuzt
-//
+// $ pulumi import aws:appconfig/application:Application example 71rxuzt
 // ```
 type Application struct {
 	pulumi.CustomResourceState

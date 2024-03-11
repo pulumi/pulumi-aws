@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -46,15 +47,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import KMS aliases using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:kms/alias:Alias a alias/my-key-alias
-//
+// $ pulumi import aws:kms/alias:Alias a alias/my-key-alias
 // ```
 type Alias struct {
 	pulumi.CustomResourceState

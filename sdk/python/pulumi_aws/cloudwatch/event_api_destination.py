@@ -251,6 +251,7 @@ class EventApiDestination(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -263,13 +264,14 @@ class EventApiDestination(pulumi.CustomResource):
             invocation_rate_limit_per_second=20,
             connection_arn=test_aws_cloudwatch_event_connection["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EventBridge API Destinations using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/eventApiDestination:EventApiDestination test api-destination
+        $ pulumi import aws:cloudwatch/eventApiDestination:EventApiDestination test api-destination
         ```
 
         :param str resource_name: The name of the resource.
@@ -294,6 +296,7 @@ class EventApiDestination(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -306,13 +309,14 @@ class EventApiDestination(pulumi.CustomResource):
             invocation_rate_limit_per_second=20,
             connection_arn=test_aws_cloudwatch_event_connection["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EventBridge API Destinations using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/eventApiDestination:EventApiDestination test api-destination
+        $ pulumi import aws:cloudwatch/eventApiDestination:EventApiDestination test api-destination
         ```
 
         :param str resource_name: The name of the resource.

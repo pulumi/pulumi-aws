@@ -427,6 +427,7 @@ class NetworkAclRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -442,6 +443,7 @@ class NetworkAclRule(pulumi.CustomResource):
             from_port=22,
             to_port=22)
         ```
+        <!--End PulumiCodeChooser -->
 
         > **Note:** One of either `cidr_block` or `ipv6_cidr_block` is required.
 
@@ -454,12 +456,12 @@ class NetworkAclRule(pulumi.CustomResource):
         Using the procotol's string value:
 
         ```sh
-         $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:tcp:false
+        $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:tcp:false
         ```
-         Using the procotol's decimal value:
+        Using the procotol's decimal value:
 
         ```sh
-         $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:6:false
+        $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:6:false
         ```
 
         :param str resource_name: The name of the resource.
@@ -499,6 +501,7 @@ class NetworkAclRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -514,6 +517,7 @@ class NetworkAclRule(pulumi.CustomResource):
             from_port=22,
             to_port=22)
         ```
+        <!--End PulumiCodeChooser -->
 
         > **Note:** One of either `cidr_block` or `ipv6_cidr_block` is required.
 
@@ -526,12 +530,12 @@ class NetworkAclRule(pulumi.CustomResource):
         Using the procotol's string value:
 
         ```sh
-         $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:tcp:false
+        $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:tcp:false
         ```
-         Using the procotol's decimal value:
+        Using the procotol's decimal value:
 
         ```sh
-         $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:6:false
+        $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:6:false
         ```
 
         :param str resource_name: The name of the resource.

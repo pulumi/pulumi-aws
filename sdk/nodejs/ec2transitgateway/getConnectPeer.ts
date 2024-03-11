@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Get information on an EC2 Transit Gateway Connect Peer.
  *
  * ## Example Usage
+ *
  * ### By Filter
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,8 +26,11 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### By Identifier
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -34,6 +39,7 @@ import * as utilities from "../utilities";
  *     transitGatewayConnectPeerId: "tgw-connect-peer-12345678",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getConnectPeer(args?: GetConnectPeerArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectPeerResult> {
     args = args || {};
@@ -115,8 +121,10 @@ export interface GetConnectPeerResult {
  * Get information on an EC2 Transit Gateway Connect Peer.
  *
  * ## Example Usage
+ *
  * ### By Filter
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -128,8 +136,11 @@ export interface GetConnectPeerResult {
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### By Identifier
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -138,6 +149,7 @@ export interface GetConnectPeerResult {
  *     transitGatewayConnectPeerId: "tgw-connect-peer-12345678",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getConnectPeerOutput(args?: GetConnectPeerOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectPeerResult> {
     return pulumi.output(args).apply((a: any) => getConnectPeer(a, opts))

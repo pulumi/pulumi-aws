@@ -19,8 +19,10 @@ import * as utilities from "../utilities";
  * Doing so will cause a conflict of associations and will overwrite the association.
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -30,8 +32,11 @@ import * as utilities from "../utilities";
  *     serviceName: "com.amazonaws.us-west-2.s3",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Basic w/ Tags
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -44,8 +49,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Interface Endpoint Type
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -58,8 +66,11 @@ import * as utilities from "../utilities";
  *     privateDnsEnabled: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Gateway Load Balancer Endpoint Type
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -77,13 +88,14 @@ import * as utilities from "../utilities";
  *     vpcId: exampleAwsVpc.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import VPC Endpoints using the VPC endpoint `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/vpcEndpoint:VpcEndpoint endpoint1 vpce-3ecf2a57
+ * $ pulumi import aws:ec2/vpcEndpoint:VpcEndpoint endpoint1 vpce-3ecf2a57
  * ```
  */
 export class VpcEndpoint extends pulumi.CustomResource {

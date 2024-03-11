@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -25,6 +26,7 @@ import * as utilities from "../utilities";
  * });
  * export const vpnGatewayId = selected.then(selected => selected.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVpnGateway(args?: GetVpnGatewayArgs, opts?: pulumi.InvokeOptions): Promise<GetVpnGatewayResult> {
     args = args || {};
@@ -98,6 +100,7 @@ export interface GetVpnGatewayResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -110,6 +113,7 @@ export interface GetVpnGatewayResult {
  * });
  * export const vpnGatewayId = selected.then(selected => selected.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVpnGatewayOutput(args?: GetVpnGatewayOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVpnGatewayResult> {
     return pulumi.output(args).apply((a: any) => getVpnGateway(a, opts))

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -286,13 +287,14 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CodeBuild Project using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:codebuild/project:Project name project-name
+    /// $ pulumi import aws:codebuild/project:Project name project-name
     /// ```
     /// </summary>
     [AwsResourceType("aws:codebuild/project:Project")]

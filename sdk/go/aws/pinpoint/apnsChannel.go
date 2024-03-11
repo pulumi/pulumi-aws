@@ -17,6 +17,7 @@ import (
 // > **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -59,15 +60,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Pinpoint APNs Channel using the `application-id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:pinpoint/apnsChannel:ApnsChannel apns application-id
-//
+// $ pulumi import aws:pinpoint/apnsChannel:ApnsChannel apns application-id
 // ```
 type ApnsChannel struct {
 	pulumi.CustomResourceState

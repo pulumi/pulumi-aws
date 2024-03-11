@@ -152,6 +152,7 @@ def get_intent(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -159,6 +160,7 @@ def get_intent(name: Optional[str] = None,
     order_flowers = aws.lex.get_intent(name="OrderFlowers",
         version="$LATEST")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the intent. The name is case sensitive.
@@ -191,6 +193,7 @@ def get_intent_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -198,6 +201,7 @@ def get_intent_output(name: Optional[pulumi.Input[str]] = None,
     order_flowers = aws.lex.get_intent(name="OrderFlowers",
         version="$LATEST")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the intent. The name is case sensitive.

@@ -323,8 +323,10 @@ class ServerlessCollection(pulumi.CustomResource):
         > **NOTE:** An `opensearch.ServerlessCollection` is not accessible without configuring an applicable network security policy. Data cannot be accessed without configuring an applicable data access policy.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -342,13 +344,14 @@ class ServerlessCollection(pulumi.CustomResource):
             }))
         example_serverless_collection = aws.opensearch.ServerlessCollection("example", name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import OpenSearchServerless Collection using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:opensearch/serverlessCollection:ServerlessCollection example example
+        $ pulumi import aws:opensearch/serverlessCollection:ServerlessCollection example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -375,8 +378,10 @@ class ServerlessCollection(pulumi.CustomResource):
         > **NOTE:** An `opensearch.ServerlessCollection` is not accessible without configuring an applicable network security policy. Data cannot be accessed without configuring an applicable data access policy.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -394,13 +399,14 @@ class ServerlessCollection(pulumi.CustomResource):
             }))
         example_serverless_collection = aws.opensearch.ServerlessCollection("example", name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import OpenSearchServerless Collection using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:opensearch/serverlessCollection:ServerlessCollection example example
+        $ pulumi import aws:opensearch/serverlessCollection:ServerlessCollection example example
         ```
 
         :param str resource_name: The name of the resource.

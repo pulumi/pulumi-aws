@@ -1022,8 +1022,10 @@ class BucketObjectv2(pulumi.CustomResource):
         Provides an S3 object resource.
 
         ## Example Usage
+
         ### Uploading a file to a bucket
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1035,8 +1037,11 @@ class BucketObjectv2(pulumi.CustomResource):
             source=pulumi.FileAsset("path/to/file"),
             etag=std.filemd5(input="path/to/file").result)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Encrypting with KMS Key
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1054,8 +1059,11 @@ class BucketObjectv2(pulumi.CustomResource):
             source=pulumi.FileAsset("index.html"),
             kms_key_id=examplekms.arn)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Server Side Encryption with S3 Default Master Key
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1070,8 +1078,11 @@ class BucketObjectv2(pulumi.CustomResource):
             source=pulumi.FileAsset("index.html"),
             server_side_encryption="aws:kms")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Server Side Encryption with AWS-Managed Key
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1086,8 +1097,11 @@ class BucketObjectv2(pulumi.CustomResource):
             source=pulumi.FileAsset("index.html"),
             server_side_encryption="AES256")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### S3 Object Lock
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1112,6 +1126,8 @@ class BucketObjectv2(pulumi.CustomResource):
             object_lock_retain_until_date="2021-12-31T23:59:60Z",
             force_destroy=True)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Ignoring Provider `default_tags`
 
         S3 objects support a [maximum of 10 tags](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html).
@@ -1119,6 +1135,7 @@ class BucketObjectv2(pulumi.CustomResource):
 
         > S3 objects stored in Amazon S3 Express directory buckets do not support tags, so any provider-level `default_tags` must be suppressed.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1137,6 +1154,7 @@ class BucketObjectv2(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1147,12 +1165,12 @@ class BucketObjectv2(pulumi.CustomResource):
         Import using the `id`, which is the bucket name and the key together:
 
         ```sh
-         $ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 example some-bucket-name/some/key.txt
+        $ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 example some-bucket-name/some/key.txt
         ```
-         Import using S3 URL syntax:
+        Import using S3 URL syntax:
 
         ```sh
-         $ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 example s3://some-bucket-name/some/key.txt
+        $ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 example s3://some-bucket-name/some/key.txt
         ```
 
         :param str resource_name: The name of the resource.
@@ -1200,8 +1218,10 @@ class BucketObjectv2(pulumi.CustomResource):
         Provides an S3 object resource.
 
         ## Example Usage
+
         ### Uploading a file to a bucket
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1213,8 +1233,11 @@ class BucketObjectv2(pulumi.CustomResource):
             source=pulumi.FileAsset("path/to/file"),
             etag=std.filemd5(input="path/to/file").result)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Encrypting with KMS Key
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1232,8 +1255,11 @@ class BucketObjectv2(pulumi.CustomResource):
             source=pulumi.FileAsset("index.html"),
             kms_key_id=examplekms.arn)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Server Side Encryption with S3 Default Master Key
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1248,8 +1274,11 @@ class BucketObjectv2(pulumi.CustomResource):
             source=pulumi.FileAsset("index.html"),
             server_side_encryption="aws:kms")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Server Side Encryption with AWS-Managed Key
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1264,8 +1293,11 @@ class BucketObjectv2(pulumi.CustomResource):
             source=pulumi.FileAsset("index.html"),
             server_side_encryption="AES256")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### S3 Object Lock
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1290,6 +1322,8 @@ class BucketObjectv2(pulumi.CustomResource):
             object_lock_retain_until_date="2021-12-31T23:59:60Z",
             force_destroy=True)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Ignoring Provider `default_tags`
 
         S3 objects support a [maximum of 10 tags](https://docs.aws.amazon.com/AmazonS3/latest/userguide/object-tagging.html).
@@ -1297,6 +1331,7 @@ class BucketObjectv2(pulumi.CustomResource):
 
         > S3 objects stored in Amazon S3 Express directory buckets do not support tags, so any provider-level `default_tags` must be suppressed.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1315,6 +1350,7 @@ class BucketObjectv2(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -1325,12 +1361,12 @@ class BucketObjectv2(pulumi.CustomResource):
         Import using the `id`, which is the bucket name and the key together:
 
         ```sh
-         $ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 example some-bucket-name/some/key.txt
+        $ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 example some-bucket-name/some/key.txt
         ```
-         Import using S3 URL syntax:
+        Import using S3 URL syntax:
 
         ```sh
-         $ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 example s3://some-bucket-name/some/key.txt
+        $ pulumi import aws:s3/bucketObjectv2:BucketObjectv2 example s3://some-bucket-name/some/key.txt
         ```
 
         :param str resource_name: The name of the resource.

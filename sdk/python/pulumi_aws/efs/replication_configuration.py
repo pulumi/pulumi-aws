@@ -176,6 +176,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
 
         Will create a replica using regional storage in us-west-2 that will be encrypted by the default EFS KMS key `/aws/elasticfilesystem`.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -187,9 +188,11 @@ class ReplicationConfiguration(pulumi.CustomResource):
                 region="us-west-2",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         Replica will be created as One Zone storage in the us-west-2b Availability Zone and encrypted with the specified KMS key.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -202,9 +205,11 @@ class ReplicationConfiguration(pulumi.CustomResource):
                 kms_key_id="1234abcd-12ab-34cd-56ef-1234567890ab",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         Will create a replica and set the existing file system with id `fs-1234567890` in us-west-2 as destination.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -217,13 +222,14 @@ class ReplicationConfiguration(pulumi.CustomResource):
                 region="us-west-2",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EFS Replication Configurations using the file system ID of either the source or destination file system. When importing, the `availability_zone_name` and `kms_key_id` attributes must __not__ be set in the configuration. The AWS API does not return these values when querying the replication configuration and their presence will therefore show as a diff in a subsequent plan. For example:
 
         ```sh
-         $ pulumi import aws:efs/replicationConfiguration:ReplicationConfiguration example fs-id
+        $ pulumi import aws:efs/replicationConfiguration:ReplicationConfiguration example fs-id
         ```
 
         :param str resource_name: The name of the resource.
@@ -246,6 +252,7 @@ class ReplicationConfiguration(pulumi.CustomResource):
 
         Will create a replica using regional storage in us-west-2 that will be encrypted by the default EFS KMS key `/aws/elasticfilesystem`.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -257,9 +264,11 @@ class ReplicationConfiguration(pulumi.CustomResource):
                 region="us-west-2",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         Replica will be created as One Zone storage in the us-west-2b Availability Zone and encrypted with the specified KMS key.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -272,9 +281,11 @@ class ReplicationConfiguration(pulumi.CustomResource):
                 kms_key_id="1234abcd-12ab-34cd-56ef-1234567890ab",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         Will create a replica and set the existing file system with id `fs-1234567890` in us-west-2 as destination.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -287,13 +298,14 @@ class ReplicationConfiguration(pulumi.CustomResource):
                 region="us-west-2",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EFS Replication Configurations using the file system ID of either the source or destination file system. When importing, the `availability_zone_name` and `kms_key_id` attributes must __not__ be set in the configuration. The AWS API does not return these values when querying the replication configuration and their presence will therefore show as a diff in a subsequent plan. For example:
 
         ```sh
-         $ pulumi import aws:efs/replicationConfiguration:ReplicationConfiguration example fs-id
+        $ pulumi import aws:efs/replicationConfiguration:ReplicationConfiguration example fs-id
         ```
 
         :param str resource_name: The name of the resource.

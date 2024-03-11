@@ -327,6 +327,7 @@ class RadiusSettings(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -341,13 +342,14 @@ class RadiusSettings(pulumi.CustomResource):
             radius_timeout=1,
             shared_secret="12345678")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import RADIUS settings using the directory ID. For example:
 
         ```sh
-         $ pulumi import aws:directoryservice/radiusSettings:RadiusSettings example d-926724cf57
+        $ pulumi import aws:directoryservice/radiusSettings:RadiusSettings example d-926724cf57
         ```
 
         :param str resource_name: The name of the resource.
@@ -373,6 +375,7 @@ class RadiusSettings(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -387,13 +390,14 @@ class RadiusSettings(pulumi.CustomResource):
             radius_timeout=1,
             shared_secret="12345678")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import RADIUS settings using the directory ID. For example:
 
         ```sh
-         $ pulumi import aws:directoryservice/radiusSettings:RadiusSettings example d-926724cf57
+        $ pulumi import aws:directoryservice/radiusSettings:RadiusSettings example d-926724cf57
         ```
 
         :param str resource_name: The name of the resource.

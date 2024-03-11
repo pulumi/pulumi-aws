@@ -347,6 +347,7 @@ class EventSubscription(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -373,13 +374,14 @@ class EventSubscription(pulumi.CustomResource):
             source_ids=[example.id],
             sns_topic_arn=example_topic.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DocumentDB Event Subscriptions using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:docdb/eventSubscription:EventSubscription example event-sub
+        $ pulumi import aws:docdb/eventSubscription:EventSubscription example event-sub
         ```
 
         :param str resource_name: The name of the resource.
@@ -403,6 +405,7 @@ class EventSubscription(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -429,13 +432,14 @@ class EventSubscription(pulumi.CustomResource):
             source_ids=[example.id],
             sns_topic_arn=example_topic.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DocumentDB Event Subscriptions using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:docdb/eventSubscription:EventSubscription example event-sub
+        $ pulumi import aws:docdb/eventSubscription:EventSubscription example event-sub
         ```
 
         :param str resource_name: The name of the resource.

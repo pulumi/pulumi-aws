@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Currently, this is only required in order to allow the ACM service to automatically renew certificates issued by a PCA.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -66,6 +68,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:acmpca/permission:Permission")

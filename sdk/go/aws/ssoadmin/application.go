@@ -19,92 +19,13 @@ import (
 // See this issue for additional context.
 //
 // ## Example Usage
-// ### Basic Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssoadmin"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func notImplemented(message string) pulumi.AnyOutput {
-//		panic(message)
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssoadmin.GetInstances(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ssoadmin.NewApplication(ctx, "example", &ssoadmin.ApplicationArgs{
-//				Name:                   pulumi.String("example"),
-//				ApplicationProviderArn: pulumi.String("arn:aws:sso::aws:applicationProvider/custom"),
-//				InstanceArn:            notImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-// ### With Portal Options
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ssoadmin"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func notImplemented(message string) pulumi.AnyOutput {
-//		panic(message)
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := ssoadmin.GetInstances(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_, err = ssoadmin.NewApplication(ctx, "example", &ssoadmin.ApplicationArgs{
-//				Name:                   pulumi.String("example"),
-//				ApplicationProviderArn: pulumi.String("arn:aws:sso::aws:applicationProvider/custom"),
-//				InstanceArn:            notImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
-//				PortalOptions: &ssoadmin.ApplicationPortalOptionsArgs{
-//					Visibility: pulumi.String("ENABLED"),
-//					SignInOptions: &ssoadmin.ApplicationPortalOptionsSignInOptionsArgs{
-//						ApplicationUrl: pulumi.String("http://example.com"),
-//						Origin:         pulumi.String("APPLICATION"),
-//					},
-//				},
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 //
 // ## Import
 //
 // Using `pulumi import`, import SSO Admin Application using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ssoadmin/application:Application example arn:aws:sso::012345678901:application/id-12345678
-//
+// $ pulumi import aws:ssoadmin/application:Application example arn:aws:sso::012345678901:application/id-12345678
 // ```
 type Application struct {
 	pulumi.CustomResourceState

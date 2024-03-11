@@ -71,12 +71,14 @@ def get_directory_buckets(opts: Optional[pulumi.InvokeOptions] = None) -> Awaita
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.s3.get_directory_buckets()
     ```
+    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -95,11 +97,13 @@ def get_directory_buckets_output(opts: Optional[pulumi.InvokeOptions] = None) ->
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.s3.get_directory_buckets()
     ```
+    <!--End PulumiCodeChooser -->
     """
     ...

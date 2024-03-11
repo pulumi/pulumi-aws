@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Provides an IP access control group in AWS WorkSpaces Service
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -64,13 +66,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import WorkSpaces IP groups using their GroupID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:workspaces/ipGroup:IpGroup example wsipg-488lrtl3k
+ * $ pulumi import aws:workspaces/ipGroup:IpGroup example wsipg-488lrtl3k
  * ```
  * 
  */

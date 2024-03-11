@@ -281,37 +281,13 @@ class TrustedTokenIssuer(pulumi.CustomResource):
         Resource for managing an AWS SSO Admin Trusted Token Issuer.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.ssoadmin.get_instances()
-        example_trusted_token_issuer = aws.ssoadmin.TrustedTokenIssuer("example",
-            name="example",
-            instance_arn=not_implemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
-            trusted_token_issuer_type="OIDC_JWT",
-            trusted_token_issuer_configuration=aws.ssoadmin.TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs(
-                oidc_jwt_configuration=aws.ssoadmin.TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs(
-                    claim_attribute_path="email",
-                    identity_store_attribute_path="emails.value",
-                    issuer_url="https://example.com",
-                    jwks_retrieval_option="OPEN_ID_DISCOVERY",
-                ),
-            ))
-        ```
 
         ## Import
 
         Using `pulumi import`, import SSO Admin Trusted Token Issuer using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ssoadmin/trustedTokenIssuer:TrustedTokenIssuer example arn:aws:sso::012345678901:trustedTokenIssuer/ssoins-lu1ye3gew4mbc7ju/tti-2657c556-9707-11ee-b9d1-0242ac120002
+        $ pulumi import aws:ssoadmin/trustedTokenIssuer:TrustedTokenIssuer example arn:aws:sso::012345678901:trustedTokenIssuer/ssoins-lu1ye3gew4mbc7ju/tti-2657c556-9707-11ee-b9d1-0242ac120002
         ```
 
         :param str resource_name: The name of the resource.
@@ -335,37 +311,13 @@ class TrustedTokenIssuer(pulumi.CustomResource):
         Resource for managing an AWS SSO Admin Trusted Token Issuer.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.ssoadmin.get_instances()
-        example_trusted_token_issuer = aws.ssoadmin.TrustedTokenIssuer("example",
-            name="example",
-            instance_arn=not_implemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
-            trusted_token_issuer_type="OIDC_JWT",
-            trusted_token_issuer_configuration=aws.ssoadmin.TrustedTokenIssuerTrustedTokenIssuerConfigurationArgs(
-                oidc_jwt_configuration=aws.ssoadmin.TrustedTokenIssuerTrustedTokenIssuerConfigurationOidcJwtConfigurationArgs(
-                    claim_attribute_path="email",
-                    identity_store_attribute_path="emails.value",
-                    issuer_url="https://example.com",
-                    jwks_retrieval_option="OPEN_ID_DISCOVERY",
-                ),
-            ))
-        ```
 
         ## Import
 
         Using `pulumi import`, import SSO Admin Trusted Token Issuer using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ssoadmin/trustedTokenIssuer:TrustedTokenIssuer example arn:aws:sso::012345678901:trustedTokenIssuer/ssoins-lu1ye3gew4mbc7ju/tti-2657c556-9707-11ee-b9d1-0242ac120002
+        $ pulumi import aws:ssoadmin/trustedTokenIssuer:TrustedTokenIssuer example arn:aws:sso::012345678901:trustedTokenIssuer/ssoins-lu1ye3gew4mbc7ju/tti-2657c556-9707-11ee-b9d1-0242ac120002
         ```
 
         :param str resource_name: The name of the resource.

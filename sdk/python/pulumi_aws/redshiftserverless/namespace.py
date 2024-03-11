@@ -474,19 +474,21 @@ class Namespace(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.redshiftserverless.Namespace("example", namespace_name="concurrency-scaling")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Serverless Namespaces using the `namespace_name`. For example:
 
         ```sh
-         $ pulumi import aws:redshiftserverless/namespace:Namespace example example
+        $ pulumi import aws:redshiftserverless/namespace:Namespace example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -516,19 +518,21 @@ class Namespace(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.redshiftserverless.Namespace("example", namespace_name="concurrency-scaling")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Serverless Namespaces using the `namespace_name`. For example:
 
         ```sh
-         $ pulumi import aws:redshiftserverless/namespace:Namespace example example
+        $ pulumi import aws:redshiftserverless/namespace:Namespace example example
         ```
 
         :param str resource_name: The name of the resource.

@@ -86,6 +86,7 @@ class InvitationAccepter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -99,13 +100,14 @@ class InvitationAccepter(pulumi.CustomResource):
             invitation_message="Message of the invite")
         member_invitation_accepter = aws.macie2.InvitationAccepter("member", administrator_account_id="ADMINISTRATOR ACCOUNT ID")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_macie2_invitation_accepter` using the admin account ID. For example:
 
         ```sh
-         $ pulumi import aws:macie2/invitationAccepter:InvitationAccepter example 123456789012
+        $ pulumi import aws:macie2/invitationAccepter:InvitationAccepter example 123456789012
         ```
 
         :param str resource_name: The name of the resource.
@@ -123,6 +125,7 @@ class InvitationAccepter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -136,13 +139,14 @@ class InvitationAccepter(pulumi.CustomResource):
             invitation_message="Message of the invite")
         member_invitation_accepter = aws.macie2.InvitationAccepter("member", administrator_account_id="ADMINISTRATOR ACCOUNT ID")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_macie2_invitation_accepter` using the admin account ID. For example:
 
         ```sh
-         $ pulumi import aws:macie2/invitationAccepter:InvitationAccepter example 123456789012
+        $ pulumi import aws:macie2/invitationAccepter:InvitationAccepter example 123456789012
         ```
 
         :param str resource_name: The name of the resource.

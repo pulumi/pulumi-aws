@@ -14,8 +14,10 @@ import (
 // Retrieve information on FSx ONTAP File System.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupOntapFileSystem(ctx *pulumi.Context, args *LookupOntapFileSystemArgs, opts ...pulumi.InvokeOption) (*LookupOntapFileSystemResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupOntapFileSystemResult

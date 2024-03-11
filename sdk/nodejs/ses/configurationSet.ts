@@ -11,16 +11,21 @@ import * as utilities from "../utilities";
  * Provides an SES configuration set resource.
  *
  * ## Example Usage
+ *
  * ### Basic Example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.ses.ConfigurationSet("test", {name: "some-configuration-set-test"});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Require TLS Connections
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -32,8 +37,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Tracking Options
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -45,13 +53,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SES Configuration Sets using their `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ses/configurationSet:ConfigurationSet test some-configuration-set-test
+ * $ pulumi import aws:ses/configurationSet:ConfigurationSet test some-configuration-set-test
  * ```
  */
 export class ConfigurationSet extends pulumi.CustomResource {

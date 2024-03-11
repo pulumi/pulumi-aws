@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -17,6 +18,7 @@ import * as utilities from "../utilities";
  *     name: "my-acl",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAcl(args: GetAclArgs, opts?: pulumi.InvokeOptions): Promise<GetAclResult> {
 
@@ -72,6 +74,7 @@ export interface GetAclResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -80,6 +83,7 @@ export interface GetAclResult {
  *     name: "my-acl",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAclOutput(args: GetAclOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAclResult> {
     return pulumi.output(args).apply((a: any) => getAcl(a, opts))

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,15 +50,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SageMaker Human Task UIs using the `human_task_ui_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sagemaker/humanTaskUI:HumanTaskUI example example
-//
+// $ pulumi import aws:sagemaker/humanTaskUI:HumanTaskUI example example
 // ```
 type HumanTaskUI struct {
 	pulumi.CustomResourceState

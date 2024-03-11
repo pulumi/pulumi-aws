@@ -168,6 +168,7 @@ class BaiduChannel(pulumi.CustomResource):
         > **Note:** All arguments including the Api Key and Secret Key will be stored in the raw state as plain-text.
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -178,13 +179,14 @@ class BaiduChannel(pulumi.CustomResource):
             api_key="",
             secret_key="")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Pinpoint Baidu Channel using the `application-id`. For example:
 
         ```sh
-         $ pulumi import aws:pinpoint/baiduChannel:BaiduChannel channel application-id
+        $ pulumi import aws:pinpoint/baiduChannel:BaiduChannel channel application-id
         ```
 
         :param str resource_name: The name of the resource.
@@ -206,6 +208,7 @@ class BaiduChannel(pulumi.CustomResource):
         > **Note:** All arguments including the Api Key and Secret Key will be stored in the raw state as plain-text.
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -216,13 +219,14 @@ class BaiduChannel(pulumi.CustomResource):
             api_key="",
             secret_key="")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Pinpoint Baidu Channel using the `application-id`. For example:
 
         ```sh
-         $ pulumi import aws:pinpoint/baiduChannel:BaiduChannel channel application-id
+        $ pulumi import aws:pinpoint/baiduChannel:BaiduChannel channel application-id
         ```
 
         :param str resource_name: The name of the resource.

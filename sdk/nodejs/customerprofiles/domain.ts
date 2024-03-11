@@ -13,14 +13,18 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.customerprofiles.Domain("example", {domainName: "example"});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With SQS DLQ and KMS set
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -77,13 +81,14 @@ import * as utilities from "../utilities";
  *     defaultExpirationDays: 365,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Amazon Customer Profiles Domain using the resource `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:customerprofiles/domain:Domain example e6f777be-22d0-4b40-b307-5d2720ef16b2
+ * $ pulumi import aws:customerprofiles/domain:Domain example e6f777be-22d0-4b40-b307-5d2720ef16b2
  * ```
  */
 export class Domain extends pulumi.CustomResource {

@@ -200,6 +200,7 @@ def get_mount_target(access_point_id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -210,6 +211,7 @@ def get_mount_target(access_point_id: Optional[str] = None,
         mount_target_id = ""
     by_id = aws.efs.get_mount_target(mount_target_id=mount_target_id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str access_point_id: ID or ARN of the access point whose mount target that you want to find. It must be included if a `file_system_id` and `mount_target_id` are not included.
@@ -250,6 +252,7 @@ def get_mount_target_output(access_point_id: Optional[pulumi.Input[Optional[str]
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -260,6 +263,7 @@ def get_mount_target_output(access_point_id: Optional[pulumi.Input[Optional[str]
         mount_target_id = ""
     by_id = aws.efs.get_mount_target(mount_target_id=mount_target_id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str access_point_id: ID or ARN of the access point whose mount target that you want to find. It must be included if a `file_system_id` and `mount_target_id` are not included.

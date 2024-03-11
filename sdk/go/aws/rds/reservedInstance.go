@@ -20,6 +20,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -55,15 +56,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import RDS DB Instance Reservations using the `instance_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:rds/reservedInstance:ReservedInstance reservation_instance CustomReservationID
-//
+// $ pulumi import aws:rds/reservedInstance:ReservedInstance reservation_instance CustomReservationID
 // ```
 type ReservedInstance struct {
 	pulumi.CustomResourceState

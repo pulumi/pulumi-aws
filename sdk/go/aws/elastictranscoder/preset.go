@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -93,15 +94,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Elastic Transcoder presets using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:elastictranscoder/preset:Preset basic_preset 1407981661351-cttk8b
-//
+// $ pulumi import aws:elastictranscoder/preset:Preset basic_preset 1407981661351-cttk8b
 // ```
 type Preset struct {
 	pulumi.CustomResourceState

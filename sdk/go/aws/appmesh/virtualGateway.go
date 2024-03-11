@@ -15,8 +15,10 @@ import (
 // Provides an AWS App Mesh virtual gateway resource.
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -54,8 +56,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Access Logs and TLS
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -105,15 +110,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import App Mesh virtual gateway using `mesh_name` together with the virtual gateway's `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:appmesh/virtualGateway:VirtualGateway example mesh/gw1
-//
+// $ pulumi import aws:appmesh/virtualGateway:VirtualGateway example mesh/gw1
 // ```
 type VirtualGateway struct {
 	pulumi.CustomResourceState

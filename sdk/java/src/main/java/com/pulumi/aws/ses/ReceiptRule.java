@@ -27,6 +27,8 @@ import javax.annotation.Nullable;
  * Provides an SES receipt rule resource
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -70,13 +72,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import SES receipt rules using the ruleset name and rule name separated by `:`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ses/receiptRule:ReceiptRule my_rule my_rule_set:my_rule
+ * $ pulumi import aws:ses/receiptRule:ReceiptRule my_rule my_rule_set:my_rule
  * ```
  * 
  */

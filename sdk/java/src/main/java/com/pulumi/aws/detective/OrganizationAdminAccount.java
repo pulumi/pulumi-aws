@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Manages a Detective Organization Admin Account. The AWS account utilizing this resource must be an Organizations primary account. More information about Organizations support in Detective can be found in the [Detective User Guide](https://docs.aws.amazon.com/detective/latest/adminguide/accounts-orgs-transition.html).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -52,13 +54,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_detective_organization_admin_account` using `account_id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:detective/organizationAdminAccount:OrganizationAdminAccount example 123456789012
+ * $ pulumi import aws:detective/organizationAdminAccount:OrganizationAdminAccount example 123456789012
  * ```
  * 
  */

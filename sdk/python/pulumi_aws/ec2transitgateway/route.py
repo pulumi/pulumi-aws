@@ -167,8 +167,10 @@ class Route(pulumi.CustomResource):
         Manages an EC2 Transit Gateway Route.
 
         ## Example Usage
+
         ### Standard usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -178,8 +180,11 @@ class Route(pulumi.CustomResource):
             transit_gateway_attachment_id=example_aws_ec2_transit_gateway_vpc_attachment["id"],
             transit_gateway_route_table_id=example_aws_ec2_transit_gateway["associationDefaultRouteTableId"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Blackhole route
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -189,13 +194,14 @@ class Route(pulumi.CustomResource):
             blackhole=True,
             transit_gateway_route_table_id=example_aws_ec2_transit_gateway["associationDefaultRouteTableId"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ec2_transit_gateway_route` using the EC2 Transit Gateway Route Table, an underscore, and the destination. For example:
 
         ```sh
-         $ pulumi import aws:ec2transitgateway/route:Route example tgw-rtb-12345678_0.0.0.0/0
+        $ pulumi import aws:ec2transitgateway/route:Route example tgw-rtb-12345678_0.0.0.0/0
         ```
 
         :param str resource_name: The name of the resource.
@@ -215,8 +221,10 @@ class Route(pulumi.CustomResource):
         Manages an EC2 Transit Gateway Route.
 
         ## Example Usage
+
         ### Standard usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -226,8 +234,11 @@ class Route(pulumi.CustomResource):
             transit_gateway_attachment_id=example_aws_ec2_transit_gateway_vpc_attachment["id"],
             transit_gateway_route_table_id=example_aws_ec2_transit_gateway["associationDefaultRouteTableId"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Blackhole route
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -237,13 +248,14 @@ class Route(pulumi.CustomResource):
             blackhole=True,
             transit_gateway_route_table_id=example_aws_ec2_transit_gateway["associationDefaultRouteTableId"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ec2_transit_gateway_route` using the EC2 Transit Gateway Route Table, an underscore, and the destination. For example:
 
         ```sh
-         $ pulumi import aws:ec2transitgateway/route:Route example tgw-rtb-12345678_0.0.0.0/0
+        $ pulumi import aws:ec2transitgateway/route:Route example tgw-rtb-12345678_0.0.0.0/0
         ```
 
         :param str resource_name: The name of the resource.

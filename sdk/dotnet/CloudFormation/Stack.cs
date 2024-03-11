@@ -14,6 +14,7 @@ namespace Pulumi.Aws.CloudFormation
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -68,13 +69,14 @@ namespace Pulumi.Aws.CloudFormation
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Cloudformation Stacks using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cloudformation/stack:Stack stack networking-stack
+    /// $ pulumi import aws:cloudformation/stack:Stack stack networking-stack
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudformation/stack:Stack")]

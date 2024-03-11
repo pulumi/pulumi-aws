@@ -217,8 +217,10 @@ class ProfilingGroup(pulumi.CustomResource):
         Resource for managing an AWS CodeGuru Profiler Profiling Group.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -230,13 +232,14 @@ class ProfilingGroup(pulumi.CustomResource):
                 profiling_enabled=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CodeGuru Profiler Profiling Group using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:codeguruprofiler/profilingGroup:ProfilingGroup example profiling_group-name-12345678
+        $ pulumi import aws:codeguruprofiler/profilingGroup:ProfilingGroup example profiling_group-name-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -258,8 +261,10 @@ class ProfilingGroup(pulumi.CustomResource):
         Resource for managing an AWS CodeGuru Profiler Profiling Group.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -271,13 +276,14 @@ class ProfilingGroup(pulumi.CustomResource):
                 profiling_enabled=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CodeGuru Profiler Profiling Group using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:codeguruprofiler/profilingGroup:ProfilingGroup example profiling_group-name-12345678
+        $ pulumi import aws:codeguruprofiler/profilingGroup:ProfilingGroup example profiling_group-name-12345678
         ```
 
         :param str resource_name: The name of the resource.

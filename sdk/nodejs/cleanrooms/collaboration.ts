@@ -12,8 +12,10 @@ import * as utilities from "../utilities";
  * join the collaboration and can create memberships.
  *
  * ## Example Usage
+ *
  * ### Collaboration with tags
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -43,13 +45,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_cleanrooms_collaboration` using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:cleanrooms/collaboration:Collaboration collaboration 1234abcd-12ab-34cd-56ef-1234567890ab
+ * $ pulumi import aws:cleanrooms/collaboration:Collaboration collaboration 1234abcd-12ab-34cd-56ef-1234567890ab
  * ```
  */
 export class Collaboration extends pulumi.CustomResource {

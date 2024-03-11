@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * Create required roles and then create a DMS instance, setting the dependsOn to the required role policy attachments.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -74,13 +75,14 @@ import * as utilities from "../utilities";
  *     vpcSecurityGroupIds: ["sg-12345678"],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import replication instances using the `replication_instance_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:dms/replicationInstance:ReplicationInstance test test-dms-replication-instance-tf
+ * $ pulumi import aws:dms/replicationInstance:ReplicationInstance test test-dms-replication-instance-tf
  * ```
  */
 export class ReplicationInstance extends pulumi.CustomResource {

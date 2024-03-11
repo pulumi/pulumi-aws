@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,6 +42,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetReleaseLabels(ctx *pulumi.Context, args *GetReleaseLabelsArgs, opts ...pulumi.InvokeOption) (*GetReleaseLabelsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetReleaseLabelsResult

@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -34,13 +35,14 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SES receipt rules using the ruleset name and rule name separated by `:`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ses/receiptRule:ReceiptRule my_rule my_rule_set:my_rule
+ * $ pulumi import aws:ses/receiptRule:ReceiptRule my_rule my_rule_set:my_rule
  * ```
  */
 export class ReceiptRule extends pulumi.CustomResource {

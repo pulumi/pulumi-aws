@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Use this data source to generate a Glue script from a Directed Acyclic Graph (DAG).
  *
  * ## Example Usage
+ *
  * ### Generate Python Script
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -104,8 +106,11 @@ import * as utilities from "../utilities";
  * });
  * export const pythonScript = example.then(example => example.pythonScript);
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Generate Scala Code
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -197,6 +202,7 @@ import * as utilities from "../utilities";
  * });
  * export const scalaCode = example.then(example => example.scalaCode);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getScript(args: GetScriptArgs, opts?: pulumi.InvokeOptions): Promise<GetScriptResult> {
 
@@ -250,8 +256,10 @@ export interface GetScriptResult {
  * Use this data source to generate a Glue script from a Directed Acyclic Graph (DAG).
  *
  * ## Example Usage
+ *
  * ### Generate Python Script
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -343,8 +351,11 @@ export interface GetScriptResult {
  * });
  * export const pythonScript = example.then(example => example.pythonScript);
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Generate Scala Code
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -436,6 +447,7 @@ export interface GetScriptResult {
  * });
  * export const scalaCode = example.then(example => example.scalaCode);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getScriptOutput(args: GetScriptOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetScriptResult> {
     return pulumi.output(args).apply((a: any) => getScript(a, opts))

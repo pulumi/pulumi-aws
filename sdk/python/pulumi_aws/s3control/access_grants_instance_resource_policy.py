@@ -96,6 +96,7 @@ class AccessGrantsInstanceResourcePolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -120,13 +121,14 @@ class AccessGrantsInstanceResourcePolicy(pulumi.CustomResource):
         }}
         \"\"\"))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import S3 Access Grants instance resource policies using the `account_id`. For example:
 
         ```sh
-         $ pulumi import aws:s3control/accessGrantsInstanceResourcePolicy:AccessGrantsInstanceResourcePolicy example 123456789012
+        $ pulumi import aws:s3control/accessGrantsInstanceResourcePolicy:AccessGrantsInstanceResourcePolicy example 123456789012
         ```
 
         :param str resource_name: The name of the resource.
@@ -145,6 +147,7 @@ class AccessGrantsInstanceResourcePolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -169,13 +172,14 @@ class AccessGrantsInstanceResourcePolicy(pulumi.CustomResource):
         }}
         \"\"\"))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import S3 Access Grants instance resource policies using the `account_id`. For example:
 
         ```sh
-         $ pulumi import aws:s3control/accessGrantsInstanceResourcePolicy:AccessGrantsInstanceResourcePolicy example 123456789012
+        $ pulumi import aws:s3control/accessGrantsInstanceResourcePolicy:AccessGrantsInstanceResourcePolicy example 123456789012
         ```
 
         :param str resource_name: The name of the resource.

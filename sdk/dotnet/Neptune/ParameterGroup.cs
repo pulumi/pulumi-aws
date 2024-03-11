@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -38,13 +39,14 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Neptune Parameter Groups using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:neptune/parameterGroup:ParameterGroup some_pg some-pg
+    /// $ pulumi import aws:neptune/parameterGroup:ParameterGroup some_pg some-pg
     /// ```
     /// </summary>
     [AwsResourceType("aws:neptune/parameterGroup:ParameterGroup")]

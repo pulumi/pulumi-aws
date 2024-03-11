@@ -17,13 +17,12 @@ namespace Pulumi.Aws.S3
         /// 
         /// &gt; **Note:** The content of an object (`body` field) is available only for objects which have a human-readable `Content-Type` (`text/*` and `application/json`). This is to prevent printing unsafe characters and potentially downloading large amount of data which would be thrown away in favour of metadata.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// The following example retrieves a text object (which must have a `Content-Type`
         /// value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -47,6 +46,7 @@ namespace Pulumi.Aws.S3
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// The following, more-complex example retrieves only the metadata for a zip
         /// file stored in S3, which is then used to pass the most recent `version_id`
@@ -54,6 +54,7 @@ namespace Pulumi.Aws.S3
         /// Lambda functions is available in the documentation for
         /// `aws.lambda.Function`.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -80,8 +81,7 @@ namespace Pulumi.Aws.S3
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetObjectResult> InvokeAsync(GetObjectArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetObjectResult>("aws:s3/getObject:getObject", args ?? new GetObjectArgs(), options.WithDefaults());
@@ -92,13 +92,12 @@ namespace Pulumi.Aws.S3
         /// 
         /// &gt; **Note:** The content of an object (`body` field) is available only for objects which have a human-readable `Content-Type` (`text/*` and `application/json`). This is to prevent printing unsafe characters and potentially downloading large amount of data which would be thrown away in favour of metadata.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// The following example retrieves a text object (which must have a `Content-Type`
         /// value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -122,6 +121,7 @@ namespace Pulumi.Aws.S3
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// The following, more-complex example retrieves only the metadata for a zip
         /// file stored in S3, which is then used to pass the most recent `version_id`
@@ -129,6 +129,7 @@ namespace Pulumi.Aws.S3
         /// Lambda functions is available in the documentation for
         /// `aws.lambda.Function`.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -155,8 +156,7 @@ namespace Pulumi.Aws.S3
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetObjectResult> Invoke(GetObjectInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetObjectResult>("aws:s3/getObject:getObject", args ?? new GetObjectInvokeArgs(), options.WithDefaults());

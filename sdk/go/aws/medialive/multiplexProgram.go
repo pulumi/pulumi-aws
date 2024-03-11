@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS MediaLive MultiplexProgram.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -75,15 +77,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import MediaLive MultiplexProgram using the `id`, or a combination of "`program_name`/`multiplex_id`". For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:medialive/multiplexProgram:MultiplexProgram example example_program/1234567
-//
+// $ pulumi import aws:medialive/multiplexProgram:MultiplexProgram example example_program/1234567
 // ```
 type MultiplexProgram struct {
 	pulumi.CustomResourceState

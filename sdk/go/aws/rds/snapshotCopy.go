@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -62,15 +63,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_db_snapshot_copy` using the snapshot identifier. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:rds/snapshotCopy:SnapshotCopy example my-snapshot
-//
+// $ pulumi import aws:rds/snapshotCopy:SnapshotCopy example my-snapshot
 // ```
 type SnapshotCopy struct {
 	pulumi.CustomResourceState

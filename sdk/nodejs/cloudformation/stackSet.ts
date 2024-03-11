@@ -16,6 +16,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -77,6 +78,7 @@ import * as utilities from "../utilities";
  *     role: aWSCloudFormationStackSetAdministrationRole.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -85,12 +87,12 @@ import * as utilities from "../utilities";
  * Using `pulumi import`, import CloudFormation StackSets using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudformation/stackSet:StackSet example example
+ * $ pulumi import aws:cloudformation/stackSet:StackSet example example
  * ```
- *  Using `pulumi import`, import CloudFormation StackSets when acting a delegated administrator in a member account using the `name` and `call_as` values separated by a comma (`,`). For example:
+ * Using `pulumi import`, import CloudFormation StackSets when acting a delegated administrator in a member account using the `name` and `call_as` values separated by a comma (`,`). For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudformation/stackSet:StackSet example example,DELEGATED_ADMIN
+ * $ pulumi import aws:cloudformation/stackSet:StackSet example example,DELEGATED_ADMIN
  * ```
  */
 export class StackSet extends pulumi.CustomResource {

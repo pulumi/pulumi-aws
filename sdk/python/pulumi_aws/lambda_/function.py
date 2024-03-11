@@ -1338,8 +1338,10 @@ class Function(pulumi.CustomResource):
         > To give an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function, use the `lambda.Permission` resource. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) for more details. On the other hand, the `role` argument of this resource is the function's execution role for identity and access to AWS services and resources.
 
         ## Example Usage
+
         ### Basic Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_archive as archive
@@ -1372,8 +1374,11 @@ class Function(pulumi.CustomResource):
                 },
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Lambda Layers
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1381,10 +1386,13 @@ class Function(pulumi.CustomResource):
         example = aws.lambda_.LayerVersion("example")
         example_function = aws.lambda_.Function("example", layers=[example.arn])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Lambda Ephemeral Storage
 
         Lambda Function Ephemeral Storage(`/tmp`) allows you to configure the storage upto `10` GB. The default value set to `512` MB.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1410,10 +1418,13 @@ class Function(pulumi.CustomResource):
                 size=10240,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Lambda File Systems
 
         Lambda File Systems allow you to connect an Amazon Elastic File System (EFS) file system to a Lambda function to share data across function invocations, access existing data including large files, and save function state.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1453,13 +1464,17 @@ class Function(pulumi.CustomResource):
             subnet_id=subnet_for_lambda["id"],
             security_groups=[sg_for_lambda["id"]])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Lambda retries
 
         Lambda Functions allow you to configure error handling for asynchronous invocation. The settings that it supports are `Maximum age of event` and `Retry attempts` as stated in [Lambda documentation for Configuring error handling for asynchronous invocation](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-errors). To configure these settings, refer to the lambda.FunctionEventInvokeConfig resource.
+
         ### CloudWatch Logging and Permissions
 
         For more information about CloudWatch Logs for Lambda, see the [Lambda User Guide](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-logs.html).
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1497,6 +1512,8 @@ class Function(pulumi.CustomResource):
             role=iam_for_lambda["name"],
             policy_arn=lambda_logging_policy.arn)
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Specifying the Deployment Package
 
         AWS Lambda expects source code to be provided as a deployment package whose structure varies depending on which `runtime` is in use. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for the valid values of `runtime`. The expected structure of the deployment package can be found in [the AWS Lambda documentation for each runtime](https://docs.aws.amazon.com/lambda/latest/dg/deployment-package-v2.html).
@@ -1510,7 +1527,7 @@ class Function(pulumi.CustomResource):
         Using `pulumi import`, import Lambda Functions using the `function_name`. For example:
 
         ```sh
-         $ pulumi import aws:lambda/function:Function test_lambda my_test_lambda_function
+        $ pulumi import aws:lambda/function:Function test_lambda my_test_lambda_function
         ```
 
         :param str resource_name: The name of the resource.
@@ -1569,8 +1586,10 @@ class Function(pulumi.CustomResource):
         > To give an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function, use the `lambda.Permission` resource. See [Lambda Permission Model](https://docs.aws.amazon.com/lambda/latest/dg/intro-permission-model.html) for more details. On the other hand, the `role` argument of this resource is the function's execution role for identity and access to AWS services and resources.
 
         ## Example Usage
+
         ### Basic Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_archive as archive
@@ -1603,8 +1622,11 @@ class Function(pulumi.CustomResource):
                 },
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Lambda Layers
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1612,10 +1634,13 @@ class Function(pulumi.CustomResource):
         example = aws.lambda_.LayerVersion("example")
         example_function = aws.lambda_.Function("example", layers=[example.arn])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Lambda Ephemeral Storage
 
         Lambda Function Ephemeral Storage(`/tmp`) allows you to configure the storage upto `10` GB. The default value set to `512` MB.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1641,10 +1666,13 @@ class Function(pulumi.CustomResource):
                 size=10240,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Lambda File Systems
 
         Lambda File Systems allow you to connect an Amazon Elastic File System (EFS) file system to a Lambda function to share data across function invocations, access existing data including large files, and save function state.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1684,13 +1712,17 @@ class Function(pulumi.CustomResource):
             subnet_id=subnet_for_lambda["id"],
             security_groups=[sg_for_lambda["id"]])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Lambda retries
 
         Lambda Functions allow you to configure error handling for asynchronous invocation. The settings that it supports are `Maximum age of event` and `Retry attempts` as stated in [Lambda documentation for Configuring error handling for asynchronous invocation](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html#invocation-async-errors). To configure these settings, refer to the lambda.FunctionEventInvokeConfig resource.
+
         ### CloudWatch Logging and Permissions
 
         For more information about CloudWatch Logs for Lambda, see the [Lambda User Guide](https://docs.aws.amazon.com/lambda/latest/dg/monitoring-functions-logs.html).
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1728,6 +1760,8 @@ class Function(pulumi.CustomResource):
             role=iam_for_lambda["name"],
             policy_arn=lambda_logging_policy.arn)
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Specifying the Deployment Package
 
         AWS Lambda expects source code to be provided as a deployment package whose structure varies depending on which `runtime` is in use. See [Runtimes](https://docs.aws.amazon.com/lambda/latest/dg/API_CreateFunction.html#SSS-CreateFunction-request-Runtime) for the valid values of `runtime`. The expected structure of the deployment package can be found in [the AWS Lambda documentation for each runtime](https://docs.aws.amazon.com/lambda/latest/dg/deployment-package-v2.html).
@@ -1741,7 +1775,7 @@ class Function(pulumi.CustomResource):
         Using `pulumi import`, import Lambda Functions using the `function_name`. For example:
 
         ```sh
-         $ pulumi import aws:lambda/function:Function test_lambda my_test_lambda_function
+        $ pulumi import aws:lambda/function:Function test_lambda my_test_lambda_function
         ```
 
         :param str resource_name: The name of the resource.

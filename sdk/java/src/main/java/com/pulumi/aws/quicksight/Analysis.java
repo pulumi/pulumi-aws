@@ -24,7 +24,10 @@ import javax.annotation.Nullable;
  * Resource for managing a QuickSight Analysis.
  * 
  * ## Example Usage
+ * 
  * ### From Source Template
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -65,8 +68,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With Definition
  * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -97,13 +103,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import a QuickSight Analysis using the AWS account ID and analysis ID separated by a comma (`,`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:quicksight/analysis:Analysis example 123456789012,example-id
+ * $ pulumi import aws:quicksight/analysis:Analysis example 123456789012,example-id
  * ```
  * 
  */

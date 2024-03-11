@@ -12,8 +12,10 @@ import * as utilities from "../utilities";
  * More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,8 +25,11 @@ import * as utilities from "../utilities";
  *     integrationType: "MOCK",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Lambda Integration
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -47,8 +52,11 @@ import * as utilities from "../utilities";
  *     passthroughBehavior: "WHEN_NO_MATCH",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### AWS Service Integration
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -65,8 +73,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Private Integration
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -103,15 +114,16 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_apigatewayv2_integration` using the API identifier and integration identifier. For example:
  *
  * ```sh
- *  $ pulumi import aws:apigatewayv2/integration:Integration example aabbccddee/1122334
+ * $ pulumi import aws:apigatewayv2/integration:Integration example aabbccddee/1122334
  * ```
- *  -> __Note:__ The API Gateway managed integration created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
+ * -> __Note:__ The API Gateway managed integration created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
  */
 export class Integration extends pulumi.CustomResource {
     /**

@@ -26,6 +26,8 @@ import javax.annotation.Nullable;
  * * [Oracle Options](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.Oracle.Options.html)
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -76,6 +78,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * &gt; **Note:** Any modifications to the `aws.rds.OptionGroup` are set to happen immediately as we default to applying immediately.
  * 
@@ -92,7 +95,7 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import DB option groups using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group
+ * $ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group
  * ```
  * 
  */

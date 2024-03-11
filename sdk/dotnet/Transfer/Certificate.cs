@@ -13,50 +13,13 @@ namespace Pulumi.Aws.Transfer
     /// Provides a AWS Transfer AS2 Certificate resource.
     /// 
     /// ## Example Usage
-    /// ### Basic
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// 	
-    /// object NotImplemented(string errorMessage) 
-    /// {
-    ///     throw new System.NotImplementedException(errorMessage);
-    /// }
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.Transfer.Certificate("example", new()
-    ///     {
-    ///         CertificateFile = Std.File.Invoke(new()
-    ///         {
-    ///             Input = $"{NotImplemented("path.module")}/example.com/example.crt",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         CertificateChain = Std.File.Invoke(new()
-    ///         {
-    ///             Input = $"{NotImplemented("path.module")}/example.com/ca.crt",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         PrivateKey = Std.File.Invoke(new()
-    ///         {
-    ///             Input = $"{NotImplemented("path.module")}/example.com/example.key",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         Description = "example",
-    ///         Usage = "SIGNING",
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Transfer AS2 Certificate using the `certificate_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:transfer/certificate:Certificate example c-4221a88afd5f4362a
+    /// $ pulumi import aws:transfer/certificate:Certificate example c-4221a88afd5f4362a
     /// ```
     /// </summary>
     [AwsResourceType("aws:transfer/certificate:Certificate")]

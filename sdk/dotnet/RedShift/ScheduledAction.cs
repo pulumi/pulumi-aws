@@ -11,8 +11,10 @@ namespace Pulumi.Aws.RedShift
 {
     /// <summary>
     /// ## Example Usage
+    /// 
     /// ### Pause Cluster Action
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -102,8 +104,11 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Resize Cluster Action
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -131,13 +136,14 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Redshift Scheduled Action using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:redshift/scheduledAction:ScheduledAction example tf-redshift-scheduled-action
+    /// $ pulumi import aws:redshift/scheduledAction:ScheduledAction example tf-redshift-scheduled-action
     /// ```
     /// </summary>
     [AwsResourceType("aws:redshift/scheduledAction:ScheduledAction")]

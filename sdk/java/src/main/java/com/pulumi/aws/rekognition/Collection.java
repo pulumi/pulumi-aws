@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS Rekognition Collection.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,13 +51,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Rekognition Collection using the `example_id_arg`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:rekognition/collection:Collection example collection-id-12345678
+ * $ pulumi import aws:rekognition/collection:Collection example collection-id-12345678
  * ```
  * 
  */

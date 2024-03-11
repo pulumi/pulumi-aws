@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Creates and manages an AWS IoT certificate.
  *
  * ## Example Usage
+ *
  * ### With CSR
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,16 +24,22 @@ import * as utilities from "../utilities";
  *     active: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Without CSR
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const cert = new aws.iot.Certificate("cert", {active: true});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### From existing certificate without a CA
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -44,6 +52,7 @@ import * as utilities from "../utilities";
  *     active: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class Certificate extends pulumi.CustomResource {
     /**

@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -17,6 +18,7 @@ import * as utilities from "../utilities";
  *     name: "foo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * > **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
  */
@@ -66,6 +68,7 @@ export interface GetParameterResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -74,6 +77,7 @@ export interface GetParameterResult {
  *     name: "foo",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * > **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
  */

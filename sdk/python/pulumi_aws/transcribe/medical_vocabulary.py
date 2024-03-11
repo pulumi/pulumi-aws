@@ -224,8 +224,10 @@ class MedicalVocabulary(pulumi.CustomResource):
         Resource for managing an AWS Transcribe MedicalVocabulary.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -246,13 +248,14 @@ class MedicalVocabulary(pulumi.CustomResource):
                 "tag2": "value3",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Transcribe MedicalVocabulary using the `vocabulary_name`. For example:
 
         ```sh
-         $ pulumi import aws:transcribe/medicalVocabulary:MedicalVocabulary example example-name
+        $ pulumi import aws:transcribe/medicalVocabulary:MedicalVocabulary example example-name
         ```
 
         :param str resource_name: The name of the resource.
@@ -274,8 +277,10 @@ class MedicalVocabulary(pulumi.CustomResource):
         Resource for managing an AWS Transcribe MedicalVocabulary.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -296,13 +301,14 @@ class MedicalVocabulary(pulumi.CustomResource):
                 "tag2": "value3",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Transcribe MedicalVocabulary using the `vocabulary_name`. For example:
 
         ```sh
-         $ pulumi import aws:transcribe/medicalVocabulary:MedicalVocabulary example example-name
+        $ pulumi import aws:transcribe/medicalVocabulary:MedicalVocabulary example example-name
         ```
 
         :param str resource_name: The name of the resource.

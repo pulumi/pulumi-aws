@@ -14,10 +14,9 @@ namespace Pulumi.Aws.ImageBuilder
         /// <summary>
         /// Use this data source to get the ARNs and names of Image Builder Infrastructure Configurations matching the specified criteria.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -43,8 +42,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetInfrastructureConfigurationsResult> InvokeAsync(GetInfrastructureConfigurationsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetInfrastructureConfigurationsResult>("aws:imagebuilder/getInfrastructureConfigurations:getInfrastructureConfigurations", args ?? new GetInfrastructureConfigurationsArgs(), options.WithDefaults());
@@ -52,10 +50,9 @@ namespace Pulumi.Aws.ImageBuilder
         /// <summary>
         /// Use this data source to get the ARNs and names of Image Builder Infrastructure Configurations matching the specified criteria.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -81,8 +78,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetInfrastructureConfigurationsResult> Invoke(GetInfrastructureConfigurationsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetInfrastructureConfigurationsResult>("aws:imagebuilder/getInfrastructureConfigurations:getInfrastructureConfigurations", args ?? new GetInfrastructureConfigurationsInvokeArgs(), options.WithDefaults());

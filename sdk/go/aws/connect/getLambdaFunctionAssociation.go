@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +40,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupLambdaFunctionAssociation(ctx *pulumi.Context, args *LookupLambdaFunctionAssociationArgs, opts ...pulumi.InvokeOption) (*LookupLambdaFunctionAssociationResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupLambdaFunctionAssociationResult

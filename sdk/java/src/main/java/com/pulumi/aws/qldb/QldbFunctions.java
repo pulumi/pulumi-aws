@@ -18,6 +18,8 @@ public final class QldbFunctions {
      * Use this data source to fetch information about a Quantum Ledger Database.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -46,6 +48,7 @@ public final class QldbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLedgerResult> getLedger(GetLedgerArgs args) {
@@ -55,6 +58,8 @@ public final class QldbFunctions {
      * Use this data source to fetch information about a Quantum Ledger Database.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -83,6 +88,7 @@ public final class QldbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLedgerResult> getLedgerPlain(GetLedgerPlainArgs args) {
@@ -92,6 +98,8 @@ public final class QldbFunctions {
      * Use this data source to fetch information about a Quantum Ledger Database.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -120,6 +128,7 @@ public final class QldbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLedgerResult> getLedger(GetLedgerArgs args, InvokeOptions options) {
@@ -129,6 +138,8 @@ public final class QldbFunctions {
      * Use this data source to fetch information about a Quantum Ledger Database.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -157,6 +168,7 @@ public final class QldbFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLedgerResult> getLedgerPlain(GetLedgerPlainArgs args, InvokeOptions options) {

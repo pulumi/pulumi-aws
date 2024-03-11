@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -63,15 +65,16 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import a user using the `user_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:memorydb/user:User example my-user
+ * $ pulumi import aws:memorydb/user:User example my-user
  * ```
- *  The `passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
+ * The `passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
  * 
  */
 @ResourceType(type="aws:memorydb/user:User")

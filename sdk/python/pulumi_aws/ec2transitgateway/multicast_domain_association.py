@@ -134,6 +134,7 @@ class MulticastDomainAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -149,6 +150,7 @@ class MulticastDomainAssociation(pulumi.CustomResource):
             transit_gateway_attachment_id=example_vpc_attachment.id,
             transit_gateway_multicast_domain_id=example_multicast_domain.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -167,6 +169,7 @@ class MulticastDomainAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -182,6 +185,7 @@ class MulticastDomainAssociation(pulumi.CustomResource):
             transit_gateway_attachment_id=example_vpc_attachment.id,
             transit_gateway_multicast_domain_id=example_multicast_domain.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param MulticastDomainAssociationArgs args: The arguments to use to populate this resource's properties.

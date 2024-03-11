@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * A member is a network interface associated with a supported EC2 instance that receives multicast traffic.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,6 +50,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:ec2transitgateway/multicastGroupMember:MulticastGroupMember")

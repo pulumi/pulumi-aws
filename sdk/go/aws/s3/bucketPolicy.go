@@ -17,8 +17,10 @@ import (
 // > Policies can be attached to both S3 general purpose buckets and S3 directory buckets.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -78,15 +80,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import S3 bucket policies using the bucket name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:s3/bucketPolicy:BucketPolicy allow_access_from_another_account my-tf-test-bucket
-//
+// $ pulumi import aws:s3/bucketPolicy:BucketPolicy allow_access_from_another_account my-tf-test-bucket
 // ```
 type BucketPolicy struct {
 	pulumi.CustomResourceState

@@ -11,19 +11,21 @@ import {ARN} from "..";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ec2transitgateway.TransitGateway("example", {description: "example"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_ec2_transit_gateway` using the EC2 Transit Gateway identifier. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2transitgateway/transitGateway:TransitGateway example tgw-12345678
+ * $ pulumi import aws:ec2transitgateway/transitGateway:TransitGateway example tgw-12345678
  * ```
  */
 export class TransitGateway extends pulumi.CustomResource {

@@ -201,6 +201,7 @@ class SmsChannel(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -208,13 +209,14 @@ class SmsChannel(pulumi.CustomResource):
         app = aws.pinpoint.App("app")
         sms = aws.pinpoint.SmsChannel("sms", application_id=app.application_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import the Pinpoint SMS Channel using the `application_id`. For example:
 
         ```sh
-         $ pulumi import aws:pinpoint/smsChannel:SmsChannel sms application-id
+        $ pulumi import aws:pinpoint/smsChannel:SmsChannel sms application-id
         ```
 
         :param str resource_name: The name of the resource.
@@ -235,6 +237,7 @@ class SmsChannel(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -242,13 +245,14 @@ class SmsChannel(pulumi.CustomResource):
         app = aws.pinpoint.App("app")
         sms = aws.pinpoint.SmsChannel("sms", application_id=app.application_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import the Pinpoint SMS Channel using the `application_id`. For example:
 
         ```sh
-         $ pulumi import aws:pinpoint/smsChannel:SmsChannel sms application-id
+        $ pulumi import aws:pinpoint/smsChannel:SmsChannel sms application-id
         ```
 
         :param str resource_name: The name of the resource.

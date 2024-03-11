@@ -192,6 +192,7 @@ class OrganizationalUnit(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -200,13 +201,14 @@ class OrganizationalUnit(pulumi.CustomResource):
             name="example",
             parent_id=example_aws_organizations_organization["roots"][0]["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AWS Organizations Organizational Units using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:organizations/organizationalUnit:OrganizationalUnit example ou-1234567
+        $ pulumi import aws:organizations/organizationalUnit:OrganizationalUnit example ou-1234567
         ```
 
         :param str resource_name: The name of the resource.
@@ -226,6 +228,7 @@ class OrganizationalUnit(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -234,13 +237,14 @@ class OrganizationalUnit(pulumi.CustomResource):
             name="example",
             parent_id=example_aws_organizations_organization["roots"][0]["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AWS Organizations Organizational Units using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:organizations/organizationalUnit:OrganizationalUnit example ou-1234567
+        $ pulumi import aws:organizations/organizationalUnit:OrganizationalUnit example ou-1234567
         ```
 
         :param str resource_name: The name of the resource.

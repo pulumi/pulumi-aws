@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -123,15 +124,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Backup Framework using the `id` which corresponds to the name of the Backup Framework. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:backup/framework:Framework test <id>
-//
+// $ pulumi import aws:backup/framework:Framework test <id>
 // ```
 type Framework struct {
 	pulumi.CustomResourceState

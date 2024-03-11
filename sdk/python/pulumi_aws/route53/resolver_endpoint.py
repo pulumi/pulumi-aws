@@ -334,6 +334,7 @@ class ResolverEndpoint(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -362,15 +363,14 @@ class ResolverEndpoint(pulumi.CustomResource):
                 "Environment": "Prod",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Using `pulumi import`, import
-
-        Route 53 Resolver endpoints using the Route 53 Resolver endpoint ID. For example:
+        Using `pulumi import`, import  Route 53 Resolver endpoints using the Route 53 Resolver endpoint ID. For example:
 
         ```sh
-         $ pulumi import aws:route53/resolverEndpoint:ResolverEndpoint foo rslvr-in-abcdef01234567890
+        $ pulumi import aws:route53/resolverEndpoint:ResolverEndpoint foo rslvr-in-abcdef01234567890
         ```
 
         :param str resource_name: The name of the resource.
@@ -397,6 +397,7 @@ class ResolverEndpoint(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -425,15 +426,14 @@ class ResolverEndpoint(pulumi.CustomResource):
                 "Environment": "Prod",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Using `pulumi import`, import
-
-        Route 53 Resolver endpoints using the Route 53 Resolver endpoint ID. For example:
+        Using `pulumi import`, import  Route 53 Resolver endpoints using the Route 53 Resolver endpoint ID. For example:
 
         ```sh
-         $ pulumi import aws:route53/resolverEndpoint:ResolverEndpoint foo rslvr-in-abcdef01234567890
+        $ pulumi import aws:route53/resolverEndpoint:ResolverEndpoint foo rslvr-in-abcdef01234567890
         ```
 
         :param str resource_name: The name of the resource.

@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -49,13 +50,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_ec2_tag` using the EC2 resource identifier and key, separated by a comma (`,`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/tag:Tag example tgw-attach-1234567890abcdef,Name
+    /// $ pulumi import aws:ec2/tag:Tag example tgw-attach-1234567890abcdef,Name
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/tag:Tag")]

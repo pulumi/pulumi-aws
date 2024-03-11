@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Iot
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,13 +36,14 @@ namespace Pulumi.Aws.Iot
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import domain configurations using the name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:iot/domainConfiguration:DomainConfiguration example example
+    /// $ pulumi import aws:iot/domainConfiguration:DomainConfiguration example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:iot/domainConfiguration:DomainConfiguration")]

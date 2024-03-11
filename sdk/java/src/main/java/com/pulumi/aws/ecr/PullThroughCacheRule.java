@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * upstream repositories, see [Using pull through cache rules](https://docs.aws.amazon.com/AmazonECR/latest/userguide/pull-through-cache.html).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -51,13 +53,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import a pull-through cache rule using the `ecr_repository_prefix`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ecr/pullThroughCacheRule:PullThroughCacheRule example ecr-public
+ * $ pulumi import aws:ecr/pullThroughCacheRule:PullThroughCacheRule example ecr-public
  * ```
  * 
  */

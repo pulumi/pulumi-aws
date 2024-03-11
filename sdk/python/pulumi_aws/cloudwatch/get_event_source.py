@@ -110,12 +110,14 @@ def get_event_source(name_prefix: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     examplepartner = aws.cloudwatch.get_event_source(name_prefix="aws.partner/examplepartner.com")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name_prefix: Specifying this limits the results to only those partner event sources with names that start with the specified prefix
@@ -144,12 +146,14 @@ def get_event_source_output(name_prefix: Optional[pulumi.Input[Optional[str]]] =
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     examplepartner = aws.cloudwatch.get_event_source(name_prefix="aws.partner/examplepartner.com")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name_prefix: Specifying this limits the results to only those partner event sources with names that start with the specified prefix

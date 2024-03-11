@@ -15,6 +15,7 @@ import (
 //
 // List the event categories of all the RDS resources.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -37,9 +38,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // List the event categories specific to the RDS resource `db-snapshot`.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -64,6 +67,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetEventCategories(ctx *pulumi.Context, args *GetEventCategoriesArgs, opts ...pulumi.InvokeOption) (*GetEventCategoriesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetEventCategoriesResult

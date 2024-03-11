@@ -14,6 +14,7 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -47,13 +48,14 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Directory Service Shared Directories using the owner directory ID/shared directory ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:directoryservice/sharedDirectory:SharedDirectory example d-1234567890/d-9267633ece
+    /// $ pulumi import aws:directoryservice/sharedDirectory:SharedDirectory example d-1234567890/d-9267633ece
     /// ```
     /// </summary>
     [AwsResourceType("aws:directoryservice/sharedDirectory:SharedDirectory")]

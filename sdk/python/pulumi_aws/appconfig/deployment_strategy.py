@@ -337,6 +337,7 @@ class DeploymentStrategy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -353,13 +354,14 @@ class DeploymentStrategy(pulumi.CustomResource):
                 "Type": "AppConfig Deployment Strategy",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AppConfig Deployment Strategies using their deployment strategy ID. For example:
 
         ```sh
-         $ pulumi import aws:appconfig/deploymentStrategy:DeploymentStrategy example 11xxxxx
+        $ pulumi import aws:appconfig/deploymentStrategy:DeploymentStrategy example 11xxxxx
         ```
 
         :param str resource_name: The name of the resource.
@@ -384,6 +386,7 @@ class DeploymentStrategy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -400,13 +403,14 @@ class DeploymentStrategy(pulumi.CustomResource):
                 "Type": "AppConfig Deployment Strategy",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AppConfig Deployment Strategies using their deployment strategy ID. For example:
 
         ```sh
-         $ pulumi import aws:appconfig/deploymentStrategy:DeploymentStrategy example 11xxxxx
+        $ pulumi import aws:appconfig/deploymentStrategy:DeploymentStrategy example 11xxxxx
         ```
 
         :param str resource_name: The name of the resource.

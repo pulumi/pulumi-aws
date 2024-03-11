@@ -303,6 +303,7 @@ class UsageLimit(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -313,13 +314,14 @@ class UsageLimit(pulumi.CustomResource):
             limit_type="time",
             amount=60)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift usage limits using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:redshift/usageLimit:UsageLimit example example-id
+        $ pulumi import aws:redshift/usageLimit:UsageLimit example example-id
         ```
 
         :param str resource_name: The name of the resource.
@@ -343,6 +345,7 @@ class UsageLimit(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -353,13 +356,14 @@ class UsageLimit(pulumi.CustomResource):
             limit_type="time",
             amount=60)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift usage limits using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:redshift/usageLimit:UsageLimit example example-id
+        $ pulumi import aws:redshift/usageLimit:UsageLimit example example-id
         ```
 
         :param str resource_name: The name of the resource.

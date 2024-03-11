@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides an GameLift Script resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -54,13 +56,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import GameLift Scripts using the ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:gamelift/script:Script example &lt;script-id&gt;
+ * $ pulumi import aws:gamelift/script:Script example &lt;script-id&gt;
  * ```
  * 
  */

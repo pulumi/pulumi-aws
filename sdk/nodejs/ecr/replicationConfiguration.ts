@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -27,8 +28,11 @@ import * as utilities from "../utilities";
  *     }],
  * }});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Multiple Region Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -50,9 +54,11 @@ import * as utilities from "../utilities";
  *     }],
  * }});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Repository Filter Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -72,13 +78,14 @@ import * as utilities from "../utilities";
  *     }],
  * }});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import ECR Replication Configuration using the `registry_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ecr/replicationConfiguration:ReplicationConfiguration service 012345678912
+ * $ pulumi import aws:ecr/replicationConfiguration:ReplicationConfiguration service 012345678912
  * ```
  */
 export class ReplicationConfiguration extends pulumi.CustomResource {

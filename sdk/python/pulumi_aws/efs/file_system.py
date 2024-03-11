@@ -515,8 +515,10 @@ class FileSystem(pulumi.CustomResource):
         Provides an Elastic File System (EFS) File System resource.
 
         ## Example Usage
+
         ### EFS File System w/ tags
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -527,8 +529,11 @@ class FileSystem(pulumi.CustomResource):
                 "Name": "MyProduct",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Using lifecycle policy
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -539,13 +544,14 @@ class FileSystem(pulumi.CustomResource):
                 transition_to_ia="AFTER_30_DAYS",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import the EFS file systems using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:efs/fileSystem:FileSystem foo fs-6fa144c6
+        $ pulumi import aws:efs/fileSystem:FileSystem foo fs-6fa144c6
         ```
 
         :param str resource_name: The name of the resource.
@@ -574,8 +580,10 @@ class FileSystem(pulumi.CustomResource):
         Provides an Elastic File System (EFS) File System resource.
 
         ## Example Usage
+
         ### EFS File System w/ tags
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -586,8 +594,11 @@ class FileSystem(pulumi.CustomResource):
                 "Name": "MyProduct",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Using lifecycle policy
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -598,13 +609,14 @@ class FileSystem(pulumi.CustomResource):
                 transition_to_ia="AFTER_30_DAYS",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import the EFS file systems using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:efs/fileSystem:FileSystem foo fs-6fa144c6
+        $ pulumi import aws:efs/fileSystem:FileSystem foo fs-6fa144c6
         ```
 
         :param str resource_name: The name of the resource.

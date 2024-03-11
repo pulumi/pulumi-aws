@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -64,15 +65,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_ec2_tag` using the EC2 resource identifier and key, separated by a comma (`,`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/tag:Tag example tgw-attach-1234567890abcdef,Name
-//
+// $ pulumi import aws:ec2/tag:Tag example tgw-attach-1234567890abcdef,Name
 // ```
 type Tag struct {
 	pulumi.CustomResourceState

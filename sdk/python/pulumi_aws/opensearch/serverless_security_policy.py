@@ -193,8 +193,10 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
         ## Example Usage
 
         ### Encryption Security Policy
+
         ### Applies to a single collection
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -212,8 +214,11 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
                 "aWSOwnedKey": True,
             }))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Applies to multiple collections
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -231,8 +236,11 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
                 "aWSOwnedKey": True,
             }))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Using a customer managed key
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -251,9 +259,13 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
                 "kmsARN": "arn:aws:kms:us-east-1:123456789012:key/93fd6da4-a317-4c17-bfe9-382b5d988b36",
             }))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Network Security Policy
+
         ### Allow public access to the collection endpoint and the Dashboards endpoint
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -278,8 +290,11 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
                 "allowFromPublic": True,
             }]))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Allow VPC access to the collection endpoint and the Dashboards endpoint
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -305,8 +320,11 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
                 "sourceVPCEs": ["vpce-050f79086ee71ac05"],
             }]))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Mixed access for different collections
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -342,13 +360,14 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
                 },
             ]))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import OpenSearchServerless Security Policy using the `name` and `type` arguments separated by a slash (`/`). For example:
 
         ```sh
-         $ pulumi import aws:opensearch/serverlessSecurityPolicy:ServerlessSecurityPolicy example example/encryption
+        $ pulumi import aws:opensearch/serverlessSecurityPolicy:ServerlessSecurityPolicy example example/encryption
         ```
 
         :param str resource_name: The name of the resource.
@@ -372,8 +391,10 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
         ## Example Usage
 
         ### Encryption Security Policy
+
         ### Applies to a single collection
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -391,8 +412,11 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
                 "aWSOwnedKey": True,
             }))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Applies to multiple collections
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -410,8 +434,11 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
                 "aWSOwnedKey": True,
             }))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Using a customer managed key
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -430,9 +457,13 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
                 "kmsARN": "arn:aws:kms:us-east-1:123456789012:key/93fd6da4-a317-4c17-bfe9-382b5d988b36",
             }))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Network Security Policy
+
         ### Allow public access to the collection endpoint and the Dashboards endpoint
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -457,8 +488,11 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
                 "allowFromPublic": True,
             }]))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Allow VPC access to the collection endpoint and the Dashboards endpoint
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -484,8 +518,11 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
                 "sourceVPCEs": ["vpce-050f79086ee71ac05"],
             }]))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Mixed access for different collections
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -521,13 +558,14 @@ class ServerlessSecurityPolicy(pulumi.CustomResource):
                 },
             ]))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import OpenSearchServerless Security Policy using the `name` and `type` arguments separated by a slash (`/`). For example:
 
         ```sh
-         $ pulumi import aws:opensearch/serverlessSecurityPolicy:ServerlessSecurityPolicy example example/encryption
+        $ pulumi import aws:opensearch/serverlessSecurityPolicy:ServerlessSecurityPolicy example example/encryption
         ```
 
         :param str resource_name: The name of the resource.

@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -39,13 +40,14 @@ import * as utilities from "../utilities";
  *     policy: example.apply(example => example.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Backup vault policy using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:backup/vaultPolicy:VaultPolicy test TestVault
+ * $ pulumi import aws:backup/vaultPolicy:VaultPolicy test TestVault
  * ```
  */
 export class VaultPolicy extends pulumi.CustomResource {

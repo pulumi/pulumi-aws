@@ -14,6 +14,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,13 +32,14 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CloudWatch Logs destinations using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cloudwatch/logDestination:LogDestination test_destination test_destination
+    /// $ pulumi import aws:cloudwatch/logDestination:LogDestination test_destination test_destination
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/logDestination:LogDestination")]

@@ -372,6 +372,7 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -412,13 +413,14 @@ class User(pulumi.CustomResource):
                 target="/bucket3/test-path/tftestuser.pdf",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Transfer Users using the `server_id` and `user_name` separated by `/`. For example:
 
         ```sh
-         $ pulumi import aws:transfer/user:User bar s-12345678/test-username
+        $ pulumi import aws:transfer/user:User bar s-12345678/test-username
         ```
 
         :param str resource_name: The name of the resource.
@@ -444,6 +446,7 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -484,13 +487,14 @@ class User(pulumi.CustomResource):
                 target="/bucket3/test-path/tftestuser.pdf",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Transfer Users using the `server_id` and `user_name` separated by `/`. For example:
 
         ```sh
-         $ pulumi import aws:transfer/user:User bar s-12345678/test-username
+        $ pulumi import aws:transfer/user:User bar s-12345678/test-username
         ```
 
         :param str resource_name: The name of the resource.

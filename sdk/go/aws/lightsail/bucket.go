@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,15 +41,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_lightsail_bucket` using the `name` attribute. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:lightsail/bucket:Bucket test example-bucket
-//
+// $ pulumi import aws:lightsail/bucket:Bucket test example-bucket
 // ```
 type Bucket struct {
 	pulumi.CustomResourceState

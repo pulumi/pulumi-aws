@@ -145,12 +145,14 @@ def get_tracker(tags: Optional[Mapping[str, str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.location.get_tracker(tracker_name="example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Mapping[str, str] tags: Key-value map of resource tags for the tracker.
@@ -183,12 +185,14 @@ def get_tracker_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]]]
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.location.get_tracker(tracker_name="example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Mapping[str, str] tags: Key-value map of resource tags for the tracker.

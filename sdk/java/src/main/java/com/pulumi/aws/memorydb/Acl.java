@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * More information about users and ACL-s can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/clusters.acls.html).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -53,13 +55,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import an ACL using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:memorydb/acl:Acl example my-acl
+ * $ pulumi import aws:memorydb/acl:Acl example my-acl
  * ```
  * 
  */

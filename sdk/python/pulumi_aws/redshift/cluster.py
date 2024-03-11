@@ -1628,8 +1628,10 @@ class Cluster(pulumi.CustomResource):
         > **NOTE:** A Redshift cluster's default IAM role can be managed both by this resource's `default_iam_role_arn` argument and the `redshift.ClusterIamRoles` resource's `default_iam_role_arn` argument. Do not configure different values for both arguments. Doing so will cause a conflict of default IAM roles.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1642,8 +1644,11 @@ class Cluster(pulumi.CustomResource):
             node_type="dc1.large",
             cluster_type="single-node")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Managed Credentials
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1656,13 +1661,14 @@ class Cluster(pulumi.CustomResource):
             cluster_type="single-node",
             manage_master_password=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Clusters using the `cluster_identifier`. For example:
 
         ```sh
-         $ pulumi import aws:redshift/cluster:Cluster myprodcluster tf-redshift-cluster-12345
+        $ pulumi import aws:redshift/cluster:Cluster myprodcluster tf-redshift-cluster-12345
         ```
 
         :param str resource_name: The name of the resource.
@@ -1737,8 +1743,10 @@ class Cluster(pulumi.CustomResource):
         > **NOTE:** A Redshift cluster's default IAM role can be managed both by this resource's `default_iam_role_arn` argument and the `redshift.ClusterIamRoles` resource's `default_iam_role_arn` argument. Do not configure different values for both arguments. Doing so will cause a conflict of default IAM roles.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1751,8 +1759,11 @@ class Cluster(pulumi.CustomResource):
             node_type="dc1.large",
             cluster_type="single-node")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Managed Credentials
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1765,13 +1776,14 @@ class Cluster(pulumi.CustomResource):
             cluster_type="single-node",
             manage_master_password=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Clusters using the `cluster_identifier`. For example:
 
         ```sh
-         $ pulumi import aws:redshift/cluster:Cluster myprodcluster tf-redshift-cluster-12345
+        $ pulumi import aws:redshift/cluster:Cluster myprodcluster tf-redshift-cluster-12345
         ```
 
         :param str resource_name: The name of the resource.

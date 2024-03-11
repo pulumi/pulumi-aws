@@ -258,6 +258,7 @@ class ServiceQuota(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -267,6 +268,7 @@ class ServiceQuota(pulumi.CustomResource):
             service_code="vpc",
             value=75)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -275,7 +277,7 @@ class ServiceQuota(pulumi.CustomResource):
         ~> __NOTE:__ This resource does not require explicit import and will assume management of an existing service quota on Pulumi resource creation.
 
         ```sh
-         $ pulumi import aws:servicequotas/serviceQuota:ServiceQuota example vpc/L-F678F1CE
+        $ pulumi import aws:servicequotas/serviceQuota:ServiceQuota example vpc/L-F678F1CE
         ```
 
         :param str resource_name: The name of the resource.
@@ -297,6 +299,7 @@ class ServiceQuota(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -306,6 +309,7 @@ class ServiceQuota(pulumi.CustomResource):
             service_code="vpc",
             value=75)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -314,7 +318,7 @@ class ServiceQuota(pulumi.CustomResource):
         ~> __NOTE:__ This resource does not require explicit import and will assume management of an existing service quota on Pulumi resource creation.
 
         ```sh
-         $ pulumi import aws:servicequotas/serviceQuota:ServiceQuota example vpc/L-F678F1CE
+        $ pulumi import aws:servicequotas/serviceQuota:ServiceQuota example vpc/L-F678F1CE
         ```
 
         :param str resource_name: The name of the resource.

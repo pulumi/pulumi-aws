@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -106,15 +107,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Pinpoint Event Stream using the `application-id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:pinpoint/eventStream:EventStream stream application-id
-//
+// $ pulumi import aws:pinpoint/eventStream:EventStream stream application-id
 // ```
 type EventStream struct {
 	pulumi.CustomResourceState

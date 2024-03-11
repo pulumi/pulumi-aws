@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,6 +44,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -51,9 +53,7 @@ import (
 // ~> __NOTE:__ This resource does not require explicit import and will assume management of an existing service quota on Pulumi resource creation.
 //
 // ```sh
-//
-//	$ pulumi import aws:servicequotas/serviceQuota:ServiceQuota example vpc/L-F678F1CE
-//
+// $ pulumi import aws:servicequotas/serviceQuota:ServiceQuota example vpc/L-F678F1CE
 // ```
 type ServiceQuota struct {
 	pulumi.CustomResourceState

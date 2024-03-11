@@ -95,12 +95,14 @@ def get_scheduling_policy(arn: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.batch.get_scheduling_policy(arn="arn:aws:batch:us-east-1:012345678910:scheduling-policy/example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str arn: ARN of the scheduling policy.
@@ -129,12 +131,14 @@ def get_scheduling_policy_output(arn: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.batch.get_scheduling_policy(arn="arn:aws:batch:us-east-1:012345678910:scheduling-policy/example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str arn: ARN of the scheduling policy.

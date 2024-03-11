@@ -20,6 +20,8 @@ public final class BedrockFunctions {
      * Returns properties of a specific Amazon Bedrock custom model.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -48,6 +50,7 @@ public final class BedrockFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCustomModelResult> getCustomModel(GetCustomModelArgs args) {
@@ -57,6 +60,8 @@ public final class BedrockFunctions {
      * Returns properties of a specific Amazon Bedrock custom model.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -85,6 +90,7 @@ public final class BedrockFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCustomModelResult> getCustomModelPlain(GetCustomModelPlainArgs args) {
@@ -94,6 +100,8 @@ public final class BedrockFunctions {
      * Returns properties of a specific Amazon Bedrock custom model.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -122,6 +130,7 @@ public final class BedrockFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCustomModelResult> getCustomModel(GetCustomModelArgs args, InvokeOptions options) {
@@ -131,6 +140,8 @@ public final class BedrockFunctions {
      * Returns properties of a specific Amazon Bedrock custom model.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -159,6 +170,7 @@ public final class BedrockFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCustomModelResult> getCustomModelPlain(GetCustomModelPlainArgs args, InvokeOptions options) {
@@ -168,6 +180,8 @@ public final class BedrockFunctions {
      * Returns a list of Amazon Bedrock custom models.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -193,6 +207,7 @@ public final class BedrockFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCustomModelsResult> getCustomModels() {
@@ -202,6 +217,8 @@ public final class BedrockFunctions {
      * Returns a list of Amazon Bedrock custom models.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -227,6 +244,7 @@ public final class BedrockFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCustomModelsResult> getCustomModelsPlain() {
@@ -236,6 +254,8 @@ public final class BedrockFunctions {
      * Returns a list of Amazon Bedrock custom models.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -261,6 +281,7 @@ public final class BedrockFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCustomModelsResult> getCustomModels(InvokeArgs args) {
@@ -270,6 +291,8 @@ public final class BedrockFunctions {
      * Returns a list of Amazon Bedrock custom models.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -295,6 +318,7 @@ public final class BedrockFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCustomModelsResult> getCustomModelsPlain(InvokeArgs args) {
@@ -304,6 +328,8 @@ public final class BedrockFunctions {
      * Returns a list of Amazon Bedrock custom models.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -329,6 +355,7 @@ public final class BedrockFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCustomModelsResult> getCustomModels(InvokeArgs args, InvokeOptions options) {
@@ -338,6 +365,8 @@ public final class BedrockFunctions {
      * Returns a list of Amazon Bedrock custom models.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -363,6 +392,7 @@ public final class BedrockFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCustomModelsResult> getCustomModelsPlain(InvokeArgs args, InvokeOptions options) {

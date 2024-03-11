@@ -21,7 +21,10 @@ import javax.annotation.Nullable;
  * A SIP rule associates your SIP media application with a phone number or a Request URI hostname. You can associate a SIP rule with more than one SIP media application. Each application then runs only that rule.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -58,13 +61,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import a ChimeSDKVoice SIP Rule using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:chime/sdkvoiceSipRule:SdkvoiceSipRule example abcdef123456
+ * $ pulumi import aws:chime/sdkvoiceSipRule:SdkvoiceSipRule example abcdef123456
  * ```
  * 
  */

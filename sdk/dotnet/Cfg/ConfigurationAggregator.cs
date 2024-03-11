@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Cfg
     /// Manages an AWS Config Configuration Aggregator
     /// 
     /// ## Example Usage
+    /// 
     /// ### Account Based Aggregation
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -41,8 +43,11 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Organization Based Aggregation
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -101,13 +106,14 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Configuration Aggregators using the name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cfg/configurationAggregator:ConfigurationAggregator example foo
+    /// $ pulumi import aws:cfg/configurationAggregator:ConfigurationAggregator example foo
     /// ```
     /// </summary>
     [AwsResourceType("aws:cfg/configurationAggregator:ConfigurationAggregator")]

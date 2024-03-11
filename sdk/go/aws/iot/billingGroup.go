@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,15 +45,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import IoT Billing Groups using the name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:iot/billingGroup:BillingGroup example example
-//
+// $ pulumi import aws:iot/billingGroup:BillingGroup example example
 // ```
 type BillingGroup struct {
 	pulumi.CustomResourceState

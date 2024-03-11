@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Provides an AWS Backup vault policy resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -74,13 +76,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Backup vault policy using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:backup/vaultPolicy:VaultPolicy test TestVault
+ * $ pulumi import aws:backup/vaultPolicy:VaultPolicy test TestVault
  * ```
  * 
  */

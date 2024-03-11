@@ -16,8 +16,10 @@ import (
 // > **NOTE:** A "provisioning artifact" is also known as a "version," and a "distributor" is also known as a "vendor."
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,6 +43,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupProduct(ctx *pulumi.Context, args *LookupProductArgs, opts ...pulumi.InvokeOption) (*LookupProductResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupProductResult

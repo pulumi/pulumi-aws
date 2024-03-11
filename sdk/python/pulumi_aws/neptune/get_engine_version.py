@@ -174,6 +174,7 @@ def get_engine_version(engine: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -184,6 +185,7 @@ def get_engine_version(engine: Optional[str] = None,
         "1.0.2.1",
     ])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str engine: DB engine. (Default: `neptune`)
@@ -225,6 +227,7 @@ def get_engine_version_output(engine: Optional[pulumi.Input[Optional[str]]] = No
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -235,6 +238,7 @@ def get_engine_version_output(engine: Optional[pulumi.Input[Optional[str]]] = No
         "1.0.2.1",
     ])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str engine: DB engine. (Default: `neptune`)

@@ -277,14 +277,17 @@ def get_endpoint(endpoint_id: Optional[str] = None,
     Data source for managing an AWS DMS (Database Migration) Endpoint.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.dms.get_endpoint(endpoint_id="test_id")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str endpoint_id: Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.
@@ -332,14 +335,17 @@ def get_endpoint_output(endpoint_id: Optional[pulumi.Input[str]] = None,
     Data source for managing an AWS DMS (Database Migration) Endpoint.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.dms.get_endpoint(endpoint_id="test_id")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str endpoint_id: Database endpoint identifier. Identifiers must contain from 1 to 255 alphanumeric characters or hyphens, begin with a letter, contain only ASCII letters, digits, and hyphens, not end with a hyphen, and not contain two consecutive hyphens.

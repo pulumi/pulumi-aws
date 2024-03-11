@@ -618,8 +618,10 @@ class ServerlessCache(pulumi.CustomResource):
         Provides an ElastiCache Serverless Cache resource which manages memcached or redis.
 
         ## Example Usage
+
         ### Memcached Serverless
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -642,8 +644,11 @@ class ServerlessCache(pulumi.CustomResource):
             security_group_ids=[test_aws_security_group["id"]],
             subnet_ids=[__item["id"] for __item in test_aws_subnet])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Redis Serverless
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -668,13 +673,14 @@ class ServerlessCache(pulumi.CustomResource):
             security_group_ids=[test_aws_security_group["id"]],
             subnet_ids=[__item["id"] for __item in test_aws_subnet])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ElastiCache Serverless Cache using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:elasticache/serverlessCache:ServerlessCache my_cluster my_cluster
+        $ pulumi import aws:elasticache/serverlessCache:ServerlessCache my_cluster my_cluster
         ```
 
         :param str resource_name: The name of the resource.
@@ -706,8 +712,10 @@ class ServerlessCache(pulumi.CustomResource):
         Provides an ElastiCache Serverless Cache resource which manages memcached or redis.
 
         ## Example Usage
+
         ### Memcached Serverless
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -730,8 +738,11 @@ class ServerlessCache(pulumi.CustomResource):
             security_group_ids=[test_aws_security_group["id"]],
             subnet_ids=[__item["id"] for __item in test_aws_subnet])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Redis Serverless
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -756,13 +767,14 @@ class ServerlessCache(pulumi.CustomResource):
             security_group_ids=[test_aws_security_group["id"]],
             subnet_ids=[__item["id"] for __item in test_aws_subnet])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ElastiCache Serverless Cache using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:elasticache/serverlessCache:ServerlessCache my_cluster my_cluster
+        $ pulumi import aws:elasticache/serverlessCache:ServerlessCache my_cluster my_cluster
         ```
 
         :param str resource_name: The name of the resource.

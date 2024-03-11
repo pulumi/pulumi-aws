@@ -18,6 +18,7 @@ namespace Pulumi.Aws.DynamoDB
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -80,13 +81,14 @@ namespace Pulumi.Aws.DynamoDB
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DynamoDB Global Tables using the global table name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:dynamodb/globalTable:GlobalTable MyTable MyTable
+    /// $ pulumi import aws:dynamodb/globalTable:GlobalTable MyTable MyTable
     /// ```
     /// </summary>
     [AwsResourceType("aws:dynamodb/globalTable:GlobalTable")]

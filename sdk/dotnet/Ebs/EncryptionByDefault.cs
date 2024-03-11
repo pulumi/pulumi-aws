@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Ebs
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,13 +32,14 @@ namespace Pulumi.Aws.Ebs
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import the default EBS encryption state. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ebs/encryptionByDefault:EncryptionByDefault example default
+    /// $ pulumi import aws:ebs/encryptionByDefault:EncryptionByDefault example default
     /// ```
     /// </summary>
     [AwsResourceType("aws:ebs/encryptionByDefault:EncryptionByDefault")]

@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Associates the specified subnet and transit gateway attachment with the specified transit gateway multicast domain.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -67,6 +69,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:ec2transitgateway/multicastDomainAssociation:MulticastDomainAssociation")

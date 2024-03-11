@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * 
  * &gt; **Note:** Api Key argument will be stored in the raw state as plain-text.
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -53,13 +55,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Pinpoint GCM Channel using the `application-id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:pinpoint/gcmChannel:GcmChannel gcm application-id
+ * $ pulumi import aws:pinpoint/gcmChannel:GcmChannel gcm application-id
  * ```
  * 
  */

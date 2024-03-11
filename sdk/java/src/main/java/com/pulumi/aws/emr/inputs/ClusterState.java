@@ -145,6 +145,8 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
      * JSON string for supplying list of configurations for the EMR cluster.
      * 
      * &gt; **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `&#34;Configurations&#34;: []`.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -188,6 +190,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     @Import(name="configurationsJson")
@@ -197,6 +200,8 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
      * @return JSON string for supplying list of configurations for the EMR cluster.
      * 
      * &gt; **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `&#34;Configurations&#34;: []`.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -240,6 +245,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public Optional<Output<String>> configurationsJson() {
@@ -870,6 +876,8 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          * @param configurationsJson JSON string for supplying list of configurations for the EMR cluster.
          * 
          * &gt; **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `&#34;Configurations&#34;: []`.
+         * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -913,6 +921,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 
@@ -926,6 +935,8 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          * @param configurationsJson JSON string for supplying list of configurations for the EMR cluster.
          * 
          * &gt; **NOTE on `configurations_json`:** If the `Configurations` value is empty then you should skip the `Configurations` field instead of providing an empty list as a value, `&#34;Configurations&#34;: []`.
+         * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -969,6 +980,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 

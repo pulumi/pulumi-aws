@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Manages an Amazon API Gateway Version 2 [model](https://docs.aws.amazon.com/apigateway/latest/developerguide/models-mappings.html#models-mappings-models).
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -30,13 +32,14 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_apigatewayv2_model` using the API identifier and model identifier. For example:
  *
  * ```sh
- *  $ pulumi import aws:apigatewayv2/model:Model example aabbccddee/1122334
+ * $ pulumi import aws:apigatewayv2/model:Model example aabbccddee/1122334
  * ```
  */
 export class Model extends pulumi.CustomResource {

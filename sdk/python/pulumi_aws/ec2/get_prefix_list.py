@@ -105,6 +105,7 @@ def get_prefix_list(filters: Optional[Sequence[pulumi.InputType['GetPrefixListFi
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -124,8 +125,11 @@ def get_prefix_list(filters: Optional[Sequence[pulumi.InputType['GetPrefixListFi
         from_port=443,
         to_port=443)
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Filter
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -135,6 +139,7 @@ def get_prefix_list(filters: Optional[Sequence[pulumi.InputType['GetPrefixListFi
         values=["pl-68a54001"],
     )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetPrefixListFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
@@ -174,6 +179,7 @@ def get_prefix_list_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -193,8 +199,11 @@ def get_prefix_list_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
         from_port=443,
         to_port=443)
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Filter
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -204,6 +213,7 @@ def get_prefix_list_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
         values=["pl-68a54001"],
     )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetPrefixListFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.

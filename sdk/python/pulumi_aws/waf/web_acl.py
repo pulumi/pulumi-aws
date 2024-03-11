@@ -276,6 +276,7 @@ class WebAcl(pulumi.CustomResource):
 
         This example blocks requests coming from `192.0.7.0/24` and allows everything else.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -309,10 +310,13 @@ class WebAcl(pulumi.CustomResource):
                 type="REGULAR",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Logging
 
         > *NOTE:* The Kinesis Firehose Delivery Stream name must begin with `aws-waf-logs-` and be located in `us-east-1` region. See the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html) for more information about enabling WAF logging.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -332,13 +336,14 @@ class WebAcl(pulumi.CustomResource):
             ),
         ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import WAF Web ACL using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:waf/webAcl:WebAcl main 0c8e583e-18f3-4c13-9e2a-67c4805d2f94
+        $ pulumi import aws:waf/webAcl:WebAcl main 0c8e583e-18f3-4c13-9e2a-67c4805d2f94
         ```
 
         :param str resource_name: The name of the resource.
@@ -363,6 +368,7 @@ class WebAcl(pulumi.CustomResource):
 
         This example blocks requests coming from `192.0.7.0/24` and allows everything else.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -396,10 +402,13 @@ class WebAcl(pulumi.CustomResource):
                 type="REGULAR",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Logging
 
         > *NOTE:* The Kinesis Firehose Delivery Stream name must begin with `aws-waf-logs-` and be located in `us-east-1` region. See the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html) for more information about enabling WAF logging.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -419,13 +428,14 @@ class WebAcl(pulumi.CustomResource):
             ),
         ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import WAF Web ACL using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:waf/webAcl:WebAcl main 0c8e583e-18f3-4c13-9e2a-67c4805d2f94
+        $ pulumi import aws:waf/webAcl:WebAcl main 0c8e583e-18f3-4c13-9e2a-67c4805d2f94
         ```
 
         :param str resource_name: The name of the resource.

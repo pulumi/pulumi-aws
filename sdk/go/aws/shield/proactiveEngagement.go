@@ -16,8 +16,10 @@ import (
 // Proactive engagement authorizes the Shield Response Team (SRT) to use email and phone to notify contacts about escalations to the SRT and to initiate proactive customer support.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -101,15 +103,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Shield proactive engagement using the AWS account ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:shield/proactiveEngagement:ProactiveEngagement example 123456789012
-//
+// $ pulumi import aws:shield/proactiveEngagement:ProactiveEngagement example 123456789012
 // ```
 type ProactiveEngagement struct {
 	pulumi.CustomResourceState

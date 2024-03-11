@@ -81,12 +81,18 @@ public final class PolicyStepScalingPolicyConfigurationArgs extends com.pulumi.r
     /**
      * Set of adjustments that manage scaling. These have the following structure:
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     @Import(name="stepAdjustments")
     private @Nullable Output<List<PolicyStepScalingPolicyConfigurationStepAdjustmentArgs>> stepAdjustments;
 
     /**
      * @return Set of adjustments that manage scaling. These have the following structure:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public Optional<Output<List<PolicyStepScalingPolicyConfigurationStepAdjustmentArgs>>> stepAdjustments() {
@@ -208,6 +214,9 @@ public final class PolicyStepScalingPolicyConfigurationArgs extends com.pulumi.r
         /**
          * @param stepAdjustments Set of adjustments that manage scaling. These have the following structure:
          * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
+         * &lt;!--End PulumiCodeChooser --&gt;
+         * 
          * @return builder
          * 
          */
@@ -219,6 +228,9 @@ public final class PolicyStepScalingPolicyConfigurationArgs extends com.pulumi.r
         /**
          * @param stepAdjustments Set of adjustments that manage scaling. These have the following structure:
          * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
+         * &lt;!--End PulumiCodeChooser --&gt;
+         * 
          * @return builder
          * 
          */
@@ -228,6 +240,9 @@ public final class PolicyStepScalingPolicyConfigurationArgs extends com.pulumi.r
 
         /**
          * @param stepAdjustments Set of adjustments that manage scaling. These have the following structure:
+         * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 

@@ -13,8 +13,10 @@ namespace Pulumi.Aws.RedshiftData
     /// Executes a Redshift Data Statement.
     /// 
     /// ## Example Usage
+    /// 
     /// ### cluster_identifier
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -33,8 +35,11 @@ namespace Pulumi.Aws.RedshiftData
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### workgroup_name
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -52,13 +57,14 @@ namespace Pulumi.Aws.RedshiftData
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Redshift Data Statements using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:redshiftdata/statement:Statement example example
+    /// $ pulumi import aws:redshiftdata/statement:Statement example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:redshiftdata/statement:Statement")]

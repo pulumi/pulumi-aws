@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -63,15 +64,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CloudSearch Domains using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cloudsearch/domain:Domain example example-domain
-//
+// $ pulumi import aws:cloudsearch/domain:Domain example example-domain
 // ```
 type Domain struct {
 	pulumi.CustomResourceState

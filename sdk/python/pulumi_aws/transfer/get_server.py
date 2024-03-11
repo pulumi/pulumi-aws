@@ -205,12 +205,14 @@ def get_server(server_id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.transfer.get_server(server_id="s-1234567")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str server_id: ID for an SFTP server.
@@ -246,12 +248,14 @@ def get_server_output(server_id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.transfer.get_server(server_id="s-1234567")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str server_id: ID for an SFTP server.

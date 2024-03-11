@@ -189,16 +189,21 @@ class Database(pulumi.CustomResource):
         Provides a Timestream database resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.timestreamwrite.Database("example", database_name="database-example")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Full usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -210,13 +215,14 @@ class Database(pulumi.CustomResource):
                 "Name": "value",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Timestream databases using the `database_name`. For example:
 
         ```sh
-         $ pulumi import aws:timestreamwrite/database:Database example example
+        $ pulumi import aws:timestreamwrite/database:Database example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -235,16 +241,21 @@ class Database(pulumi.CustomResource):
         Provides a Timestream database resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.timestreamwrite.Database("example", database_name="database-example")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Full usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -256,13 +267,14 @@ class Database(pulumi.CustomResource):
                 "Name": "value",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Timestream databases using the `database_name`. For example:
 
         ```sh
-         $ pulumi import aws:timestreamwrite/database:Database example example
+        $ pulumi import aws:timestreamwrite/database:Database example example
         ```
 
         :param str resource_name: The name of the resource.

@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * The following example below creates an HSM module in CloudHSM cluster.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,13 +24,14 @@ import * as utilities from "../utilities";
  *     clusterId: cluster.then(cluster => cluster.clusterId),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import HSM modules using their HSM ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudhsmv2/hsm:Hsm bar hsm-quo8dahtaca
+ * $ pulumi import aws:cloudhsmv2/hsm:Hsm bar hsm-quo8dahtaca
  * ```
  */
 export class Hsm extends pulumi.CustomResource {

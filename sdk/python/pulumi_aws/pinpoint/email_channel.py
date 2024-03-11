@@ -249,6 +249,7 @@ class EmailChannel(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -281,13 +282,14 @@ class EmailChannel(pulumi.CustomResource):
             role=role.id,
             policy=role_policy.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Pinpoint Email Channel using the `application-id`. For example:
 
         ```sh
-         $ pulumi import aws:pinpoint/emailChannel:EmailChannel email application-id
+        $ pulumi import aws:pinpoint/emailChannel:EmailChannel email application-id
         ```
 
         :param str resource_name: The name of the resource.
@@ -310,6 +312,7 @@ class EmailChannel(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -342,13 +345,14 @@ class EmailChannel(pulumi.CustomResource):
             role=role.id,
             policy=role_policy.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Pinpoint Email Channel using the `application-id`. For example:
 
         ```sh
-         $ pulumi import aws:pinpoint/emailChannel:EmailChannel email application-id
+        $ pulumi import aws:pinpoint/emailChannel:EmailChannel email application-id
         ```
 
         :param str resource_name: The name of the resource.

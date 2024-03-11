@@ -700,6 +700,7 @@ class DevEndpoint(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -721,13 +722,14 @@ class DevEndpoint(pulumi.CustomResource):
             policy_arn="arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole",
             role=example_role.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a Glue Development Endpoint using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:glue/devEndpoint:DevEndpoint example foo
+        $ pulumi import aws:glue/devEndpoint:DevEndpoint example foo
         ```
 
         :param str resource_name: The name of the resource.
@@ -761,6 +763,7 @@ class DevEndpoint(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -782,13 +785,14 @@ class DevEndpoint(pulumi.CustomResource):
             policy_arn="arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole",
             role=example_role.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a Glue Development Endpoint using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:glue/devEndpoint:DevEndpoint example foo
+        $ pulumi import aws:glue/devEndpoint:DevEndpoint example foo
         ```
 
         :param str resource_name: The name of the resource.

@@ -19,7 +19,7 @@ import * as utilities from "../utilities";
  * Using `pulumi import`, import Bedrock custom model using the `id` set to the AWS Region. For example:
  *
  * ```sh
- *  $ pulumi import aws:bedrockmodel/invocationLoggingConfiguration:InvocationLoggingConfiguration my_config us-east-1
+ * $ pulumi import aws:bedrockmodel/invocationLoggingConfiguration:InvocationLoggingConfiguration my_config us-east-1
  * ```
  */
 export class InvocationLoggingConfiguration extends pulumi.CustomResource {

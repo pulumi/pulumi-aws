@@ -14,6 +14,7 @@ namespace Pulumi.Aws.CodeGuruReviewer
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -47,6 +48,7 @@ namespace Pulumi.Aws.CodeGuruReviewer
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:codegurureviewer/repositoryAssociation:RepositoryAssociation")]
     public partial class RepositoryAssociation : global::Pulumi.CustomResource

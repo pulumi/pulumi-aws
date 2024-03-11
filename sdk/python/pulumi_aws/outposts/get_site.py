@@ -82,12 +82,14 @@ def get_site(id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.outposts.get_site(name="example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str id: Identifier of the Site.
@@ -115,12 +117,14 @@ def get_site_output(id: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.outposts.get_site(name="example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str id: Identifier of the Site.

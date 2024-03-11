@@ -33,6 +33,8 @@ import javax.annotation.Nullable;
  * Provides a CodeBuild Project resource. See also the `aws.codebuild.Webhook` resource, which manages the webhook to the source (e.g., the &#34;rebuild every time a code change is pushed&#34; option in the CodeBuild web console).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -247,13 +249,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import CodeBuild Project using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:codebuild/project:Project name project-name
+ * $ pulumi import aws:codebuild/project:Project name project-name
  * ```
  * 
  */

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Rekognition
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -33,13 +34,14 @@ namespace Pulumi.Aws.Rekognition
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Rekognition Collection using the `example_id_arg`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:rekognition/collection:Collection example collection-id-12345678
+    /// $ pulumi import aws:rekognition/collection:Collection example collection-id-12345678
     /// ```
     /// </summary>
     [AwsResourceType("aws:rekognition/collection:Collection")]

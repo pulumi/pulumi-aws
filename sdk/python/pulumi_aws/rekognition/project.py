@@ -188,6 +188,7 @@ class Project(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -197,13 +198,14 @@ class Project(pulumi.CustomResource):
             auto_update="ENABLED",
             feature="CONTENT_MODERATION")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Rekognition Project using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:rekognition/project:Project example project-id-12345678
+        $ pulumi import aws:rekognition/project:Project example project-id-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -225,6 +227,7 @@ class Project(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -234,13 +237,14 @@ class Project(pulumi.CustomResource):
             auto_update="ENABLED",
             feature="CONTENT_MODERATION")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Rekognition Project using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:rekognition/project:Project example project-id-12345678
+        $ pulumi import aws:rekognition/project:Project example project-id-12345678
         ```
 
         :param str resource_name: The name of the resource.

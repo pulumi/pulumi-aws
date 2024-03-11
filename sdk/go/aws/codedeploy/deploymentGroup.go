@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -130,8 +131,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Blue Green Deployments with ECS
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -205,8 +209,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Blue Green Deployments with Servers and Classic ELB
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -261,15 +268,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CodeDeploy Deployment Groups using `app_name`, a colon, and `deployment_group_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:codedeploy/deploymentGroup:DeploymentGroup example my-application:my-deployment-group
-//
+// $ pulumi import aws:codedeploy/deploymentGroup:DeploymentGroup example my-application:my-deployment-group
 // ```
 type DeploymentGroup struct {
 	pulumi.CustomResourceState

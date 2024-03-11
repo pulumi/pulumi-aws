@@ -331,6 +331,7 @@ class CostCategory(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -371,13 +372,14 @@ class CostCategory(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ce_cost_category` using the id. For example:
 
         ```sh
-         $ pulumi import aws:costexplorer/costCategory:CostCategory example costCategoryARN
+        $ pulumi import aws:costexplorer/costCategory:CostCategory example costCategoryARN
         ```
 
         :param str resource_name: The name of the resource.
@@ -403,6 +405,7 @@ class CostCategory(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -443,13 +446,14 @@ class CostCategory(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ce_cost_category` using the id. For example:
 
         ```sh
-         $ pulumi import aws:costexplorer/costCategory:CostCategory example costCategoryARN
+        $ pulumi import aws:costexplorer/costCategory:CostCategory example costCategoryARN
         ```
 
         :param str resource_name: The name of the resource.

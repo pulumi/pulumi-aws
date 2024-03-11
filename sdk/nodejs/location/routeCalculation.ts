@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -18,13 +19,14 @@ import * as utilities from "../utilities";
  *     dataSource: "Here",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_location_route_calculator` using the route calculator name. For example:
  *
  * ```sh
- *  $ pulumi import aws:location/routeCalculation:RouteCalculation example example
+ * $ pulumi import aws:location/routeCalculation:RouteCalculation example example
  * ```
  */
 export class RouteCalculation extends pulumi.CustomResource {

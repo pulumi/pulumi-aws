@@ -12,8 +12,10 @@ import * as utilities from "../utilities";
  * > **Note:** Do not use the `replica` configuration block of aws.dynamodb.Table together with this resource as the two configuration options are mutually exclusive.
  *
  * ## Example Usage
+ *
  * ### Basic Example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -37,6 +39,7 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -45,7 +48,7 @@ import * as utilities from "../utilities";
  * ~> __Note:__ When importing, use the region where the initial or _main_ global table resides, _not_ the region of the replica.
  *
  * ```sh
- *  $ pulumi import aws:dynamodb/tableReplica:TableReplica example TestTable:us-west-2
+ * $ pulumi import aws:dynamodb/tableReplica:TableReplica example TestTable:us-west-2
  * ```
  */
 export class TableReplica extends pulumi.CustomResource {

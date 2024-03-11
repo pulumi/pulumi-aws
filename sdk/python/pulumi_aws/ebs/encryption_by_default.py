@@ -73,19 +73,21 @@ class EncryptionByDefault(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ebs.EncryptionByDefault("example", enabled=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import the default EBS encryption state. For example:
 
         ```sh
-         $ pulumi import aws:ebs/encryptionByDefault:EncryptionByDefault example default
+        $ pulumi import aws:ebs/encryptionByDefault:EncryptionByDefault example default
         ```
 
         :param str resource_name: The name of the resource.
@@ -105,19 +107,21 @@ class EncryptionByDefault(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ebs.EncryptionByDefault("example", enabled=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import the default EBS encryption state. For example:
 
         ```sh
-         $ pulumi import aws:ebs/encryptionByDefault:EncryptionByDefault example default
+        $ pulumi import aws:ebs/encryptionByDefault:EncryptionByDefault example default
         ```
 
         :param str resource_name: The name of the resource.

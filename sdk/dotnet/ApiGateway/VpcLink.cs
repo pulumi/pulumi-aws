@@ -17,6 +17,7 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -48,13 +49,14 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import API Gateway VPC Link using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:apigateway/vpcLink:VpcLink example 12345abcde
+    /// $ pulumi import aws:apigateway/vpcLink:VpcLink example 12345abcde
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/vpcLink:VpcLink")]

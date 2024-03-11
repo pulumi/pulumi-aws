@@ -217,8 +217,10 @@ class ConfigurationAggregator(pulumi.CustomResource):
         Manages an AWS Config Configuration Aggregator
 
         ## Example Usage
+
         ### Account Based Aggregation
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -230,8 +232,11 @@ class ConfigurationAggregator(pulumi.CustomResource):
                 regions=["us-west-2"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Organization Based Aggregation
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -257,13 +262,14 @@ class ConfigurationAggregator(pulumi.CustomResource):
             role=organization_role.name,
             policy_arn="arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Configuration Aggregators using the name. For example:
 
         ```sh
-         $ pulumi import aws:cfg/configurationAggregator:ConfigurationAggregator example foo
+        $ pulumi import aws:cfg/configurationAggregator:ConfigurationAggregator example foo
         ```
 
         :param str resource_name: The name of the resource.
@@ -285,8 +291,10 @@ class ConfigurationAggregator(pulumi.CustomResource):
         Manages an AWS Config Configuration Aggregator
 
         ## Example Usage
+
         ### Account Based Aggregation
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -298,8 +306,11 @@ class ConfigurationAggregator(pulumi.CustomResource):
                 regions=["us-west-2"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Organization Based Aggregation
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -325,13 +336,14 @@ class ConfigurationAggregator(pulumi.CustomResource):
             role=organization_role.name,
             policy_arn="arn:aws:iam::aws:policy/service-role/AWSConfigRoleForOrganizations")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Configuration Aggregators using the name. For example:
 
         ```sh
-         $ pulumi import aws:cfg/configurationAggregator:ConfigurationAggregator example foo
+        $ pulumi import aws:cfg/configurationAggregator:ConfigurationAggregator example foo
         ```
 
         :param str resource_name: The name of the resource.

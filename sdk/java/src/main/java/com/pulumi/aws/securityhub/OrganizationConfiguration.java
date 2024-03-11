@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** This is an advanced AWS resource. Pulumi will automatically assume management of the Security Hub Organization Configuration without import and perform no actions on removal from the Pulumi program.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -63,13 +65,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import an existing Security Hub enabled account using the AWS account ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:securityhub/organizationConfiguration:OrganizationConfiguration example 123456789012
+ * $ pulumi import aws:securityhub/organizationConfiguration:OrganizationConfiguration example 123456789012
  * ```
  * 
  */

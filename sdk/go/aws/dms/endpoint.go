@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -56,15 +57,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import endpoints using the `endpoint_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:dms/endpoint:Endpoint test test-dms-endpoint-tf
-//
+// $ pulumi import aws:dms/endpoint:Endpoint test test-dms-endpoint-tf
 // ```
 type Endpoint struct {
 	pulumi.CustomResourceState

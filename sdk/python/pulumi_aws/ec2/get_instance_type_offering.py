@@ -94,6 +94,7 @@ def get_instance_type_offering(filters: Optional[Sequence[pulumi.InputType['GetI
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -110,6 +111,7 @@ def get_instance_type_offering(filters: Optional[Sequence[pulumi.InputType['GetI
             "t2.micro",
         ])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetInstanceTypeOfferingFilterArgs']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.
@@ -141,6 +143,7 @@ def get_instance_type_offering_output(filters: Optional[pulumi.Input[Optional[Se
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -157,6 +160,7 @@ def get_instance_type_offering_output(filters: Optional[pulumi.Input[Optional[Se
             "t2.micro",
         ])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetInstanceTypeOfferingFilterArgs']] filters: One or more configuration blocks containing name-values filters. See the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeInstanceTypeOfferings.html) for supported filters. Detailed below.

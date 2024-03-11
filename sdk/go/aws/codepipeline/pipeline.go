@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -227,15 +228,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CodePipelines using the name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:codepipeline/pipeline:Pipeline foo example
-//
+// $ pulumi import aws:codepipeline/pipeline:Pipeline foo example
 // ```
 type Pipeline struct {
 	pulumi.CustomResourceState

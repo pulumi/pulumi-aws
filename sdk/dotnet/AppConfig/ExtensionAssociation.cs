@@ -14,6 +14,7 @@ namespace Pulumi.Aws.AppConfig
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -97,13 +98,14 @@ namespace Pulumi.Aws.AppConfig
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AppConfig Extension Associations using their extension association ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:appconfig/extensionAssociation:ExtensionAssociation example 71rxuzt
+    /// $ pulumi import aws:appconfig/extensionAssociation:ExtensionAssociation example 71rxuzt
     /// ```
     /// </summary>
     [AwsResourceType("aws:appconfig/extensionAssociation:ExtensionAssociation")]

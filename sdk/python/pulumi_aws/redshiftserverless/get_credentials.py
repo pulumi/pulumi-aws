@@ -116,12 +116,14 @@ def get_credentials(db_name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.redshiftserverless.get_credentials(workgroup_name=example_aws_redshiftserverless_workgroup["workgroupName"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str db_name: The name of the database to get temporary authorization to log on to.
@@ -155,12 +157,14 @@ def get_credentials_output(db_name: Optional[pulumi.Input[Optional[str]]] = None
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.redshiftserverless.get_credentials(workgroup_name=example_aws_redshiftserverless_workgroup["workgroupName"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str db_name: The name of the database to get temporary authorization to log on to.

@@ -86,6 +86,7 @@ def get_secrets(filters: Optional[Sequence[pulumi.InputType['GetSecretsFilterArg
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -95,6 +96,7 @@ def get_secrets(filters: Optional[Sequence[pulumi.InputType['GetSecretsFilterArg
         values=["example"],
     )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetSecretsFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
@@ -119,6 +121,7 @@ def get_secrets_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.I
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -128,6 +131,7 @@ def get_secrets_output(filters: Optional[pulumi.Input[Optional[Sequence[pulumi.I
         values=["example"],
     )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetSecretsFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.

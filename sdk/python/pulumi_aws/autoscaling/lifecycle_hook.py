@@ -312,6 +312,7 @@ class LifecycleHook(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -339,13 +340,14 @@ class LifecycleHook(pulumi.CustomResource):
             notification_target_arn="arn:aws:sqs:us-east-1:444455556666:queue1*",
             role_arn="arn:aws:iam::123456789012:role/S3Access")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AutoScaling Lifecycle Hooks using the role autoscaling_group_name and name separated by `/`. For example:
 
         ```sh
-         $ pulumi import aws:autoscaling/lifecycleHook:LifecycleHook test-lifecycle-hook asg-name/lifecycle-hook-name
+        $ pulumi import aws:autoscaling/lifecycleHook:LifecycleHook test-lifecycle-hook asg-name/lifecycle-hook-name
         ```
 
         :param str resource_name: The name of the resource.
@@ -382,6 +384,7 @@ class LifecycleHook(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -409,13 +412,14 @@ class LifecycleHook(pulumi.CustomResource):
             notification_target_arn="arn:aws:sqs:us-east-1:444455556666:queue1*",
             role_arn="arn:aws:iam::123456789012:role/S3Access")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AutoScaling Lifecycle Hooks using the role autoscaling_group_name and name separated by `/`. For example:
 
         ```sh
-         $ pulumi import aws:autoscaling/lifecycleHook:LifecycleHook test-lifecycle-hook asg-name/lifecycle-hook-name
+        $ pulumi import aws:autoscaling/lifecycleHook:LifecycleHook test-lifecycle-hook asg-name/lifecycle-hook-name
         ```
 
         :param str resource_name: The name of the resource.

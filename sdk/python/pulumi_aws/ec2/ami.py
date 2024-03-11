@@ -834,6 +834,7 @@ class Ami(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -852,13 +853,14 @@ class Ami(pulumi.CustomResource):
                 volume_size=8,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ami` using the ID of the AMI. For example:
 
         ```sh
-         $ pulumi import aws:ec2/ami:Ami example ami-12345678
+        $ pulumi import aws:ec2/ami:Ami example ami-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -907,6 +909,7 @@ class Ami(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -925,13 +928,14 @@ class Ami(pulumi.CustomResource):
                 volume_size=8,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ami` using the ID of the AMI. For example:
 
         ```sh
-         $ pulumi import aws:ec2/ami:Ami example ami-12345678
+        $ pulumi import aws:ec2/ami:Ami example ami-12345678
         ```
 
         :param str resource_name: The name of the resource.

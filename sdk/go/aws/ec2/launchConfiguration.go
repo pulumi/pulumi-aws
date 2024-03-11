@@ -20,6 +20,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -68,6 +69,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Using with AutoScaling Groups
 //
 // Launch Configurations cannot be updated after creation with the Amazon
@@ -78,6 +81,7 @@ import (
 // Either omit the Launch Configuration `name` attribute, or specify a partial name
 // with `namePrefix`.  Example:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -136,6 +140,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // With this setup this provider generates a unique name for your Launch
 // Configuration and can then update the AutoScaling Group without conflict before
@@ -150,6 +155,7 @@ import (
 // documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
 // for more information or how to launch [Spot Instances][3] with this provider.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -206,6 +212,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Block devices
 //
@@ -264,9 +271,7 @@ import (
 // Using `pulumi import`, import launch configurations using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf pulumi-lg-123456
-//
+// $ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf pulumi-lg-123456
 // ```
 type LaunchConfiguration struct {
 	pulumi.CustomResourceState

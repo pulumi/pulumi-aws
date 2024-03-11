@@ -599,8 +599,10 @@ class VpcEndpoint(pulumi.CustomResource):
         Doing so will cause a conflict of associations and will overwrite the association.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -609,8 +611,11 @@ class VpcEndpoint(pulumi.CustomResource):
             vpc_id=main["id"],
             service_name="com.amazonaws.us-west-2.s3")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Basic w/ Tags
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -622,8 +627,11 @@ class VpcEndpoint(pulumi.CustomResource):
                 "Environment": "test",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Interface Endpoint Type
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -635,8 +643,11 @@ class VpcEndpoint(pulumi.CustomResource):
             security_group_ids=[sg1["id"]],
             private_dns_enabled=True)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Gateway Load Balancer Endpoint Type
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -652,13 +663,14 @@ class VpcEndpoint(pulumi.CustomResource):
             vpc_endpoint_type=example.service_type,
             vpc_id=example_aws_vpc["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import VPC Endpoints using the VPC endpoint `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/vpcEndpoint:VpcEndpoint endpoint1 vpce-3ecf2a57
+        $ pulumi import aws:ec2/vpcEndpoint:VpcEndpoint endpoint1 vpce-3ecf2a57
         ```
 
         :param str resource_name: The name of the resource.
@@ -696,8 +708,10 @@ class VpcEndpoint(pulumi.CustomResource):
         Doing so will cause a conflict of associations and will overwrite the association.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -706,8 +720,11 @@ class VpcEndpoint(pulumi.CustomResource):
             vpc_id=main["id"],
             service_name="com.amazonaws.us-west-2.s3")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Basic w/ Tags
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -719,8 +736,11 @@ class VpcEndpoint(pulumi.CustomResource):
                 "Environment": "test",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Interface Endpoint Type
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -732,8 +752,11 @@ class VpcEndpoint(pulumi.CustomResource):
             security_group_ids=[sg1["id"]],
             private_dns_enabled=True)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Gateway Load Balancer Endpoint Type
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -749,13 +772,14 @@ class VpcEndpoint(pulumi.CustomResource):
             vpc_endpoint_type=example.service_type,
             vpc_id=example_aws_vpc["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import VPC Endpoints using the VPC endpoint `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/vpcEndpoint:VpcEndpoint endpoint1 vpce-3ecf2a57
+        $ pulumi import aws:ec2/vpcEndpoint:VpcEndpoint endpoint1 vpce-3ecf2a57
         ```
 
         :param str resource_name: The name of the resource.

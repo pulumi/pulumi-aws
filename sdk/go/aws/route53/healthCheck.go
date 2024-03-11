@@ -15,8 +15,10 @@ import (
 // Provides a Route53 health check.
 //
 // ## Example Usage
+//
 // ### Connectivity and HTTP Status Code Check
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -48,8 +50,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Connectivity and String Matching Check
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -79,8 +84,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Aggregate Check
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -111,8 +119,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### CloudWatch Alarm Check
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -154,15 +165,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Route53 Health Checks using the health check `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:route53/healthCheck:HealthCheck http_check abcdef11-2222-3333-4444-555555fedcba
-//
+// $ pulumi import aws:route53/healthCheck:HealthCheck http_check abcdef11-2222-3333-4444-555555fedcba
 // ```
 type HealthCheck struct {
 	pulumi.CustomResourceState

@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Creates a new Amazon Redshift endpoint access.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,13 +52,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Redshift endpoint access using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:redshift/endpointAccess:EndpointAccess example example
+ * $ pulumi import aws:redshift/endpointAccess:EndpointAccess example example
  * ```
  * 
  */

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -53,15 +54,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Backup Report Plan using the `id` which corresponds to the name of the Backup Report Plan. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:backup/reportPlan:ReportPlan test <id>
-//
+// $ pulumi import aws:backup/reportPlan:ReportPlan test <id>
 // ```
 type ReportPlan struct {
 	pulumi.CustomResourceState

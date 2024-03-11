@@ -371,6 +371,7 @@ class ApnsSandboxChannel(pulumi.CustomResource):
         > **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -382,13 +383,14 @@ class ApnsSandboxChannel(pulumi.CustomResource):
             certificate=std.file(input="./certificate.pem").result,
             private_key=std.file(input="./private_key.key").result)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Pinpoint APNs Sandbox Channel using the `application-id`. For example:
 
         ```sh
-         $ pulumi import aws:pinpoint/apnsSandboxChannel:ApnsSandboxChannel apns_sandbox application-id
+        $ pulumi import aws:pinpoint/apnsSandboxChannel:ApnsSandboxChannel apns_sandbox application-id
         ```
 
         :param str resource_name: The name of the resource.
@@ -424,6 +426,7 @@ class ApnsSandboxChannel(pulumi.CustomResource):
         > **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -435,13 +438,14 @@ class ApnsSandboxChannel(pulumi.CustomResource):
             certificate=std.file(input="./certificate.pem").result,
             private_key=std.file(input="./private_key.key").result)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Pinpoint APNs Sandbox Channel using the `application-id`. For example:
 
         ```sh
-         $ pulumi import aws:pinpoint/apnsSandboxChannel:ApnsSandboxChannel apns_sandbox application-id
+        $ pulumi import aws:pinpoint/apnsSandboxChannel:ApnsSandboxChannel apns_sandbox application-id
         ```
 
         :param str resource_name: The name of the resource.

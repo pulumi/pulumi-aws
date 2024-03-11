@@ -15,8 +15,10 @@ import (
 // Provides an Amazon Managed Grafana workspace license association resource.
 //
 // ## Example Usage
+//
 // ### Basic configuration
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -79,15 +81,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Grafana workspace license association using the workspace's `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:grafana/licenseAssociation:LicenseAssociation example g-2054c75a02
-//
+// $ pulumi import aws:grafana/licenseAssociation:LicenseAssociation example g-2054c75a02
 // ```
 type LicenseAssociation struct {
 	pulumi.CustomResourceState

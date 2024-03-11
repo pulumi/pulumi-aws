@@ -234,6 +234,7 @@ class ThingGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -255,13 +256,14 @@ class ThingGroup(pulumi.CustomResource):
                 "managed": "true",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IoT Things Groups using the name. For example:
 
         ```sh
-         $ pulumi import aws:iot/thingGroup:ThingGroup example example
+        $ pulumi import aws:iot/thingGroup:ThingGroup example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -282,6 +284,7 @@ class ThingGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -303,13 +306,14 @@ class ThingGroup(pulumi.CustomResource):
                 "managed": "true",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IoT Things Groups using the name. For example:
 
         ```sh
-         $ pulumi import aws:iot/thingGroup:ThingGroup example example
+        $ pulumi import aws:iot/thingGroup:ThingGroup example example
         ```
 
         :param str resource_name: The name of the resource.

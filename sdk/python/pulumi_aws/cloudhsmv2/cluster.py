@@ -294,7 +294,7 @@ class Cluster(pulumi.CustomResource):
         Using `pulumi import`, import CloudHSM v2 Clusters using the cluster `id`. For example:
 
         ```sh
-         $ pulumi import aws:cloudhsmv2/cluster:Cluster test_cluster cluster-aeb282a201
+        $ pulumi import aws:cloudhsmv2/cluster:Cluster test_cluster cluster-aeb282a201
         ```
 
         :param str resource_name: The name of the resource.
@@ -327,7 +327,7 @@ class Cluster(pulumi.CustomResource):
         Using `pulumi import`, import CloudHSM v2 Clusters using the cluster `id`. For example:
 
         ```sh
-         $ pulumi import aws:cloudhsmv2/cluster:Cluster test_cluster cluster-aeb282a201
+        $ pulumi import aws:cloudhsmv2/cluster:Cluster test_cluster cluster-aeb282a201
         ```
 
         :param str resource_name: The name of the resource.

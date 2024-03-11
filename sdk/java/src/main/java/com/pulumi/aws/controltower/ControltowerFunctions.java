@@ -19,6 +19,9 @@ public final class ControltowerFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetControlsResult> getControls(GetControlsArgs args) {
         return getControls(args, InvokeOptions.Empty);
@@ -27,6 +30,9 @@ public final class ControltowerFunctions {
      * List of Control Tower controls applied to an OU.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetControlsResult> getControlsPlain(GetControlsPlainArgs args) {
@@ -37,6 +43,9 @@ public final class ControltowerFunctions {
      * 
      * ## Example Usage
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetControlsResult> getControls(GetControlsArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:controltower/getControls:getControls", TypeShape.of(GetControlsResult.class), args, Utilities.withVersion(options));
@@ -45,6 +54,9 @@ public final class ControltowerFunctions {
      * List of Control Tower controls applied to an OU.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetControlsResult> getControlsPlain(GetControlsPlainArgs args, InvokeOptions options) {

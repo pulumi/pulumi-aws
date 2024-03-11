@@ -94,6 +94,7 @@ def get_application(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -102,6 +103,7 @@ def get_application(name: Optional[str] = None,
     pulumi.export("arn", example.arn)
     pulumi.export("description", example.description)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the application
@@ -127,6 +129,7 @@ def get_application_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -135,6 +138,7 @@ def get_application_output(name: Optional[pulumi.Input[str]] = None,
     pulumi.export("arn", example.arn)
     pulumi.export("description", example.description)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the application

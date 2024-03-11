@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -33,13 +34,14 @@ import * as utilities from "../utilities";
  *     allocationId: example.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import EIP Assocations using their association IDs. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/eipAssociation:EipAssociation test eipassoc-ab12c345
+ * $ pulumi import aws:ec2/eipAssociation:EipAssociation test eipassoc-ab12c345
  * ```
  */
 export class EipAssociation extends pulumi.CustomResource {

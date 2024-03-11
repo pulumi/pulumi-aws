@@ -14,8 +14,10 @@ import (
 // Provides a CodeDeploy application to be used as a basis for deployments
 //
 // ## Example Usage
+//
 // ### ECS Application
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,8 +42,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Lambda Application
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -66,8 +71,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Server Application
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -92,15 +100,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CodeDeploy Applications using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:codedeploy/application:Application example my-application
-//
+// $ pulumi import aws:codedeploy/application:Application example my-application
 // ```
 type Application struct {
 	pulumi.CustomResourceState

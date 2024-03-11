@@ -543,35 +543,13 @@ class User(pulumi.CustomResource):
         users using this resource.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.identitystore.User("example",
-            identity_store_id=not_implemented("tolist(data.aws_ssoadmin_instances.example.identity_store_ids)")[0],
-            display_name="John Doe",
-            user_name="johndoe",
-            name=aws.identitystore.UserNameArgs(
-                given_name="John",
-                family_name="Doe",
-            ),
-            emails=aws.identitystore.UserEmailsArgs(
-                value="john@example.com",
-            ))
-        ```
 
         ## Import
 
         Using `pulumi import`, import an Identity Store User using the combination `identity_store_id/user_id`. For example:
 
         ```sh
-         $ pulumi import aws:identitystore/user:User example d-9c6705e95c/065212b4-9061-703b-5876-13a517ae2a7c
+        $ pulumi import aws:identitystore/user:User example d-9c6705e95c/065212b4-9061-703b-5876-13a517ae2a7c
         ```
 
         :param str resource_name: The name of the resource.
@@ -608,35 +586,13 @@ class User(pulumi.CustomResource):
         users using this resource.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.identitystore.User("example",
-            identity_store_id=not_implemented("tolist(data.aws_ssoadmin_instances.example.identity_store_ids)")[0],
-            display_name="John Doe",
-            user_name="johndoe",
-            name=aws.identitystore.UserNameArgs(
-                given_name="John",
-                family_name="Doe",
-            ),
-            emails=aws.identitystore.UserEmailsArgs(
-                value="john@example.com",
-            ))
-        ```
 
         ## Import
 
         Using `pulumi import`, import an Identity Store User using the combination `identity_store_id/user_id`. For example:
 
         ```sh
-         $ pulumi import aws:identitystore/user:User example d-9c6705e95c/065212b4-9061-703b-5876-13a517ae2a7c
+        $ pulumi import aws:identitystore/user:User example d-9c6705e95c/065212b4-9061-703b-5876-13a517ae2a7c
         ```
 
         :param str resource_name: The name of the resource.

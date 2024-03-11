@@ -375,6 +375,7 @@ class CompositeAlarm(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -393,13 +394,14 @@ class CompositeAlarm(pulumi.CustomResource):
                 wait_period=20,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a CloudWatch Composite Alarm using the `alarm_name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/compositeAlarm:CompositeAlarm test my-alarm
+        $ pulumi import aws:cloudwatch/compositeAlarm:CompositeAlarm test my-alarm
         ```
 
         :param str resource_name: The name of the resource.
@@ -427,6 +429,7 @@ class CompositeAlarm(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -445,13 +448,14 @@ class CompositeAlarm(pulumi.CustomResource):
                 wait_period=20,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a CloudWatch Composite Alarm using the `alarm_name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/compositeAlarm:CompositeAlarm test my-alarm
+        $ pulumi import aws:cloudwatch/compositeAlarm:CompositeAlarm test my-alarm
         ```
 
         :param str resource_name: The name of the resource.

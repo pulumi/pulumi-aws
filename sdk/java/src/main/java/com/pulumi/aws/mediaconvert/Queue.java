@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides an AWS Elemental MediaConvert Queue.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,13 +50,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Media Convert Queue using the queue name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:mediaconvert/queue:Queue test tf-test-queue
+ * $ pulumi import aws:mediaconvert/queue:Queue test tf-test-queue
  * ```
  * 
  */

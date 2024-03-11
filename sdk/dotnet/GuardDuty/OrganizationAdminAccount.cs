@@ -14,6 +14,7 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -40,13 +41,14 @@ namespace Pulumi.Aws.GuardDuty
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import GuardDuty Organization Admin Account using the AWS account ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:guardduty/organizationAdminAccount:OrganizationAdminAccount example 123456789012
+    /// $ pulumi import aws:guardduty/organizationAdminAccount:OrganizationAdminAccount example 123456789012
     /// ```
     /// </summary>
     [AwsResourceType("aws:guardduty/organizationAdminAccount:OrganizationAdminAccount")]

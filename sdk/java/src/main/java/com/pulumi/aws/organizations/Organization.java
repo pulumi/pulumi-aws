@@ -26,6 +26,8 @@ import javax.annotation.Nullable;
  * !&gt; **WARNING:** [Warning from the AWS Docs](https://docs.aws.amazon.com/organizations/latest/APIReference/API_EnableAWSServiceAccess.html): &#34;We recommend that you enable integration between AWS Organizations and the specified AWS service by using the console or commands that are provided by the specified service. Doing so ensures that the service is aware that it can create the resources that are required for the integration. How the service creates those resources in the organization&#39;s accounts depends on that service. For more information, see the documentation for the other AWS service.&#34;
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -57,13 +59,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import the AWS organization using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:organizations/organization:Organization my_org o-1234567
+ * $ pulumi import aws:organizations/organization:Organization my_org o-1234567
  * ```
  * 
  */

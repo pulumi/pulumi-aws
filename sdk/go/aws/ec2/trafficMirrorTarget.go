@@ -18,6 +18,7 @@ import (
 //
 // # To create a basic traffic mirror session
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -56,15 +57,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import traffic mirror targets using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/trafficMirrorTarget:TrafficMirrorTarget target tmt-0c13a005422b86606
-//
+// $ pulumi import aws:ec2/trafficMirrorTarget:TrafficMirrorTarget target tmt-0c13a005422b86606
 // ```
 type TrafficMirrorTarget struct {
 	pulumi.CustomResourceState

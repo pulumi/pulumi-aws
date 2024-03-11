@@ -13,8 +13,10 @@ namespace Pulumi.Aws.AppMesh
     /// Provides an AWS App Mesh service mesh resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,8 +32,11 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Egress Filter
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -54,13 +59,14 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import App Mesh service meshes using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:appmesh/mesh:Mesh simple simpleapp
+    /// $ pulumi import aws:appmesh/mesh:Mesh simple simpleapp
     /// ```
     /// </summary>
     [AwsResourceType("aws:appmesh/mesh:Mesh")]

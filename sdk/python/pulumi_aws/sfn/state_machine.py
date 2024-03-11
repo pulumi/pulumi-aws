@@ -452,8 +452,10 @@ class StateMachine(pulumi.CustomResource):
         Provides a Step Function State Machine resource
 
         ## Example Usage
+
         ### Basic (Standard Workflow)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -475,8 +477,11 @@ class StateMachine(pulumi.CustomResource):
         }}
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Basic (Express Workflow)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -499,8 +504,11 @@ class StateMachine(pulumi.CustomResource):
         }}
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Publish (Publish SFN version)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -524,10 +532,13 @@ class StateMachine(pulumi.CustomResource):
         }}
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Logging
 
         > *NOTE:* See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling Step Function logging.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -554,13 +565,14 @@ class StateMachine(pulumi.CustomResource):
                 level="ERROR",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import State Machines using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:sfn/stateMachine:StateMachine foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
+        $ pulumi import aws:sfn/stateMachine:StateMachine foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
         ```
 
         :param str resource_name: The name of the resource.
@@ -585,8 +597,10 @@ class StateMachine(pulumi.CustomResource):
         Provides a Step Function State Machine resource
 
         ## Example Usage
+
         ### Basic (Standard Workflow)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -608,8 +622,11 @@ class StateMachine(pulumi.CustomResource):
         }}
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Basic (Express Workflow)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -632,8 +649,11 @@ class StateMachine(pulumi.CustomResource):
         }}
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Publish (Publish SFN version)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -657,10 +677,13 @@ class StateMachine(pulumi.CustomResource):
         }}
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Logging
 
         > *NOTE:* See the [AWS Step Functions Developer Guide](https://docs.aws.amazon.com/step-functions/latest/dg/welcome.html) for more information about enabling Step Function logging.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -687,13 +710,14 @@ class StateMachine(pulumi.CustomResource):
                 level="ERROR",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import State Machines using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:sfn/stateMachine:StateMachine foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
+        $ pulumi import aws:sfn/stateMachine:StateMachine foo arn:aws:states:eu-west-1:123456789098:stateMachine:bar
         ```
 
         :param str resource_name: The name of the resource.

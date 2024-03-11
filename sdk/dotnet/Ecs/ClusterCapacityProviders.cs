@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -49,13 +50,14 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import ECS cluster capacity providers using the `cluster_name` attribute. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ecs/clusterCapacityProviders:ClusterCapacityProviders example my-cluster
+    /// $ pulumi import aws:ecs/clusterCapacityProviders:ClusterCapacityProviders example my-cluster
     /// ```
     /// </summary>
     [AwsResourceType("aws:ecs/clusterCapacityProviders:ClusterCapacityProviders")]

@@ -14,11 +14,11 @@ namespace Pulumi.Aws.RedshiftServerless
         /// <summary>
         /// Data source for managing an AWS Redshift Serverless Workgroup.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +34,7 @@ namespace Pulumi.Aws.RedshiftServerless
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetWorkgroupResult> InvokeAsync(GetWorkgroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkgroupResult>("aws:redshiftserverless/getWorkgroup:getWorkgroup", args ?? new GetWorkgroupArgs(), options.WithDefaults());
@@ -43,11 +42,11 @@ namespace Pulumi.Aws.RedshiftServerless
         /// <summary>
         /// Data source for managing an AWS Redshift Serverless Workgroup.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +62,7 @@ namespace Pulumi.Aws.RedshiftServerless
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetWorkgroupResult> Invoke(GetWorkgroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkgroupResult>("aws:redshiftserverless/getWorkgroup:getWorkgroup", args ?? new GetWorkgroupInvokeArgs(), options.WithDefaults());

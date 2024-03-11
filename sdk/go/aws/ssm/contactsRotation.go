@@ -13,8 +13,10 @@ import (
 )
 
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -52,8 +54,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Usage with Weekly Settings and Shift Coverages Fields
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -123,8 +128,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Usage with Monthly Settings Fields
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -172,15 +180,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CodeGuru Profiler Profiling Group using the `arn`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ssm/contactsRotation:ContactsRotation example arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example
-//
+// $ pulumi import aws:ssm/contactsRotation:ContactsRotation example arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example
 // ```
 type ContactsRotation struct {
 	pulumi.CustomResourceState

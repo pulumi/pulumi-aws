@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -27,6 +28,7 @@ import * as utilities from "../utilities";
  *     name: lbTsName,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getTrustStore(args?: GetTrustStoreArgs, opts?: pulumi.InvokeOptions): Promise<GetTrustStoreResult> {
     args = args || {};
@@ -76,6 +78,7 @@ export interface GetTrustStoreResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -88,6 +91,7 @@ export interface GetTrustStoreResult {
  *     name: lbTsName,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getTrustStoreOutput(args?: GetTrustStoreOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTrustStoreResult> {
     return pulumi.output(args).apply((a: any) => getTrustStore(a, opts))

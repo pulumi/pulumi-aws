@@ -20,6 +20,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -85,15 +86,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import DynamoDB Global Tables using the global table name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:dynamodb/globalTable:GlobalTable MyTable MyTable
-//
+// $ pulumi import aws:dynamodb/globalTable:GlobalTable MyTable MyTable
 // ```
 type GlobalTable struct {
 	pulumi.CustomResourceState

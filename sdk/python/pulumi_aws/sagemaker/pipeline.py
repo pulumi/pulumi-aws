@@ -339,8 +339,10 @@ class Pipeline(pulumi.CustomResource):
         Provides a SageMaker Pipeline resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -361,13 +363,14 @@ class Pipeline(pulumi.CustomResource):
                 }],
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import pipelines using the `pipeline_name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/pipeline:Pipeline test_pipeline pipeline
+        $ pulumi import aws:sagemaker/pipeline:Pipeline test_pipeline pipeline
         ```
 
         :param str resource_name: The name of the resource.
@@ -391,8 +394,10 @@ class Pipeline(pulumi.CustomResource):
         Provides a SageMaker Pipeline resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -413,13 +418,14 @@ class Pipeline(pulumi.CustomResource):
                 }],
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import pipelines using the `pipeline_name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/pipeline:Pipeline test_pipeline pipeline
+        $ pulumi import aws:sagemaker/pipeline:Pipeline test_pipeline pipeline
         ```
 
         :param str resource_name: The name of the resource.

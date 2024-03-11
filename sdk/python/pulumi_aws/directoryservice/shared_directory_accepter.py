@@ -136,6 +136,7 @@ class SharedDirectoryAccepter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -148,13 +149,14 @@ class SharedDirectoryAccepter(pulumi.CustomResource):
             ))
         example_shared_directory_accepter = aws.directoryservice.SharedDirectoryAccepter("example", shared_directory_id=example.shared_directory_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Directory Service Shared Directories using the shared directory ID. For example:
 
         ```sh
-         $ pulumi import aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter example d-9267633ece
+        $ pulumi import aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter example d-9267633ece
         ```
 
         :param str resource_name: The name of the resource.
@@ -174,6 +176,7 @@ class SharedDirectoryAccepter(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -186,13 +189,14 @@ class SharedDirectoryAccepter(pulumi.CustomResource):
             ))
         example_shared_directory_accepter = aws.directoryservice.SharedDirectoryAccepter("example", shared_directory_id=example.shared_directory_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Directory Service Shared Directories using the shared directory ID. For example:
 
         ```sh
-         $ pulumi import aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter example d-9267633ece
+        $ pulumi import aws:directoryservice/sharedDirectoryAccepter:SharedDirectoryAccepter example d-9267633ece
         ```
 
         :param str resource_name: The name of the resource.

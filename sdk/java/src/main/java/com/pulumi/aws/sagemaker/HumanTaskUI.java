@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides a SageMaker Human Task UI resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -54,13 +56,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import SageMaker Human Task UIs using the `human_task_ui_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:sagemaker/humanTaskUI:HumanTaskUI example example
+ * $ pulumi import aws:sagemaker/humanTaskUI:HumanTaskUI example example
  * ```
  * 
  */

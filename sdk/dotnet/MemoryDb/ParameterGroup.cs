@@ -16,6 +16,7 @@ namespace Pulumi.Aws.MemoryDb
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -40,13 +41,14 @@ namespace Pulumi.Aws.MemoryDb
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import a parameter group using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:memorydb/parameterGroup:ParameterGroup example my-parameter-group
+    /// $ pulumi import aws:memorydb/parameterGroup:ParameterGroup example my-parameter-group
     /// ```
     /// </summary>
     [AwsResourceType("aws:memorydb/parameterGroup:ParameterGroup")]

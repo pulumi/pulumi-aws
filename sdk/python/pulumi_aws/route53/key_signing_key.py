@@ -336,6 +336,7 @@ class KeySigningKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -402,13 +403,14 @@ class KeySigningKey(pulumi.CustomResource):
             name="example")
         example_hosted_zone_dns_sec = aws.route53.HostedZoneDnsSec("example", hosted_zone_id=example_key_signing_key.hosted_zone_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_route53_key_signing_key` resources using the Route 53 Hosted Zone identifier and KMS Key identifier, separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:route53/keySigningKey:KeySigningKey example Z1D633PJN98FT9,example
+        $ pulumi import aws:route53/keySigningKey:KeySigningKey example Z1D633PJN98FT9,example
         ```
 
         :param str resource_name: The name of the resource.
@@ -431,6 +433,7 @@ class KeySigningKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -497,13 +500,14 @@ class KeySigningKey(pulumi.CustomResource):
             name="example")
         example_hosted_zone_dns_sec = aws.route53.HostedZoneDnsSec("example", hosted_zone_id=example_key_signing_key.hosted_zone_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_route53_key_signing_key` resources using the Route 53 Hosted Zone identifier and KMS Key identifier, separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:route53/keySigningKey:KeySigningKey example Z1D633PJN98FT9,example
+        $ pulumi import aws:route53/keySigningKey:KeySigningKey example Z1D633PJN98FT9,example
         ```
 
         :param str resource_name: The name of the resource.

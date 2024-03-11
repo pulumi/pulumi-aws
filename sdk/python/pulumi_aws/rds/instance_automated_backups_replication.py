@@ -173,6 +173,7 @@ class InstanceAutomatedBackupsReplication(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -181,8 +182,11 @@ class InstanceAutomatedBackupsReplication(pulumi.CustomResource):
             source_db_instance_arn="arn:aws:rds:us-west-2:123456789012:db:mydatabase",
             retention_period=14)
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Encrypting the automated backup with KMS
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -191,9 +195,11 @@ class InstanceAutomatedBackupsReplication(pulumi.CustomResource):
             source_db_instance_arn="arn:aws:rds:us-west-2:123456789012:db:mydatabase",
             kms_key_id="arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Example including a RDS DB instance
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -215,13 +221,14 @@ class InstanceAutomatedBackupsReplication(pulumi.CustomResource):
             source_db_instance_arn=default.arn,
             kms_key_id=default_key.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import RDS instance automated backups replication using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication default arn:aws:rds:us-east-1:123456789012:auto-backup:ab-faaa2mgdj1vmp4xflr7yhsrmtbtob7ltrzzz2my
+        $ pulumi import aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication default arn:aws:rds:us-east-1:123456789012:auto-backup:ab-faaa2mgdj1vmp4xflr7yhsrmtbtob7ltrzzz2my
         ```
 
         :param str resource_name: The name of the resource.
@@ -246,6 +253,7 @@ class InstanceAutomatedBackupsReplication(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -254,8 +262,11 @@ class InstanceAutomatedBackupsReplication(pulumi.CustomResource):
             source_db_instance_arn="arn:aws:rds:us-west-2:123456789012:db:mydatabase",
             retention_period=14)
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Encrypting the automated backup with KMS
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -264,9 +275,11 @@ class InstanceAutomatedBackupsReplication(pulumi.CustomResource):
             source_db_instance_arn="arn:aws:rds:us-west-2:123456789012:db:mydatabase",
             kms_key_id="arn:aws:kms:us-east-1:123456789012:key/12345678-1234-1234-1234-123456789012")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Example including a RDS DB instance
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -288,13 +301,14 @@ class InstanceAutomatedBackupsReplication(pulumi.CustomResource):
             source_db_instance_arn=default.arn,
             kms_key_id=default_key.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import RDS instance automated backups replication using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication default arn:aws:rds:us-east-1:123456789012:auto-backup:ab-faaa2mgdj1vmp4xflr7yhsrmtbtob7ltrzzz2my
+        $ pulumi import aws:rds/instanceAutomatedBackupsReplication:InstanceAutomatedBackupsReplication default arn:aws:rds:us-east-1:123456789012:auto-backup:ab-faaa2mgdj1vmp4xflr7yhsrmtbtob7ltrzzz2my
         ```
 
         :param str resource_name: The name of the resource.

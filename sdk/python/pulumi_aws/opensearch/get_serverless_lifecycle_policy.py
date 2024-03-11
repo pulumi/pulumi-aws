@@ -126,8 +126,10 @@ def get_serverless_lifecycle_policy(name: Optional[str] = None,
     Data source for managing an AWS OpenSearch Serverless Lifecycle Policy.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -135,6 +137,7 @@ def get_serverless_lifecycle_policy(name: Optional[str] = None,
     example = aws.opensearch.get_serverless_lifecycle_policy(name="example-lifecycle-policy",
         type="retention")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the policy
@@ -165,8 +168,10 @@ def get_serverless_lifecycle_policy_output(name: Optional[pulumi.Input[str]] = N
     Data source for managing an AWS OpenSearch Serverless Lifecycle Policy.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -174,6 +179,7 @@ def get_serverless_lifecycle_policy_output(name: Optional[pulumi.Input[str]] = N
     example = aws.opensearch.get_serverless_lifecycle_policy(name="example-lifecycle-policy",
         type="retention")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the policy

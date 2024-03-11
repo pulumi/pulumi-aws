@@ -209,6 +209,7 @@ class Site(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -216,13 +217,14 @@ class Site(pulumi.CustomResource):
         example = aws.networkmanager.GlobalNetwork("example")
         example_site = aws.networkmanager.Site("example", global_network_id=example.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_networkmanager_site` using the site ARN. For example:
 
         ```sh
-         $ pulumi import aws:networkmanager/site:Site example arn:aws:networkmanager::123456789012:site/global-network-0d47f6t230mz46dy4/site-444555aaabbb11223
+        $ pulumi import aws:networkmanager/site:Site example arn:aws:networkmanager::123456789012:site/global-network-0d47f6t230mz46dy4/site-444555aaabbb11223
         ```
 
         :param str resource_name: The name of the resource.
@@ -243,6 +245,7 @@ class Site(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -250,13 +253,14 @@ class Site(pulumi.CustomResource):
         example = aws.networkmanager.GlobalNetwork("example")
         example_site = aws.networkmanager.Site("example", global_network_id=example.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_networkmanager_site` using the site ARN. For example:
 
         ```sh
-         $ pulumi import aws:networkmanager/site:Site example arn:aws:networkmanager::123456789012:site/global-network-0d47f6t230mz46dy4/site-444555aaabbb11223
+        $ pulumi import aws:networkmanager/site:Site example arn:aws:networkmanager::123456789012:site/global-network-0d47f6t230mz46dy4/site-444555aaabbb11223
         ```
 
         :param str resource_name: The name of the resource.

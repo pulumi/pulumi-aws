@@ -14,6 +14,7 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,13 +36,14 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import conditional forwarders using the directory id and remote_domain_name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:directoryservice/conditionalForwader:ConditionalForwader example d-1234567890:example.com
+    /// $ pulumi import aws:directoryservice/conditionalForwader:ConditionalForwader example d-1234567890:example.com
     /// ```
     /// </summary>
     [AwsResourceType("aws:directoryservice/conditionalForwader:ConditionalForwader")]

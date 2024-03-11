@@ -169,8 +169,10 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
         Resource for managing an AWS CloudFront Continuous Deployment Policy.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -194,8 +196,11 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
             enabled=True,
             continuous_deployment_policy_id=example.id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Single Weight Config with Session Stickiness
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -217,8 +222,11 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Single Header Config
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -237,13 +245,14 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudFront Continuous Deployment Policy using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy example abcd-1234
+        $ pulumi import aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy example abcd-1234
         ```
 
         :param str resource_name: The name of the resource.
@@ -262,8 +271,10 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
         Resource for managing an AWS CloudFront Continuous Deployment Policy.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -287,8 +298,11 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
             enabled=True,
             continuous_deployment_policy_id=example.id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Single Weight Config with Session Stickiness
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -310,8 +324,11 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Single Header Config
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -330,13 +347,14 @@ class ContinuousDeploymentPolicy(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudFront Continuous Deployment Policy using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy example abcd-1234
+        $ pulumi import aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy example abcd-1234
         ```
 
         :param str resource_name: The name of the resource.

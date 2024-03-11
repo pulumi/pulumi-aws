@@ -14,8 +14,10 @@ import (
 // Data source for managing an AWS SESv2 (Simple Email V2) Email Identity Mail From Attributes.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,6 +47,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupEmailIdentityMailFromAttributes(ctx *pulumi.Context, args *LookupEmailIdentityMailFromAttributesArgs, opts ...pulumi.InvokeOption) (*LookupEmailIdentityMailFromAttributesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupEmailIdentityMailFromAttributesResult

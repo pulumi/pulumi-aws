@@ -72,14 +72,17 @@ def get_plan(contact_id: Optional[str] = None,
     Data source for managing a Plan of an AWS SSM Contact.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.ssmcontacts.get_plan(contact_id="arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str contact_id: The Amazon Resource Name (ARN) of the contact or escalation plan.
@@ -102,14 +105,17 @@ def get_plan_output(contact_id: Optional[pulumi.Input[str]] = None,
     Data source for managing a Plan of an AWS SSM Contact.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     test = aws.ssmcontacts.get_plan(contact_id="arn:aws:ssm-contacts:us-west-2:123456789012:contact/contactalias")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str contact_id: The Amazon Resource Name (ARN) of the contact or escalation plan.

@@ -321,6 +321,7 @@ def get_load_balancer(arn: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -335,6 +336,7 @@ def get_load_balancer(arn: Optional[str] = None,
     test = aws.lb.get_load_balancer(arn=lb_arn,
         name=lb_name)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str arn: Full ARN of the load balancer.
@@ -399,6 +401,7 @@ def get_load_balancer_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -413,6 +416,7 @@ def get_load_balancer_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     test = aws.lb.get_load_balancer(arn=lb_arn,
         name=lb_name)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str arn: Full ARN of the load balancer.

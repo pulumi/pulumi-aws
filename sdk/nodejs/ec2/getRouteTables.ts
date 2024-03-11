@@ -9,39 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
- *
- * ## Example Usage
- *
- * The following adds a route for a particular cidr block to every (private
- * kops) route table in a specified vpc to use a particular vpc peering
- * connection.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * export = async () => {
- *     const rts = await aws.ec2.getRouteTables({
- *         vpcId: vpcId,
- *         filters: [{
- *             name: "tag:kubernetes.io/kops/role",
- *             values: ["private*"],
- *         }],
- *     });
- *     const r: aws.ec2.Route[] = [];
- *     for (const range = {value: 0}; range.value < rts.ids.length; range.value++) {
- *         r.push(new aws.ec2.Route(`r-${range.value}`, {
- *             routeTableId: notImplemented("tolist(data.aws_route_tables.rts.ids)")[range.value],
- *             destinationCidrBlock: "10.0.0.0/22",
- *             vpcPeeringConnectionId: "pcx-0e9a7a9ecd137dc54",
- *         }));
- *     }
- * }
- * ```
  */
 export function getRouteTables(args?: GetRouteTablesArgs, opts?: pulumi.InvokeOptions): Promise<GetRouteTablesResult> {
     args = args || {};
@@ -94,39 +61,6 @@ export interface GetRouteTablesResult {
 }
 /**
  * This resource can be useful for getting back a list of route table ids to be referenced elsewhere.
- *
- * ## Example Usage
- *
- * The following adds a route for a particular cidr block to every (private
- * kops) route table in a specified vpc to use a particular vpc peering
- * connection.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * export = async () => {
- *     const rts = await aws.ec2.getRouteTables({
- *         vpcId: vpcId,
- *         filters: [{
- *             name: "tag:kubernetes.io/kops/role",
- *             values: ["private*"],
- *         }],
- *     });
- *     const r: aws.ec2.Route[] = [];
- *     for (const range = {value: 0}; range.value < rts.ids.length; range.value++) {
- *         r.push(new aws.ec2.Route(`r-${range.value}`, {
- *             routeTableId: notImplemented("tolist(data.aws_route_tables.rts.ids)")[range.value],
- *             destinationCidrBlock: "10.0.0.0/22",
- *             vpcPeeringConnectionId: "pcx-0e9a7a9ecd137dc54",
- *         }));
- *     }
- * }
- * ```
  */
 export function getRouteTablesOutput(args?: GetRouteTablesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRouteTablesResult> {
     return pulumi.output(args).apply((a: any) => getRouteTables(a, opts))

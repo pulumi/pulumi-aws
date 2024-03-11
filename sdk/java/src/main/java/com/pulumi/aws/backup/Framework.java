@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * &gt; **Note:** For the Deployment Status of the Framework to be successful, please turn on resource tracking to enable AWS Config recording to track configuration changes of your backup resources. This can be done from the AWS Console.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -121,13 +123,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Backup Framework using the `id` which corresponds to the name of the Backup Framework. For example:
  * 
  * ```sh
- *  $ pulumi import aws:backup/framework:Framework test &lt;id&gt;
+ * $ pulumi import aws:backup/framework:Framework test &lt;id&gt;
  * ```
  * 
  */

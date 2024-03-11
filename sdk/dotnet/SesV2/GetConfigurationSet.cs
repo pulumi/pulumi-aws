@@ -14,11 +14,11 @@ namespace Pulumi.Aws.SesV2
         /// <summary>
         /// Data source for managing an AWS SESv2 (Simple Email V2) Configuration Set.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +34,7 @@ namespace Pulumi.Aws.SesV2
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetConfigurationSetResult> InvokeAsync(GetConfigurationSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConfigurationSetResult>("aws:sesv2/getConfigurationSet:getConfigurationSet", args ?? new GetConfigurationSetArgs(), options.WithDefaults());
@@ -43,11 +42,11 @@ namespace Pulumi.Aws.SesV2
         /// <summary>
         /// Data source for managing an AWS SESv2 (Simple Email V2) Configuration Set.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +62,7 @@ namespace Pulumi.Aws.SesV2
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetConfigurationSetResult> Invoke(GetConfigurationSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConfigurationSetResult>("aws:sesv2/getConfigurationSet:getConfigurationSet", args ?? new GetConfigurationSetInvokeArgs(), options.WithDefaults());

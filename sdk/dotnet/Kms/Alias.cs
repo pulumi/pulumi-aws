@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Kms
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,13 +35,14 @@ namespace Pulumi.Aws.Kms
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import KMS aliases using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:kms/alias:Alias a alias/my-key-alias
+    /// $ pulumi import aws:kms/alias:Alias a alias/my-key-alias
     /// ```
     /// </summary>
     [AwsResourceType("aws:kms/alias:Alias")]

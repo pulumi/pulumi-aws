@@ -260,8 +260,10 @@ class ConformancePack(pulumi.CustomResource):
         `cfg.Recorder` resource.
 
         ## Example Usage
+
         ### Template Body
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -285,8 +287,11 @@ class ConformancePack(pulumi.CustomResource):
             Type: AWS::Config::ConfigRule
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Template S3 URI
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -308,13 +313,14 @@ class ConformancePack(pulumi.CustomResource):
             name="example",
             template_s3_uri=pulumi.Output.all(example_bucket_v2.bucket, example_bucket_objectv2.key).apply(lambda bucket, key: f"s3://{bucket}/{key}"))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Config Conformance Packs using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:cfg/conformancePack:ConformancePack example example
+        $ pulumi import aws:cfg/conformancePack:ConformancePack example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -343,8 +349,10 @@ class ConformancePack(pulumi.CustomResource):
         `cfg.Recorder` resource.
 
         ## Example Usage
+
         ### Template Body
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -368,8 +376,11 @@ class ConformancePack(pulumi.CustomResource):
             Type: AWS::Config::ConfigRule
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Template S3 URI
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -391,13 +402,14 @@ class ConformancePack(pulumi.CustomResource):
             name="example",
             template_s3_uri=pulumi.Output.all(example_bucket_v2.bucket, example_bucket_objectv2.key).apply(lambda bucket, key: f"s3://{bucket}/{key}"))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Config Conformance Packs using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:cfg/conformancePack:ConformancePack example example
+        $ pulumi import aws:cfg/conformancePack:ConformancePack example example
         ```
 
         :param str resource_name: The name of the resource.

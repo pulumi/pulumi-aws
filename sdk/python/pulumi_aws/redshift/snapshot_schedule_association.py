@@ -100,6 +100,7 @@ class SnapshotScheduleAssociation(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -118,13 +119,14 @@ class SnapshotScheduleAssociation(pulumi.CustomResource):
             cluster_identifier=default.id,
             schedule_identifier=default_snapshot_schedule.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Snapshot Schedule Association using the `<cluster-identifier>/<schedule-identifier>`. For example:
 
         ```sh
-         $ pulumi import aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation default tf-redshift-cluster/tf-redshift-snapshot-schedule
+        $ pulumi import aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation default tf-redshift-cluster/tf-redshift-snapshot-schedule
         ```
 
         :param str resource_name: The name of the resource.
@@ -141,6 +143,7 @@ class SnapshotScheduleAssociation(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -159,13 +162,14 @@ class SnapshotScheduleAssociation(pulumi.CustomResource):
             cluster_identifier=default.id,
             schedule_identifier=default_snapshot_schedule.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Snapshot Schedule Association using the `<cluster-identifier>/<schedule-identifier>`. For example:
 
         ```sh
-         $ pulumi import aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation default tf-redshift-cluster/tf-redshift-snapshot-schedule
+        $ pulumi import aws:redshift/snapshotScheduleAssociation:SnapshotScheduleAssociation default tf-redshift-cluster/tf-redshift-snapshot-schedule
         ```
 
         :param str resource_name: The name of the resource.

@@ -118,8 +118,10 @@ def get_service(dns_name: Optional[str] = None,
     Use this data source to compose and decompose AWS service DNS names.
 
     ## Example Usage
+
     ### Get Service DNS Name
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -128,22 +130,29 @@ def get_service(dns_name: Optional[str] = None,
     test = aws.get_service(region=current.name,
         service_id="ec2")
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Use Service Reverse DNS Name to Get Components
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     s3 = aws.get_service(reverse_dns_name="cn.com.amazonaws.cn-north-1.s3")
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Determine Regional Support for a Service
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     s3 = aws.get_service(reverse_dns_name="com.amazonaws.us-gov-west-1.waf")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str dns_name: DNS name of the service (_e.g.,_ `rds.us-east-1.amazonaws.com`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required.
@@ -185,8 +194,10 @@ def get_service_output(dns_name: Optional[pulumi.Input[Optional[str]]] = None,
     Use this data source to compose and decompose AWS service DNS names.
 
     ## Example Usage
+
     ### Get Service DNS Name
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -195,22 +206,29 @@ def get_service_output(dns_name: Optional[pulumi.Input[Optional[str]]] = None,
     test = aws.get_service(region=current.name,
         service_id="ec2")
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Use Service Reverse DNS Name to Get Components
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     s3 = aws.get_service(reverse_dns_name="cn.com.amazonaws.cn-north-1.s3")
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Determine Regional Support for a Service
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     s3 = aws.get_service(reverse_dns_name="com.amazonaws.us-gov-west-1.waf")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str dns_name: DNS name of the service (_e.g.,_ `rds.us-east-1.amazonaws.com`). One of `dns_name`, `reverse_dns_name`, or `service_id` is required.

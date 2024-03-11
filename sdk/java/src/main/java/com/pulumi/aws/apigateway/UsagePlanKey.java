@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Provides an API Gateway Usage Plan Key.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -70,13 +72,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import AWS API Gateway Usage Plan Key using the `USAGE-PLAN-ID/USAGE-PLAN-KEY-ID`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:apigateway/usagePlanKey:UsagePlanKey key 12345abcde/zzz
+ * $ pulumi import aws:apigateway/usagePlanKey:UsagePlanKey key 12345abcde/zzz
  * ```
  * 
  */

@@ -23,8 +23,10 @@ import (
 // Doing so will cause a conflict of associations and will overwrite the association.
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,8 +51,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Basic w/ Tags
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -78,8 +83,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Interface Endpoint Type
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -109,8 +117,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Gateway Load Balancer Endpoint Type
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -156,15 +167,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import VPC Endpoints using the VPC endpoint `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/vpcEndpoint:VpcEndpoint endpoint1 vpce-3ecf2a57
-//
+// $ pulumi import aws:ec2/vpcEndpoint:VpcEndpoint endpoint1 vpce-3ecf2a57
 // ```
 type VpcEndpoint struct {
 	pulumi.CustomResourceState

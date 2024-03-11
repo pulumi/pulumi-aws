@@ -108,6 +108,7 @@ class VoiceConnectorGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -133,13 +134,14 @@ class VoiceConnectorGroup(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Configuration Recorder using the name. For example:
 
         ```sh
-         $ pulumi import aws:chime/voiceConnectorGroup:VoiceConnectorGroup default example
+        $ pulumi import aws:chime/voiceConnectorGroup:VoiceConnectorGroup default example
         ```
 
         :param str resource_name: The name of the resource.
@@ -160,6 +162,7 @@ class VoiceConnectorGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -185,13 +188,14 @@ class VoiceConnectorGroup(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Configuration Recorder using the name. For example:
 
         ```sh
-         $ pulumi import aws:chime/voiceConnectorGroup:VoiceConnectorGroup default example
+        $ pulumi import aws:chime/voiceConnectorGroup:VoiceConnectorGroup default example
         ```
 
         :param str resource_name: The name of the resource.

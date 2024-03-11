@@ -15,10 +15,12 @@ import (
 // Manages a Security Hub finding aggregator. Security Hub needs to be enabled in a region in order for the aggregator to pull through findings.
 //
 // ## Example Usage
+//
 // ### All Regions Usage
 //
 // The following example will enable the aggregator for every region.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -46,10 +48,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### All Regions Except Specified Regions Usage
 //
 // The following example will enable the aggregator for every region except those specified in `specifiedRegions`.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -81,10 +86,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Specified Regions Usage
 //
 // The following example will enable the aggregator for every region specified in `specifiedRegions`.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -116,15 +124,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import an existing Security Hub finding aggregator using the `arn`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:securityhub/findingAggregator:FindingAggregator example arn:aws:securityhub:eu-west-1:123456789098:finding-aggregator/abcd1234-abcd-1234-1234-abcdef123456
-//
+// $ pulumi import aws:securityhub/findingAggregator:FindingAggregator example arn:aws:securityhub:eu-west-1:123456789098:finding-aggregator/abcd1234-abcd-1234-1234-abcdef123456
 // ```
 type FindingAggregator struct {
 	pulumi.CustomResourceState

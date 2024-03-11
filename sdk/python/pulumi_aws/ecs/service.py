@@ -998,6 +998,7 @@ class Service(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1022,18 +1023,24 @@ class Service(pulumi.CustomResource):
                 expression="attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Ignoring Changes to Desired Count
 
         You can use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to create an ECS service with an initial count of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ecs.Service("example", desired_count=2)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Daemon Scheduling Strategy
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1044,8 +1051,11 @@ class Service(pulumi.CustomResource):
             task_definition=bar_aws_ecs_task_definition["arn"],
             scheduling_strategy="DAEMON")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### CloudWatch Deployment Alarms
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1059,8 +1069,11 @@ class Service(pulumi.CustomResource):
                 alarm_names=[example_aws_cloudwatch_metric_alarm["alarmName"]],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### External Deployment Controller
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1072,31 +1085,14 @@ class Service(pulumi.CustomResource):
                 type="EXTERNAL",
             ))
         ```
-        ### Redeploy Service On Every Apply
-
-        The key used with `triggers` is arbitrary.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.ecs.Service("example",
-            force_new_deployment=True,
-            triggers={
-                "redeployment": not_implemented("plantimestamp()"),
-            })
-        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ECS services using the `name` together with ecs cluster `name`. For example:
 
         ```sh
-         $ pulumi import aws:ecs/service:Service imported cluster-name/service-name
+        $ pulumi import aws:ecs/service:Service imported cluster-name/service-name
         ```
 
         :param str resource_name: The name of the resource.
@@ -1147,6 +1143,7 @@ class Service(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1171,18 +1168,24 @@ class Service(pulumi.CustomResource):
                 expression="attribute:ecs.availability-zone in [us-west-2a, us-west-2b]",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Ignoring Changes to Desired Count
 
         You can use [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to create an ECS service with an initial count of running instances, then ignore any changes to that count caused externally (e.g. Application Autoscaling).
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ecs.Service("example", desired_count=2)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Daemon Scheduling Strategy
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1193,8 +1196,11 @@ class Service(pulumi.CustomResource):
             task_definition=bar_aws_ecs_task_definition["arn"],
             scheduling_strategy="DAEMON")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### CloudWatch Deployment Alarms
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1208,8 +1214,11 @@ class Service(pulumi.CustomResource):
                 alarm_names=[example_aws_cloudwatch_metric_alarm["alarmName"]],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### External Deployment Controller
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1221,31 +1230,14 @@ class Service(pulumi.CustomResource):
                 type="EXTERNAL",
             ))
         ```
-        ### Redeploy Service On Every Apply
-
-        The key used with `triggers` is arbitrary.
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.ecs.Service("example",
-            force_new_deployment=True,
-            triggers={
-                "redeployment": not_implemented("plantimestamp()"),
-            })
-        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ECS services using the `name` together with ecs cluster `name`. For example:
 
         ```sh
-         $ pulumi import aws:ecs/service:Service imported cluster-name/service-name
+        $ pulumi import aws:ecs/service:Service imported cluster-name/service-name
         ```
 
         :param str resource_name: The name of the resource.

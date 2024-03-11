@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Swf
     /// 
     /// To register a basic SWF domain:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -33,13 +34,14 @@ namespace Pulumi.Aws.Swf
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SWF Domains using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:swf/domain:Domain foo test-domain
+    /// $ pulumi import aws:swf/domain:Domain foo test-domain
     /// ```
     /// </summary>
     [AwsResourceType("aws:swf/domain:Domain")]

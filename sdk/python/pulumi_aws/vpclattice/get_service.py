@@ -155,14 +155,17 @@ def get_service(name: Optional[str] = None,
     Data source for managing an AWS VPC Lattice Service.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.vpclattice.get_service(name="example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Service name.
@@ -198,14 +201,17 @@ def get_service_output(name: Optional[pulumi.Input[Optional[str]]] = None,
     Data source for managing an AWS VPC Lattice Service.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.vpclattice.get_service(name="example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Service name.

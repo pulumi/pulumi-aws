@@ -15,8 +15,10 @@ import (
 // Resource for associating accounts to existing Inspector instances.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,15 +42,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Amazon Inspector Member Association using the `account_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:inspector2/memberAssociation:MemberAssociation example 123456789012
-//
+// $ pulumi import aws:inspector2/memberAssociation:MemberAssociation example 123456789012
 // ```
 type MemberAssociation struct {
 	pulumi.CustomResourceState

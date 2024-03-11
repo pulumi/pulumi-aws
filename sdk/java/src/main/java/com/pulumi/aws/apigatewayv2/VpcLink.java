@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * To enable private integration for REST APIs, use the Amazon API Gateway Version 1 VPC Link resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -54,13 +56,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_apigatewayv2_vpc_link` using the VPC Link identifier. For example:
  * 
  * ```sh
- *  $ pulumi import aws:apigatewayv2/vpcLink:VpcLink example aabbccddee
+ * $ pulumi import aws:apigatewayv2/vpcLink:VpcLink example aabbccddee
  * ```
  * 
  */

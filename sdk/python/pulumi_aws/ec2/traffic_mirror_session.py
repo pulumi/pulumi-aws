@@ -355,6 +355,7 @@ class TrafficMirrorSession(pulumi.CustomResource):
 
         To create a basic traffic mirror session
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -370,13 +371,14 @@ class TrafficMirrorSession(pulumi.CustomResource):
             traffic_mirror_filter_id=filter.id,
             traffic_mirror_target_id=target.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import traffic mirror sessions using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/trafficMirrorSession:TrafficMirrorSession session tms-0d8aa3ca35897b82e
+        $ pulumi import aws:ec2/trafficMirrorSession:TrafficMirrorSession session tms-0d8aa3ca35897b82e
         ```
 
         :param str resource_name: The name of the resource.
@@ -404,6 +406,7 @@ class TrafficMirrorSession(pulumi.CustomResource):
 
         To create a basic traffic mirror session
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -419,13 +422,14 @@ class TrafficMirrorSession(pulumi.CustomResource):
             traffic_mirror_filter_id=filter.id,
             traffic_mirror_target_id=target.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import traffic mirror sessions using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/trafficMirrorSession:TrafficMirrorSession session tms-0d8aa3ca35897b82e
+        $ pulumi import aws:ec2/trafficMirrorSession:TrafficMirrorSession session tms-0d8aa3ca35897b82e
         ```
 
         :param str resource_name: The name of the resource.

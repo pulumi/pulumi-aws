@@ -273,21 +273,24 @@ class Namespace(pulumi.CustomResource):
         Resource for managing an AWS QuickSight Namespace.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.quicksight.Namespace("example", namespace="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import QuickSight Namespace using the AWS account ID and namespace separated by commas (`,`). For example:
 
         ```sh
-         $ pulumi import aws:quicksight/namespace:Namespace example 123456789012,example
+        $ pulumi import aws:quicksight/namespace:Namespace example 123456789012,example
         ```
 
         :param str resource_name: The name of the resource.
@@ -309,21 +312,24 @@ class Namespace(pulumi.CustomResource):
         Resource for managing an AWS QuickSight Namespace.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.quicksight.Namespace("example", namespace="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import QuickSight Namespace using the AWS account ID and namespace separated by commas (`,`). For example:
 
         ```sh
-         $ pulumi import aws:quicksight/namespace:Namespace example 123456789012,example
+        $ pulumi import aws:quicksight/namespace:Namespace example 123456789012,example
         ```
 
         :param str resource_name: The name of the resource.

@@ -146,8 +146,10 @@ class PeeringConnectionOptions(pulumi.CustomResource):
         cross-account scenarios.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -164,8 +166,11 @@ class PeeringConnectionOptions(pulumi.CustomResource):
                 allow_remote_vpc_dns_resolution=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Cross-Account Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -206,13 +211,14 @@ class PeeringConnectionOptions(pulumi.CustomResource):
                 allow_remote_vpc_dns_resolution=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import VPC Peering Connection Options using the VPC peering `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/peeringConnectionOptions:PeeringConnectionOptions foo pcx-111aaa111
+        $ pulumi import aws:ec2/peeringConnectionOptions:PeeringConnectionOptions foo pcx-111aaa111
         ```
 
         :param str resource_name: The name of the resource.
@@ -240,8 +246,10 @@ class PeeringConnectionOptions(pulumi.CustomResource):
         cross-account scenarios.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -258,8 +266,11 @@ class PeeringConnectionOptions(pulumi.CustomResource):
                 allow_remote_vpc_dns_resolution=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Cross-Account Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -300,13 +311,14 @@ class PeeringConnectionOptions(pulumi.CustomResource):
                 allow_remote_vpc_dns_resolution=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import VPC Peering Connection Options using the VPC peering `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/peeringConnectionOptions:PeeringConnectionOptions foo pcx-111aaa111
+        $ pulumi import aws:ec2/peeringConnectionOptions:PeeringConnectionOptions foo pcx-111aaa111
         ```
 
         :param str resource_name: The name of the resource.

@@ -14,8 +14,10 @@ import (
 // Resource for managing AWS Audit Manager Account Registration.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -37,8 +39,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Deregister On Destroy
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -62,15 +67,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Audit Manager Account Registration resources using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:auditmanager/accountRegistration:AccountRegistration example us-east-1
-//
+// $ pulumi import aws:auditmanager/accountRegistration:AccountRegistration example us-east-1
 // ```
 type AccountRegistration struct {
 	pulumi.CustomResourceState

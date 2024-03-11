@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Rds
     /// Resource for managing an AWS RDS (Relational Database) Export Task.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,8 +36,11 @@ namespace Pulumi.Aws.Rds
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Complete Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -175,13 +180,14 @@ namespace Pulumi.Aws.Rds
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import a RDS (Relational Database) Export Task using the `export_task_identifier`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:rds/exportTask:ExportTask example example
+    /// $ pulumi import aws:rds/exportTask:ExportTask example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:rds/exportTask:ExportTask")]

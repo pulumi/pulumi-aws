@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,15 +44,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import DAX Subnet Group using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:dax/subnetGroup:SubnetGroup example my_dax_sg
-//
+// $ pulumi import aws:dax/subnetGroup:SubnetGroup example my_dax_sg
 // ```
 type SubnetGroup struct {
 	pulumi.CustomResourceState

@@ -18,6 +18,8 @@ public final class AppintegrationsFunctions {
      * Use this data source to get information on an existing AppIntegrations Event Integration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -46,6 +48,7 @@ public final class AppintegrationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEventIntegrationResult> getEventIntegration(GetEventIntegrationArgs args) {
@@ -55,6 +58,8 @@ public final class AppintegrationsFunctions {
      * Use this data source to get information on an existing AppIntegrations Event Integration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -83,6 +88,7 @@ public final class AppintegrationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEventIntegrationResult> getEventIntegrationPlain(GetEventIntegrationPlainArgs args) {
@@ -92,6 +98,8 @@ public final class AppintegrationsFunctions {
      * Use this data source to get information on an existing AppIntegrations Event Integration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -120,6 +128,7 @@ public final class AppintegrationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEventIntegrationResult> getEventIntegration(GetEventIntegrationArgs args, InvokeOptions options) {
@@ -129,6 +138,8 @@ public final class AppintegrationsFunctions {
      * Use this data source to get information on an existing AppIntegrations Event Integration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -157,6 +168,7 @@ public final class AppintegrationsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEventIntegrationResult> getEventIntegrationPlain(GetEventIntegrationPlainArgs args, InvokeOptions options) {

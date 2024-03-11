@@ -370,8 +370,10 @@ class NatGateway(pulumi.CustomResource):
         Provides a resource to create a VPC NAT Gateway.
 
         ## Example Usage
+
         ### Public NAT
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -383,8 +385,11 @@ class NatGateway(pulumi.CustomResource):
                 "Name": "gw NAT",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Public NAT with Secondary Private IP Addresses
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -395,8 +400,11 @@ class NatGateway(pulumi.CustomResource):
             secondary_allocation_ids=[secondary["id"]],
             secondary_private_ip_addresses=["10.0.1.5"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Private NAT
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -405,8 +413,11 @@ class NatGateway(pulumi.CustomResource):
             connectivity_type="private",
             subnet_id=example_aws_subnet["id"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Private NAT with Secondary Private IP Addresses
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -416,13 +427,14 @@ class NatGateway(pulumi.CustomResource):
             subnet_id=example_aws_subnet["id"],
             secondary_private_ip_address_count=7)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import NAT Gateways using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/natGateway:NatGateway private_gw nat-05dba92075d71c408
+        $ pulumi import aws:ec2/natGateway:NatGateway private_gw nat-05dba92075d71c408
         ```
 
         :param str resource_name: The name of the resource.
@@ -446,8 +458,10 @@ class NatGateway(pulumi.CustomResource):
         Provides a resource to create a VPC NAT Gateway.
 
         ## Example Usage
+
         ### Public NAT
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -459,8 +473,11 @@ class NatGateway(pulumi.CustomResource):
                 "Name": "gw NAT",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Public NAT with Secondary Private IP Addresses
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -471,8 +488,11 @@ class NatGateway(pulumi.CustomResource):
             secondary_allocation_ids=[secondary["id"]],
             secondary_private_ip_addresses=["10.0.1.5"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Private NAT
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -481,8 +501,11 @@ class NatGateway(pulumi.CustomResource):
             connectivity_type="private",
             subnet_id=example_aws_subnet["id"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Private NAT with Secondary Private IP Addresses
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -492,13 +515,14 @@ class NatGateway(pulumi.CustomResource):
             subnet_id=example_aws_subnet["id"],
             secondary_private_ip_address_count=7)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import NAT Gateways using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/natGateway:NatGateway private_gw nat-05dba92075d71c408
+        $ pulumi import aws:ec2/natGateway:NatGateway private_gw nat-05dba92075d71c408
         ```
 
         :param str resource_name: The name of the resource.

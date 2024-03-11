@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -30,13 +31,14 @@ import * as utilities from "../utilities";
  *     type: "S3",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import a QuickSight data source using the AWS account ID, and data source ID separated by a slash (`/`). For example:
  *
  * ```sh
- *  $ pulumi import aws:quicksight/dataSource:DataSource example 123456789123/my-data-source-id
+ * $ pulumi import aws:quicksight/dataSource:DataSource example 123456789123/my-data-source-id
  * ```
  */
 export class DataSource extends pulumi.CustomResource {

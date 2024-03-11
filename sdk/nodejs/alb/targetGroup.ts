@@ -13,8 +13,10 @@ import * as utilities from "../utilities";
  * > **Note:** `aws.alb.TargetGroup` is known as `aws.lb.TargetGroup`. The functionality is identical.
  *
  * ## Example Usage
+ *
  * ### Instance Target Group
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -27,8 +29,11 @@ import * as utilities from "../utilities";
  *     vpcId: main.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### IP Target Group
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -42,8 +47,11 @@ import * as utilities from "../utilities";
  *     vpcId: main.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Lambda Target Group
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -53,8 +61,11 @@ import * as utilities from "../utilities";
  *     targetType: "lambda",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### ALB Target Group
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -67,8 +78,11 @@ import * as utilities from "../utilities";
  *     vpcId: main.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Target group with unhealthy connection termination disabled
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -83,13 +97,14 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Target Groups using their ARN. For example:
  *
  * ```sh
- *  $ pulumi import aws:alb/targetGroup:TargetGroup app_front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:targetgroup/app-front-end/20cfe21448b66314
+ * $ pulumi import aws:alb/targetGroup:TargetGroup app_front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:targetgroup/app-front-end/20cfe21448b66314
  * ```
  */
 export class TargetGroup extends pulumi.CustomResource {

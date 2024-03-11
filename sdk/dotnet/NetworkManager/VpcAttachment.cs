@@ -13,8 +13,10 @@ namespace Pulumi.Aws.NetworkManager
     /// Resource for managing an AWS Network Manager VPC Attachment.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,13 +37,14 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_networkmanager_vpc_attachment` using the attachment ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:networkmanager/vpcAttachment:VpcAttachment example attachment-0f8fa60d2238d1bd8
+    /// $ pulumi import aws:networkmanager/vpcAttachment:VpcAttachment example attachment-0f8fa60d2238d1bd8
     /// ```
     /// </summary>
     [AwsResourceType("aws:networkmanager/vpcAttachment:VpcAttachment")]

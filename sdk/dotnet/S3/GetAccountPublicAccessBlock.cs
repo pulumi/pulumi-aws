@@ -14,10 +14,9 @@ namespace Pulumi.Aws.S3
         /// <summary>
         /// The S3 account public access block data source returns account-level public access block configuration.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -30,8 +29,7 @@ namespace Pulumi.Aws.S3
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetAccountPublicAccessBlockResult> InvokeAsync(GetAccountPublicAccessBlockArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAccountPublicAccessBlockResult>("aws:s3/getAccountPublicAccessBlock:getAccountPublicAccessBlock", args ?? new GetAccountPublicAccessBlockArgs(), options.WithDefaults());
@@ -39,10 +37,9 @@ namespace Pulumi.Aws.S3
         /// <summary>
         /// The S3 account public access block data source returns account-level public access block configuration.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -55,8 +52,7 @@ namespace Pulumi.Aws.S3
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetAccountPublicAccessBlockResult> Invoke(GetAccountPublicAccessBlockInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAccountPublicAccessBlockResult>("aws:s3/getAccountPublicAccessBlock:getAccountPublicAccessBlock", args ?? new GetAccountPublicAccessBlockInvokeArgs(), options.WithDefaults());

@@ -639,8 +639,10 @@ class NotebookInstance(pulumi.CustomResource):
         Provides a SageMaker Notebook Instance resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -653,8 +655,11 @@ class NotebookInstance(pulumi.CustomResource):
                 "Name": "foo",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Code repository usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -673,13 +678,14 @@ class NotebookInstance(pulumi.CustomResource):
                 "Name": "foo",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker Notebook Instances using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/notebookInstance:NotebookInstance test_notebook_instance my-notebook-instance
+        $ pulumi import aws:sagemaker/notebookInstance:NotebookInstance test_notebook_instance my-notebook-instance
         ```
 
         :param str resource_name: The name of the resource.
@@ -712,8 +718,10 @@ class NotebookInstance(pulumi.CustomResource):
         Provides a SageMaker Notebook Instance resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -726,8 +734,11 @@ class NotebookInstance(pulumi.CustomResource):
                 "Name": "foo",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Code repository usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -746,13 +757,14 @@ class NotebookInstance(pulumi.CustomResource):
                 "Name": "foo",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker Notebook Instances using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/notebookInstance:NotebookInstance test_notebook_instance my-notebook-instance
+        $ pulumi import aws:sagemaker/notebookInstance:NotebookInstance test_notebook_instance my-notebook-instance
         ```
 
         :param str resource_name: The name of the resource.

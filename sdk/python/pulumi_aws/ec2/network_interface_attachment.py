@@ -166,6 +166,7 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -175,13 +176,14 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
             network_interface_id=test_aws_network_interface["id"],
             device_index=0)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Elastic network interface (ENI) Attachments using its Attachment ID. For example:
 
         ```sh
-         $ pulumi import aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment secondary_nic eni-attach-0a33842b4ec347c4c
+        $ pulumi import aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment secondary_nic eni-attach-0a33842b4ec347c4c
         ```
 
         :param str resource_name: The name of the resource.
@@ -201,6 +203,7 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -210,13 +213,14 @@ class NetworkInterfaceAttachment(pulumi.CustomResource):
             network_interface_id=test_aws_network_interface["id"],
             device_index=0)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Elastic network interface (ENI) Attachments using its Attachment ID. For example:
 
         ```sh
-         $ pulumi import aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment secondary_nic eni-attach-0a33842b4ec347c4c
+        $ pulumi import aws:ec2/networkInterfaceAttachment:NetworkInterfaceAttachment secondary_nic eni-attach-0a33842b4ec347c4c
         ```
 
         :param str resource_name: The name of the resource.

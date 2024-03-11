@@ -71,8 +71,10 @@ class SdkvoiceGlobalSettings(pulumi.CustomResource):
         Resource for managing Amazon Chime SDK Voice Global Settings.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -81,13 +83,14 @@ class SdkvoiceGlobalSettings(pulumi.CustomResource):
             cdr_bucket="example-bucket-name",
         ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AWS Chime SDK Voice Global Settings using the `id` (AWS account ID). For example:
 
         ```sh
-         $ pulumi import aws:chime/sdkvoiceGlobalSettings:SdkvoiceGlobalSettings example 123456789012
+        $ pulumi import aws:chime/sdkvoiceGlobalSettings:SdkvoiceGlobalSettings example 123456789012
         ```
 
         :param str resource_name: The name of the resource.
@@ -104,8 +107,10 @@ class SdkvoiceGlobalSettings(pulumi.CustomResource):
         Resource for managing Amazon Chime SDK Voice Global Settings.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -114,13 +119,14 @@ class SdkvoiceGlobalSettings(pulumi.CustomResource):
             cdr_bucket="example-bucket-name",
         ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AWS Chime SDK Voice Global Settings using the `id` (AWS account ID). For example:
 
         ```sh
-         $ pulumi import aws:chime/sdkvoiceGlobalSettings:SdkvoiceGlobalSettings example 123456789012
+        $ pulumi import aws:chime/sdkvoiceGlobalSettings:SdkvoiceGlobalSettings example 123456789012
         ```
 
         :param str resource_name: The name of the resource.

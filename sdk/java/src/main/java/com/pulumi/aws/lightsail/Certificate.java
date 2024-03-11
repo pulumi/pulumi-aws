@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Provides a lightsail certificate.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -51,13 +53,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_lightsail_certificate` using the certificate name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:lightsail/certificate:Certificate test CertificateName
+ * $ pulumi import aws:lightsail/certificate:Certificate test CertificateName
  * ```
  * 
  */

@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetUserPoolSigningCertificate(ctx *pulumi.Context, args *GetUserPoolSigningCertificateArgs, opts ...pulumi.InvokeOption) (*GetUserPoolSigningCertificateResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetUserPoolSigningCertificateResult

@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Manages an AWS Opensearch Package Association.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -34,6 +36,7 @@ import * as utilities from "../utilities";
  *     domainName: myDomain.domainName,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class PackageAssociation extends pulumi.CustomResource {
     /**

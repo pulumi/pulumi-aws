@@ -47,8 +47,10 @@ import * as utilities from "../utilities";
  * To renew the certificate earlier than 60 days before expiration, configure `earlyRenewalDuration`.
  *
  * ## Example Usage
+ *
  * ### Create Certificate
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -61,8 +63,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Custom Domain Validation Options
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -76,8 +81,11 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Existing Certificate Body Import
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -103,10 +111,13 @@ import * as utilities from "../utilities";
  *     certificateBody: exampleSelfSignedCert.certPem,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Referencing domainValidationOptions With forEach Based Resources
  *
  * See the `aws.acm.CertificateValidation` resource for a full example of performing DNS validation.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -127,13 +138,14 @@ import * as utilities from "../utilities";
  *     }));
  * }
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import certificates using their ARN. For example:
  *
  * ```sh
- *  $ pulumi import aws:acm/certificate:Certificate cert arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
+ * $ pulumi import aws:acm/certificate:Certificate cert arn:aws:acm:eu-central-1:123456789012:certificate/7e7a28d2-163f-4b8f-b9cd-822f96c08d6a
  * ```
  */
 export class Certificate extends pulumi.CustomResource {

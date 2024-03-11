@@ -21,7 +21,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS Audit Manager Framework.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -57,13 +60,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Audit Manager Framework using the framework `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:auditmanager/framework:Framework example abc123-de45
+ * $ pulumi import aws:auditmanager/framework:Framework example abc123-de45
  * ```
  * 
  */

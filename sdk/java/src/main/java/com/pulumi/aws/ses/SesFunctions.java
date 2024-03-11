@@ -23,6 +23,8 @@ public final class SesFunctions {
      * Retrieve the active SES receipt rule set
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -48,6 +50,7 @@ public final class SesFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetActiveReceiptRuleSetResult> getActiveReceiptRuleSet() {
@@ -57,6 +60,8 @@ public final class SesFunctions {
      * Retrieve the active SES receipt rule set
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -82,6 +87,7 @@ public final class SesFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetActiveReceiptRuleSetResult> getActiveReceiptRuleSetPlain() {
@@ -91,6 +97,8 @@ public final class SesFunctions {
      * Retrieve the active SES receipt rule set
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -116,6 +124,7 @@ public final class SesFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetActiveReceiptRuleSetResult> getActiveReceiptRuleSet(InvokeArgs args) {
@@ -125,6 +134,8 @@ public final class SesFunctions {
      * Retrieve the active SES receipt rule set
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -150,6 +161,7 @@ public final class SesFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetActiveReceiptRuleSetResult> getActiveReceiptRuleSetPlain(InvokeArgs args) {
@@ -159,6 +171,8 @@ public final class SesFunctions {
      * Retrieve the active SES receipt rule set
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -184,6 +198,7 @@ public final class SesFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetActiveReceiptRuleSetResult> getActiveReceiptRuleSet(InvokeArgs args, InvokeOptions options) {
@@ -193,6 +208,8 @@ public final class SesFunctions {
      * Retrieve the active SES receipt rule set
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -218,6 +235,7 @@ public final class SesFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetActiveReceiptRuleSetResult> getActiveReceiptRuleSetPlain(InvokeArgs args, InvokeOptions options) {
@@ -227,6 +245,8 @@ public final class SesFunctions {
      * Retrieve the SES domain identity
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -255,6 +275,7 @@ public final class SesFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDomainIdentityResult> getDomainIdentity(GetDomainIdentityArgs args) {
@@ -264,6 +285,8 @@ public final class SesFunctions {
      * Retrieve the SES domain identity
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -292,6 +315,7 @@ public final class SesFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDomainIdentityResult> getDomainIdentityPlain(GetDomainIdentityPlainArgs args) {
@@ -301,6 +325,8 @@ public final class SesFunctions {
      * Retrieve the SES domain identity
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -329,6 +355,7 @@ public final class SesFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDomainIdentityResult> getDomainIdentity(GetDomainIdentityArgs args, InvokeOptions options) {
@@ -338,6 +365,8 @@ public final class SesFunctions {
      * Retrieve the SES domain identity
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -366,6 +395,7 @@ public final class SesFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDomainIdentityResult> getDomainIdentityPlain(GetDomainIdentityPlainArgs args, InvokeOptions options) {
@@ -375,6 +405,8 @@ public final class SesFunctions {
      * Retrieve the active SES email identity
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -403,6 +435,7 @@ public final class SesFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEmailIdentityResult> getEmailIdentity(GetEmailIdentityArgs args) {
@@ -412,6 +445,8 @@ public final class SesFunctions {
      * Retrieve the active SES email identity
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -440,6 +475,7 @@ public final class SesFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEmailIdentityResult> getEmailIdentityPlain(GetEmailIdentityPlainArgs args) {
@@ -449,6 +485,8 @@ public final class SesFunctions {
      * Retrieve the active SES email identity
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -477,6 +515,7 @@ public final class SesFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEmailIdentityResult> getEmailIdentity(GetEmailIdentityArgs args, InvokeOptions options) {
@@ -486,6 +525,8 @@ public final class SesFunctions {
      * Retrieve the active SES email identity
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -514,6 +555,7 @@ public final class SesFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEmailIdentityResult> getEmailIdentityPlain(GetEmailIdentityPlainArgs args, InvokeOptions options) {

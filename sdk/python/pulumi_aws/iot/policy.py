@@ -137,6 +137,7 @@ class Policy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -153,13 +154,14 @@ class Policy(pulumi.CustomResource):
                 }],
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IoT policies using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:iot/policy:Policy pubsub PubSubToAnyTopic
+        $ pulumi import aws:iot/policy:Policy pubsub PubSubToAnyTopic
         ```
 
         :param str resource_name: The name of the resource.
@@ -180,6 +182,7 @@ class Policy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -196,13 +199,14 @@ class Policy(pulumi.CustomResource):
                 }],
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IoT policies using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:iot/policy:Policy pubsub PubSubToAnyTopic
+        $ pulumi import aws:iot/policy:Policy pubsub PubSubToAnyTopic
         ```
 
         :param str resource_name: The name of the resource.

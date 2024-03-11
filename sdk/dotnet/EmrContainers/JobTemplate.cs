@@ -13,8 +13,10 @@ namespace Pulumi.Aws.EmrContainers
     /// Manages an EMR Containers (EMR on EKS) Job Template.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -42,13 +44,14 @@ namespace Pulumi.Aws.EmrContainers
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EKS job templates using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:emrcontainers/jobTemplate:JobTemplate example a1b2c3d4e5f6g7h8i9j10k11l
+    /// $ pulumi import aws:emrcontainers/jobTemplate:JobTemplate example a1b2c3d4e5f6g7h8i9j10k11l
     /// ```
     /// </summary>
     [AwsResourceType("aws:emrcontainers/jobTemplate:JobTemplate")]

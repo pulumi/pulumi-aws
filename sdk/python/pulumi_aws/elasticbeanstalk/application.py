@@ -207,6 +207,7 @@ class Application(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -220,13 +221,14 @@ class Application(pulumi.CustomResource):
                 delete_source_from_s3=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Elastic Beanstalk Applications using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:elasticbeanstalk/application:Application tf_test tf-test-name
+        $ pulumi import aws:elasticbeanstalk/application:Application tf_test tf-test-name
         ```
 
         :param str resource_name: The name of the resource.
@@ -251,6 +253,7 @@ class Application(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -264,13 +267,14 @@ class Application(pulumi.CustomResource):
                 delete_source_from_s3=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Elastic Beanstalk Applications using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:elasticbeanstalk/application:Application tf_test tf-test-name
+        $ pulumi import aws:elasticbeanstalk/application:Application tf_test tf-test-name
         ```
 
         :param str resource_name: The name of the resource.

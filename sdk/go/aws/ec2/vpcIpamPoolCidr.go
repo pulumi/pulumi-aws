@@ -23,6 +23,7 @@ import (
 //
 // Basic usage:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -70,9 +71,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // Provision Public IPv6 Pool CIDRs:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -124,6 +127,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -132,9 +136,7 @@ import (
 // __NOTE:__ Do not use the IPAM Pool Cidr ID as this was introduced after the resource already existed.
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr example 172.20.0.0/24_ipam-pool-0e634f5a1517cccdc
-//
+// $ pulumi import aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr example 172.20.0.0/24_ipam-pool-0e634f5a1517cccdc
 // ```
 type VpcIpamPoolCidr struct {
 	pulumi.CustomResourceState

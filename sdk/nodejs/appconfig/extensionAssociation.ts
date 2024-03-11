@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -48,13 +49,14 @@ import * as utilities from "../utilities";
  *     resourceArn: testApplication.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import AppConfig Extension Associations using their extension association ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:appconfig/extensionAssociation:ExtensionAssociation example 71rxuzt
+ * $ pulumi import aws:appconfig/extensionAssociation:ExtensionAssociation example 71rxuzt
  * ```
  */
 export class ExtensionAssociation extends pulumi.CustomResource {

@@ -240,16 +240,21 @@ class ContactList(pulumi.CustomResource):
         Resource for managing an AWS SESv2 (Simple Email V2) Contact List.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.sesv2.ContactList("example", contact_list_name="example")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Extended Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -264,13 +269,14 @@ class ContactList(pulumi.CustomResource):
                 topic_name="example-topic",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SESv2 (Simple Email V2) Contact List using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:sesv2/contactList:ContactList example example
+        $ pulumi import aws:sesv2/contactList:ContactList example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -292,16 +298,21 @@ class ContactList(pulumi.CustomResource):
         Resource for managing an AWS SESv2 (Simple Email V2) Contact List.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.sesv2.ContactList("example", contact_list_name="example")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Extended Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -316,13 +327,14 @@ class ContactList(pulumi.CustomResource):
                 topic_name="example-topic",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SESv2 (Simple Email V2) Contact List using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:sesv2/contactList:ContactList example example
+        $ pulumi import aws:sesv2/contactList:ContactList example example
         ```
 
         :param str resource_name: The name of the resource.

@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Provides a DocumentDB event subscription resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -75,13 +77,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import DocumentDB Event Subscriptions using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:docdb/eventSubscription:EventSubscription example event-sub
+ * $ pulumi import aws:docdb/eventSubscription:EventSubscription example event-sub
  * ```
  * 
  */

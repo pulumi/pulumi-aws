@@ -205,6 +205,7 @@ class OpenIdConnectProvider(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -214,13 +215,14 @@ class OpenIdConnectProvider(pulumi.CustomResource):
             client_id_lists=["266362248691-342342xasdasdasda-apps.googleusercontent.com"],
             thumbprint_lists=["cf23df2207d99a74fbe169e3eba035e633b65d94"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM OpenID Connect Providers using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:iam/openIdConnectProvider:OpenIdConnectProvider default arn:aws:iam::123456789012:oidc-provider/accounts.google.com
+        $ pulumi import aws:iam/openIdConnectProvider:OpenIdConnectProvider default arn:aws:iam::123456789012:oidc-provider/accounts.google.com
         ```
 
         :param str resource_name: The name of the resource.
@@ -241,6 +243,7 @@ class OpenIdConnectProvider(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -250,13 +253,14 @@ class OpenIdConnectProvider(pulumi.CustomResource):
             client_id_lists=["266362248691-342342xasdasdasda-apps.googleusercontent.com"],
             thumbprint_lists=["cf23df2207d99a74fbe169e3eba035e633b65d94"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM OpenID Connect Providers using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:iam/openIdConnectProvider:OpenIdConnectProvider default arn:aws:iam::123456789012:oidc-provider/accounts.google.com
+        $ pulumi import aws:iam/openIdConnectProvider:OpenIdConnectProvider default arn:aws:iam::123456789012:oidc-provider/accounts.google.com
         ```
 
         :param str resource_name: The name of the resource.

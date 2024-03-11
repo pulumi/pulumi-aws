@@ -15,8 +15,10 @@ import (
 // Provides a Connection of Direct Connect.
 //
 // ## Example Usage
+//
 // ### Create a connection
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,8 +44,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Request a MACsec-capable connection
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -70,10 +75,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Configure encryption mode for MACsec-capable connections
 //
 // > **NOTE:** You can only specify the `encryptionMode` argument once the connection is in an `Available` state.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -101,15 +109,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Direct Connect connections using the connection `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:directconnect/connection:Connection test_connection dxcon-ffre0ec3
-//
+// $ pulumi import aws:directconnect/connection:Connection test_connection dxcon-ffre0ec3
 // ```
 type Connection struct {
 	pulumi.CustomResourceState

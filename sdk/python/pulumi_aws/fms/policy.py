@@ -519,6 +519,7 @@ class Policy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -552,13 +553,14 @@ class Policy(pulumi.CustomResource):
                 "Name": "example-fms-policy",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Firewall Manager policies using the policy ID. For example:
 
         ```sh
-         $ pulumi import aws:fms/policy:Policy example 5be49585-a7e3-4c49-dde1-a179fe4a619a
+        $ pulumi import aws:fms/policy:Policy example 5be49585-a7e3-4c49-dde1-a179fe4a619a
         ```
 
         :param str resource_name: The name of the resource.
@@ -590,6 +592,7 @@ class Policy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -623,13 +626,14 @@ class Policy(pulumi.CustomResource):
                 "Name": "example-fms-policy",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Firewall Manager policies using the policy ID. For example:
 
         ```sh
-         $ pulumi import aws:fms/policy:Policy example 5be49585-a7e3-4c49-dde1-a179fe4a619a
+        $ pulumi import aws:fms/policy:Policy example 5be49585-a7e3-4c49-dde1-a179fe4a619a
         ```
 
         :param str resource_name: The name of the resource.

@@ -133,8 +133,10 @@ class LicenseAssociation(pulumi.CustomResource):
         Provides an Amazon Managed Grafana workspace license association resource.
 
         ## Example Usage
+
         ### Basic configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -162,13 +164,14 @@ class LicenseAssociation(pulumi.CustomResource):
             license_type="ENTERPRISE_FREE_TRIAL",
             workspace_id=example_workspace.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Grafana workspace license association using the workspace's `id`. For example:
 
         ```sh
-         $ pulumi import aws:grafana/licenseAssociation:LicenseAssociation example g-2054c75a02
+        $ pulumi import aws:grafana/licenseAssociation:LicenseAssociation example g-2054c75a02
         ```
 
         :param str resource_name: The name of the resource.
@@ -186,8 +189,10 @@ class LicenseAssociation(pulumi.CustomResource):
         Provides an Amazon Managed Grafana workspace license association resource.
 
         ## Example Usage
+
         ### Basic configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -215,13 +220,14 @@ class LicenseAssociation(pulumi.CustomResource):
             license_type="ENTERPRISE_FREE_TRIAL",
             workspace_id=example_workspace.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Grafana workspace license association using the workspace's `id`. For example:
 
         ```sh
-         $ pulumi import aws:grafana/licenseAssociation:LicenseAssociation example g-2054c75a02
+        $ pulumi import aws:grafana/licenseAssociation:LicenseAssociation example g-2054c75a02
         ```
 
         :param str resource_name: The name of the resource.

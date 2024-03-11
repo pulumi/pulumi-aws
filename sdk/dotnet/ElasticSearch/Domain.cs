@@ -13,8 +13,10 @@ namespace Pulumi.Aws.ElasticSearch
     /// Manages an AWS Elasticsearch Domain.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -39,10 +41,13 @@ namespace Pulumi.Aws.ElasticSearch
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Access Policy
     /// 
     /// &gt; See also: `aws.elasticsearch.DomainPolicy` resource
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -84,8 +89,11 @@ namespace Pulumi.Aws.ElasticSearch
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Log Publishing to CloudWatch Logs
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -151,8 +159,11 @@ namespace Pulumi.Aws.ElasticSearch
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### VPC based ES
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -270,13 +281,14 @@ namespace Pulumi.Aws.ElasticSearch
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Elasticsearch domains using the `domain_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:elasticsearch/domain:Domain example domain_name
+    /// $ pulumi import aws:elasticsearch/domain:Domain example domain_name
     /// ```
     /// </summary>
     [AwsResourceType("aws:elasticsearch/domain:Domain")]

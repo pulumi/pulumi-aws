@@ -138,6 +138,7 @@ class ClusterIamRoles(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -146,13 +147,14 @@ class ClusterIamRoles(pulumi.CustomResource):
             cluster_identifier=example_aws_redshift_cluster["clusterIdentifier"],
             iam_role_arns=[example_aws_iam_role["arn"]])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Cluster IAM Roless using the `cluster_identifier`. For example:
 
         ```sh
-         $ pulumi import aws:redshift/clusterIamRoles:ClusterIamRoles examplegroup1 example
+        $ pulumi import aws:redshift/clusterIamRoles:ClusterIamRoles examplegroup1 example
         ```
 
         :param str resource_name: The name of the resource.
@@ -174,6 +176,7 @@ class ClusterIamRoles(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -182,13 +185,14 @@ class ClusterIamRoles(pulumi.CustomResource):
             cluster_identifier=example_aws_redshift_cluster["clusterIdentifier"],
             iam_role_arns=[example_aws_iam_role["arn"]])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Cluster IAM Roless using the `cluster_identifier`. For example:
 
         ```sh
-         $ pulumi import aws:redshift/clusterIamRoles:ClusterIamRoles examplegroup1 example
+        $ pulumi import aws:redshift/clusterIamRoles:ClusterIamRoles examplegroup1 example
         ```
 
         :param str resource_name: The name of the resource.

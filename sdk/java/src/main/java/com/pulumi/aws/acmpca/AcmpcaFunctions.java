@@ -21,6 +21,8 @@ public final class AcmpcaFunctions {
      * Get information on a Certificate issued by a AWS Certificate Manager Private Certificate Authority.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -50,6 +52,7 @@ public final class AcmpcaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCertificateResult> getCertificate(GetCertificateArgs args) {
@@ -59,6 +62,8 @@ public final class AcmpcaFunctions {
      * Get information on a Certificate issued by a AWS Certificate Manager Private Certificate Authority.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -88,6 +93,7 @@ public final class AcmpcaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCertificateResult> getCertificatePlain(GetCertificatePlainArgs args) {
@@ -97,6 +103,8 @@ public final class AcmpcaFunctions {
      * Get information on a Certificate issued by a AWS Certificate Manager Private Certificate Authority.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -126,6 +134,7 @@ public final class AcmpcaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCertificateResult> getCertificate(GetCertificateArgs args, InvokeOptions options) {
@@ -135,6 +144,8 @@ public final class AcmpcaFunctions {
      * Get information on a Certificate issued by a AWS Certificate Manager Private Certificate Authority.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -164,6 +175,7 @@ public final class AcmpcaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCertificateResult> getCertificatePlain(GetCertificatePlainArgs args, InvokeOptions options) {
@@ -173,6 +185,8 @@ public final class AcmpcaFunctions {
      * Get information on a AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -201,6 +215,7 @@ public final class AcmpcaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCertificateAuthorityResult> getCertificateAuthority(GetCertificateAuthorityArgs args) {
@@ -210,6 +225,8 @@ public final class AcmpcaFunctions {
      * Get information on a AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -238,6 +255,7 @@ public final class AcmpcaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCertificateAuthorityResult> getCertificateAuthorityPlain(GetCertificateAuthorityPlainArgs args) {
@@ -247,6 +265,8 @@ public final class AcmpcaFunctions {
      * Get information on a AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -275,6 +295,7 @@ public final class AcmpcaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCertificateAuthorityResult> getCertificateAuthority(GetCertificateAuthorityArgs args, InvokeOptions options) {
@@ -284,6 +305,8 @@ public final class AcmpcaFunctions {
      * Get information on a AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -312,6 +335,7 @@ public final class AcmpcaFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCertificateAuthorityResult> getCertificateAuthorityPlain(GetCertificateAuthorityPlainArgs args, InvokeOptions options) {

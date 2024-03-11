@@ -14,10 +14,9 @@ namespace Pulumi.Aws.Iot
         /// <summary>
         /// Gets a registration code used to register a CA certificate with AWS IoT.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -46,8 +45,7 @@ namespace Pulumi.Aws.Iot
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetRegistrationCodeResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRegistrationCodeResult>("aws:iot/getRegistrationCode:getRegistrationCode", InvokeArgs.Empty, options.WithDefaults());
@@ -55,10 +53,9 @@ namespace Pulumi.Aws.Iot
         /// <summary>
         /// Gets a registration code used to register a CA certificate with AWS IoT.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -87,8 +84,7 @@ namespace Pulumi.Aws.Iot
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetRegistrationCodeResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRegistrationCodeResult>("aws:iot/getRegistrationCode:getRegistrationCode", InvokeArgs.Empty, options.WithDefaults());

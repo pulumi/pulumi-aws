@@ -14,8 +14,10 @@ import (
 // `route53.getResolverRules` provides details about a set of Route53 Resolver rules.
 //
 // ## Example Usage
+//
 // ### Retrieving the default resolver rule
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,8 +43,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Retrieving forward rules shared with me
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -67,10 +72,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Retrieving rules by name regex
 //
 // Resolver rules whose name contains `abc`.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -94,6 +102,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetResolverRules(ctx *pulumi.Context, args *GetResolverRulesArgs, opts ...pulumi.InvokeOption) (*GetResolverRulesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetResolverRulesResult

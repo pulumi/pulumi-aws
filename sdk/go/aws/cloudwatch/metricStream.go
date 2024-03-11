@@ -15,8 +15,10 @@ import (
 // Provides a CloudWatch Metric Stream resource.
 //
 // ## Example Usage
+//
 // ### Filters
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -197,8 +199,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Additional Statistics
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -250,15 +255,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CloudWatch metric streams using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cloudwatch/metricStream:MetricStream sample sample-stream-name
-//
+// $ pulumi import aws:cloudwatch/metricStream:MetricStream sample sample-stream-name
 // ```
 type MetricStream struct {
 	pulumi.CustomResourceState

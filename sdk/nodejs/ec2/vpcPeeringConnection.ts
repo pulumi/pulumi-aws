@@ -26,6 +26,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -36,9 +37,11 @@ import * as utilities from "../utilities";
  *     vpcId: fooAwsVpc.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * Basic usage with connection options:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -55,9 +58,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * Basic usage with tags:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -74,9 +79,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * Basic usage with region:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -90,6 +97,8 @@ import * as utilities from "../utilities";
  *     peerRegion: "us-east-1",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Notes
  *
  * If both VPCs are not in the same AWS account and region do not enable the `autoAccept` attribute.
@@ -101,7 +110,7 @@ import * as utilities from "../utilities";
  * Using `pulumi import`, import VPC Peering resources using the VPC peering `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/vpcPeeringConnection:VpcPeeringConnection test_connection pcx-111aaa111
+ * $ pulumi import aws:ec2/vpcPeeringConnection:VpcPeeringConnection test_connection pcx-111aaa111
  * ```
  */
 export class VpcPeeringConnection extends pulumi.CustomResource {

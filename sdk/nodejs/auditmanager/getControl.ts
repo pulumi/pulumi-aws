@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Data source for managing an AWS Audit Manager Control.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,8 +24,11 @@ import * as utilities from "../utilities";
  *     type: "Standard",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With Framework Resource
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -54,6 +59,7 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getControl(args: GetControlArgs, opts?: pulumi.InvokeOptions): Promise<GetControlResult> {
 
@@ -99,8 +105,10 @@ export interface GetControlResult {
  * Data source for managing an AWS Audit Manager Control.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -110,8 +118,11 @@ export interface GetControlResult {
  *     type: "Standard",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With Framework Resource
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -142,6 +153,7 @@ export interface GetControlResult {
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getControlOutput(args: GetControlOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetControlResult> {
     return pulumi.output(args).apply((a: any) => getControl(a, opts))

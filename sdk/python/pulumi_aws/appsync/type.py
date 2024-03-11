@@ -182,6 +182,7 @@ class Type(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -200,13 +201,14 @@ class Type(pulumi.CustomResource):
         }
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Appsync Types using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:appsync/type:Type example api-id:format:name
+        $ pulumi import aws:appsync/type:Type example api-id:format:name
         ```
 
         :param str resource_name: The name of the resource.
@@ -226,6 +228,7 @@ class Type(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -244,13 +247,14 @@ class Type(pulumi.CustomResource):
         }
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Appsync Types using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:appsync/type:Type example api-id:format:name
+        $ pulumi import aws:appsync/type:Type example api-id:format:name
         ```
 
         :param str resource_name: The name of the resource.

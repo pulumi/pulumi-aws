@@ -23,7 +23,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS RBin Rule.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -64,13 +67,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import RBin Rule using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:rbin/rule:Rule example examplerule
+ * $ pulumi import aws:rbin/rule:Rule example examplerule
  * ```
  * 
  */

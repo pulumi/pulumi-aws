@@ -12,47 +12,6 @@ import (
 )
 
 // This resource can be useful for getting back a list of NAT gateway ids to be referenced elsewhere.
-//
-// ## Example Usage
-//
-// # The following returns all NAT gateways in a specified VPC that are marked as available
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func notImplemented(message string) pulumi.AnyOutput {
-//		panic(message)
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			ngws, err := ec2.GetNatGateways(ctx, &ec2.GetNatGatewaysArgs{
-//				VpcId: pulumi.StringRef(vpcId),
-//				Filters: []ec2.GetNatGatewaysFilter{
-//					{
-//						Name: "state",
-//						Values: []string{
-//							"available",
-//						},
-//					},
-//				},
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_ := "TODO: For expression"
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetNatGateways(ctx *pulumi.Context, args *GetNatGatewaysArgs, opts ...pulumi.InvokeOption) (*GetNatGatewaysResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetNatGatewaysResult

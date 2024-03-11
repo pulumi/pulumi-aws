@@ -20,8 +20,10 @@ import (
 // **Note:** The `secretArn` argument can only be used to reference a previously created MACSec key. You cannot associate a Secrets Manager secret created outside of the `directconnect.MacsecKeyAssociation` resource.
 //
 // ## Example Usage
+//
 // ### Create MACSec key with CKN and CAK
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -53,8 +55,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Create MACSec key with existing Secrets Manager secret
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -92,6 +97,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type MacsecKeyAssociation struct {
 	pulumi.CustomResourceState
 

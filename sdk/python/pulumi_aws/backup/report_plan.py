@@ -273,6 +273,7 @@ class ReportPlan(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -294,13 +295,14 @@ class ReportPlan(pulumi.CustomResource):
                 "Name": "Example Report Plan",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Backup Report Plan using the `id` which corresponds to the name of the Backup Report Plan. For example:
 
         ```sh
-         $ pulumi import aws:backup/reportPlan:ReportPlan test <id>
+        $ pulumi import aws:backup/reportPlan:ReportPlan test <id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -322,6 +324,7 @@ class ReportPlan(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -343,13 +346,14 @@ class ReportPlan(pulumi.CustomResource):
                 "Name": "Example Report Plan",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Backup Report Plan using the `id` which corresponds to the name of the Backup Report Plan. For example:
 
         ```sh
-         $ pulumi import aws:backup/reportPlan:ReportPlan test <id>
+        $ pulumi import aws:backup/reportPlan:ReportPlan test <id>
         ```
 
         :param str resource_name: The name of the resource.

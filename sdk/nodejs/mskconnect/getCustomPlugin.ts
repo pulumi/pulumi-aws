@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -17,6 +18,7 @@ import * as utilities from "../utilities";
  *     name: "example-debezium-1",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getCustomPlugin(args: GetCustomPluginArgs, opts?: pulumi.InvokeOptions): Promise<GetCustomPluginResult> {
 
@@ -67,6 +69,7 @@ export interface GetCustomPluginResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -75,6 +78,7 @@ export interface GetCustomPluginResult {
  *     name: "example-debezium-1",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getCustomPluginOutput(args: GetCustomPluginOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetCustomPluginResult> {
     return pulumi.output(args).apply((a: any) => getCustomPlugin(a, opts))

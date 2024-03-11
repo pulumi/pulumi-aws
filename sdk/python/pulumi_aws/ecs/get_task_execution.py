@@ -245,8 +245,10 @@ def get_task_execution(capacity_provider_strategies: Optional[Sequence[pulumi.In
     > **NOTE on preview operations:** This data source calls the `RunTask` API on every read operation, which means new task(s) may be created from a `pulumi preview` command if all attributes are known. Placing this functionality behind a data source is an intentional trade off to enable use cases requiring a one-time task execution without relying on provisioners. Caution should be taken to ensure the data source is only executed once, or that the resulting tasks can safely run in parallel.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -261,6 +263,7 @@ def get_task_execution(capacity_provider_strategies: Optional[Sequence[pulumi.In
             assign_public_ip=False,
         ))
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetTaskExecutionCapacityProviderStrategyArgs']] capacity_provider_strategies: Set of capacity provider strategies to use for the cluster. See below.
@@ -355,8 +358,10 @@ def get_task_execution_output(capacity_provider_strategies: Optional[pulumi.Inpu
     > **NOTE on preview operations:** This data source calls the `RunTask` API on every read operation, which means new task(s) may be created from a `pulumi preview` command if all attributes are known. Placing this functionality behind a data source is an intentional trade off to enable use cases requiring a one-time task execution without relying on provisioners. Caution should be taken to ensure the data source is only executed once, or that the resulting tasks can safely run in parallel.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -371,6 +376,7 @@ def get_task_execution_output(capacity_provider_strategies: Optional[pulumi.Inpu
             assign_public_ip=False,
         ))
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetTaskExecutionCapacityProviderStrategyArgs']] capacity_provider_strategies: Set of capacity provider strategies to use for the cluster. See below.

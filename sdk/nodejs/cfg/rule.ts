@@ -13,10 +13,12 @@ import * as utilities from "../utilities";
  * > **Note:** Config Rule requires an existing Configuration Recorder to be present. Use of `dependsOn` is recommended (as shown below) to avoid race conditions.
  *
  * ## Example Usage
+ *
  * ### AWS Managed Rules
  *
  * AWS managed rules can be used by setting the source owner to `AWS` and the source identifier to the name of the managed rule. More information about AWS managed rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_use-managed-rules.html).
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -59,10 +61,13 @@ import * as utilities from "../utilities";
  *     policy: p.then(p => p.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Custom Rules
  *
  * Custom rules can be used by setting the source owner to `CUSTOM_LAMBDA` and the source identifier to the Amazon Resource Name (ARN) of the Lambda Function. The AWS Config service must have permissions to invoke the Lambda Function, e.g., via the `aws.lambda.Permission` resource. More information about custom rules can be found in the [AWS Config Developer Guide](https://docs.aws.amazon.com/config/latest/developerguide/evaluate-config_develop-rules.html).
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -80,8 +85,11 @@ import * as utilities from "../utilities";
  *     sourceIdentifier: exampleFunction.arn,
  * }});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Custom Policies
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -110,13 +118,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Config Rule using the name. For example:
  *
  * ```sh
- *  $ pulumi import aws:cfg/rule:Rule foo example
+ * $ pulumi import aws:cfg/rule:Rule foo example
  * ```
  */
 export class Rule extends pulumi.CustomResource {

@@ -295,16 +295,21 @@ class Room(pulumi.CustomResource):
         Resource for managing an AWS IVS (Interactive Video) Chat Room.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ivschat.Room("example", name="tf-room")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Usage with Logging Configuration to S3 Bucket
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -323,13 +328,14 @@ class Room(pulumi.CustomResource):
             name="tf-ivschat-room",
             logging_configuration_identifiers=[example_logging_configuration.arn])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IVS (Interactive Video) Chat Room using the ARN. For example:
 
         ```sh
-         $ pulumi import aws:ivschat/room:Room example arn:aws:ivschat:us-west-2:326937407773:room/GoXEXyB4VwHb
+        $ pulumi import aws:ivschat/room:Room example arn:aws:ivschat:us-west-2:326937407773:room/GoXEXyB4VwHb
         ```
 
         :param str resource_name: The name of the resource.
@@ -356,16 +362,21 @@ class Room(pulumi.CustomResource):
         Resource for managing an AWS IVS (Interactive Video) Chat Room.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ivschat.Room("example", name="tf-room")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Usage with Logging Configuration to S3 Bucket
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -384,13 +395,14 @@ class Room(pulumi.CustomResource):
             name="tf-ivschat-room",
             logging_configuration_identifiers=[example_logging_configuration.arn])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IVS (Interactive Video) Chat Room using the ARN. For example:
 
         ```sh
-         $ pulumi import aws:ivschat/room:Room example arn:aws:ivschat:us-west-2:326937407773:room/GoXEXyB4VwHb
+        $ pulumi import aws:ivschat/room:Room example arn:aws:ivschat:us-west-2:326937407773:room/GoXEXyB4VwHb
         ```
 
         :param str resource_name: The name of the resource.

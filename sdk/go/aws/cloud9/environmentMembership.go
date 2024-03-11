@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -55,15 +56,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Cloud9 environment membership using the `environment-id#user-arn`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cloud9/environmentMembership:EnvironmentMembership test environment-id#user-arn
-//
+// $ pulumi import aws:cloud9/environmentMembership:EnvironmentMembership test environment-id#user-arn
 // ```
 type EnvironmentMembership struct {
 	pulumi.CustomResourceState

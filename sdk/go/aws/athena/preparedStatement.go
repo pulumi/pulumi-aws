@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -66,15 +67,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Athena Prepared Statement using the `WORKGROUP-NAME/STATEMENT-NAME`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:athena/preparedStatement:PreparedStatement example 12345abcde/example
-//
+// $ pulumi import aws:athena/preparedStatement:PreparedStatement example 12345abcde/example
 // ```
 type PreparedStatement struct {
 	pulumi.CustomResourceState

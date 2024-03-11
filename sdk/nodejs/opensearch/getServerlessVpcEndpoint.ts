@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -17,6 +18,7 @@ import * as utilities from "../utilities";
  *     vpcEndpointId: "vpce-829a4487959e2a839",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getServerlessVpcEndpoint(args: GetServerlessVpcEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetServerlessVpcEndpointResult> {
 
@@ -71,6 +73,7 @@ export interface GetServerlessVpcEndpointResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -79,6 +82,7 @@ export interface GetServerlessVpcEndpointResult {
  *     vpcEndpointId: "vpce-829a4487959e2a839",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getServerlessVpcEndpointOutput(args: GetServerlessVpcEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerlessVpcEndpointResult> {
     return pulumi.output(args).apply((a: any) => getServerlessVpcEndpoint(a, opts))

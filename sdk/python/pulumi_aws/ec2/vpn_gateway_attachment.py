@@ -107,6 +107,7 @@ class VpnGatewayAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -119,6 +120,7 @@ class VpnGatewayAttachment(pulumi.CustomResource):
             vpc_id=network.id,
             vpn_gateway_id=vpn.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         See [Virtual Private Cloud](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html)
         and [Virtual Private Gateway](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html) user
@@ -149,6 +151,7 @@ class VpnGatewayAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -161,6 +164,7 @@ class VpnGatewayAttachment(pulumi.CustomResource):
             vpc_id=network.id,
             vpn_gateway_id=vpn.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         See [Virtual Private Cloud](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_Introduction.html)
         and [Virtual Private Gateway](http://docs.aws.amazon.com/AmazonVPC/latest/UserGuide/VPC_VPN.html) user

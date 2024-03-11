@@ -20,6 +20,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,15 +45,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import ECS Account Setting defaults using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ecs/accountSettingDefault:AccountSettingDefault example taskLongArnFormat
-//
+// $ pulumi import aws:ecs/accountSettingDefault:AccountSettingDefault example taskLongArnFormat
 // ```
 type AccountSettingDefault struct {
 	pulumi.CustomResourceState

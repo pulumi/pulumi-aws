@@ -82,6 +82,7 @@ def get_solution_stack(most_recent: Optional[bool] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -89,6 +90,7 @@ def get_solution_stack(most_recent: Optional[bool] = None,
     multi_docker = aws.elasticbeanstalk.get_solution_stack(most_recent=True,
         name_regex="^64bit Amazon Linux (.*) Multi-container Docker (.*)$")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool most_recent: If more than one result is returned, use the most
@@ -123,6 +125,7 @@ def get_solution_stack_output(most_recent: Optional[pulumi.Input[Optional[bool]]
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -130,6 +133,7 @@ def get_solution_stack_output(most_recent: Optional[pulumi.Input[Optional[bool]]
     multi_docker = aws.elasticbeanstalk.get_solution_stack(most_recent=True,
         name_regex="^64bit Amazon Linux (.*) Multi-container Docker (.*)$")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool most_recent: If more than one result is returned, use the most

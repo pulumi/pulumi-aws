@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Accepts a Security Hub invitation.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -60,13 +62,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Security Hub invite acceptance using the account ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:securityhub/inviteAccepter:InviteAccepter example 123456789012
+ * $ pulumi import aws:securityhub/inviteAccepter:InviteAccepter example 123456789012
  * ```
  * 
  */

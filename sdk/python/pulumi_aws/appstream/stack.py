@@ -514,6 +514,7 @@ class Stack(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -565,13 +566,14 @@ class Stack(pulumi.CustomResource):
                 "TagName": "TagValue",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_appstream_stack` using the id. For example:
 
         ```sh
-         $ pulumi import aws:appstream/stack:Stack example stackID
+        $ pulumi import aws:appstream/stack:Stack example stackID
         ```
 
         :param str resource_name: The name of the resource.
@@ -607,6 +609,7 @@ class Stack(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -658,13 +661,14 @@ class Stack(pulumi.CustomResource):
                 "TagName": "TagValue",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_appstream_stack` using the id. For example:
 
         ```sh
-         $ pulumi import aws:appstream/stack:Stack example stackID
+        $ pulumi import aws:appstream/stack:Stack example stackID
         ```
 
         :param str resource_name: The name of the resource.

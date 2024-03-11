@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  *
  * To retrieve a baseline provided by AWS:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,9 +25,11 @@ import * as utilities from "../utilities";
  *     operatingSystem: "CENTOS",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * To retrieve a baseline on your account:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -38,6 +41,7 @@ import * as utilities from "../utilities";
  *     operatingSystem: "WINDOWS",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPatchBaseline(args: GetPatchBaselineArgs, opts?: pulumi.InvokeOptions): Promise<GetPatchBaselineResult> {
 
@@ -138,6 +142,7 @@ export interface GetPatchBaselineResult {
  *
  * To retrieve a baseline provided by AWS:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -148,9 +153,11 @@ export interface GetPatchBaselineResult {
  *     operatingSystem: "CENTOS",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * To retrieve a baseline on your account:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -162,6 +169,7 @@ export interface GetPatchBaselineResult {
  *     operatingSystem: "WINDOWS",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPatchBaselineOutput(args: GetPatchBaselineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPatchBaselineResult> {
     return pulumi.output(args).apply((a: any) => getPatchBaseline(a, opts))

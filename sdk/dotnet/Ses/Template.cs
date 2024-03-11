@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Ses
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -33,13 +34,14 @@ namespace Pulumi.Aws.Ses
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SES templates using the template name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ses/template:Template MyTemplate MyTemplate
+    /// $ pulumi import aws:ses/template:Template MyTemplate MyTemplate
     /// ```
     /// </summary>
     [AwsResourceType("aws:ses/template:Template")]

@@ -46,6 +46,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduled {
     /**
      * @return Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -77,6 +78,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduled {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     private @Nullable String timezone;
@@ -127,6 +129,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduled {
     /**
      * @return Time zone used when referring to the date and time of a scheduled-triggered flow, such as `America/New_York`.
      * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -158,6 +161,7 @@ public final class FlowTriggerConfigTriggerPropertiesScheduled {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public Optional<String> timezone() {

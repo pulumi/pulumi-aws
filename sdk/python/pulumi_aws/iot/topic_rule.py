@@ -781,6 +781,7 @@ class TopicRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -826,13 +827,14 @@ class TopicRule(pulumi.CustomResource):
             role=myrole.id,
             policy=mypolicy.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IoT Topic Rules using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:iot/topicRule:TopicRule rule <name>
+        $ pulumi import aws:iot/topicRule:TopicRule rule <name>
         ```
 
         :param str resource_name: The name of the resource.
@@ -856,6 +858,7 @@ class TopicRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -901,13 +904,14 @@ class TopicRule(pulumi.CustomResource):
             role=myrole.id,
             policy=mypolicy.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IoT Topic Rules using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:iot/topicRule:TopicRule rule <name>
+        $ pulumi import aws:iot/topicRule:TopicRule rule <name>
         ```
 
         :param str resource_name: The name of the resource.

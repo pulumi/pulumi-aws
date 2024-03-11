@@ -13,8 +13,10 @@ namespace Pulumi.Aws.SecurityLake
     /// Resource for managing an Amazon Security Lake AWS Log Source.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -42,13 +44,14 @@ namespace Pulumi.Aws.SecurityLake
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AWS log sources using the source name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:securitylake/awsLogSource:AwsLogSource example ROUTE53
+    /// $ pulumi import aws:securitylake/awsLogSource:AwsLogSource example ROUTE53
     /// ```
     /// </summary>
     [AwsResourceType("aws:securitylake/awsLogSource:AwsLogSource")]

@@ -638,8 +638,10 @@ class Workspace(pulumi.CustomResource):
         Provides an Amazon Managed Grafana workspace resource.
 
         ## Example Usage
+
         ### Basic configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -664,13 +666,14 @@ class Workspace(pulumi.CustomResource):
             permission_type="SERVICE_MANAGED",
             role_arn=assume.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Grafana Workspace using the workspace's `id`. For example:
 
         ```sh
-         $ pulumi import aws:grafana/workspace:Workspace example g-2054c75a02
+        $ pulumi import aws:grafana/workspace:Workspace example g-2054c75a02
         ```
 
         :param str resource_name: The name of the resource.
@@ -704,8 +707,10 @@ class Workspace(pulumi.CustomResource):
         Provides an Amazon Managed Grafana workspace resource.
 
         ## Example Usage
+
         ### Basic configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -730,13 +735,14 @@ class Workspace(pulumi.CustomResource):
             permission_type="SERVICE_MANAGED",
             role_arn=assume.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Grafana Workspace using the workspace's `id`. For example:
 
         ```sh
-         $ pulumi import aws:grafana/workspace:Workspace example g-2054c75a02
+        $ pulumi import aws:grafana/workspace:Workspace example g-2054c75a02
         ```
 
         :param str resource_name: The name of the resource.

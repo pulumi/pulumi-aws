@@ -370,6 +370,7 @@ class VpcAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -379,13 +380,14 @@ class VpcAttachment(pulumi.CustomResource):
             transit_gateway_id=example_aws_ec2_transit_gateway["id"],
             vpc_id=example_aws_vpc["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ec2_transit_gateway_vpc_attachment` using the EC2 Transit Gateway Attachment identifier. For example:
 
         ```sh
-         $ pulumi import aws:ec2transitgateway/vpcAttachment:VpcAttachment example tgw-attach-12345678
+        $ pulumi import aws:ec2transitgateway/vpcAttachment:VpcAttachment example tgw-attach-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -411,6 +413,7 @@ class VpcAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -420,13 +423,14 @@ class VpcAttachment(pulumi.CustomResource):
             transit_gateway_id=example_aws_ec2_transit_gateway["id"],
             vpc_id=example_aws_vpc["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ec2_transit_gateway_vpc_attachment` using the EC2 Transit Gateway Attachment identifier. For example:
 
         ```sh
-         $ pulumi import aws:ec2transitgateway/vpcAttachment:VpcAttachment example tgw-attach-12345678
+        $ pulumi import aws:ec2transitgateway/vpcAttachment:VpcAttachment example tgw-attach-12345678
         ```
 
         :param str resource_name: The name of the resource.

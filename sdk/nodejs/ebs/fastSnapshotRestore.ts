@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Resource for managing an EBS (Elastic Block Storage) Fast Snapshot Restore.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,13 +24,14 @@ import * as utilities from "../utilities";
  *     snapshotId: exampleAwsEbsSnapshot.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import EC2 (Elastic Compute Cloud) EBS Fast Snapshot Restore using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ebs/fastSnapshotRestore:FastSnapshotRestore example us-west-2a,snap-abcdef123456
+ * $ pulumi import aws:ebs/fastSnapshotRestore:FastSnapshotRestore example us-west-2a,snap-abcdef123456
  * ```
  */
 export class FastSnapshotRestore extends pulumi.CustomResource {

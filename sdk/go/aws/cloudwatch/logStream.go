@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -46,15 +47,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Cloudwatch Log Stream using the stream's `log_group_name` and `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cloudwatch/logStream:LogStream foo Yada:SampleLogStream1234
-//
+// $ pulumi import aws:cloudwatch/logStream:LogStream foo Yada:SampleLogStream1234
 // ```
 type LogStream struct {
 	pulumi.CustomResourceState

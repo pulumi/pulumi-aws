@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -48,15 +49,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import AppConfig Deployment Strategies using their deployment strategy ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:appconfig/deploymentStrategy:DeploymentStrategy example 11xxxxx
-//
+// $ pulumi import aws:appconfig/deploymentStrategy:DeploymentStrategy example 11xxxxx
 // ```
 type DeploymentStrategy struct {
 	pulumi.CustomResourceState

@@ -243,6 +243,7 @@ class Script(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -255,13 +256,14 @@ class Script(pulumi.CustomResource):
                 role_arn=example_aws_iam_role["arn"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import GameLift Scripts using the ID. For example:
 
         ```sh
-         $ pulumi import aws:gamelift/script:Script example <script-id>
+        $ pulumi import aws:gamelift/script:Script example <script-id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -283,6 +285,7 @@ class Script(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -295,13 +298,14 @@ class Script(pulumi.CustomResource):
                 role_arn=example_aws_iam_role["arn"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import GameLift Scripts using the ID. For example:
 
         ```sh
-         $ pulumi import aws:gamelift/script:Script example <script-id>
+        $ pulumi import aws:gamelift/script:Script example <script-id>
         ```
 
         :param str resource_name: The name of the resource.

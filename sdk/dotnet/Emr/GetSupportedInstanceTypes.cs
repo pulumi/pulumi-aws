@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Emr
         /// <summary>
         /// Data source for managing AWS EMR Supported Instance Types.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,12 +34,13 @@ namespace Pulumi.Aws.Emr
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### With a Lifecycle Pre-Condition
         /// 
         /// This data source can be used with a lifecycle precondition to ensure a given instance type is supported by EMR.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -68,8 +69,7 @@ namespace Pulumi.Aws.Emr
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSupportedInstanceTypesResult> InvokeAsync(GetSupportedInstanceTypesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSupportedInstanceTypesResult>("aws:emr/getSupportedInstanceTypes:getSupportedInstanceTypes", args ?? new GetSupportedInstanceTypesArgs(), options.WithDefaults());
@@ -77,11 +77,11 @@ namespace Pulumi.Aws.Emr
         /// <summary>
         /// Data source for managing AWS EMR Supported Instance Types.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -97,12 +97,13 @@ namespace Pulumi.Aws.Emr
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### With a Lifecycle Pre-Condition
         /// 
         /// This data source can be used with a lifecycle precondition to ensure a given instance type is supported by EMR.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -131,8 +132,7 @@ namespace Pulumi.Aws.Emr
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSupportedInstanceTypesResult> Invoke(GetSupportedInstanceTypesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSupportedInstanceTypesResult>("aws:emr/getSupportedInstanceTypes:getSupportedInstanceTypes", args ?? new GetSupportedInstanceTypesInvokeArgs(), options.WithDefaults());

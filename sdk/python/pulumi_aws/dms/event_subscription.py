@@ -304,6 +304,7 @@ class EventSubscription(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -322,13 +323,14 @@ class EventSubscription(pulumi.CustomResource):
                 "Name": "example",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import event subscriptions using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:dms/eventSubscription:EventSubscription test my-awesome-event-subscription
+        $ pulumi import aws:dms/eventSubscription:EventSubscription test my-awesome-event-subscription
         ```
 
         :param str resource_name: The name of the resource.
@@ -352,6 +354,7 @@ class EventSubscription(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -370,13 +373,14 @@ class EventSubscription(pulumi.CustomResource):
                 "Name": "example",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import event subscriptions using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:dms/eventSubscription:EventSubscription test my-awesome-event-subscription
+        $ pulumi import aws:dms/eventSubscription:EventSubscription test my-awesome-event-subscription
         ```
 
         :param str resource_name: The name of the resource.

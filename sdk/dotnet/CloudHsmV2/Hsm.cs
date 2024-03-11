@@ -16,6 +16,7 @@ namespace Pulumi.Aws.CloudHsmV2
     /// 
     /// The following example below creates an HSM module in CloudHSM cluster.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -37,13 +38,14 @@ namespace Pulumi.Aws.CloudHsmV2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import HSM modules using their HSM ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cloudhsmv2/hsm:Hsm bar hsm-quo8dahtaca
+    /// $ pulumi import aws:cloudhsmv2/hsm:Hsm bar hsm-quo8dahtaca
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudhsmv2/hsm:Hsm")]

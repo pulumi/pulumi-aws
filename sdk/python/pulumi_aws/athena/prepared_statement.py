@@ -168,6 +168,7 @@ class PreparedStatement(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -184,13 +185,14 @@ class PreparedStatement(pulumi.CustomResource):
             query_statement=test_database.name.apply(lambda name: f"SELECT * FROM {name} WHERE x = ?"),
             workgroup=test_workgroup.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Athena Prepared Statement using the `WORKGROUP-NAME/STATEMENT-NAME`. For example:
 
         ```sh
-         $ pulumi import aws:athena/preparedStatement:PreparedStatement example 12345abcde/example
+        $ pulumi import aws:athena/preparedStatement:PreparedStatement example 12345abcde/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -211,6 +213,7 @@ class PreparedStatement(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -227,13 +230,14 @@ class PreparedStatement(pulumi.CustomResource):
             query_statement=test_database.name.apply(lambda name: f"SELECT * FROM {name} WHERE x = ?"),
             workgroup=test_workgroup.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Athena Prepared Statement using the `WORKGROUP-NAME/STATEMENT-NAME`. For example:
 
         ```sh
-         $ pulumi import aws:athena/preparedStatement:PreparedStatement example 12345abcde/example
+        $ pulumi import aws:athena/preparedStatement:PreparedStatement example 12345abcde/example
         ```
 
         :param str resource_name: The name of the resource.

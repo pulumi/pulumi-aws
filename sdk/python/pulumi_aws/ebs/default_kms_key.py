@@ -77,19 +77,21 @@ class DefaultKmsKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ebs.DefaultKmsKey("example", key_arn=example_aws_kms_key["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import the EBS default KMS CMK using the KMS key ARN. For example:
 
         ```sh
-         $ pulumi import aws:ebs/defaultKmsKey:DefaultKmsKey example arn:aws:kms:us-east-1:123456789012:key/abcd-1234
+        $ pulumi import aws:ebs/defaultKmsKey:DefaultKmsKey example arn:aws:kms:us-east-1:123456789012:key/abcd-1234
         ```
 
         :param str resource_name: The name of the resource.
@@ -114,19 +116,21 @@ class DefaultKmsKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ebs.DefaultKmsKey("example", key_arn=example_aws_kms_key["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import the EBS default KMS CMK using the KMS key ARN. For example:
 
         ```sh
-         $ pulumi import aws:ebs/defaultKmsKey:DefaultKmsKey example arn:aws:kms:us-east-1:123456789012:key/abcd-1234
+        $ pulumi import aws:ebs/defaultKmsKey:DefaultKmsKey example arn:aws:kms:us-east-1:123456789012:key/abcd-1234
         ```
 
         :param str resource_name: The name of the resource.

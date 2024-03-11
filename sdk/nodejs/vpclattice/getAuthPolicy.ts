@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Data source for managing an AWS VPC Lattice Auth Policy.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -18,6 +20,7 @@ import * as utilities from "../utilities";
  *     resourceIdentifier: testAwsVpclatticeAuthPolicy.resourceIdentifier,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAuthPolicy(args: GetAuthPolicyArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthPolicyResult> {
 
@@ -69,8 +72,10 @@ export interface GetAuthPolicyResult {
  * Data source for managing an AWS VPC Lattice Auth Policy.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -79,6 +84,7 @@ export interface GetAuthPolicyResult {
  *     resourceIdentifier: testAwsVpclatticeAuthPolicy.resourceIdentifier,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAuthPolicyOutput(args: GetAuthPolicyOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthPolicyResult> {
     return pulumi.output(args).apply((a: any) => getAuthPolicy(a, opts))

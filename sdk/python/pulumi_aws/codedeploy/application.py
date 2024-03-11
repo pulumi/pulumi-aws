@@ -222,8 +222,10 @@ class Application(pulumi.CustomResource):
         Provides a CodeDeploy application to be used as a basis for deployments
 
         ## Example Usage
+
         ### ECS Application
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -232,8 +234,11 @@ class Application(pulumi.CustomResource):
             compute_platform="ECS",
             name="example")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Lambda Application
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -242,8 +247,11 @@ class Application(pulumi.CustomResource):
             compute_platform="Lambda",
             name="example")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Server Application
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -252,13 +260,14 @@ class Application(pulumi.CustomResource):
             compute_platform="Server",
             name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CodeDeploy Applications using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:codedeploy/application:Application example my-application
+        $ pulumi import aws:codedeploy/application:Application example my-application
         ```
 
         :param str resource_name: The name of the resource.
@@ -277,8 +286,10 @@ class Application(pulumi.CustomResource):
         Provides a CodeDeploy application to be used as a basis for deployments
 
         ## Example Usage
+
         ### ECS Application
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -287,8 +298,11 @@ class Application(pulumi.CustomResource):
             compute_platform="ECS",
             name="example")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Lambda Application
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -297,8 +311,11 @@ class Application(pulumi.CustomResource):
             compute_platform="Lambda",
             name="example")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Server Application
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -307,13 +324,14 @@ class Application(pulumi.CustomResource):
             compute_platform="Server",
             name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CodeDeploy Applications using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:codedeploy/application:Application example my-application
+        $ pulumi import aws:codedeploy/application:Application example my-application
         ```
 
         :param str resource_name: The name of the resource.

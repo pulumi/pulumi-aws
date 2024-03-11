@@ -238,8 +238,10 @@ class AssessmentDelegation(pulumi.CustomResource):
         Resource for managing an AWS Audit Manager Assessment Delegation.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -250,13 +252,14 @@ class AssessmentDelegation(pulumi.CustomResource):
             role_type="RESOURCE_OWNER",
             control_set_id="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Audit Manager Assessment Delegation using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:auditmanager/assessmentDelegation:AssessmentDelegation example abcdef-123456,arn:aws:iam::012345678901:role/example,example
+        $ pulumi import aws:auditmanager/assessmentDelegation:AssessmentDelegation example abcdef-123456,arn:aws:iam::012345678901:role/example,example
         ```
 
         :param str resource_name: The name of the resource.
@@ -279,8 +282,10 @@ class AssessmentDelegation(pulumi.CustomResource):
         Resource for managing an AWS Audit Manager Assessment Delegation.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -291,13 +296,14 @@ class AssessmentDelegation(pulumi.CustomResource):
             role_type="RESOURCE_OWNER",
             control_set_id="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Audit Manager Assessment Delegation using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:auditmanager/assessmentDelegation:AssessmentDelegation example abcdef-123456,arn:aws:iam::012345678901:role/example,example
+        $ pulumi import aws:auditmanager/assessmentDelegation:AssessmentDelegation example abcdef-123456,arn:aws:iam::012345678901:role/example,example
         ```
 
         :param str resource_name: The name of the resource.

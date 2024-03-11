@@ -190,19 +190,21 @@ class ClientCertificate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         demo = aws.apigateway.ClientCertificate("demo", description="My client certificate")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import API Gateway Client Certificates using the id. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/clientCertificate:ClientCertificate demo ab1cqe
+        $ pulumi import aws:apigateway/clientCertificate:ClientCertificate demo ab1cqe
         ```
 
         :param str resource_name: The name of the resource.
@@ -221,19 +223,21 @@ class ClientCertificate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         demo = aws.apigateway.ClientCertificate("demo", description="My client certificate")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import API Gateway Client Certificates using the id. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/clientCertificate:ClientCertificate demo ab1cqe
+        $ pulumi import aws:apigateway/clientCertificate:ClientCertificate demo ab1cqe
         ```
 
         :param str resource_name: The name of the resource.

@@ -225,6 +225,7 @@ class Plan(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -246,13 +247,14 @@ class Plan(pulumi.CustomResource):
                 resource_type="EC2",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Backup Plan using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:backup/plan:Plan test <id>
+        $ pulumi import aws:backup/plan:Plan test <id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -273,6 +275,7 @@ class Plan(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -294,13 +297,14 @@ class Plan(pulumi.CustomResource):
                 resource_type="EC2",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Backup Plan using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:backup/plan:Plan test <id>
+        $ pulumi import aws:backup/plan:Plan test <id>
         ```
 
         :param str resource_name: The name of the resource.

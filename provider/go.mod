@@ -8,11 +8,11 @@ require (
 	github.com/hashicorp/terraform-plugin-sdk/v2 v2.33.0
 	github.com/hashicorp/terraform-provider-aws v1.60.1-0.20220923175450-ca71523cdc36
 	github.com/mitchellh/go-homedir v1.1.0
-	github.com/pulumi/providertest v0.0.10
-	github.com/pulumi/pulumi-terraform-bridge/pf v0.29.0
-	github.com/pulumi/pulumi-terraform-bridge/v3 v3.76.0
-	github.com/pulumi/pulumi/pkg/v3 v3.107.0
-	github.com/pulumi/pulumi/sdk/v3 v3.107.0
+	github.com/pulumi/providertest v0.0.11
+	github.com/pulumi/pulumi-terraform-bridge/pf v0.30.0
+	github.com/pulumi/pulumi-terraform-bridge/v3 v3.77.0
+	github.com/pulumi/pulumi/pkg/v3 v3.108.1
+	github.com/pulumi/pulumi/sdk/v3 v3.108.1
 	github.com/stretchr/testify v1.8.4
 	pgregory.net/rapid v0.6.1
 )
@@ -29,7 +29,7 @@ replace (
 	// this dependency is sensitive and is worth doing carefully (such as reading release notes)
 	// and not simply rely on passing tests for the upgrade.
 	github.com/hashicorp/terraform-plugin-framework => github.com/pulumi/terraform-plugin-framework v0.0.0-20230922145027-1535d08c1d47
-	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20240202163305-e2a20ae13ef9
+	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20240229143312-4f60ee4e2975
 	github.com/hashicorp/terraform-provider-aws => ../upstream
 	github.com/hashicorp/vault => github.com/hashicorp/vault v1.2.0
 )
@@ -294,7 +294,7 @@ require (
 	github.com/hashicorp/logutils v1.0.0 // indirect
 	github.com/hashicorp/terraform-exec v0.20.0 // indirect
 	github.com/hashicorp/terraform-json v0.21.0 // indirect
-	github.com/hashicorp/terraform-plugin-framework v1.6.0 // indirect
+	github.com/hashicorp/terraform-plugin-framework v1.6.1 // indirect
 	github.com/hashicorp/terraform-plugin-framework-jsontypes v0.1.0 // indirect
 	github.com/hashicorp/terraform-plugin-framework-timeouts v0.4.1 // indirect
 	github.com/hashicorp/terraform-plugin-framework-validators v0.12.0 // indirect

@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Provides a Cognito User Resource.
  *
  * ## Example Usage
+ *
  * ### Basic configuration
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,8 +22,11 @@ import * as utilities from "../utilities";
  *     username: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Setting user attributes
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -57,13 +62,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Cognito User using the `user_pool_id`/`name` attributes concatenated. For example:
  *
  * ```sh
- *  $ pulumi import aws:cognito/user:User user us-east-1_vG78M4goG/user
+ * $ pulumi import aws:cognito/user:User user us-east-1_vG78M4goG/user
  * ```
  */
 export class User extends pulumi.CustomResource {

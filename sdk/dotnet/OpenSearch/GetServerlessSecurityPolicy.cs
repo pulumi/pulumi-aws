@@ -14,10 +14,9 @@ namespace Pulumi.Aws.OpenSearch
         /// <summary>
         /// Use this data source to get information about an AWS OpenSearch Serverless Security Policy.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +33,7 @@ namespace Pulumi.Aws.OpenSearch
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetServerlessSecurityPolicyResult> InvokeAsync(GetServerlessSecurityPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerlessSecurityPolicyResult>("aws:opensearch/getServerlessSecurityPolicy:getServerlessSecurityPolicy", args ?? new GetServerlessSecurityPolicyArgs(), options.WithDefaults());
@@ -43,10 +41,9 @@ namespace Pulumi.Aws.OpenSearch
         /// <summary>
         /// Use this data source to get information about an AWS OpenSearch Serverless Security Policy.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +60,7 @@ namespace Pulumi.Aws.OpenSearch
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetServerlessSecurityPolicyResult> Invoke(GetServerlessSecurityPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerlessSecurityPolicyResult>("aws:opensearch/getServerlessSecurityPolicy:getServerlessSecurityPolicy", args ?? new GetServerlessSecurityPolicyInvokeArgs(), options.WithDefaults());

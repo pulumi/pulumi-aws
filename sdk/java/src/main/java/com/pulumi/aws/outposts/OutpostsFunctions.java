@@ -66,7 +66,10 @@ public final class OutpostsFunctions {
      * Information about hardware assets in an Outpost.
      * 
      * ## Example Usage
+     * 
      * ### Basic
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -95,7 +98,11 @@ public final class OutpostsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### With Host ID Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -125,7 +132,11 @@ public final class OutpostsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### With Status ID Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -155,6 +166,7 @@ public final class OutpostsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAssetsResult> getAssets(GetAssetsArgs args) {
@@ -164,7 +176,10 @@ public final class OutpostsFunctions {
      * Information about hardware assets in an Outpost.
      * 
      * ## Example Usage
+     * 
      * ### Basic
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -193,7 +208,11 @@ public final class OutpostsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### With Host ID Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -223,7 +242,11 @@ public final class OutpostsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### With Status ID Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -253,6 +276,7 @@ public final class OutpostsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAssetsResult> getAssetsPlain(GetAssetsPlainArgs args) {
@@ -262,7 +286,10 @@ public final class OutpostsFunctions {
      * Information about hardware assets in an Outpost.
      * 
      * ## Example Usage
+     * 
      * ### Basic
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -291,7 +318,11 @@ public final class OutpostsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### With Host ID Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -321,7 +352,11 @@ public final class OutpostsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### With Status ID Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -351,6 +386,7 @@ public final class OutpostsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAssetsResult> getAssets(GetAssetsArgs args, InvokeOptions options) {
@@ -360,7 +396,10 @@ public final class OutpostsFunctions {
      * Information about hardware assets in an Outpost.
      * 
      * ## Example Usage
+     * 
      * ### Basic
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -389,7 +428,11 @@ public final class OutpostsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### With Host ID Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -419,7 +462,11 @@ public final class OutpostsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### With Status ID Filter
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -449,6 +496,7 @@ public final class OutpostsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAssetsResult> getAssetsPlain(GetAssetsPlainArgs args, InvokeOptions options) {
@@ -458,6 +506,8 @@ public final class OutpostsFunctions {
      * Provides details about an Outposts Outpost.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -486,6 +536,7 @@ public final class OutpostsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOutpostResult> getOutpost() {
@@ -495,6 +546,8 @@ public final class OutpostsFunctions {
      * Provides details about an Outposts Outpost.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -523,6 +576,7 @@ public final class OutpostsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOutpostResult> getOutpostPlain() {
@@ -532,6 +586,8 @@ public final class OutpostsFunctions {
      * Provides details about an Outposts Outpost.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -560,6 +616,7 @@ public final class OutpostsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOutpostResult> getOutpost(GetOutpostArgs args) {
@@ -569,6 +626,8 @@ public final class OutpostsFunctions {
      * Provides details about an Outposts Outpost.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -597,6 +656,7 @@ public final class OutpostsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOutpostResult> getOutpostPlain(GetOutpostPlainArgs args) {
@@ -606,6 +666,8 @@ public final class OutpostsFunctions {
      * Provides details about an Outposts Outpost.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -634,6 +696,7 @@ public final class OutpostsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOutpostResult> getOutpost(GetOutpostArgs args, InvokeOptions options) {
@@ -643,6 +706,8 @@ public final class OutpostsFunctions {
      * Provides details about an Outposts Outpost.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -671,6 +736,7 @@ public final class OutpostsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOutpostResult> getOutpostPlain(GetOutpostPlainArgs args, InvokeOptions options) {
@@ -680,6 +746,8 @@ public final class OutpostsFunctions {
      * Information about single Outpost Instance Type.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -717,6 +785,7 @@ public final class OutpostsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOutpostInstanceTypeResult> getOutpostInstanceType(GetOutpostInstanceTypeArgs args) {
@@ -726,6 +795,8 @@ public final class OutpostsFunctions {
      * Information about single Outpost Instance Type.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -763,6 +834,7 @@ public final class OutpostsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOutpostInstanceTypeResult> getOutpostInstanceTypePlain(GetOutpostInstanceTypePlainArgs args) {
@@ -772,6 +844,8 @@ public final class OutpostsFunctions {
      * Information about single Outpost Instance Type.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -809,6 +883,7 @@ public final class OutpostsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOutpostInstanceTypeResult> getOutpostInstanceType(GetOutpostInstanceTypeArgs args, InvokeOptions options) {
@@ -818,6 +893,8 @@ public final class OutpostsFunctions {
      * Information about single Outpost Instance Type.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -855,6 +932,7 @@ public final class OutpostsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOutpostInstanceTypeResult> getOutpostInstanceTypePlain(GetOutpostInstanceTypePlainArgs args, InvokeOptions options) {
@@ -864,6 +942,8 @@ public final class OutpostsFunctions {
      * Information about Outposts Instance Types.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -892,6 +972,7 @@ public final class OutpostsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOutpostInstanceTypesResult> getOutpostInstanceTypes(GetOutpostInstanceTypesArgs args) {
@@ -901,6 +982,8 @@ public final class OutpostsFunctions {
      * Information about Outposts Instance Types.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -929,6 +1012,7 @@ public final class OutpostsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOutpostInstanceTypesResult> getOutpostInstanceTypesPlain(GetOutpostInstanceTypesPlainArgs args) {
@@ -938,6 +1022,8 @@ public final class OutpostsFunctions {
      * Information about Outposts Instance Types.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -966,6 +1052,7 @@ public final class OutpostsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOutpostInstanceTypesResult> getOutpostInstanceTypes(GetOutpostInstanceTypesArgs args, InvokeOptions options) {
@@ -975,6 +1062,8 @@ public final class OutpostsFunctions {
      * Information about Outposts Instance Types.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1003,6 +1092,7 @@ public final class OutpostsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOutpostInstanceTypesResult> getOutpostInstanceTypesPlain(GetOutpostInstanceTypesPlainArgs args, InvokeOptions options) {
@@ -1012,6 +1102,8 @@ public final class OutpostsFunctions {
      * Provides details about multiple Outposts.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1040,6 +1132,7 @@ public final class OutpostsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOutpostsResult> getOutposts() {
@@ -1049,6 +1142,8 @@ public final class OutpostsFunctions {
      * Provides details about multiple Outposts.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1077,6 +1172,7 @@ public final class OutpostsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOutpostsResult> getOutpostsPlain() {
@@ -1086,6 +1182,8 @@ public final class OutpostsFunctions {
      * Provides details about multiple Outposts.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1114,6 +1212,7 @@ public final class OutpostsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOutpostsResult> getOutposts(GetOutpostsArgs args) {
@@ -1123,6 +1222,8 @@ public final class OutpostsFunctions {
      * Provides details about multiple Outposts.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1151,6 +1252,7 @@ public final class OutpostsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOutpostsResult> getOutpostsPlain(GetOutpostsPlainArgs args) {
@@ -1160,6 +1262,8 @@ public final class OutpostsFunctions {
      * Provides details about multiple Outposts.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1188,6 +1292,7 @@ public final class OutpostsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetOutpostsResult> getOutposts(GetOutpostsArgs args, InvokeOptions options) {
@@ -1197,6 +1302,8 @@ public final class OutpostsFunctions {
      * Provides details about multiple Outposts.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1225,6 +1332,7 @@ public final class OutpostsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetOutpostsResult> getOutpostsPlain(GetOutpostsPlainArgs args, InvokeOptions options) {
@@ -1234,6 +1342,8 @@ public final class OutpostsFunctions {
      * Provides details about an Outposts Site.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1262,6 +1372,7 @@ public final class OutpostsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSiteResult> getSite() {
@@ -1271,6 +1382,8 @@ public final class OutpostsFunctions {
      * Provides details about an Outposts Site.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1299,6 +1412,7 @@ public final class OutpostsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSiteResult> getSitePlain() {
@@ -1308,6 +1422,8 @@ public final class OutpostsFunctions {
      * Provides details about an Outposts Site.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1336,6 +1452,7 @@ public final class OutpostsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSiteResult> getSite(GetSiteArgs args) {
@@ -1345,6 +1462,8 @@ public final class OutpostsFunctions {
      * Provides details about an Outposts Site.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1373,6 +1492,7 @@ public final class OutpostsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSiteResult> getSitePlain(GetSitePlainArgs args) {
@@ -1382,6 +1502,8 @@ public final class OutpostsFunctions {
      * Provides details about an Outposts Site.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1410,6 +1532,7 @@ public final class OutpostsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSiteResult> getSite(GetSiteArgs args, InvokeOptions options) {
@@ -1419,6 +1542,8 @@ public final class OutpostsFunctions {
      * Provides details about an Outposts Site.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1447,6 +1572,7 @@ public final class OutpostsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSiteResult> getSitePlain(GetSitePlainArgs args, InvokeOptions options) {
@@ -1456,6 +1582,8 @@ public final class OutpostsFunctions {
      * Provides details about multiple Outposts Sites.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1481,6 +1609,7 @@ public final class OutpostsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSitesResult> getSites() {
@@ -1490,6 +1619,8 @@ public final class OutpostsFunctions {
      * Provides details about multiple Outposts Sites.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1515,6 +1646,7 @@ public final class OutpostsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSitesResult> getSitesPlain() {
@@ -1524,6 +1656,8 @@ public final class OutpostsFunctions {
      * Provides details about multiple Outposts Sites.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1549,6 +1683,7 @@ public final class OutpostsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSitesResult> getSites(InvokeArgs args) {
@@ -1558,6 +1693,8 @@ public final class OutpostsFunctions {
      * Provides details about multiple Outposts Sites.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1583,6 +1720,7 @@ public final class OutpostsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSitesResult> getSitesPlain(InvokeArgs args) {
@@ -1592,6 +1730,8 @@ public final class OutpostsFunctions {
      * Provides details about multiple Outposts Sites.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1617,6 +1757,7 @@ public final class OutpostsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSitesResult> getSites(InvokeArgs args, InvokeOptions options) {
@@ -1626,6 +1767,8 @@ public final class OutpostsFunctions {
      * Provides details about multiple Outposts Sites.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1651,6 +1794,7 @@ public final class OutpostsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSitesResult> getSitesPlain(InvokeArgs args, InvokeOptions options) {

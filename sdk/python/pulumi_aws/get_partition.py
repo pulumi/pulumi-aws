@@ -88,6 +88,7 @@ def get_partition(id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -99,6 +100,7 @@ def get_partition(id: Optional[str] = None,
         resources=[f"arn:{current.partition}:s3:::my-bucket"],
     )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str id: Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).
@@ -124,6 +126,7 @@ def get_partition_output(id: Optional[pulumi.Input[Optional[str]]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -135,6 +138,7 @@ def get_partition_output(id: Optional[pulumi.Input[Optional[str]]] = None,
         resources=[f"arn:{current.partition}:s3:::my-bucket"],
     )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str id: Identifier of the current partition (e.g., `aws` in AWS Commercial, `aws-cn` in AWS China).

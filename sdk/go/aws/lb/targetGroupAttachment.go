@@ -17,8 +17,10 @@ import (
 // > **Note:** `alb.TargetGroupAttachment` is known as `lb.TargetGroupAttachment`. The functionality is identical.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -53,8 +55,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Lambda Target
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -101,56 +106,7 @@ import (
 //	}
 //
 // ```
-// ### Registering Multiple Targets
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			var example []*ec2.Instance
-//			for index := 0; index < 3; index++ {
-//				key0 := index
-//				_ := index
-//				__res, err := ec2.NewInstance(ctx, fmt.Sprintf("example-%v", key0), nil)
-//				if err != nil {
-//					return err
-//				}
-//				example = append(example, __res)
-//			}
-//			exampleTargetGroup, err := lb.NewTargetGroup(ctx, "example", nil)
-//			if err != nil {
-//				return err
-//			}
-//			var exampleTargetGroupAttachment []*lb.TargetGroupAttachment
-//			for key0, val0 := range "TODO: For expression" {
-//				__res, err := lb.NewTargetGroupAttachment(ctx, fmt.Sprintf("example-%v", key0), &lb.TargetGroupAttachmentArgs{
-//					TargetGroupArn: exampleTargetGroup.Arn,
-//					TargetId:       pulumi.String(val0),
-//					Port:           pulumi.Int(80),
-//				})
-//				if err != nil {
-//					return err
-//				}
-//				exampleTargetGroupAttachment = append(exampleTargetGroupAttachment, __res)
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
-//
-// ## Import
-//
-// You cannot import Target Group Attachments.
+// <!--End PulumiCodeChooser -->
 type TargetGroupAttachment struct {
 	pulumi.CustomResourceState
 

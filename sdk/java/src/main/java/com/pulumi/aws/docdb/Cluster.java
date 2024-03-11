@@ -31,6 +31,8 @@ import javax.annotation.Nullable;
  * &gt; **Note:** using `apply_immediately` can result in a brief downtime as the server reboots.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -65,13 +67,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import DocumentDB Clusters using the `cluster_identifier`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:docdb/cluster:Cluster docdb_cluster docdb-prod-cluster
+ * $ pulumi import aws:docdb/cluster:Cluster docdb_cluster docdb-prod-cluster
  * ```
  * 
  */

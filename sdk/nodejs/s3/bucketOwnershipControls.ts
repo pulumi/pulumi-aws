@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -26,13 +27,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import S3 Bucket Ownership Controls using S3 Bucket name. For example:
  *
  * ```sh
- *  $ pulumi import aws:s3/bucketOwnershipControls:BucketOwnershipControls example my-bucket
+ * $ pulumi import aws:s3/bucketOwnershipControls:BucketOwnershipControls example my-bucket
  * ```
  */
 export class BucketOwnershipControls extends pulumi.CustomResource {

@@ -372,6 +372,7 @@ class FeatureGroup(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -389,13 +390,14 @@ class FeatureGroup(pulumi.CustomResource):
                 enable_online_store=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Feature Groups using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/featureGroup:FeatureGroup test_feature_group feature_group-foo
+        $ pulumi import aws:sagemaker/featureGroup:FeatureGroup test_feature_group feature_group-foo
         ```
 
         :param str resource_name: The name of the resource.
@@ -423,6 +425,7 @@ class FeatureGroup(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -440,13 +443,14 @@ class FeatureGroup(pulumi.CustomResource):
                 enable_online_store=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Feature Groups using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/featureGroup:FeatureGroup test_feature_group feature_group-foo
+        $ pulumi import aws:sagemaker/featureGroup:FeatureGroup test_feature_group feature_group-foo
         ```
 
         :param str resource_name: The name of the resource.

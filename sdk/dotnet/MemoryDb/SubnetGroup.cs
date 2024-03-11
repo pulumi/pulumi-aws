@@ -16,6 +16,7 @@ namespace Pulumi.Aws.MemoryDb
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -47,13 +48,14 @@ namespace Pulumi.Aws.MemoryDb
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import a subnet group using its `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:memorydb/subnetGroup:SubnetGroup example my-subnet-group
+    /// $ pulumi import aws:memorydb/subnetGroup:SubnetGroup example my-subnet-group
     /// ```
     /// </summary>
     [AwsResourceType("aws:memorydb/subnetGroup:SubnetGroup")]

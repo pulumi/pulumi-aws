@@ -19,8 +19,10 @@ import (
 // We recommend using the EC2 Fleet or Auto Scaling Group resources instead.
 //
 // ## Example Usage
+//
 // ### Using launch specifications
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -77,8 +79,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Using launch templates
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -122,11 +127,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // > **NOTE:** This provider does not support the functionality where multiple `subnetId` or `availabilityZone` parameters can be specified in the same
 // launch configuration block. If you want to specify multiple values, then separate launch configuration blocks should be used or launch template overrides should be configured, one per subnet:
+//
 // ### Using multiple launch specifications
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -167,44 +175,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // > In this example, we use a `dynamic` block to define zero or more `launchSpecification` blocks, producing one for each element in the list of subnet ids.
 //
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi/config"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			cfg := config.New(ctx, "")
-//			subnets := cfg.RequireObject("subnets")
-//			_, err := ec2.NewSpotFleetRequest(ctx, "example", &ec2.SpotFleetRequestArgs{
-//				LaunchSpecifications:             "TODO: For expression",
-//				IamFleetRole:                     pulumi.String("arn:aws:iam::12345678:role/spot-fleet"),
-//				TargetCapacity:                   pulumi.Int(3),
-//				ValidUntil:                       pulumi.String("2019-11-04T20:44:20Z"),
-//				AllocationStrategy:               pulumi.String("lowestPrice"),
-//				FleetType:                        pulumi.String("request"),
-//				WaitForFulfillment:               pulumi.Bool(true),
-//				TerminateInstancesWithExpiration: pulumi.Bool(true),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ### Using multiple launch configurations
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -270,15 +247,14 @@ import (
 // })
 // }
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Spot Fleet Requests using `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/spotFleetRequest:SpotFleetRequest fleet sfr-005e9ec8-5546-4c31-b317-31a62325411e
-//
+// $ pulumi import aws:ec2/spotFleetRequest:SpotFleetRequest fleet sfr-005e9ec8-5546-4c31-b317-31a62325411e
 // ```
 type SpotFleetRequest struct {
 	pulumi.CustomResourceState

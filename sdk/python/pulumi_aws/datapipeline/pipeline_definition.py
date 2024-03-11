@@ -178,6 +178,7 @@ class PipelineDefinition(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -240,13 +241,14 @@ class PipelineDefinition(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_datapipeline_pipeline_definition` using the id. For example:
 
         ```sh
-         $ pulumi import aws:datapipeline/pipelineDefinition:PipelineDefinition example df-1234567890
+        $ pulumi import aws:datapipeline/pipelineDefinition:PipelineDefinition example df-1234567890
         ```
 
         :param str resource_name: The name of the resource.
@@ -269,6 +271,7 @@ class PipelineDefinition(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -331,13 +334,14 @@ class PipelineDefinition(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_datapipeline_pipeline_definition` using the id. For example:
 
         ```sh
-         $ pulumi import aws:datapipeline/pipelineDefinition:PipelineDefinition example df-1234567890
+        $ pulumi import aws:datapipeline/pipelineDefinition:PipelineDefinition example df-1234567890
         ```
 
         :param str resource_name: The name of the resource.

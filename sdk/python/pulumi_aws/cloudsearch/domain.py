@@ -271,6 +271,7 @@ class Domain(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -301,13 +302,14 @@ class Domain(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudSearch Domains using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudsearch/domain:Domain example example-domain
+        $ pulumi import aws:cloudsearch/domain:Domain example example-domain
         ```
 
         :param str resource_name: The name of the resource.
@@ -331,6 +333,7 @@ class Domain(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -361,13 +364,14 @@ class Domain(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudSearch Domains using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudsearch/domain:Domain example example-domain
+        $ pulumi import aws:cloudsearch/domain:Domain example example-domain
         ```
 
         :param str resource_name: The name of the resource.

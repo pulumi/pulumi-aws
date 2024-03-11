@@ -176,8 +176,10 @@ def get_configuration_profile(application_id: Optional[str] = None,
     Provides access to an AppConfig Configuration Profile.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -185,6 +187,7 @@ def get_configuration_profile(application_id: Optional[str] = None,
     example = aws.appconfig.get_configuration_profile(application_id="b5d5gpj",
         configuration_profile_id="qrbb1c1")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str application_id: ID of the AppConfig application to which this configuration profile belongs.
@@ -222,8 +225,10 @@ def get_configuration_profile_output(application_id: Optional[pulumi.Input[str]]
     Provides access to an AppConfig Configuration Profile.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -231,6 +236,7 @@ def get_configuration_profile_output(application_id: Optional[pulumi.Input[str]]
     example = aws.appconfig.get_configuration_profile(application_id="b5d5gpj",
         configuration_profile_id="qrbb1c1")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str application_id: ID of the AppConfig application to which this configuration profile belongs.

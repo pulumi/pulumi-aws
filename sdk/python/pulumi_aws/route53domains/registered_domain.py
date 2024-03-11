@@ -588,6 +588,7 @@ class RegisteredDomain(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -606,13 +607,14 @@ class RegisteredDomain(pulumi.CustomResource):
                 "Environment": "test",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import domains using the domain name. For example:
 
         ```sh
-         $ pulumi import aws:route53domains/registeredDomain:RegisteredDomain example example.com
+        $ pulumi import aws:route53domains/registeredDomain:RegisteredDomain example example.com
         ```
 
         :param str resource_name: The name of the resource.
@@ -644,6 +646,7 @@ class RegisteredDomain(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -662,13 +665,14 @@ class RegisteredDomain(pulumi.CustomResource):
                 "Environment": "test",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import domains using the domain name. For example:
 
         ```sh
-         $ pulumi import aws:route53domains/registeredDomain:RegisteredDomain example example.com
+        $ pulumi import aws:route53domains/registeredDomain:RegisteredDomain example example.com
         ```
 
         :param str resource_name: The name of the resource.

@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupSigningJob(ctx *pulumi.Context, args *LookupSigningJobArgs, opts ...pulumi.InvokeOption) (*LookupSigningJobResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupSigningJobResult

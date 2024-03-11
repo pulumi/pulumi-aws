@@ -34,7 +34,10 @@ import java.util.concurrent.CompletableFuture;
 public final class SsmFunctions {
     /**
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -63,6 +66,7 @@ public final class SsmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetContactsRotationResult> getContactsRotation(GetContactsRotationArgs args) {
@@ -70,7 +74,10 @@ public final class SsmFunctions {
     }
     /**
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -99,6 +106,7 @@ public final class SsmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetContactsRotationResult> getContactsRotationPlain(GetContactsRotationPlainArgs args) {
@@ -106,7 +114,10 @@ public final class SsmFunctions {
     }
     /**
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -135,6 +146,7 @@ public final class SsmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetContactsRotationResult> getContactsRotation(GetContactsRotationArgs args, InvokeOptions options) {
@@ -142,7 +154,10 @@ public final class SsmFunctions {
     }
     /**
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -171,6 +186,7 @@ public final class SsmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetContactsRotationResult> getContactsRotationPlain(GetContactsRotationPlainArgs args, InvokeOptions options) {
@@ -182,6 +198,8 @@ public final class SsmFunctions {
      * ## Example Usage
      * 
      * To get the contents of the document owned by AWS.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -212,8 +230,11 @@ public final class SsmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To get the contents of the custom document.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -243,6 +264,7 @@ public final class SsmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDocumentResult> getDocument(GetDocumentArgs args) {
@@ -254,6 +276,8 @@ public final class SsmFunctions {
      * ## Example Usage
      * 
      * To get the contents of the document owned by AWS.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -284,8 +308,11 @@ public final class SsmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To get the contents of the custom document.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -315,6 +342,7 @@ public final class SsmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDocumentResult> getDocumentPlain(GetDocumentPlainArgs args) {
@@ -326,6 +354,8 @@ public final class SsmFunctions {
      * ## Example Usage
      * 
      * To get the contents of the document owned by AWS.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -356,8 +386,11 @@ public final class SsmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To get the contents of the custom document.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -387,6 +420,7 @@ public final class SsmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDocumentResult> getDocument(GetDocumentArgs args, InvokeOptions options) {
@@ -398,6 +432,8 @@ public final class SsmFunctions {
      * ## Example Usage
      * 
      * To get the contents of the document owned by AWS.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -428,8 +464,11 @@ public final class SsmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To get the contents of the custom document.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -459,6 +498,7 @@ public final class SsmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDocumentResult> getDocumentPlain(GetDocumentPlainArgs args, InvokeOptions options) {
@@ -468,6 +508,8 @@ public final class SsmFunctions {
      * Use this data source to get the instance IDs of SSM managed instances.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -499,6 +541,7 @@ public final class SsmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetInstancesResult> getInstances() {
@@ -508,6 +551,8 @@ public final class SsmFunctions {
      * Use this data source to get the instance IDs of SSM managed instances.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -539,6 +584,7 @@ public final class SsmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetInstancesResult> getInstancesPlain() {
@@ -548,6 +594,8 @@ public final class SsmFunctions {
      * Use this data source to get the instance IDs of SSM managed instances.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -579,6 +627,7 @@ public final class SsmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetInstancesResult> getInstances(GetInstancesArgs args) {
@@ -588,6 +637,8 @@ public final class SsmFunctions {
      * Use this data source to get the instance IDs of SSM managed instances.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -619,6 +670,7 @@ public final class SsmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetInstancesResult> getInstancesPlain(GetInstancesPlainArgs args) {
@@ -628,6 +680,8 @@ public final class SsmFunctions {
      * Use this data source to get the instance IDs of SSM managed instances.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -659,6 +713,7 @@ public final class SsmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetInstancesResult> getInstances(GetInstancesArgs args, InvokeOptions options) {
@@ -668,6 +723,8 @@ public final class SsmFunctions {
      * Use this data source to get the instance IDs of SSM managed instances.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -699,6 +756,7 @@ public final class SsmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetInstancesResult> getInstancesPlain(GetInstancesPlainArgs args, InvokeOptions options) {
@@ -708,6 +766,8 @@ public final class SsmFunctions {
      * Use this data source to get the window IDs of SSM maintenance windows.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -739,6 +799,7 @@ public final class SsmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetMaintenanceWindowsResult> getMaintenanceWindows() {
@@ -748,6 +809,8 @@ public final class SsmFunctions {
      * Use this data source to get the window IDs of SSM maintenance windows.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -779,6 +842,7 @@ public final class SsmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetMaintenanceWindowsResult> getMaintenanceWindowsPlain() {
@@ -788,6 +852,8 @@ public final class SsmFunctions {
      * Use this data source to get the window IDs of SSM maintenance windows.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -819,6 +885,7 @@ public final class SsmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetMaintenanceWindowsResult> getMaintenanceWindows(GetMaintenanceWindowsArgs args) {
@@ -828,6 +895,8 @@ public final class SsmFunctions {
      * Use this data source to get the window IDs of SSM maintenance windows.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -859,6 +928,7 @@ public final class SsmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetMaintenanceWindowsResult> getMaintenanceWindowsPlain(GetMaintenanceWindowsPlainArgs args) {
@@ -868,6 +938,8 @@ public final class SsmFunctions {
      * Use this data source to get the window IDs of SSM maintenance windows.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -899,6 +971,7 @@ public final class SsmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetMaintenanceWindowsResult> getMaintenanceWindows(GetMaintenanceWindowsArgs args, InvokeOptions options) {
@@ -908,6 +981,8 @@ public final class SsmFunctions {
      * Use this data source to get the window IDs of SSM maintenance windows.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -939,6 +1014,7 @@ public final class SsmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetMaintenanceWindowsResult> getMaintenanceWindowsPlain(GetMaintenanceWindowsPlainArgs args, InvokeOptions options) {
@@ -948,6 +1024,8 @@ public final class SsmFunctions {
      * Provides an SSM Parameter data source.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -976,6 +1054,7 @@ public final class SsmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &gt; **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
      * 
@@ -987,6 +1066,8 @@ public final class SsmFunctions {
      * Provides an SSM Parameter data source.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1015,6 +1096,7 @@ public final class SsmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &gt; **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
      * 
@@ -1026,6 +1108,8 @@ public final class SsmFunctions {
      * Provides an SSM Parameter data source.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1054,6 +1138,7 @@ public final class SsmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &gt; **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
      * 
@@ -1065,6 +1150,8 @@ public final class SsmFunctions {
      * Provides an SSM Parameter data source.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1093,6 +1180,7 @@ public final class SsmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * &gt; **Note:** The unencrypted value of a SecureString will be stored in the raw state as plain-text.
      * 
@@ -1118,6 +1206,8 @@ public final class SsmFunctions {
      * ## Example Usage
      * 
      * To retrieve a baseline provided by AWS:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1148,8 +1238,11 @@ public final class SsmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To retrieve a baseline on your account:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1181,6 +1274,7 @@ public final class SsmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPatchBaselineResult> getPatchBaseline(GetPatchBaselineArgs args) {
@@ -1192,6 +1286,8 @@ public final class SsmFunctions {
      * ## Example Usage
      * 
      * To retrieve a baseline provided by AWS:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1222,8 +1318,11 @@ public final class SsmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To retrieve a baseline on your account:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1255,6 +1354,7 @@ public final class SsmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPatchBaselineResult> getPatchBaselinePlain(GetPatchBaselinePlainArgs args) {
@@ -1266,6 +1366,8 @@ public final class SsmFunctions {
      * ## Example Usage
      * 
      * To retrieve a baseline provided by AWS:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1296,8 +1398,11 @@ public final class SsmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To retrieve a baseline on your account:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1329,6 +1434,7 @@ public final class SsmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetPatchBaselineResult> getPatchBaseline(GetPatchBaselineArgs args, InvokeOptions options) {
@@ -1340,6 +1446,8 @@ public final class SsmFunctions {
      * ## Example Usage
      * 
      * To retrieve a baseline provided by AWS:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1370,8 +1478,11 @@ public final class SsmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * To retrieve a baseline on your account:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1403,6 +1514,7 @@ public final class SsmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetPatchBaselineResult> getPatchBaselinePlain(GetPatchBaselinePlainArgs args, InvokeOptions options) {

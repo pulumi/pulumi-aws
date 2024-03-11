@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * Basic usage:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -25,9 +26,11 @@ import * as utilities from "../utilities";
  *     locale: current.then(current => current.name),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * Nested Pools:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -55,13 +58,14 @@ import * as utilities from "../utilities";
  *     cidr: "172.20.0.0/24",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import IPAMs using the IPAM pool `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/vpcIpamPool:VpcIpamPool example ipam-pool-0958f95207d978e1e
+ * $ pulumi import aws:ec2/vpcIpamPool:VpcIpamPool example ipam-pool-0958f95207d978e1e
  * ```
  */
 export class VpcIpamPool extends pulumi.CustomResource {

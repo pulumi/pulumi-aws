@@ -81,21 +81,6 @@ def get_policies_for_target(filter: Optional[str] = None,
     Data source for managing an AWS Organizations Policies For Target.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-
-    def not_implemented(msg):
-        raise NotImplementedError(msg)
-
-    example = aws.organizations.get_organization()
-    example_get_policies_for_target = aws.organizations.get_policies_for_target(target_id=example.roots[0].id,
-        filter="SERVICE_CONTROL_POLICY")
-    example_get_policy = {__key: aws.organizations.get_policy(policy_id=__value) for __key, __value in not_implemented("toset(data.aws_organizations_policies_for_target.example.ids)")}
-    ```
 
 
     :param str filter: Must supply one of the 4 different policy filters for a target (SERVICE_CONTROL_POLICY | TAG_POLICY | BACKUP_POLICY | AISERVICES_OPT_OUT_POLICY)
@@ -122,21 +107,6 @@ def get_policies_for_target_output(filter: Optional[pulumi.Input[str]] = None,
     Data source for managing an AWS Organizations Policies For Target.
 
     ## Example Usage
-    ### Basic Usage
-
-    ```python
-    import pulumi
-    import pulumi_aws as aws
-
-
-    def not_implemented(msg):
-        raise NotImplementedError(msg)
-
-    example = aws.organizations.get_organization()
-    example_get_policies_for_target = aws.organizations.get_policies_for_target(target_id=example.roots[0].id,
-        filter="SERVICE_CONTROL_POLICY")
-    example_get_policy = {__key: aws.organizations.get_policy(policy_id=__value) for __key, __value in not_implemented("toset(data.aws_organizations_policies_for_target.example.ids)")}
-    ```
 
 
     :param str filter: Must supply one of the 4 different policy filters for a target (SERVICE_CONTROL_POLICY | TAG_POLICY | BACKUP_POLICY | AISERVICES_OPT_OUT_POLICY)

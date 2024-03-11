@@ -152,6 +152,7 @@ class Account(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -160,13 +161,14 @@ class Account(pulumi.CustomResource):
             finding_publishing_frequency="FIFTEEN_MINUTES",
             status="ENABLED")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_macie2_account` using the id. For example:
 
         ```sh
-         $ pulumi import aws:macie2/account:Account example abcd1
+        $ pulumi import aws:macie2/account:Account example abcd1
         ```
 
         :param str resource_name: The name of the resource.
@@ -185,6 +187,7 @@ class Account(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -193,13 +196,14 @@ class Account(pulumi.CustomResource):
             finding_publishing_frequency="FIFTEEN_MINUTES",
             status="ENABLED")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_macie2_account` using the id. For example:
 
         ```sh
-         $ pulumi import aws:macie2/account:Account example abcd1
+        $ pulumi import aws:macie2/account:Account example abcd1
         ```
 
         :param str resource_name: The name of the resource.

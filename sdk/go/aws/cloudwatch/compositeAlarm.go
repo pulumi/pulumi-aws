@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -52,15 +53,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import a CloudWatch Composite Alarm using the `alarm_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cloudwatch/compositeAlarm:CompositeAlarm test my-alarm
-//
+// $ pulumi import aws:cloudwatch/compositeAlarm:CompositeAlarm test my-alarm
 // ```
 type CompositeAlarm struct {
 	pulumi.CustomResourceState

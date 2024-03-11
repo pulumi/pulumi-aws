@@ -420,6 +420,7 @@ class Proxy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -444,13 +445,14 @@ class Proxy(pulumi.CustomResource):
                 "Key": "value",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DB proxies using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:rds/proxy:Proxy example example
+        $ pulumi import aws:rds/proxy:Proxy example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -477,6 +479,7 @@ class Proxy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -501,13 +504,14 @@ class Proxy(pulumi.CustomResource):
                 "Key": "value",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DB proxies using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:rds/proxy:Proxy example example
+        $ pulumi import aws:rds/proxy:Proxy example example
         ```
 
         :param str resource_name: The name of the resource.

@@ -14,8 +14,10 @@ import (
 // Use this data source to get the ARNs and Names of IAM Roles.
 //
 // ## Example Usage
+//
 // ### All roles in an account
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -37,10 +39,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Roles filtered by name regex
 //
 // Roles whose role-name contains `project`
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -64,8 +69,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Roles filtered by path prefix
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -89,10 +97,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Roles provisioned by AWS SSO
 //
 // # Roles in the account filtered by path prefix
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -116,9 +127,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // # Specific role in the account filtered by name regex and path prefix
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -143,39 +156,7 @@ import (
 //	}
 //
 // ```
-// ### Role ARNs with paths removed
-//
-// # For services like Amazon EKS that do not permit a path in the role ARN when used in a cluster's configuration map
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/iam"
-//	"github.com/pulumi/pulumi-std/sdk/go/std"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func notImplemented(message string) pulumi.AnyOutput {
-//		panic(message)
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			roles, err := iam.GetRoles(ctx, &iam.GetRolesArgs{
-//				PathPrefix: pulumi.StringRef("/aws-reserved/sso.amazonaws.com/"),
-//			}, nil)
-//			if err != nil {
-//				return err
-//			}
-//			ctx.Export("arns", "TODO: For expression")
-//			return nil
-//		})
-//	}
-//
-// ```
+// <!--End PulumiCodeChooser -->
 func GetRoles(ctx *pulumi.Context, args *GetRolesArgs, opts ...pulumi.InvokeOption) (*GetRolesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRolesResult

@@ -13,41 +13,12 @@ namespace Pulumi.Aws.ControlTower
     /// Creates a new landing zone using Control Tower. For more information on usage, please see the
     /// [AWS Control Tower Landing Zone User Guide](https://docs.aws.amazon.com/controltower/latest/userguide/how-control-tower-works.html).
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// using Std = Pulumi.Std;
-    /// 
-    /// 	
-    /// object NotImplemented(string errorMessage) 
-    /// {
-    ///     throw new System.NotImplementedException(errorMessage);
-    /// }
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = new Aws.ControlTower.LandingZone("example", new()
-    ///     {
-    ///         ManifestJson = Std.File.Invoke(new()
-    ///         {
-    ///             Input = $"{NotImplemented("path.module")}/LandingZoneManifest.json",
-    ///         }).Apply(invoke =&gt; invoke.Result),
-    ///         Version = "3.2",
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import a Control Tower Landing Zone using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:controltower/landingZone:LandingZone example 1A2B3C4D5E6F7G8H
+    /// $ pulumi import aws:controltower/landingZone:LandingZone example 1A2B3C4D5E6F7G8H
     /// ```
     /// </summary>
     [AwsResourceType("aws:controltower/landingZone:LandingZone")]

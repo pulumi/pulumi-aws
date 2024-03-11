@@ -17,10 +17,9 @@ namespace Pulumi.Aws.S3
         /// 
         /// &gt; **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -37,8 +36,7 @@ namespace Pulumi.Aws.S3
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetCanonicalUserIdResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCanonicalUserIdResult>("aws:s3/getCanonicalUserId:getCanonicalUserId", InvokeArgs.Empty, options.WithDefaults());
@@ -49,10 +47,9 @@ namespace Pulumi.Aws.S3
         /// 
         /// &gt; **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -69,8 +66,7 @@ namespace Pulumi.Aws.S3
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetCanonicalUserIdResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCanonicalUserIdResult>("aws:s3/getCanonicalUserId:getCanonicalUserId", InvokeArgs.Empty, options.WithDefaults());

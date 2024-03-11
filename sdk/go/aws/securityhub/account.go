@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,15 +39,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import an existing Security Hub enabled account using the AWS account ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:securityhub/account:Account example 123456789012
-//
+// $ pulumi import aws:securityhub/account:Account example 123456789012
 // ```
 type Account struct {
 	pulumi.CustomResourceState

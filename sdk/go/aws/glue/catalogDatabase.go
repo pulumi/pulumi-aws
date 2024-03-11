@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,8 +39,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Create Table Default Permissions
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -73,15 +77,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Glue Catalog Databases using the `catalog_id:name`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:glue/catalogDatabase:CatalogDatabase database 123456789012:my_database
-//
+// $ pulumi import aws:glue/catalogDatabase:CatalogDatabase database 123456789012:my_database
 // ```
 type CatalogDatabase struct {
 	pulumi.CustomResourceState

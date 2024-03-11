@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -28,6 +29,8 @@ import * as utilities from "../utilities";
  *     solutionStackName: "64bit Amazon Linux 2015.09 v2.0.8 running Go 1.4",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Option Settings
  *
  * The `setting` field supports the following format:

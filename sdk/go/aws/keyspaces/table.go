@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -55,15 +56,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import a table using the `keyspace_name` and `table_name` separated by `/`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:keyspaces/table:Table example my_keyspace/my_table
-//
+// $ pulumi import aws:keyspaces/table:Table example my_keyspace/my_table
 // ```
 type Table struct {
 	pulumi.CustomResourceState

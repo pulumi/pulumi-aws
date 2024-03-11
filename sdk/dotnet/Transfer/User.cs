@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -108,13 +109,14 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Transfer Users using the `server_id` and `user_name` separated by `/`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:transfer/user:User bar s-12345678/test-username
+    /// $ pulumi import aws:transfer/user:User bar s-12345678/test-username
     /// ```
     /// </summary>
     [AwsResourceType("aws:transfer/user:User")]

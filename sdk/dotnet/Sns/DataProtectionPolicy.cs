@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Sns
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -63,13 +64,14 @@ namespace Pulumi.Aws.Sns
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SNS Data Protection Topic Policy using the topic ARN. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:sns/dataProtectionPolicy:DataProtectionPolicy example arn:aws:sns:us-west-2:0123456789012:example
+    /// $ pulumi import aws:sns/dataProtectionPolicy:DataProtectionPolicy example arn:aws:sns:us-west-2:0123456789012:example
     /// ```
     /// </summary>
     [AwsResourceType("aws:sns/dataProtectionPolicy:DataProtectionPolicy")]

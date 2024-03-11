@@ -20,10 +20,9 @@ namespace Pulumi.Aws.LB
         /// input variable and needs to know its attributes. It can also be used to get the ARN of
         /// an LB Trust Store for use in other resources, given LB Trust Store name.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -43,8 +42,7 @@ namespace Pulumi.Aws.LB
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetTrustStoreResult> InvokeAsync(GetTrustStoreArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTrustStoreResult>("aws:lb/getTrustStore:getTrustStore", args ?? new GetTrustStoreArgs(), options.WithDefaults());
@@ -58,10 +56,9 @@ namespace Pulumi.Aws.LB
         /// input variable and needs to know its attributes. It can also be used to get the ARN of
         /// an LB Trust Store for use in other resources, given LB Trust Store name.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -81,8 +78,7 @@ namespace Pulumi.Aws.LB
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetTrustStoreResult> Invoke(GetTrustStoreInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTrustStoreResult>("aws:lb/getTrustStore:getTrustStore", args ?? new GetTrustStoreInvokeArgs(), options.WithDefaults());

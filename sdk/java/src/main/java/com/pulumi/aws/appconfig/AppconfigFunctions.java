@@ -27,7 +27,10 @@ public final class AppconfigFunctions {
      * Provides access to an AppConfig Configuration Profile.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -57,6 +60,7 @@ public final class AppconfigFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetConfigurationProfileResult> getConfigurationProfile(GetConfigurationProfileArgs args) {
@@ -66,7 +70,10 @@ public final class AppconfigFunctions {
      * Provides access to an AppConfig Configuration Profile.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -96,6 +103,7 @@ public final class AppconfigFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetConfigurationProfileResult> getConfigurationProfilePlain(GetConfigurationProfilePlainArgs args) {
@@ -105,7 +113,10 @@ public final class AppconfigFunctions {
      * Provides access to an AppConfig Configuration Profile.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -135,6 +146,7 @@ public final class AppconfigFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetConfigurationProfileResult> getConfigurationProfile(GetConfigurationProfileArgs args, InvokeOptions options) {
@@ -144,7 +156,10 @@ public final class AppconfigFunctions {
      * Provides access to an AppConfig Configuration Profile.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -174,6 +189,7 @@ public final class AppconfigFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetConfigurationProfileResult> getConfigurationProfilePlain(GetConfigurationProfilePlainArgs args, InvokeOptions options) {
@@ -185,6 +201,11 @@ public final class AppconfigFunctions {
      * 
      * ## Example Usage
      * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetConfigurationProfilesResult> getConfigurationProfiles(GetConfigurationProfilesArgs args) {
         return getConfigurationProfiles(args, InvokeOptions.Empty);
@@ -194,6 +215,11 @@ public final class AppconfigFunctions {
      * Profile IDs to another resource.
      * 
      * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetConfigurationProfilesResult> getConfigurationProfilesPlain(GetConfigurationProfilesPlainArgs args) {
@@ -205,6 +231,11 @@ public final class AppconfigFunctions {
      * 
      * ## Example Usage
      * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static Output<GetConfigurationProfilesResult> getConfigurationProfiles(GetConfigurationProfilesArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:appconfig/getConfigurationProfiles:getConfigurationProfiles", TypeShape.of(GetConfigurationProfilesResult.class), args, Utilities.withVersion(options));
@@ -215,6 +246,11 @@ public final class AppconfigFunctions {
      * 
      * ## Example Usage
      * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      */
     public static CompletableFuture<GetConfigurationProfilesResult> getConfigurationProfilesPlain(GetConfigurationProfilesPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:appconfig/getConfigurationProfiles:getConfigurationProfiles", TypeShape.of(GetConfigurationProfilesResult.class), args, Utilities.withVersion(options));
@@ -223,7 +259,10 @@ public final class AppconfigFunctions {
      * Provides access to an AppConfig Environment.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -253,6 +292,7 @@ public final class AppconfigFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEnvironmentResult> getEnvironment(GetEnvironmentArgs args) {
@@ -262,7 +302,10 @@ public final class AppconfigFunctions {
      * Provides access to an AppConfig Environment.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -292,6 +335,7 @@ public final class AppconfigFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEnvironmentResult> getEnvironmentPlain(GetEnvironmentPlainArgs args) {
@@ -301,7 +345,10 @@ public final class AppconfigFunctions {
      * Provides access to an AppConfig Environment.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -331,6 +378,7 @@ public final class AppconfigFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEnvironmentResult> getEnvironment(GetEnvironmentArgs args, InvokeOptions options) {
@@ -340,7 +388,10 @@ public final class AppconfigFunctions {
      * Provides access to an AppConfig Environment.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -370,6 +421,7 @@ public final class AppconfigFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEnvironmentResult> getEnvironmentPlain(GetEnvironmentPlainArgs args, InvokeOptions options) {
@@ -380,7 +432,10 @@ public final class AppconfigFunctions {
      * resource.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -409,6 +464,7 @@ public final class AppconfigFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEnvironmentsResult> getEnvironments(GetEnvironmentsArgs args) {
@@ -419,7 +475,10 @@ public final class AppconfigFunctions {
      * resource.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -448,6 +507,7 @@ public final class AppconfigFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEnvironmentsResult> getEnvironmentsPlain(GetEnvironmentsPlainArgs args) {
@@ -458,7 +518,10 @@ public final class AppconfigFunctions {
      * resource.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -487,6 +550,7 @@ public final class AppconfigFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetEnvironmentsResult> getEnvironments(GetEnvironmentsArgs args, InvokeOptions options) {
@@ -497,7 +561,10 @@ public final class AppconfigFunctions {
      * resource.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -526,6 +593,7 @@ public final class AppconfigFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetEnvironmentsResult> getEnvironmentsPlain(GetEnvironmentsPlainArgs args, InvokeOptions options) {

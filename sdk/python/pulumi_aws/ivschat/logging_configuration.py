@@ -192,8 +192,10 @@ class LoggingConfiguration(pulumi.CustomResource):
         Resource for managing an AWS IVS (Interactive Video) Chat Logging Configuration.
 
         ## Example Usage
+
         ### Basic Usage - Logging to CloudWatch
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -205,8 +207,11 @@ class LoggingConfiguration(pulumi.CustomResource):
             ),
         ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Basic Usage - Logging to Kinesis Firehose with Extended S3
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -242,13 +247,14 @@ class LoggingConfiguration(pulumi.CustomResource):
             ),
         ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IVS (Interactive Video) Chat Logging Configuration using the ARN. For example:
 
         ```sh
-         $ pulumi import aws:ivschat/loggingConfiguration:LoggingConfiguration example arn:aws:ivschat:us-west-2:326937407773:logging-configuration/MMUQc8wcqZmC
+        $ pulumi import aws:ivschat/loggingConfiguration:LoggingConfiguration example arn:aws:ivschat:us-west-2:326937407773:logging-configuration/MMUQc8wcqZmC
         ```
 
         :param str resource_name: The name of the resource.
@@ -267,8 +273,10 @@ class LoggingConfiguration(pulumi.CustomResource):
         Resource for managing an AWS IVS (Interactive Video) Chat Logging Configuration.
 
         ## Example Usage
+
         ### Basic Usage - Logging to CloudWatch
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -280,8 +288,11 @@ class LoggingConfiguration(pulumi.CustomResource):
             ),
         ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Basic Usage - Logging to Kinesis Firehose with Extended S3
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -317,13 +328,14 @@ class LoggingConfiguration(pulumi.CustomResource):
             ),
         ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IVS (Interactive Video) Chat Logging Configuration using the ARN. For example:
 
         ```sh
-         $ pulumi import aws:ivschat/loggingConfiguration:LoggingConfiguration example arn:aws:ivschat:us-west-2:326937407773:logging-configuration/MMUQc8wcqZmC
+        $ pulumi import aws:ivschat/loggingConfiguration:LoggingConfiguration example arn:aws:ivschat:us-west-2:326937407773:logging-configuration/MMUQc8wcqZmC
         ```
 
         :param str resource_name: The name of the resource.

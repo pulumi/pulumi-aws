@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -58,8 +59,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Policy with a HOME_NET Override
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -114,9 +118,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Policy with a Custom Action for Stateless Inspection
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -163,15 +169,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Network Firewall Policies using their `arn`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:networkfirewall/firewallPolicy:FirewallPolicy example arn:aws:network-firewall:us-west-1:123456789012:firewall-policy/example
-//
+// $ pulumi import aws:networkfirewall/firewallPolicy:FirewallPolicy example arn:aws:network-firewall:us-west-1:123456789012:firewall-policy/example
 // ```
 type FirewallPolicy struct {
 	pulumi.CustomResourceState

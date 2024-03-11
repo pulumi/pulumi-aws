@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Schemas
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -69,13 +70,14 @@ namespace Pulumi.Aws.Schemas
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EventBridge schema using the `name` and `registry_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:schemas/schema:Schema test name/registry
+    /// $ pulumi import aws:schemas/schema:Schema test name/registry
     /// ```
     /// </summary>
     [AwsResourceType("aws:schemas/schema:Schema")]

@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupNamedQuery(ctx *pulumi.Context, args *LookupNamedQueryArgs, opts ...pulumi.InvokeOption) (*LookupNamedQueryResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupNamedQueryResult

@@ -590,8 +590,10 @@ class DataSet(pulumi.CustomResource):
         Resource for managing a QuickSight Data Set.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -614,8 +616,11 @@ class DataSet(pulumi.CustomResource):
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Column Level Permission Rules
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -642,8 +647,11 @@ class DataSet(pulumi.CustomResource):
                 principals=[example_aws_quicksight_user["arn"]],
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Field Folders
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -671,8 +679,11 @@ class DataSet(pulumi.CustomResource):
                 description="example description",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Permissions
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -705,8 +716,11 @@ class DataSet(pulumi.CustomResource):
                 principal=example_aws_quicksight_user["arn"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Row Level Permission Tag Configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -738,13 +752,14 @@ class DataSet(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a QuickSight Data Set using the AWS account ID and data set ID separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:quicksight/dataSet:DataSet example 123456789012,example-id
+        $ pulumi import aws:quicksight/dataSet:DataSet example 123456789012,example-id
         ```
 
         :param str resource_name: The name of the resource.
@@ -777,8 +792,10 @@ class DataSet(pulumi.CustomResource):
         Resource for managing a QuickSight Data Set.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -801,8 +818,11 @@ class DataSet(pulumi.CustomResource):
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Column Level Permission Rules
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -829,8 +849,11 @@ class DataSet(pulumi.CustomResource):
                 principals=[example_aws_quicksight_user["arn"]],
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Field Folders
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -858,8 +881,11 @@ class DataSet(pulumi.CustomResource):
                 description="example description",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Permissions
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -892,8 +918,11 @@ class DataSet(pulumi.CustomResource):
                 principal=example_aws_quicksight_user["arn"],
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Row Level Permission Tag Configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -925,13 +954,14 @@ class DataSet(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a QuickSight Data Set using the AWS account ID and data set ID separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:quicksight/dataSet:DataSet example 123456789012,example-id
+        $ pulumi import aws:quicksight/dataSet:DataSet example 123456789012,example-id
         ```
 
         :param str resource_name: The name of the resource.

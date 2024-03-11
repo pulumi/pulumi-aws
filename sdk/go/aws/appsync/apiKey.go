@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -47,15 +48,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_appsync_api_key` using the AppSync API ID and key separated by `:`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:appsync/apiKey:ApiKey example xxxxx:yyyyy
-//
+// $ pulumi import aws:appsync/apiKey:ApiKey example xxxxx:yyyyy
 // ```
 type ApiKey struct {
 	pulumi.CustomResourceState

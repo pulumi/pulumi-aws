@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,8 +22,11 @@ import * as utilities from "../utilities";
  *     eventSourceArn: order.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Example all optional arguments
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -38,13 +42,14 @@ import * as utilities from "../utilities";
  *     }),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import an EventBridge archive using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudwatch/eventArchive:EventArchive imported_event_archive order-archive
+ * $ pulumi import aws:cloudwatch/eventArchive:EventArchive imported_event_archive order-archive
  * ```
  */
 export class EventArchive extends pulumi.CustomResource {

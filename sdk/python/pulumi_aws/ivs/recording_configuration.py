@@ -257,8 +257,10 @@ class RecordingConfiguration(pulumi.CustomResource):
         Resource for managing an AWS IVS (Interactive Video) Recording Configuration.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -271,13 +273,14 @@ class RecordingConfiguration(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IVS (Interactive Video) Recording Configuration using the ARN. For example:
 
         ```sh
-         $ pulumi import aws:ivs/recordingConfiguration:RecordingConfiguration example arn:aws:ivs:us-west-2:326937407773:recording-configuration/KAk1sHBl2L47
+        $ pulumi import aws:ivs/recordingConfiguration:RecordingConfiguration example arn:aws:ivs:us-west-2:326937407773:recording-configuration/KAk1sHBl2L47
         ```
 
         :param str resource_name: The name of the resource.
@@ -298,8 +301,10 @@ class RecordingConfiguration(pulumi.CustomResource):
         Resource for managing an AWS IVS (Interactive Video) Recording Configuration.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -312,13 +317,14 @@ class RecordingConfiguration(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IVS (Interactive Video) Recording Configuration using the ARN. For example:
 
         ```sh
-         $ pulumi import aws:ivs/recordingConfiguration:RecordingConfiguration example arn:aws:ivs:us-west-2:326937407773:recording-configuration/KAk1sHBl2L47
+        $ pulumi import aws:ivs/recordingConfiguration:RecordingConfiguration example arn:aws:ivs:us-west-2:326937407773:recording-configuration/KAk1sHBl2L47
         ```
 
         :param str resource_name: The name of the resource.

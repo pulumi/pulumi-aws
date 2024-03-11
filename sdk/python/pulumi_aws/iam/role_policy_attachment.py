@@ -106,6 +106,7 @@ class RolePolicyAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -134,13 +135,14 @@ class RolePolicyAttachment(pulumi.CustomResource):
             role=role.name,
             policy_arn=policy_policy.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM role policy attachments using the role name and policy arn separated by `/`. For example:
 
         ```sh
-         $ pulumi import aws:iam/rolePolicyAttachment:RolePolicyAttachment test-attach test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
+        $ pulumi import aws:iam/rolePolicyAttachment:RolePolicyAttachment test-attach test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
         ```
 
         :param str resource_name: The name of the resource.
@@ -163,6 +165,7 @@ class RolePolicyAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -191,13 +194,14 @@ class RolePolicyAttachment(pulumi.CustomResource):
             role=role.name,
             policy_arn=policy_policy.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM role policy attachments using the role name and policy arn separated by `/`. For example:
 
         ```sh
-         $ pulumi import aws:iam/rolePolicyAttachment:RolePolicyAttachment test-attach test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
+        $ pulumi import aws:iam/rolePolicyAttachment:RolePolicyAttachment test-attach test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
         ```
 
         :param str resource_name: The name of the resource.

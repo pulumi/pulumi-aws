@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Qldb
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,13 +33,14 @@ namespace Pulumi.Aws.Qldb
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import QLDB Ledgers using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:qldb/ledger:Ledger sample-ledger sample-ledger
+    /// $ pulumi import aws:qldb/ledger:Ledger sample-ledger sample-ledger
     /// ```
     /// </summary>
     [AwsResourceType("aws:qldb/ledger:Ledger")]

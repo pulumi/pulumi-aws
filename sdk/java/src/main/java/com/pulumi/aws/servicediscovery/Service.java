@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * Provides a Service Discovery Service resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -80,6 +82,9 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -129,13 +134,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Service Discovery Service using the service ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:servicediscovery/service:Service example 0123456789
+ * $ pulumi import aws:servicediscovery/service:Service example 0123456789
  * ```
  * 
  */

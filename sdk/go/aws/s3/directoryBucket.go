@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,15 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import S3 bucket using `bucket`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:s3/directoryBucket:DirectoryBucket example example--usw2-az1--x-s3
-//
+// $ pulumi import aws:s3/directoryBucket:DirectoryBucket example example--usw2-az1--x-s3
 // ```
 type DirectoryBucket struct {
 	pulumi.CustomResourceState

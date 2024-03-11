@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,13 +24,14 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import an ACL using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:memorydb/acl:Acl example my-acl
+ * $ pulumi import aws:memorydb/acl:Acl example my-acl
  * ```
  */
 export class Acl extends pulumi.CustomResource {

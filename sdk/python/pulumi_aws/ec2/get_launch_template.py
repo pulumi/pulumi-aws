@@ -398,14 +398,18 @@ def get_launch_template(filters: Optional[Sequence[pulumi.InputType['GetLaunchTe
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     default = aws.ec2.get_launch_template(name="my-launch-template")
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Filter
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -415,6 +419,7 @@ def get_launch_template(filters: Optional[Sequence[pulumi.InputType['GetLaunchTe
         values=["some-template"],
     )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetLaunchTemplateFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
@@ -483,14 +488,18 @@ def get_launch_template_output(filters: Optional[pulumi.Input[Optional[Sequence[
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     default = aws.ec2.get_launch_template(name="my-launch-template")
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Filter
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -500,6 +509,7 @@ def get_launch_template_output(filters: Optional[pulumi.Input[Optional[Sequence[
         values=["some-template"],
     )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetLaunchTemplateFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.

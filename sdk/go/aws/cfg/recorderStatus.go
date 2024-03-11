@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -127,15 +128,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Configuration Recorder Status using the name of the Configuration Recorder. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cfg/recorderStatus:RecorderStatus foo example
-//
+// $ pulumi import aws:cfg/recorderStatus:RecorderStatus foo example
 // ```
 type RecorderStatus struct {
 	pulumi.CustomResourceState
