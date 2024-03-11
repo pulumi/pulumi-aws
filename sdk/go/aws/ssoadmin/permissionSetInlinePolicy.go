@@ -65,7 +65,7 @@ import (
 //				return err
 //			}
 //			_, err = ssoadmin.NewPermissionSetInlinePolicy(ctx, "example", &ssoadmin.PermissionSetInlinePolicyArgs{
-//				InlinePolicy:     *pulumi.String(exampleGetPolicyDocument.Json),
+//				InlinePolicy:     pulumi.String(exampleGetPolicyDocument.Json),
 //				InstanceArn:      notImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
 //				PermissionSetArn: examplePermissionSet.Arn,
 //			})

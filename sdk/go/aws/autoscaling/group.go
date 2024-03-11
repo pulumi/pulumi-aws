@@ -484,7 +484,7 @@ import (
 //				return err
 //			}
 //			exampleLaunchTemplate, err := ec2.NewLaunchTemplate(ctx, "example", &ec2.LaunchTemplateArgs{
-//				ImageId:      *pulumi.String(example.Id),
+//				ImageId:      pulumi.String(example.Id),
 //				InstanceType: pulumi.String("t3.nano"),
 //			})
 //			if err != nil {

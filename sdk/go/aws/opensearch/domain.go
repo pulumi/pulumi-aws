@@ -132,7 +132,7 @@ import (
 //			}
 //			_, err = opensearch.NewDomain(ctx, "example", &opensearch.DomainArgs{
 //				DomainName:     pulumi.String(domain),
-//				AccessPolicies: *pulumi.String(example.Json),
+//				AccessPolicies: pulumi.String(example.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -192,7 +192,7 @@ import (
 //			}
 //			_, err = cloudwatch.NewLogResourcePolicy(ctx, "example", &cloudwatch.LogResourcePolicyArgs{
 //				PolicyName:     pulumi.String("example"),
-//				PolicyDocument: *pulumi.String(example.Json),
+//				PolicyDocument: pulumi.String(example.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -273,14 +273,14 @@ import (
 // exampleSecurityGroup, err := ec2.NewSecurityGroup(ctx, "example", &ec2.SecurityGroupArgs{
 // Name: pulumi.String(fmt.Sprintf("%v-opensearch-%v", vpc, domain)),
 // Description: pulumi.String("Managed by Pulumi"),
-// VpcId: *pulumi.String(example.Id),
+// VpcId: pulumi.String(example.Id),
 // Ingress: ec2.SecurityGroupIngressArray{
 // &ec2.SecurityGroupIngressArgs{
 // FromPort: pulumi.Int(443),
 // ToPort: pulumi.Int(443),
 // Protocol: pulumi.String("tcp"),
 // CidrBlocks: pulumi.StringArray{
-// *pulumi.String(example.CidrBlock),
+// pulumi.String(example.CidrBlock),
 // },
 // },
 // },
@@ -327,8 +327,8 @@ import (
 // },
 // VpcOptions: &opensearch.DomainVpcOptionsArgs{
 // SubnetIds: pulumi.StringArray{
-// *pulumi.String(exampleGetSubnets.Ids[0]),
-// *pulumi.String(exampleGetSubnets.Ids[1]),
+// pulumi.String(exampleGetSubnets.Ids[0]),
+// pulumi.String(exampleGetSubnets.Ids[1]),
 // },
 // SecurityGroupIds: pulumi.StringArray{
 // exampleSecurityGroup.ID(),
@@ -337,7 +337,7 @@ import (
 // AdvancedOptions: pulumi.StringMap{
 // "rest.action.multi.allow_explicit_index": pulumi.String("true"),
 // },
-// AccessPolicies: *pulumi.String(exampleGetPolicyDocument.Json),
+// AccessPolicies: pulumi.String(exampleGetPolicyDocument.Json),
 // Tags: pulumi.StringMap{
 // "Domain": pulumi.String("TestDomain"),
 // },

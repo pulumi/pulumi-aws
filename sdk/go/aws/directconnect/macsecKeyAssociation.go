@@ -41,7 +41,7 @@ import (
 //				return err
 //			}
 //			_, err = directconnect.NewMacsecKeyAssociation(ctx, "test", &directconnect.MacsecKeyAssociationArgs{
-//				ConnectionId: *pulumi.String(example.Id),
+//				ConnectionId: pulumi.String(example.Id),
 //				Ckn:          pulumi.String("0123456789abcdef0123456789abcdef0123456789abcdef0123456789abcdef"),
 //				Cak:          pulumi.String("abcdef0123456789abcdef0123456789abcdef0123456789abcdef0123456789"),
 //			})
@@ -81,8 +81,8 @@ import (
 //				return err
 //			}
 //			_, err = directconnect.NewMacsecKeyAssociation(ctx, "test", &directconnect.MacsecKeyAssociationArgs{
-//				ConnectionId: *pulumi.String(example.Id),
-//				SecretArn:    *pulumi.String(exampleGetSecret.Arn),
+//				ConnectionId: pulumi.String(example.Id),
+//				SecretArn:    pulumi.String(exampleGetSecret.Arn),
 //			})
 //			if err != nil {
 //				return err

@@ -57,7 +57,7 @@ import (
 //			}
 //			topicTopic, err := sns.NewTopic(ctx, "topic", &sns.TopicArgs{
 //				Name:   pulumi.String("vpce-notification-topic"),
-//				Policy: *pulumi.String(topic.Json),
+//				Policy: pulumi.String(topic.Json),
 //			})
 //			if err != nil {
 //				return err
