@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,13 +23,14 @@ import * as utilities from "../utilities";
  *     clusterIdentifier: exampleAwsRedshiftCluster.clusterIdentifier,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Redshift endpoint access using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:redshift/endpointAccess:EndpointAccess example example
+ * $ pulumi import aws:redshift/endpointAccess:EndpointAccess example example
  * ```
  */
 export class EndpointAccess extends pulumi.CustomResource {

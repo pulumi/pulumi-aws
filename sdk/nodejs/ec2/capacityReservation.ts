@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,13 +24,14 @@ import * as utilities from "../utilities";
  *     instanceCount: 1,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Capacity Reservations using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/capacityReservation:CapacityReservation web cr-0123456789abcdef0
+ * $ pulumi import aws:ec2/capacityReservation:CapacityReservation web cr-0123456789abcdef0
  * ```
  */
 export class CapacityReservation extends pulumi.CustomResource {

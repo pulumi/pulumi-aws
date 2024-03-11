@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Data source for managing an AWS VPC Lattice Service Network.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -18,6 +20,7 @@ import * as utilities from "../utilities";
  *     serviceNetworkIdentifier: "snsa-01112223334445556",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getServiceNetwork(args: GetServiceNetworkArgs, opts?: pulumi.InvokeOptions): Promise<GetServiceNetworkResult> {
 
@@ -82,8 +85,10 @@ export interface GetServiceNetworkResult {
  * Data source for managing an AWS VPC Lattice Service Network.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -92,6 +97,7 @@ export interface GetServiceNetworkResult {
  *     serviceNetworkIdentifier: "snsa-01112223334445556",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getServiceNetworkOutput(args: GetServiceNetworkOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServiceNetworkResult> {
     return pulumi.output(args).apply((a: any) => getServiceNetwork(a, opts))

@@ -10,8 +10,10 @@ import * as utilities from "../utilities";
  * > **Note:** `aws.alb.TargetGroupAttachment` is known as `aws.lb.TargetGroupAttachment`. The functionality is identical.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,8 +26,11 @@ import * as utilities from "../utilities";
  *     port: 80,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Lambda Target
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -47,8 +52,11 @@ import * as utilities from "../utilities";
  *     targetId: testFunction.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Registering Multiple Targets
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -69,6 +77,7 @@ import * as utilities from "../utilities";
  *     }
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *

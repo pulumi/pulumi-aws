@@ -12,8 +12,10 @@ import * as utilities from "../utilities";
  * More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
  *
  * ## Example Usage
+ *
  * ### Basic WebSocket API
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -26,8 +28,11 @@ import * as utilities from "../utilities";
  *     name: "example-authorizer",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Basic HTTP API
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -41,13 +46,14 @@ import * as utilities from "../utilities";
  *     authorizerPayloadFormatVersion: "2.0",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_apigatewayv2_authorizer` using the API identifier and authorizer identifier. For example:
  *
  * ```sh
- *  $ pulumi import aws:apigatewayv2/authorizer:Authorizer example aabbccddee/1122334
+ * $ pulumi import aws:apigatewayv2/authorizer:Authorizer example aabbccddee/1122334
  * ```
  */
 export class Authorizer extends pulumi.CustomResource {

@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -50,13 +51,14 @@ import * as utilities from "../utilities";
  *     policy: testRolePolicy.then(testRolePolicy => testRolePolicy.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Pinpoint Event Stream using the `application-id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:pinpoint/eventStream:EventStream stream application-id
+ * $ pulumi import aws:pinpoint/eventStream:EventStream stream application-id
  * ```
  */
 export class EventStream extends pulumi.CustomResource {

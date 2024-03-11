@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,6 +20,7 @@ import * as utilities from "../utilities";
  *     name: "an_example_sfn_name",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getStateMachine(args: GetStateMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetStateMachineResult> {
 
@@ -80,6 +82,7 @@ export interface GetStateMachineResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -88,6 +91,7 @@ export interface GetStateMachineResult {
  *     name: "an_example_sfn_name",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getStateMachineOutput(args: GetStateMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStateMachineResult> {
     return pulumi.output(args).apply((a: any) => getStateMachine(a, opts))

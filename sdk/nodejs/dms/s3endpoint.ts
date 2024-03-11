@@ -12,10 +12,12 @@ import * as utilities from "../utilities";
  * > **Note:** Some of this resource's arguments have default values that come from the AWS Provider. Other default values are provided by AWS and subject to change without notice. When relying on AWS defaults, the provider state will often have a zero value. For example, the AWS Provider does not provide a default for `cdcMaxBatchInterval` but the AWS default is `60` (seconds). However, the provider state will show `0` since this is the value return by AWS when no value is present. Below, we aim to flag the defaults that come from AWS (_e.g._, "AWS default...").
  *
  * ## Example Usage
+ *
  * ### Minimal Configuration
  *
  * This is the minimal configuration for an `aws.dms.S3Endpoint`. This endpoint will rely on the AWS Provider and AWS defaults.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -27,8 +29,11 @@ import * as utilities from "../utilities";
  *     serviceAccessRoleArn: exampleAwsIamRole.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Complete Configuration
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -85,13 +90,14 @@ import * as utilities from "../utilities";
  *     glueCatalogGeneration: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import endpoints using the `endpoint_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:dms/s3Endpoint:S3Endpoint example example-dms-endpoint-tf
+ * $ pulumi import aws:dms/s3Endpoint:S3Endpoint example example-dms-endpoint-tf
  * ```
  */
 export class S3Endpoint extends pulumi.CustomResource {

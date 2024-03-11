@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -75,13 +76,14 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_datapipeline_pipeline_definition` using the id. For example:
  *
  * ```sh
- *  $ pulumi import aws:datapipeline/pipelineDefinition:PipelineDefinition example df-1234567890
+ * $ pulumi import aws:datapipeline/pipelineDefinition:PipelineDefinition example df-1234567890
  * ```
  */
 export class PipelineDefinition extends pulumi.CustomResource {

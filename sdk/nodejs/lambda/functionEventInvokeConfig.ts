@@ -11,10 +11,12 @@ import * as utilities from "../utilities";
  * Manages an asynchronous invocation configuration for a Lambda Function or Alias. More information about asynchronous invocations and the configurable values can be found in the [Lambda Developer Guide](https://docs.aws.amazon.com/lambda/latest/dg/invocation-async.html).
  *
  * ## Example Usage
+ *
  * ### Destination Configuration
  *
  * > **NOTE:** Ensure the Lambda Function IAM Role has necessary permissions for the destination, such as `sqs:SendMessage` or `sns:Publish`, otherwise the API will return a generic `InvalidParameterValueException: The destination ARN arn:PARTITION:SERVICE:REGION:ACCOUNT:RESOURCE is invalid.` error.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -31,8 +33,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Error Handling Configuration
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -43,8 +48,11 @@ import * as utilities from "../utilities";
  *     maximumRetryAttempts: 0,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Configuration for Alias Name
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -54,8 +62,11 @@ import * as utilities from "../utilities";
  *     qualifier: exampleAwsLambdaAlias.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Configuration for Function Latest Unpublished Version
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -65,8 +76,11 @@ import * as utilities from "../utilities";
  *     qualifier: "$LATEST",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Configuration for Function Published Version
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -76,6 +90,7 @@ import * as utilities from "../utilities";
  *     qualifier: exampleAwsLambdaFunction.version,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -90,22 +105,22 @@ import * as utilities from "../utilities";
  * ARN without qualifier (all versions and aliases):
  *
  * ```sh
- *  $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function
+ * $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function
  * ```
- *  ARN with qualifier:
+ * ARN with qualifier:
  *
  * ```sh
- *  $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function:production
+ * $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example arn:aws:us-east-1:123456789012:function:my_function:production
  * ```
- *  Name without qualifier (all versions and aliases):
+ * Name without qualifier (all versions and aliases):
  *
  * ```sh
- *  $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function
+ * $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function
  * ```
- *  Name with qualifier:
+ * Name with qualifier:
  *
  * ```sh
- *  $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function:production
+ * $ pulumi import aws:lambda/functionEventInvokeConfig:FunctionEventInvokeConfig example my_function:production
  * ```
  */
 export class FunctionEventInvokeConfig extends pulumi.CustomResource {

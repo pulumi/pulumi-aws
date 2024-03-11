@@ -8,38 +8,10 @@ import * as utilities from "../utilities";
  * Manages an Image Builder Component.
  *
  * ## Example Usage
- * ### Inline Data Document
  *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const example = new aws.imagebuilder.Component("example", {
- *     data: notImplemented(`yamlencode({
- * phases=[{
- * name="build"
- * steps=[{
- * action="ExecuteBash"
- * inputs={
- * commands=["echo 'hello world'"]
- * }
- * name="example"
- * onFailure="Continue"
- * }]
- * }]
- * schemaVersion=1.0
- * })`),
- *     name: "example",
- *     platform: "Linux",
- *     version: "1.0.0",
- * });
- * ```
  * ### URI Document
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -51,15 +23,16 @@ import * as utilities from "../utilities";
  *     version: "1.0.0",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_imagebuilder_components` resources using the Amazon Resource Name (ARN). For example:
  *
  * ```sh
- *  $ pulumi import aws:imagebuilder/component:Component example arn:aws:imagebuilder:us-east-1:123456789012:component/example/1.0.0/1
+ * $ pulumi import aws:imagebuilder/component:Component example arn:aws:imagebuilder:us-east-1:123456789012:component/example/1.0.0/1
  * ```
- *  Certain resource arguments, such as `uri`, cannot be read via the API and imported into the provider. The provider will display a difference for these arguments the first run after import if declared in the the provider configuration for an imported resource.
+ * Certain resource arguments, such as `uri`, cannot be read via the API and imported into the provider. The provider will display a difference for these arguments the first run after import if declared in the the provider configuration for an imported resource.
  */
 export class Component extends pulumi.CustomResource {
     /**

@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS CloudFront Continuous Deployment Policy.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -39,8 +41,11 @@ import * as utilities from "../utilities";
  *     continuousDeploymentPolicyId: example.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Single Weight Config with Session Stickiness
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -63,8 +68,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Single Header Config
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -84,13 +92,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import CloudFront Continuous Deployment Policy using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy example abcd-1234
+ * $ pulumi import aws:cloudfront/continuousDeploymentPolicy:ContinuousDeploymentPolicy example abcd-1234
  * ```
  */
 export class ContinuousDeploymentPolicy extends pulumi.CustomResource {

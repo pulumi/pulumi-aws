@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Resource for registering an AWS Systems Manager Default Patch Baseline.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,6 +25,7 @@ import * as utilities from "../utilities";
  *     operatingSystem: examplePatchBaseline.operatingSystem,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -35,17 +38,17 @@ import * as utilities from "../utilities";
  * Using the patch baseline ID:
  *
  * ```sh
- *  $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example pb-1234567890abcdef1
+ * $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example pb-1234567890abcdef1
  * ```
- *  Using the patch baseline ARN:
+ * Using the patch baseline ARN:
  *
  * ```sh
- *  $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example arn:aws:ssm:us-west-2:123456789012:patchbaseline/pb-1234567890abcdef1
+ * $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example arn:aws:ssm:us-west-2:123456789012:patchbaseline/pb-1234567890abcdef1
  * ```
- *  Using the operating system value:
+ * Using the operating system value:
  *
  * ```sh
- *  $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example CENTOS
+ * $ pulumi import aws:ssm/defaultPatchBaseline:DefaultPatchBaseline example CENTOS
  * ```
  */
 export class DefaultPatchBaseline extends pulumi.CustomResource {

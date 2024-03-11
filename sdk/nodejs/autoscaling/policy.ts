@@ -18,6 +18,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -40,8 +41,11 @@ import * as utilities from "../utilities";
  *     autoscalingGroupName: bar.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Create target tracking scaling policy using metric math
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -97,8 +101,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Create predictive scaling policy using customized metrics
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -144,8 +151,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Create predictive scaling policy using customized scaling and predefined load metric
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -181,13 +191,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import AutoScaling scaling policy using the role autoscaling_group_name and name separated by `/`. For example:
  *
  * ```sh
- *  $ pulumi import aws:autoscaling/policy:Policy test-policy asg-name/policy-name
+ * $ pulumi import aws:autoscaling/policy:Policy test-policy asg-name/policy-name
  * ```
  */
 export class Policy extends pulumi.CustomResource {
@@ -276,6 +287,7 @@ export class Policy extends pulumi.CustomResource {
      * Set of adjustments that manage
      * group scaling. These have the following structure:
      *
+     * <!--Start PulumiCodeChooser -->
      * ```typescript
      * import * as pulumi from "@pulumi/pulumi";
      * import * as aws from "@pulumi/aws";
@@ -293,6 +305,7 @@ export class Policy extends pulumi.CustomResource {
      *     },
      * ]});
      * ```
+     * <!--End PulumiCodeChooser -->
      *
      * The following fields are available in step adjustments:
      */
@@ -300,6 +313,7 @@ export class Policy extends pulumi.CustomResource {
     /**
      * Target tracking policy. These have the following structure:
      *
+     * <!--Start PulumiCodeChooser -->
      * ```typescript
      * import * as pulumi from "@pulumi/pulumi";
      * import * as aws from "@pulumi/aws";
@@ -311,6 +325,7 @@ export class Policy extends pulumi.CustomResource {
      *     targetValue: 40,
      * }});
      * ```
+     * <!--End PulumiCodeChooser -->
      *
      * The following fields are available in target tracking configuration:
      */
@@ -430,6 +445,7 @@ export interface PolicyState {
      * Set of adjustments that manage
      * group scaling. These have the following structure:
      *
+     * <!--Start PulumiCodeChooser -->
      * ```typescript
      * import * as pulumi from "@pulumi/pulumi";
      * import * as aws from "@pulumi/aws";
@@ -447,6 +463,7 @@ export interface PolicyState {
      *     },
      * ]});
      * ```
+     * <!--End PulumiCodeChooser -->
      *
      * The following fields are available in step adjustments:
      */
@@ -454,6 +471,7 @@ export interface PolicyState {
     /**
      * Target tracking policy. These have the following structure:
      *
+     * <!--Start PulumiCodeChooser -->
      * ```typescript
      * import * as pulumi from "@pulumi/pulumi";
      * import * as aws from "@pulumi/aws";
@@ -465,6 +483,7 @@ export interface PolicyState {
      *     targetValue: 40,
      * }});
      * ```
+     * <!--End PulumiCodeChooser -->
      *
      * The following fields are available in target tracking configuration:
      */
@@ -529,6 +548,7 @@ export interface PolicyArgs {
      * Set of adjustments that manage
      * group scaling. These have the following structure:
      *
+     * <!--Start PulumiCodeChooser -->
      * ```typescript
      * import * as pulumi from "@pulumi/pulumi";
      * import * as aws from "@pulumi/aws";
@@ -546,6 +566,7 @@ export interface PolicyArgs {
      *     },
      * ]});
      * ```
+     * <!--End PulumiCodeChooser -->
      *
      * The following fields are available in step adjustments:
      */
@@ -553,6 +574,7 @@ export interface PolicyArgs {
     /**
      * Target tracking policy. These have the following structure:
      *
+     * <!--Start PulumiCodeChooser -->
      * ```typescript
      * import * as pulumi from "@pulumi/pulumi";
      * import * as aws from "@pulumi/aws";
@@ -564,6 +586,7 @@ export interface PolicyArgs {
      *     targetValue: 40,
      * }});
      * ```
+     * <!--End PulumiCodeChooser -->
      *
      * The following fields are available in target tracking configuration:
      */

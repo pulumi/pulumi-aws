@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -18,13 +19,14 @@ import * as utilities from "../utilities";
  *     domainName: exampleAwsAppsyncDomainName.domainName,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_appsync_domain_name_api_association` using the AppSync domain name. For example:
  *
  * ```sh
- *  $ pulumi import aws:appsync/domainNameApiAssociation:DomainNameApiAssociation example example.com
+ * $ pulumi import aws:appsync/domainNameApiAssociation:DomainNameApiAssociation example example.com
  * ```
  */
 export class DomainNameApiAssociation extends pulumi.CustomResource {

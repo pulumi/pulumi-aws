@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -33,13 +34,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import a CloudWatch Composite Alarm using the `alarm_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudwatch/compositeAlarm:CompositeAlarm test my-alarm
+ * $ pulumi import aws:cloudwatch/compositeAlarm:CompositeAlarm test my-alarm
  * ```
  */
 export class CompositeAlarm extends pulumi.CustomResource {

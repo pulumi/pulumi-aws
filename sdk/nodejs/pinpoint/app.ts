@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -27,13 +28,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Pinpoint App using the `application-id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:pinpoint/app:App name application-id
+ * $ pulumi import aws:pinpoint/app:App name application-id
  * ```
  */
 export class App extends pulumi.CustomResource {

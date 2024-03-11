@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -33,6 +34,7 @@ import * as utilities from "../utilities";
  *     dbSubnetGroupName: "my_db_subnet_group",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getClusterSnapshot(args?: GetClusterSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetClusterSnapshotResult> {
     args = args || {};
@@ -168,6 +170,7 @@ export interface GetClusterSnapshotResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -189,6 +192,7 @@ export interface GetClusterSnapshotResult {
  *     dbSubnetGroupName: "my_db_subnet_group",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getClusterSnapshotOutput(args?: GetClusterSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetClusterSnapshotResult> {
     return pulumi.output(args).apply((a: any) => getClusterSnapshot(a, opts))

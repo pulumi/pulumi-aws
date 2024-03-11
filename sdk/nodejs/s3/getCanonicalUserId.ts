@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,6 +20,7 @@ import * as utilities from "../utilities";
  * const current = aws.s3.getCanonicalUserId({});
  * export const canonicalUserId = current.then(current => current.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getCanonicalUserId(opts?: pulumi.InvokeOptions): Promise<GetCanonicalUserIdResult> {
 
@@ -48,6 +50,7 @@ export interface GetCanonicalUserIdResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -55,6 +58,7 @@ export interface GetCanonicalUserIdResult {
  * const current = aws.s3.getCanonicalUserId({});
  * export const canonicalUserId = current.then(current => current.id);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getCanonicalUserIdOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetCanonicalUserIdResult> {
     return pulumi.output(getCanonicalUserId(opts))

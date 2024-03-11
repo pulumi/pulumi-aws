@@ -15,10 +15,12 @@ import * as utilities from "../utilities";
  * of them is specified.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
  * Using `approvedPatches` only.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -28,8 +30,11 @@ import * as utilities from "../utilities";
  *     approvedPatches: ["KB123456"],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Advanced Usage, specifying patch filters
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -93,8 +98,11 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Advanced usage, specifying Microsoft application and Windows patch rules
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -142,8 +150,11 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Advanced usage, specifying alternate patch source repository
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -174,13 +185,14 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SSM Patch Baselines using their baseline ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:ssm/patchBaseline:PatchBaseline example pb-12345678
+ * $ pulumi import aws:ssm/patchBaseline:PatchBaseline example pb-12345678
  * ```
  */
 export class PatchBaseline extends pulumi.CustomResource {

@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Retrieve information on FSx ONTAP Storage Virtual Machine (SVM).
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,8 +23,11 @@ import * as utilities from "../utilities";
  *     id: "svm-12345678",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Filter Example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -34,6 +39,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getOntapStorageVirtualMachine(args?: GetOntapStorageVirtualMachineArgs, opts?: pulumi.InvokeOptions): Promise<GetOntapStorageVirtualMachineResult> {
     args = args || {};
@@ -116,8 +122,10 @@ export interface GetOntapStorageVirtualMachineResult {
  * Retrieve information on FSx ONTAP Storage Virtual Machine (SVM).
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -126,8 +134,11 @@ export interface GetOntapStorageVirtualMachineResult {
  *     id: "svm-12345678",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Filter Example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -139,6 +150,7 @@ export interface GetOntapStorageVirtualMachineResult {
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getOntapStorageVirtualMachineOutput(args?: GetOntapStorageVirtualMachineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOntapStorageVirtualMachineResult> {
     return pulumi.output(args).apply((a: any) => getOntapStorageVirtualMachine(a, opts))

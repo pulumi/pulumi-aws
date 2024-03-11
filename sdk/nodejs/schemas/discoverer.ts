@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,13 +22,14 @@ import * as utilities from "../utilities";
  *     description: "Auto discover event schemas",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import EventBridge discoverers using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:schemas/discoverer:Discoverer test 123
+ * $ pulumi import aws:schemas/discoverer:Discoverer test 123
  * ```
  */
 export class Discoverer extends pulumi.CustomResource {

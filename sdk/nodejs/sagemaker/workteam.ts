@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Provides a SageMaker Workteam resource.
  *
  * ## Example Usage
+ *
  * ### Cognito Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -30,8 +32,11 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Oidc Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -47,13 +52,14 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SageMaker Workteams using the `workteam_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:sagemaker/workteam:Workteam example example
+ * $ pulumi import aws:sagemaker/workteam:Workteam example example
  * ```
  */
 export class Workteam extends pulumi.CustomResource {

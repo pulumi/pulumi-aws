@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,13 +20,14 @@ import * as utilities from "../utilities";
  * });
  * const testLightsailBucketAccessKeyAccessKey = new aws.index.LightsailBucketAccessKeyAccessKey("test", {bucketName: testAwsLightsailBucketAccessKey.id});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_lightsail_bucket_access_key` using the `id` attribute. For example:
  *
  * ```sh
- *  $ pulumi import aws:lightsail/bucketAccessKey:BucketAccessKey test example-bucket,AKIAIOSFODNN7EXAMPLE
+ * $ pulumi import aws:lightsail/bucketAccessKey:BucketAccessKey test example-bucket,AKIAIOSFODNN7EXAMPLE
  * ```
  */
 export class BucketAccessKey extends pulumi.CustomResource {

@@ -11,21 +11,24 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS QuickSight Namespace.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.quicksight.Namespace("example", {namespace: "example"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import QuickSight Namespace using the AWS account ID and namespace separated by commas (`,`). For example:
  *
  * ```sh
- *  $ pulumi import aws:quicksight/namespace:Namespace example 123456789012,example
+ * $ pulumi import aws:quicksight/namespace:Namespace example 123456789012,example
  * ```
  */
 export class Namespace extends pulumi.CustomResource {

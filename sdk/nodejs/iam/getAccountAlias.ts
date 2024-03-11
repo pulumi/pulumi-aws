@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -17,6 +18,7 @@ import * as utilities from "../utilities";
  * const current = aws.iam.getAccountAlias({});
  * export const accountId = current.then(current => current.accountAlias);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAccountAlias(opts?: pulumi.InvokeOptions): Promise<GetAccountAliasResult> {
 
@@ -44,6 +46,7 @@ export interface GetAccountAliasResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -51,6 +54,7 @@ export interface GetAccountAliasResult {
  * const current = aws.iam.getAccountAlias({});
  * export const accountId = current.then(current => current.accountAlias);
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAccountAliasOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetAccountAliasResult> {
     return pulumi.output(getAccountAlias(opts))

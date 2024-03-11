@@ -12,19 +12,21 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const foo = new aws.iot.ThingType("foo", {name: "my_iot_thing"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import IOT Thing Types using the name. For example:
  *
  * ```sh
- *  $ pulumi import aws:iot/thingType:ThingType example example
+ * $ pulumi import aws:iot/thingType:ThingType example example
  * ```
  */
 export class ThingType extends pulumi.CustomResource {

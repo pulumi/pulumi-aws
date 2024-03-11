@@ -11,19 +11,21 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const alias = new aws.iam.AccountAlias("alias", {accountAlias: "my-account-alias"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import the current Account Alias using the `account_alias`. For example:
  *
  * ```sh
- *  $ pulumi import aws:iam/accountAlias:AccountAlias alias my-account-alias
+ * $ pulumi import aws:iam/accountAlias:AccountAlias alias my-account-alias
  * ```
  */
 export class AccountAlias extends pulumi.CustomResource {

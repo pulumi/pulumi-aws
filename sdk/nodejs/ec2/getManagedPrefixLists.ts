@@ -9,28 +9,6 @@ import * as utilities from "../utilities";
 
 /**
  * This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
- *
- * ## Example Usage
- *
- * The following returns all managed prefix lists filtered by tags
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const testEnv = aws.ec2.getManagedPrefixLists({
- *     tags: {
- *         Env: "test",
- *     },
- * });
- * const testEnvGetManagedPrefixList = .map(__index => (aws.ec2.getManagedPrefixList({
- *     id: notImplemented("tolist(data.aws_ec2_managed_prefix_lists.test_env.ids)")[__index],
- * })));
- * ```
  */
 export function getManagedPrefixLists(args?: GetManagedPrefixListsArgs, opts?: pulumi.InvokeOptions): Promise<GetManagedPrefixListsResult> {
     args = args || {};
@@ -77,28 +55,6 @@ export interface GetManagedPrefixListsResult {
 }
 /**
  * This resource can be useful for getting back a list of managed prefix list ids to be referenced elsewhere.
- *
- * ## Example Usage
- *
- * The following returns all managed prefix lists filtered by tags
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const testEnv = aws.ec2.getManagedPrefixLists({
- *     tags: {
- *         Env: "test",
- *     },
- * });
- * const testEnvGetManagedPrefixList = .map(__index => (aws.ec2.getManagedPrefixList({
- *     id: notImplemented("tolist(data.aws_ec2_managed_prefix_lists.test_env.ids)")[__index],
- * })));
- * ```
  */
 export function getManagedPrefixListsOutput(args?: GetManagedPrefixListsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetManagedPrefixListsResult> {
     return pulumi.output(args).apply((a: any) => getManagedPrefixLists(a, opts))

@@ -12,7 +12,7 @@ import * as utilities from "../utilities";
  * Using `pulumi import`, import IOT Role Alias using the alias. For example:
  *
  * ```sh
- *  $ pulumi import aws:iot/roleAlias:RoleAlias example myalias
+ * $ pulumi import aws:iot/roleAlias:RoleAlias example myalias
  * ```
  */
 export class RoleAlias extends pulumi.CustomResource {

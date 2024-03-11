@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -18,13 +19,14 @@ import * as utilities from "../utilities";
  *     bundleId: "small_1_0",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_lightsail_bucket` using the `name` attribute. For example:
  *
  * ```sh
- *  $ pulumi import aws:lightsail/bucket:Bucket test example-bucket
+ * $ pulumi import aws:lightsail/bucket:Bucket test example-bucket
  * ```
  */
 export class Bucket extends pulumi.CustomResource {

@@ -8,21 +8,24 @@ import * as utilities from "../utilities";
  * Provides a SageMaker Model Package Group resource.
  *
  * ## Example Usage
+ *
  * ### Basic usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.sagemaker.ModelPackageGroup("example", {modelPackageGroupName: "example"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SageMaker Model Package Groups using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:sagemaker/modelPackageGroup:ModelPackageGroup test_model_package_group my-code-repo
+ * $ pulumi import aws:sagemaker/modelPackageGroup:ModelPackageGroup test_model_package_group my-code-repo
  * ```
  */
 export class ModelPackageGroup extends pulumi.CustomResource {

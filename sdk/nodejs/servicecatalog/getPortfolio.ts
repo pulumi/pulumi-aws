@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -17,6 +18,7 @@ import * as utilities from "../utilities";
  *     id: "port-07052002",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPortfolio(args: GetPortfolioArgs, opts?: pulumi.InvokeOptions): Promise<GetPortfolioResult> {
 
@@ -84,6 +86,7 @@ export interface GetPortfolioResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -92,6 +95,7 @@ export interface GetPortfolioResult {
  *     id: "port-07052002",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPortfolioOutput(args: GetPortfolioOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPortfolioResult> {
     return pulumi.output(args).apply((a: any) => getPortfolio(a, opts))

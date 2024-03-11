@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Resource for managing a Verified Access Logging Configuration.
  *
  * ## Example Usage
+ *
  * ### With CloudWatch Logging
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -27,8 +29,11 @@ import * as utilities from "../utilities";
  *     verifiedaccessInstanceId: exampleAwsVerifiedaccessInstance.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With Kinesis Data Firehose Logging
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -43,8 +48,11 @@ import * as utilities from "../utilities";
  *     verifiedaccessInstanceId: exampleAwsVerifiedaccessInstance.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With S3 logging
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -60,8 +68,11 @@ import * as utilities from "../utilities";
  *     verifiedaccessInstanceId: exampleAwsVerifiedaccessInstance.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With all three logging options
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -84,8 +95,11 @@ import * as utilities from "../utilities";
  *     verifiedaccessInstanceId: exampleAwsVerifiedaccessInstance.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With `includeTrustContext`
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -97,8 +111,11 @@ import * as utilities from "../utilities";
  *     verifiedaccessInstanceId: exampleAwsVerifiedaccessInstance.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With `logVersion`
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -110,13 +127,14 @@ import * as utilities from "../utilities";
  *     verifiedaccessInstanceId: exampleAwsVerifiedaccessInstance.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Verified Access Logging Configuration using the Verified Access Instance `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration example vai-1234567890abcdef0
+ * $ pulumi import aws:verifiedaccess/instanceLoggingConfiguration:InstanceLoggingConfiguration example vai-1234567890abcdef0
  * ```
  */
 export class InstanceLoggingConfiguration extends pulumi.CustomResource {

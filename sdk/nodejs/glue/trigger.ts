@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Manages a Glue Trigger resource.
  *
  * ## Example Usage
+ *
  * ### Conditional Trigger
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -31,8 +33,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### On-Demand Trigger
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -45,8 +50,11 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Scheduled Trigger
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -60,10 +68,13 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Conditional Trigger with Crawler Action
  *
  * **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -82,10 +93,13 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Conditional Trigger with Crawler Condition
  *
  * **Note:** Triggers can have both a crawler action and a crawler condition, just no example provided.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -104,13 +118,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Glue Triggers using `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:glue/trigger:Trigger MyTrigger MyTrigger
+ * $ pulumi import aws:glue/trigger:Trigger MyTrigger MyTrigger
  * ```
  */
 export class Trigger extends pulumi.CustomResource {

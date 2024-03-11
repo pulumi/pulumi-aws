@@ -9,19 +9,21 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.quicksight.Group("example", {groupName: "tf-example"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import QuickSight Group using the aws account id, namespace and group name separated by `/`. For example:
  *
  * ```sh
- *  $ pulumi import aws:quicksight/group:Group example 123456789123/default/tf-example
+ * $ pulumi import aws:quicksight/group:Group example 123456789123/default/tf-example
  * ```
  */
 export class Group extends pulumi.CustomResource {

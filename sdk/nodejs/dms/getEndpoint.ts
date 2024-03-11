@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Data source for managing an AWS DMS (Database Migration) Endpoint.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,6 +23,7 @@ import * as utilities from "../utilities";
  *     endpointId: "test_id",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getEndpoint(args: GetEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetEndpointResult> {
 
@@ -80,8 +83,10 @@ export interface GetEndpointResult {
  * Data source for managing an AWS DMS (Database Migration) Endpoint.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -90,6 +95,7 @@ export interface GetEndpointResult {
  *     endpointId: "test_id",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getEndpointOutput(args: GetEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEndpointResult> {
     return pulumi.output(args).apply((a: any) => getEndpoint(a, opts))

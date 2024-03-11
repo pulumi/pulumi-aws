@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * The following shows outputting all network interface ids in a region.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,9 +24,11 @@ import * as utilities from "../utilities";
  *     };
  * }
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -37,10 +40,12 @@ import * as utilities from "../utilities";
  * });
  * export const example1 = example.then(example => example.ids);
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * The following example retrieves a network interface ids which associated
  * with specific subnet.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -57,6 +62,7 @@ import * as utilities from "../utilities";
  *     };
  * }
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getNetworkInterfaces(args?: GetNetworkInterfacesArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkInterfacesResult> {
     args = args || {};
@@ -106,6 +112,7 @@ export interface GetNetworkInterfacesResult {
  *
  * The following shows outputting all network interface ids in a region.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -117,9 +124,11 @@ export interface GetNetworkInterfacesResult {
  *     };
  * }
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * The following example retrieves a list of all network interface ids with a custom tag of `Name` set to a value of `test`.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -131,10 +140,12 @@ export interface GetNetworkInterfacesResult {
  * });
  * export const example1 = example.then(example => example.ids);
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * The following example retrieves a network interface ids which associated
  * with specific subnet.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -151,6 +162,7 @@ export interface GetNetworkInterfacesResult {
  *     };
  * }
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getNetworkInterfacesOutput(args?: GetNetworkInterfacesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkInterfacesResult> {
     return pulumi.output(args).apply((a: any) => getNetworkInterfaces(a, opts))

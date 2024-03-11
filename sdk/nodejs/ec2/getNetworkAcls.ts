@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * The following shows outputting all network ACL ids in a vpc.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -25,10 +26,12 @@ import * as utilities from "../utilities";
  *     };
  * }
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * The following example retrieves a list of all network ACL ids in a VPC with a custom
  * tag of `Tier` set to a value of "Private".
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -40,10 +43,12 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * The following example retrieves a network ACL id in a VPC which associated
  * with specific subnet.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -56,6 +61,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getNetworkAcls(args?: GetNetworkAclsArgs, opts?: pulumi.InvokeOptions): Promise<GetNetworkAclsResult> {
     args = args || {};
@@ -111,6 +117,7 @@ export interface GetNetworkAclsResult {
  *
  * The following shows outputting all network ACL ids in a vpc.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -124,10 +131,12 @@ export interface GetNetworkAclsResult {
  *     };
  * }
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * The following example retrieves a list of all network ACL ids in a VPC with a custom
  * tag of `Tier` set to a value of "Private".
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -139,10 +148,12 @@ export interface GetNetworkAclsResult {
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * The following example retrieves a network ACL id in a VPC which associated
  * with specific subnet.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -155,6 +166,7 @@ export interface GetNetworkAclsResult {
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getNetworkAclsOutput(args?: GetNetworkAclsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetNetworkAclsResult> {
     return pulumi.output(args).apply((a: any) => getNetworkAcls(a, opts))

@@ -17,6 +17,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -47,6 +48,7 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * > **Note:** Any modifications to the `aws.rds.OptionGroup` are set to happen immediately as we default to applying immediately.
  *
@@ -63,7 +65,7 @@ import * as utilities from "../utilities";
  * Using `pulumi import`, import DB option groups using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group
+ * $ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group
  * ```
  */
 export class OptionGroup extends pulumi.CustomResource {

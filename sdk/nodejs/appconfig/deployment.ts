@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -26,13 +27,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import AppConfig Deployments using the application ID, environment ID, and deployment number separated by a slash (`/`). For example:
  *
  * ```sh
- *  $ pulumi import aws:appconfig/deployment:Deployment example 71abcde/11xxxxx/1
+ * $ pulumi import aws:appconfig/deployment:Deployment example 71abcde/11xxxxx/1
  * ```
  */
 export class Deployment extends pulumi.CustomResource {

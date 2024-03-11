@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Provides a SageMaker App Image Config resource.
  *
  * ## Example Usage
+ *
  * ### Basic usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -26,8 +28,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Default File System Config
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -42,13 +47,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SageMaker App Image Configs using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:sagemaker/appImageConfig:AppImageConfig example example
+ * $ pulumi import aws:sagemaker/appImageConfig:AppImageConfig example example
  * ```
  */
 export class AppImageConfig extends pulumi.CustomResource {

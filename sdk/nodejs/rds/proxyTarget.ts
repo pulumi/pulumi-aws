@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -49,6 +50,7 @@ import * as utilities from "../utilities";
  *     targetGroupName: exampleProxyDefaultTargetGroup.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -59,12 +61,12 @@ import * as utilities from "../utilities";
  * Instances:
  *
  * ```sh
- *  $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/RDS_INSTANCE/example-instance
+ * $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/RDS_INSTANCE/example-instance
  * ```
- *  Provisioned Clusters:
+ * Provisioned Clusters:
  *
  * ```sh
- *  $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/TRACKED_CLUSTER/example-cluster
+ * $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/TRACKED_CLUSTER/example-cluster
  * ```
  */
 export class ProxyTarget extends pulumi.CustomResource {

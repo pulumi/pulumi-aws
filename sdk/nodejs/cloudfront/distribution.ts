@@ -15,10 +15,12 @@ import * as utilities from "../utilities";
  * > **NOTE:** CloudFront distributions take about 15 minutes to reach a deployed state after creation or modification. During this time, deletes to resources will be blocked. If you need to delete a distribution that is enabled and you do not want to wait, you need to use the `retainOnDelete` flag.
  *
  * ## Example Usage
+ *
  * ### S3 Origin
  *
  * The example below creates a CloudFront distribution with an S3 origin.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -151,10 +153,13 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With Failover Routing
  *
  * The example below creates a CloudFront distribution with an origin group for failover routing.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -200,10 +205,13 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With Managed Caching Policy
  *
  * The example below creates a CloudFront distribution with an [AWS managed caching policy](https://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/using-managed-cache-policies.html).
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -246,13 +254,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import CloudFront Distributions using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudfront/distribution:Distribution distribution E74FTE3EXAMPLE
+ * $ pulumi import aws:cloudfront/distribution:Distribution distribution E74FTE3EXAMPLE
  * ```
  */
 export class Distribution extends pulumi.CustomResource {

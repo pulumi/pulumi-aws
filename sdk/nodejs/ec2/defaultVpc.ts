@@ -21,6 +21,7 @@ import * as utilities from "../utilities";
  *
  * Basic usage with tags:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -29,13 +30,14 @@ import * as utilities from "../utilities";
  *     Name: "Default VPC",
  * }});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Default VPCs using the VPC `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/defaultVpc:DefaultVpc default vpc-a01106c2
+ * $ pulumi import aws:ec2/defaultVpc:DefaultVpc default vpc-a01106c2
  * ```
  */
 export class DefaultVpc extends pulumi.CustomResource {

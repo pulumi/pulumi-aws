@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Provides a AWS Transfer Access resource.
  *
  * ## Example Usage
+ *
  * ### Basic S3
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,8 +26,11 @@ import * as utilities from "../utilities";
  *     homeDirectory: `/${exampleAwsS3Bucket.id}/`,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Basic EFS
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -41,13 +46,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Transfer Accesses using the `server_id` and `external_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:transfer/access:Access example s-12345678/S-1-1-12-1234567890-123456789-1234567890-1234
+ * $ pulumi import aws:transfer/access:Access example s-12345678/S-1-1-12-1234567890-123456789-1234567890-1234
  * ```
  */
 export class Access extends pulumi.CustomResource {

@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,13 +20,14 @@ import * as utilities from "../utilities";
  *     awsRegion: "us-east-1",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Configuration Recorder using the name. For example:
  *
  * ```sh
- *  $ pulumi import aws:chime/voiceConnector:VoiceConnector test example
+ * $ pulumi import aws:chime/voiceConnector:VoiceConnector test example
  * ```
  */
 export class VoiceConnector extends pulumi.CustomResource {

@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS Lex V2 Models Slot Type.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -50,13 +52,14 @@ import * as utilities from "../utilities";
  *     localeId: testV2modelsBotLocale.localeId,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Lex V2 Models Slot Type using the `example_id_arg`. For example:
  *
  * ```sh
- *  $ pulumi import aws:lex/v2modelsSlotType:V2modelsSlotType example bot-1234,DRAFT,en_US,slot_type-id-12345678
+ * $ pulumi import aws:lex/v2modelsSlotType:V2modelsSlotType example bot-1234,DRAFT,en_US,slot_type-id-12345678
  * ```
  */
 export class V2modelsSlotType extends pulumi.CustomResource {

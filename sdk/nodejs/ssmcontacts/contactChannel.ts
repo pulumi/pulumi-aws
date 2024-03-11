@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS SSM Contacts Contact Channel.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -26,8 +28,11 @@ import * as utilities from "../utilities";
  *     type: "EMAIL",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Usage with SSM Contact
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -45,13 +50,14 @@ import * as utilities from "../utilities";
  *     type: "EMAIL",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SSM Contact Channel using the `ARN`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ssmcontacts/contactChannel:ContactChannel example arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example
+ * $ pulumi import aws:ssmcontacts/contactChannel:ContactChannel example arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example
  * ```
  */
 export class ContactChannel extends pulumi.CustomResource {

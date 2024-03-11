@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,6 +24,7 @@ import * as utilities from "../utilities";
  *     name: "stream-name",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getStream(args: GetStreamArgs, opts?: pulumi.InvokeOptions): Promise<GetStreamResult> {
 
@@ -104,6 +106,7 @@ export interface GetStreamResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -112,6 +115,7 @@ export interface GetStreamResult {
  *     name: "stream-name",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getStreamOutput(args: GetStreamOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetStreamResult> {
     return pulumi.output(args).apply((a: any) => getStream(a, opts))

@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -16,13 +17,14 @@ import * as utilities from "../utilities";
  * const example = new aws.macie2.Account("example", {});
  * const exampleOrganizationAdminAccount = new aws.macie2.OrganizationAdminAccount("example", {adminAccountId: "ID OF THE ADMIN ACCOUNT"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_macie2_organization_admin_account` using the id. For example:
  *
  * ```sh
- *  $ pulumi import aws:macie2/organizationAdminAccount:OrganizationAdminAccount example abcd1
+ * $ pulumi import aws:macie2/organizationAdminAccount:OrganizationAdminAccount example abcd1
  * ```
  */
 export class OrganizationAdminAccount extends pulumi.CustomResource {

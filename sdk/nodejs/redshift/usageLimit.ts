@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,13 +21,14 @@ import * as utilities from "../utilities";
  *     amount: 60,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Redshift usage limits using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:redshift/usageLimit:UsageLimit example example-id
+ * $ pulumi import aws:redshift/usageLimit:UsageLimit example example-id
  * ```
  */
 export class UsageLimit extends pulumi.CustomResource {

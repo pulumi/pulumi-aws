@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Use this data source to get information about an Amazon FSx for OpenZFS Snapshot for use when provisioning new Volumes.
  *
  * ## Example Usage
+ *
  * ### Root volume Example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -25,6 +27,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getOpenZfsSnapshot(args?: GetOpenZfsSnapshotArgs, opts?: pulumi.InvokeOptions): Promise<GetOpenZfsSnapshotResult> {
     args = args || {};
@@ -106,8 +109,10 @@ export interface GetOpenZfsSnapshotResult {
  * Use this data source to get information about an Amazon FSx for OpenZFS Snapshot for use when provisioning new Volumes.
  *
  * ## Example Usage
+ *
  * ### Root volume Example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -120,6 +125,7 @@ export interface GetOpenZfsSnapshotResult {
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getOpenZfsSnapshotOutput(args?: GetOpenZfsSnapshotOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOpenZfsSnapshotResult> {
     return pulumi.output(args).apply((a: any) => getOpenZfsSnapshot(a, opts))

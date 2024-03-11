@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * The following example below creates a CloudFront origin access identity.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,6 +20,7 @@ import * as utilities from "../utilities";
  *     id: "E1ZAKK699EOLAL",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getOriginAccessIdentity(args: GetOriginAccessIdentityArgs, opts?: pulumi.InvokeOptions): Promise<GetOriginAccessIdentityResult> {
 
@@ -82,6 +84,7 @@ export interface GetOriginAccessIdentityResult {
  *
  * The following example below creates a CloudFront origin access identity.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -90,6 +93,7 @@ export interface GetOriginAccessIdentityResult {
  *     id: "E1ZAKK699EOLAL",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getOriginAccessIdentityOutput(args: GetOriginAccessIdentityOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOriginAccessIdentityResult> {
     return pulumi.output(args).apply((a: any) => getOriginAccessIdentity(a, opts))

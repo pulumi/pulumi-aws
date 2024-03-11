@@ -9,29 +9,35 @@ import * as utilities from "../utilities";
  * You can have one S3 Access Grants instance per Region in your account.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3control.AccessGrantsInstance("example", {});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### AWS IAM Identity Center
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.s3control.AccessGrantsInstance("example", {identityCenterArn: "arn:aws:sso:::instance/ssoins-890759e9c7bfdc1d"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import S3 Access Grants instances using the `account_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:s3control/accessGrantsInstance:AccessGrantsInstance example 123456789012
+ * $ pulumi import aws:s3control/accessGrantsInstance:AccessGrantsInstance example 123456789012
  * ```
  */
 export class AccessGrantsInstance extends pulumi.CustomResource {

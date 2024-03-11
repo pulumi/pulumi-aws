@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,6 +22,7 @@ import * as utilities from "../utilities";
  *     meshName: "example-mesh",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVirtualNode(args: GetVirtualNodeArgs, opts?: pulumi.InvokeOptions): Promise<GetVirtualNodeResult> {
 
@@ -96,6 +98,7 @@ export interface GetVirtualNodeResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -105,6 +108,7 @@ export interface GetVirtualNodeResult {
  *     meshName: "example-mesh",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVirtualNodeOutput(args: GetVirtualNodeOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVirtualNodeResult> {
     return pulumi.output(args).apply((a: any) => getVirtualNode(a, opts))

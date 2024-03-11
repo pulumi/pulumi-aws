@@ -12,8 +12,10 @@ import * as utilities from "../utilities";
  * interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group, a S3 Bucket, or Amazon Kinesis Data Firehose
  *
  * ## Example Usage
+ *
  * ### CloudWatch Logging
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -58,8 +60,11 @@ import * as utilities from "../utilities";
  *     policy: example.then(example => example.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### S3 Logging
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -72,8 +77,11 @@ import * as utilities from "../utilities";
  *     vpcId: exampleAwsVpc.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### S3 Logging in Apache Parquet format with per-hour partitions
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -90,13 +98,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Flow Logs using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/flowLog:FlowLog test_flow_log fl-1a2b3c4d
+ * $ pulumi import aws:ec2/flowLog:FlowLog test_flow_log fl-1a2b3c4d
  * ```
  */
 export class FlowLog extends pulumi.CustomResource {

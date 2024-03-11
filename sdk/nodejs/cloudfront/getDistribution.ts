@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -17,6 +18,7 @@ import * as utilities from "../utilities";
  *     id: "EDFDVBD632BHDS5",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDistribution(args: GetDistributionArgs, opts?: pulumi.InvokeOptions): Promise<GetDistributionResult> {
 
@@ -97,6 +99,7 @@ export interface GetDistributionResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -105,6 +108,7 @@ export interface GetDistributionResult {
  *     id: "EDFDVBD632BHDS5",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getDistributionOutput(args: GetDistributionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetDistributionResult> {
     return pulumi.output(args).apply((a: any) => getDistribution(a, opts))

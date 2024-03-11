@@ -19,6 +19,7 @@ import * as utilities from "../utilities";
  *
  * Basic usage:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -37,9 +38,11 @@ import * as utilities from "../utilities";
  *     cidr: "172.20.0.0/16",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * Provision Public IPv6 Pool CIDRs:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -62,6 +65,7 @@ import * as utilities from "../utilities";
  *     netmaskLength: 52,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -70,7 +74,7 @@ import * as utilities from "../utilities";
  * __NOTE:__ Do not use the IPAM Pool Cidr ID as this was introduced after the resource already existed.
  *
  * ```sh
- *  $ pulumi import aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr example 172.20.0.0/24_ipam-pool-0e634f5a1517cccdc
+ * $ pulumi import aws:ec2/vpcIpamPoolCidr:VpcIpamPoolCidr example 172.20.0.0/24_ipam-pool-0e634f5a1517cccdc
  * ```
  */
 export class VpcIpamPoolCidr extends pulumi.CustomResource {

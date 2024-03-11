@@ -14,8 +14,10 @@ import * as utilities from "../utilities";
  * use the `aws.cognito.ManagedUserPoolClient` resource instead.
  *
  * ## Example Usage
+ *
  * ### Create a basic user pool client
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -26,8 +28,11 @@ import * as utilities from "../utilities";
  *     userPoolId: pool.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Create a user pool client with no SRP authentication
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -40,8 +45,11 @@ import * as utilities from "../utilities";
  *     explicitAuthFlows: ["ADMIN_NO_SRP_AUTH"],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Create a user pool client with pinpoint analytics
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -89,8 +97,11 @@ import * as utilities from "../utilities";
  *     policy: test.apply(test => test.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Create a user pool client with Cognito as the identity provider
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -112,13 +123,14 @@ import * as utilities from "../utilities";
  *     supportedIdentityProviders: ["COGNITO"],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Cognito User Pool Clients using the `id` of the Cognito User Pool, and the `id` of the Cognito User Pool Client. For example:
  *
  * ```sh
- *  $ pulumi import aws:cognito/userPoolClient:UserPoolClient client us-west-2_abc123/3ho4ek12345678909nh3fmhpko
+ * $ pulumi import aws:cognito/userPoolClient:UserPoolClient client us-west-2_abc123/3ho4ek12345678909nh3fmhpko
  * ```
  */
 export class UserPoolClient extends pulumi.CustomResource {

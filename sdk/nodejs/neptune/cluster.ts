@@ -20,6 +20,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -34,6 +35,7 @@ import * as utilities from "../utilities";
  *     applyImmediately: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * > **Note:** AWS Neptune does not support user name/password–based access control.
  * See the AWS [Docs](https://docs.aws.amazon.com/neptune/latest/userguide/limits.html) for more information.
@@ -43,7 +45,7 @@ import * as utilities from "../utilities";
  * Using `pulumi import`, import `aws_neptune_cluster` using the cluster identifier. For example:
  *
  * ```sh
- *  $ pulumi import aws:neptune/cluster:Cluster example my-cluster
+ * $ pulumi import aws:neptune/cluster:Cluster example my-cluster
  * ```
  */
 export class Cluster extends pulumi.CustomResource {

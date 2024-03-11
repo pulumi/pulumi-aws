@@ -16,8 +16,10 @@ import * as utilities from "../utilities";
  * see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail).
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -33,8 +35,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Public Domain Names
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -46,8 +51,11 @@ import * as utilities from "../utilities";
  *     }],
  * }});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Private Registry Access
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -75,13 +83,14 @@ import * as utilities from "../utilities";
  *     policy: _default.apply(_default => _default.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Lightsail Container Service using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:lightsail/containerService:ContainerService my_container_service container-service-1
+ * $ pulumi import aws:lightsail/containerService:ContainerService my_container_service container-service-1
  * ```
  */
 export class ContainerService extends pulumi.CustomResource {

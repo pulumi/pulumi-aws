@@ -14,8 +14,10 @@ import * as utilities from "../utilities";
  * For information about event source mappings, see [CreateEventSourceMapping](http://docs.aws.amazon.com/lambda/latest/dg/API_CreateEventSourceMapping.html) in the API docs.
  *
  * ## Example Usage
+ *
  * ### DynamoDB
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -26,8 +28,11 @@ import * as utilities from "../utilities";
  *     startingPosition: "LATEST",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Kinesis
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -38,8 +43,11 @@ import * as utilities from "../utilities";
  *     startingPosition: "LATEST",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Managed Streaming for Apache Kafka (MSK)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -51,8 +59,11 @@ import * as utilities from "../utilities";
  *     startingPosition: "TRIM_HORIZON",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Self Managed Apache Kafka
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -82,8 +93,11 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### SQS
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -93,8 +107,11 @@ import * as utilities from "../utilities";
  *     functionName: exampleAwsLambdaFunction.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### SQS with event filter
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -121,8 +138,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Amazon MQ (ActiveMQ)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -139,8 +159,11 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Amazon MQ (RabbitMQ)
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -163,13 +186,14 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Lambda event source mappings using the `UUID` (event source mapping identifier). For example:
  *
  * ```sh
- *  $ pulumi import aws:lambda/eventSourceMapping:EventSourceMapping event_source_mapping 12345kxodurf3443
+ * $ pulumi import aws:lambda/eventSourceMapping:EventSourceMapping event_source_mapping 12345kxodurf3443
  * ```
  */
 export class EventSourceMapping extends pulumi.CustomResource {

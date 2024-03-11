@@ -9,8 +9,10 @@ import * as utilities from "../utilities";
 
 /**
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,6 +21,7 @@ import * as utilities from "../utilities";
  *     arn: "arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getContactsRotation(args: GetContactsRotationArgs, opts?: pulumi.InvokeOptions): Promise<GetContactsRotationResult> {
 
@@ -71,8 +74,10 @@ export interface GetContactsRotationResult {
 }
 /**
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -81,6 +86,7 @@ export interface GetContactsRotationResult {
  *     arn: "arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getContactsRotationOutput(args: GetContactsRotationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContactsRotationResult> {
     return pulumi.output(args).apply((a: any) => getContactsRotation(a, opts))

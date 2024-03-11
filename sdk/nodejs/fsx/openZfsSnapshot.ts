@@ -9,8 +9,10 @@ import * as utilities from "../utilities";
  * See the [FSx OpenZFS User Guide](https://docs.aws.amazon.com/fsx/latest/OpenZFSGuide/what-is-fsx.html) for more information.
  *
  * ## Example Usage
+ *
  * ### Root volume Example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -26,8 +28,11 @@ import * as utilities from "../utilities";
  *     volumeId: exampleOpenZfsFileSystem.rootVolumeId,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Child volume Example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -47,13 +52,14 @@ import * as utilities from "../utilities";
  *     volumeId: exampleOpenZfsVolume.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import FSx OpenZFS snapshot using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:fsx/openZfsSnapshot:OpenZfsSnapshot example fs-543ab12b1ca672f33
+ * $ pulumi import aws:fsx/openZfsSnapshot:OpenZfsSnapshot example fs-543ab12b1ca672f33
  * ```
  */
 export class OpenZfsSnapshot extends pulumi.CustomResource {

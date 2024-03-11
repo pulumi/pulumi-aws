@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Data source for managing an AWS OpenSearch Serverless Security Config.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,6 +23,7 @@ import * as utilities from "../utilities";
  *     id: "saml/12345678912/example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getServerlessSecurityConfig(args: GetServerlessSecurityConfigArgs, opts?: pulumi.InvokeOptions): Promise<GetServerlessSecurityConfigResult> {
 
@@ -79,8 +82,10 @@ export interface GetServerlessSecurityConfigResult {
  * Data source for managing an AWS OpenSearch Serverless Security Config.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -89,6 +94,7 @@ export interface GetServerlessSecurityConfigResult {
  *     id: "saml/12345678912/example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getServerlessSecurityConfigOutput(args: GetServerlessSecurityConfigOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerlessSecurityConfigResult> {
     return pulumi.output(args).apply((a: any) => getServerlessSecurityConfig(a, opts))

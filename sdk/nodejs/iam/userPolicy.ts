@@ -11,6 +11,7 @@ import {PolicyDocument} from "./index";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -33,13 +34,14 @@ import {PolicyDocument} from "./index";
  * });
  * const lbAccessKey = new aws.iam.AccessKey("lb", {user: lb.name});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import IAM User Policies using the `user_name:user_policy_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:iam/userPolicy:UserPolicy mypolicy user_of_mypolicy_name:mypolicy_name
+ * $ pulumi import aws:iam/userPolicy:UserPolicy mypolicy user_of_mypolicy_name:mypolicy_name
  * ```
  */
 export class UserPolicy extends pulumi.CustomResource {

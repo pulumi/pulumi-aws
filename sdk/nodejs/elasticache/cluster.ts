@@ -29,8 +29,10 @@ import * as utilities from "../utilities";
  * > **Note:** Any attribute changes that re-create the resource will be applied immediately, regardless of the value of `applyImmediately`.
  *
  * ## Example Usage
+ *
  * ### Memcached Cluster
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -44,8 +46,11 @@ import * as utilities from "../utilities";
  *     port: 11211,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Redis Instance
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -60,10 +65,13 @@ import * as utilities from "../utilities";
  *     port: 6379,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Redis Cluster Mode Disabled Read Replica Instance
  *
  * These inherit their settings from the replication group.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -73,8 +81,11 @@ import * as utilities from "../utilities";
  *     replicationGroupId: example.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Redis Log Delivery configuration
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -102,51 +113,14 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
- * ### Elasticache Cluster in Outpost
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const example = aws.outposts.getOutposts({});
- * const exampleGetOutpost = aws.outposts.getOutpost({
- *     id: notImplemented("tolist(data.aws_outposts_outposts.example.ids)")[0],
- * });
- * const exampleVpc = new aws.ec2.Vpc("example", {cidrBlock: "10.0.0.0/16"});
- * const exampleSubnet = new aws.ec2.Subnet("example", {
- *     vpcId: exampleVpc.id,
- *     cidrBlock: "10.0.1.0/24",
- *     tags: {
- *         Name: "my-subnet",
- *     },
- * });
- * const exampleSubnetGroup = new aws.elasticache.SubnetGroup("example", {
- *     name: "my-cache-subnet",
- *     subnetIds: [exampleSubnet.id],
- * });
- * const exampleCluster = new aws.elasticache.Cluster("example", {
- *     clusterId: "cluster-example",
- *     outpostMode: "single-outpost",
- *     preferredOutpostArn: exampleGetOutpost.then(exampleGetOutpost => exampleGetOutpost.arn),
- *     engine: "memcached",
- *     nodeType: "cache.r5.large",
- *     numCacheNodes: 2,
- *     parameterGroupName: "default.memcached1.4",
- *     port: 11211,
- *     subnetGroupName: exampleSubnetGroup.name,
- * });
- * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import ElastiCache Clusters using the `cluster_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:elasticache/cluster:Cluster my_cluster my_cluster
+ * $ pulumi import aws:elasticache/cluster:Cluster my_cluster my_cluster
  * ```
  */
 export class Cluster extends pulumi.CustomResource {

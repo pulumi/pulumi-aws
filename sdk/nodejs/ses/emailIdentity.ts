@@ -9,19 +9,21 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.ses.EmailIdentity("example", {email: "email@example.com"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SES email identities using the email address. For example:
  *
  * ```sh
- *  $ pulumi import aws:ses/emailIdentity:EmailIdentity example email@example.com
+ * $ pulumi import aws:ses/emailIdentity:EmailIdentity example email@example.com
  * ```
  */
 export class EmailIdentity extends pulumi.CustomResource {

@@ -11,16 +11,21 @@ import * as utilities from "../utilities";
  * Data source for managing an AWS Polly Voices.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.polly.getVoices({});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With Language Code
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -29,6 +34,7 @@ import * as utilities from "../utilities";
  *     languageCode: "en-GB",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVoices(args?: GetVoicesArgs, opts?: pulumi.InvokeOptions): Promise<GetVoicesResult> {
     args = args || {};
@@ -87,16 +93,21 @@ export interface GetVoicesResult {
  * Data source for managing an AWS Polly Voices.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = aws.polly.getVoices({});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With Language Code
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -105,6 +116,7 @@ export interface GetVoicesResult {
  *     languageCode: "en-GB",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getVoicesOutput(args?: GetVoicesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetVoicesResult> {
     return pulumi.output(args).apply((a: any) => getVoices(a, opts))

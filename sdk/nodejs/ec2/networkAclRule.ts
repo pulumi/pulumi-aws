@@ -15,6 +15,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -31,6 +32,7 @@ import * as utilities from "../utilities";
  *     toPort: 22,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * > **Note:** One of either `cidrBlock` or `ipv6CidrBlock` is required.
  *
@@ -43,12 +45,12 @@ import * as utilities from "../utilities";
  * Using the procotol's string value:
  *
  * ```sh
- *  $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:tcp:false
+ * $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:tcp:false
  * ```
- *  Using the procotol's decimal value:
+ * Using the procotol's decimal value:
  *
  * ```sh
- *  $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:6:false
+ * $ pulumi import aws:ec2/networkAclRule:NetworkAclRule my_rule acl-7aaabd18:100:6:false
  * ```
  */
 export class NetworkAclRule extends pulumi.CustomResource {

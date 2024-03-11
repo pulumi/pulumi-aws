@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,13 +24,14 @@ import * as utilities from "../utilities";
  *     serverCertificateArns: [cert.arn],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import domain configurations using the name. For example:
  *
  * ```sh
- *  $ pulumi import aws:iot/domainConfiguration:DomainConfiguration example example
+ * $ pulumi import aws:iot/domainConfiguration:DomainConfiguration example example
  * ```
  */
 export class DomainConfiguration extends pulumi.CustomResource {

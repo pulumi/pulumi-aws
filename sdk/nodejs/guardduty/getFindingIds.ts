@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Data source for managing an AWS GuardDuty Finding Ids.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -18,6 +20,7 @@ import * as utilities from "../utilities";
  *     detectorId: exampleAwsGuarddutyDetector.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFindingIds(args: GetFindingIdsArgs, opts?: pulumi.InvokeOptions): Promise<GetFindingIdsResult> {
 
@@ -56,8 +59,10 @@ export interface GetFindingIdsResult {
  * Data source for managing an AWS GuardDuty Finding Ids.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -66,6 +71,7 @@ export interface GetFindingIdsResult {
  *     detectorId: exampleAwsGuarddutyDetector.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getFindingIdsOutput(args: GetFindingIdsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetFindingIdsResult> {
     return pulumi.output(args).apply((a: any) => getFindingIds(a, opts))

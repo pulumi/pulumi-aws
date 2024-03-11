@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Provides details about CodeStar Connection.
  *
  * ## Example Usage
+ *
  * ### By ARN
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -18,8 +20,11 @@ import * as utilities from "../utilities";
  *     arn: exampleAwsCodestarconnectionsConnection.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### By Name
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -28,6 +33,7 @@ import * as utilities from "../utilities";
  *     name: exampleAwsCodestarconnectionsConnection.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getConnection(args?: GetConnectionArgs, opts?: pulumi.InvokeOptions): Promise<GetConnectionResult> {
     args = args || {};
@@ -94,8 +100,10 @@ export interface GetConnectionResult {
  * Provides details about CodeStar Connection.
  *
  * ## Example Usage
+ *
  * ### By ARN
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -104,8 +112,11 @@ export interface GetConnectionResult {
  *     arn: exampleAwsCodestarconnectionsConnection.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### By Name
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -114,6 +125,7 @@ export interface GetConnectionResult {
  *     name: exampleAwsCodestarconnectionsConnection.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getConnectionOutput(args?: GetConnectionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetConnectionResult> {
     return pulumi.output(args).apply((a: any) => getConnection(a, opts))

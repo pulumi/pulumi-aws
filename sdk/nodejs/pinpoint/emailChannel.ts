@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -47,13 +48,14 @@ import * as utilities from "../utilities";
  *     policy: rolePolicy.then(rolePolicy => rolePolicy.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Pinpoint Email Channel using the `application-id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:pinpoint/emailChannel:EmailChannel email application-id
+ * $ pulumi import aws:pinpoint/emailChannel:EmailChannel email application-id
  * ```
  */
 export class EmailChannel extends pulumi.CustomResource {

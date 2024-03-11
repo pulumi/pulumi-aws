@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Executes a Redshift Data Statement.
  *
  * ## Example Usage
+ *
  * ### clusterIdentifier
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,8 +26,11 @@ import * as utilities from "../utilities";
  *     sql: "CREATE GROUP group_name;",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### workgroupName
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -36,13 +41,14 @@ import * as utilities from "../utilities";
  *     sql: "CREATE GROUP group_name;",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Redshift Data Statements using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:redshiftdata/statement:Statement example example
+ * $ pulumi import aws:redshiftdata/statement:Statement example example
  * ```
  */
 export class Statement extends pulumi.CustomResource {

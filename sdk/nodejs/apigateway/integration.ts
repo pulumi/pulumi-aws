@@ -14,6 +14,7 @@ import {RestApi} from "./index";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -52,8 +53,11 @@ import {RestApi} from "./index";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Lambda integration
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -117,9 +121,11 @@ import {RestApi} from "./index";
  *     sourceArn: pulumi.interpolate`arn:aws:execute-api:${myregion}:${accountId}:${api.id}/*&#47;${method.httpMethod}${resource.path}`,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## VPC Link
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -174,13 +180,14 @@ import {RestApi} from "./index";
  *     connectionId: testVpcLink.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_api_gateway_integration` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD`. For example:
  *
  * ```sh
- *  $ pulumi import aws:apigateway/integration:Integration example 12345abcde/67890fghij/GET
+ * $ pulumi import aws:apigateway/integration:Integration example 12345abcde/67890fghij/GET
  * ```
  */
 export class Integration extends pulumi.CustomResource {

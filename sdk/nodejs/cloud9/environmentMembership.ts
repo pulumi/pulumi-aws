@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,13 +25,14 @@ import * as utilities from "../utilities";
  *     userArn: testUser.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Cloud9 environment membership using the `environment-id#user-arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:cloud9/environmentMembership:EnvironmentMembership test environment-id#user-arn
+ * $ pulumi import aws:cloud9/environmentMembership:EnvironmentMembership test environment-id#user-arn
  * ```
  */
 export class EnvironmentMembership extends pulumi.CustomResource {

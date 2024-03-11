@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Provides a SageMaker Code Repository resource.
  *
  * ## Example Usage
+ *
  * ### Basic usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,8 +26,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Example with Secret
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -46,13 +51,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SageMaker Code Repositories using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:sagemaker/codeRepository:CodeRepository test_code_repository my-code-repo
+ * $ pulumi import aws:sagemaker/codeRepository:CodeRepository test_code_repository my-code-repo
  * ```
  */
 export class CodeRepository extends pulumi.CustomResource {

@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -53,13 +54,14 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_ce_cost_category` using the id. For example:
  *
  * ```sh
- *  $ pulumi import aws:costexplorer/costCategory:CostCategory example costCategoryARN
+ * $ pulumi import aws:costexplorer/costCategory:CostCategory example costCategoryARN
  * ```
  */
 export class CostCategory extends pulumi.CustomResource {

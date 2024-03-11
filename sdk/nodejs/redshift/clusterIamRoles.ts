@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,13 +21,14 @@ import * as utilities from "../utilities";
  *     iamRoleArns: [exampleAwsIamRole.arn],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Redshift Cluster IAM Roless using the `cluster_identifier`. For example:
  *
  * ```sh
- *  $ pulumi import aws:redshift/clusterIamRoles:ClusterIamRoles examplegroup1 example
+ * $ pulumi import aws:redshift/clusterIamRoles:ClusterIamRoles examplegroup1 example
  * ```
  */
 export class ClusterIamRoles extends pulumi.CustomResource {

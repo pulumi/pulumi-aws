@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,6 +20,7 @@ import * as utilities from "../utilities";
  * });
  * export const eksAccessEntryOutputs = exampleAwsEksAccessEntry;
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAccessEntry(args: GetAccessEntryArgs, opts?: pulumi.InvokeOptions): Promise<GetAccessEntryResult> {
 
@@ -90,6 +92,7 @@ export interface GetAccessEntryResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -100,6 +103,7 @@ export interface GetAccessEntryResult {
  * });
  * export const eksAccessEntryOutputs = exampleAwsEksAccessEntry;
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAccessEntryOutput(args: GetAccessEntryOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAccessEntryResult> {
     return pulumi.output(args).apply((a: any) => getAccessEntry(a, opts))

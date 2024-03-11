@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS Network Manager Attachment Accepter.
  *
  * ## Example Usage
+ *
  * ### Example with VPC attachment
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,8 +21,11 @@ import * as utilities from "../utilities";
  *     attachmentType: vpc.attachmentType,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Example with site-to-site VPN attachment
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -30,6 +35,7 @@ import * as utilities from "../utilities";
  *     attachmentType: vpn.attachmentType,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class AttachmentAccepter extends pulumi.CustomResource {
     /**

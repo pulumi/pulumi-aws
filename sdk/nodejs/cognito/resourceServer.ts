@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Provides a Cognito Resource Server.
  *
  * ## Example Usage
+ *
  * ### Create a basic resource server
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,8 +26,11 @@ import * as utilities from "../utilities";
  *     userPoolId: pool.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Create a resource server with sample-scope
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -41,13 +46,14 @@ import * as utilities from "../utilities";
  *     userPoolId: pool.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_cognito_resource_server` using their User Pool ID and Identifier. For example:
  *
  * ```sh
- *  $ pulumi import aws:cognito/resourceServer:ResourceServer example "us-west-2_abc123|https://example.com"
+ * $ pulumi import aws:cognito/resourceServer:ResourceServer example "us-west-2_abc123|https://example.com"
  * ```
  */
 export class ResourceServer extends pulumi.CustomResource {
