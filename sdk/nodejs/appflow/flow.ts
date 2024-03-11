@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -108,13 +109,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import AppFlow flows using the `arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:appflow/flow:Flow example arn:aws:appflow:us-west-2:123456789012:flow/example-flow
+ * $ pulumi import aws:appflow/flow:Flow example arn:aws:appflow:us-west-2:123456789012:flow/example-flow
  * ```
  */
 export class Flow extends pulumi.CustomResource {

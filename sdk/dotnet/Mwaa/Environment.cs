@@ -15,8 +15,10 @@ namespace Pulumi.Aws.Mwaa
     /// ## Example Usage
     /// 
     /// A MWAA Environment requires an IAM role (`aws.iam.Role`), two subnets in the private zone (`aws.ec2.Subnet`) and a versioned S3 bucket (`aws.s3.BucketV2`).
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,8 +45,11 @@ namespace Pulumi.Aws.Mwaa
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Example with Airflow configuration options
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -76,10 +81,13 @@ namespace Pulumi.Aws.Mwaa
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Example with logging configurations
     /// 
     /// Note that Airflow task logs are enabled by default with the `INFO` log level.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -134,8 +142,11 @@ namespace Pulumi.Aws.Mwaa
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Example with tags
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -167,13 +178,14 @@ namespace Pulumi.Aws.Mwaa
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import MWAA Environment using `Name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:mwaa/environment:Environment example MyAirflowEnvironment
+    /// $ pulumi import aws:mwaa/environment:Environment example MyAirflowEnvironment
     /// ```
     /// </summary>
     [AwsResourceType("aws:mwaa/environment:Environment")]

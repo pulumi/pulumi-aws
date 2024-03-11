@@ -309,6 +309,7 @@ class GameSessionQueue(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -331,13 +332,14 @@ class GameSessionQueue(pulumi.CustomResource):
             ],
             timeout_in_seconds=60)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import GameLift Game Session Queues using their `name`. For example:
 
         ```sh
-         $ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example
+        $ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -361,6 +363,7 @@ class GameSessionQueue(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -383,13 +386,14 @@ class GameSessionQueue(pulumi.CustomResource):
             ],
             timeout_in_seconds=60)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import GameLift Game Session Queues using their `name`. For example:
 
         ```sh
-         $ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example
+        $ pulumi import aws:gamelift/gameSessionQueue:GameSessionQueue example example
         ```
 
         :param str resource_name: The name of the resource.

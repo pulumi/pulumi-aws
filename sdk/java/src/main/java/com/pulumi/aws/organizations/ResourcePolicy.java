@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides a resource to manage a resource-based delegation policy that can be used to delegate policy management for AWS Organizations to specified member accounts to perform policy actions that are by default available only to the management account. See the [_AWS Organizations User Guide_](https://docs.aws.amazon.com/organizations/latest/userguide/orgs_delegate_policies.html) for more information.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -78,13 +80,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_organizations_resource_policy` using the resource policy ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:organizations/resourcePolicy:ResourcePolicy example rp-12345678
+ * $ pulumi import aws:organizations/resourcePolicy:ResourcePolicy example rp-12345678
  * ```
  * 
  */

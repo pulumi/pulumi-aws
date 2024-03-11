@@ -170,8 +170,10 @@ def get_organization(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
     Get information about the organization that the user's account belongs to
 
     ## Example Usage
+
     ### List all account IDs for the organization
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -179,8 +181,11 @@ def get_organization(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
     example = aws.organizations.get_organization()
     pulumi.export("accountIds", [__item.id for __item in example.accounts])
     ```
+    <!--End PulumiCodeChooser -->
+
     ### SNS topic that can be interacted by the organization only
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -208,6 +213,7 @@ def get_organization(opts: Optional[pulumi.InvokeOptions] = None) -> AwaitableGe
         arn=sns_topic.arn,
         policy=sns_topic_policy.json)
     ```
+    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -233,8 +239,10 @@ def get_organization_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulu
     Get information about the organization that the user's account belongs to
 
     ## Example Usage
+
     ### List all account IDs for the organization
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -242,8 +250,11 @@ def get_organization_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulu
     example = aws.organizations.get_organization()
     pulumi.export("accountIds", [__item.id for __item in example.accounts])
     ```
+    <!--End PulumiCodeChooser -->
+
     ### SNS topic that can be interacted by the organization only
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -271,5 +282,6 @@ def get_organization_output(opts: Optional[pulumi.InvokeOptions] = None) -> pulu
         arn=sns_topic.arn,
         policy=sns_topic_policy.json)
     ```
+    <!--End PulumiCodeChooser -->
     """
     ...

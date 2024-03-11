@@ -14,8 +14,10 @@ import (
 // Manages a Route53 Hosted Zone. For managing Domain Name System Security Extensions (DNSSEC), see the `route53.KeySigningKey` and `route53.HostedZoneDnsSec` resources.
 //
 // ## Example Usage
+//
 // ### Public Zone
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,12 +41,15 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Public Subdomain Zone
 //
 // For use in subdomains, note that you need to create a
 // `route53.Record` of type `NS` as well as the subdomain
 // zone.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -87,12 +92,15 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Private Zone
 //
 // > **NOTE:** This provider provides both exclusive VPC associations defined in-line in this resource via `vpc` configuration blocks and a separate ` Zone VPC Association resource. At this time, you cannot use in-line VPC associations in conjunction with any  `route53.ZoneAssociation`  resources with the same zone ID otherwise it will cause a perpetual difference in plan output. You can optionally use [ `ignoreChanges` ](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to manage additional associations via the  `route53.ZoneAssociation` resource.
 //
 // > **NOTE:** Private zones require at least one VPC association at all times.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -121,15 +129,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Route53 Zones using the zone `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:route53/zone:Zone myzone Z1D633PJN98FT9
-//
+// $ pulumi import aws:route53/zone:Zone myzone Z1D633PJN98FT9
 // ```
 type Zone struct {
 	pulumi.CustomResourceState

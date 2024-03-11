@@ -142,19 +142,21 @@ class Activity(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         sfn_activity = aws.sfn.Activity("sfn_activity", name="my-activity")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import activities using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:sfn/activity:Activity foo arn:aws:states:eu-west-1:123456789098:activity:bar
+        $ pulumi import aws:sfn/activity:Activity foo arn:aws:states:eu-west-1:123456789098:activity:bar
         ```
 
         :param str resource_name: The name of the resource.
@@ -173,19 +175,21 @@ class Activity(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         sfn_activity = aws.sfn.Activity("sfn_activity", name="my-activity")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import activities using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:sfn/activity:Activity foo arn:aws:states:eu-west-1:123456789098:activity:bar
+        $ pulumi import aws:sfn/activity:Activity foo arn:aws:states:eu-west-1:123456789098:activity:bar
         ```
 
         :param str resource_name: The name of the resource.

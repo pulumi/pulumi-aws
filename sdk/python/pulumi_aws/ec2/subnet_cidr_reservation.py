@@ -183,6 +183,7 @@ class SubnetCidrReservation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -192,13 +193,14 @@ class SubnetCidrReservation(pulumi.CustomResource):
             reservation_type="prefix",
             subnet_id=example_aws_subnet["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Existing CIDR reservations using `SUBNET_ID:RESERVATION_ID`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/subnetCidrReservation:SubnetCidrReservation example subnet-01llsxvsxabqiymcz:scr-4mnvz6wb7otksjcs9
+        $ pulumi import aws:ec2/subnetCidrReservation:SubnetCidrReservation example subnet-01llsxvsxabqiymcz:scr-4mnvz6wb7otksjcs9
         ```
 
         :param str resource_name: The name of the resource.
@@ -219,6 +221,7 @@ class SubnetCidrReservation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -228,13 +231,14 @@ class SubnetCidrReservation(pulumi.CustomResource):
             reservation_type="prefix",
             subnet_id=example_aws_subnet["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Existing CIDR reservations using `SUBNET_ID:RESERVATION_ID`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/subnetCidrReservation:SubnetCidrReservation example subnet-01llsxvsxabqiymcz:scr-4mnvz6wb7otksjcs9
+        $ pulumi import aws:ec2/subnetCidrReservation:SubnetCidrReservation example subnet-01llsxvsxabqiymcz:scr-4mnvz6wb7otksjcs9
         ```
 
         :param str resource_name: The name of the resource.

@@ -304,8 +304,10 @@ class FlowDefinition(pulumi.CustomResource):
         Provides a SageMaker Flow Definition resource.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -325,8 +327,11 @@ class FlowDefinition(pulumi.CustomResource):
                 s3_output_path=f"s3://{example_aws_s3_bucket['bucket']}/",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Public Workteam Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -352,8 +357,11 @@ class FlowDefinition(pulumi.CustomResource):
                 s3_output_path=f"s3://{example_aws_s3_bucket['bucket']}/",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Human Loop Activation Config Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -391,13 +399,14 @@ class FlowDefinition(pulumi.CustomResource):
                 s3_output_path=f"s3://{example_aws_s3_bucket['bucket']}/",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker Flow Definitions using the `flow_definition_name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/flowDefinition:FlowDefinition example example
+        $ pulumi import aws:sagemaker/flowDefinition:FlowDefinition example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -420,8 +429,10 @@ class FlowDefinition(pulumi.CustomResource):
         Provides a SageMaker Flow Definition resource.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -441,8 +452,11 @@ class FlowDefinition(pulumi.CustomResource):
                 s3_output_path=f"s3://{example_aws_s3_bucket['bucket']}/",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Public Workteam Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -468,8 +482,11 @@ class FlowDefinition(pulumi.CustomResource):
                 s3_output_path=f"s3://{example_aws_s3_bucket['bucket']}/",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Human Loop Activation Config Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -507,13 +524,14 @@ class FlowDefinition(pulumi.CustomResource):
                 s3_output_path=f"s3://{example_aws_s3_bucket['bucket']}/",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker Flow Definitions using the `flow_definition_name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/flowDefinition:FlowDefinition example example
+        $ pulumi import aws:sagemaker/flowDefinition:FlowDefinition example example
         ```
 
         :param str resource_name: The name of the resource.

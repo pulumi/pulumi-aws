@@ -166,6 +166,7 @@ class UsagePlanKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -184,13 +185,14 @@ class UsagePlanKey(pulumi.CustomResource):
             key_type="API_KEY",
             usage_plan_id=myusageplan.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AWS API Gateway Usage Plan Key using the `USAGE-PLAN-ID/USAGE-PLAN-KEY-ID`. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/usagePlanKey:UsagePlanKey key 12345abcde/zzz
+        $ pulumi import aws:apigateway/usagePlanKey:UsagePlanKey key 12345abcde/zzz
         ```
 
         :param str resource_name: The name of the resource.
@@ -210,6 +212,7 @@ class UsagePlanKey(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -228,13 +231,14 @@ class UsagePlanKey(pulumi.CustomResource):
             key_type="API_KEY",
             usage_plan_id=myusageplan.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AWS API Gateway Usage Plan Key using the `USAGE-PLAN-ID/USAGE-PLAN-KEY-ID`. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/usagePlanKey:UsagePlanKey key 12345abcde/zzz
+        $ pulumi import aws:apigateway/usagePlanKey:UsagePlanKey key 12345abcde/zzz
         ```
 
         :param str resource_name: The name of the resource.

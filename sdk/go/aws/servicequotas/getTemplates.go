@@ -14,8 +14,10 @@ import (
 // Data source for managing an AWS Service Quotas Templates.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetTemplates(ctx *pulumi.Context, args *GetTemplatesArgs, opts ...pulumi.InvokeOption) (*GetTemplatesResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTemplatesResult

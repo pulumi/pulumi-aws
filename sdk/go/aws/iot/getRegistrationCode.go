@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -53,6 +54,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetRegistrationCode(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetRegistrationCodeResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetRegistrationCodeResult

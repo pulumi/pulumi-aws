@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,13 +31,14 @@ namespace Pulumi.Aws.Route53
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Route53 Resolver rule associations using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:route53/resolverRuleAssociation:ResolverRuleAssociation example rslvr-rrassoc-97242eaf88example
+    /// $ pulumi import aws:route53/resolverRuleAssociation:ResolverRuleAssociation example rslvr-rrassoc-97242eaf88example
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53/resolverRuleAssociation:ResolverRuleAssociation")]

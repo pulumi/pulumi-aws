@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -39,13 +40,14 @@ import * as utilities from "../utilities";
  *     instanceName: testInstance.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_lightsail_lb_attachment` using the name attribute. For example:
  *
  * ```sh
- *  $ pulumi import aws:lightsail/lbAttachment:LbAttachment test example-load-balancer,example-instance
+ * $ pulumi import aws:lightsail/lbAttachment:LbAttachment test example-load-balancer,example-instance
  * ```
  */
 export class LbAttachment extends pulumi.CustomResource {

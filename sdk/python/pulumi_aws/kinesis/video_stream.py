@@ -312,6 +312,7 @@ class VideoStream(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -325,13 +326,14 @@ class VideoStream(pulumi.CustomResource):
                 "Name": "kinesis-video-stream",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Kinesis Streams using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:kinesis/videoStream:VideoStream test_stream arn:aws:kinesisvideo:us-west-2:123456789012:stream/pulumi-kinesis-test/1554978910975
+        $ pulumi import aws:kinesis/videoStream:VideoStream test_stream arn:aws:kinesisvideo:us-west-2:123456789012:stream/pulumi-kinesis-test/1554978910975
         ```
 
         :param str resource_name: The name of the resource.
@@ -357,6 +359,7 @@ class VideoStream(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -370,13 +373,14 @@ class VideoStream(pulumi.CustomResource):
                 "Name": "kinesis-video-stream",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Kinesis Streams using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:kinesis/videoStream:VideoStream test_stream arn:aws:kinesisvideo:us-west-2:123456789012:stream/pulumi-kinesis-test/1554978910975
+        $ pulumi import aws:kinesis/videoStream:VideoStream test_stream arn:aws:kinesisvideo:us-west-2:123456789012:stream/pulumi-kinesis-test/1554978910975
         ```
 
         :param str resource_name: The name of the resource.

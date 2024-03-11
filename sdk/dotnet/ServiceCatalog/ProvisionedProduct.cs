@@ -21,8 +21,10 @@ namespace Pulumi.Aws.ServiceCatalog
     /// &gt; **Tip:** A "provisioning artifact" is also referred to as a "version." A "distributor" is also referred to as a "vendor."
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -52,13 +54,14 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_servicecatalog_provisioned_product` using the provisioned product ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:servicecatalog/provisionedProduct:ProvisionedProduct example pp-dnigbtea24ste
+    /// $ pulumi import aws:servicecatalog/provisionedProduct:ProvisionedProduct example pp-dnigbtea24ste
     /// ```
     /// </summary>
     [AwsResourceType("aws:servicecatalog/provisionedProduct:ProvisionedProduct")]

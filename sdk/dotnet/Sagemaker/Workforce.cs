@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Sagemaker
     /// Provides a SageMaker Workforce resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Cognito Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -53,8 +55,11 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Oidc Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -81,13 +86,14 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SageMaker Workforces using the `workforce_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:sagemaker/workforce:Workforce example example
+    /// $ pulumi import aws:sagemaker/workforce:Workforce example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/workforce:Workforce")]

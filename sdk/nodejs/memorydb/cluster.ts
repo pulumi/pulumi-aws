@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -28,13 +29,14 @@ import * as utilities from "../utilities";
  *     subnetGroupName: exampleAwsMemorydbSubnetGroup.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import a cluster using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:memorydb/cluster:Cluster example my-cluster
+ * $ pulumi import aws:memorydb/cluster:Cluster example my-cluster
  * ```
  */
 export class Cluster extends pulumi.CustomResource {

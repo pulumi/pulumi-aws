@@ -13,8 +13,10 @@ namespace Pulumi.Aws.CodeCatalyst
     /// Resource for managing an AWS CodeCatalyst Source Repository.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,13 +34,14 @@ namespace Pulumi.Aws.CodeCatalyst
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CodeCatalyst Source Repository using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:codecatalyst/sourceRepository:SourceRepository example example-repo
+    /// $ pulumi import aws:codecatalyst/sourceRepository:SourceRepository example example-repo
     /// ```
     /// </summary>
     [AwsResourceType("aws:codecatalyst/sourceRepository:SourceRepository")]

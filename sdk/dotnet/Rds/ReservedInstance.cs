@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -44,13 +45,14 @@ namespace Pulumi.Aws.Rds
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import RDS DB Instance Reservations using the `instance_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:rds/reservedInstance:ReservedInstance reservation_instance CustomReservationID
+    /// $ pulumi import aws:rds/reservedInstance:ReservedInstance reservation_instance CustomReservationID
     /// ```
     /// </summary>
     [AwsResourceType("aws:rds/reservedInstance:ReservedInstance")]

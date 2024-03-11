@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Provides an OpsWorks RDS DB Instance resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,6 +51,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:opsworks/rdsDbInstance:RdsDbInstance")

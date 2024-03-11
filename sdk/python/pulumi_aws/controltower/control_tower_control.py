@@ -103,6 +103,7 @@ class ControlTowerControl(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -114,13 +115,14 @@ class ControlTowerControl(pulumi.CustomResource):
             control_identifier=f"arn:aws:controltower:{current.name}::control/AWS-GR_EC2_VOLUME_INUSE_CHECK",
             target_identifier=[x.arn for x in example_get_organizational_units.children if x.name == "Infrastructure"][0])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Control Tower Controls using their `organizational_unit_arn/control_identifier`. For example:
 
         ```sh
-         $ pulumi import aws:controltower/controlTowerControl:ControlTowerControl example arn:aws:organizations::123456789101:ou/o-qqaejywet/ou-qg5o-ufbhdtv3,arn:aws:controltower:us-east-1::control/WTDSMKDKDNLE
+        $ pulumi import aws:controltower/controlTowerControl:ControlTowerControl example arn:aws:organizations::123456789101:ou/o-qqaejywet/ou-qg5o-ufbhdtv3,arn:aws:controltower:us-east-1::control/WTDSMKDKDNLE
         ```
 
         :param str resource_name: The name of the resource.
@@ -140,6 +142,7 @@ class ControlTowerControl(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -151,13 +154,14 @@ class ControlTowerControl(pulumi.CustomResource):
             control_identifier=f"arn:aws:controltower:{current.name}::control/AWS-GR_EC2_VOLUME_INUSE_CHECK",
             target_identifier=[x.arn for x in example_get_organizational_units.children if x.name == "Infrastructure"][0])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Control Tower Controls using their `organizational_unit_arn/control_identifier`. For example:
 
         ```sh
-         $ pulumi import aws:controltower/controlTowerControl:ControlTowerControl example arn:aws:organizations::123456789101:ou/o-qqaejywet/ou-qg5o-ufbhdtv3,arn:aws:controltower:us-east-1::control/WTDSMKDKDNLE
+        $ pulumi import aws:controltower/controlTowerControl:ControlTowerControl example arn:aws:organizations::123456789101:ou/o-qqaejywet/ou-qg5o-ufbhdtv3,arn:aws:controltower:us-east-1::control/WTDSMKDKDNLE
         ```
 
         :param str resource_name: The name of the resource.

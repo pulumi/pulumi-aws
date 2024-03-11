@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS Audit Manager Assessment Report.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,15 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Audit Manager Assessment Reports using the assessment report `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:auditmanager/assessmentReport:AssessmentReport example abc123-de45
-//
+// $ pulumi import aws:auditmanager/assessmentReport:AssessmentReport example abc123-de45
 // ```
 type AssessmentReport struct {
 	pulumi.CustomResourceState

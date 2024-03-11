@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Organizations
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -38,13 +39,14 @@ namespace Pulumi.Aws.Organizations
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import the AWS organization using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:organizations/organization:Organization my_org o-1234567
+    /// $ pulumi import aws:organizations/organization:Organization my_org o-1234567
     /// ```
     /// </summary>
     [AwsResourceType("aws:organizations/organization:Organization")]

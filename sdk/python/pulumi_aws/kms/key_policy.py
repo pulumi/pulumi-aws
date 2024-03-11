@@ -151,6 +151,7 @@ class KeyPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -173,13 +174,14 @@ class KeyPolicy(pulumi.CustomResource):
                 "version": "2012-10-17",
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import KMS Key Policies using the `key_id`. For example:
 
         ```sh
-         $ pulumi import aws:kms/keyPolicy:KeyPolicy a 1234abcd-12ab-34cd-56ef-1234567890ab
+        $ pulumi import aws:kms/keyPolicy:KeyPolicy a 1234abcd-12ab-34cd-56ef-1234567890ab
         ```
 
         :param str resource_name: The name of the resource.
@@ -203,6 +205,7 @@ class KeyPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -225,13 +228,14 @@ class KeyPolicy(pulumi.CustomResource):
                 "version": "2012-10-17",
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import KMS Key Policies using the `key_id`. For example:
 
         ```sh
-         $ pulumi import aws:kms/keyPolicy:KeyPolicy a 1234abcd-12ab-34cd-56ef-1234567890ab
+        $ pulumi import aws:kms/keyPolicy:KeyPolicy a 1234abcd-12ab-34cd-56ef-1234567890ab
         ```
 
         :param str resource_name: The name of the resource.

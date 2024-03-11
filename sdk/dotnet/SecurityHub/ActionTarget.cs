@@ -14,6 +14,7 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -33,13 +34,14 @@ namespace Pulumi.Aws.SecurityHub
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Security Hub custom action using the action target ARN. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:securityhub/actionTarget:ActionTarget example arn:aws:securityhub:eu-west-1:312940875350:action/custom/a
+    /// $ pulumi import aws:securityhub/actionTarget:ActionTarget example arn:aws:securityhub:eu-west-1:312940875350:action/custom/a
     /// ```
     /// </summary>
     [AwsResourceType("aws:securityhub/actionTarget:ActionTarget")]

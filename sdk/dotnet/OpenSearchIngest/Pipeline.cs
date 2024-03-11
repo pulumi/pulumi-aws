@@ -13,8 +13,10 @@ namespace Pulumi.Aws.OpenSearchIngest
     /// Resource for managing an AWS OpenSearch Ingestion Pipeline.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -77,8 +79,11 @@ namespace Pulumi.Aws.OpenSearchIngest
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Using file function
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -101,13 +106,14 @@ namespace Pulumi.Aws.OpenSearchIngest
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import OpenSearch Ingestion Pipeline using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:opensearchingest/pipeline:Pipeline example example
+    /// $ pulumi import aws:opensearchingest/pipeline:Pipeline example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:opensearchingest/pipeline:Pipeline")]

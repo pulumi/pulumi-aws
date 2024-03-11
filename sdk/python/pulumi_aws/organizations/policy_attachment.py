@@ -134,8 +134,10 @@ class PolicyAttachment(pulumi.CustomResource):
         Provides a resource to attach an AWS Organizations policy to an organization account, root, or unit.
 
         ## Example Usage
+
         ### Organization Account
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -144,8 +146,11 @@ class PolicyAttachment(pulumi.CustomResource):
             policy_id=example["id"],
             target_id="123456789012")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Organization Root
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -154,8 +159,11 @@ class PolicyAttachment(pulumi.CustomResource):
             policy_id=example["id"],
             target_id=example_aws_organizations_organization["roots"][0]["id"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Organization Unit
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -164,6 +172,7 @@ class PolicyAttachment(pulumi.CustomResource):
             policy_id=example["id"],
             target_id=example_aws_organizations_organizational_unit["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -172,7 +181,7 @@ class PolicyAttachment(pulumi.CustomResource):
         With an account target:
 
         ```sh
-         $ pulumi import aws:organizations/policyAttachment:PolicyAttachment account 123456789012:p-12345678
+        $ pulumi import aws:organizations/policyAttachment:PolicyAttachment account 123456789012:p-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -191,8 +200,10 @@ class PolicyAttachment(pulumi.CustomResource):
         Provides a resource to attach an AWS Organizations policy to an organization account, root, or unit.
 
         ## Example Usage
+
         ### Organization Account
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -201,8 +212,11 @@ class PolicyAttachment(pulumi.CustomResource):
             policy_id=example["id"],
             target_id="123456789012")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Organization Root
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -211,8 +225,11 @@ class PolicyAttachment(pulumi.CustomResource):
             policy_id=example["id"],
             target_id=example_aws_organizations_organization["roots"][0]["id"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Organization Unit
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -221,6 +238,7 @@ class PolicyAttachment(pulumi.CustomResource):
             policy_id=example["id"],
             target_id=example_aws_organizations_organizational_unit["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -229,7 +247,7 @@ class PolicyAttachment(pulumi.CustomResource):
         With an account target:
 
         ```sh
-         $ pulumi import aws:organizations/policyAttachment:PolicyAttachment account 123456789012:p-12345678
+        $ pulumi import aws:organizations/policyAttachment:PolicyAttachment account 123456789012:p-12345678
         ```
 
         :param str resource_name: The name of the resource.

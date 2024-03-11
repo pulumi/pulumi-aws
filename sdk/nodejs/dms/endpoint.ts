@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -37,13 +38,14 @@ import * as utilities from "../utilities";
  *     username: "test",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import endpoints using the `endpoint_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:dms/endpoint:Endpoint test test-dms-endpoint-tf
+ * $ pulumi import aws:dms/endpoint:Endpoint test test-dms-endpoint-tf
  * ```
  */
 export class Endpoint extends pulumi.CustomResource {

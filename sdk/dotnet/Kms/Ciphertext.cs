@@ -17,6 +17,7 @@ namespace Pulumi.Aws.Kms
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,6 +44,7 @@ namespace Pulumi.Aws.Kms
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:kms/ciphertext:Ciphertext")]
     public partial class Ciphertext : global::Pulumi.CustomResource

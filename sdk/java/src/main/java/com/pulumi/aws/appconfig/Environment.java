@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Provides an AppConfig Environment resource for an `aws.appconfig.Application` resource. One or more environments can be defined for an application.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -65,13 +67,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import AppConfig Environments using the environment ID and application ID separated by a colon (`:`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:appconfig/environment:Environment example 71abcde:11xxxxx
+ * $ pulumi import aws:appconfig/environment:Environment example 71abcde:11xxxxx
  * ```
  * 
  */

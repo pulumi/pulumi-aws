@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -43,13 +44,14 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Amplify domain association using `app_id` and `domain_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:amplify/domainAssociation:DomainAssociation app d2ypk4k47z8u6/example.com
+ * $ pulumi import aws:amplify/domainAssociation:DomainAssociation app d2ypk4k47z8u6/example.com
  * ```
  */
 export class DomainAssociation extends pulumi.CustomResource {

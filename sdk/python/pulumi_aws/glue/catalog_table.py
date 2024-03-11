@@ -557,8 +557,10 @@ class CatalogTable(pulumi.CustomResource):
         Provides a Glue Catalog Table Resource. You can refer to the [Glue Developer Guide](http://docs.aws.amazon.com/glue/latest/dg/populate-data-catalog.html) for a full explanation of the Glue Data Catalog functionality.
 
         ## Example Usage
+
         ### Basic Table
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -567,8 +569,11 @@ class CatalogTable(pulumi.CustomResource):
             name="MyCatalogTable",
             database_name="MyCatalogDatabase")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Parquet Table for Athena
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -619,13 +624,14 @@ class CatalogTable(pulumi.CustomResource):
                 ],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Glue Tables using the catalog ID (usually AWS account ID), database name, and table name. For example:
 
         ```sh
-         $ pulumi import aws:glue/catalogTable:CatalogTable MyTable 123456789012:MyDatabase:MyTable
+        $ pulumi import aws:glue/catalogTable:CatalogTable MyTable 123456789012:MyDatabase:MyTable
         ```
 
         :param str resource_name: The name of the resource.
@@ -658,8 +664,10 @@ class CatalogTable(pulumi.CustomResource):
         Provides a Glue Catalog Table Resource. You can refer to the [Glue Developer Guide](http://docs.aws.amazon.com/glue/latest/dg/populate-data-catalog.html) for a full explanation of the Glue Data Catalog functionality.
 
         ## Example Usage
+
         ### Basic Table
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -668,8 +676,11 @@ class CatalogTable(pulumi.CustomResource):
             name="MyCatalogTable",
             database_name="MyCatalogDatabase")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Parquet Table for Athena
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -720,13 +731,14 @@ class CatalogTable(pulumi.CustomResource):
                 ],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Glue Tables using the catalog ID (usually AWS account ID), database name, and table name. For example:
 
         ```sh
-         $ pulumi import aws:glue/catalogTable:CatalogTable MyTable 123456789012:MyDatabase:MyTable
+        $ pulumi import aws:glue/catalogTable:CatalogTable MyTable 123456789012:MyDatabase:MyTable
         ```
 
         :param str resource_name: The name of the resource.

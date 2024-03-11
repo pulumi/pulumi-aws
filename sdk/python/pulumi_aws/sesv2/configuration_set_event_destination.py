@@ -135,8 +135,10 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
         Resource for managing an AWS SESv2 (Simple Email V2) Configuration Set Event Destination.
 
         ## Example Usage
+
         ### Cloud Watch Destination
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -157,8 +159,11 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
                 matching_event_types=["SEND"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Kinesis Firehose Destination
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -176,8 +181,11 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
                 matching_event_types=["SEND"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Pinpoint Destination
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -194,8 +202,11 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
                 matching_event_types=["SEND"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### SNS Destination
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -212,13 +223,14 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
                 matching_event_types=["SEND"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SESv2 (Simple Email V2) Configuration Set Event Destination using the `id` (`configuration_set_name|event_destination_name`). For example:
 
         ```sh
-         $ pulumi import aws:sesv2/configurationSetEventDestination:ConfigurationSetEventDestination example example_configuration_set|example_event_destination
+        $ pulumi import aws:sesv2/configurationSetEventDestination:ConfigurationSetEventDestination example example_configuration_set|example_event_destination
         ```
 
         :param str resource_name: The name of the resource.
@@ -237,8 +249,10 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
         Resource for managing an AWS SESv2 (Simple Email V2) Configuration Set Event Destination.
 
         ## Example Usage
+
         ### Cloud Watch Destination
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -259,8 +273,11 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
                 matching_event_types=["SEND"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Kinesis Firehose Destination
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -278,8 +295,11 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
                 matching_event_types=["SEND"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Pinpoint Destination
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -296,8 +316,11 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
                 matching_event_types=["SEND"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### SNS Destination
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -314,13 +337,14 @@ class ConfigurationSetEventDestination(pulumi.CustomResource):
                 matching_event_types=["SEND"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SESv2 (Simple Email V2) Configuration Set Event Destination using the `id` (`configuration_set_name|event_destination_name`). For example:
 
         ```sh
-         $ pulumi import aws:sesv2/configurationSetEventDestination:ConfigurationSetEventDestination example example_configuration_set|example_event_destination
+        $ pulumi import aws:sesv2/configurationSetEventDestination:ConfigurationSetEventDestination example example_configuration_set|example_event_destination
         ```
 
         :param str resource_name: The name of the resource.

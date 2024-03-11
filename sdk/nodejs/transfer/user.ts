@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -60,13 +61,14 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Transfer Users using the `server_id` and `user_name` separated by `/`. For example:
  *
  * ```sh
- *  $ pulumi import aws:transfer/user:User bar s-12345678/test-username
+ * $ pulumi import aws:transfer/user:User bar s-12345678/test-username
  * ```
  */
 export class User extends pulumi.CustomResource {

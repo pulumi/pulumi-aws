@@ -242,6 +242,7 @@ class Ledger(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -250,13 +251,14 @@ class Ledger(pulumi.CustomResource):
             name="sample-ledger",
             permissions_mode="STANDARD")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import QLDB Ledgers using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:qldb/ledger:Ledger sample-ledger sample-ledger
+        $ pulumi import aws:qldb/ledger:Ledger sample-ledger sample-ledger
         ```
 
         :param str resource_name: The name of the resource.
@@ -280,6 +282,7 @@ class Ledger(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -288,13 +291,14 @@ class Ledger(pulumi.CustomResource):
             name="sample-ledger",
             permissions_mode="STANDARD")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import QLDB Ledgers using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:qldb/ledger:Ledger sample-ledger sample-ledger
+        $ pulumi import aws:qldb/ledger:Ledger sample-ledger sample-ledger
         ```
 
         :param str resource_name: The name of the resource.

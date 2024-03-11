@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -17,6 +18,7 @@ import * as utilities from "../utilities";
  *     arn: exampleAwsOutpostsOutpost.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getOutpostInstanceTypes(args: GetOutpostInstanceTypesArgs, opts?: pulumi.InvokeOptions): Promise<GetOutpostInstanceTypesResult> {
 
@@ -55,6 +57,7 @@ export interface GetOutpostInstanceTypesResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -63,6 +66,7 @@ export interface GetOutpostInstanceTypesResult {
  *     arn: exampleAwsOutpostsOutpost.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getOutpostInstanceTypesOutput(args: GetOutpostInstanceTypesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOutpostInstanceTypesResult> {
     return pulumi.output(args).apply((a: any) => getOutpostInstanceTypes(a, opts))

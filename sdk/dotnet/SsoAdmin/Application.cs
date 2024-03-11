@@ -17,76 +17,13 @@ namespace Pulumi.Aws.SsoAdmin
     /// See this issue for additional context.
     /// 
     /// ## Example Usage
-    /// ### Basic Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// 	
-    /// object NotImplemented(string errorMessage) 
-    /// {
-    ///     throw new System.NotImplementedException(errorMessage);
-    /// }
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
-    /// 
-    ///     var exampleApplication = new Aws.SsoAdmin.Application("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         ApplicationProviderArn = "arn:aws:sso::aws:applicationProvider/custom",
-    ///         InstanceArn = NotImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// ### With Portal Options
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// 	
-    /// object NotImplemented(string errorMessage) 
-    /// {
-    ///     throw new System.NotImplementedException(errorMessage);
-    /// }
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
-    /// 
-    ///     var exampleApplication = new Aws.SsoAdmin.Application("example", new()
-    ///     {
-    ///         Name = "example",
-    ///         ApplicationProviderArn = "arn:aws:sso::aws:applicationProvider/custom",
-    ///         InstanceArn = NotImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
-    ///         PortalOptions = new Aws.SsoAdmin.Inputs.ApplicationPortalOptionsArgs
-    ///         {
-    ///             Visibility = "ENABLED",
-    ///             SignInOptions = new Aws.SsoAdmin.Inputs.ApplicationPortalOptionsSignInOptionsArgs
-    ///             {
-    ///                 ApplicationUrl = "http://example.com",
-    ///                 Origin = "APPLICATION",
-    ///             },
-    ///         },
-    ///     });
-    /// 
-    /// });
-    /// ```
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SSO Admin Application using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ssoadmin/application:Application example arn:aws:sso::012345678901:application/id-12345678
+    /// $ pulumi import aws:ssoadmin/application:Application example arn:aws:sso::012345678901:application/id-12345678
     /// ```
     /// </summary>
     [AwsResourceType("aws:ssoadmin/application:Application")]

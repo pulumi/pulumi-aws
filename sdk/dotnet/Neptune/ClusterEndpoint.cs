@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,13 +32,14 @@ namespace Pulumi.Aws.Neptune
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_neptune_cluster_endpoint` using the `cluster-identifier:endpoint-identfier`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:neptune/clusterEndpoint:ClusterEndpoint example my-cluster:my-endpoint
+    /// $ pulumi import aws:neptune/clusterEndpoint:ClusterEndpoint example my-cluster:my-endpoint
     /// ```
     /// </summary>
     [AwsResourceType("aws:neptune/clusterEndpoint:ClusterEndpoint")]

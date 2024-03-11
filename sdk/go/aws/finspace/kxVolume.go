@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS FinSpace Kx Volume.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -50,15 +52,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import an AWS FinSpace Kx Volume using the `id` (environment ID and volume name, comma-delimited). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:finspace/kxVolume:KxVolume example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-volume
-//
+// $ pulumi import aws:finspace/kxVolume:KxVolume example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-volume
 // ```
 type KxVolume struct {
 	pulumi.CustomResourceState

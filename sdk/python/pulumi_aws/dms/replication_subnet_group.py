@@ -218,8 +218,10 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
         > **Note:** AWS requires a special IAM role called `dms-vpc-role` when using this resource. See the example below to create it as part of your configuration.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -236,10 +238,13 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
                 "Name": "example",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Creating special IAM role
 
         If your account does not already include the `dms-vpc-role` IAM role, you will need to create it to allow DMS to manage subnets in the VPC.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -272,13 +277,14 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
                 "Name": "example-id",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import replication subnet groups using the `replication_subnet_group_id`. For example:
 
         ```sh
-         $ pulumi import aws:dms/replicationSubnetGroup:ReplicationSubnetGroup test test-dms-replication-subnet-group-tf
+        $ pulumi import aws:dms/replicationSubnetGroup:ReplicationSubnetGroup test test-dms-replication-subnet-group-tf
         ```
 
         :param str resource_name: The name of the resource.
@@ -300,8 +306,10 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
         > **Note:** AWS requires a special IAM role called `dms-vpc-role` when using this resource. See the example below to create it as part of your configuration.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -318,10 +326,13 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
                 "Name": "example",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Creating special IAM role
 
         If your account does not already include the `dms-vpc-role` IAM role, you will need to create it to allow DMS to manage subnets in the VPC.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -354,13 +365,14 @@ class ReplicationSubnetGroup(pulumi.CustomResource):
                 "Name": "example-id",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import replication subnet groups using the `replication_subnet_group_id`. For example:
 
         ```sh
-         $ pulumi import aws:dms/replicationSubnetGroup:ReplicationSubnetGroup test test-dms-replication-subnet-group-tf
+        $ pulumi import aws:dms/replicationSubnetGroup:ReplicationSubnetGroup test test-dms-replication-subnet-group-tf
         ```
 
         :param str resource_name: The name of the resource.

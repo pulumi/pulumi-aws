@@ -16,6 +16,7 @@ import {Role} from "./index";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -51,13 +52,14 @@ import {Role} from "./index";
  *     policyArn: policyPolicy.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import IAM role policy attachments using the role name and policy arn separated by `/`. For example:
  *
  * ```sh
- *  $ pulumi import aws:iam/rolePolicyAttachment:RolePolicyAttachment test-attach test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
+ * $ pulumi import aws:iam/rolePolicyAttachment:RolePolicyAttachment test-attach test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
  * ```
  */
 export class RolePolicyAttachment extends pulumi.CustomResource {

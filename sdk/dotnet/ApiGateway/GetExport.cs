@@ -12,10 +12,9 @@ namespace Pulumi.Aws.ApiGateway
     public static class GetExport
     {
         /// <summary>
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,17 +32,15 @@ namespace Pulumi.Aws.ApiGateway
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetExportResult> InvokeAsync(GetExportArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetExportResult>("aws:apigateway/getExport:getExport", args ?? new GetExportArgs(), options.WithDefaults());
 
         /// <summary>
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,8 +58,7 @@ namespace Pulumi.Aws.ApiGateway
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetExportResult> Invoke(GetExportInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetExportResult>("aws:apigateway/getExport:getExport", args ?? new GetExportInvokeArgs(), options.WithDefaults());

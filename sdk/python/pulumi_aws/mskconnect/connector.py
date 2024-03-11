@@ -459,8 +459,10 @@ class Connector(pulumi.CustomResource):
         Provides an Amazon MSK Connect Connector resource.
 
         ## Example Usage
+
         ### Basic configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -513,13 +515,14 @@ class Connector(pulumi.CustomResource):
             )],
             service_execution_role_arn=example_aws_iam_role["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import MSK Connect Connector using the connector's `arn`. For example:
 
         ```sh
-         $ pulumi import aws:mskconnect/connector:Connector example 'arn:aws:kafkaconnect:eu-central-1:123456789012:connector/example/264edee4-17a3-412e-bd76-6681cfc93805-3'
+        $ pulumi import aws:mskconnect/connector:Connector example 'arn:aws:kafkaconnect:eu-central-1:123456789012:connector/example/264edee4-17a3-412e-bd76-6681cfc93805-3'
         ```
 
         :param str resource_name: The name of the resource.
@@ -547,8 +550,10 @@ class Connector(pulumi.CustomResource):
         Provides an Amazon MSK Connect Connector resource.
 
         ## Example Usage
+
         ### Basic configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -601,13 +606,14 @@ class Connector(pulumi.CustomResource):
             )],
             service_execution_role_arn=example_aws_iam_role["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import MSK Connect Connector using the connector's `arn`. For example:
 
         ```sh
-         $ pulumi import aws:mskconnect/connector:Connector example 'arn:aws:kafkaconnect:eu-central-1:123456789012:connector/example/264edee4-17a3-412e-bd76-6681cfc93805-3'
+        $ pulumi import aws:mskconnect/connector:Connector example 'arn:aws:kafkaconnect:eu-central-1:123456789012:connector/example/264edee4-17a3-412e-bd76-6681cfc93805-3'
         ```
 
         :param str resource_name: The name of the resource.

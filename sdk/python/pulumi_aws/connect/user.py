@@ -424,8 +424,10 @@ class User(pulumi.CustomResource):
         [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -445,8 +447,11 @@ class User(pulumi.CustomResource):
                 phone_type="SOFT_PHONE",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With hierarchy_group_id
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -467,8 +472,11 @@ class User(pulumi.CustomResource):
                 phone_type="SOFT_PHONE",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With identity_info filled
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -489,8 +497,11 @@ class User(pulumi.CustomResource):
                 phone_type="SOFT_PHONE",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With phone_config phone type as desk phone
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -506,8 +517,11 @@ class User(pulumi.CustomResource):
                 phone_type="SOFT_PHONE",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With multiple Security profile ids specified in security_profile_ids
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -528,13 +542,14 @@ class User(pulumi.CustomResource):
                 phone_type="DESK_PHONE",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amazon Connect Users using the `instance_id` and `user_id` separated by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:connect/user:User example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+        $ pulumi import aws:connect/user:User example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
         ```
 
         :param str resource_name: The name of the resource.
@@ -562,8 +577,10 @@ class User(pulumi.CustomResource):
         [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -583,8 +600,11 @@ class User(pulumi.CustomResource):
                 phone_type="SOFT_PHONE",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With hierarchy_group_id
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -605,8 +625,11 @@ class User(pulumi.CustomResource):
                 phone_type="SOFT_PHONE",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With identity_info filled
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -627,8 +650,11 @@ class User(pulumi.CustomResource):
                 phone_type="SOFT_PHONE",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With phone_config phone type as desk phone
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -644,8 +670,11 @@ class User(pulumi.CustomResource):
                 phone_type="SOFT_PHONE",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With multiple Security profile ids specified in security_profile_ids
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -666,13 +695,14 @@ class User(pulumi.CustomResource):
                 phone_type="DESK_PHONE",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amazon Connect Users using the `instance_id` and `user_id` separated by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:connect/user:User example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
+        $ pulumi import aws:connect/user:User example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
         ```
 
         :param str resource_name: The name of the resource.

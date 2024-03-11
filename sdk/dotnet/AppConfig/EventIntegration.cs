@@ -14,6 +14,7 @@ namespace Pulumi.Aws.AppConfig
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -39,13 +40,14 @@ namespace Pulumi.Aws.AppConfig
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Amazon AppIntegrations Event Integrations using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:appconfig/eventIntegration:EventIntegration example example-name
+    /// $ pulumi import aws:appconfig/eventIntegration:EventIntegration example example-name
     /// ```
     /// </summary>
     [AwsResourceType("aws:appconfig/eventIntegration:EventIntegration")]

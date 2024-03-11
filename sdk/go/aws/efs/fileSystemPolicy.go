@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -81,15 +82,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import the EFS file system policies using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:efs/fileSystemPolicy:FileSystemPolicy foo fs-6fa144c6
-//
+// $ pulumi import aws:efs/fileSystemPolicy:FileSystemPolicy foo fs-6fa144c6
 // ```
 type FileSystemPolicy struct {
 	pulumi.CustomResourceState

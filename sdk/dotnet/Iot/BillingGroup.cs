@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Iot
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -37,13 +38,14 @@ namespace Pulumi.Aws.Iot
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IoT Billing Groups using the name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:iot/billingGroup:BillingGroup example example
+    /// $ pulumi import aws:iot/billingGroup:BillingGroup example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:iot/billingGroup:BillingGroup")]

@@ -14,10 +14,9 @@ namespace Pulumi.Aws.Msk
         /// <summary>
         /// Get information on an Amazon MSK Broker Nodes.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,8 +32,7 @@ namespace Pulumi.Aws.Msk
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetBrokerNodesResult> InvokeAsync(GetBrokerNodesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBrokerNodesResult>("aws:msk/getBrokerNodes:getBrokerNodes", args ?? new GetBrokerNodesArgs(), options.WithDefaults());
@@ -42,10 +40,9 @@ namespace Pulumi.Aws.Msk
         /// <summary>
         /// Get information on an Amazon MSK Broker Nodes.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,8 +58,7 @@ namespace Pulumi.Aws.Msk
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetBrokerNodesResult> Invoke(GetBrokerNodesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBrokerNodesResult>("aws:msk/getBrokerNodes:getBrokerNodes", args ?? new GetBrokerNodesInvokeArgs(), options.WithDefaults());

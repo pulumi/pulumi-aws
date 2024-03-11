@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -66,6 +67,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupAmi(ctx *pulumi.Context, args *LookupAmiArgs, opts ...pulumi.InvokeOption) (*LookupAmiResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAmiResult

@@ -325,14 +325,17 @@ class Group(pulumi.CustomResource):
         Resource for managing a Verified Access Group.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.verifiedaccess.Group("example", verifiedaccess_instance_id=example_aws_verifiedaccess_instance["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -354,14 +357,17 @@ class Group(pulumi.CustomResource):
         Resource for managing a Verified Access Group.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.verifiedaccess.Group("example", verifiedaccess_instance_id=example_aws_verifiedaccess_instance["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param GroupArgs args: The arguments to use to populate this resource's properties.

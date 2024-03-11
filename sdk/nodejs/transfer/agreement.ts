@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Provides a AWS Transfer AS2 Agreement resource.
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,13 +25,14 @@ import * as utilities from "../utilities";
  *     serverId: testAwsTransferServer.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Transfer AS2 Agreement using the `server_id/agreement_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:transfer/agreement:Agreement example s-4221a88afd5f4362a/a-4221a88afd5f4362a
+ * $ pulumi import aws:transfer/agreement:Agreement example s-4221a88afd5f4362a/a-4221a88afd5f4362a
  * ```
  */
 export class Agreement extends pulumi.CustomResource {

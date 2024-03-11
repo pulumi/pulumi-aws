@@ -17,7 +17,10 @@ import javax.annotation.Nullable;
  * Resource for managing Amazon Chime SDK Voice Global Settings.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,13 +52,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import AWS Chime SDK Voice Global Settings using the `id` (AWS account ID). For example:
  * 
  * ```sh
- *  $ pulumi import aws:chime/sdkvoiceGlobalSettings:SdkvoiceGlobalSettings example 123456789012
+ * $ pulumi import aws:chime/sdkvoiceGlobalSettings:SdkvoiceGlobalSettings example 123456789012
  * ```
  * 
  */

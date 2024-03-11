@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * Basic usage:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -37,13 +38,14 @@ import * as utilities from "../utilities";
  *     role: exampleRole.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import a Glue Development Endpoint using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:glue/devEndpoint:DevEndpoint example foo
+ * $ pulumi import aws:glue/devEndpoint:DevEndpoint example foo
  * ```
  */
 export class DevEndpoint extends pulumi.CustomResource {

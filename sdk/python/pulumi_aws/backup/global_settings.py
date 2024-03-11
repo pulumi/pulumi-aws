@@ -70,6 +70,7 @@ class GlobalSettings(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -78,13 +79,14 @@ class GlobalSettings(pulumi.CustomResource):
             "isCrossAccountBackupEnabled": "true",
         })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Backup Global Settings using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:backup/globalSettings:GlobalSettings example 123456789012
+        $ pulumi import aws:backup/globalSettings:GlobalSettings example 123456789012
         ```
 
         :param str resource_name: The name of the resource.
@@ -102,6 +104,7 @@ class GlobalSettings(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -110,13 +113,14 @@ class GlobalSettings(pulumi.CustomResource):
             "isCrossAccountBackupEnabled": "true",
         })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Backup Global Settings using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:backup/globalSettings:GlobalSettings example 123456789012
+        $ pulumi import aws:backup/globalSettings:GlobalSettings example 123456789012
         ```
 
         :param str resource_name: The name of the resource.

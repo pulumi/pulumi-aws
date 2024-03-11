@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS VPC Lattice Resource Policy.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -84,15 +86,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import VPC Lattice Resource Policy using the `resource_arn`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:vpclattice/resourcePolicy:ResourcePolicy example rft-8012925589
-//
+// $ pulumi import aws:vpclattice/resourcePolicy:ResourcePolicy example rft-8012925589
 // ```
 type ResourcePolicy struct {
 	pulumi.CustomResourceState

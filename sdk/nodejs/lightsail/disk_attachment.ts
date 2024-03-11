@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -37,13 +38,14 @@ import * as utilities from "../utilities";
  *     diskPath: "/dev/xvdf",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_lightsail_disk` using the id attribute. For example:
  *
  * ```sh
- *  $ pulumi import aws:lightsail/disk_attachment:Disk_attachment test test-disk,test-instance
+ * $ pulumi import aws:lightsail/disk_attachment:Disk_attachment test test-disk,test-instance
  * ```
  */
 export class Disk_attachment extends pulumi.CustomResource {

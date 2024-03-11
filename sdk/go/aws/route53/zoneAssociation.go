@@ -20,6 +20,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -72,6 +73,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
@@ -82,17 +84,12 @@ import (
 // The VPC is in the same region where you have configured the AWS Provider:
 //
 // ```sh
-//
-//	$ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678
-//
+// $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678
 // ```
-//
-//	The VPC is _not_ in the same region where you have configured the AWS Provider:
+// The VPC is _not_ in the same region where you have configured the AWS Provider:
 //
 // ```sh
-//
-//	$ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678:us-east-2
-//
+// $ pulumi import aws:route53/zoneAssociation:ZoneAssociation example Z123456ABCDEFG:vpc-12345678:us-east-2
 // ```
 type ZoneAssociation struct {
 	pulumi.CustomResourceState

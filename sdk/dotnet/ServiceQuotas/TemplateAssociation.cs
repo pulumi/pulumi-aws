@@ -15,8 +15,10 @@ namespace Pulumi.Aws.ServiceQuotas
     /// &gt; Only the management account of an organization can associate Service Quota templates, and this must be done from the `us-east-1` region.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,13 +31,14 @@ namespace Pulumi.Aws.ServiceQuotas
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Service Quotas Template Association using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:servicequotas/templateAssociation:TemplateAssociation example 012345678901
+    /// $ pulumi import aws:servicequotas/templateAssociation:TemplateAssociation example 012345678901
     /// ```
     /// </summary>
     [AwsResourceType("aws:servicequotas/templateAssociation:TemplateAssociation")]

@@ -17,10 +17,9 @@ namespace Pulumi.Aws.ApiGateway
         /// As there is no unique name constraint on REST APIs this data source will
         /// error if there is more than one match.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -36,8 +35,7 @@ namespace Pulumi.Aws.ApiGateway
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetRestApiResult> InvokeAsync(GetRestApiArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRestApiResult>("aws:apigateway/getRestApi:getRestApi", args ?? new GetRestApiArgs(), options.WithDefaults());
@@ -48,10 +46,9 @@ namespace Pulumi.Aws.ApiGateway
         /// As there is no unique name constraint on REST APIs this data source will
         /// error if there is more than one match.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -67,8 +64,7 @@ namespace Pulumi.Aws.ApiGateway
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetRestApiResult> Invoke(GetRestApiInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRestApiResult>("aws:apigateway/getRestApi:getRestApi", args ?? new GetRestApiInvokeArgs(), options.WithDefaults());

@@ -126,41 +126,12 @@ class InstanceAccessControlAttributes(pulumi.CustomResource):
         """
         Provides a Single Sign-On (SSO) ABAC Resource: https://docs.aws.amazon.com/singlesignon/latest/userguide/abac.html
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.ssoadmin.get_instances()
-        example_instance_access_control_attributes = aws.ssoadmin.InstanceAccessControlAttributes("example",
-            instance_arn=not_implemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
-            attributes=[
-                aws.ssoadmin.InstanceAccessControlAttributesAttributeArgs(
-                    key="name",
-                    values=[aws.ssoadmin.InstanceAccessControlAttributesAttributeValueArgs(
-                        sources=["${path:name.givenName}"],
-                    )],
-                ),
-                aws.ssoadmin.InstanceAccessControlAttributesAttributeArgs(
-                    key="last",
-                    values=[aws.ssoadmin.InstanceAccessControlAttributesAttributeValueArgs(
-                        sources=["${path:name.familyName}"],
-                    )],
-                ),
-            ])
-        ```
-
         ## Import
 
         Using `pulumi import`, import SSO Account Assignments using the `instance_arn`. For example:
 
         ```sh
-         $ pulumi import aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes example arn:aws:sso:::instance/ssoins-0123456789abcdef
+        $ pulumi import aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes example arn:aws:sso:::instance/ssoins-0123456789abcdef
         ```
 
         :param str resource_name: The name of the resource.
@@ -177,41 +148,12 @@ class InstanceAccessControlAttributes(pulumi.CustomResource):
         """
         Provides a Single Sign-On (SSO) ABAC Resource: https://docs.aws.amazon.com/singlesignon/latest/userguide/abac.html
 
-        ## Example Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.ssoadmin.get_instances()
-        example_instance_access_control_attributes = aws.ssoadmin.InstanceAccessControlAttributes("example",
-            instance_arn=not_implemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
-            attributes=[
-                aws.ssoadmin.InstanceAccessControlAttributesAttributeArgs(
-                    key="name",
-                    values=[aws.ssoadmin.InstanceAccessControlAttributesAttributeValueArgs(
-                        sources=["${path:name.givenName}"],
-                    )],
-                ),
-                aws.ssoadmin.InstanceAccessControlAttributesAttributeArgs(
-                    key="last",
-                    values=[aws.ssoadmin.InstanceAccessControlAttributesAttributeValueArgs(
-                        sources=["${path:name.familyName}"],
-                    )],
-                ),
-            ])
-        ```
-
         ## Import
 
         Using `pulumi import`, import SSO Account Assignments using the `instance_arn`. For example:
 
         ```sh
-         $ pulumi import aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes example arn:aws:sso:::instance/ssoins-0123456789abcdef
+        $ pulumi import aws:ssoadmin/instanceAccessControlAttributes:InstanceAccessControlAttributes example arn:aws:sso:::instance/ssoins-0123456789abcdef
         ```
 
         :param str resource_name: The name of the resource.

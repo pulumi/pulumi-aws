@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS CloudFront Key Value Store.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,13 +24,14 @@ import * as utilities from "../utilities";
  *     comment: "This is an example key value store",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import CloudFront Key Value Store using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudfront/keyValueStore:KeyValueStore example example_store
+ * $ pulumi import aws:cloudfront/keyValueStore:KeyValueStore example example_store
  * ```
  */
 export class KeyValueStore extends pulumi.CustomResource {

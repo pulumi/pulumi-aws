@@ -26,6 +26,8 @@ import javax.annotation.Nullable;
  * More information about MemoryDB can be found in the [Developer Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/what-is-memorydb-for-redis.html).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -60,13 +62,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import a cluster using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:memorydb/cluster:Cluster example my-cluster
+ * $ pulumi import aws:memorydb/cluster:Cluster example my-cluster
  * ```
  * 
  */

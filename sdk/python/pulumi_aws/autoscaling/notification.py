@@ -142,6 +142,7 @@ class Notification(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -162,6 +163,7 @@ class Notification(pulumi.CustomResource):
             ],
             topic_arn=example.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -185,6 +187,7 @@ class Notification(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -205,6 +208,7 @@ class Notification(pulumi.CustomResource):
             ],
             topic_arn=example.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param NotificationArgs args: The arguments to use to populate this resource's properties.

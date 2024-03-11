@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Transfer
     /// Provides a AWS Transfer AS2 Connector resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -42,8 +44,11 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### SFTP Connector
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -68,13 +73,14 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Transfer AS2 Connector using the `connector_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:transfer/connector:Connector example c-4221a88afd5f4362a
+    /// $ pulumi import aws:transfer/connector:Connector example c-4221a88afd5f4362a
     /// ```
     /// </summary>
     [AwsResourceType("aws:transfer/connector:Connector")]

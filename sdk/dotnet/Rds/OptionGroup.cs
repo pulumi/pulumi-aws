@@ -19,6 +19,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -68,6 +69,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// &gt; **Note:** Any modifications to the `aws.rds.OptionGroup` are set to happen immediately as we default to applying immediately.
     /// 
@@ -84,7 +86,7 @@ namespace Pulumi.Aws.Rds
     /// Using `pulumi import`, import DB option groups using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group
+    /// $ pulumi import aws:rds/optionGroup:OptionGroup example mysql-option-group
     /// ```
     /// </summary>
     [AwsResourceType("aws:rds/optionGroup:OptionGroup")]

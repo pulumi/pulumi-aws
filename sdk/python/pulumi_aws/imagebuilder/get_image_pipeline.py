@@ -263,12 +263,14 @@ def get_image_pipeline(arn: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.imagebuilder.get_image_pipeline(arn="arn:aws:imagebuilder:us-west-2:aws:image-pipeline/example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str arn: ARN of the image pipeline.
@@ -311,12 +313,14 @@ def get_image_pipeline_output(arn: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.imagebuilder.get_image_pipeline(arn="arn:aws:imagebuilder:us-west-2:aws:image-pipeline/example")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str arn: ARN of the image pipeline.

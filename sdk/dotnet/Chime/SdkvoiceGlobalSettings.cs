@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Chime
     /// Resource for managing Amazon Chime SDK Voice Global Settings.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -33,13 +35,14 @@ namespace Pulumi.Aws.Chime
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AWS Chime SDK Voice Global Settings using the `id` (AWS account ID). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:chime/sdkvoiceGlobalSettings:SdkvoiceGlobalSettings example 123456789012
+    /// $ pulumi import aws:chime/sdkvoiceGlobalSettings:SdkvoiceGlobalSettings example 123456789012
     /// ```
     /// </summary>
     [AwsResourceType("aws:chime/sdkvoiceGlobalSettings:SdkvoiceGlobalSettings")]

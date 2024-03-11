@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Dlm
     /// Provides a [Data Lifecycle Manager (DLM) lifecycle policy](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/snapshot-lifecycle.html) for managing snapshots.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -137,8 +139,11 @@ namespace Pulumi.Aws.Dlm
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Example Cross-Region Snapshot Copy Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -241,8 +246,11 @@ namespace Pulumi.Aws.Dlm
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Example Event Based Policy Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -306,13 +314,14 @@ namespace Pulumi.Aws.Dlm
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DLM lifecycle policies using their policy ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:dlm/lifecyclePolicy:LifecyclePolicy example policy-abcdef12345678901
+    /// $ pulumi import aws:dlm/lifecyclePolicy:LifecyclePolicy example policy-abcdef12345678901
     /// ```
     /// </summary>
     [AwsResourceType("aws:dlm/lifecyclePolicy:LifecyclePolicy")]

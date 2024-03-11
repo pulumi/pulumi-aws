@@ -328,6 +328,7 @@ class Accelerator(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -343,13 +344,14 @@ class Accelerator(pulumi.CustomResource):
                 flow_logs_s3_prefix="flow-logs/",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Global Accelerator accelerators using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:globalaccelerator/accelerator:Accelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+        $ pulumi import aws:globalaccelerator/accelerator:Accelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
         ```
 
         :param str resource_name: The name of the resource.
@@ -372,6 +374,7 @@ class Accelerator(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -387,13 +390,14 @@ class Accelerator(pulumi.CustomResource):
                 flow_logs_s3_prefix="flow-logs/",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Global Accelerator accelerators using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:globalaccelerator/accelerator:Accelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+        $ pulumi import aws:globalaccelerator/accelerator:Accelerator example arn:aws:globalaccelerator::111111111111:accelerator/xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
         ```
 
         :param str resource_name: The name of the resource.

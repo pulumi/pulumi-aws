@@ -64,6 +64,7 @@ def get_rules_packages(opts: Optional[pulumi.InvokeOptions] = None) -> Awaitable
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -83,6 +84,7 @@ def get_rules_packages(opts: Optional[pulumi.InvokeOptions] = None) -> Awaitable
         duration=60,
         rules_package_arns=rules.arns)
     ```
+    <!--End PulumiCodeChooser -->
     """
     __args__ = dict()
     opts = pulumi.InvokeOptions.merge(_utilities.get_invoke_opts_defaults(), opts)
@@ -102,6 +104,7 @@ def get_rules_packages_output(opts: Optional[pulumi.InvokeOptions] = None) -> pu
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -121,5 +124,6 @@ def get_rules_packages_output(opts: Optional[pulumi.InvokeOptions] = None) -> pu
         duration=60,
         rules_package_arns=rules.arns)
     ```
+    <!--End PulumiCodeChooser -->
     """
     ...

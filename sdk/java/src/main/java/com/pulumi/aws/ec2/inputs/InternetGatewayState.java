@@ -50,6 +50,8 @@ public final class InternetGatewayState extends com.pulumi.resources.ResourceArg
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      * &gt; **Note:** It&#39;s recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -81,6 +83,7 @@ public final class InternetGatewayState extends com.pulumi.resources.ResourceArg
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     @Import(name="tags")
@@ -90,6 +93,8 @@ public final class InternetGatewayState extends com.pulumi.resources.ResourceArg
      * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      * &gt; **Note:** It&#39;s recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -121,6 +126,7 @@ public final class InternetGatewayState extends com.pulumi.resources.ResourceArg
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public Optional<Output<Map<String,String>>> tags() {
@@ -239,6 +245,8 @@ public final class InternetGatewayState extends com.pulumi.resources.ResourceArg
          * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * &gt; **Note:** It&#39;s recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
+         * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -270,6 +278,7 @@ public final class InternetGatewayState extends com.pulumi.resources.ResourceArg
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 
@@ -283,6 +292,8 @@ public final class InternetGatewayState extends com.pulumi.resources.ResourceArg
          * @param tags A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
          * 
          * &gt; **Note:** It&#39;s recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
+         * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -314,6 +325,7 @@ public final class InternetGatewayState extends com.pulumi.resources.ResourceArg
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 

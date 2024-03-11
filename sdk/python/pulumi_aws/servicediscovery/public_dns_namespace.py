@@ -191,6 +191,7 @@ class PublicDnsNamespace(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -199,13 +200,14 @@ class PublicDnsNamespace(pulumi.CustomResource):
             name="hoge.example.com",
             description="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Service Discovery Public DNS Namespace using the namespace ID. For example:
 
         ```sh
-         $ pulumi import aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace example 0123456789
+        $ pulumi import aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace example 0123456789
         ```
 
         :param str resource_name: The name of the resource.
@@ -225,6 +227,7 @@ class PublicDnsNamespace(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -233,13 +236,14 @@ class PublicDnsNamespace(pulumi.CustomResource):
             name="hoge.example.com",
             description="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Service Discovery Public DNS Namespace using the namespace ID. For example:
 
         ```sh
-         $ pulumi import aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace example 0123456789
+        $ pulumi import aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace example 0123456789
         ```
 
         :param str resource_name: The name of the resource.

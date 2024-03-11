@@ -13,8 +13,10 @@ namespace Pulumi.Aws.VpcLattice
     /// Resource for managing an AWS VPC Lattice Service Network.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,13 +33,14 @@ namespace Pulumi.Aws.VpcLattice
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import VPC Lattice Service Network using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:vpclattice/serviceNetwork:ServiceNetwork example sn-0158f91c1e3358dba
+    /// $ pulumi import aws:vpclattice/serviceNetwork:ServiceNetwork example sn-0158f91c1e3358dba
     /// ```
     /// </summary>
     [AwsResourceType("aws:vpclattice/serviceNetwork:ServiceNetwork")]

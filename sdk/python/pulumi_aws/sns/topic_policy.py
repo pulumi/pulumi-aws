@@ -120,6 +120,7 @@ class TopicPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -155,13 +156,14 @@ class TopicPolicy(pulumi.CustomResource):
             arn=test.arn,
             policy=sns_topic_policy.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SNS Topic Policy using the topic ARN. For example:
 
         ```sh
-         $ pulumi import aws:sns/topicPolicy:TopicPolicy user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
+        $ pulumi import aws:sns/topicPolicy:TopicPolicy user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
         ```
 
         :param str resource_name: The name of the resource.
@@ -182,6 +184,7 @@ class TopicPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -217,13 +220,14 @@ class TopicPolicy(pulumi.CustomResource):
             arn=test.arn,
             policy=sns_topic_policy.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SNS Topic Policy using the topic ARN. For example:
 
         ```sh
-         $ pulumi import aws:sns/topicPolicy:TopicPolicy user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
+        $ pulumi import aws:sns/topicPolicy:TopicPolicy user_updates arn:aws:sns:us-west-2:0123456789012:my-topic
         ```
 
         :param str resource_name: The name of the resource.

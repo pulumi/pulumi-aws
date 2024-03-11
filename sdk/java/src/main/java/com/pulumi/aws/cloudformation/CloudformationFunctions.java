@@ -24,6 +24,8 @@ public final class CloudformationFunctions {
      * Provides details about a CloudFormation Type.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -53,6 +55,7 @@ public final class CloudformationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCloudFormationTypeResult> getCloudFormationType() {
@@ -62,6 +65,8 @@ public final class CloudformationFunctions {
      * Provides details about a CloudFormation Type.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -91,6 +96,7 @@ public final class CloudformationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCloudFormationTypeResult> getCloudFormationTypePlain() {
@@ -100,6 +106,8 @@ public final class CloudformationFunctions {
      * Provides details about a CloudFormation Type.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -129,6 +137,7 @@ public final class CloudformationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCloudFormationTypeResult> getCloudFormationType(GetCloudFormationTypeArgs args) {
@@ -138,6 +147,8 @@ public final class CloudformationFunctions {
      * Provides details about a CloudFormation Type.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -167,6 +178,7 @@ public final class CloudformationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCloudFormationTypeResult> getCloudFormationTypePlain(GetCloudFormationTypePlainArgs args) {
@@ -176,6 +188,8 @@ public final class CloudformationFunctions {
      * Provides details about a CloudFormation Type.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -205,6 +219,7 @@ public final class CloudformationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCloudFormationTypeResult> getCloudFormationType(GetCloudFormationTypeArgs args, InvokeOptions options) {
@@ -214,6 +229,8 @@ public final class CloudformationFunctions {
      * Provides details about a CloudFormation Type.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -243,6 +260,7 @@ public final class CloudformationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCloudFormationTypeResult> getCloudFormationTypePlain(GetCloudFormationTypePlainArgs args, InvokeOptions options) {
@@ -255,6 +273,8 @@ public final class CloudformationFunctions {
      *  &gt; Note: If you are trying to use a value from a Cloudformation Stack in the same deployment please use normal interpolation or Cloudformation Outputs.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -291,6 +311,7 @@ public final class CloudformationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetExportResult> getExport(GetExportArgs args) {
@@ -303,6 +324,8 @@ public final class CloudformationFunctions {
      *  &gt; Note: If you are trying to use a value from a Cloudformation Stack in the same deployment please use normal interpolation or Cloudformation Outputs.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -339,6 +362,7 @@ public final class CloudformationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetExportResult> getExportPlain(GetExportPlainArgs args) {
@@ -351,6 +375,8 @@ public final class CloudformationFunctions {
      *  &gt; Note: If you are trying to use a value from a Cloudformation Stack in the same deployment please use normal interpolation or Cloudformation Outputs.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -387,6 +413,7 @@ public final class CloudformationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetExportResult> getExport(GetExportArgs args, InvokeOptions options) {
@@ -399,6 +426,8 @@ public final class CloudformationFunctions {
      *  &gt; Note: If you are trying to use a value from a Cloudformation Stack in the same deployment please use normal interpolation or Cloudformation Outputs.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -435,6 +464,7 @@ public final class CloudformationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetExportResult> getExportPlain(GetExportPlainArgs args, InvokeOptions options) {
@@ -445,6 +475,8 @@ public final class CloudformationFunctions {
      * outputs and other useful data including the template body.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -482,6 +514,7 @@ public final class CloudformationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetStackResult> getStack(GetStackArgs args) {
@@ -492,6 +525,8 @@ public final class CloudformationFunctions {
      * outputs and other useful data including the template body.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -529,6 +564,7 @@ public final class CloudformationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetStackResult> getStackPlain(GetStackPlainArgs args) {
@@ -539,6 +575,8 @@ public final class CloudformationFunctions {
      * outputs and other useful data including the template body.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -576,6 +614,7 @@ public final class CloudformationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetStackResult> getStack(GetStackArgs args, InvokeOptions options) {
@@ -586,6 +625,8 @@ public final class CloudformationFunctions {
      * outputs and other useful data including the template body.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -623,6 +664,7 @@ public final class CloudformationFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetStackResult> getStackPlain(GetStackPlainArgs args, InvokeOptions options) {

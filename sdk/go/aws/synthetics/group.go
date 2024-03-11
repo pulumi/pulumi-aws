@@ -14,8 +14,10 @@ import (
 // Provides a Synthetics Group resource.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,15 +41,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CloudWatch Synthetics Group using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:synthetics/group:Group example example
-//
+// $ pulumi import aws:synthetics/group:Group example example
 // ```
 type Group struct {
 	pulumi.CustomResourceState

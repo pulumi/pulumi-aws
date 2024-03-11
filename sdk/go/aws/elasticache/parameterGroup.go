@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -52,15 +53,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import ElastiCache Parameter Groups using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:elasticache/parameterGroup:ParameterGroup default redis-params
-//
+// $ pulumi import aws:elasticache/parameterGroup:ParameterGroup default redis-params
 // ```
 type ParameterGroup struct {
 	pulumi.CustomResourceState

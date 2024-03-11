@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Data source for managing an AWS SSM Contacts Contact Channel.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,6 +23,7 @@ import * as utilities from "../utilities";
  *     arn: "arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getContactChannel(args: GetContactChannelArgs, opts?: pulumi.InvokeOptions): Promise<GetContactChannelResult> {
 
@@ -74,8 +77,10 @@ export interface GetContactChannelResult {
  * Data source for managing an AWS SSM Contacts Contact Channel.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -84,6 +89,7 @@ export interface GetContactChannelResult {
  *     arn: "arn:aws:ssm-contacts:us-west-2:123456789012:contact-channel/example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getContactChannelOutput(args: GetContactChannelOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetContactChannelResult> {
     return pulumi.output(args).apply((a: any) => getContactChannel(a, opts))

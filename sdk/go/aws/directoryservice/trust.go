@@ -21,8 +21,10 @@ import (
 // Once the second Trust is created, the first will update to the correct state.
 //
 // ## Example Usage
+//
 // ### Two-Way Trust
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -74,8 +76,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### One-Way Trust
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -127,15 +132,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import the Trust relationship using the directory ID and remote domain name, separated by a `/`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:directoryservice/trust:Trust example d-926724cf57/directory.example.com
-//
+// $ pulumi import aws:directoryservice/trust:Trust example d-926724cf57/directory.example.com
 // ```
 type Trust struct {
 	pulumi.CustomResourceState

@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides a FSx Backup resource.
  * 
  * ## Lustre Example
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -56,8 +58,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Windows Example
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -96,8 +101,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## ONTAP Example
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -136,8 +144,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## OpenZFS Example
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -175,13 +186,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import FSx Backups using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:fsx/backup:Backup example fs-543ab12b1ca672f33
+ * $ pulumi import aws:fsx/backup:Backup example fs-543ab12b1ca672f33
  * ```
  * 
  */

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -59,13 +60,14 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Cloudfront Field Level Encryption Profile using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cloudfront/fieldLevelEncryptionProfile:FieldLevelEncryptionProfile profile K3D5EWEUDCCXON
+    /// $ pulumi import aws:cloudfront/fieldLevelEncryptionProfile:FieldLevelEncryptionProfile profile K3D5EWEUDCCXON
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudfront/fieldLevelEncryptionProfile:FieldLevelEncryptionProfile")]

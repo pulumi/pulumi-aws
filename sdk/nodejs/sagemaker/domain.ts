@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Provides a SageMaker Domain resource.
  *
  * ## Example Usage
+ *
  * ### Basic usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -41,8 +43,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Using Custom Images
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -79,13 +84,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SageMaker Domains using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8
+ * $ pulumi import aws:sagemaker/domain:Domain test_domain d-8jgsjtilstu8
  * ```
  */
 export class Domain extends pulumi.CustomResource {

@@ -15,6 +15,7 @@ import (
 //
 // The following shows outputting all network ACL ids in a vpc.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,10 +40,12 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // The following example retrieves a list of all network ACL ids in a VPC with a custom
 // tag of `Tier` set to a value of "Private".
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -69,10 +72,12 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // The following example retrieves a network ACL id in a VPC which associated
 // with specific subnet.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -102,6 +107,7 @@ import (
 // })
 // }
 // ```
+// <!--End PulumiCodeChooser -->
 func GetNetworkAcls(ctx *pulumi.Context, args *GetNetworkAclsArgs, opts ...pulumi.InvokeOption) (*GetNetworkAclsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetNetworkAclsResult

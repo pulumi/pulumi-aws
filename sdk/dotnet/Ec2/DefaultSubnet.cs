@@ -21,6 +21,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -40,13 +41,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import subnets using the subnet `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/defaultSubnet:DefaultSubnet public_subnet subnet-9d4a7b6c
+    /// $ pulumi import aws:ec2/defaultSubnet:DefaultSubnet public_subnet subnet-9d4a7b6c
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/defaultSubnet:DefaultSubnet")]

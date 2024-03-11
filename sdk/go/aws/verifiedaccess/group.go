@@ -15,8 +15,10 @@ import (
 // Resource for managing a Verified Access Group.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,6 +42,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type Group struct {
 	pulumi.CustomResourceState
 

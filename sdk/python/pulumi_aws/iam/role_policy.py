@@ -178,6 +178,7 @@ class RolePolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -208,13 +209,14 @@ class RolePolicy(pulumi.CustomResource):
                 }],
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM Role Policies using the `role_name:role_policy_name`. For example:
 
         ```sh
-         $ pulumi import aws:iam/rolePolicy:RolePolicy mypolicy role_of_mypolicy_name:mypolicy_name
+        $ pulumi import aws:iam/rolePolicy:RolePolicy mypolicy role_of_mypolicy_name:mypolicy_name
         ```
 
         :param str resource_name: The name of the resource.
@@ -239,6 +241,7 @@ class RolePolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -269,13 +272,14 @@ class RolePolicy(pulumi.CustomResource):
                 }],
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM Role Policies using the `role_name:role_policy_name`. For example:
 
         ```sh
-         $ pulumi import aws:iam/rolePolicy:RolePolicy mypolicy role_of_mypolicy_name:mypolicy_name
+        $ pulumi import aws:iam/rolePolicy:RolePolicy mypolicy role_of_mypolicy_name:mypolicy_name
         ```
 
         :param str resource_name: The name of the resource.

@@ -241,6 +241,7 @@ class EventIntegration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -256,13 +257,14 @@ class EventIntegration(pulumi.CustomResource):
                 "Name": "Example Event Integration",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amazon AppIntegrations Event Integrations using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:appconfig/eventIntegration:EventIntegration example example-name
+        $ pulumi import aws:appconfig/eventIntegration:EventIntegration example example-name
         ```
 
         :param str resource_name: The name of the resource.
@@ -284,6 +286,7 @@ class EventIntegration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -299,13 +302,14 @@ class EventIntegration(pulumi.CustomResource):
                 "Name": "Example Event Integration",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amazon AppIntegrations Event Integrations using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:appconfig/eventIntegration:EventIntegration example example-name
+        $ pulumi import aws:appconfig/eventIntegration:EventIntegration example example-name
         ```
 
         :param str resource_name: The name of the resource.

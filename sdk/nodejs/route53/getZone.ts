@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  *
  * The following example shows how to get a Hosted Zone from its name and from this data how to create a Record Set.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -29,6 +30,7 @@ import * as utilities from "../utilities";
  *     records: ["10.0.0.1"],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getZone(args?: GetZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetZoneResult> {
     args = args || {};
@@ -129,6 +131,7 @@ export interface GetZoneResult {
  *
  * The following example shows how to get a Hosted Zone from its name and from this data how to create a Record Set.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -145,6 +148,7 @@ export interface GetZoneResult {
  *     records: ["10.0.0.1"],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getZoneOutput(args?: GetZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetZoneResult> {
     return pulumi.output(args).apply((a: any) => getZone(a, opts))

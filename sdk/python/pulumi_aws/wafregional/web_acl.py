@@ -273,8 +273,10 @@ class WebAcl(pulumi.CustomResource):
         Provides a WAF Regional Web ACL Resource for use with Application Load Balancer.
 
         ## Example Usage
+
         ### Regular Rule
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -308,8 +310,11 @@ class WebAcl(pulumi.CustomResource):
                 type="REGULAR",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Group Rule
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -329,10 +334,13 @@ class WebAcl(pulumi.CustomResource):
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Logging
 
         > *NOTE:* The Kinesis Firehose Delivery Stream name must begin with `aws-waf-logs-`. See the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html) for more information about enabling WAF logging.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -352,13 +360,14 @@ class WebAcl(pulumi.CustomResource):
             ),
         ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import WAF Regional Web ACL using the id. For example:
 
         ```sh
-         $ pulumi import aws:wafregional/webAcl:WebAcl wafacl a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+        $ pulumi import aws:wafregional/webAcl:WebAcl wafacl a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
         ```
 
         :param str resource_name: The name of the resource.
@@ -380,8 +389,10 @@ class WebAcl(pulumi.CustomResource):
         Provides a WAF Regional Web ACL Resource for use with Application Load Balancer.
 
         ## Example Usage
+
         ### Regular Rule
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -415,8 +426,11 @@ class WebAcl(pulumi.CustomResource):
                 type="REGULAR",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Group Rule
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -436,10 +450,13 @@ class WebAcl(pulumi.CustomResource):
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Logging
 
         > *NOTE:* The Kinesis Firehose Delivery Stream name must begin with `aws-waf-logs-`. See the [AWS WAF Developer Guide](https://docs.aws.amazon.com/waf/latest/developerguide/logging.html) for more information about enabling WAF logging.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -459,13 +476,14 @@ class WebAcl(pulumi.CustomResource):
             ),
         ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import WAF Regional Web ACL using the id. For example:
 
         ```sh
-         $ pulumi import aws:wafregional/webAcl:WebAcl wafacl a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
+        $ pulumi import aws:wafregional/webAcl:WebAcl wafacl a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
         ```
 
         :param str resource_name: The name of the resource.

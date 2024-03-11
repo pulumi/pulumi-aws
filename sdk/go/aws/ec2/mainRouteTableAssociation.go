@@ -19,6 +19,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,6 +44,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Notes
 //
 // On VPC creation, the AWS API always creates an initial Main Route Table. This

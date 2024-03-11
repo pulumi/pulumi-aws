@@ -14,10 +14,9 @@ namespace Pulumi.Aws.Organizations
         /// <summary>
         /// Get all direct child accounts under a parent organizational unit. This only provides immediate children, not all children.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,8 +34,7 @@ namespace Pulumi.Aws.Organizations
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetOrganizationalUnitChildAccountsResult> InvokeAsync(GetOrganizationalUnitChildAccountsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOrganizationalUnitChildAccountsResult>("aws:organizations/getOrganizationalUnitChildAccounts:getOrganizationalUnitChildAccounts", args ?? new GetOrganizationalUnitChildAccountsArgs(), options.WithDefaults());
@@ -44,10 +42,9 @@ namespace Pulumi.Aws.Organizations
         /// <summary>
         /// Get all direct child accounts under a parent organizational unit. This only provides immediate children, not all children.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -65,8 +62,7 @@ namespace Pulumi.Aws.Organizations
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetOrganizationalUnitChildAccountsResult> Invoke(GetOrganizationalUnitChildAccountsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOrganizationalUnitChildAccountsResult>("aws:organizations/getOrganizationalUnitChildAccounts:getOrganizationalUnitChildAccounts", args ?? new GetOrganizationalUnitChildAccountsInvokeArgs(), options.WithDefaults());

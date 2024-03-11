@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Manages an AWS DocDB (DocumentDB) Elastic Cluster.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -26,13 +28,14 @@ import * as utilities from "../utilities";
  *     shardCount: 1,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import DocDB (DocumentDB) Elastic Cluster using the `arn` argument. For example,
  *
  * ```sh
- *  $ pulumi import aws:docdb/elasticCluster:ElasticCluster example arn:aws:docdb-elastic:us-east-1:000011112222:cluster/12345678-7abc-def0-1234-56789abcdef
+ * $ pulumi import aws:docdb/elasticCluster:ElasticCluster example arn:aws:docdb-elastic:us-east-1:000011112222:cluster/12345678-7abc-def0-1234-56789abcdef
  * ```
  */
 export class ElasticCluster extends pulumi.CustomResource {

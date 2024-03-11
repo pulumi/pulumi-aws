@@ -104,8 +104,10 @@ class UserHierarchyStructure(pulumi.CustomResource):
         [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -118,8 +120,11 @@ class UserHierarchyStructure(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Five Levels
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -144,13 +149,14 @@ class UserHierarchyStructure(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amazon Connect User Hierarchy Structures using the `instance_id`. For example:
 
         ```sh
-         $ pulumi import aws:connect/userHierarchyStructure:UserHierarchyStructure example f1288a1f-6193-445a-b47e-af739b2
+        $ pulumi import aws:connect/userHierarchyStructure:UserHierarchyStructure example f1288a1f-6193-445a-b47e-af739b2
         ```
 
         :param str resource_name: The name of the resource.
@@ -169,8 +175,10 @@ class UserHierarchyStructure(pulumi.CustomResource):
         [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -183,8 +191,11 @@ class UserHierarchyStructure(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Five Levels
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -209,13 +220,14 @@ class UserHierarchyStructure(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amazon Connect User Hierarchy Structures using the `instance_id`. For example:
 
         ```sh
-         $ pulumi import aws:connect/userHierarchyStructure:UserHierarchyStructure example f1288a1f-6193-445a-b47e-af739b2
+        $ pulumi import aws:connect/userHierarchyStructure:UserHierarchyStructure example f1288a1f-6193-445a-b47e-af739b2
         ```
 
         :param str resource_name: The name of the resource.

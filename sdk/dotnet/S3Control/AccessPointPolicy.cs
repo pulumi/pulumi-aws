@@ -16,6 +16,7 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -67,13 +68,14 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Access Point policies using the `access_point_arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:s3control/accessPointPolicy:AccessPointPolicy example arn:aws:s3:us-west-2:123456789012:accesspoint/example
+    /// $ pulumi import aws:s3control/accessPointPolicy:AccessPointPolicy example arn:aws:s3:us-west-2:123456789012:accesspoint/example
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3control/accessPointPolicy:AccessPointPolicy")]

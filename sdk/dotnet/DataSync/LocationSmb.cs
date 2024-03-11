@@ -16,6 +16,7 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -38,13 +39,14 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_datasync_location_smb` using the Amazon Resource Name (ARN). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:datasync/locationSmb:LocationSmb example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
+    /// $ pulumi import aws:datasync/locationSmb:LocationSmb example arn:aws:datasync:us-east-1:123456789012:location/loc-12345678901234567
     /// ```
     /// </summary>
     [AwsResourceType("aws:datasync/locationSmb:LocationSmb")]

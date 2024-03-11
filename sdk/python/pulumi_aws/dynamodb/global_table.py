@@ -125,6 +125,7 @@ class GlobalTable(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -162,13 +163,14 @@ class GlobalTable(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DynamoDB Global Tables using the global table name. For example:
 
         ```sh
-         $ pulumi import aws:dynamodb/globalTable:GlobalTable MyTable MyTable
+        $ pulumi import aws:dynamodb/globalTable:GlobalTable MyTable MyTable
         ```
 
         :param str resource_name: The name of the resource.
@@ -191,6 +193,7 @@ class GlobalTable(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -228,13 +231,14 @@ class GlobalTable(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DynamoDB Global Tables using the global table name. For example:
 
         ```sh
-         $ pulumi import aws:dynamodb/globalTable:GlobalTable MyTable MyTable
+        $ pulumi import aws:dynamodb/globalTable:GlobalTable MyTable MyTable
         ```
 
         :param str resource_name: The name of the resource.

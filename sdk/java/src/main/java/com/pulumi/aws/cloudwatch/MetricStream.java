@@ -24,7 +24,10 @@ import javax.annotation.Nullable;
  * Provides a CloudWatch Metric Stream resource.
  * 
  * ## Example Usage
+ * 
  * ### Filters
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -168,7 +171,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Additional Statistics
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -218,13 +225,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import CloudWatch metric streams using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cloudwatch/metricStream:MetricStream sample sample-stream-name
+ * $ pulumi import aws:cloudwatch/metricStream:MetricStream sample sample-stream-name
  * ```
  * 
  */

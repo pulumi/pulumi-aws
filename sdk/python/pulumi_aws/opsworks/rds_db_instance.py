@@ -166,6 +166,7 @@ class RdsDbInstance(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -176,6 +177,7 @@ class RdsDbInstance(pulumi.CustomResource):
             db_user="someUser",
             db_password="somePass")
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -195,6 +197,7 @@ class RdsDbInstance(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -205,6 +208,7 @@ class RdsDbInstance(pulumi.CustomResource):
             db_user="someUser",
             db_password="somePass")
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param RdsDbInstanceArgs args: The arguments to use to populate this resource's properties.

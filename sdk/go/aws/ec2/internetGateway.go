@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,15 +42,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Internet Gateways using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/internetGateway:InternetGateway gw igw-c0a643a9
-//
+// $ pulumi import aws:ec2/internetGateway:InternetGateway gw igw-c0a643a9
 // ```
 type InternetGateway struct {
 	pulumi.CustomResourceState
@@ -62,6 +62,7 @@ type InternetGateway struct {
 	//
 	// > **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -86,6 +87,7 @@ type InternetGateway struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	Tags pulumi.StringMapOutput `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
@@ -133,6 +135,7 @@ type internetGatewayState struct {
 	//
 	// > **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -157,6 +160,7 @@ type internetGatewayState struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	Tags map[string]string `pulumi:"tags"`
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
@@ -175,6 +179,7 @@ type InternetGatewayState struct {
 	//
 	// > **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -199,6 +204,7 @@ type InternetGatewayState struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	Tags pulumi.StringMapInput
 	// A map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
 	//
@@ -217,6 +223,7 @@ type internetGatewayArgs struct {
 	//
 	// > **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -241,6 +248,7 @@ type internetGatewayArgs struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	Tags map[string]string `pulumi:"tags"`
 	// The VPC ID to create in.  See the ec2.InternetGatewayAttachment resource for an alternate way to attach an Internet Gateway to a VPC.
 	VpcId *string `pulumi:"vpcId"`
@@ -252,6 +260,7 @@ type InternetGatewayArgs struct {
 	//
 	// > **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
 	//
+	// <!--Start PulumiCodeChooser -->
 	// ```go
 	// package main
 	//
@@ -276,6 +285,7 @@ type InternetGatewayArgs struct {
 	// 	})
 	// }
 	// ```
+	// <!--End PulumiCodeChooser -->
 	Tags pulumi.StringMapInput
 	// The VPC ID to create in.  See the ec2.InternetGatewayAttachment resource for an alternate way to attach an Internet Gateway to a VPC.
 	VpcId pulumi.StringPtrInput
@@ -382,6 +392,7 @@ func (o InternetGatewayOutput) OwnerId() pulumi.StringOutput {
 //
 // > **Note:** It's recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -409,6 +420,7 @@ func (o InternetGatewayOutput) OwnerId() pulumi.StringOutput {
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func (o InternetGatewayOutput) Tags() pulumi.StringMapOutput {
 	return o.ApplyT(func(v *InternetGateway) pulumi.StringMapOutput { return v.Tags }).(pulumi.StringMapOutput)
 }

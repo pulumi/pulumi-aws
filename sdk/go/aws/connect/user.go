@@ -16,8 +16,10 @@ import (
 // [Amazon Connect: Getting Started](https://docs.aws.amazon.com/connect/latest/adminguide/amazon-connect-get-started.html)
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -55,8 +57,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With hierarchyGroupId
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -95,8 +100,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With identityInfo filled
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -135,8 +143,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With phoneConfig phone type as desk phone
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -170,8 +181,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With multiple Security profile ids specified in securityProfileIds
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -208,15 +222,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Amazon Connect Users using the `instance_id` and `user_id` separated by a colon (`:`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:connect/user:User example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
-//
+// $ pulumi import aws:connect/user:User example f1288a1f-6193-445a-b47e-af739b2:c1d4e5f6-1b3c-1b3c-1b3c-c1d4e5f6c1d4e5
 // ```
 type User struct {
 	pulumi.CustomResourceState

@@ -17,8 +17,10 @@ namespace Pulumi.Aws.S3
     /// &gt; This resource cannot be used with S3 directory buckets.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Add notification configuration to SNS Topic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -99,8 +101,11 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Add notification configuration to SQS Queue
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -181,8 +186,11 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Add notification configuration to Lambda Function
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -266,8 +274,11 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Trigger multiple Lambda functions
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -378,8 +389,109 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### Add multiple notification configurations to SQS Queue
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var bucket = new Aws.S3.BucketV2("bucket", new()
+    ///     {
+    ///         Bucket = "your-bucket-name",
+    ///     });
+    /// 
+    ///     var queue = Aws.Iam.GetPolicyDocument.Invoke(new()
+    ///     {
+    ///         Statements = new[]
+    ///         {
+    ///             new Aws.Iam.Inputs.GetPolicyDocumentStatementInputArgs
+    ///             {
+    ///                 Effect = "Allow",
+    ///                 Principals = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementPrincipalInputArgs
+    ///                     {
+    ///                         Type = "*",
+    ///                         Identifiers = new[]
+    ///                         {
+    ///                             "*",
+    ///                         },
+    ///                     },
+    ///                 },
+    ///                 Actions = new[]
+    ///                 {
+    ///                     "sqs:SendMessage",
+    ///                 },
+    ///                 Resources = new[]
+    ///                 {
+    ///                     "arn:aws:sqs:*:*:s3-event-notification-queue",
+    ///                 },
+    ///                 Conditions = new[]
+    ///                 {
+    ///                     new Aws.Iam.Inputs.GetPolicyDocumentStatementConditionInputArgs
+    ///                     {
+    ///                         Test = "ArnEquals",
+    ///                         Variable = "aws:SourceArn",
+    ///                         Values = new[]
+    ///                         {
+    ///                             bucket.Arn,
+    ///                         },
+    ///                     },
+    ///                 },
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    ///     var queueQueue = new Aws.Sqs.Queue("queue", new()
+    ///     {
+    ///         Name = "s3-event-notification-queue",
+    ///         Policy = queue.Apply(getPolicyDocumentResult =&gt; getPolicyDocumentResult.Json),
+    ///     });
+    /// 
+    ///     var bucketNotification = new Aws.S3.BucketNotification("bucket_notification", new()
+    ///     {
+    ///         Bucket = bucket.Id,
+    ///         Queues = new[]
+    ///         {
+    ///             new Aws.S3.Inputs.BucketNotificationQueueArgs
+    ///             {
+    ///                 Id = "image-upload-event",
+    ///                 QueueArn = queueQueue.Arn,
+    ///                 Events = new[]
+    ///                 {
+    ///                     "s3:ObjectCreated:*",
+    ///                 },
+    ///                 FilterPrefix = "images/",
+    ///             },
+    ///             new Aws.S3.Inputs.BucketNotificationQueueArgs
+    ///             {
+    ///                 Id = "video-upload-event",
+    ///                 QueueArn = queueQueue.Arn,
+    ///                 Events = new[]
+    ///                 {
+    ///                     "s3:ObjectCreated:*",
+    ///                 },
+    ///                 FilterPrefix = "videos/",
+    ///             },
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// For JSON syntax, use an array instead of defining the `queue` key twice.
+    /// 
     /// ### Emit events to EventBridge
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -401,13 +513,14 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import S3 bucket notification using the `bucket`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:s3/bucketNotification:BucketNotification bucket_notification bucket-name
+    /// $ pulumi import aws:s3/bucketNotification:BucketNotification bucket_notification bucket-name
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3/bucketNotification:BucketNotification")]

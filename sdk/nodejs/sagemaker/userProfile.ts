@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Provides a SageMaker User Profile resource.
  *
  * ## Example Usage
+ *
  * ### Basic usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,13 +24,14 @@ import * as utilities from "../utilities";
  *     userProfileName: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SageMaker User Profiles using the `arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:sagemaker/userProfile:UserProfile test_user_profile arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name
+ * $ pulumi import aws:sagemaker/userProfile:UserProfile test_user_profile arn:aws:sagemaker:us-west-2:123456789012:user-profile/domain-id/profile-name
  * ```
  */
 export class UserProfile extends pulumi.CustomResource {

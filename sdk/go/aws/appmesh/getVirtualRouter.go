@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +40,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupVirtualRouter(ctx *pulumi.Context, args *LookupVirtualRouterArgs, opts ...pulumi.InvokeOption) (*LookupVirtualRouterResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVirtualRouterResult

@@ -317,6 +317,7 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -325,13 +326,14 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
             peering_id=example_aws_networkmanager_transit_gateway_peering["id"],
             transit_gateway_route_table_arn=example_aws_ec2_transit_gateway_route_table["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_networkmanager_transit_gateway_route_table_attachment` using the attachment ID. For example:
 
         ```sh
-         $ pulumi import aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment example attachment-0f8fa60d2238d1bd8
+        $ pulumi import aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment example attachment-0f8fa60d2238d1bd8
         ```
 
         :param str resource_name: The name of the resource.
@@ -351,6 +353,7 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -359,13 +362,14 @@ class TransitGatewayRouteTableAttachment(pulumi.CustomResource):
             peering_id=example_aws_networkmanager_transit_gateway_peering["id"],
             transit_gateway_route_table_arn=example_aws_ec2_transit_gateway_route_table["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_networkmanager_transit_gateway_route_table_attachment` using the attachment ID. For example:
 
         ```sh
-         $ pulumi import aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment example attachment-0f8fa60d2238d1bd8
+        $ pulumi import aws:networkmanager/transitGatewayRouteTableAttachment:TransitGatewayRouteTableAttachment example attachment-0f8fa60d2238d1bd8
         ```
 
         :param str resource_name: The name of the resource.

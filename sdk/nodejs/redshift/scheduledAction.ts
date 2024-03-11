@@ -9,8 +9,10 @@ import * as utilities from "../utilities";
 
 /**
  * ## Example Usage
+ *
  * ### Pause Cluster Action
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -59,8 +61,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Resize Cluster Action
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -79,13 +84,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Redshift Scheduled Action using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:redshift/scheduledAction:ScheduledAction example tf-redshift-scheduled-action
+ * $ pulumi import aws:redshift/scheduledAction:ScheduledAction example tf-redshift-scheduled-action
  * ```
  */
 export class ScheduledAction extends pulumi.CustomResource {

@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Registers an on-premises server or virtual machine with Amazon EC2 so that it can be managed using Run Command.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -79,15 +81,16 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import AWS SSM Activation using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ssm/activation:Activation example e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE
+ * $ pulumi import aws:ssm/activation:Activation example e488f2f6-e686-4afb-8a04-ef6dfEXAMPLE
  * ```
- *  -&gt; __Note:__ The `activation_code` attribute cannot be imported.
+ * -&gt; __Note:__ The `activation_code` attribute cannot be imported.
  * 
  */
 @ResourceType(type="aws:ssm/activation:Activation")

@@ -20,7 +20,10 @@ import javax.annotation.Nullable;
  * Provides an Amazon MSK Connect Custom Plugin Resource.
  * 
  * ## Example Usage
+ * 
  * ### Basic configuration
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -73,13 +76,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import MSK Connect Custom Plugin using the plugin&#39;s `arn`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:mskconnect/customPlugin:CustomPlugin example &#39;arn:aws:kafkaconnect:eu-central-1:123456789012:custom-plugin/debezium-example/abcdefgh-1234-5678-9abc-defghijklmno-4&#39;
+ * $ pulumi import aws:mskconnect/customPlugin:CustomPlugin example &#39;arn:aws:kafkaconnect:eu-central-1:123456789012:custom-plugin/debezium-example/abcdefgh-1234-5678-9abc-defghijklmno-4&#39;
  * ```
  * 
  */

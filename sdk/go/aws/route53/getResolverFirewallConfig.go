@@ -19,6 +19,7 @@ import (
 //
 // The following example shows how to get a firewall config using the VPC ID.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,6 +43,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupResolverFirewallConfig(ctx *pulumi.Context, args *LookupResolverFirewallConfigArgs, opts ...pulumi.InvokeOption) (*LookupResolverFirewallConfigResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupResolverFirewallConfigResult

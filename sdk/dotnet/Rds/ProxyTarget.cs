@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -80,6 +81,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -90,12 +92,12 @@ namespace Pulumi.Aws.Rds
     /// Instances:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/RDS_INSTANCE/example-instance
+    /// $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/RDS_INSTANCE/example-instance
     /// ```
-    ///  Provisioned Clusters:
+    /// Provisioned Clusters:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/TRACKED_CLUSTER/example-cluster
+    /// $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/TRACKED_CLUSTER/example-cluster
     /// ```
     /// </summary>
     [AwsResourceType("aws:rds/proxyTarget:ProxyTarget")]

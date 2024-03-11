@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Manages a Service Catalog self-service action.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -25,13 +27,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_servicecatalog_service_action` using the service action ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:servicecatalog/serviceAction:ServiceAction example act-f1w12eperfslh
+ * $ pulumi import aws:servicecatalog/serviceAction:ServiceAction example act-f1w12eperfslh
  * ```
  */
 export class ServiceAction extends pulumi.CustomResource {

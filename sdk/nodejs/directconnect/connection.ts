@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Provides a Connection of Direct Connect.
  *
  * ## Example Usage
+ *
  * ### Create a connection
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,8 +22,11 @@ import * as utilities from "../utilities";
  *     location: "EqDC2",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Request a MACsec-capable connection
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -33,10 +38,13 @@ import * as utilities from "../utilities";
  *     requestMacsec: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Configure encryption mode for MACsec-capable connections
  *
  * > **NOTE:** You can only specify the `encryptionMode` argument once the connection is in an `Available` state.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -49,13 +57,14 @@ import * as utilities from "../utilities";
  *     encryptionMode: "must_encrypt",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Direct Connect connections using the connection `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:directconnect/connection:Connection test_connection dxcon-ffre0ec3
+ * $ pulumi import aws:directconnect/connection:Connection test_connection dxcon-ffre0ec3
  * ```
  */
 export class Connection extends pulumi.CustomResource {

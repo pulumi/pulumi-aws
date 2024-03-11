@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS Lex V2 Models Bot Version.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,15 +47,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Lex V2 Models Bot Version using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:lex/v2modelsBotVersion:V2modelsBotVersion example id-12345678,1
-//
+// $ pulumi import aws:lex/v2modelsBotVersion:V2modelsBotVersion example id-12345678,1
 // ```
 type V2modelsBotVersion struct {
 	pulumi.CustomResourceState

@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Workspaces
     /// Resource for managing an AWS WorkSpaces Connection Alias.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,13 +32,14 @@ namespace Pulumi.Aws.Workspaces
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import WorkSpaces Connection Alias using the connection alias ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:workspaces/connectionAlias:ConnectionAlias example rft-8012925589
+    /// $ pulumi import aws:workspaces/connectionAlias:ConnectionAlias example rft-8012925589
     /// ```
     /// </summary>
     [AwsResourceType("aws:workspaces/connectionAlias:ConnectionAlias")]

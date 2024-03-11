@@ -405,6 +405,7 @@ class DataQualityJobDefinition(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -435,13 +436,14 @@ class DataQualityJobDefinition(pulumi.CustomResource):
             ),
             role_arn=my_role["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import data quality job definitions using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition test_data_quality_job_definition data-quality-job-definition-foo
+        $ pulumi import aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition test_data_quality_job_definition data-quality-job-definition-foo
         ```
 
         :param str resource_name: The name of the resource.
@@ -470,6 +472,7 @@ class DataQualityJobDefinition(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -500,13 +503,14 @@ class DataQualityJobDefinition(pulumi.CustomResource):
             ),
             role_arn=my_role["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import data quality job definitions using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition test_data_quality_job_definition data-quality-job-definition-foo
+        $ pulumi import aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition test_data_quality_job_definition data-quality-job-definition-foo
         ```
 
         :param str resource_name: The name of the resource.

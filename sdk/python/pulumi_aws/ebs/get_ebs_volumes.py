@@ -89,6 +89,7 @@ def get_ebs_volumes(filters: Optional[Sequence[pulumi.InputType['GetEbsVolumesFi
 
     The following demonstrates obtaining a map of availability zone to EBS volume ID for volumes with a given tag value.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -102,6 +103,7 @@ def get_ebs_volumes(filters: Optional[Sequence[pulumi.InputType['GetEbsVolumesFi
     )]) for __key, __value in example.ids}
     pulumi.export("availabilityZoneToVolumeId", {s.id: s.availability_zone for s in example_get_volume})
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetEbsVolumesFilterArgs']] filters: Custom filter block as described below.
@@ -137,6 +139,7 @@ def get_ebs_volumes_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
 
     The following demonstrates obtaining a map of availability zone to EBS volume ID for volumes with a given tag value.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -150,6 +153,7 @@ def get_ebs_volumes_output(filters: Optional[pulumi.Input[Optional[Sequence[pulu
     )]) for __key, __value in example.ids}
     pulumi.export("availabilityZoneToVolumeId", {s.id: s.availability_zone for s in example_get_volume})
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetEbsVolumesFilterArgs']] filters: Custom filter block as described below.

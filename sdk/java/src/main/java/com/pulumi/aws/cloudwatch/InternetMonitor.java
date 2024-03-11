@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * Provides a Internet Monitor Monitor resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -51,13 +53,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Internet Monitor Monitors using the `monitor_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cloudwatch/internetMonitor:InternetMonitor some some-monitor
+ * $ pulumi import aws:cloudwatch/internetMonitor:InternetMonitor some some-monitor
  * ```
  * 
  */

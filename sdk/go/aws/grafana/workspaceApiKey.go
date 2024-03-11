@@ -15,8 +15,10 @@ import (
 // Provides an Amazon Managed Grafana workspace API Key resource.
 //
 // ## Example Usage
+//
 // ### Basic configuration
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,6 +45,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type WorkspaceApiKey struct {
 	pulumi.CustomResourceState
 

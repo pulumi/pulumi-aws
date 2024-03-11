@@ -18,8 +18,10 @@ import (
 // > **NOTE:** This resource might not work well if using an alternative s3-compatible provider. Please use `aws.s3.BucketV2` instead.
 //
 // ## Example Usage
+//
 // ### Private Bucket w/ Tags
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -48,8 +50,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Static Website Hosting
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -98,8 +103,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Using CORS
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -142,8 +150,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Using versioning
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -171,8 +182,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Enable Logging
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -210,8 +224,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Using object lifecycle
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -297,10 +314,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Using replication configuration
 //
 // > **NOTE:** See the `s3.BucketReplicationConfig` resource to support bi-directional replication configuration and additional features.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -442,8 +462,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Enable Default Server Side Encryption
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -483,8 +506,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Using ACL policy grants
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -529,18 +555,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // S3 bucket can be imported using the `bucket`, e.g.,
 //
 // ```sh
-//
-//	$ pulumi import aws:s3/bucket:Bucket bucket bucket-name
-//
+// $ pulumi import aws:s3/bucket:Bucket bucket bucket-name
 // ```
-//
-//	The `policy` argument is not imported and will be deprecated in a future version of the provider. Use the `aws_s3_bucket_policy` resource to manage the S3 Bucket Policy instead.
+// The `policy` argument is not imported and will be deprecated in a future version of the provider. Use the `aws_s3_bucket_policy` resource to manage the S3 Bucket Policy instead.
 type Bucket struct {
 	pulumi.CustomResourceState
 

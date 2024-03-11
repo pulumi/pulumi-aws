@@ -470,8 +470,10 @@ class CachesIscsiVolume(pulumi.CustomResource):
         ## Example Usage
 
         > **NOTE:** These examples are referencing the `storagegateway.Cache` resource `gateway_arn` attribute to ensure this provider properly adds cache before creating the volume. If you are not using this method, you may need to declare an expicit dependency (e.g. via `depends_on = [aws_storagegateway_cache.example]`) to ensure proper ordering.
+
         ### Create Empty Cached iSCSI Volume
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -482,8 +484,11 @@ class CachesIscsiVolume(pulumi.CustomResource):
             target_name="example",
             volume_size_in_bytes=5368709120)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Create Cached iSCSI Volume From Snapshot
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -495,8 +500,11 @@ class CachesIscsiVolume(pulumi.CustomResource):
             target_name="example",
             volume_size_in_bytes=example_aws_ebs_snapshot["volumeSize"] * 1024 * 1024 * 1024)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Create Cached iSCSI Volume From Source Volume
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -508,13 +516,14 @@ class CachesIscsiVolume(pulumi.CustomResource):
             target_name="example",
             volume_size_in_bytes=existing["volumeSizeInBytes"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_storagegateway_cached_iscsi_volume` using the volume Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
+        $ pulumi import aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -545,8 +554,10 @@ class CachesIscsiVolume(pulumi.CustomResource):
         ## Example Usage
 
         > **NOTE:** These examples are referencing the `storagegateway.Cache` resource `gateway_arn` attribute to ensure this provider properly adds cache before creating the volume. If you are not using this method, you may need to declare an expicit dependency (e.g. via `depends_on = [aws_storagegateway_cache.example]`) to ensure proper ordering.
+
         ### Create Empty Cached iSCSI Volume
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -557,8 +568,11 @@ class CachesIscsiVolume(pulumi.CustomResource):
             target_name="example",
             volume_size_in_bytes=5368709120)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Create Cached iSCSI Volume From Snapshot
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -570,8 +584,11 @@ class CachesIscsiVolume(pulumi.CustomResource):
             target_name="example",
             volume_size_in_bytes=example_aws_ebs_snapshot["volumeSize"] * 1024 * 1024 * 1024)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Create Cached iSCSI Volume From Source Volume
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -583,13 +600,14 @@ class CachesIscsiVolume(pulumi.CustomResource):
             target_name="example",
             volume_size_in_bytes=existing["volumeSizeInBytes"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_storagegateway_cached_iscsi_volume` using the volume Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
+        $ pulumi import aws:storagegateway/cachesIscsiVolume:CachesIscsiVolume example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678/volume/vol-12345678
         ```
 
         :param str resource_name: The name of the resource.

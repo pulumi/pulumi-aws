@@ -14,6 +14,7 @@ namespace Pulumi.Aws.OpsWorks
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,13 +30,14 @@ namespace Pulumi.Aws.OpsWorks
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import OpsWorks PHP Application Layers using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:opsworks/phpAppLayer:PhpAppLayer bar 00000000-0000-0000-0000-000000000000
+    /// $ pulumi import aws:opsworks/phpAppLayer:PhpAppLayer bar 00000000-0000-0000-0000-000000000000
     /// ```
     /// </summary>
     [AwsResourceType("aws:opsworks/phpAppLayer:PhpAppLayer")]

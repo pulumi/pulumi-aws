@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Workspaces
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -48,13 +49,14 @@ namespace Pulumi.Aws.Workspaces
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import WorkSpaces IP groups using their GroupID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:workspaces/ipGroup:IpGroup example wsipg-488lrtl3k
+    /// $ pulumi import aws:workspaces/ipGroup:IpGroup example wsipg-488lrtl3k
     /// ```
     /// </summary>
     [AwsResourceType("aws:workspaces/ipGroup:IpGroup")]

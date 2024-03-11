@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -64,13 +65,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_appstream_stack` using the id. For example:
  *
  * ```sh
- *  $ pulumi import aws:appstream/stack:Stack example stackID
+ * $ pulumi import aws:appstream/stack:Stack example stackID
  * ```
  */
 export class Stack extends pulumi.CustomResource {

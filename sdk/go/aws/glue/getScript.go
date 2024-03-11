@@ -14,8 +14,10 @@ import (
 // Use this data source to generate a Glue script from a Directed Acyclic Graph (DAG).
 //
 // ## Example Usage
+//
 // ### Generate Python Script
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -128,8 +130,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Generate Scala Code
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -242,6 +247,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetScript(ctx *pulumi.Context, args *GetScriptArgs, opts ...pulumi.InvokeOption) (*GetScriptResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetScriptResult

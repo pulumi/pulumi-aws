@@ -128,6 +128,7 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -141,13 +142,14 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
                 "Name": "main",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Egress-only Internet gateways using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway example eigw-015e0e244e24dfe8a
+        $ pulumi import aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway example eigw-015e0e244e24dfe8a
         ```
 
         :param str resource_name: The name of the resource.
@@ -169,6 +171,7 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -182,13 +185,14 @@ class EgressOnlyInternetGateway(pulumi.CustomResource):
                 "Name": "main",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Egress-only Internet gateways using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway example eigw-015e0e244e24dfe8a
+        $ pulumi import aws:ec2/egressOnlyInternetGateway:EgressOnlyInternetGateway example eigw-015e0e244e24dfe8a
         ```
 
         :param str resource_name: The name of the resource.

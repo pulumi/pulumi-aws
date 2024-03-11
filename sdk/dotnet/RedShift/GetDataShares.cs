@@ -14,11 +14,11 @@ namespace Pulumi.Aws.RedShift
         /// <summary>
         /// Data source for managing AWS Redshift Data Shares.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -31,8 +31,7 @@ namespace Pulumi.Aws.RedShift
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetDataSharesResult> InvokeAsync(GetDataSharesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDataSharesResult>("aws:redshift/getDataShares:getDataShares", args ?? new GetDataSharesArgs(), options.WithDefaults());
@@ -40,11 +39,11 @@ namespace Pulumi.Aws.RedShift
         /// <summary>
         /// Data source for managing AWS Redshift Data Shares.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -57,8 +56,7 @@ namespace Pulumi.Aws.RedShift
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetDataSharesResult> Invoke(GetDataSharesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDataSharesResult>("aws:redshift/getDataShares:getDataShares", args ?? new GetDataSharesInvokeArgs(), options.WithDefaults());

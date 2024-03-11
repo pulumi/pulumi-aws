@@ -13,8 +13,10 @@ namespace Pulumi.Aws.AppAutoScaling
     /// Provides an Application AutoScaling ScheduledAction resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### DynamoDB Table Autoscaling
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -48,8 +50,11 @@ namespace Pulumi.Aws.AppAutoScaling
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### ECS Service Autoscaling
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -83,6 +88,7 @@ namespace Pulumi.Aws.AppAutoScaling
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:appautoscaling/scheduledAction:ScheduledAction")]
     public partial class ScheduledAction : global::Pulumi.CustomResource

@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,15 +50,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import a cluster using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:memorydb/cluster:Cluster example my-cluster
-//
+// $ pulumi import aws:memorydb/cluster:Cluster example my-cluster
 // ```
 type Cluster struct {
 	pulumi.CustomResourceState

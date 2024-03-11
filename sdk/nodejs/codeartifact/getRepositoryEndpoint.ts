@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,6 +20,7 @@ import * as utilities from "../utilities";
  *     format: "npm",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRepositoryEndpoint(args: GetRepositoryEndpointArgs, opts?: pulumi.InvokeOptions): Promise<GetRepositoryEndpointResult> {
 
@@ -75,6 +77,7 @@ export interface GetRepositoryEndpointResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -85,6 +88,7 @@ export interface GetRepositoryEndpointResult {
  *     format: "npm",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRepositoryEndpointOutput(args: GetRepositoryEndpointOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRepositoryEndpointResult> {
     return pulumi.output(args).apply((a: any) => getRepositoryEndpoint(a, opts))

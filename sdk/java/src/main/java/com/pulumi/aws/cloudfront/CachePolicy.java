@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * Use the `aws.cloudfront.CachePolicy` resource to create a cache policy for CloudFront.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -79,13 +81,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import CloudFront cache policies using the `id` of the cache policy. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cloudfront/cachePolicy:CachePolicy policy 658327ea-f89d-4fab-a63d-7e88639e58f6
+ * $ pulumi import aws:cloudfront/cachePolicy:CachePolicy policy 658327ea-f89d-4fab-a63d-7e88639e58f6
  * ```
  * 
  */

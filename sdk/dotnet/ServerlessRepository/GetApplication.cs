@@ -14,10 +14,9 @@ namespace Pulumi.Aws.ServerlessRepository
         /// <summary>
         /// Use this data source to get information about an AWS Serverless Application Repository application. For example, this can be used to determine the required `capabilities` for an application.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -41,8 +40,7 @@ namespace Pulumi.Aws.ServerlessRepository
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("aws:serverlessrepository/getApplication:getApplication", args ?? new GetApplicationArgs(), options.WithDefaults());
@@ -50,10 +48,9 @@ namespace Pulumi.Aws.ServerlessRepository
         /// <summary>
         /// Use this data source to get information about an AWS Serverless Application Repository application. For example, this can be used to determine the required `capabilities` for an application.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -77,8 +74,7 @@ namespace Pulumi.Aws.ServerlessRepository
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("aws:serverlessrepository/getApplication:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());

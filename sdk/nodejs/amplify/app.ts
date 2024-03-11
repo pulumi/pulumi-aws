@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -48,10 +49,13 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Repository with Tokens
  *
  * If you create a new Amplify App with the `repository` argument, you also need to set `oauthToken` or `accessToken` for authentication. For GitHub, get a [personal access token](https://help.github.com/en/github/authenticating-to-github/creating-a-personal-access-token-for-the-command-line) and set `accessToken` as follows:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -62,10 +66,13 @@ import * as utilities from "../utilities";
  *     accessToken: "...",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * You can omit `accessToken` if you import an existing Amplify App created by the Amplify Console (using OAuth for authentication).
+ *
  * ### Auto Branch Creation
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -82,8 +89,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Basic Authorization
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -97,8 +107,11 @@ import * as utilities from "../utilities";
  *     }).then(invoke => invoke.result),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Rewrites and Redirects
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -119,8 +132,11 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Custom Image
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -132,8 +148,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Custom Headers
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -156,15 +175,16 @@ import * as utilities from "../utilities";
  * `,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Amplify App using Amplify App ID (appId). For example:
  *
  * ```sh
- *  $ pulumi import aws:amplify/app:App example d2ypk4k47z8u6
+ * $ pulumi import aws:amplify/app:App example d2ypk4k47z8u6
  * ```
- *  App ID can be obtained from App ARN (e.g., `arn:aws:amplify:us-east-1:12345678:apps/d2ypk4k47z8u6`).
+ * App ID can be obtained from App ARN (e.g., `arn:aws:amplify:us-east-1:12345678:apps/d2ypk4k47z8u6`).
  */
 export class App extends pulumi.CustomResource {
     /**

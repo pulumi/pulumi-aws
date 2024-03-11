@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Data source for managing an AWS SQS (Simple Queue) Queues.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -18,6 +20,7 @@ import * as utilities from "../utilities";
  *     queueNamePrefix: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getQueues(args?: GetQueuesArgs, opts?: pulumi.InvokeOptions): Promise<GetQueuesResult> {
     args = args || {};
@@ -56,8 +59,10 @@ export interface GetQueuesResult {
  * Data source for managing an AWS SQS (Simple Queue) Queues.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -66,6 +71,7 @@ export interface GetQueuesResult {
  *     queueNamePrefix: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getQueuesOutput(args?: GetQueuesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetQueuesResult> {
     return pulumi.output(args).apply((a: any) => getQueues(a, opts))

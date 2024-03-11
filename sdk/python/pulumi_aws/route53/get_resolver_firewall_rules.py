@@ -95,12 +95,14 @@ def get_resolver_firewall_rules(action: Optional[str] = None,
 
     The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group id.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.route53.get_resolver_firewall_rules(firewall_rule_group_id=example_aws_route53_resolver_firewall_rule_group["id"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str action: The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list.
@@ -134,12 +136,14 @@ def get_resolver_firewall_rules_output(action: Optional[pulumi.Input[Optional[st
 
     The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group id.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.route53.get_resolver_firewall_rules(firewall_rule_group_id=example_aws_route53_resolver_firewall_rule_group["id"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str action: The action that DNS Firewall should take on a DNS query when it matches one of the domains in the rule's domain list.

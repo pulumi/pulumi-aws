@@ -10,8 +10,10 @@ import * as utilities from "../utilities";
  * [Managing AWS Shield Advanced protection groups](https://docs.aws.amazon.com/waf/latest/developerguide/manage-protection-group.html)
  *
  * ## Example Usage
+ *
  * ### Create protection group for all resources
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,8 +24,11 @@ import * as utilities from "../utilities";
  *     pattern: "ALL",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Create protection group for arbitrary number of resources
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -42,8 +47,11 @@ import * as utilities from "../utilities";
  *     members: [pulumi.all([current, currentGetCallerIdentity, example.id]).apply(([current, currentGetCallerIdentity, id]) => `arn:aws:ec2:${current.name}:${currentGetCallerIdentity.accountId}:eip-allocation/${id}`)],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Create protection group for a type of resource
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -55,13 +63,14 @@ import * as utilities from "../utilities";
  *     resourceType: "ELASTIC_IP_ALLOCATION",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Shield protection group resources using their protection group id. For example:
  *
  * ```sh
- *  $ pulumi import aws:shield/protectionGroup:ProtectionGroup example example
+ * $ pulumi import aws:shield/protectionGroup:ProtectionGroup example example
  * ```
  */
 export class ProtectionGroup extends pulumi.CustomResource {

@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -17,13 +18,14 @@ import * as utilities from "../utilities";
  *     isCrossAccountBackupEnabled: "true",
  * }});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Backup Global Settings using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:backup/globalSettings:GlobalSettings example 123456789012
+ * $ pulumi import aws:backup/globalSettings:GlobalSettings example 123456789012
  * ```
  */
 export class GlobalSettings extends pulumi.CustomResource {

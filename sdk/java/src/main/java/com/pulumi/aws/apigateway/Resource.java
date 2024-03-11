@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Provides an API Gateway Resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -54,13 +56,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_api_gateway_resource` using `REST-API-ID/RESOURCE-ID`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:apigateway/resource:Resource example 12345abcde/67890fghij
+ * $ pulumi import aws:apigateway/resource:Resource example 12345abcde/67890fghij
  * ```
  * 
  */

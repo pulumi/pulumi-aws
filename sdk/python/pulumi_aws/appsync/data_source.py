@@ -450,6 +450,7 @@ class DataSource(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -495,13 +496,14 @@ class DataSource(pulumi.CustomResource):
                 table_name=example_table.name,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_appsync_datasource` using the `api_id`, a hyphen, and `name`. For example:
 
         ```sh
-         $ pulumi import aws:appsync/dataSource:DataSource example abcdef123456-example
+        $ pulumi import aws:appsync/dataSource:DataSource example abcdef123456-example
         ```
 
         :param str resource_name: The name of the resource.
@@ -530,6 +532,7 @@ class DataSource(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -575,13 +578,14 @@ class DataSource(pulumi.CustomResource):
                 table_name=example_table.name,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_appsync_datasource` using the `api_id`, a hyphen, and `name`. For example:
 
         ```sh
-         $ pulumi import aws:appsync/dataSource:DataSource example abcdef123456-example
+        $ pulumi import aws:appsync/dataSource:DataSource example abcdef123456-example
         ```
 
         :param str resource_name: The name of the resource.

@@ -196,8 +196,10 @@ class Package(pulumi.CustomResource):
         Manages an AWS Opensearch Package.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -217,13 +219,14 @@ class Package(pulumi.CustomResource):
             ),
             package_type="TXT-DICTIONARY")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AWS Opensearch Packages using the Package ID. For example:
 
         ```sh
-         $ pulumi import aws:opensearch/package:Package example package-id
+        $ pulumi import aws:opensearch/package:Package example package-id
         ```
 
         :param str resource_name: The name of the resource.
@@ -243,8 +246,10 @@ class Package(pulumi.CustomResource):
         Manages an AWS Opensearch Package.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -264,13 +269,14 @@ class Package(pulumi.CustomResource):
             ),
             package_type="TXT-DICTIONARY")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AWS Opensearch Packages using the Package ID. For example:
 
         ```sh
-         $ pulumi import aws:opensearch/package:Package example package-id
+        $ pulumi import aws:opensearch/package:Package example package-id
         ```
 
         :param str resource_name: The name of the resource.

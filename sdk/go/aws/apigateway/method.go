@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -57,8 +58,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Usage with Cognito User Pool Authorizer
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -122,15 +126,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_api_gateway_method` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:apigateway/method:Method example 12345abcde/67890fghij/GET
-//
+// $ pulumi import aws:apigateway/method:Method example 12345abcde/67890fghij/GET
 // ```
 type Method struct {
 	pulumi.CustomResourceState

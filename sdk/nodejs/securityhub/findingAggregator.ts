@@ -8,10 +8,12 @@ import * as utilities from "../utilities";
  * Manages a Security Hub finding aggregator. Security Hub needs to be enabled in a region in order for the aggregator to pull through findings.
  *
  * ## Example Usage
+ *
  * ### All Regions Usage
  *
  * The following example will enable the aggregator for every region.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,10 +21,13 @@ import * as utilities from "../utilities";
  * const example = new aws.securityhub.Account("example", {});
  * const exampleFindingAggregator = new aws.securityhub.FindingAggregator("example", {linkingMode: "ALL_REGIONS"});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### All Regions Except Specified Regions Usage
  *
  * The following example will enable the aggregator for every region except those specified in `specifiedRegions`.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -36,10 +41,13 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Specified Regions Usage
  *
  * The following example will enable the aggregator for every region specified in `specifiedRegions`.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -53,13 +61,14 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import an existing Security Hub finding aggregator using the `arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:securityhub/findingAggregator:FindingAggregator example arn:aws:securityhub:eu-west-1:123456789098:finding-aggregator/abcd1234-abcd-1234-1234-abcdef123456
+ * $ pulumi import aws:securityhub/findingAggregator:FindingAggregator example arn:aws:securityhub:eu-west-1:123456789098:finding-aggregator/abcd1234-abcd-1234-1234-abcdef123456
  * ```
  */
 export class FindingAggregator extends pulumi.CustomResource {

@@ -197,8 +197,10 @@ class PlaybackKeyPair(pulumi.CustomResource):
         Resource for managing an AWS IVS (Interactive Video) Playback Key Pair.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -206,13 +208,14 @@ class PlaybackKeyPair(pulumi.CustomResource):
 
         example = aws.ivs.PlaybackKeyPair("example", public_key=std.file(input="./public-key.pem").result)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IVS (Interactive Video) Playback Key Pair using the ARN. For example:
 
         ```sh
-         $ pulumi import aws:ivs/playbackKeyPair:PlaybackKeyPair example arn:aws:ivs:us-west-2:326937407773:playback-key/KDJRJNQhiQzA
+        $ pulumi import aws:ivs/playbackKeyPair:PlaybackKeyPair example arn:aws:ivs:us-west-2:326937407773:playback-key/KDJRJNQhiQzA
         ```
 
         :param str resource_name: The name of the resource.
@@ -233,8 +236,10 @@ class PlaybackKeyPair(pulumi.CustomResource):
         Resource for managing an AWS IVS (Interactive Video) Playback Key Pair.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -242,13 +247,14 @@ class PlaybackKeyPair(pulumi.CustomResource):
 
         example = aws.ivs.PlaybackKeyPair("example", public_key=std.file(input="./public-key.pem").result)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IVS (Interactive Video) Playback Key Pair using the ARN. For example:
 
         ```sh
-         $ pulumi import aws:ivs/playbackKeyPair:PlaybackKeyPair example arn:aws:ivs:us-west-2:326937407773:playback-key/KDJRJNQhiQzA
+        $ pulumi import aws:ivs/playbackKeyPair:PlaybackKeyPair example arn:aws:ivs:us-west-2:326937407773:playback-key/KDJRJNQhiQzA
         ```
 
         :param str resource_name: The name of the resource.

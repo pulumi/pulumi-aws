@@ -28,7 +28,10 @@ import javax.annotation.Nullable;
  * otherwise, the policy may be destroyed too soon and the compute environment will then get stuck in the `DELETING` state, see [Troubleshooting AWS Batch](http://docs.aws.amazon.com/batch/latest/userguide/troubleshooting.html) .
  * 
  * ## Example Usage
+ * 
  * ### EC2 Type
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -158,7 +161,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Fargate Type
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -196,7 +203,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Setting Update Policy
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -242,13 +253,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import AWS Batch compute using the `compute_environment_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:batch/computeEnvironment:ComputeEnvironment sample sample
+ * $ pulumi import aws:batch/computeEnvironment:ComputeEnvironment sample sample
  * ```
  * 
  */

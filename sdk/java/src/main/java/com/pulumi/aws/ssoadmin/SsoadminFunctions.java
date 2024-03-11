@@ -32,7 +32,10 @@ public final class SsoadminFunctions {
      * Data source for managing an AWS SSO Admin Application.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -61,6 +64,7 @@ public final class SsoadminFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetApplicationResult> getApplication(GetApplicationArgs args) {
@@ -70,7 +74,10 @@ public final class SsoadminFunctions {
      * Data source for managing an AWS SSO Admin Application.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -99,6 +106,7 @@ public final class SsoadminFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetApplicationResult> getApplicationPlain(GetApplicationPlainArgs args) {
@@ -108,7 +116,10 @@ public final class SsoadminFunctions {
      * Data source for managing an AWS SSO Admin Application.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -137,6 +148,7 @@ public final class SsoadminFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetApplicationResult> getApplication(GetApplicationArgs args, InvokeOptions options) {
@@ -146,7 +158,10 @@ public final class SsoadminFunctions {
      * Data source for managing an AWS SSO Admin Application.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -175,6 +190,7 @@ public final class SsoadminFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetApplicationResult> getApplicationPlain(GetApplicationPlainArgs args, InvokeOptions options) {
@@ -184,7 +200,10 @@ public final class SsoadminFunctions {
      * Data source for managing AWS SSO Admin Application Assignments.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -213,6 +232,7 @@ public final class SsoadminFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetApplicationAssignmentsResult> getApplicationAssignments(GetApplicationAssignmentsArgs args) {
@@ -222,7 +242,10 @@ public final class SsoadminFunctions {
      * Data source for managing AWS SSO Admin Application Assignments.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -251,6 +274,7 @@ public final class SsoadminFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetApplicationAssignmentsResult> getApplicationAssignmentsPlain(GetApplicationAssignmentsPlainArgs args) {
@@ -260,7 +284,10 @@ public final class SsoadminFunctions {
      * Data source for managing AWS SSO Admin Application Assignments.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -289,6 +316,7 @@ public final class SsoadminFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetApplicationAssignmentsResult> getApplicationAssignments(GetApplicationAssignmentsArgs args, InvokeOptions options) {
@@ -298,7 +326,10 @@ public final class SsoadminFunctions {
      * Data source for managing AWS SSO Admin Application Assignments.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -327,6 +358,7 @@ public final class SsoadminFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetApplicationAssignmentsResult> getApplicationAssignmentsPlain(GetApplicationAssignmentsPlainArgs args, InvokeOptions options) {
@@ -336,7 +368,10 @@ public final class SsoadminFunctions {
      * Data source for managing AWS SSO Admin Application Providers.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -363,6 +398,7 @@ public final class SsoadminFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetApplicationProvidersResult> getApplicationProviders() {
@@ -372,7 +408,10 @@ public final class SsoadminFunctions {
      * Data source for managing AWS SSO Admin Application Providers.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -399,6 +438,7 @@ public final class SsoadminFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetApplicationProvidersResult> getApplicationProvidersPlain() {
@@ -408,7 +448,10 @@ public final class SsoadminFunctions {
      * Data source for managing AWS SSO Admin Application Providers.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -435,6 +478,7 @@ public final class SsoadminFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetApplicationProvidersResult> getApplicationProviders(GetApplicationProvidersArgs args) {
@@ -444,7 +488,10 @@ public final class SsoadminFunctions {
      * Data source for managing AWS SSO Admin Application Providers.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -471,6 +518,7 @@ public final class SsoadminFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetApplicationProvidersResult> getApplicationProvidersPlain(GetApplicationProvidersPlainArgs args) {
@@ -480,7 +528,10 @@ public final class SsoadminFunctions {
      * Data source for managing AWS SSO Admin Application Providers.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -507,6 +558,7 @@ public final class SsoadminFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetApplicationProvidersResult> getApplicationProviders(GetApplicationProvidersArgs args, InvokeOptions options) {
@@ -516,7 +568,10 @@ public final class SsoadminFunctions {
      * Data source for managing AWS SSO Admin Application Providers.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -543,6 +598,7 @@ public final class SsoadminFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetApplicationProvidersResult> getApplicationProvidersPlain(GetApplicationProvidersPlainArgs args, InvokeOptions options) {
@@ -551,16 +607,12 @@ public final class SsoadminFunctions {
     /**
      * Use this data source to get ARNs and Identity Store IDs of Single Sign-On (SSO) Instances.
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetInstancesResult> getInstances() {
         return getInstances(InvokeArgs.Empty, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get ARNs and Identity Store IDs of Single Sign-On (SSO) Instances.
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetInstancesResult> getInstancesPlain() {
@@ -569,16 +621,12 @@ public final class SsoadminFunctions {
     /**
      * Use this data source to get ARNs and Identity Store IDs of Single Sign-On (SSO) Instances.
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetInstancesResult> getInstances(InvokeArgs args) {
         return getInstances(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get ARNs and Identity Store IDs of Single Sign-On (SSO) Instances.
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetInstancesResult> getInstancesPlain(InvokeArgs args) {
@@ -587,16 +635,12 @@ public final class SsoadminFunctions {
     /**
      * Use this data source to get ARNs and Identity Store IDs of Single Sign-On (SSO) Instances.
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetInstancesResult> getInstances(InvokeArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ssoadmin/getInstances:getInstances", TypeShape.of(GetInstancesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get ARNs and Identity Store IDs of Single Sign-On (SSO) Instances.
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetInstancesResult> getInstancesPlain(InvokeArgs args, InvokeOptions options) {
@@ -605,16 +649,12 @@ public final class SsoadminFunctions {
     /**
      * Use this data source to get a Single Sign-On (SSO) Permission Set.
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetPermissionSetResult> getPermissionSet(GetPermissionSetArgs args) {
         return getPermissionSet(args, InvokeOptions.Empty);
     }
     /**
      * Use this data source to get a Single Sign-On (SSO) Permission Set.
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetPermissionSetResult> getPermissionSetPlain(GetPermissionSetPlainArgs args) {
@@ -623,16 +663,12 @@ public final class SsoadminFunctions {
     /**
      * Use this data source to get a Single Sign-On (SSO) Permission Set.
      * 
-     * ## Example Usage
-     * 
      */
     public static Output<GetPermissionSetResult> getPermissionSet(GetPermissionSetArgs args, InvokeOptions options) {
         return Deployment.getInstance().invoke("aws:ssoadmin/getPermissionSet:getPermissionSet", TypeShape.of(GetPermissionSetResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get a Single Sign-On (SSO) Permission Set.
-     * 
-     * ## Example Usage
      * 
      */
     public static CompletableFuture<GetPermissionSetResult> getPermissionSetPlain(GetPermissionSetPlainArgs args, InvokeOptions options) {

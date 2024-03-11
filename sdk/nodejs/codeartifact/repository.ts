@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -26,8 +27,11 @@ import * as utilities from "../utilities";
  *     domain: exampleDomain.domain,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With Upstream Repository
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -44,8 +48,11 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With External Connection
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -62,13 +69,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import CodeArtifact Repository using the CodeArtifact Repository ARN. For example:
  *
  * ```sh
- *  $ pulumi import aws:codeartifact/repository:Repository example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
+ * $ pulumi import aws:codeartifact/repository:Repository example arn:aws:codeartifact:us-west-2:012345678912:repository/tf-acc-test-6968272603913957763/tf-acc-test-6968272603913957763
  * ```
  */
 export class Repository extends pulumi.CustomResource {

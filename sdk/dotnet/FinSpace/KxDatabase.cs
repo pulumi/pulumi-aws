@@ -13,8 +13,10 @@ namespace Pulumi.Aws.FinSpace
     /// Resource for managing an AWS FinSpace Kx Database.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -44,13 +46,14 @@ namespace Pulumi.Aws.FinSpace
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import an AWS FinSpace Kx Database using the `id` (environment ID and database name, comma-delimited). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:finspace/kxDatabase:KxDatabase example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-database
+    /// $ pulumi import aws:finspace/kxDatabase:KxDatabase example n3ceo7wqxoxcti5tujqwzs,my-tf-kx-database
     /// ```
     /// </summary>
     [AwsResourceType("aws:finspace/kxDatabase:KxDatabase")]

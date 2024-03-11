@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetAuthorizers(ctx *pulumi.Context, args *GetAuthorizersArgs, opts ...pulumi.InvokeOption) (*GetAuthorizersResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetAuthorizersResult

@@ -20,7 +20,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS Transcribe Vocabulary.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -75,13 +78,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Transcribe Vocabulary using the `vocabulary_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:transcribe/vocabulary:Vocabulary example example-name
+ * $ pulumi import aws:transcribe/vocabulary:Vocabulary example example-name
  * ```
  * 
  */

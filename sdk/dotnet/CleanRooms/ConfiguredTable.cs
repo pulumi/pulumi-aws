@@ -13,8 +13,10 @@ namespace Pulumi.Aws.CleanRooms
     /// Provides a AWS Clean Rooms configured table. Configured tables are used to represent references to existing tables in the AWS Glue Data Catalog.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Configured table with tags
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -47,13 +49,14 @@ namespace Pulumi.Aws.CleanRooms
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_cleanrooms_configured_table` using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cleanrooms/configuredTable:ConfiguredTable table 1234abcd-12ab-34cd-56ef-1234567890ab
+    /// $ pulumi import aws:cleanrooms/configuredTable:ConfiguredTable table 1234abcd-12ab-34cd-56ef-1234567890ab
     /// ```
     /// </summary>
     [AwsResourceType("aws:cleanrooms/configuredTable:ConfiguredTable")]

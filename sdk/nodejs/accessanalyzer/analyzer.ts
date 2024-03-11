@@ -11,16 +11,21 @@ import * as utilities from "../utilities";
  * Manages an Access Analyzer Analyzer. More information can be found in the [Access Analyzer User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/what-is-access-analyzer.html).
  *
  * ## Example Usage
+ *
  * ### Account Analyzer
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.accessanalyzer.Analyzer("example", {analyzerName: "example"});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Organization Analyzer
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -31,13 +36,14 @@ import * as utilities from "../utilities";
  *     type: "ORGANIZATION",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Access Analyzer Analyzers using the `analyzer_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:accessanalyzer/analyzer:Analyzer example example
+ * $ pulumi import aws:accessanalyzer/analyzer:Analyzer example example
  * ```
  */
 export class Analyzer extends pulumi.CustomResource {

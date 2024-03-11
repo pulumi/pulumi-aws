@@ -355,6 +355,7 @@ class AccountPasswordPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -367,13 +368,14 @@ class AccountPasswordPolicy(pulumi.CustomResource):
             require_symbols=True,
             allow_users_to_change_password=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM Account Password Policy using the word `iam-account-password-policy`. For example:
 
         ```sh
-         $ pulumi import aws:iam/accountPasswordPolicy:AccountPasswordPolicy strict iam-account-password-policy
+        $ pulumi import aws:iam/accountPasswordPolicy:AccountPasswordPolicy strict iam-account-password-policy
         ```
 
         :param str resource_name: The name of the resource.
@@ -403,6 +405,7 @@ class AccountPasswordPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -415,13 +418,14 @@ class AccountPasswordPolicy(pulumi.CustomResource):
             require_symbols=True,
             allow_users_to_change_password=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM Account Password Policy using the word `iam-account-password-policy`. For example:
 
         ```sh
-         $ pulumi import aws:iam/accountPasswordPolicy:AccountPasswordPolicy strict iam-account-password-policy
+        $ pulumi import aws:iam/accountPasswordPolicy:AccountPasswordPolicy strict iam-account-password-policy
         ```
 
         :param str resource_name: The name of the resource.

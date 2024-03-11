@@ -172,8 +172,10 @@ class Recorder(pulumi.CustomResource):
         > **Note:** _Starting_ the Configuration Recorder requires a delivery channel (while delivery channel creation requires Configuration Recorder). This is why `cfg.RecorderStatus` is a separate resource.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -193,8 +195,11 @@ class Recorder(pulumi.CustomResource):
             name="example",
             role_arn=r.arn)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Exclude Resources Types Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -212,8 +217,11 @@ class Recorder(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Periodic Recording
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -238,13 +246,14 @@ class Recorder(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Configuration Recorder using the name. For example:
 
         ```sh
-         $ pulumi import aws:cfg/recorder:Recorder foo example
+        $ pulumi import aws:cfg/recorder:Recorder foo example
         ```
 
         :param str resource_name: The name of the resource.
@@ -266,8 +275,10 @@ class Recorder(pulumi.CustomResource):
         > **Note:** _Starting_ the Configuration Recorder requires a delivery channel (while delivery channel creation requires Configuration Recorder). This is why `cfg.RecorderStatus` is a separate resource.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -287,8 +298,11 @@ class Recorder(pulumi.CustomResource):
             name="example",
             role_arn=r.arn)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Exclude Resources Types Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -306,8 +320,11 @@ class Recorder(pulumi.CustomResource):
                 )],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Periodic Recording
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -332,13 +349,14 @@ class Recorder(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Configuration Recorder using the name. For example:
 
         ```sh
-         $ pulumi import aws:cfg/recorder:Recorder foo example
+        $ pulumi import aws:cfg/recorder:Recorder foo example
         ```
 
         :param str resource_name: The name of the resource.

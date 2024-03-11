@@ -14,6 +14,7 @@ namespace Pulumi.Aws.CodeCommit
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,13 +31,14 @@ namespace Pulumi.Aws.CodeCommit
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CodeCommit approval rule template associations using the `approval_rule_template_name` and `repository_name` separated by a comma (`,`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation example approver-rule-for-example,MyExampleRepo
+    /// $ pulumi import aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation example approver-rule-for-example,MyExampleRepo
     /// ```
     /// </summary>
     [AwsResourceType("aws:codecommit/approvalRuleTemplateAssociation:ApprovalRuleTemplateAssociation")]

@@ -14,10 +14,9 @@ namespace Pulumi.Aws.MemoryDb
         /// <summary>
         /// Provides information about a MemoryDB Subnet Group.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,8 +32,7 @@ namespace Pulumi.Aws.MemoryDb
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSubnetGroupResult> InvokeAsync(GetSubnetGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSubnetGroupResult>("aws:memorydb/getSubnetGroup:getSubnetGroup", args ?? new GetSubnetGroupArgs(), options.WithDefaults());
@@ -42,10 +40,9 @@ namespace Pulumi.Aws.MemoryDb
         /// <summary>
         /// Provides information about a MemoryDB Subnet Group.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,8 +58,7 @@ namespace Pulumi.Aws.MemoryDb
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSubnetGroupResult> Invoke(GetSubnetGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSubnetGroupResult>("aws:memorydb/getSubnetGroup:getSubnetGroup", args ?? new GetSubnetGroupInvokeArgs(), options.WithDefaults());

@@ -25,6 +25,7 @@ import * as utilities from "./utilities";
  * The following example shows how this data source might be used to derive
  * VPC and subnet CIDR prefixes systematically for an availability zone.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -67,6 +68,7 @@ import * as utilities from "./utilities";
  *     })).apply(invoke => invoke.result),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAvailabilityZone(args?: GetAvailabilityZoneArgs, opts?: pulumi.InvokeOptions): Promise<GetAvailabilityZoneResult> {
     args = args || {};
@@ -173,6 +175,7 @@ export interface GetAvailabilityZoneResult {
  * The following example shows how this data source might be used to derive
  * VPC and subnet CIDR prefixes systematically for an availability zone.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -215,6 +218,7 @@ export interface GetAvailabilityZoneResult {
  *     })).apply(invoke => invoke.result),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAvailabilityZoneOutput(args?: GetAvailabilityZoneOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAvailabilityZoneResult> {
     return pulumi.output(args).apply((a: any) => getAvailabilityZone(a, opts))

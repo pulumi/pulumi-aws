@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Sagemaker
     /// Provides a SageMaker Pipeline resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -49,13 +51,14 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import pipelines using the `pipeline_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:sagemaker/pipeline:Pipeline test_pipeline pipeline
+    /// $ pulumi import aws:sagemaker/pipeline:Pipeline test_pipeline pipeline
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/pipeline:Pipeline")]

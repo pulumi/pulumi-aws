@@ -14,10 +14,9 @@ namespace Pulumi.Aws.Kendra
         /// <summary>
         /// Provides details about a specific Amazon Kendra Faq.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +33,7 @@ namespace Pulumi.Aws.Kendra
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetFaqResult> InvokeAsync(GetFaqArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetFaqResult>("aws:kendra/getFaq:getFaq", args ?? new GetFaqArgs(), options.WithDefaults());
@@ -43,10 +41,9 @@ namespace Pulumi.Aws.Kendra
         /// <summary>
         /// Provides details about a specific Amazon Kendra Faq.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +60,7 @@ namespace Pulumi.Aws.Kendra
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetFaqResult> Invoke(GetFaqInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetFaqResult>("aws:kendra/getFaq:getFaq", args ?? new GetFaqInvokeArgs(), options.WithDefaults());

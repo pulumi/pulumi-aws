@@ -13,8 +13,10 @@ namespace Pulumi.Aws.MskConnect
     /// Provides an Amazon MSK Connect Worker Configuration Resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic configuration
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -33,13 +35,14 @@ namespace Pulumi.Aws.MskConnect
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import MSK Connect Worker Configuration using the plugin's `arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:mskconnect/workerConfiguration:WorkerConfiguration example 'arn:aws:kafkaconnect:eu-central-1:123456789012:worker-configuration/example/8848493b-7fcc-478c-a646-4a52634e3378-4'
+    /// $ pulumi import aws:mskconnect/workerConfiguration:WorkerConfiguration example 'arn:aws:kafkaconnect:eu-central-1:123456789012:worker-configuration/example/8848493b-7fcc-478c-a646-4a52634e3378-4'
     /// ```
     /// </summary>
     [AwsResourceType("aws:mskconnect/workerConfiguration:WorkerConfiguration")]

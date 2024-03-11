@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,15 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import QLDB Ledgers using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:qldb/ledger:Ledger sample-ledger sample-ledger
-//
+// $ pulumi import aws:qldb/ledger:Ledger sample-ledger sample-ledger
 // ```
 type Ledger struct {
 	pulumi.CustomResourceState

@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * the [account limits](http://docs.aws.amazon.com/kms/latest/developerguide/limits.html) allow you.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -51,13 +53,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import KMS aliases using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:kms/alias:Alias a alias/my-key-alias
+ * $ pulumi import aws:kms/alias:Alias a alias/my-key-alias
  * ```
  * 
  */

@@ -14,11 +14,11 @@ namespace Pulumi.Aws.CodeStarConnections
         /// <summary>
         /// Provides details about CodeStar Connection.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### By ARN
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,10 +34,11 @@ namespace Pulumi.Aws.CodeStarConnections
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### By Name
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -53,8 +54,7 @@ namespace Pulumi.Aws.CodeStarConnections
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetConnectionResult> InvokeAsync(GetConnectionArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectionResult>("aws:codestarconnections/getConnection:getConnection", args ?? new GetConnectionArgs(), options.WithDefaults());
@@ -62,11 +62,11 @@ namespace Pulumi.Aws.CodeStarConnections
         /// <summary>
         /// Provides details about CodeStar Connection.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### By ARN
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -82,10 +82,11 @@ namespace Pulumi.Aws.CodeStarConnections
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### By Name
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -101,8 +102,7 @@ namespace Pulumi.Aws.CodeStarConnections
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetConnectionResult> Invoke(GetConnectionInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectionResult>("aws:codestarconnections/getConnection:getConnection", args ?? new GetConnectionInvokeArgs(), options.WithDefaults());

@@ -109,6 +109,7 @@ class DelegationSet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -121,13 +122,14 @@ class DelegationSet(pulumi.CustomResource):
             name="coolcompany.io",
             delegation_set_id=main.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Route53 Delegation Sets using the delegation set `id`. For example:
 
         ```sh
-         $ pulumi import aws:route53/delegationSet:DelegationSet set1 N1PA6795SAMPLE
+        $ pulumi import aws:route53/delegationSet:DelegationSet set1 N1PA6795SAMPLE
         ```
 
         :param str resource_name: The name of the resource.
@@ -146,6 +148,7 @@ class DelegationSet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -158,13 +161,14 @@ class DelegationSet(pulumi.CustomResource):
             name="coolcompany.io",
             delegation_set_id=main.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Route53 Delegation Sets using the delegation set `id`. For example:
 
         ```sh
-         $ pulumi import aws:route53/delegationSet:DelegationSet set1 N1PA6795SAMPLE
+        $ pulumi import aws:route53/delegationSet:DelegationSet set1 N1PA6795SAMPLE
         ```
 
         :param str resource_name: The name of the resource.

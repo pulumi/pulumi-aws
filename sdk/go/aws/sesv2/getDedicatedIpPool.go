@@ -14,8 +14,10 @@ import (
 // Data source for managing an AWS SESv2 (Simple Email V2) Dedicated IP Pool.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupDedicatedIpPool(ctx *pulumi.Context, args *LookupDedicatedIpPoolArgs, opts ...pulumi.InvokeOption) (*LookupDedicatedIpPoolResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupDedicatedIpPoolResult

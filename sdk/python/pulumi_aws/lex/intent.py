@@ -606,6 +606,7 @@ class Intent(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -685,13 +686,14 @@ class Intent(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import intents using their name. For example:
 
         ```sh
-         $ pulumi import aws:lex/intent:Intent order_flowers_intent OrderFlowers
+        $ pulumi import aws:lex/intent:Intent order_flowers_intent OrderFlowers
         ```
 
         :param str resource_name: The name of the resource.
@@ -743,6 +745,7 @@ class Intent(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -822,13 +825,14 @@ class Intent(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import intents using their name. For example:
 
         ```sh
-         $ pulumi import aws:lex/intent:Intent order_flowers_intent OrderFlowers
+        $ pulumi import aws:lex/intent:Intent order_flowers_intent OrderFlowers
         ```
 
         :param str resource_name: The name of the resource.

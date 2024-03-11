@@ -32,8 +32,10 @@ namespace Pulumi.Aws.Ec2
     /// the separate resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic example
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -66,9 +68,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// To subsequently remove all managed routes:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -89,12 +93,15 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Adopting an existing local route
     /// 
     /// AWS creates certain routes that the AWS provider mostly ignores. You can manage them by importing or adopting them. See Import below for information on importing. This example shows adopting a route and then updating its target.
     /// 
     /// First, adopt an existing AWS-created route:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -123,9 +130,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// Next, update the target of the route:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -165,6 +174,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// The target could then be updated again back to `local`.
     /// 
@@ -173,7 +183,7 @@ namespace Pulumi.Aws.Ec2
     /// Using `pulumi import`, import Route Tables using the route table `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/routeTable:RouteTable public_rt rtb-4e616f6d69
+    /// $ pulumi import aws:ec2/routeTable:RouteTable public_rt rtb-4e616f6d69
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/routeTable:RouteTable")]

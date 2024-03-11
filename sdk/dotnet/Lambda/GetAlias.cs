@@ -14,10 +14,9 @@ namespace Pulumi.Aws.Lambda
         /// <summary>
         /// Provides information about a Lambda Alias.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +33,7 @@ namespace Pulumi.Aws.Lambda
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetAliasResult> InvokeAsync(GetAliasArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAliasResult>("aws:lambda/getAlias:getAlias", args ?? new GetAliasArgs(), options.WithDefaults());
@@ -43,10 +41,9 @@ namespace Pulumi.Aws.Lambda
         /// <summary>
         /// Provides information about a Lambda Alias.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +60,7 @@ namespace Pulumi.Aws.Lambda
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetAliasResult> Invoke(GetAliasInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAliasResult>("aws:lambda/getAlias:getAlias", args ?? new GetAliasInvokeArgs(), options.WithDefaults());

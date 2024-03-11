@@ -15,8 +15,10 @@ import (
 // Provides an AWS Network Firewall Resource Policy Resource for a rule group or firewall policy.
 //
 // ## Example Usage
+//
 // ### For a Firewall Policy resource
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -65,8 +67,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### For a Rule Group resource
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -114,16 +119,15 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Network Firewall Resource Policies using the `resource_arn`. For example:
 //
-// ```sh
-//
-//	$ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
-//
-// ```
+// <break>```sh<break>
+// $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
+// <break>```<break>
 type ResourcePolicy struct {
 	pulumi.CustomResourceState
 

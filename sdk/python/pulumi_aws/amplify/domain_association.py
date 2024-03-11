@@ -234,6 +234,7 @@ class DomainAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -262,13 +263,14 @@ class DomainAssociation(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amplify domain association using `app_id` and `domain_name`. For example:
 
         ```sh
-         $ pulumi import aws:amplify/domainAssociation:DomainAssociation app d2ypk4k47z8u6/example.com
+        $ pulumi import aws:amplify/domainAssociation:DomainAssociation app d2ypk4k47z8u6/example.com
         ```
 
         :param str resource_name: The name of the resource.
@@ -290,6 +292,7 @@ class DomainAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -318,13 +321,14 @@ class DomainAssociation(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amplify domain association using `app_id` and `domain_name`. For example:
 
         ```sh
-         $ pulumi import aws:amplify/domainAssociation:DomainAssociation app d2ypk4k47z8u6/example.com
+        $ pulumi import aws:amplify/domainAssociation:DomainAssociation app d2ypk4k47z8u6/example.com
         ```
 
         :param str resource_name: The name of the resource.

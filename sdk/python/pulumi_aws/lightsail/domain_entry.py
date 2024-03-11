@@ -202,6 +202,7 @@ class DomainEntry(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -213,13 +214,14 @@ class DomainEntry(pulumi.CustomResource):
             type="A",
             target="127.0.0.1")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_lightsail_domain_entry` using the id attribute. For example:
 
         ```sh
-         $ pulumi import aws:lightsail/domainEntry:DomainEntry example www,mydomain.com,A,127.0.0.1
+        $ pulumi import aws:lightsail/domainEntry:DomainEntry example www,mydomain.com,A,127.0.0.1
         ```
 
         :param str resource_name: The name of the resource.
@@ -243,6 +245,7 @@ class DomainEntry(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -254,13 +257,14 @@ class DomainEntry(pulumi.CustomResource):
             type="A",
             target="127.0.0.1")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_lightsail_domain_entry` using the id attribute. For example:
 
         ```sh
-         $ pulumi import aws:lightsail/domainEntry:DomainEntry example www,mydomain.com,A,127.0.0.1
+        $ pulumi import aws:lightsail/domainEntry:DomainEntry example www,mydomain.com,A,127.0.0.1
         ```
 
         :param str resource_name: The name of the resource.

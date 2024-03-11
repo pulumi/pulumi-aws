@@ -232,16 +232,21 @@ def get_elastic_ip(filters: Optional[Sequence[pulumi.InputType['GetElasticIpFilt
     `ec2.Eip` provides details about a specific Elastic IP.
 
     ## Example Usage
+
     ### Search By Allocation ID (VPC only)
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     by_allocation_id = aws.ec2.get_elastic_ip(id="eipalloc-12345678")
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Search By Filters (EC2-Classic or VPC)
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -251,16 +256,22 @@ def get_elastic_ip(filters: Optional[Sequence[pulumi.InputType['GetElasticIpFilt
         values=["exampleNameTagValue"],
     )])
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Search By Public IP (EC2-Classic or VPC)
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     by_public_ip = aws.ec2.get_elastic_ip(public_ip="1.2.3.4")
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Search By Tags (EC2-Classic or VPC)
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -269,6 +280,7 @@ def get_elastic_ip(filters: Optional[Sequence[pulumi.InputType['GetElasticIpFilt
         "Name": "exampleNameTagValue",
     })
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetElasticIpFilterArgs']] filters: One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).
@@ -313,16 +325,21 @@ def get_elastic_ip_output(filters: Optional[pulumi.Input[Optional[Sequence[pulum
     `ec2.Eip` provides details about a specific Elastic IP.
 
     ## Example Usage
+
     ### Search By Allocation ID (VPC only)
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     by_allocation_id = aws.ec2.get_elastic_ip(id="eipalloc-12345678")
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Search By Filters (EC2-Classic or VPC)
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -332,16 +349,22 @@ def get_elastic_ip_output(filters: Optional[pulumi.Input[Optional[Sequence[pulum
         values=["exampleNameTagValue"],
     )])
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Search By Public IP (EC2-Classic or VPC)
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     by_public_ip = aws.ec2.get_elastic_ip(public_ip="1.2.3.4")
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Search By Tags (EC2-Classic or VPC)
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -350,6 +373,7 @@ def get_elastic_ip_output(filters: Optional[pulumi.Input[Optional[Sequence[pulum
         "Name": "exampleNameTagValue",
     })
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetElasticIpFilterArgs']] filters: One or more name/value pairs to use as filters. There are several valid keys, for a full reference, check out the [EC2 API Reference](https://docs.aws.amazon.com/AWSEC2/latest/APIReference/API_DescribeAddresses.html).

@@ -16,11 +16,11 @@ namespace Pulumi.Aws.Quicksight
         /// QuickSight group. By using this data source, you can reference QuickSight group
         /// properties without having to hard code ARNs or unique IDs as input.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -36,8 +36,7 @@ namespace Pulumi.Aws.Quicksight
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetQuicksightGroupResult> InvokeAsync(GetQuicksightGroupArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetQuicksightGroupResult>("aws:quicksight/getQuicksightGroup:getQuicksightGroup", args ?? new GetQuicksightGroupArgs(), options.WithDefaults());
@@ -47,11 +46,11 @@ namespace Pulumi.Aws.Quicksight
         /// QuickSight group. By using this data source, you can reference QuickSight group
         /// properties without having to hard code ARNs or unique IDs as input.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -67,8 +66,7 @@ namespace Pulumi.Aws.Quicksight
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetQuicksightGroupResult> Invoke(GetQuicksightGroupInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetQuicksightGroupResult>("aws:quicksight/getQuicksightGroup:getQuicksightGroup", args ?? new GetQuicksightGroupInvokeArgs(), options.WithDefaults());

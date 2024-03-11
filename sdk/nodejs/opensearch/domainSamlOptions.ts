@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Manages SAML authentication options for an AWS OpenSearch Domain.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -44,13 +46,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import OpenSearch domains using the `domain_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:opensearch/domainSamlOptions:DomainSamlOptions example domain_name
+ * $ pulumi import aws:opensearch/domainSamlOptions:DomainSamlOptions example domain_name
  * ```
  */
 export class DomainSamlOptions extends pulumi.CustomResource {

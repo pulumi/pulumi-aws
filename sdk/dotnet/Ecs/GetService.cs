@@ -15,10 +15,9 @@ namespace Pulumi.Aws.Ecs
         /// The ECS Service data source allows access to details of a specific
         /// Service within a AWS ECS Cluster.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,8 +34,7 @@ namespace Pulumi.Aws.Ecs
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("aws:ecs/getService:getService", args ?? new GetServiceArgs(), options.WithDefaults());
@@ -45,10 +43,9 @@ namespace Pulumi.Aws.Ecs
         /// The ECS Service data source allows access to details of a specific
         /// Service within a AWS ECS Cluster.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -65,8 +62,7 @@ namespace Pulumi.Aws.Ecs
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("aws:ecs/getService:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());

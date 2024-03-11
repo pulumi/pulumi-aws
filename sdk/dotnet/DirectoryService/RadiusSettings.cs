@@ -14,6 +14,7 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -39,13 +40,14 @@ namespace Pulumi.Aws.DirectoryService
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import RADIUS settings using the directory ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:directoryservice/radiusSettings:RadiusSettings example d-926724cf57
+    /// $ pulumi import aws:directoryservice/radiusSettings:RadiusSettings example d-926724cf57
     /// ```
     /// </summary>
     [AwsResourceType("aws:directoryservice/radiusSettings:RadiusSettings")]

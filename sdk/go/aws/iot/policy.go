@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -60,15 +61,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import IoT policies using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:iot/policy:Policy pubsub PubSubToAnyTopic
-//
+// $ pulumi import aws:iot/policy:Policy pubsub PubSubToAnyTopic
 // ```
 type Policy struct {
 	pulumi.CustomResourceState

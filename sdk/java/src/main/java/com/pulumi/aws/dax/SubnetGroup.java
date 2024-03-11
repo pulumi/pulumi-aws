@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides a DAX Subnet Group resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,13 +52,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import DAX Subnet Group using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:dax/subnetGroup:SubnetGroup example my_dax_sg
+ * $ pulumi import aws:dax/subnetGroup:SubnetGroup example my_dax_sg
  * ```
  * 
  */

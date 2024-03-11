@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupReplicationInstance(ctx *pulumi.Context, args *LookupReplicationInstanceArgs, opts ...pulumi.InvokeOption) (*LookupReplicationInstanceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupReplicationInstanceResult

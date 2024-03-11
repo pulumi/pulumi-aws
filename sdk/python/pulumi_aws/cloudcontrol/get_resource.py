@@ -102,6 +102,7 @@ def get_resource(identifier: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -109,6 +110,7 @@ def get_resource(identifier: Optional[str] = None,
     example = aws.cloudcontrol.get_resource(identifier="example",
         type_name="AWS::ECS::Cluster")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str identifier: Identifier of the CloudFormation resource type. For example, `vpc-12345678`.
@@ -146,6 +148,7 @@ def get_resource_output(identifier: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -153,6 +156,7 @@ def get_resource_output(identifier: Optional[pulumi.Input[str]] = None,
     example = aws.cloudcontrol.get_resource(identifier="example",
         type_name="AWS::ECS::Cluster")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str identifier: Identifier of the CloudFormation resource type. For example, `vpc-12345678`.

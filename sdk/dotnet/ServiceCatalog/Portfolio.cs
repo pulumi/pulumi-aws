@@ -14,6 +14,7 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,13 +32,14 @@ namespace Pulumi.Aws.ServiceCatalog
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Service Catalog Portfolios using the Service Catalog Portfolio `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:servicecatalog/portfolio:Portfolio testfolio port-12344321
+    /// $ pulumi import aws:servicecatalog/portfolio:Portfolio testfolio port-12344321
     /// ```
     /// </summary>
     [AwsResourceType("aws:servicecatalog/portfolio:Portfolio")]

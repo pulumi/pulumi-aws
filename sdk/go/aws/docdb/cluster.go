@@ -24,6 +24,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -53,15 +54,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import DocumentDB Clusters using the `cluster_identifier`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:docdb/cluster:Cluster docdb_cluster docdb-prod-cluster
-//
+// $ pulumi import aws:docdb/cluster:Cluster docdb_cluster docdb-prod-cluster
 // ```
 type Cluster struct {
 	pulumi.CustomResourceState

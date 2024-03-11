@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,15 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import DAX Clusters using the `cluster_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:dax/cluster:Cluster my_cluster my_cluster
-//
+// $ pulumi import aws:dax/cluster:Cluster my_cluster my_cluster
 // ```
 type Cluster struct {
 	pulumi.CustomResourceState

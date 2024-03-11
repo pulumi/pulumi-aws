@@ -10,8 +10,10 @@ import * as utilities from "../utilities";
  * > **Note:** An Application Load Balancer can only be associated with one WAF Regional WebACL.
  *
  * ## Example Usage
+ *
  * ### Application Load Balancer Association
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -70,8 +72,11 @@ import * as utilities from "../utilities";
  *     webAclId: fooWebAcl.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### API Gateway Association
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -147,13 +152,14 @@ import * as utilities from "../utilities";
  *     webAclId: fooWebAcl.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import WAF Regional Web ACL Association using their `web_acl_id:resource_arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:wafregional/webAclAssociation:WebAclAssociation foo web_acl_id:resource_arn
+ * $ pulumi import aws:wafregional/webAclAssociation:WebAclAssociation foo web_acl_id:resource_arn
  * ```
  */
 export class WebAclAssociation extends pulumi.CustomResource {

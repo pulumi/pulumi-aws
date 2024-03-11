@@ -21,8 +21,10 @@ import (
 // > **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -149,8 +151,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Enrichment Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -191,8 +196,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Filter Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -239,15 +247,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import pipes using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:pipes/pipe:Pipe example my-pipe
-//
+// $ pulumi import aws:pipes/pipe:Pipe example my-pipe
 // ```
 type Pipe struct {
 	pulumi.CustomResourceState

@@ -14,10 +14,9 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// <summary>
         /// Retrieves information about a Service Discovery Service.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +33,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetServiceResult> InvokeAsync(GetServiceArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServiceResult>("aws:servicediscovery/getService:getService", args ?? new GetServiceArgs(), options.WithDefaults());
@@ -43,10 +41,9 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// <summary>
         /// Retrieves information about a Service Discovery Service.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +60,7 @@ namespace Pulumi.Aws.ServiceDiscovery
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetServiceResult> Invoke(GetServiceInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServiceResult>("aws:servicediscovery/getService:getService", args ?? new GetServiceInvokeArgs(), options.WithDefaults());

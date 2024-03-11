@@ -301,6 +301,7 @@ class HsmConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -313,13 +314,14 @@ class HsmConfiguration(pulumi.CustomResource):
             hsm_partition_password="example",
             hsm_server_public_certificate="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift HSM Client Certificates using `hsm_configuration_identifier`. For example:
 
         ```sh
-         $ pulumi import aws:redshift/hsmConfiguration:HsmConfiguration example example
+        $ pulumi import aws:redshift/hsmConfiguration:HsmConfiguration example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -343,6 +345,7 @@ class HsmConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -355,13 +358,14 @@ class HsmConfiguration(pulumi.CustomResource):
             hsm_partition_password="example",
             hsm_server_public_certificate="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift HSM Client Certificates using `hsm_configuration_identifier`. For example:
 
         ```sh
-         $ pulumi import aws:redshift/hsmConfiguration:HsmConfiguration example example
+        $ pulumi import aws:redshift/hsmConfiguration:HsmConfiguration example example
         ```
 
         :param str resource_name: The name of the resource.

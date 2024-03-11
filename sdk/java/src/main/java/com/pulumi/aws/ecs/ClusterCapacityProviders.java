@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * More information about capacity providers can be found in the [ECS User Guide](https://docs.aws.amazon.com/AmazonECS/latest/developerguide/cluster-capacity-providers.html).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -63,13 +65,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import ECS cluster capacity providers using the `cluster_name` attribute. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ecs/clusterCapacityProviders:ClusterCapacityProviders example my-cluster
+ * $ pulumi import aws:ecs/clusterCapacityProviders:ClusterCapacityProviders example my-cluster
  * ```
  * 
  */

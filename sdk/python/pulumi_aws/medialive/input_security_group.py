@@ -162,8 +162,10 @@ class InputSecurityGroup(pulumi.CustomResource):
         Resource for managing an AWS MediaLive InputSecurityGroup.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -176,13 +178,14 @@ class InputSecurityGroup(pulumi.CustomResource):
                 "ENVIRONMENT": "prod",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import MediaLive InputSecurityGroup using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:medialive/inputSecurityGroup:InputSecurityGroup example 123456
+        $ pulumi import aws:medialive/inputSecurityGroup:InputSecurityGroup example 123456
         ```
 
         :param str resource_name: The name of the resource.
@@ -202,8 +205,10 @@ class InputSecurityGroup(pulumi.CustomResource):
         Resource for managing an AWS MediaLive InputSecurityGroup.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -216,13 +221,14 @@ class InputSecurityGroup(pulumi.CustomResource):
                 "ENVIRONMENT": "prod",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import MediaLive InputSecurityGroup using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:medialive/inputSecurityGroup:InputSecurityGroup example 123456
+        $ pulumi import aws:medialive/inputSecurityGroup:InputSecurityGroup example 123456
         ```
 
         :param str resource_name: The name of the resource.

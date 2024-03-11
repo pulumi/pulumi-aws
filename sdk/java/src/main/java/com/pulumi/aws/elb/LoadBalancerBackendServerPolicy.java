@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Attaches a load balancer policy to an ELB backend server.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -92,6 +94,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:elb/loadBalancerBackendServerPolicy:LoadBalancerBackendServerPolicy")

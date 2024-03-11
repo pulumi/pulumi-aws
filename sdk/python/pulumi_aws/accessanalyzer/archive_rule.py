@@ -135,8 +135,10 @@ class ArchiveRule(pulumi.CustomResource):
         Resource for managing an AWS AccessAnalyzer Archive Rule.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -159,13 +161,14 @@ class ArchiveRule(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AccessAnalyzer ArchiveRule using the `analyzer_name/rule_name`. For example:
 
         ```sh
-         $ pulumi import aws:accessanalyzer/archiveRule:ArchiveRule example example-analyzer/example-rule
+        $ pulumi import aws:accessanalyzer/archiveRule:ArchiveRule example example-analyzer/example-rule
         ```
 
         :param str resource_name: The name of the resource.
@@ -184,8 +187,10 @@ class ArchiveRule(pulumi.CustomResource):
         Resource for managing an AWS AccessAnalyzer Archive Rule.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -208,13 +213,14 @@ class ArchiveRule(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AccessAnalyzer ArchiveRule using the `analyzer_name/rule_name`. For example:
 
         ```sh
-         $ pulumi import aws:accessanalyzer/archiveRule:ArchiveRule example example-analyzer/example-rule
+        $ pulumi import aws:accessanalyzer/archiveRule:ArchiveRule example example-analyzer/example-rule
         ```
 
         :param str resource_name: The name of the resource.

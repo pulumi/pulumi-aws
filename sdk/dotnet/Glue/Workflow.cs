@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Glue
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -70,13 +71,14 @@ namespace Pulumi.Aws.Glue
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Glue Workflows using `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
+    /// $ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
     /// ```
     /// </summary>
     [AwsResourceType("aws:glue/workflow:Workflow")]

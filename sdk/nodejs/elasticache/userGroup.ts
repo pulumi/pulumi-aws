@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -26,13 +27,14 @@ import * as utilities from "../utilities";
  *     userIds: [test.userId],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import ElastiCache user groups using the `user_group_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:elasticache/userGroup:UserGroup my_user_group userGoupId1
+ * $ pulumi import aws:elasticache/userGroup:UserGroup my_user_group userGoupId1
  * ```
  */
 export class UserGroup extends pulumi.CustomResource {

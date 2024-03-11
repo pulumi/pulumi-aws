@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Emr
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -54,13 +55,14 @@ namespace Pulumi.Aws.Emr
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EMR Managed Scaling Policies using the EMR Cluster identifier. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:emr/managedScalingPolicy:ManagedScalingPolicy example j-123456ABCDEF
+    /// $ pulumi import aws:emr/managedScalingPolicy:ManagedScalingPolicy example j-123456ABCDEF
     /// ```
     /// </summary>
     [AwsResourceType("aws:emr/managedScalingPolicy:ManagedScalingPolicy")]

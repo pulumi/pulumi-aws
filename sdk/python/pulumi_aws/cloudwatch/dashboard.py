@@ -118,6 +118,7 @@ class Dashboard(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -159,13 +160,14 @@ class Dashboard(pulumi.CustomResource):
                 ],
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudWatch dashboards using the `dashboard_name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/dashboard:Dashboard sample dashboard_name
+        $ pulumi import aws:cloudwatch/dashboard:Dashboard sample dashboard_name
         ```
 
         :param str resource_name: The name of the resource.
@@ -184,6 +186,7 @@ class Dashboard(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -225,13 +228,14 @@ class Dashboard(pulumi.CustomResource):
                 ],
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudWatch dashboards using the `dashboard_name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/dashboard:Dashboard sample dashboard_name
+        $ pulumi import aws:cloudwatch/dashboard:Dashboard sample dashboard_name
         ```
 
         :param str resource_name: The name of the resource.

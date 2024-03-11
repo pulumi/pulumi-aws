@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Macie2
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,13 +31,14 @@ namespace Pulumi.Aws.Macie2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_macie2_account` using the id. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:macie2/account:Account example abcd1
+    /// $ pulumi import aws:macie2/account:Account example abcd1
     /// ```
     /// </summary>
     [AwsResourceType("aws:macie2/account:Account")]

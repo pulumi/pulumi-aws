@@ -14,10 +14,9 @@ namespace Pulumi.Aws.Location
         /// <summary>
         /// Retrieve information about a Location Service Route Calculator.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,8 +32,7 @@ namespace Pulumi.Aws.Location
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetRouteCalculatorResult> InvokeAsync(GetRouteCalculatorArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRouteCalculatorResult>("aws:location/getRouteCalculator:getRouteCalculator", args ?? new GetRouteCalculatorArgs(), options.WithDefaults());
@@ -42,10 +40,9 @@ namespace Pulumi.Aws.Location
         /// <summary>
         /// Retrieve information about a Location Service Route Calculator.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,8 +58,7 @@ namespace Pulumi.Aws.Location
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetRouteCalculatorResult> Invoke(GetRouteCalculatorInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRouteCalculatorResult>("aws:location/getRouteCalculator:getRouteCalculator", args ?? new GetRouteCalculatorInvokeArgs(), options.WithDefaults());

@@ -18,6 +18,8 @@ public final class GetLicenseGrantsFilter extends com.pulumi.resources.InvokeArg
      * Name of the field to filter by, as defined by
      * [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedGrants.html#API_ListReceivedGrants_RequestSyntax).
      * For example, if filtering using `ProductSKU`, use:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -49,6 +51,7 @@ public final class GetLicenseGrantsFilter extends com.pulumi.resources.InvokeArg
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     @Import(name="name", required=true)
@@ -58,6 +61,8 @@ public final class GetLicenseGrantsFilter extends com.pulumi.resources.InvokeArg
      * @return Name of the field to filter by, as defined by
      * [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedGrants.html#API_ListReceivedGrants_RequestSyntax).
      * For example, if filtering using `ProductSKU`, use:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -89,6 +94,7 @@ public final class GetLicenseGrantsFilter extends com.pulumi.resources.InvokeArg
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public String name() {
@@ -139,6 +145,8 @@ public final class GetLicenseGrantsFilter extends com.pulumi.resources.InvokeArg
          * @param name Name of the field to filter by, as defined by
          * [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedGrants.html#API_ListReceivedGrants_RequestSyntax).
          * For example, if filtering using `ProductSKU`, use:
+         * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -170,6 +178,7 @@ public final class GetLicenseGrantsFilter extends com.pulumi.resources.InvokeArg
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 

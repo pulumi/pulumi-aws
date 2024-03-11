@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides an Elastic File System (EFS) File System Policy resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -76,13 +78,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import the EFS file system policies using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:efs/fileSystemPolicy:FileSystemPolicy foo fs-6fa144c6
+ * $ pulumi import aws:efs/fileSystemPolicy:FileSystemPolicy foo fs-6fa144c6
  * ```
  * 
  */

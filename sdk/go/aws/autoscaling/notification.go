@@ -20,6 +20,7 @@ import (
 //
 // Basic usage:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -72,6 +73,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type Notification struct {
 	pulumi.CustomResourceState
 

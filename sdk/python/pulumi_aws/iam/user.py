@@ -267,6 +267,7 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -288,13 +289,14 @@ class User(pulumi.CustomResource):
             user=lb.name,
             policy=lb_ro.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM Users using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:iam/user:User lb loadbalancer
+        $ pulumi import aws:iam/user:User lb loadbalancer
         ```
 
         :param str resource_name: The name of the resource.
@@ -320,6 +322,7 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -341,13 +344,14 @@ class User(pulumi.CustomResource):
             user=lb.name,
             policy=lb_ro.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM Users using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:iam/user:User lb loadbalancer
+        $ pulumi import aws:iam/user:User lb loadbalancer
         ```
 
         :param str resource_name: The name of the resource.

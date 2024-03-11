@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,13 +31,14 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import the AWS Config retention configuration using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cfg/retentionConfiguration:RetentionConfiguration example default
+    /// $ pulumi import aws:cfg/retentionConfiguration:RetentionConfiguration example default
     /// ```
     /// </summary>
     [AwsResourceType("aws:cfg/retentionConfiguration:RetentionConfiguration")]

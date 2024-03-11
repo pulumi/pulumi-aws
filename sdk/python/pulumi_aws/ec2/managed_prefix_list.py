@@ -287,6 +287,7 @@ class ManagedPrefixList(pulumi.CustomResource):
 
         Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -309,13 +310,14 @@ class ManagedPrefixList(pulumi.CustomResource):
                 "Env": "live",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Prefix Lists using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/managedPrefixList:ManagedPrefixList default pl-0570a1d2d725c16be
+        $ pulumi import aws:ec2/managedPrefixList:ManagedPrefixList default pl-0570a1d2d725c16be
         ```
 
         :param str resource_name: The name of the resource.
@@ -351,6 +353,7 @@ class ManagedPrefixList(pulumi.CustomResource):
 
         Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -373,13 +376,14 @@ class ManagedPrefixList(pulumi.CustomResource):
                 "Env": "live",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Prefix Lists using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/managedPrefixList:ManagedPrefixList default pl-0570a1d2d725c16be
+        $ pulumi import aws:ec2/managedPrefixList:ManagedPrefixList default pl-0570a1d2d725c16be
         ```
 
         :param str resource_name: The name of the resource.

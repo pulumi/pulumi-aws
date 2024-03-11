@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetOutpost(ctx *pulumi.Context, args *GetOutpostArgs, opts ...pulumi.InvokeOption) (*GetOutpostResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOutpostResult

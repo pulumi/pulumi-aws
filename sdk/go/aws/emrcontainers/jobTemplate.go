@@ -15,8 +15,10 @@ import (
 // Manages an EMR Containers (EMR on EKS) Job Template.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,15 +51,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import EKS job templates using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:emrcontainers/jobTemplate:JobTemplate example a1b2c3d4e5f6g7h8i9j10k11l
-//
+// $ pulumi import aws:emrcontainers/jobTemplate:JobTemplate example a1b2c3d4e5f6g7h8i9j10k11l
 // ```
 type JobTemplate struct {
 	pulumi.CustomResourceState

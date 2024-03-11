@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -51,6 +52,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Rules
 //
 // License rules should be in the format of `#RuleType=RuleValue`. Supported rule types:
@@ -68,9 +71,7 @@ import (
 // Using `pulumi import`, import license configurations using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:licensemanager/licenseConfiguration:LicenseConfiguration example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
-//
+// $ pulumi import aws:licensemanager/licenseConfiguration:LicenseConfiguration example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
 // ```
 type LicenseConfiguration struct {
 	pulumi.CustomResourceState

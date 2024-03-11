@@ -17,6 +17,7 @@ import (
 // > **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -46,7 +47,9 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -76,7 +79,9 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -110,15 +115,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import ElastiCache users using the `user_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:elasticache/user:User my_user userId1
-//
+// $ pulumi import aws:elasticache/user:User my_user userId1
 // ```
 type User struct {
 	pulumi.CustomResourceState

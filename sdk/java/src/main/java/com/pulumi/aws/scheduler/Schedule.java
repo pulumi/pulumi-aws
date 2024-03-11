@@ -24,7 +24,10 @@ import javax.annotation.Nullable;
  * &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -64,7 +67,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Universal Target
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -112,13 +119,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import schedules using the combination `group_name/name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:scheduler/schedule:Schedule example my-schedule-group/my-schedule
+ * $ pulumi import aws:scheduler/schedule:Schedule example my-schedule-group/my-schedule
  * ```
  * 
  */

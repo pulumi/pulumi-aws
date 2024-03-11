@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * To create a basic traffic mirror session
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -61,13 +63,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import traffic mirror targets using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/trafficMirrorTarget:TrafficMirrorTarget target tmt-0c13a005422b86606
+ * $ pulumi import aws:ec2/trafficMirrorTarget:TrafficMirrorTarget target tmt-0c13a005422b86606
  * ```
  * 
  */

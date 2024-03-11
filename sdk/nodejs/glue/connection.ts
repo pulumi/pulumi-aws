@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Provides a Glue Connection resource.
  *
  * ## Example Usage
+ *
  * ### Non-VPC Connection
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -26,10 +28,13 @@ import * as utilities from "../utilities";
  *     name: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### VPC Connection
  *
  * For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/populate-add-connection.html#connection-JDBC-VPC).
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -48,13 +53,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Glue Connections using the `CATALOG-ID` (AWS account ID if not custom) and `NAME`. For example:
  *
  * ```sh
- *  $ pulumi import aws:glue/connection:Connection MyConnection 123456789012:MyConnection
+ * $ pulumi import aws:glue/connection:Connection MyConnection 123456789012:MyConnection
  * ```
  */
 export class Connection extends pulumi.CustomResource {

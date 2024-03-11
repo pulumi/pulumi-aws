@@ -266,6 +266,7 @@ class EndpointAccess(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -274,13 +275,14 @@ class EndpointAccess(pulumi.CustomResource):
             endpoint_name="example",
             workgroup_name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Serverless Endpoint Access using the `endpoint_name`. For example:
 
         ```sh
-         $ pulumi import aws:redshiftserverless/endpointAccess:EndpointAccess example example
+        $ pulumi import aws:redshiftserverless/endpointAccess:EndpointAccess example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -302,6 +304,7 @@ class EndpointAccess(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -310,13 +313,14 @@ class EndpointAccess(pulumi.CustomResource):
             endpoint_name="example",
             workgroup_name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Serverless Endpoint Access using the `endpoint_name`. For example:
 
         ```sh
-         $ pulumi import aws:redshiftserverless/endpointAccess:EndpointAccess example example
+        $ pulumi import aws:redshiftserverless/endpointAccess:EndpointAccess example example
         ```
 
         :param str resource_name: The name of the resource.

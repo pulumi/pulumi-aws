@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides a Service Discovery Public DNS Namespace resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,13 +50,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Service Discovery Public DNS Namespace using the namespace ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace example 0123456789
+ * $ pulumi import aws:servicediscovery/publicDnsNamespace:PublicDnsNamespace example 0123456789
  * ```
  * 
  */

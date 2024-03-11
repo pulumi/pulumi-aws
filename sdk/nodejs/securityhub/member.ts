@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,13 +21,14 @@ import * as utilities from "../utilities";
  *     invite: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Security Hub members using their account ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:securityhub/member:Member example 123456789012
+ * $ pulumi import aws:securityhub/member:Member example 123456789012
  * ```
  */
 export class Member extends pulumi.CustomResource {

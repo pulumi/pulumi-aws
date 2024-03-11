@@ -175,8 +175,10 @@ class ProductPortfolioAssociation(pulumi.CustomResource):
         Manages a Service Catalog Product Portfolio Association.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -185,13 +187,14 @@ class ProductPortfolioAssociation(pulumi.CustomResource):
             portfolio_id="port-68656c6c6f",
             product_id="prod-dnigbtea24ste")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_servicecatalog_product_portfolio_association` using the accept language, portfolio ID, and product ID. For example:
 
         ```sh
-         $ pulumi import aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation example en:port-68656c6c6f:prod-dnigbtea24ste
+        $ pulumi import aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation example en:port-68656c6c6f:prod-dnigbtea24ste
         ```
 
         :param str resource_name: The name of the resource.
@@ -213,8 +216,10 @@ class ProductPortfolioAssociation(pulumi.CustomResource):
         Manages a Service Catalog Product Portfolio Association.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -223,13 +228,14 @@ class ProductPortfolioAssociation(pulumi.CustomResource):
             portfolio_id="port-68656c6c6f",
             product_id="prod-dnigbtea24ste")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_servicecatalog_product_portfolio_association` using the accept language, portfolio ID, and product ID. For example:
 
         ```sh
-         $ pulumi import aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation example en:port-68656c6c6f:prod-dnigbtea24ste
+        $ pulumi import aws:servicecatalog/productPortfolioAssociation:ProductPortfolioAssociation example en:port-68656c6c6f:prod-dnigbtea24ste
         ```
 
         :param str resource_name: The name of the resource.

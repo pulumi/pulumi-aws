@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,6 +21,7 @@ import * as utilities from "../utilities";
  *     apiId: "aabbccddee",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getApi(args: GetApiArgs, opts?: pulumi.InvokeOptions): Promise<GetApiResult> {
 
@@ -111,6 +113,7 @@ export interface GetApiResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -119,6 +122,7 @@ export interface GetApiResult {
  *     apiId: "aabbccddee",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getApiOutput(args: GetApiOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetApiResult> {
     return pulumi.output(args).apply((a: any) => getApi(a, opts))

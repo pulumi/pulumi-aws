@@ -304,8 +304,10 @@ class KeyPair(pulumi.CustomResource):
         > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
 
         ## Example Usage
+
         ### Create New Key Pair
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -313,8 +315,11 @@ class KeyPair(pulumi.CustomResource):
         # Create a new Lightsail Key Pair
         lg_key_pair = aws.lightsail.KeyPair("lg_key_pair", name="lg_key_pair")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Create New Key Pair with PGP Encrypted Private Key
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -323,8 +328,11 @@ class KeyPair(pulumi.CustomResource):
             name="lg_key_pair",
             pgp_key="keybase:keybaseusername")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Existing Public Key Import
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -334,6 +342,7 @@ class KeyPair(pulumi.CustomResource):
             name="importing",
             public_key=std.file(input="~/.ssh/id_rsa.pub").result)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -362,8 +371,10 @@ class KeyPair(pulumi.CustomResource):
         > **Note:** Lightsail is currently only supported in a limited number of AWS Regions, please see ["Regions and Availability Zones in Amazon Lightsail"](https://lightsail.aws.amazon.com/ls/docs/overview/article/understanding-regions-and-availability-zones-in-amazon-lightsail) for more details
 
         ## Example Usage
+
         ### Create New Key Pair
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -371,8 +382,11 @@ class KeyPair(pulumi.CustomResource):
         # Create a new Lightsail Key Pair
         lg_key_pair = aws.lightsail.KeyPair("lg_key_pair", name="lg_key_pair")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Create New Key Pair with PGP Encrypted Private Key
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -381,8 +395,11 @@ class KeyPair(pulumi.CustomResource):
             name="lg_key_pair",
             pgp_key="keybase:keybaseusername")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Existing Public Key Import
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -392,6 +409,7 @@ class KeyPair(pulumi.CustomResource):
             name="importing",
             public_key=std.file(input="~/.ssh/id_rsa.pub").result)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

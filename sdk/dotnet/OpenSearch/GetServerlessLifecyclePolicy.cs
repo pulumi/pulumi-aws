@@ -14,11 +14,11 @@ namespace Pulumi.Aws.OpenSearch
         /// <summary>
         /// Data source for managing an AWS OpenSearch Serverless Lifecycle Policy.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,8 +35,7 @@ namespace Pulumi.Aws.OpenSearch
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetServerlessLifecyclePolicyResult> InvokeAsync(GetServerlessLifecyclePolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetServerlessLifecyclePolicyResult>("aws:opensearch/getServerlessLifecyclePolicy:getServerlessLifecyclePolicy", args ?? new GetServerlessLifecyclePolicyArgs(), options.WithDefaults());
@@ -44,11 +43,11 @@ namespace Pulumi.Aws.OpenSearch
         /// <summary>
         /// Data source for managing an AWS OpenSearch Serverless Lifecycle Policy.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -65,8 +64,7 @@ namespace Pulumi.Aws.OpenSearch
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetServerlessLifecyclePolicyResult> Invoke(GetServerlessLifecyclePolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetServerlessLifecyclePolicyResult>("aws:opensearch/getServerlessLifecyclePolicy:getServerlessLifecyclePolicy", args ?? new GetServerlessLifecyclePolicyInvokeArgs(), options.WithDefaults());

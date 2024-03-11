@@ -16,8 +16,10 @@ import (
 // More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/welcome.html) for [WebSocket](https://docs.aws.amazon.com/apigateway/latest/developerguide/websocket-api-develop-routes.html) and [HTTP](https://docs.aws.amazon.com/apigateway/latest/developerguide/http-api-develop-routes.html) APIs.
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -50,8 +52,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### HTTP Proxy Integration
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -97,18 +102,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_apigatewayv2_route` using the API identifier and route identifier. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:apigatewayv2/route:Route example aabbccddee/1122334
-//
+// $ pulumi import aws:apigatewayv2/route:Route example aabbccddee/1122334
 // ```
-//
-//	-> __Note:__ The API Gateway managed route created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
+// -> __Note:__ The API Gateway managed route created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
 type Route struct {
 	pulumi.CustomResourceState
 

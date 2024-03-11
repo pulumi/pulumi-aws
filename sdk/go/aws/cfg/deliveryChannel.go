@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -114,15 +115,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Delivery Channel using the name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cfg/deliveryChannel:DeliveryChannel foo example
-//
+// $ pulumi import aws:cfg/deliveryChannel:DeliveryChannel foo example
 // ```
 type DeliveryChannel struct {
 	pulumi.CustomResourceState

@@ -27,7 +27,10 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** A Redshift cluster&#39;s default IAM role can be managed both by this resource&#39;s `default_iam_role_arn` argument and the `aws.redshift.ClusterIamRoles` resource&#39;s `default_iam_role_arn` argument. Do not configure different values for both arguments. Doing so will cause a conflict of default IAM roles.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -61,7 +64,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### With Managed Credentials
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -95,13 +102,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Redshift Clusters using the `cluster_identifier`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:redshift/cluster:Cluster myprodcluster tf-redshift-cluster-12345
+ * $ pulumi import aws:redshift/cluster:Cluster myprodcluster tf-redshift-cluster-12345
  * ```
  * 
  */

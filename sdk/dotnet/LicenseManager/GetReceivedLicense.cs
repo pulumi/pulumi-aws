@@ -14,12 +14,11 @@ namespace Pulumi.Aws.LicenseManager
         /// <summary>
         /// This resource can be used to get data on a received license using an ARN. This can be helpful for pulling in data on a license from the AWS marketplace and sharing that license with another account.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// The following shows getting the received license data using and ARN.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,8 +34,7 @@ namespace Pulumi.Aws.LicenseManager
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetReceivedLicenseResult> InvokeAsync(GetReceivedLicenseArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReceivedLicenseResult>("aws:licensemanager/getReceivedLicense:getReceivedLicense", args ?? new GetReceivedLicenseArgs(), options.WithDefaults());
@@ -44,12 +42,11 @@ namespace Pulumi.Aws.LicenseManager
         /// <summary>
         /// This resource can be used to get data on a received license using an ARN. This can be helpful for pulling in data on a license from the AWS marketplace and sharing that license with another account.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// The following shows getting the received license data using and ARN.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -65,8 +62,7 @@ namespace Pulumi.Aws.LicenseManager
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetReceivedLicenseResult> Invoke(GetReceivedLicenseInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReceivedLicenseResult>("aws:licensemanager/getReceivedLicense:getReceivedLicense", args ?? new GetReceivedLicenseInvokeArgs(), options.WithDefaults());

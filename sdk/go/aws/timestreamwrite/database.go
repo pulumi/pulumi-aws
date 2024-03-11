@@ -15,8 +15,10 @@ import (
 // Provides a Timestream database resource.
 //
 // ## Example Usage
+//
 // ### Basic usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,8 +42,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Full usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -69,15 +74,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Timestream databases using the `database_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:timestreamwrite/database:Database example example
-//
+// $ pulumi import aws:timestreamwrite/database:Database example example
 // ```
 type Database struct {
 	pulumi.CustomResourceState

@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,13 +20,14 @@ import * as utilities from "../utilities";
  *     targetArn: kinesisForCloudwatch.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import CloudWatch Logs destinations using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudwatch/logDestination:LogDestination test_destination test_destination
+ * $ pulumi import aws:cloudwatch/logDestination:LogDestination test_destination test_destination
  * ```
  */
 export class LogDestination extends pulumi.CustomResource {

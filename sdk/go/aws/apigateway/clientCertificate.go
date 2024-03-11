@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,15 +39,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import API Gateway Client Certificates using the id. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:apigateway/clientCertificate:ClientCertificate demo ab1cqe
-//
+// $ pulumi import aws:apigateway/clientCertificate:ClientCertificate demo ab1cqe
 // ```
 type ClientCertificate struct {
 	pulumi.CustomResourceState

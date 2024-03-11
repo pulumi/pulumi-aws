@@ -8,18 +8,23 @@ import * as utilities from "../utilities";
  * Use this data source to get the ARNs and Names of IAM Users.
  *
  * ## Example Usage
+ *
  * ### All users in an account
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const users = aws.iam.getUsers({});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Users filtered by name regex
  *
  * Users whose username contains `abc`
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -28,8 +33,11 @@ import * as utilities from "../utilities";
  *     nameRegex: ".*abc.*",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Users filtered by path prefix
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -38,6 +46,7 @@ import * as utilities from "../utilities";
  *     pathPrefix: "/custom-path",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getUsers(args?: GetUsersArgs, opts?: pulumi.InvokeOptions): Promise<GetUsersResult> {
     args = args || {};
@@ -86,18 +95,23 @@ export interface GetUsersResult {
  * Use this data source to get the ARNs and Names of IAM Users.
  *
  * ## Example Usage
+ *
  * ### All users in an account
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const users = aws.iam.getUsers({});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Users filtered by name regex
  *
  * Users whose username contains `abc`
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -106,8 +120,11 @@ export interface GetUsersResult {
  *     nameRegex: ".*abc.*",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Users filtered by path prefix
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -116,6 +133,7 @@ export interface GetUsersResult {
  *     pathPrefix: "/custom-path",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getUsersOutput(args?: GetUsersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUsersResult> {
     return pulumi.output(args).apply((a: any) => getUsers(a, opts))

@@ -21,6 +21,7 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// The following example below creates a CloudFront origin access identity.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -36,6 +37,8 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Using With CloudFront
     /// 
     /// Normally, when referencing an origin access identity in CloudFront, you need to
@@ -44,6 +47,7 @@ namespace Pulumi.Aws.CloudFront
     /// The below snippet demonstrates use with the `s3_origin_config` structure for the
     /// `aws.cloudfront.Distribution` resource:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -68,6 +72,7 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ### Updating your bucket policy
     /// 
@@ -76,6 +81,7 @@ namespace Pulumi.Aws.CloudFront
     /// `aws.s3.BucketV2` bucket policy, causing spurious diffs. If
     /// you see this behaviour, use the `iam_arn` instead:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -121,6 +127,7 @@ namespace Pulumi.Aws.CloudFront
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// [1]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html
     /// [2]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
@@ -130,7 +137,7 @@ namespace Pulumi.Aws.CloudFront
     /// Using `pulumi import`, import Cloudfront Origin Access Identities using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cloudfront/originAccessIdentity:OriginAccessIdentity origin_access E74FTE3AEXAMPLE
+    /// $ pulumi import aws:cloudfront/originAccessIdentity:OriginAccessIdentity origin_access E74FTE3AEXAMPLE
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudfront/originAccessIdentity:OriginAccessIdentity")]

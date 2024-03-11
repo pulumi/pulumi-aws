@@ -24,6 +24,7 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -54,13 +55,14 @@ namespace Pulumi.Aws.AppMesh
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import App Mesh virtual routers using `mesh_name` together with the virtual router's `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:appmesh/virtualRouter:VirtualRouter serviceb simpleapp/serviceB
+    /// $ pulumi import aws:appmesh/virtualRouter:VirtualRouter serviceb simpleapp/serviceB
     /// ```
     /// </summary>
     [AwsResourceType("aws:appmesh/virtualRouter:VirtualRouter")]

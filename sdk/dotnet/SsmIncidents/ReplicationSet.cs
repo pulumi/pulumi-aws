@@ -15,10 +15,12 @@ namespace Pulumi.Aws.SsmIncidents
     /// &gt; **NOTE:** Deleting a replication set also deletes all Incident Manager related data including response plans, incident records, contacts and escalation plans.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
     /// Create a replication set.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -44,9 +46,11 @@ namespace Pulumi.Aws.SsmIncidents
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// Add a Region to a replication set. (You can add only one Region at a time.)
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -72,9 +76,11 @@ namespace Pulumi.Aws.SsmIncidents
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// Delete a Region from a replication set. (You can delete only one Region at a time.)
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -96,10 +102,13 @@ namespace Pulumi.Aws.SsmIncidents
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Basic Usage with an AWS Customer Managed Key
     /// 
     /// Create a replication set with an AWS Key Management Service (AWS KMS) customer manager key:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -128,13 +137,14 @@ namespace Pulumi.Aws.SsmIncidents
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import an Incident Manager replication. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ssmincidents/replicationSet:ReplicationSet replicationSetName import
+    /// $ pulumi import aws:ssmincidents/replicationSet:ReplicationSet replicationSetName import
     /// ```
     /// </summary>
     [AwsResourceType("aws:ssmincidents/replicationSet:ReplicationSet")]

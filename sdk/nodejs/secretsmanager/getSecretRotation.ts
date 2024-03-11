@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Retrieve information about a Secrets Manager secret rotation. To retrieve secret metadata, see the `aws.secretsmanager.Secret` data source. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
  *
  * ## Example Usage
+ *
  * ### Retrieve Secret Rotation Configuration
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,6 +23,7 @@ import * as utilities from "../utilities";
  *     secretId: exampleAwsSecretsmanagerSecret.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSecretRotation(args: GetSecretRotationArgs, opts?: pulumi.InvokeOptions): Promise<GetSecretRotationResult> {
 
@@ -66,8 +69,10 @@ export interface GetSecretRotationResult {
  * Retrieve information about a Secrets Manager secret rotation. To retrieve secret metadata, see the `aws.secretsmanager.Secret` data source. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
  *
  * ## Example Usage
+ *
  * ### Retrieve Secret Rotation Configuration
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -76,6 +81,7 @@ export interface GetSecretRotationResult {
  *     secretId: exampleAwsSecretsmanagerSecret.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getSecretRotationOutput(args: GetSecretRotationOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetSecretRotationResult> {
     return pulumi.output(args).apply((a: any) => getSecretRotation(a, opts))

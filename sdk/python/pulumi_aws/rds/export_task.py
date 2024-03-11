@@ -426,8 +426,10 @@ class ExportTask(pulumi.CustomResource):
         Resource for managing an AWS RDS (Relational Database) Export Task.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -439,8 +441,11 @@ class ExportTask(pulumi.CustomResource):
             iam_role_arn=example_aws_iam_role["arn"],
             kms_key_id=example_aws_kms_key["arn"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Complete Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -516,13 +521,14 @@ class ExportTask(pulumi.CustomResource):
             export_onlies=["database"],
             s3_prefix="my_prefix/example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a RDS (Relational Database) Export Task using the `export_task_identifier`. For example:
 
         ```sh
-         $ pulumi import aws:rds/exportTask:ExportTask example example
+        $ pulumi import aws:rds/exportTask:ExportTask example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -547,8 +553,10 @@ class ExportTask(pulumi.CustomResource):
         Resource for managing an AWS RDS (Relational Database) Export Task.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -560,8 +568,11 @@ class ExportTask(pulumi.CustomResource):
             iam_role_arn=example_aws_iam_role["arn"],
             kms_key_id=example_aws_kms_key["arn"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Complete Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -637,13 +648,14 @@ class ExportTask(pulumi.CustomResource):
             export_onlies=["database"],
             s3_prefix="my_prefix/example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a RDS (Relational Database) Export Task using the `export_task_identifier`. For example:
 
         ```sh
-         $ pulumi import aws:rds/exportTask:ExportTask example example
+        $ pulumi import aws:rds/exportTask:ExportTask example example
         ```
 
         :param str resource_name: The name of the resource.

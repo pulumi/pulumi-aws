@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Dms
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,13 +44,14 @@ namespace Pulumi.Aws.Dms
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import replication tasks using the `replication_task_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:dms/replicationTask:ReplicationTask test test-dms-replication-task-tf
+    /// $ pulumi import aws:dms/replicationTask:ReplicationTask test test-dms-replication-task-tf
     /// ```
     /// </summary>
     [AwsResourceType("aws:dms/replicationTask:ReplicationTask")]

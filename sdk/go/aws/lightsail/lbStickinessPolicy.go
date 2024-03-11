@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -52,15 +53,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_lightsail_lb_stickiness_policy` using the `lb_name` attribute. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:lightsail/lbStickinessPolicy:LbStickinessPolicy test example-load-balancer
-//
+// $ pulumi import aws:lightsail/lbStickinessPolicy:LbStickinessPolicy test example-load-balancer
 // ```
 type LbStickinessPolicy struct {
 	pulumi.CustomResourceState

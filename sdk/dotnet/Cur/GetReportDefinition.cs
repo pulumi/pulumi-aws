@@ -18,10 +18,9 @@ namespace Pulumi.Aws.Cur
         /// 
         /// &gt; *NOTE:* If AWS Organizations is enabled, only the master account can use this resource.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -37,8 +36,7 @@ namespace Pulumi.Aws.Cur
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetReportDefinitionResult> InvokeAsync(GetReportDefinitionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetReportDefinitionResult>("aws:cur/getReportDefinition:getReportDefinition", args ?? new GetReportDefinitionArgs(), options.WithDefaults());
@@ -50,10 +48,9 @@ namespace Pulumi.Aws.Cur
         /// 
         /// &gt; *NOTE:* If AWS Organizations is enabled, only the master account can use this resource.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -69,8 +66,7 @@ namespace Pulumi.Aws.Cur
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetReportDefinitionResult> Invoke(GetReportDefinitionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetReportDefinitionResult>("aws:cur/getReportDefinition:getReportDefinition", args ?? new GetReportDefinitionInvokeArgs(), options.WithDefaults());

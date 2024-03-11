@@ -115,16 +115,21 @@ class DomainIdentity(pulumi.CustomResource):
         Provides an SES domain identity resource
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ses.DomainIdentity("example", domain="example.com")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Route53 Record
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -137,13 +142,14 @@ class DomainIdentity(pulumi.CustomResource):
             ttl=600,
             records=[example.verification_token])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SES domain identities using the domain name. For example:
 
         ```sh
-         $ pulumi import aws:ses/domainIdentity:DomainIdentity example example.com
+        $ pulumi import aws:ses/domainIdentity:DomainIdentity example example.com
         ```
 
         :param str resource_name: The name of the resource.
@@ -160,16 +166,21 @@ class DomainIdentity(pulumi.CustomResource):
         Provides an SES domain identity resource
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ses.DomainIdentity("example", domain="example.com")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Route53 Record
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -182,13 +193,14 @@ class DomainIdentity(pulumi.CustomResource):
             ttl=600,
             records=[example.verification_token])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SES domain identities using the domain name. For example:
 
         ```sh
-         $ pulumi import aws:ses/domainIdentity:DomainIdentity example example.com
+        $ pulumi import aws:ses/domainIdentity:DomainIdentity example example.com
         ```
 
         :param str resource_name: The name of the resource.

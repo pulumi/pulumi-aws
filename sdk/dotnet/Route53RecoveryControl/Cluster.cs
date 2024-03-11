@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Route53RecoveryControl
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,13 +30,14 @@ namespace Pulumi.Aws.Route53RecoveryControl
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Route53 Recovery Control Config cluster using the cluster ARN. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:route53recoverycontrol/cluster:Cluster mycluster arn:aws:route53-recovery-control::313517334327:cluster/f9ae13be-a11e-4ec7-8522-94a70468e6ea
+    /// $ pulumi import aws:route53recoverycontrol/cluster:Cluster mycluster arn:aws:route53-recovery-control::313517334327:cluster/f9ae13be-a11e-4ec7-8522-94a70468e6ea
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53recoverycontrol/cluster:Cluster")]

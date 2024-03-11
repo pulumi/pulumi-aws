@@ -161,8 +161,10 @@ class Sink(pulumi.CustomResource):
         Resource for managing an AWS CloudWatch Observability Access Manager Sink.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -173,13 +175,14 @@ class Sink(pulumi.CustomResource):
                 "Env": "prod",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudWatch Observability Access Manager Sink using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:oam/sink:Sink example arn:aws:oam:us-west-2:123456789012:sink/sink-id
+        $ pulumi import aws:oam/sink:Sink example arn:aws:oam:us-west-2:123456789012:sink/sink-id
         ```
 
         :param str resource_name: The name of the resource.
@@ -199,8 +202,10 @@ class Sink(pulumi.CustomResource):
         Resource for managing an AWS CloudWatch Observability Access Manager Sink.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -211,13 +216,14 @@ class Sink(pulumi.CustomResource):
                 "Env": "prod",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudWatch Observability Access Manager Sink using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:oam/sink:Sink example arn:aws:oam:us-west-2:123456789012:sink/sink-id
+        $ pulumi import aws:oam/sink:Sink example arn:aws:oam:us-west-2:123456789012:sink/sink-id
         ```
 
         :param str resource_name: The name of the resource.

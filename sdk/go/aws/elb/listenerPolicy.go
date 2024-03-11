@@ -15,8 +15,10 @@ import (
 // Attaches a load balancer policy to an ELB Listener.
 //
 // ## Example Usage
+//
 // ### Custom Policy
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -83,10 +85,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // This example shows how to customize the TLS settings of an HTTPS listener.
+//
 // ### AWS Predefined Security Policy
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -149,6 +154,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // This example shows how to add a [Predefined Security Policy for ELBs](https://docs.aws.amazon.com/elasticloadbalancing/latest/classic/elb-security-policy-table.html)
 type ListenerPolicy struct {

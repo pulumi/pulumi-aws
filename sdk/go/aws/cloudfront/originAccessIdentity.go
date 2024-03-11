@@ -22,6 +22,7 @@ import (
 //
 // The following example below creates a CloudFront origin access identity.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,6 +46,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Using With CloudFront
 //
 // Normally, when referencing an origin access identity in CloudFront, you need to
@@ -53,6 +56,7 @@ import (
 // The below snippet demonstrates use with the `s3OriginConfig` structure for the
 // `cloudfront.Distribution` resource:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -82,6 +86,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ### Updating your bucket policy
 //
@@ -90,6 +95,7 @@ import (
 // `s3.BucketV2` bucket policy, causing spurious diffs. If
 // you see this behaviour, use the `iamArn` instead:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -138,15 +144,14 @@ import (
 // })
 // }
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Cloudfront Origin Access Identities using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cloudfront/originAccessIdentity:OriginAccessIdentity origin_access E74FTE3AEXAMPLE
-//
+// $ pulumi import aws:cloudfront/originAccessIdentity:OriginAccessIdentity origin_access E74FTE3AEXAMPLE
 // ```
 //
 // [2]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html

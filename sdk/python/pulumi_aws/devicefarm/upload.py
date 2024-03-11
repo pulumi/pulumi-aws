@@ -234,6 +234,7 @@ class Upload(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -244,13 +245,14 @@ class Upload(pulumi.CustomResource):
             project_arn=example.arn,
             type="APPIUM_JAVA_TESTNG_TEST_SPEC")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DeviceFarm Uploads using their ARN. For example:
 
         ```sh
-         $ pulumi import aws:devicefarm/upload:Upload example arn:aws:devicefarm:us-west-2:123456789012:upload:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
+        $ pulumi import aws:devicefarm/upload:Upload example arn:aws:devicefarm:us-west-2:123456789012:upload:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
         ```
 
         :param str resource_name: The name of the resource.
@@ -273,6 +275,7 @@ class Upload(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -283,13 +286,14 @@ class Upload(pulumi.CustomResource):
             project_arn=example.arn,
             type="APPIUM_JAVA_TESTNG_TEST_SPEC")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DeviceFarm Uploads using their ARN. For example:
 
         ```sh
-         $ pulumi import aws:devicefarm/upload:Upload example arn:aws:devicefarm:us-west-2:123456789012:upload:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
+        $ pulumi import aws:devicefarm/upload:Upload example arn:aws:devicefarm:us-west-2:123456789012:upload:4fa784c7-ccb4-4dbf-ba4f-02198320daa1
         ```
 
         :param str resource_name: The name of the resource.

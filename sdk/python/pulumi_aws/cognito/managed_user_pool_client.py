@@ -811,6 +811,7 @@ class ManagedUserPoolClient(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -850,13 +851,14 @@ class ManagedUserPoolClient(pulumi.CustomResource):
             role=example_role.name,
             policy_arn=f"arn:{current.partition}:iam::aws:policy/AmazonESCognitoAccess")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Cognito User Pool Clients using the `id` of the Cognito User Pool and the `id` of the Cognito User Pool Client. For example:
 
         ```sh
-         $ pulumi import aws:cognito/managedUserPoolClient:ManagedUserPoolClient client us-west-2_abc123/3ho4ek12345678909nh3fmhpko
+        $ pulumi import aws:cognito/managedUserPoolClient:ManagedUserPoolClient client us-west-2_abc123/3ho4ek12345678909nh3fmhpko
         ```
 
         :param str resource_name: The name of the resource.
@@ -903,6 +905,7 @@ class ManagedUserPoolClient(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -942,13 +945,14 @@ class ManagedUserPoolClient(pulumi.CustomResource):
             role=example_role.name,
             policy_arn=f"arn:{current.partition}:iam::aws:policy/AmazonESCognitoAccess")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Cognito User Pool Clients using the `id` of the Cognito User Pool and the `id` of the Cognito User Pool Client. For example:
 
         ```sh
-         $ pulumi import aws:cognito/managedUserPoolClient:ManagedUserPoolClient client us-west-2_abc123/3ho4ek12345678909nh3fmhpko
+        $ pulumi import aws:cognito/managedUserPoolClient:ManagedUserPoolClient client us-west-2_abc123/3ho4ek12345678909nh3fmhpko
         ```
 
         :param str resource_name: The name of the resource.

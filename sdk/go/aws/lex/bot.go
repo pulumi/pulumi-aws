@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -70,15 +71,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import bots using their name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:lex/bot:Bot order_flowers_bot OrderFlowers
-//
+// $ pulumi import aws:lex/bot:Bot order_flowers_bot OrderFlowers
 // ```
 type Bot struct {
 	pulumi.CustomResourceState

@@ -186,6 +186,7 @@ class SourceCredential(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -195,8 +196,11 @@ class SourceCredential(pulumi.CustomResource):
             server_type="GITHUB",
             token="example")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Bitbucket Server Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -207,13 +211,14 @@ class SourceCredential(pulumi.CustomResource):
             token="example",
             user_name="test-user")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CodeBuild Source Credential using the CodeBuild Source Credential arn. For example:
 
         ```sh
-         $ pulumi import aws:codebuild/sourceCredential:SourceCredential example arn:aws:codebuild:us-west-2:123456789:token:github
+        $ pulumi import aws:codebuild/sourceCredential:SourceCredential example arn:aws:codebuild:us-west-2:123456789:token:github
         ```
 
         :param str resource_name: The name of the resource.
@@ -237,6 +242,7 @@ class SourceCredential(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -246,8 +252,11 @@ class SourceCredential(pulumi.CustomResource):
             server_type="GITHUB",
             token="example")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Bitbucket Server Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -258,13 +267,14 @@ class SourceCredential(pulumi.CustomResource):
             token="example",
             user_name="test-user")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CodeBuild Source Credential using the CodeBuild Source Credential arn. For example:
 
         ```sh
-         $ pulumi import aws:codebuild/sourceCredential:SourceCredential example arn:aws:codebuild:us-west-2:123456789:token:github
+        $ pulumi import aws:codebuild/sourceCredential:SourceCredential example arn:aws:codebuild:us-west-2:123456789:token:github
         ```
 
         :param str resource_name: The name of the resource.

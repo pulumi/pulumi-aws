@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Glue
     /// Provides a Glue Connection resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Non-VPC Connection
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -36,10 +38,13 @@ namespace Pulumi.Aws.Glue
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### VPC Connection
     /// 
     /// For more information, see the [AWS Documentation](https://docs.aws.amazon.com/glue/latest/dg/populate-add-connection.html#connection-JDBC-VPC).
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -70,13 +75,14 @@ namespace Pulumi.Aws.Glue
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Glue Connections using the `CATALOG-ID` (AWS account ID if not custom) and `NAME`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:glue/connection:Connection MyConnection 123456789012:MyConnection
+    /// $ pulumi import aws:glue/connection:Connection MyConnection 123456789012:MyConnection
     /// ```
     /// </summary>
     [AwsResourceType("aws:glue/connection:Connection")]

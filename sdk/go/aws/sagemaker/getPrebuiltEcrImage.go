@@ -19,6 +19,7 @@ import (
 //
 // Basic usage:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,6 +44,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetPrebuiltEcrImage(ctx *pulumi.Context, args *GetPrebuiltEcrImageArgs, opts ...pulumi.InvokeOption) (*GetPrebuiltEcrImageResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetPrebuiltEcrImageResult

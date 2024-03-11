@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,7 +20,9 @@ import * as utilities from "../utilities";
  *     arn: "arn:aws:iam::123456789012:oidc-provider/accounts.google.com",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -28,6 +31,7 @@ import * as utilities from "../utilities";
  *     url: "https://accounts.google.com",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getOpenIdConnectProvider(args?: GetOpenIdConnectProviderArgs, opts?: pulumi.InvokeOptions): Promise<GetOpenIdConnectProviderResult> {
     args = args || {};
@@ -88,6 +92,7 @@ export interface GetOpenIdConnectProviderResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -96,7 +101,9 @@ export interface GetOpenIdConnectProviderResult {
  *     arn: "arn:aws:iam::123456789012:oidc-provider/accounts.google.com",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -105,6 +112,7 @@ export interface GetOpenIdConnectProviderResult {
  *     url: "https://accounts.google.com",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getOpenIdConnectProviderOutput(args?: GetOpenIdConnectProviderOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetOpenIdConnectProviderResult> {
     return pulumi.output(args).apply((a: any) => getOpenIdConnectProvider(a, opts))

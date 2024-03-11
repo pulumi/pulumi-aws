@@ -29,6 +29,8 @@ import javax.annotation.Nullable;
  * The `aws.route53domains.RegisteredDomain` resource behaves differently from normal resources in that if a domain has been registered, the provider does not _register_ this domain, but instead &#34;adopts&#34; it into management. A destroy does not delete the domain but does remove the resource from state.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -66,13 +68,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import domains using the domain name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:route53domains/registeredDomain:RegisteredDomain example example.com
+ * $ pulumi import aws:route53domains/registeredDomain:RegisteredDomain example example.com
  * ```
  * 
  */

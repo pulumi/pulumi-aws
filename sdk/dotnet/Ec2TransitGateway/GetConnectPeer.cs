@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// Get information on an EC2 Transit Gateway Connect Peer.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### By Filter
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -44,10 +44,11 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### By Identifier
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +64,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetConnectPeerResult> InvokeAsync(GetConnectPeerArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetConnectPeerResult>("aws:ec2transitgateway/getConnectPeer:getConnectPeer", args ?? new GetConnectPeerArgs(), options.WithDefaults());
@@ -72,11 +72,11 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// Get information on an EC2 Transit Gateway Connect Peer.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### By Filter
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -102,10 +102,11 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### By Identifier
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -121,8 +122,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetConnectPeerResult> Invoke(GetConnectPeerInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetConnectPeerResult>("aws:ec2transitgateway/getConnectPeer:getConnectPeer", args ?? new GetConnectPeerInvokeArgs(), options.WithDefaults());

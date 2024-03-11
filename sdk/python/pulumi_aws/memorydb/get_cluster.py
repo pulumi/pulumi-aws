@@ -350,12 +350,14 @@ def get_cluster(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.memorydb.get_cluster(name="my-cluster")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the cluster.
@@ -405,12 +407,14 @@ def get_cluster_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.memorydb.get_cluster(name="my-cluster")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the cluster.

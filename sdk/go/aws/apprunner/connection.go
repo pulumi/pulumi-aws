@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,15 +46,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import App Runner Connections using the `connection_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:apprunner/connection:Connection example example
-//
+// $ pulumi import aws:apprunner/connection:Connection example example
 // ```
 type Connection struct {
 	pulumi.CustomResourceState

@@ -94,6 +94,7 @@ def get_network_acls(filters: Optional[Sequence[pulumi.InputType['GetNetworkAcls
 
     The following shows outputting all network ACL ids in a vpc.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -101,10 +102,12 @@ def get_network_acls(filters: Optional[Sequence[pulumi.InputType['GetNetworkAcls
     example = aws.ec2.get_network_acls(vpc_id=vpc_id)
     pulumi.export("example", example.ids)
     ```
+    <!--End PulumiCodeChooser -->
 
     The following example retrieves a list of all network ACL ids in a VPC with a custom
     tag of `Tier` set to a value of "Private".
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -114,10 +117,12 @@ def get_network_acls(filters: Optional[Sequence[pulumi.InputType['GetNetworkAcls
             "Tier": "Private",
         })
     ```
+    <!--End PulumiCodeChooser -->
 
     The following example retrieves a network ACL id in a VPC which associated
     with specific subnet.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -128,6 +133,7 @@ def get_network_acls(filters: Optional[Sequence[pulumi.InputType['GetNetworkAcls
             values=[test["id"]],
         )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetNetworkAclsFilterArgs']] filters: Custom filter block as described below.
@@ -163,6 +169,7 @@ def get_network_acls_output(filters: Optional[pulumi.Input[Optional[Sequence[pul
 
     The following shows outputting all network ACL ids in a vpc.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -170,10 +177,12 @@ def get_network_acls_output(filters: Optional[pulumi.Input[Optional[Sequence[pul
     example = aws.ec2.get_network_acls(vpc_id=vpc_id)
     pulumi.export("example", example.ids)
     ```
+    <!--End PulumiCodeChooser -->
 
     The following example retrieves a list of all network ACL ids in a VPC with a custom
     tag of `Tier` set to a value of "Private".
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -183,10 +192,12 @@ def get_network_acls_output(filters: Optional[pulumi.Input[Optional[Sequence[pul
             "Tier": "Private",
         })
     ```
+    <!--End PulumiCodeChooser -->
 
     The following example retrieves a network ACL id in a VPC which associated
     with specific subnet.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -197,6 +208,7 @@ def get_network_acls_output(filters: Optional[pulumi.Input[Optional[Sequence[pul
             values=[test["id"]],
         )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetNetworkAclsFilterArgs']] filters: Custom filter block as described below.

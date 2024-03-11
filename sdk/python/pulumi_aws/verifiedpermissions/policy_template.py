@@ -174,8 +174,10 @@ class PolicyTemplate(pulumi.CustomResource):
         Resource for managing an AWS Verified Permissions Policy Template.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -184,13 +186,14 @@ class PolicyTemplate(pulumi.CustomResource):
             policy_store_id=example_aws_verifiedpermissions_policy_store["id"],
             statement="permit (principal in ?principal, action in PhotoFlash::Action::\\"FullPhotoAccess\\", resource == ?resource) unless { resource.IsPrivate };")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Verified Permissions Policy Store using the `policy_store_id:policy_template_id`. For example:
 
         ```sh
-         $ pulumi import aws:verifiedpermissions/policyTemplate:PolicyTemplate example policyStoreId:policyTemplateId
+        $ pulumi import aws:verifiedpermissions/policyTemplate:PolicyTemplate example policyStoreId:policyTemplateId
         ```
 
         :param str resource_name: The name of the resource.
@@ -211,8 +214,10 @@ class PolicyTemplate(pulumi.CustomResource):
         Resource for managing an AWS Verified Permissions Policy Template.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -221,13 +226,14 @@ class PolicyTemplate(pulumi.CustomResource):
             policy_store_id=example_aws_verifiedpermissions_policy_store["id"],
             statement="permit (principal in ?principal, action in PhotoFlash::Action::\\"FullPhotoAccess\\", resource == ?resource) unless { resource.IsPrivate };")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Verified Permissions Policy Store using the `policy_store_id:policy_template_id`. For example:
 
         ```sh
-         $ pulumi import aws:verifiedpermissions/policyTemplate:PolicyTemplate example policyStoreId:policyTemplateId
+        $ pulumi import aws:verifiedpermissions/policyTemplate:PolicyTemplate example policyStoreId:policyTemplateId
         ```
 
         :param str resource_name: The name of the resource.

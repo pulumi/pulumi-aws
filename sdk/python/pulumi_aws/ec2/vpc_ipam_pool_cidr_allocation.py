@@ -264,6 +264,7 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -283,9 +284,11 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
             ipam_pool_id=example_vpc_ipam_pool.id,
             cidr="172.20.0.0/16")
         ```
+        <!--End PulumiCodeChooser -->
 
         With the `disallowed_cidrs` attribute:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -306,13 +309,14 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
             ipam_pool_id=example_vpc_ipam_pool.id,
             cidr="172.20.0.0/16")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IPAM allocations using the allocation `id` and `pool id`, separated by `_`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation example ipam-pool-alloc-0dc6d196509c049ba8b549ff99f639736_ipam-pool-07cfb559e0921fcbe
+        $ pulumi import aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation example ipam-pool-alloc-0dc6d196509c049ba8b549ff99f639736_ipam-pool-07cfb559e0921fcbe
         ```
 
         :param str resource_name: The name of the resource.
@@ -336,6 +340,7 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -355,9 +360,11 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
             ipam_pool_id=example_vpc_ipam_pool.id,
             cidr="172.20.0.0/16")
         ```
+        <!--End PulumiCodeChooser -->
 
         With the `disallowed_cidrs` attribute:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -378,13 +385,14 @@ class VpcIpamPoolCidrAllocation(pulumi.CustomResource):
             ipam_pool_id=example_vpc_ipam_pool.id,
             cidr="172.20.0.0/16")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IPAM allocations using the allocation `id` and `pool id`, separated by `_`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation example ipam-pool-alloc-0dc6d196509c049ba8b549ff99f639736_ipam-pool-07cfb559e0921fcbe
+        $ pulumi import aws:ec2/vpcIpamPoolCidrAllocation:VpcIpamPoolCidrAllocation example ipam-pool-alloc-0dc6d196509c049ba8b549ff99f639736_ipam-pool-07cfb559e0921fcbe
         ```
 
         :param str resource_name: The name of the resource.

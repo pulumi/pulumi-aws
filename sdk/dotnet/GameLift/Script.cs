@@ -14,6 +14,7 @@ namespace Pulumi.Aws.GameLift
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,13 +36,14 @@ namespace Pulumi.Aws.GameLift
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import GameLift Scripts using the ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:gamelift/script:Script example &lt;script-id&gt;
+    /// $ pulumi import aws:gamelift/script:Script example &lt;script-id&gt;
     /// ```
     /// </summary>
     [AwsResourceType("aws:gamelift/script:Script")]

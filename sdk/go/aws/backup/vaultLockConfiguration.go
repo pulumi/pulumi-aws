@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,15 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Backup vault lock configuration using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:backup/vaultLockConfiguration:VaultLockConfiguration test TestVault
-//
+// $ pulumi import aws:backup/vaultLockConfiguration:VaultLockConfiguration test TestVault
 // ```
 type VaultLockConfiguration struct {
 	pulumi.CustomResourceState

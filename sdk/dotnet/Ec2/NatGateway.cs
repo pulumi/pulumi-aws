@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Ec2
     /// Provides a resource to create a VPC NAT Gateway.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Public NAT
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,8 +37,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Public NAT with Secondary Private IP Addresses
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -61,8 +66,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Private NAT
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -79,8 +87,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Private NAT with Secondary Private IP Addresses
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -98,13 +109,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import NAT Gateways using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/natGateway:NatGateway private_gw nat-05dba92075d71c408
+    /// $ pulumi import aws:ec2/natGateway:NatGateway private_gw nat-05dba92075d71c408
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/natGateway:NatGateway")]

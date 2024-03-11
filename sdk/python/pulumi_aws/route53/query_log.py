@@ -124,6 +124,7 @@ class QueryLog(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -153,13 +154,14 @@ class QueryLog(pulumi.CustomResource):
             cloudwatch_log_group_arn=aws_route53_example_com.arn,
             zone_id=example_com.zone_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Route53 query logging configurations using their ID. For example:
 
         ```sh
-         $ pulumi import aws:route53/queryLog:QueryLog example_com xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+        $ pulumi import aws:route53/queryLog:QueryLog example_com xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
         ```
 
         :param str resource_name: The name of the resource.
@@ -184,6 +186,7 @@ class QueryLog(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -213,13 +216,14 @@ class QueryLog(pulumi.CustomResource):
             cloudwatch_log_group_arn=aws_route53_example_com.arn,
             zone_id=example_com.zone_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Route53 query logging configurations using their ID. For example:
 
         ```sh
-         $ pulumi import aws:route53/queryLog:QueryLog example_com xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
+        $ pulumi import aws:route53/queryLog:QueryLog example_com xxxxxxxx-xxxx-xxxx-xxxx-xxxxxxxxxxxx
         ```
 
         :param str resource_name: The name of the resource.

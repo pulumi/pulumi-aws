@@ -22,7 +22,10 @@ import javax.annotation.Nullable;
  * Provides a SageMaker Workteam resource.
  * 
  * ## Example Usage
+ * 
  * ### Cognito Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -62,7 +65,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Oidc Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -100,13 +107,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import SageMaker Workteams using the `workteam_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:sagemaker/workteam:Workteam example example
+ * $ pulumi import aws:sagemaker/workteam:Workteam example example
  * ```
  * 
  */

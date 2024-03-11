@@ -14,10 +14,9 @@ namespace Pulumi.Aws.ImageBuilder
         /// <summary>
         /// Provides details about an Image builder Container Recipe.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,8 +32,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetContainerRecipeResult> InvokeAsync(GetContainerRecipeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetContainerRecipeResult>("aws:imagebuilder/getContainerRecipe:getContainerRecipe", args ?? new GetContainerRecipeArgs(), options.WithDefaults());
@@ -42,10 +40,9 @@ namespace Pulumi.Aws.ImageBuilder
         /// <summary>
         /// Provides details about an Image builder Container Recipe.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,8 +58,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetContainerRecipeResult> Invoke(GetContainerRecipeInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetContainerRecipeResult>("aws:imagebuilder/getContainerRecipe:getContainerRecipe", args ?? new GetContainerRecipeInvokeArgs(), options.WithDefaults());

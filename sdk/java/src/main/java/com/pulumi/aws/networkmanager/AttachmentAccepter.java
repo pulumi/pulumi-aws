@@ -18,7 +18,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS Network Manager Attachment Accepter.
  * 
  * ## Example Usage
+ * 
  * ### Example with VPC attachment
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,7 +51,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Example with site-to-site VPN attachment
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -78,6 +85,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:networkmanager/attachmentAccepter:AttachmentAccepter")

@@ -339,6 +339,7 @@ class Profile(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -366,13 +367,14 @@ class Profile(pulumi.CustomResource):
             name="example",
             role_arns=[test.arn])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_rolesanywhere_profile` using its `id`. For example:
 
         ```sh
-         $ pulumi import aws:rolesanywhere/profile:Profile example db138a85-8925-4f9f-a409-08231233cacf
+        $ pulumi import aws:rolesanywhere/profile:Profile example db138a85-8925-4f9f-a409-08231233cacf
         ```
 
         :param str resource_name: The name of the resource.
@@ -397,6 +399,7 @@ class Profile(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -424,13 +427,14 @@ class Profile(pulumi.CustomResource):
             name="example",
             role_arns=[test.arn])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_rolesanywhere_profile` using its `id`. For example:
 
         ```sh
-         $ pulumi import aws:rolesanywhere/profile:Profile example db138a85-8925-4f9f-a409-08231233cacf
+        $ pulumi import aws:rolesanywhere/profile:Profile example db138a85-8925-4f9f-a409-08231233cacf
         ```
 
         :param str resource_name: The name of the resource.

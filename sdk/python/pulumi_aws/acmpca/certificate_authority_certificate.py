@@ -134,8 +134,10 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
         Associates a certificate with an AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority). An ACM PCA Certificate Authority is unable to issue certificates until it has a certificate associated with it. A root level ACM PCA Certificate Authority is able to self-sign its own root certificate.
 
         ## Example Usage
+
         ### Self-Signed Root Certificate Authority Certificate
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -164,10 +166,13 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
             certificate=example_certificate.certificate,
             certificate_chain=example_certificate.certificate_chain)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Certificate for Subordinate Certificate Authority
 
         Note that the certificate for the subordinate certificate authority must be issued by the root certificate authority using a signing request from the subordinate certificate authority.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -199,6 +204,7 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
         root_certificate_authority_certificate = aws.acmpca.CertificateAuthorityCertificate("root")
         root_certificate = aws.acmpca.Certificate("root")
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -216,8 +222,10 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
         Associates a certificate with an AWS Certificate Manager Private Certificate Authority (ACM PCA Certificate Authority). An ACM PCA Certificate Authority is unable to issue certificates until it has a certificate associated with it. A root level ACM PCA Certificate Authority is able to self-sign its own root certificate.
 
         ## Example Usage
+
         ### Self-Signed Root Certificate Authority Certificate
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -246,10 +254,13 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
             certificate=example_certificate.certificate,
             certificate_chain=example_certificate.certificate_chain)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Certificate for Subordinate Certificate Authority
 
         Note that the certificate for the subordinate certificate authority must be issued by the root certificate authority using a signing request from the subordinate certificate authority.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -281,6 +292,7 @@ class CertificateAuthorityCertificate(pulumi.CustomResource):
         root_certificate_authority_certificate = aws.acmpca.CertificateAuthorityCertificate("root")
         root_certificate = aws.acmpca.Certificate("root")
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param CertificateAuthorityCertificateArgs args: The arguments to use to populate this resource's properties.

@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,8 +24,11 @@ import * as utilities from "../utilities";
  *     vpcPeeringConnectionId: "pcx-45ff3dc1",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Example IPv6 Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -40,6 +44,7 @@ import * as utilities from "../utilities";
  *     egressOnlyGatewayId: egress.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
@@ -52,17 +57,17 @@ import * as utilities from "../utilities";
  * Import a route in route table `rtb-656C65616E6F72` with an IPv4 destination CIDR of `10.42.0.0/16`:
  *
  * ```sh
- *  $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_10.42.0.0/16
+ * $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_10.42.0.0/16
  * ```
- *  Import a route in route table `rtb-656C65616E6F72` with an IPv6 destination CIDR of `2620:0:2d0:200::8/125`:
+ * Import a route in route table `rtb-656C65616E6F72` with an IPv6 destination CIDR of `2620:0:2d0:200::8/125`:
  *
  * ```sh
- *  $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_2620:0:2d0:200::8/125
+ * $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_2620:0:2d0:200::8/125
  * ```
- *  Import a route in route table `rtb-656C65616E6F72` with a managed prefix list destination of `pl-0570a1d2d725c16be`:
+ * Import a route in route table `rtb-656C65616E6F72` with a managed prefix list destination of `pl-0570a1d2d725c16be`:
  *
  * ```sh
- *  $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_pl-0570a1d2d725c16be
+ * $ pulumi import aws:ec2/route:Route my_route rtb-656C65616E6F72_pl-0570a1d2d725c16be
  * ```
  */
 export class Route extends pulumi.CustomResource {

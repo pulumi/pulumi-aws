@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupVirtualCluster(ctx *pulumi.Context, args *LookupVirtualClusterArgs, opts ...pulumi.InvokeOption) (*LookupVirtualClusterResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVirtualClusterResult

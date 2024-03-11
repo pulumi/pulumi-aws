@@ -103,6 +103,7 @@ class RegionSettings(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -126,13 +127,14 @@ class RegionSettings(pulumi.CustomResource):
                 "EFS": True,
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Backup Region Settings using the `region`. For example:
 
         ```sh
-         $ pulumi import aws:backup/regionSettings:RegionSettings test us-west-2
+        $ pulumi import aws:backup/regionSettings:RegionSettings test us-west-2
         ```
 
         :param str resource_name: The name of the resource.
@@ -151,6 +153,7 @@ class RegionSettings(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -174,13 +177,14 @@ class RegionSettings(pulumi.CustomResource):
                 "EFS": True,
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Backup Region Settings using the `region`. For example:
 
         ```sh
-         $ pulumi import aws:backup/regionSettings:RegionSettings test us-west-2
+        $ pulumi import aws:backup/regionSettings:RegionSettings test us-west-2
         ```
 
         :param str resource_name: The name of the resource.

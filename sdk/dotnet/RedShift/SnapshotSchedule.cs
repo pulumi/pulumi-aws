@@ -12,6 +12,7 @@ namespace Pulumi.Aws.RedShift
     /// <summary>
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,13 +32,14 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Redshift Snapshot Schedule using the `identifier`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:redshift/snapshotSchedule:SnapshotSchedule default tf-redshift-snapshot-schedule
+    /// $ pulumi import aws:redshift/snapshotSchedule:SnapshotSchedule default tf-redshift-snapshot-schedule
     /// ```
     /// </summary>
     [AwsResourceType("aws:redshift/snapshotSchedule:SnapshotSchedule")]

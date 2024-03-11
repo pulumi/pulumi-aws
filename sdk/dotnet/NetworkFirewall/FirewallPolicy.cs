@@ -14,6 +14,7 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -54,8 +55,11 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Policy with a HOME_NET Override
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -113,9 +117,11 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Policy with a Custom Action for Stateless Inspection
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -163,13 +169,14 @@ namespace Pulumi.Aws.NetworkFirewall
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Network Firewall Policies using their `arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:networkfirewall/firewallPolicy:FirewallPolicy example arn:aws:network-firewall:us-west-1:123456789012:firewall-policy/example
+    /// $ pulumi import aws:networkfirewall/firewallPolicy:FirewallPolicy example arn:aws:network-firewall:us-west-1:123456789012:firewall-policy/example
     /// ```
     /// </summary>
     [AwsResourceType("aws:networkfirewall/firewallPolicy:FirewallPolicy")]

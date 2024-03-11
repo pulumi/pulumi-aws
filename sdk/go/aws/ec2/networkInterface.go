@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -51,6 +52,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example of Managing Multiple IPs on a Network Interface
 //
 // By default, private IPs are managed through the `privateIps` and `privateIpsCount` arguments which manage IPs as a set of IPs that are configured without regard to order. For a new network interface, the same primary IP address is consistently selected from a given set of addresses, regardless of the order provided. However, modifications of the set of addresses of an existing interface will not alter the current primary IP address unless it has been removed from the set.
@@ -73,9 +76,7 @@ import (
 // Using `pulumi import`, import Network Interfaces using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/networkInterface:NetworkInterface test eni-e5aa89a3
-//
+// $ pulumi import aws:ec2/networkInterface:NetworkInterface test eni-e5aa89a3
 // ```
 type NetworkInterface struct {
 	pulumi.CustomResourceState

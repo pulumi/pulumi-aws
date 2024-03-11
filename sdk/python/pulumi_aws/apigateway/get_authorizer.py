@@ -178,6 +178,7 @@ def get_authorizer(authorizer_id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -185,6 +186,7 @@ def get_authorizer(authorizer_id: Optional[str] = None,
     example = aws.apigateway.get_authorizer(rest_api_id=example_aws_api_gateway_rest_api["id"],
         authorizer_id=example_aws_api_gateway_authorizers["ids"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str authorizer_id: Authorizer identifier.
@@ -220,6 +222,7 @@ def get_authorizer_output(authorizer_id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -227,6 +230,7 @@ def get_authorizer_output(authorizer_id: Optional[pulumi.Input[str]] = None,
     example = aws.apigateway.get_authorizer(rest_api_id=example_aws_api_gateway_rest_api["id"],
         authorizer_id=example_aws_api_gateway_authorizers["ids"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str authorizer_id: Authorizer identifier.

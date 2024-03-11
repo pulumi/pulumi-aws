@@ -16,6 +16,7 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,69 +33,14 @@ namespace Pulumi.Aws.DataSync
     /// 
     /// });
     /// ```
-    /// ### With VPC Endpoints
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// 	
-    /// object NotImplemented(string errorMessage) 
-    /// {
-    ///     throw new System.NotImplementedException(errorMessage);
-    /// }
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var current = Aws.GetRegion.Invoke();
-    /// 
-    ///     var exampleVpcEndpoint = new Aws.Ec2.VpcEndpoint("example", new()
-    ///     {
-    ///         ServiceName = $"com.amazonaws.{current.Apply(getRegionResult =&gt; getRegionResult.Name)}.datasync",
-    ///         VpcId = exampleAwsVpc.Id,
-    ///         SecurityGroupIds = new[]
-    ///         {
-    ///             exampleAwsSecurityGroup.Id,
-    ///         },
-    ///         SubnetIds = new[]
-    ///         {
-    ///             exampleAwsSubnet.Id,
-    ///         },
-    ///         VpcEndpointType = "Interface",
-    ///     });
-    /// 
-    ///     var example = Aws.Ec2.GetNetworkInterface.Invoke(new()
-    ///     {
-    ///         Id = NotImplemented("tolist(aws_vpc_endpoint.example.network_interface_ids)")[0],
-    ///     });
-    /// 
-    ///     var exampleAgent = new Aws.DataSync.Agent("example", new()
-    ///     {
-    ///         IpAddress = "1.2.3.4",
-    ///         SecurityGroupArns = new[]
-    ///         {
-    ///             exampleAwsSecurityGroup.Arn,
-    ///         },
-    ///         SubnetArns = new[]
-    ///         {
-    ///             exampleAwsSubnet.Arn,
-    ///         },
-    ///         VpcEndpointId = exampleVpcEndpoint.Id,
-    ///         PrivateLinkEndpoint = example.Apply(getNetworkInterfaceResult =&gt; getNetworkInterfaceResult.PrivateIp),
-    ///         Name = "example",
-    ///     });
-    /// 
-    /// });
-    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_datasync_agent` using the DataSync Agent Amazon Resource Name (ARN). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:datasync/agent:Agent example arn:aws:datasync:us-east-1:123456789012:agent/agent-12345678901234567
+    /// $ pulumi import aws:datasync/agent:Agent example arn:aws:datasync:us-east-1:123456789012:agent/agent-12345678901234567
     /// ```
     /// </summary>
     [AwsResourceType("aws:datasync/agent:Agent")]

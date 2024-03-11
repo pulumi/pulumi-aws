@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -55,13 +56,14 @@ namespace Pulumi.Aws.Cfg
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Config Organization Custom Rules using the name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cfg/organizationCustomRule:OrganizationCustomRule example example
+    /// $ pulumi import aws:cfg/organizationCustomRule:OrganizationCustomRule example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:cfg/organizationCustomRule:OrganizationCustomRule")]

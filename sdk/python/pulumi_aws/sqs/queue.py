@@ -684,6 +684,7 @@ class Queue(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -703,8 +704,11 @@ class Queue(pulumi.CustomResource):
                 "Environment": "production",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ## FIFO queue
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -714,9 +718,11 @@ class Queue(pulumi.CustomResource):
             fifo_queue=True,
             content_based_deduplication=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## High-throughput FIFO queue
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -727,9 +733,11 @@ class Queue(pulumi.CustomResource):
             deduplication_scope="messageGroup",
             fifo_throughput_limit="perMessageGroupId")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Dead-letter queue
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -749,11 +757,13 @@ class Queue(pulumi.CustomResource):
                 "sourceQueueArns": [example_queue["arn"]],
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Server-side encryption (SSE)
 
         Using [SSE-SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html):
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -762,9 +772,11 @@ class Queue(pulumi.CustomResource):
             name="pulumi-example-queue",
             sqs_managed_sse_enabled=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         Using [SSE-KMS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html):
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -774,13 +786,14 @@ class Queue(pulumi.CustomResource):
             kms_master_key_id="alias/aws/sqs",
             kms_data_key_reuse_period_seconds=300)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SQS Queues using the queue `url`. For example:
 
         ```sh
-         $ pulumi import aws:sqs/queue:Queue public_queue https://queue.amazonaws.com/80398EXAMPLE/MyQueue
+        $ pulumi import aws:sqs/queue:Queue public_queue https://queue.amazonaws.com/80398EXAMPLE/MyQueue
         ```
 
         :param str resource_name: The name of the resource.
@@ -813,6 +826,7 @@ class Queue(pulumi.CustomResource):
         """
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -832,8 +846,11 @@ class Queue(pulumi.CustomResource):
                 "Environment": "production",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ## FIFO queue
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -843,9 +860,11 @@ class Queue(pulumi.CustomResource):
             fifo_queue=True,
             content_based_deduplication=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## High-throughput FIFO queue
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -856,9 +875,11 @@ class Queue(pulumi.CustomResource):
             deduplication_scope="messageGroup",
             fifo_throughput_limit="perMessageGroupId")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Dead-letter queue
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -878,11 +899,13 @@ class Queue(pulumi.CustomResource):
                 "sourceQueueArns": [example_queue["arn"]],
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Server-side encryption (SSE)
 
         Using [SSE-SQS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sqs-sse-queue.html):
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -891,9 +914,11 @@ class Queue(pulumi.CustomResource):
             name="pulumi-example-queue",
             sqs_managed_sse_enabled=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         Using [SSE-KMS](https://docs.aws.amazon.com/AWSSimpleQueueService/latest/SQSDeveloperGuide/sqs-configure-sse-existing-queue.html):
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -903,13 +928,14 @@ class Queue(pulumi.CustomResource):
             kms_master_key_id="alias/aws/sqs",
             kms_data_key_reuse_period_seconds=300)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SQS Queues using the queue `url`. For example:
 
         ```sh
-         $ pulumi import aws:sqs/queue:Queue public_queue https://queue.amazonaws.com/80398EXAMPLE/MyQueue
+        $ pulumi import aws:sqs/queue:Queue public_queue https://queue.amazonaws.com/80398EXAMPLE/MyQueue
         ```
 
         :param str resource_name: The name of the resource.

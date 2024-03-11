@@ -14,10 +14,9 @@ namespace Pulumi.Aws.Waf
         /// <summary>
         /// `aws.waf.Rule` Retrieves a WAF Rule Resource Id.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,8 +32,7 @@ namespace Pulumi.Aws.Waf
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetRuleResult> InvokeAsync(GetRuleArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRuleResult>("aws:waf/getRule:getRule", args ?? new GetRuleArgs(), options.WithDefaults());
@@ -42,10 +40,9 @@ namespace Pulumi.Aws.Waf
         /// <summary>
         /// `aws.waf.Rule` Retrieves a WAF Rule Resource Id.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,8 +58,7 @@ namespace Pulumi.Aws.Waf
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetRuleResult> Invoke(GetRuleInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRuleResult>("aws:waf/getRule:getRule", args ?? new GetRuleInvokeArgs(), options.WithDefaults());

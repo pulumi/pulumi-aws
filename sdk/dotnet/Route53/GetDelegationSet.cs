@@ -16,12 +16,11 @@ namespace Pulumi.Aws.Route53
         /// 
         /// This data source allows to find a list of name servers associated with a specific delegation set.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// The following example shows how to get a delegation set from its id.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -37,8 +36,7 @@ namespace Pulumi.Aws.Route53
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetDelegationSetResult> InvokeAsync(GetDelegationSetArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDelegationSetResult>("aws:route53/getDelegationSet:getDelegationSet", args ?? new GetDelegationSetArgs(), options.WithDefaults());
@@ -48,12 +46,11 @@ namespace Pulumi.Aws.Route53
         /// 
         /// This data source allows to find a list of name servers associated with a specific delegation set.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// The following example shows how to get a delegation set from its id.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -69,8 +66,7 @@ namespace Pulumi.Aws.Route53
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetDelegationSetResult> Invoke(GetDelegationSetInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDelegationSetResult>("aws:route53/getDelegationSet:getDelegationSet", args ?? new GetDelegationSetInvokeArgs(), options.WithDefaults());

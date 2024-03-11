@@ -14,8 +14,10 @@ import (
 // Use this data source to retrieve information about a CloudFront cache policy.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,10 +41,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### AWS-Managed Policies
 //
 // AWS managed cache policy names are prefixed with `Managed-`:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -66,6 +71,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupCachePolicy(ctx *pulumi.Context, args *LookupCachePolicyArgs, opts ...pulumi.InvokeOption) (*LookupCachePolicyResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupCachePolicyResult

@@ -190,6 +190,7 @@ class SamlProvider(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -199,13 +200,14 @@ class SamlProvider(pulumi.CustomResource):
             name="myprovider",
             saml_metadata_document=std.file(input="saml-metadata.xml").result)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM SAML Providers using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:iam/samlProvider:SamlProvider default arn:aws:iam::123456789012:saml-provider/SAMLADFS
+        $ pulumi import aws:iam/samlProvider:SamlProvider default arn:aws:iam::123456789012:saml-provider/SAMLADFS
         ```
 
         :param str resource_name: The name of the resource.
@@ -225,6 +227,7 @@ class SamlProvider(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -234,13 +237,14 @@ class SamlProvider(pulumi.CustomResource):
             name="myprovider",
             saml_metadata_document=std.file(input="saml-metadata.xml").result)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM SAML Providers using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:iam/samlProvider:SamlProvider default arn:aws:iam::123456789012:saml-provider/SAMLADFS
+        $ pulumi import aws:iam/samlProvider:SamlProvider default arn:aws:iam::123456789012:saml-provider/SAMLADFS
         ```
 
         :param str resource_name: The name of the resource.

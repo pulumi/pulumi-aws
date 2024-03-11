@@ -120,12 +120,14 @@ def get_authorization_token(registry_id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     token = aws.ecr.get_authorization_token()
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str registry_id: AWS account ID of the ECR Repository. If not specified the default account is assumed.
@@ -153,12 +155,14 @@ def get_authorization_token_output(registry_id: Optional[pulumi.Input[Optional[s
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     token = aws.ecr.get_authorization_token()
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str registry_id: AWS account ID of the ECR Repository. If not specified the default account is assumed.

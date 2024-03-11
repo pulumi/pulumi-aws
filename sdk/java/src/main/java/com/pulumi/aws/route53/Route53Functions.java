@@ -55,6 +55,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * The following example shows how to get a delegation set from its id.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -83,6 +85,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDelegationSetResult> getDelegationSet(GetDelegationSetArgs args) {
@@ -96,6 +99,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * The following example shows how to get a delegation set from its id.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -124,6 +129,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDelegationSetResult> getDelegationSetPlain(GetDelegationSetPlainArgs args) {
@@ -137,6 +143,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * The following example shows how to get a delegation set from its id.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -165,6 +173,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDelegationSetResult> getDelegationSet(GetDelegationSetArgs args, InvokeOptions options) {
@@ -178,6 +187,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * The following example shows how to get a delegation set from its id.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -206,6 +217,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDelegationSetResult> getDelegationSetPlain(GetDelegationSetPlainArgs args, InvokeOptions options) {
@@ -215,6 +227,8 @@ public final class Route53Functions {
      * `aws.route53.ResolverQueryLogConfig` provides details about a specific Route53 Resolver Query Logging Configuration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -243,6 +257,9 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -279,6 +296,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetQueryLogConfigResult> getQueryLogConfig() {
@@ -288,6 +306,8 @@ public final class Route53Functions {
      * `aws.route53.ResolverQueryLogConfig` provides details about a specific Route53 Resolver Query Logging Configuration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -316,6 +336,9 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -352,6 +375,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetQueryLogConfigResult> getQueryLogConfigPlain() {
@@ -361,6 +385,8 @@ public final class Route53Functions {
      * `aws.route53.ResolverQueryLogConfig` provides details about a specific Route53 Resolver Query Logging Configuration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -389,6 +415,9 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -425,6 +454,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetQueryLogConfigResult> getQueryLogConfig(GetQueryLogConfigArgs args) {
@@ -434,6 +464,8 @@ public final class Route53Functions {
      * `aws.route53.ResolverQueryLogConfig` provides details about a specific Route53 Resolver Query Logging Configuration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -462,6 +494,9 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -498,6 +533,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetQueryLogConfigResult> getQueryLogConfigPlain(GetQueryLogConfigPlainArgs args) {
@@ -507,6 +543,8 @@ public final class Route53Functions {
      * `aws.route53.ResolverQueryLogConfig` provides details about a specific Route53 Resolver Query Logging Configuration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -535,6 +573,9 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -571,6 +612,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetQueryLogConfigResult> getQueryLogConfig(GetQueryLogConfigArgs args, InvokeOptions options) {
@@ -580,6 +622,8 @@ public final class Route53Functions {
      * `aws.route53.ResolverQueryLogConfig` provides details about a specific Route53 Resolver Query Logging Configuration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -608,6 +652,9 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -644,6 +691,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetQueryLogConfigResult> getQueryLogConfigPlain(GetQueryLogConfigPlainArgs args, InvokeOptions options) {
@@ -655,6 +703,8 @@ public final class Route53Functions {
      * This data source allows to find a list of IPaddresses associated with a specific Route53 Resolver Endpoint.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -683,6 +733,9 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -714,6 +767,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResolverEndpointResult> getResolverEndpoint() {
@@ -725,6 +779,8 @@ public final class Route53Functions {
      * This data source allows to find a list of IPaddresses associated with a specific Route53 Resolver Endpoint.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -753,6 +809,9 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -784,6 +843,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResolverEndpointResult> getResolverEndpointPlain() {
@@ -795,6 +855,8 @@ public final class Route53Functions {
      * This data source allows to find a list of IPaddresses associated with a specific Route53 Resolver Endpoint.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -823,6 +885,9 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -854,6 +919,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResolverEndpointResult> getResolverEndpoint(GetResolverEndpointArgs args) {
@@ -865,6 +931,8 @@ public final class Route53Functions {
      * This data source allows to find a list of IPaddresses associated with a specific Route53 Resolver Endpoint.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -893,6 +961,9 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -924,6 +995,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResolverEndpointResult> getResolverEndpointPlain(GetResolverEndpointPlainArgs args) {
@@ -935,6 +1007,8 @@ public final class Route53Functions {
      * This data source allows to find a list of IPaddresses associated with a specific Route53 Resolver Endpoint.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -963,6 +1037,9 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -994,6 +1071,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResolverEndpointResult> getResolverEndpoint(GetResolverEndpointArgs args, InvokeOptions options) {
@@ -1005,6 +1083,8 @@ public final class Route53Functions {
      * This data source allows to find a list of IPaddresses associated with a specific Route53 Resolver Endpoint.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1033,6 +1113,9 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1064,6 +1147,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResolverEndpointResult> getResolverEndpointPlain(GetResolverEndpointPlainArgs args, InvokeOptions options) {
@@ -1077,6 +1161,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * The following example shows how to get a firewall config using the VPC ID.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1105,6 +1191,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResolverFirewallConfigResult> getResolverFirewallConfig(GetResolverFirewallConfigArgs args) {
@@ -1118,6 +1205,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * The following example shows how to get a firewall config using the VPC ID.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1146,6 +1235,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResolverFirewallConfigResult> getResolverFirewallConfigPlain(GetResolverFirewallConfigPlainArgs args) {
@@ -1159,6 +1249,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * The following example shows how to get a firewall config using the VPC ID.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1187,6 +1279,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResolverFirewallConfigResult> getResolverFirewallConfig(GetResolverFirewallConfigArgs args, InvokeOptions options) {
@@ -1200,6 +1293,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * The following example shows how to get a firewall config using the VPC ID.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1228,6 +1323,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResolverFirewallConfigResult> getResolverFirewallConfigPlain(GetResolverFirewallConfigPlainArgs args, InvokeOptions options) {
@@ -1241,6 +1337,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * The following example shows how to get a firewall domain list from its ID.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1269,6 +1367,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResolverFirewallDomainListResult> getResolverFirewallDomainList(GetResolverFirewallDomainListArgs args) {
@@ -1282,6 +1381,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * The following example shows how to get a firewall domain list from its ID.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1310,6 +1411,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResolverFirewallDomainListResult> getResolverFirewallDomainListPlain(GetResolverFirewallDomainListPlainArgs args) {
@@ -1323,6 +1425,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * The following example shows how to get a firewall domain list from its ID.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1351,6 +1455,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResolverFirewallDomainListResult> getResolverFirewallDomainList(GetResolverFirewallDomainListArgs args, InvokeOptions options) {
@@ -1364,6 +1469,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * The following example shows how to get a firewall domain list from its ID.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1392,6 +1499,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResolverFirewallDomainListResult> getResolverFirewallDomainListPlain(GetResolverFirewallDomainListPlainArgs args, InvokeOptions options) {
@@ -1405,6 +1513,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * The following example shows how to get a firewall rule group from its ID.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1433,6 +1543,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResolverFirewallRuleGroupResult> getResolverFirewallRuleGroup(GetResolverFirewallRuleGroupArgs args) {
@@ -1446,6 +1557,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * The following example shows how to get a firewall rule group from its ID.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1474,6 +1587,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResolverFirewallRuleGroupResult> getResolverFirewallRuleGroupPlain(GetResolverFirewallRuleGroupPlainArgs args) {
@@ -1487,6 +1601,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * The following example shows how to get a firewall rule group from its ID.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1515,6 +1631,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResolverFirewallRuleGroupResult> getResolverFirewallRuleGroup(GetResolverFirewallRuleGroupArgs args, InvokeOptions options) {
@@ -1528,6 +1645,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * The following example shows how to get a firewall rule group from its ID.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1556,6 +1675,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResolverFirewallRuleGroupResult> getResolverFirewallRuleGroupPlain(GetResolverFirewallRuleGroupPlainArgs args, InvokeOptions options) {
@@ -1569,6 +1689,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * The following example shows how to get a firewall rule group association from its id.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1597,6 +1719,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResolverFirewallRuleGroupAssociationResult> getResolverFirewallRuleGroupAssociation(GetResolverFirewallRuleGroupAssociationArgs args) {
@@ -1610,6 +1733,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * The following example shows how to get a firewall rule group association from its id.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1638,6 +1763,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResolverFirewallRuleGroupAssociationResult> getResolverFirewallRuleGroupAssociationPlain(GetResolverFirewallRuleGroupAssociationPlainArgs args) {
@@ -1651,6 +1777,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * The following example shows how to get a firewall rule group association from its id.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1679,6 +1807,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResolverFirewallRuleGroupAssociationResult> getResolverFirewallRuleGroupAssociation(GetResolverFirewallRuleGroupAssociationArgs args, InvokeOptions options) {
@@ -1692,6 +1821,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * The following example shows how to get a firewall rule group association from its id.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1720,6 +1851,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResolverFirewallRuleGroupAssociationResult> getResolverFirewallRuleGroupAssociationPlain(GetResolverFirewallRuleGroupAssociationPlainArgs args, InvokeOptions options) {
@@ -1731,6 +1863,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group id.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1759,6 +1893,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResolverFirewallRulesResult> getResolverFirewallRules(GetResolverFirewallRulesArgs args) {
@@ -1770,6 +1905,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group id.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1798,6 +1935,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResolverFirewallRulesResult> getResolverFirewallRulesPlain(GetResolverFirewallRulesPlainArgs args) {
@@ -1809,6 +1947,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group id.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1837,6 +1977,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResolverFirewallRulesResult> getResolverFirewallRules(GetResolverFirewallRulesArgs args, InvokeOptions options) {
@@ -1848,6 +1989,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * The following example shows how to get Route53 Resolver Firewall rules based on its associated firewall group id.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1876,6 +2019,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResolverFirewallRulesResult> getResolverFirewallRulesPlain(GetResolverFirewallRulesPlainArgs args, InvokeOptions options) {
@@ -1887,6 +2031,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * The following example shows how to get a Route53 Resolver rule based on its associated domain name and rule type.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1916,6 +2062,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResolverRuleResult> getResolverRule() {
@@ -1927,6 +2074,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * The following example shows how to get a Route53 Resolver rule based on its associated domain name and rule type.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1956,6 +2105,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResolverRuleResult> getResolverRulePlain() {
@@ -1967,6 +2117,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * The following example shows how to get a Route53 Resolver rule based on its associated domain name and rule type.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1996,6 +2148,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResolverRuleResult> getResolverRule(GetResolverRuleArgs args) {
@@ -2007,6 +2160,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * The following example shows how to get a Route53 Resolver rule based on its associated domain name and rule type.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2036,6 +2191,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResolverRuleResult> getResolverRulePlain(GetResolverRulePlainArgs args) {
@@ -2047,6 +2203,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * The following example shows how to get a Route53 Resolver rule based on its associated domain name and rule type.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2076,6 +2234,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResolverRuleResult> getResolverRule(GetResolverRuleArgs args, InvokeOptions options) {
@@ -2087,6 +2246,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * The following example shows how to get a Route53 Resolver rule based on its associated domain name and rule type.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2116,6 +2277,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResolverRuleResult> getResolverRulePlain(GetResolverRulePlainArgs args, InvokeOptions options) {
@@ -2125,7 +2287,10 @@ public final class Route53Functions {
      * `aws.route53.getResolverRules` provides details about a set of Route53 Resolver rules.
      * 
      * ## Example Usage
+     * 
      * ### Retrieving the default resolver rule
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2156,7 +2321,11 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Retrieving forward rules shared with me
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2186,9 +2355,13 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Retrieving rules by name regex
      * 
      * Resolver rules whose name contains `abc`.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2217,6 +2390,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResolverRulesResult> getResolverRules() {
@@ -2226,7 +2400,10 @@ public final class Route53Functions {
      * `aws.route53.getResolverRules` provides details about a set of Route53 Resolver rules.
      * 
      * ## Example Usage
+     * 
      * ### Retrieving the default resolver rule
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2257,7 +2434,11 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Retrieving forward rules shared with me
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2287,9 +2468,13 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Retrieving rules by name regex
      * 
      * Resolver rules whose name contains `abc`.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2318,6 +2503,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResolverRulesResult> getResolverRulesPlain() {
@@ -2327,7 +2513,10 @@ public final class Route53Functions {
      * `aws.route53.getResolverRules` provides details about a set of Route53 Resolver rules.
      * 
      * ## Example Usage
+     * 
      * ### Retrieving the default resolver rule
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2358,7 +2547,11 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Retrieving forward rules shared with me
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2388,9 +2581,13 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Retrieving rules by name regex
      * 
      * Resolver rules whose name contains `abc`.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2419,6 +2616,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResolverRulesResult> getResolverRules(GetResolverRulesArgs args) {
@@ -2428,7 +2626,10 @@ public final class Route53Functions {
      * `aws.route53.getResolverRules` provides details about a set of Route53 Resolver rules.
      * 
      * ## Example Usage
+     * 
      * ### Retrieving the default resolver rule
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2459,7 +2660,11 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Retrieving forward rules shared with me
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2489,9 +2694,13 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Retrieving rules by name regex
      * 
      * Resolver rules whose name contains `abc`.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2520,6 +2729,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResolverRulesResult> getResolverRulesPlain(GetResolverRulesPlainArgs args) {
@@ -2529,7 +2739,10 @@ public final class Route53Functions {
      * `aws.route53.getResolverRules` provides details about a set of Route53 Resolver rules.
      * 
      * ## Example Usage
+     * 
      * ### Retrieving the default resolver rule
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2560,7 +2773,11 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Retrieving forward rules shared with me
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2590,9 +2807,13 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Retrieving rules by name regex
      * 
      * Resolver rules whose name contains `abc`.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2621,6 +2842,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResolverRulesResult> getResolverRules(GetResolverRulesArgs args, InvokeOptions options) {
@@ -2630,7 +2852,10 @@ public final class Route53Functions {
      * `aws.route53.getResolverRules` provides details about a set of Route53 Resolver rules.
      * 
      * ## Example Usage
+     * 
      * ### Retrieving the default resolver rule
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2661,7 +2886,11 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Retrieving forward rules shared with me
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2691,9 +2920,13 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Retrieving rules by name regex
      * 
      * Resolver rules whose name contains `abc`.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2722,6 +2955,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResolverRulesResult> getResolverRulesPlain(GetResolverRulesPlainArgs args, InvokeOptions options) {
@@ -2731,7 +2965,10 @@ public final class Route53Functions {
      * Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as `aws.route53.TrafficPolicy`.
      * 
      * ## Example Usage
+     * 
      * ### Basic Example
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2795,9 +3032,13 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Complex Example
      * 
      * The following example showcases the use of nested rules within the traffic policy document and introduces the `geoproximity` rule type.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2890,6 +3131,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTrafficPolicyDocumentResult> getTrafficPolicyDocument() {
@@ -2899,7 +3141,10 @@ public final class Route53Functions {
      * Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as `aws.route53.TrafficPolicy`.
      * 
      * ## Example Usage
+     * 
      * ### Basic Example
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2963,9 +3208,13 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Complex Example
      * 
      * The following example showcases the use of nested rules within the traffic policy document and introduces the `geoproximity` rule type.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3058,6 +3307,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTrafficPolicyDocumentResult> getTrafficPolicyDocumentPlain() {
@@ -3067,7 +3317,10 @@ public final class Route53Functions {
      * Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as `aws.route53.TrafficPolicy`.
      * 
      * ## Example Usage
+     * 
      * ### Basic Example
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3131,9 +3384,13 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Complex Example
      * 
      * The following example showcases the use of nested rules within the traffic policy document and introduces the `geoproximity` rule type.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3226,6 +3483,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTrafficPolicyDocumentResult> getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs args) {
@@ -3235,7 +3493,10 @@ public final class Route53Functions {
      * Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as `aws.route53.TrafficPolicy`.
      * 
      * ## Example Usage
+     * 
      * ### Basic Example
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3299,9 +3560,13 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Complex Example
      * 
      * The following example showcases the use of nested rules within the traffic policy document and introduces the `geoproximity` rule type.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3394,6 +3659,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTrafficPolicyDocumentResult> getTrafficPolicyDocumentPlain(GetTrafficPolicyDocumentPlainArgs args) {
@@ -3403,7 +3669,10 @@ public final class Route53Functions {
      * Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as `aws.route53.TrafficPolicy`.
      * 
      * ## Example Usage
+     * 
      * ### Basic Example
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3467,9 +3736,13 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Complex Example
      * 
      * The following example showcases the use of nested rules within the traffic policy document and introduces the `geoproximity` rule type.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3562,6 +3835,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTrafficPolicyDocumentResult> getTrafficPolicyDocument(GetTrafficPolicyDocumentArgs args, InvokeOptions options) {
@@ -3571,7 +3845,10 @@ public final class Route53Functions {
      * Generates an Route53 traffic policy document in JSON format for use with resources that expect policy documents such as `aws.route53.TrafficPolicy`.
      * 
      * ## Example Usage
+     * 
      * ### Basic Example
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3635,9 +3912,13 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Complex Example
      * 
      * The following example showcases the use of nested rules within the traffic policy document and introduces the `geoproximity` rule type.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3730,6 +4011,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTrafficPolicyDocumentResult> getTrafficPolicyDocumentPlain(GetTrafficPolicyDocumentPlainArgs args, InvokeOptions options) {
@@ -3743,6 +4025,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * The following example shows how to get a Hosted Zone from its name and from this data how to create a Record Set.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3782,6 +4066,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetZoneResult> getZone() {
@@ -3795,6 +4080,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * The following example shows how to get a Hosted Zone from its name and from this data how to create a Record Set.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3834,6 +4121,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetZoneResult> getZonePlain() {
@@ -3847,6 +4135,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * The following example shows how to get a Hosted Zone from its name and from this data how to create a Record Set.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3886,6 +4176,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetZoneResult> getZone(GetZoneArgs args) {
@@ -3899,6 +4190,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * The following example shows how to get a Hosted Zone from its name and from this data how to create a Record Set.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3938,6 +4231,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetZoneResult> getZonePlain(GetZonePlainArgs args) {
@@ -3951,6 +4245,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * The following example shows how to get a Hosted Zone from its name and from this data how to create a Record Set.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -3990,6 +4286,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetZoneResult> getZone(GetZoneArgs args, InvokeOptions options) {
@@ -4003,6 +4300,8 @@ public final class Route53Functions {
      * ## Example Usage
      * 
      * The following example shows how to get a Hosted Zone from its name and from this data how to create a Record Set.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -4042,6 +4341,7 @@ public final class Route53Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetZoneResult> getZonePlain(GetZonePlainArgs args, InvokeOptions options) {

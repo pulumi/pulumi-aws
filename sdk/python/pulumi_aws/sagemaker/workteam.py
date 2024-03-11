@@ -287,8 +287,10 @@ class Workteam(pulumi.CustomResource):
         Provides a SageMaker Workteam resource.
 
         ## Example Usage
+
         ### Cognito Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -305,8 +307,11 @@ class Workteam(pulumi.CustomResource):
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Oidc Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -321,13 +326,14 @@ class Workteam(pulumi.CustomResource):
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker Workteams using the `workteam_name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/workteam:Workteam example example
+        $ pulumi import aws:sagemaker/workteam:Workteam example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -349,8 +355,10 @@ class Workteam(pulumi.CustomResource):
         Provides a SageMaker Workteam resource.
 
         ## Example Usage
+
         ### Cognito Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -367,8 +375,11 @@ class Workteam(pulumi.CustomResource):
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Oidc Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -383,13 +394,14 @@ class Workteam(pulumi.CustomResource):
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker Workteams using the `workteam_name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/workteam:Workteam example example
+        $ pulumi import aws:sagemaker/workteam:Workteam example example
         ```
 
         :param str resource_name: The name of the resource.

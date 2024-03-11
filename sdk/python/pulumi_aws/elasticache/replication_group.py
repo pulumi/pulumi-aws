@@ -1461,10 +1461,12 @@ class ReplicationGroup(pulumi.CustomResource):
         > **Note:** Be aware of the terminology collision around "cluster" for `elasticache.ReplicationGroup`. For example, it is possible to create a ["Cluster Mode Disabled [Redis] Cluster"](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Create.CON.Redis.html). With "Cluster Mode Enabled", the data will be stored in shards (called "node groups"). See [Redis Cluster Configuration](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/cluster-create-determine-requirements.html#redis-cluster-configuration) for a diagram of the differences. To enable cluster mode, use a parameter group that has cluster mode enabled. The default parameter groups provided by AWS end with ".cluster.on", for example `default.redis6.x.cluster.on`.
 
         ## Example Usage
+
         ### Redis Cluster Mode Disabled
 
         To create a single shard primary with single read replica:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1482,12 +1484,14 @@ class ReplicationGroup(pulumi.CustomResource):
             parameter_group_name="default.redis3.2",
             port=6379)
         ```
+        <!--End PulumiCodeChooser -->
 
         You have two options for adjusting the number of replicas:
 
         * Adjusting `num_cache_clusters` directly. This will attempt to automatically add or remove replicas, but provides no granular control (e.g., preferred availability zone, cache cluster ID) for the added or removed replicas. This also currently expects cache cluster IDs in the form of `replication_group_id-00#`.
         * Otherwise for fine grained control of the underlying cache clusters, they can be added or removed with the `elasticache.Cluster` resource and its `replication_group_id` attribute. In this situation, you will need to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to prevent perpetual differences with the `number_cache_cluster` attribute.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1510,10 +1514,13 @@ class ReplicationGroup(pulumi.CustomResource):
                 cluster_id=f"tf-rep-group-1-{range['value']}",
                 replication_group_id=example.id))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Redis Cluster Mode Enabled
 
         To create two shards with a primary and a single read replica each:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1528,8 +1535,11 @@ class ReplicationGroup(pulumi.CustomResource):
             num_node_groups=2,
             replicas_per_node_group=1)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Redis Log Delivery configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1558,16 +1568,19 @@ class ReplicationGroup(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         > **Note:** We currently do not support passing a `primary_cluster_id` in order to create the Replication Group.
 
         > **Note:** Automatic Failover is unavailable for Redis versions earlier than 2.8.6,
         and unavailable on T1 node types. For T2 node types, it is only available on Redis version 3.2.4 or later with cluster mode enabled. See the [High Availability Using Replication Groups](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Replication.html) guide
         for full details on using Replication Groups.
+
         ### Creating a secondary replication group for a global replication group
 
         A Global Replication Group can have one one two secondary Replication Groups in different regions. These are added to an existing Global Replication Group.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1588,8 +1601,11 @@ class ReplicationGroup(pulumi.CustomResource):
             global_replication_group_id=example.global_replication_group_id,
             num_cache_clusters=1)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Redis AUTH and In-Transit Encryption Enabled
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1608,6 +1624,7 @@ class ReplicationGroup(pulumi.CustomResource):
             auth_token="abcdefgh1234567890",
             auth_token_update_strategy="ROTATE")
         ```
+        <!--End PulumiCodeChooser -->
 
         > When adding a new `auth_token` to a previously passwordless replication group, using the `ROTATE` update strategy will result in support for **both** the new token and passwordless authentication. To immediately require authorization when adding the initial token, use the `SET` strategy instead. See the [Authenticating with the Redis AUTH command](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html) guide for additional details.
 
@@ -1616,7 +1633,7 @@ class ReplicationGroup(pulumi.CustomResource):
         Using `pulumi import`, import ElastiCache Replication Groups using the `replication_group_id`. For example:
 
         ```sh
-         $ pulumi import aws:elasticache/replicationGroup:ReplicationGroup my_replication_group replication-group-1
+        $ pulumi import aws:elasticache/replicationGroup:ReplicationGroup my_replication_group replication-group-1
         ```
 
         :param str resource_name: The name of the resource.
@@ -1700,10 +1717,12 @@ class ReplicationGroup(pulumi.CustomResource):
         > **Note:** Be aware of the terminology collision around "cluster" for `elasticache.ReplicationGroup`. For example, it is possible to create a ["Cluster Mode Disabled [Redis] Cluster"](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Clusters.Create.CON.Redis.html). With "Cluster Mode Enabled", the data will be stored in shards (called "node groups"). See [Redis Cluster Configuration](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/cluster-create-determine-requirements.html#redis-cluster-configuration) for a diagram of the differences. To enable cluster mode, use a parameter group that has cluster mode enabled. The default parameter groups provided by AWS end with ".cluster.on", for example `default.redis6.x.cluster.on`.
 
         ## Example Usage
+
         ### Redis Cluster Mode Disabled
 
         To create a single shard primary with single read replica:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1721,12 +1740,14 @@ class ReplicationGroup(pulumi.CustomResource):
             parameter_group_name="default.redis3.2",
             port=6379)
         ```
+        <!--End PulumiCodeChooser -->
 
         You have two options for adjusting the number of replicas:
 
         * Adjusting `num_cache_clusters` directly. This will attempt to automatically add or remove replicas, but provides no granular control (e.g., preferred availability zone, cache cluster ID) for the added or removed replicas. This also currently expects cache cluster IDs in the form of `replication_group_id-00#`.
         * Otherwise for fine grained control of the underlying cache clusters, they can be added or removed with the `elasticache.Cluster` resource and its `replication_group_id` attribute. In this situation, you will need to utilize [`ignoreChanges`](https://www.pulumi.com/docs/intro/concepts/programming-model/#ignorechanges) to prevent perpetual differences with the `number_cache_cluster` attribute.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1749,10 +1770,13 @@ class ReplicationGroup(pulumi.CustomResource):
                 cluster_id=f"tf-rep-group-1-{range['value']}",
                 replication_group_id=example.id))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Redis Cluster Mode Enabled
 
         To create two shards with a primary and a single read replica each:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1767,8 +1791,11 @@ class ReplicationGroup(pulumi.CustomResource):
             num_node_groups=2,
             replicas_per_node_group=1)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Redis Log Delivery configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1797,16 +1824,19 @@ class ReplicationGroup(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         > **Note:** We currently do not support passing a `primary_cluster_id` in order to create the Replication Group.
 
         > **Note:** Automatic Failover is unavailable for Redis versions earlier than 2.8.6,
         and unavailable on T1 node types. For T2 node types, it is only available on Redis version 3.2.4 or later with cluster mode enabled. See the [High Availability Using Replication Groups](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/Replication.html) guide
         for full details on using Replication Groups.
+
         ### Creating a secondary replication group for a global replication group
 
         A Global Replication Group can have one one two secondary Replication Groups in different regions. These are added to an existing Global Replication Group.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1827,8 +1857,11 @@ class ReplicationGroup(pulumi.CustomResource):
             global_replication_group_id=example.global_replication_group_id,
             num_cache_clusters=1)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Redis AUTH and In-Transit Encryption Enabled
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1847,6 +1880,7 @@ class ReplicationGroup(pulumi.CustomResource):
             auth_token="abcdefgh1234567890",
             auth_token_update_strategy="ROTATE")
         ```
+        <!--End PulumiCodeChooser -->
 
         > When adding a new `auth_token` to a previously passwordless replication group, using the `ROTATE` update strategy will result in support for **both** the new token and passwordless authentication. To immediately require authorization when adding the initial token, use the `SET` strategy instead. See the [Authenticating with the Redis AUTH command](https://docs.aws.amazon.com/AmazonElastiCache/latest/red-ug/auth.html) guide for additional details.
 
@@ -1855,7 +1889,7 @@ class ReplicationGroup(pulumi.CustomResource):
         Using `pulumi import`, import ElastiCache Replication Groups using the `replication_group_id`. For example:
 
         ```sh
-         $ pulumi import aws:elasticache/replicationGroup:ReplicationGroup my_replication_group replication-group-1
+        $ pulumi import aws:elasticache/replicationGroup:ReplicationGroup my_replication_group replication-group-1
         ```
 
         :param str resource_name: The name of the resource.

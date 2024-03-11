@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,15 +45,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_lightsail_lb` using the name attribute. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:lightsail/lb:Lb test example-load-balancer
-//
+// $ pulumi import aws:lightsail/lb:Lb test example-load-balancer
 // ```
 type Lb struct {
 	pulumi.CustomResourceState

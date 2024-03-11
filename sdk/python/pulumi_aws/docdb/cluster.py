@@ -1076,6 +1076,7 @@ class Cluster(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1089,13 +1090,14 @@ class Cluster(pulumi.CustomResource):
             preferred_backup_window="07:00-09:00",
             skip_final_snapshot=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DocumentDB Clusters using the `cluster_identifier`. For example:
 
         ```sh
-         $ pulumi import aws:docdb/cluster:Cluster docdb_cluster docdb-prod-cluster
+        $ pulumi import aws:docdb/cluster:Cluster docdb_cluster docdb-prod-cluster
         ```
 
         :param str resource_name: The name of the resource.
@@ -1157,6 +1159,7 @@ class Cluster(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1170,13 +1173,14 @@ class Cluster(pulumi.CustomResource):
             preferred_backup_window="07:00-09:00",
             skip_final_snapshot=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DocumentDB Clusters using the `cluster_identifier`. For example:
 
         ```sh
-         $ pulumi import aws:docdb/cluster:Cluster docdb_cluster docdb-prod-cluster
+        $ pulumi import aws:docdb/cluster:Cluster docdb_cluster docdb-prod-cluster
         ```
 
         :param str resource_name: The name of the resource.

@@ -19,6 +19,7 @@ namespace Pulumi.Aws.Emr
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -37,13 +38,14 @@ namespace Pulumi.Aws.Emr
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EMR task instance group using their EMR Cluster id and Instance Group id separated by a forward-slash `/`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:emr/instanceGroup:InstanceGroup task_group j-123456ABCDEF/ig-15EK4O09RZLNR
+    /// $ pulumi import aws:emr/instanceGroup:InstanceGroup task_group j-123456ABCDEF/ig-15EK4O09RZLNR
     /// ```
     /// </summary>
     [AwsResourceType("aws:emr/instanceGroup:InstanceGroup")]
@@ -70,6 +72,7 @@ namespace Pulumi.Aws.Emr
         /// <summary>
         /// A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -99,6 +102,7 @@ namespace Pulumi.Aws.Emr
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         [Output("configurationsJson")]
         public Output<string?> ConfigurationsJson { get; private set; } = null!;
@@ -212,6 +216,7 @@ namespace Pulumi.Aws.Emr
         /// <summary>
         /// A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -241,6 +246,7 @@ namespace Pulumi.Aws.Emr
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         [Input("configurationsJson")]
         public Input<string>? ConfigurationsJson { get; set; }
@@ -310,6 +316,7 @@ namespace Pulumi.Aws.Emr
         /// <summary>
         /// A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -339,6 +346,7 @@ namespace Pulumi.Aws.Emr
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         [Input("configurationsJson")]
         public Input<string>? ConfigurationsJson { get; set; }

@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -38,6 +39,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupAccessPoint(ctx *pulumi.Context, args *LookupAccessPointArgs, opts ...pulumi.InvokeOption) (*LookupAccessPointResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupAccessPointResult

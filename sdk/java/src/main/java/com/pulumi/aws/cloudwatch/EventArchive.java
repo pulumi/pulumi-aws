@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -56,7 +58,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Example all optional arguments
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -99,13 +105,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import an EventBridge archive using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cloudwatch/eventArchive:EventArchive imported_event_archive order-archive
+ * $ pulumi import aws:cloudwatch/eventArchive:EventArchive imported_event_archive order-archive
  * ```
  * 
  */

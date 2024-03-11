@@ -5748,8 +5748,8 @@ class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration(d
         """
         :param str type: Traffic routing strategy type. Valid values are: `ALL_AT_ONCE`, `CANARY`, and `LINEAR`.
         :param int wait_interval_in_seconds: The waiting time (in seconds) between incremental steps to turn on traffic on the new endpoint fleet. Valid values are between `0` and `3600`.
-        :param 'EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeArgs' canary_size: Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50% of the variant's total instance count. See Canary Size.
-        :param 'EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeArgs' linear_step_size: Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50% of the variant's total instance count. See Linear Step Size.
+        :param 'EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeArgs' canary_size: Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50%!o(MISSING)f the variant's total instance count. See Canary Size.
+        :param 'EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeArgs' linear_step_size: Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50%!o(MISSING)f the variant's total instance count. See Linear Step Size.
         """
         pulumi.set(__self__, "type", type)
         pulumi.set(__self__, "wait_interval_in_seconds", wait_interval_in_seconds)
@@ -5778,7 +5778,7 @@ class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration(d
     @pulumi.getter(name="canarySize")
     def canary_size(self) -> Optional['outputs.EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySize']:
         """
-        Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50% of the variant's total instance count. See Canary Size.
+        Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50%!o(MISSING)f the variant's total instance count. See Canary Size.
         """
         return pulumi.get(self, "canary_size")
 
@@ -5786,7 +5786,7 @@ class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfiguration(d
     @pulumi.getter(name="linearStepSize")
     def linear_step_size(self) -> Optional['outputs.EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSize']:
         """
-        Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50% of the variant's total instance count. See Linear Step Size.
+        Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50%!o(MISSING)f the variant's total instance count. See Linear Step Size.
         """
         return pulumi.get(self, "linear_step_size")
 
@@ -5880,10 +5880,10 @@ class EndpointDeploymentConfigRollingUpdatePolicy(dict):
                  maximum_execution_timeout_in_seconds: Optional[int] = None,
                  rollback_maximum_batch_size: Optional['outputs.EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize'] = None):
         """
-        :param 'EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs' maximum_batch_size: Batch size for each rolling step to provision capacity and turn on traffic on the new endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between 5% to 50% of the variant's total instance count. See Maximum Batch Size.
+        :param 'EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSizeArgs' maximum_batch_size: Batch size for each rolling step to provision capacity and turn on traffic on the new endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between 5%!t(MISSING)o 50%!o(MISSING)f the variant's total instance count. See Maximum Batch Size.
         :param int wait_interval_in_seconds: The length of the baking period, during which SageMaker monitors alarms for each batch on the new fleet. Valid values are between `0` and `3600`.
         :param int maximum_execution_timeout_in_seconds: The time limit for the total deployment. Exceeding this limit causes a timeout. Valid values are between `600` and `14400`.
-        :param 'EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs' rollback_maximum_batch_size: Batch size for rollback to the old endpoint fleet. Each rolling step to provision capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new endpoint fleet. If this field is absent, the default value will be set to 100% of total capacity which means to bring up the whole capacity of the old fleet at once during rollback. See Rollback Maximum Batch Size.
+        :param 'EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSizeArgs' rollback_maximum_batch_size: Batch size for rollback to the old endpoint fleet. Each rolling step to provision capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new endpoint fleet. If this field is absent, the default value will be set to 100%!o(MISSING)f total capacity which means to bring up the whole capacity of the old fleet at once during rollback. See Rollback Maximum Batch Size.
         """
         pulumi.set(__self__, "maximum_batch_size", maximum_batch_size)
         pulumi.set(__self__, "wait_interval_in_seconds", wait_interval_in_seconds)
@@ -5896,7 +5896,7 @@ class EndpointDeploymentConfigRollingUpdatePolicy(dict):
     @pulumi.getter(name="maximumBatchSize")
     def maximum_batch_size(self) -> 'outputs.EndpointDeploymentConfigRollingUpdatePolicyMaximumBatchSize':
         """
-        Batch size for each rolling step to provision capacity and turn on traffic on the new endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between 5% to 50% of the variant's total instance count. See Maximum Batch Size.
+        Batch size for each rolling step to provision capacity and turn on traffic on the new endpoint fleet, and terminate capacity on the old endpoint fleet. Value must be between 5%!t(MISSING)o 50%!o(MISSING)f the variant's total instance count. See Maximum Batch Size.
         """
         return pulumi.get(self, "maximum_batch_size")
 
@@ -5920,7 +5920,7 @@ class EndpointDeploymentConfigRollingUpdatePolicy(dict):
     @pulumi.getter(name="rollbackMaximumBatchSize")
     def rollback_maximum_batch_size(self) -> Optional['outputs.EndpointDeploymentConfigRollingUpdatePolicyRollbackMaximumBatchSize']:
         """
-        Batch size for rollback to the old endpoint fleet. Each rolling step to provision capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new endpoint fleet. If this field is absent, the default value will be set to 100% of total capacity which means to bring up the whole capacity of the old fleet at once during rollback. See Rollback Maximum Batch Size.
+        Batch size for rollback to the old endpoint fleet. Each rolling step to provision capacity and turn on traffic on the old endpoint fleet, and terminate capacity on the new endpoint fleet. If this field is absent, the default value will be set to 100%!o(MISSING)f total capacity which means to bring up the whole capacity of the old fleet at once during rollback. See Rollback Maximum Batch Size.
         """
         return pulumi.get(self, "rollback_maximum_batch_size")
 

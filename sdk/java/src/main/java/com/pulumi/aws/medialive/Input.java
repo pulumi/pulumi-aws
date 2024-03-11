@@ -25,7 +25,10 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS MediaLive Input.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -67,13 +70,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import MediaLive Input using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:medialive/input:Input example 12345678
+ * $ pulumi import aws:medialive/input:Input example 12345678
  * ```
  * 
  */

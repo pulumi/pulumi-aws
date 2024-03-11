@@ -19,7 +19,10 @@ import javax.annotation.Nullable;
  * Provides an Amazon Managed Grafana workspace API Key resource.
  * 
  * ## Example Usage
+ * 
  * ### Basic configuration
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -51,6 +54,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:grafana/workspaceApiKey:WorkspaceApiKey")

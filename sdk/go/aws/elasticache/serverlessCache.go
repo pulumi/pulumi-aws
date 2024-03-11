@@ -15,8 +15,10 @@ import (
 // Provides an ElastiCache Serverless Cache resource which manages memcached or redis.
 //
 // ## Example Usage
+//
 // ### Memcached Serverless
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -68,8 +70,11 @@ import (
 // return pulumiArr
 // }
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Redis Serverless
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -123,15 +128,14 @@ import (
 // return pulumiArr
 // }
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import ElastiCache Serverless Cache using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:elasticache/serverlessCache:ServerlessCache my_cluster my_cluster
-//
+// $ pulumi import aws:elasticache/serverlessCache:ServerlessCache my_cluster my_cluster
 // ```
 type ServerlessCache struct {
 	pulumi.CustomResourceState

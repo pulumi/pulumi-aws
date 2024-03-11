@@ -243,6 +243,7 @@ class Workflow(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -269,13 +270,14 @@ class Workflow(pulumi.CustomResource):
                 job_name="another-example-job",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Glue Workflows using `name`. For example:
 
         ```sh
-         $ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
+        $ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
         ```
 
         :param str resource_name: The name of the resource.
@@ -299,6 +301,7 @@ class Workflow(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -325,13 +328,14 @@ class Workflow(pulumi.CustomResource):
                 job_name="another-example-job",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Glue Workflows using `name`. For example:
 
         ```sh
-         $ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
+        $ pulumi import aws:glue/workflow:Workflow MyWorkflow MyWorkflow
         ```
 
         :param str resource_name: The name of the resource.

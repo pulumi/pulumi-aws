@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -129,15 +130,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import AWS API Gateway Usage Plan using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:apigateway/usagePlan:UsagePlan myusageplan <usage_plan_id>
-//
+// $ pulumi import aws:apigateway/usagePlan:UsagePlan myusageplan <usage_plan_id>
 // ```
 type UsagePlan struct {
 	pulumi.CustomResourceState

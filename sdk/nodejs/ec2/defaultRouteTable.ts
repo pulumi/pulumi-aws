@@ -18,6 +18,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -39,9 +40,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * To subsequently remove all managed routes:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -54,13 +57,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Default VPC route tables using the `vpc_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/defaultRouteTable:DefaultRouteTable example vpc-33cc44dd
+ * $ pulumi import aws:ec2/defaultRouteTable:DefaultRouteTable example vpc-33cc44dd
  * ```
  */
 export class DefaultRouteTable extends pulumi.CustomResource {

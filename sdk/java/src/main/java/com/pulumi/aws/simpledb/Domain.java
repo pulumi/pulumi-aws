@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Provides a SimpleDB domain resource
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -45,13 +47,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import SimpleDB Domains using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:simpledb/domain:Domain users users
+ * $ pulumi import aws:simpledb/domain:Domain users users
  * ```
  * 
  */

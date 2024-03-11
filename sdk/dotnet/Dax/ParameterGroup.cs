@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Dax
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -42,13 +43,14 @@ namespace Pulumi.Aws.Dax
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DAX Parameter Group using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:dax/parameterGroup:ParameterGroup example my_dax_pg
+    /// $ pulumi import aws:dax/parameterGroup:ParameterGroup example my_dax_pg
     /// ```
     /// </summary>
     [AwsResourceType("aws:dax/parameterGroup:ParameterGroup")]

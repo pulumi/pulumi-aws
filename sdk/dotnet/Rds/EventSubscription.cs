@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Rds
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -66,13 +67,14 @@ namespace Pulumi.Aws.Rds
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import DB Event Subscriptions using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:rds/eventSubscription:EventSubscription default rds-event-sub
+    /// $ pulumi import aws:rds/eventSubscription:EventSubscription default rds-event-sub
     /// ```
     /// </summary>
     [AwsResourceType("aws:rds/eventSubscription:EventSubscription")]

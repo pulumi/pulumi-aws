@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * &gt; To reset an IAM User login password via this provider, you can use delete and recreate this resource or change any of the arguments.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -60,15 +62,16 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import IAM User Login Profiles without password information via the IAM User name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:iam/userLoginProfile:UserLoginProfile example myusername
+ * $ pulumi import aws:iam/userLoginProfile:UserLoginProfile example myusername
  * ```
- *  Since Pulumi has no method to read the PGP or password information during import, use the resource options `ignore_changes` argument to ignore them (unless you want to recreate a password). For example:
+ * Since Pulumi has no method to read the PGP or password information during import, use the resource options `ignore_changes` argument to ignore them (unless you want to recreate a password). For example:
  * 
  */
 @ResourceType(type="aws:iam/userLoginProfile:UserLoginProfile")

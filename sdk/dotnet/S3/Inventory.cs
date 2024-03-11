@@ -15,8 +15,10 @@ namespace Pulumi.Aws.S3
     /// &gt; This resource cannot be used with S3 directory buckets.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Add inventory configuration
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -56,8 +58,11 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Add inventory configuration with S3 object prefix
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -102,13 +107,14 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import S3 bucket inventory configurations using `bucket:inventory`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:s3/inventory:Inventory my-bucket-entire-bucket my-bucket:EntireBucket
+    /// $ pulumi import aws:s3/inventory:Inventory my-bucket-entire-bucket my-bucket:EntireBucket
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3/inventory:Inventory")]

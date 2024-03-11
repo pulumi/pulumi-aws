@@ -14,11 +14,11 @@ namespace Pulumi.Aws.SecretsManager
         /// <summary>
         /// Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### ARN
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,10 +34,11 @@ namespace Pulumi.Aws.SecretsManager
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### Name
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -53,8 +54,7 @@ namespace Pulumi.Aws.SecretsManager
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSecretResult> InvokeAsync(GetSecretArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSecretResult>("aws:secretsmanager/getSecret:getSecret", args ?? new GetSecretArgs(), options.WithDefaults());
@@ -62,11 +62,11 @@ namespace Pulumi.Aws.SecretsManager
         /// <summary>
         /// Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### ARN
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -82,10 +82,11 @@ namespace Pulumi.Aws.SecretsManager
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### Name
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -101,8 +102,7 @@ namespace Pulumi.Aws.SecretsManager
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSecretResult> Invoke(GetSecretInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSecretResult>("aws:secretsmanager/getSecret:getSecret", args ?? new GetSecretInvokeArgs(), options.WithDefaults());

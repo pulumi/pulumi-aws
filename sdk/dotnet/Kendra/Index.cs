@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Kendra
     /// Provides an Amazon Kendra Index resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -37,8 +39,11 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With capacity units
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -61,8 +66,11 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With server side encryption configuration
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -83,8 +91,11 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With user group resolution configuration
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -105,11 +116,15 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With Document Metadata Configuration Updates
+    /// 
     /// ### Specifying the predefined elements
     /// 
     /// Refer to [Amazon Kendra documentation on built-in document fields](https://docs.aws.amazon.com/kendra/latest/dg/hiw-index.html#index-reserved-fields) for more information.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -370,10 +385,13 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Appending additional elements
     /// 
     /// The example below shows additional elements with names, `example-string-value`, `example-long-value`, `example-string-list-value`, `example-date-value` representing the 4 types of `STRING_VALUE`, `LONG_VALUE`, `STRING_LIST_VALUE`, `DATE_VALUE` respectively.
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -703,8 +721,11 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With JSON token type configuration
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -729,13 +750,14 @@ namespace Pulumi.Aws.Kendra
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Amazon Kendra Indexes using its `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:kendra/index:Index example 12345678-1234-5678-9123-123456789123
+    /// $ pulumi import aws:kendra/index:Index example 12345678-1234-5678-9123-123456789123
     /// ```
     /// </summary>
     [AwsResourceType("aws:kendra/index:Index")]

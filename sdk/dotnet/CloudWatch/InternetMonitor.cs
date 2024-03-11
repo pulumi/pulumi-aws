@@ -14,6 +14,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,13 +30,14 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Internet Monitor Monitors using the `monitor_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cloudwatch/internetMonitor:InternetMonitor some some-monitor
+    /// $ pulumi import aws:cloudwatch/internetMonitor:InternetMonitor some some-monitor
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/internetMonitor:InternetMonitor")]

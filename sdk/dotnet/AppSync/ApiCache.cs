@@ -14,6 +14,7 @@ namespace Pulumi.Aws.AppSync
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -38,13 +39,14 @@ namespace Pulumi.Aws.AppSync
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_appsync_api_cache` using the AppSync API ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:appsync/apiCache:ApiCache example xxxxx
+    /// $ pulumi import aws:appsync/apiCache:ApiCache example xxxxx
     /// ```
     /// </summary>
     [AwsResourceType("aws:appsync/apiCache:ApiCache")]

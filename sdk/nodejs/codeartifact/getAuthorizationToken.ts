@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -17,6 +18,7 @@ import * as utilities from "../utilities";
  *     domain: testAwsCodeartifactDomain.domain,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAuthorizationToken(args: GetAuthorizationTokenArgs, opts?: pulumi.InvokeOptions): Promise<GetAuthorizationTokenResult> {
 
@@ -71,6 +73,7 @@ export interface GetAuthorizationTokenResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -79,6 +82,7 @@ export interface GetAuthorizationTokenResult {
  *     domain: testAwsCodeartifactDomain.domain,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAuthorizationTokenOutput(args: GetAuthorizationTokenOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAuthorizationTokenResult> {
     return pulumi.output(args).apply((a: any) => getAuthorizationToken(a, opts))

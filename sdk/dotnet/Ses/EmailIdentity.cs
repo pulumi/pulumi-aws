@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Ses
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,13 +30,14 @@ namespace Pulumi.Aws.Ses
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SES email identities using the email address. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ses/emailIdentity:EmailIdentity example email@example.com
+    /// $ pulumi import aws:ses/emailIdentity:EmailIdentity example email@example.com
     /// ```
     /// </summary>
     [AwsResourceType("aws:ses/emailIdentity:EmailIdentity")]

@@ -87,12 +87,14 @@ def get_domain_identity(domain: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.ses.get_domain_identity(domain="example.com")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str domain: Name of the domain
@@ -117,12 +119,14 @@ def get_domain_identity_output(domain: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.ses.get_domain_identity(domain="example.com")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str domain: Name of the domain

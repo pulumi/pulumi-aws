@@ -18,7 +18,10 @@ public final class ResourcegroupstaggingapiFunctions {
      * Provides details about resource tagging.
      * 
      * ## Example Usage
+     * 
      * ### Get All Resource Tag Mappings
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -45,7 +48,11 @@ public final class ResourcegroupstaggingapiFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Filter By Tag Key and Value
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -79,7 +86,11 @@ public final class ResourcegroupstaggingapiFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Filter By Resource Type
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -108,6 +119,7 @@ public final class ResourcegroupstaggingapiFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResourcesResult> getResources() {
@@ -117,7 +129,10 @@ public final class ResourcegroupstaggingapiFunctions {
      * Provides details about resource tagging.
      * 
      * ## Example Usage
+     * 
      * ### Get All Resource Tag Mappings
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -144,7 +159,11 @@ public final class ResourcegroupstaggingapiFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Filter By Tag Key and Value
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -178,7 +197,11 @@ public final class ResourcegroupstaggingapiFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Filter By Resource Type
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -207,6 +230,7 @@ public final class ResourcegroupstaggingapiFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResourcesResult> getResourcesPlain() {
@@ -216,7 +240,10 @@ public final class ResourcegroupstaggingapiFunctions {
      * Provides details about resource tagging.
      * 
      * ## Example Usage
+     * 
      * ### Get All Resource Tag Mappings
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -243,7 +270,11 @@ public final class ResourcegroupstaggingapiFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Filter By Tag Key and Value
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -277,7 +308,11 @@ public final class ResourcegroupstaggingapiFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Filter By Resource Type
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -306,6 +341,7 @@ public final class ResourcegroupstaggingapiFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResourcesResult> getResources(GetResourcesArgs args) {
@@ -315,7 +351,10 @@ public final class ResourcegroupstaggingapiFunctions {
      * Provides details about resource tagging.
      * 
      * ## Example Usage
+     * 
      * ### Get All Resource Tag Mappings
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -342,7 +381,11 @@ public final class ResourcegroupstaggingapiFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Filter By Tag Key and Value
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -376,7 +419,11 @@ public final class ResourcegroupstaggingapiFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Filter By Resource Type
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -405,6 +452,7 @@ public final class ResourcegroupstaggingapiFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResourcesResult> getResourcesPlain(GetResourcesPlainArgs args) {
@@ -414,7 +462,10 @@ public final class ResourcegroupstaggingapiFunctions {
      * Provides details about resource tagging.
      * 
      * ## Example Usage
+     * 
      * ### Get All Resource Tag Mappings
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -441,7 +492,11 @@ public final class ResourcegroupstaggingapiFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Filter By Tag Key and Value
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -475,7 +530,11 @@ public final class ResourcegroupstaggingapiFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Filter By Resource Type
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -504,6 +563,7 @@ public final class ResourcegroupstaggingapiFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResourcesResult> getResources(GetResourcesArgs args, InvokeOptions options) {
@@ -513,7 +573,10 @@ public final class ResourcegroupstaggingapiFunctions {
      * Provides details about resource tagging.
      * 
      * ## Example Usage
+     * 
      * ### Get All Resource Tag Mappings
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -540,7 +603,11 @@ public final class ResourcegroupstaggingapiFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Filter By Tag Key and Value
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -574,7 +641,11 @@ public final class ResourcegroupstaggingapiFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Filter By Resource Type
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -603,6 +674,7 @@ public final class ResourcegroupstaggingapiFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResourcesResult> getResourcesPlain(GetResourcesPlainArgs args, InvokeOptions options) {

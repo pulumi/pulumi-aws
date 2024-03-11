@@ -145,6 +145,7 @@ class InstanceState(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -171,13 +172,14 @@ class InstanceState(pulumi.CustomResource):
             instance_id=test.id,
             state="stopped")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ec2_instance_state` using the `instance_id` attribute. For example:
 
         ```sh
-         $ pulumi import aws:ec2transitgateway/instanceState:InstanceState test i-02cae6557dfcf2f96
+        $ pulumi import aws:ec2transitgateway/instanceState:InstanceState test i-02cae6557dfcf2f96
         ```
 
         :param str resource_name: The name of the resource.
@@ -201,6 +203,7 @@ class InstanceState(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -227,13 +230,14 @@ class InstanceState(pulumi.CustomResource):
             instance_id=test.id,
             state="stopped")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ec2_instance_state` using the `instance_id` attribute. For example:
 
         ```sh
-         $ pulumi import aws:ec2transitgateway/instanceState:InstanceState test i-02cae6557dfcf2f96
+        $ pulumi import aws:ec2transitgateway/instanceState:InstanceState test i-02cae6557dfcf2f96
         ```
 
         :param str resource_name: The name of the resource.

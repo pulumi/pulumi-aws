@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
 
 /**
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -91,13 +93,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_neptune_event_subscription` using the event subscription name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:neptune/eventSubscription:EventSubscription example my-event-subscription
+ * $ pulumi import aws:neptune/eventSubscription:EventSubscription example my-event-subscription
  * ```
  * 
  */

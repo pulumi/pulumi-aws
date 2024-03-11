@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,15 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Rekognition Collection using the `example_id_arg`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:rekognition/collection:Collection example collection-id-12345678
-//
+// $ pulumi import aws:rekognition/collection:Collection example collection-id-12345678
 // ```
 type Collection struct {
 	pulumi.CustomResourceState

@@ -16,8 +16,10 @@ import (
 // > **Note:** `alb.TargetGroup` is known as `lb.TargetGroup`. The functionality is identical.
 //
 // ## Example Usage
+//
 // ### Instance Target Group
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -51,8 +53,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### IP Target Group
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -87,8 +92,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Lambda Target Group
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -113,8 +121,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### ALB Target Group
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -142,8 +153,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Target group with unhealthy connection termination disabled
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -175,15 +189,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Target Groups using their ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:lb/targetGroup:TargetGroup app_front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:targetgroup/app-front-end/20cfe21448b66314
-//
+// $ pulumi import aws:lb/targetGroup:TargetGroup app_front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:targetgroup/app-front-end/20cfe21448b66314
 // ```
 type TargetGroup struct {
 	pulumi.CustomResourceState

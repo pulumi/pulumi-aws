@@ -136,6 +136,7 @@ def get_reserved_instance_offering(db_instance_class: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -146,6 +147,7 @@ def get_reserved_instance_offering(db_instance_class: Optional[str] = None,
         offering_type="All Upfront",
         product_description="mysql")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str db_instance_class: DB instance class for the reserved DB instance.
@@ -187,6 +189,7 @@ def get_reserved_instance_offering_output(db_instance_class: Optional[pulumi.Inp
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -197,6 +200,7 @@ def get_reserved_instance_offering_output(db_instance_class: Optional[pulumi.Inp
         offering_type="All Upfront",
         product_description="mysql")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str db_instance_class: DB instance class for the reserved DB instance.

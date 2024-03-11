@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS Kendra FAQ.
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -30,8 +32,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With File Format
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -47,8 +52,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### With Language Code
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -64,13 +72,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_kendra_faq` using the unique identifiers of the FAQ and index separated by a slash (`/`). For example:
  *
  * ```sh
- *  $ pulumi import aws:kendra/faq:Faq example faq-123456780/idx-8012925589
+ * $ pulumi import aws:kendra/faq:Faq example faq-123456780/idx-8012925589
  * ```
  */
 export class Faq extends pulumi.CustomResource {

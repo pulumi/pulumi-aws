@@ -25,6 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * Basic usage:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -65,13 +67,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Feature Groups using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:sagemaker/featureGroup:FeatureGroup test_feature_group feature_group-foo
+ * $ pulumi import aws:sagemaker/featureGroup:FeatureGroup test_feature_group feature_group-foo
  * ```
  * 
  */

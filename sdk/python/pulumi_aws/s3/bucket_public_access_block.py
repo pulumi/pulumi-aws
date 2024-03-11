@@ -224,6 +224,7 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -236,13 +237,14 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
             ignore_public_acls=True,
             restrict_public_buckets=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_s3_bucket_public_access_block` using the bucket name. For example:
 
         ```sh
-         $ pulumi import aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock example my-bucket
+        $ pulumi import aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock example my-bucket
         ```
 
         :param str resource_name: The name of the resource.
@@ -271,6 +273,7 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -283,13 +286,14 @@ class BucketPublicAccessBlock(pulumi.CustomResource):
             ignore_public_acls=True,
             restrict_public_buckets=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_s3_bucket_public_access_block` using the bucket name. For example:
 
         ```sh
-         $ pulumi import aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock example my-bucket
+        $ pulumi import aws:s3/bucketPublicAccessBlock:BucketPublicAccessBlock example my-bucket
         ```
 
         :param str resource_name: The name of the resource.

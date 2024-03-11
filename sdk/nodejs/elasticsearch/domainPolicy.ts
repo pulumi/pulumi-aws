@@ -11,6 +11,7 @@ import {PolicyDocument} from "../iam";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -38,6 +39,7 @@ import {PolicyDocument} from "../iam";
  * `,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export class DomainPolicy extends pulumi.CustomResource {
     /**

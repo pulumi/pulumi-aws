@@ -9,8 +9,10 @@ import * as utilities from "../utilities";
 
 /**
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -29,8 +31,11 @@ import * as utilities from "../utilities";
  *     timeZoneId: "Australia/Sydney",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Usage with Weekly Settings and Shift Coverages Fields
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -79,8 +84,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Usage with Monthly Settings Fields
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -111,13 +119,14 @@ import * as utilities from "../utilities";
  *     timeZoneId: "Australia/Sydney",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import CodeGuru Profiler Profiling Group using the `arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ssm/contactsRotation:ContactsRotation example arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example
+ * $ pulumi import aws:ssm/contactsRotation:ContactsRotation example arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example
  * ```
  */
 export class ContactsRotation extends pulumi.CustomResource {

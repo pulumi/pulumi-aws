@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,6 +20,7 @@ import * as utilities from "../utilities";
  *     name: "an_example_instance_profile_name",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getInstanceProfile(args: GetInstanceProfileArgs, opts?: pulumi.InvokeOptions): Promise<GetInstanceProfileResult> {
 
@@ -79,6 +81,7 @@ export interface GetInstanceProfileResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -87,6 +90,7 @@ export interface GetInstanceProfileResult {
  *     name: "an_example_instance_profile_name",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getInstanceProfileOutput(args: GetInstanceProfileOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetInstanceProfileResult> {
     return pulumi.output(args).apply((a: any) => getInstanceProfile(a, opts))

@@ -27,6 +27,8 @@ public final class Wafv2Functions {
      * Retrieves the summary of a WAFv2 IP Set.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -56,6 +58,7 @@ public final class Wafv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetIpSetResult> getIpSet(GetIpSetArgs args) {
@@ -65,6 +68,8 @@ public final class Wafv2Functions {
      * Retrieves the summary of a WAFv2 IP Set.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -94,6 +99,7 @@ public final class Wafv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetIpSetResult> getIpSetPlain(GetIpSetPlainArgs args) {
@@ -103,6 +109,8 @@ public final class Wafv2Functions {
      * Retrieves the summary of a WAFv2 IP Set.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -132,6 +140,7 @@ public final class Wafv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetIpSetResult> getIpSet(GetIpSetArgs args, InvokeOptions options) {
@@ -141,6 +150,8 @@ public final class Wafv2Functions {
      * Retrieves the summary of a WAFv2 IP Set.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -170,6 +181,7 @@ public final class Wafv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetIpSetResult> getIpSetPlain(GetIpSetPlainArgs args, InvokeOptions options) {
@@ -179,6 +191,8 @@ public final class Wafv2Functions {
      * Retrieves the summary of a WAFv2 Regex Pattern Set.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -208,6 +222,7 @@ public final class Wafv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRegexPatternSetResult> getRegexPatternSet(GetRegexPatternSetArgs args) {
@@ -217,6 +232,8 @@ public final class Wafv2Functions {
      * Retrieves the summary of a WAFv2 Regex Pattern Set.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -246,6 +263,7 @@ public final class Wafv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRegexPatternSetResult> getRegexPatternSetPlain(GetRegexPatternSetPlainArgs args) {
@@ -255,6 +273,8 @@ public final class Wafv2Functions {
      * Retrieves the summary of a WAFv2 Regex Pattern Set.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -284,6 +304,7 @@ public final class Wafv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRegexPatternSetResult> getRegexPatternSet(GetRegexPatternSetArgs args, InvokeOptions options) {
@@ -293,6 +314,8 @@ public final class Wafv2Functions {
      * Retrieves the summary of a WAFv2 Regex Pattern Set.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -322,6 +345,7 @@ public final class Wafv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRegexPatternSetResult> getRegexPatternSetPlain(GetRegexPatternSetPlainArgs args, InvokeOptions options) {
@@ -331,6 +355,8 @@ public final class Wafv2Functions {
      * Retrieves the summary of a WAFv2 Rule Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -360,6 +386,7 @@ public final class Wafv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRuleGroupResult> getRuleGroup(GetRuleGroupArgs args) {
@@ -369,6 +396,8 @@ public final class Wafv2Functions {
      * Retrieves the summary of a WAFv2 Rule Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -398,6 +427,7 @@ public final class Wafv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRuleGroupResult> getRuleGroupPlain(GetRuleGroupPlainArgs args) {
@@ -407,6 +437,8 @@ public final class Wafv2Functions {
      * Retrieves the summary of a WAFv2 Rule Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -436,6 +468,7 @@ public final class Wafv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRuleGroupResult> getRuleGroup(GetRuleGroupArgs args, InvokeOptions options) {
@@ -445,6 +478,8 @@ public final class Wafv2Functions {
      * Retrieves the summary of a WAFv2 Rule Group.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -474,6 +509,7 @@ public final class Wafv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRuleGroupResult> getRuleGroupPlain(GetRuleGroupPlainArgs args, InvokeOptions options) {
@@ -483,6 +519,8 @@ public final class Wafv2Functions {
      * Retrieves the summary of a WAFv2 Web ACL.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -512,6 +550,7 @@ public final class Wafv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetWebAclResult> getWebAcl(GetWebAclArgs args) {
@@ -521,6 +560,8 @@ public final class Wafv2Functions {
      * Retrieves the summary of a WAFv2 Web ACL.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -550,6 +591,7 @@ public final class Wafv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetWebAclResult> getWebAclPlain(GetWebAclPlainArgs args) {
@@ -559,6 +601,8 @@ public final class Wafv2Functions {
      * Retrieves the summary of a WAFv2 Web ACL.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -588,6 +632,7 @@ public final class Wafv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetWebAclResult> getWebAcl(GetWebAclArgs args, InvokeOptions options) {
@@ -597,6 +642,8 @@ public final class Wafv2Functions {
      * Retrieves the summary of a WAFv2 Web ACL.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -626,6 +673,7 @@ public final class Wafv2Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetWebAclResult> getWebAclPlain(GetWebAclPlainArgs args, InvokeOptions options) {

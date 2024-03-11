@@ -14,10 +14,9 @@ namespace Pulumi.Aws.CodeArtifact
         /// <summary>
         /// The CodeArtifact Repository Endpoint data source returns the endpoint of a repository for a specific package format.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,8 +34,7 @@ namespace Pulumi.Aws.CodeArtifact
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetRepositoryEndpointResult> InvokeAsync(GetRepositoryEndpointArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetRepositoryEndpointResult>("aws:codeartifact/getRepositoryEndpoint:getRepositoryEndpoint", args ?? new GetRepositoryEndpointArgs(), options.WithDefaults());
@@ -44,10 +42,9 @@ namespace Pulumi.Aws.CodeArtifact
         /// <summary>
         /// The CodeArtifact Repository Endpoint data source returns the endpoint of a repository for a specific package format.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -65,8 +62,7 @@ namespace Pulumi.Aws.CodeArtifact
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetRepositoryEndpointResult> Invoke(GetRepositoryEndpointInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetRepositoryEndpointResult>("aws:codeartifact/getRepositoryEndpoint:getRepositoryEndpoint", args ?? new GetRepositoryEndpointInvokeArgs(), options.WithDefaults());

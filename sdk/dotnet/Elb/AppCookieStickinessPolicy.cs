@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Elb
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -51,13 +52,14 @@ namespace Pulumi.Aws.Elb
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import application cookie stickiness policies using the ELB name, port, and policy name separated by colons (`:`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:elb/appCookieStickinessPolicy:AppCookieStickinessPolicy example my-elb:80:my-policy
+    /// $ pulumi import aws:elb/appCookieStickinessPolicy:AppCookieStickinessPolicy example my-elb:80:my-policy
     /// ```
     /// </summary>
     [AwsResourceType("aws:elb/appCookieStickinessPolicy:AppCookieStickinessPolicy")]

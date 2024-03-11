@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -55,15 +56,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import the EFS mount targets using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:efs/mountTarget:MountTarget alpha fsmt-52a643fb
-//
+// $ pulumi import aws:efs/mountTarget:MountTarget alpha fsmt-52a643fb
 // ```
 type MountTarget struct {
 	pulumi.CustomResourceState

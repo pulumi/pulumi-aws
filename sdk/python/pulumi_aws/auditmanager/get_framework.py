@@ -114,8 +114,10 @@ def get_framework(control_sets: Optional[Sequence[pulumi.InputType['GetFramework
     Data source for managing an AWS Audit Manager Framework.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -123,6 +125,7 @@ def get_framework(control_sets: Optional[Sequence[pulumi.InputType['GetFramework
     example = aws.auditmanager.get_framework(name="Essential Eight",
         framework_type="Standard")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the framework.
@@ -154,8 +157,10 @@ def get_framework_output(control_sets: Optional[pulumi.Input[Optional[Sequence[p
     Data source for managing an AWS Audit Manager Framework.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -163,6 +168,7 @@ def get_framework_output(control_sets: Optional[pulumi.Input[Optional[Sequence[p
     example = aws.auditmanager.get_framework(name="Essential Eight",
         framework_type="Standard")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the framework.

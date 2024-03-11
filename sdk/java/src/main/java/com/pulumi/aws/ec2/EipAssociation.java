@@ -25,6 +25,8 @@ import javax.annotation.Nullable;
  * pre-existing or distributed to customers or users and therefore cannot be changed.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -69,13 +71,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import EIP Assocations using their association IDs. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/eipAssociation:EipAssociation test eipassoc-ab12c345
+ * $ pulumi import aws:ec2/eipAssociation:EipAssociation test eipassoc-ab12c345
  * ```
  * 
  */

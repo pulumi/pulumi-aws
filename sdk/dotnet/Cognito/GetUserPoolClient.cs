@@ -14,10 +14,9 @@ namespace Pulumi.Aws.Cognito
         /// <summary>
         /// Provides a Cognito User Pool Client resource.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +33,7 @@ namespace Pulumi.Aws.Cognito
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetUserPoolClientResult> InvokeAsync(GetUserPoolClientArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetUserPoolClientResult>("aws:cognito/getUserPoolClient:getUserPoolClient", args ?? new GetUserPoolClientArgs(), options.WithDefaults());
@@ -43,10 +41,9 @@ namespace Pulumi.Aws.Cognito
         /// <summary>
         /// Provides a Cognito User Pool Client resource.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +60,7 @@ namespace Pulumi.Aws.Cognito
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetUserPoolClientResult> Invoke(GetUserPoolClientInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetUserPoolClientResult>("aws:cognito/getUserPoolClient:getUserPoolClient", args ?? new GetUserPoolClientInvokeArgs(), options.WithDefaults());

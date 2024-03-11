@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -28,6 +29,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getServerCertificate(args?: GetServerCertificateArgs, opts?: pulumi.InvokeOptions): Promise<GetServerCertificateResult> {
     args = args || {};
@@ -105,6 +107,7 @@ export interface GetServerCertificateResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -124,6 +127,7 @@ export interface GetServerCertificateResult {
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getServerCertificateOutput(args?: GetServerCertificateOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetServerCertificateResult> {
     return pulumi.output(args).apply((a: any) => getServerCertificate(a, opts))

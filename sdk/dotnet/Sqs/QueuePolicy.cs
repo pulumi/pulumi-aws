@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Sqs
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -79,13 +80,14 @@ namespace Pulumi.Aws.Sqs
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SQS Queue Policies using the queue URL. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:sqs/queuePolicy:QueuePolicy test https://queue.amazonaws.com/0123456789012/myqueue
+    /// $ pulumi import aws:sqs/queuePolicy:QueuePolicy test https://queue.amazonaws.com/0123456789012/myqueue
     /// ```
     /// </summary>
     [AwsResourceType("aws:sqs/queuePolicy:QueuePolicy")]

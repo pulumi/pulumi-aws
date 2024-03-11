@@ -274,12 +274,14 @@ def get_network_interface(filters: Optional[Sequence[pulumi.InputType['GetNetwor
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     bar = aws.ec2.get_network_interface(id="eni-01234567")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetNetworkInterfaceFilterArgs']] filters: One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-network-interfaces](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-network-interfaces.html) in the AWS CLI reference.
@@ -326,12 +328,14 @@ def get_network_interface_output(filters: Optional[pulumi.Input[Optional[Sequenc
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     bar = aws.ec2.get_network_interface(id="eni-01234567")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetNetworkInterfaceFilterArgs']] filters: One or more name/value pairs to filter off of. There are several valid keys, for a full reference, check out [describe-network-interfaces](https://docs.aws.amazon.com/cli/latest/reference/ec2/describe-network-interfaces.html) in the AWS CLI reference.

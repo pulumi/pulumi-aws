@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -60,15 +61,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Security Hub Organization Admin Accounts using the AWS account ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:securityhub/organizationAdminAccount:OrganizationAdminAccount example 123456789012
-//
+// $ pulumi import aws:securityhub/organizationAdminAccount:OrganizationAdminAccount example 123456789012
 // ```
 type OrganizationAdminAccount struct {
 	pulumi.CustomResourceState

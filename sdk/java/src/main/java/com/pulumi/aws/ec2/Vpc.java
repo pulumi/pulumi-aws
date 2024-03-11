@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * Basic usage:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -51,8 +53,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * Basic usage with tags:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -83,8 +88,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * VPC with CIDR from AWS IPAM:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -142,13 +150,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import VPCs using the VPC `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/vpc:Vpc test_vpc vpc-a01106c2
+ * $ pulumi import aws:ec2/vpc:Vpc test_vpc vpc-a01106c2
  * ```
  * 
  */

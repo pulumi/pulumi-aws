@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Provides a CodeDeploy application to be used as a basis for deployments
  *
  * ## Example Usage
+ *
  * ### ECS Application
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,8 +21,11 @@ import * as utilities from "../utilities";
  *     name: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Lambda Application
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -30,8 +35,11 @@ import * as utilities from "../utilities";
  *     name: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Server Application
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -41,13 +49,14 @@ import * as utilities from "../utilities";
  *     name: "example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import CodeDeploy Applications using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:codedeploy/application:Application example my-application
+ * $ pulumi import aws:codedeploy/application:Application example my-application
  * ```
  */
 export class Application extends pulumi.CustomResource {

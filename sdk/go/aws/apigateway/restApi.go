@@ -18,8 +18,10 @@ import (
 // !> **WARN:** When importing Open API Specifications with the `body` argument, by default the API Gateway REST API will be replaced with the Open API Specification thus removing any existing methods, resources, integrations, or endpoints. Endpoint mutations are asynchronous operations, and race conditions with DNS are possible. To overcome this limitation, use the `putRestApiMode` attribute and set it to `merge`.
 //
 // ## Example Usage
+//
 // ### OpenAPI Specification
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -102,10 +104,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### OpenAPI Specification with Private Endpoints
 //
 // Using `putRestApiMode` = `merge` when importing the OpenAPI Specification, the AWS control plane will not delete all existing literal properties that are not explicitly set in the OpenAPI definition. Impacted API Gateway properties: ApiKeySourceType, BinaryMediaTypes, Description, EndpointConfiguration, MinimumCompressionSize, Name, Policy).
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -266,8 +271,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Resources
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -356,18 +364,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_api_gateway_rest_api` using the REST API ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:apigateway/restApi:RestApi example 12345abcde
-//
+// $ pulumi import aws:apigateway/restApi:RestApi example 12345abcde
 // ```
-//
-//	~> __NOTE:__ Resource import does not currently support the `body` attribute.
+// ~> __NOTE:__ Resource import does not currently support the `body` attribute.
 type RestApi struct {
 	pulumi.CustomResourceState
 

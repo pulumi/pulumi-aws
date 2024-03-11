@@ -16,10 +16,9 @@ namespace Pulumi.Aws.CloudWatch
         /// EventBridge event bus. Use this data source to compute the ARN of
         /// an event bus, given the name of the bus.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -35,8 +34,7 @@ namespace Pulumi.Aws.CloudWatch
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetEventBusResult> InvokeAsync(GetEventBusArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEventBusResult>("aws:cloudwatch/getEventBus:getEventBus", args ?? new GetEventBusArgs(), options.WithDefaults());
@@ -46,10 +44,9 @@ namespace Pulumi.Aws.CloudWatch
         /// EventBridge event bus. Use this data source to compute the ARN of
         /// an event bus, given the name of the bus.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -65,8 +62,7 @@ namespace Pulumi.Aws.CloudWatch
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetEventBusResult> Invoke(GetEventBusInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEventBusResult>("aws:cloudwatch/getEventBus:getEventBus", args ?? new GetEventBusInvokeArgs(), options.WithDefaults());

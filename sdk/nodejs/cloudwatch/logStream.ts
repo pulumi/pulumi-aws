@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,13 +20,14 @@ import * as utilities from "../utilities";
  *     logGroupName: yada.name,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Cloudwatch Log Stream using the stream's `log_group_name` and `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudwatch/logStream:LogStream foo Yada:SampleLogStream1234
+ * $ pulumi import aws:cloudwatch/logStream:LogStream foo Yada:SampleLogStream1234
  * ```
  */
 export class LogStream extends pulumi.CustomResource {

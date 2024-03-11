@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Provides an Athena Workgroup.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -63,13 +65,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Athena Workgroups using their name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:athena/workgroup:Workgroup example example
+ * $ pulumi import aws:athena/workgroup:Workgroup example example
  * ```
  * 
  */

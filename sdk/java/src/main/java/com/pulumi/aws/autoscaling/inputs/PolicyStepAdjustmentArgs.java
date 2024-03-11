@@ -42,7 +42,7 @@ public final class PolicyStepAdjustmentArgs extends com.pulumi.resources.Resourc
      * Without a value, AWS will treat this bound as positive infinity. The upper bound
      * must be greater than the lower bound.
      * 
-     * Notice the bounds are **relative** to the alarm threshold, meaning that the starting point is not 0%, but the alarm threshold. Check the official [docs](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-steps) for a detailed example.
+     * Notice the bounds are **relative** to the alarm threshold, meaning that the starting point is not 0%!,(MISSING) but the alarm threshold. Check the official [docs](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-steps) for a detailed example.
      * 
      * The following arguments are only available to &#34;TargetTrackingScaling&#34; type policies:
      * 
@@ -56,7 +56,7 @@ public final class PolicyStepAdjustmentArgs extends com.pulumi.resources.Resourc
      * Without a value, AWS will treat this bound as positive infinity. The upper bound
      * must be greater than the lower bound.
      * 
-     * Notice the bounds are **relative** to the alarm threshold, meaning that the starting point is not 0%, but the alarm threshold. Check the official [docs](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-steps) for a detailed example.
+     * Notice the bounds are **relative** to the alarm threshold, meaning that the starting point is not 0%!,(MISSING) but the alarm threshold. Check the official [docs](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-steps) for a detailed example.
      * 
      * The following arguments are only available to &#34;TargetTrackingScaling&#34; type policies:
      * 
@@ -141,7 +141,7 @@ public final class PolicyStepAdjustmentArgs extends com.pulumi.resources.Resourc
          * Without a value, AWS will treat this bound as positive infinity. The upper bound
          * must be greater than the lower bound.
          * 
-         * Notice the bounds are **relative** to the alarm threshold, meaning that the starting point is not 0%, but the alarm threshold. Check the official [docs](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-steps) for a detailed example.
+         * Notice the bounds are **relative** to the alarm threshold, meaning that the starting point is not 0%!,(MISSING) but the alarm threshold. Check the official [docs](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-steps) for a detailed example.
          * 
          * The following arguments are only available to &#34;TargetTrackingScaling&#34; type policies:
          * 
@@ -159,7 +159,7 @@ public final class PolicyStepAdjustmentArgs extends com.pulumi.resources.Resourc
          * Without a value, AWS will treat this bound as positive infinity. The upper bound
          * must be greater than the lower bound.
          * 
-         * Notice the bounds are **relative** to the alarm threshold, meaning that the starting point is not 0%, but the alarm threshold. Check the official [docs](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-steps) for a detailed example.
+         * Notice the bounds are **relative** to the alarm threshold, meaning that the starting point is not 0%!,(MISSING) but the alarm threshold. Check the official [docs](https://docs.aws.amazon.com/autoscaling/ec2/userguide/as-scaling-simple-step.html#as-scaling-steps) for a detailed example.
          * 
          * The following arguments are only available to &#34;TargetTrackingScaling&#34; type policies:
          * 

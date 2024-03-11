@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -84,15 +85,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_ce_cost_category` using the id. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:costexplorer/costCategory:CostCategory example costCategoryARN
-//
+// $ pulumi import aws:costexplorer/costCategory:CostCategory example costCategoryARN
 // ```
 type CostCategory struct {
 	pulumi.CustomResourceState

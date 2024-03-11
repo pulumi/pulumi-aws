@@ -151,6 +151,7 @@ class ActionTarget(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -161,13 +162,14 @@ class ActionTarget(pulumi.CustomResource):
             identifier="SendToChat",
             description="This is custom action sends selected findings to chat")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Security Hub custom action using the action target ARN. For example:
 
         ```sh
-         $ pulumi import aws:securityhub/actionTarget:ActionTarget example arn:aws:securityhub:eu-west-1:312940875350:action/custom/a
+        $ pulumi import aws:securityhub/actionTarget:ActionTarget example arn:aws:securityhub:eu-west-1:312940875350:action/custom/a
         ```
 
         :param str resource_name: The name of the resource.
@@ -187,6 +189,7 @@ class ActionTarget(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -197,13 +200,14 @@ class ActionTarget(pulumi.CustomResource):
             identifier="SendToChat",
             description="This is custom action sends selected findings to chat")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Security Hub custom action using the action target ARN. For example:
 
         ```sh
-         $ pulumi import aws:securityhub/actionTarget:ActionTarget example arn:aws:securityhub:eu-west-1:312940875350:action/custom/a
+        $ pulumi import aws:securityhub/actionTarget:ActionTarget example arn:aws:securityhub:eu-west-1:312940875350:action/custom/a
         ```
 
         :param str resource_name: The name of the resource.

@@ -20,14 +20,14 @@ public final class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingCo
     public static final EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs Empty = new EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationArgs();
 
     /**
-     * Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50% of the variant&#39;s total instance count. See Canary Size.
+     * Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50%!o(MISSING)f the variant&#39;s total instance count. See Canary Size.
      * 
      */
     @Import(name="canarySize")
     private @Nullable Output<EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeArgs> canarySize;
 
     /**
-     * @return Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50% of the variant&#39;s total instance count. See Canary Size.
+     * @return Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50%!o(MISSING)f the variant&#39;s total instance count. See Canary Size.
      * 
      */
     public Optional<Output<EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeArgs>> canarySize() {
@@ -35,14 +35,14 @@ public final class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingCo
     }
 
     /**
-     * Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50% of the variant&#39;s total instance count. See Linear Step Size.
+     * Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50%!o(MISSING)f the variant&#39;s total instance count. See Linear Step Size.
      * 
      */
     @Import(name="linearStepSize")
     private @Nullable Output<EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeArgs> linearStepSize;
 
     /**
-     * @return Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50% of the variant&#39;s total instance count. See Linear Step Size.
+     * @return Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50%!o(MISSING)f the variant&#39;s total instance count. See Linear Step Size.
      * 
      */
     public Optional<Output<EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeArgs>> linearStepSize() {
@@ -107,7 +107,7 @@ public final class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingCo
         }
 
         /**
-         * @param canarySize Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50% of the variant&#39;s total instance count. See Canary Size.
+         * @param canarySize Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50%!o(MISSING)f the variant&#39;s total instance count. See Canary Size.
          * 
          * @return builder
          * 
@@ -118,7 +118,7 @@ public final class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingCo
         }
 
         /**
-         * @param canarySize Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50% of the variant&#39;s total instance count. See Canary Size.
+         * @param canarySize Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50%!o(MISSING)f the variant&#39;s total instance count. See Canary Size.
          * 
          * @return builder
          * 
@@ -128,7 +128,7 @@ public final class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingCo
         }
 
         /**
-         * @param linearStepSize Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50% of the variant&#39;s total instance count. See Linear Step Size.
+         * @param linearStepSize Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50%!o(MISSING)f the variant&#39;s total instance count. See Linear Step Size.
          * 
          * @return builder
          * 
@@ -139,7 +139,7 @@ public final class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingCo
         }
 
         /**
-         * @param linearStepSize Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50% of the variant&#39;s total instance count. See Linear Step Size.
+         * @param linearStepSize Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50%!o(MISSING)f the variant&#39;s total instance count. See Linear Step Size.
          * 
          * @return builder
          * 

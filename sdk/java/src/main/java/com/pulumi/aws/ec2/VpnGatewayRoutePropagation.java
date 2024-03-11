@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * propagation not explicitly listed in its value will be removed.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,6 +52,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:ec2/vpnGatewayRoutePropagation:VpnGatewayRoutePropagation")

@@ -143,6 +143,7 @@ class FileSystemPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -170,13 +171,14 @@ class FileSystemPolicy(pulumi.CustomResource):
             file_system_id=fs.id,
             policy=policy.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import the EFS file system policies using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:efs/fileSystemPolicy:FileSystemPolicy foo fs-6fa144c6
+        $ pulumi import aws:efs/fileSystemPolicy:FileSystemPolicy foo fs-6fa144c6
         ```
 
         :param str resource_name: The name of the resource.
@@ -198,6 +200,7 @@ class FileSystemPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -225,13 +228,14 @@ class FileSystemPolicy(pulumi.CustomResource):
             file_system_id=fs.id,
             policy=policy.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import the EFS file system policies using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:efs/fileSystemPolicy:FileSystemPolicy foo fs-6fa144c6
+        $ pulumi import aws:efs/fileSystemPolicy:FileSystemPolicy foo fs-6fa144c6
         ```
 
         :param str resource_name: The name of the resource.

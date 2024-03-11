@@ -17,6 +17,7 @@ import (
 //
 // Usage:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -55,15 +56,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import models using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration lc foo
-//
+// $ pulumi import aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration lc foo
 // ```
 type NotebookInstanceLifecycleConfiguration struct {
 	pulumi.CustomResourceState

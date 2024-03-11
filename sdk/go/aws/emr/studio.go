@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -51,15 +52,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import EMR studios using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:emr/studio:Studio studio es-123456ABCDEF
-//
+// $ pulumi import aws:emr/studio:Studio studio es-123456ABCDEF
 // ```
 type Studio struct {
 	pulumi.CustomResourceState

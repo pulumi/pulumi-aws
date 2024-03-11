@@ -525,6 +525,7 @@ class Stack(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -559,13 +560,14 @@ class Stack(pulumi.CustomResource):
                 },
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Cloudformation Stacks using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudformation/stack:Stack stack networking-stack
+        $ pulumi import aws:cloudformation/stack:Stack stack networking-stack
         ```
 
         :param str resource_name: The name of the resource.
@@ -600,6 +602,7 @@ class Stack(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -634,13 +637,14 @@ class Stack(pulumi.CustomResource):
                 },
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Cloudformation Stacks using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudformation/stack:Stack stack networking-stack
+        $ pulumi import aws:cloudformation/stack:Stack stack networking-stack
         ```
 
         :param str resource_name: The name of the resource.

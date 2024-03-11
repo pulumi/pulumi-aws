@@ -16,8 +16,10 @@ import (
 // > **NOTE:** Lake Formation introduces fine-grained access control for data in your data lake. Part of the changes include the `IAMAllowedPrincipals` principal in order to make Lake Formation backwards compatible with existing IAM and Glue permissions. For more information, see [Changing the Default Security Settings for Your Data Lake](https://docs.aws.amazon.com/lake-formation/latest/dg/change-settings.html) and [Upgrading AWS Glue Data Permissions to the AWS Lake Formation Model](https://docs.aws.amazon.com/lake-formation/latest/dg/upgrade-glue-lake-formation.html).
 //
 // ## Example Usage
+//
 // ### Data Lake Admins
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,8 +46,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Create Default Permissions
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -90,8 +95,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Enable EMR access to LakeFormation resources
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -144,6 +152,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type DataLakeSettings struct {
 	pulumi.CustomResourceState
 

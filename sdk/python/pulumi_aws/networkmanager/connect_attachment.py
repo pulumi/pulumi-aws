@@ -370,8 +370,10 @@ class ConnectAttachment(pulumi.CustomResource):
         Resource for managing an AWS Network Manager ConnectAttachment.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -388,8 +390,11 @@ class ConnectAttachment(pulumi.CustomResource):
                 protocol="GRE",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Usage with attachment accepter
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -412,13 +417,14 @@ class ConnectAttachment(pulumi.CustomResource):
             attachment_id=example_connect_attachment.id,
             attachment_type=example_connect_attachment.attachment_type)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_networkmanager_connect_attachment` using the attachment ID. For example:
 
         ```sh
-         $ pulumi import aws:networkmanager/connectAttachment:ConnectAttachment example attachment-0f8fa60d2238d1bd8
+        $ pulumi import aws:networkmanager/connectAttachment:ConnectAttachment example attachment-0f8fa60d2238d1bd8
         ```
 
         :param str resource_name: The name of the resource.
@@ -441,8 +447,10 @@ class ConnectAttachment(pulumi.CustomResource):
         Resource for managing an AWS Network Manager ConnectAttachment.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -459,8 +467,11 @@ class ConnectAttachment(pulumi.CustomResource):
                 protocol="GRE",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Usage with attachment accepter
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -483,13 +494,14 @@ class ConnectAttachment(pulumi.CustomResource):
             attachment_id=example_connect_attachment.id,
             attachment_type=example_connect_attachment.attachment_type)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_networkmanager_connect_attachment` using the attachment ID. For example:
 
         ```sh
-         $ pulumi import aws:networkmanager/connectAttachment:ConnectAttachment example attachment-0f8fa60d2238d1bd8
+        $ pulumi import aws:networkmanager/connectAttachment:ConnectAttachment example attachment-0f8fa60d2238d1bd8
         ```
 
         :param str resource_name: The name of the resource.

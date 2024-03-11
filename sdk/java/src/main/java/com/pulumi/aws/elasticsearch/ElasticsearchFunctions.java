@@ -18,6 +18,8 @@ public final class ElasticsearchFunctions {
      * Use this data source to get information about an Elasticsearch Domain
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -46,6 +48,7 @@ public final class ElasticsearchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDomainResult> getDomain(GetDomainArgs args) {
@@ -55,6 +58,8 @@ public final class ElasticsearchFunctions {
      * Use this data source to get information about an Elasticsearch Domain
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -83,6 +88,7 @@ public final class ElasticsearchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDomainResult> getDomainPlain(GetDomainPlainArgs args) {
@@ -92,6 +98,8 @@ public final class ElasticsearchFunctions {
      * Use this data source to get information about an Elasticsearch Domain
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -120,6 +128,7 @@ public final class ElasticsearchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDomainResult> getDomain(GetDomainArgs args, InvokeOptions options) {
@@ -129,6 +138,8 @@ public final class ElasticsearchFunctions {
      * Use this data source to get information about an Elasticsearch Domain
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -157,6 +168,7 @@ public final class ElasticsearchFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDomainResult> getDomainPlain(GetDomainPlainArgs args, InvokeOptions options) {

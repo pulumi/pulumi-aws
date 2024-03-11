@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** When removing a Glacier Vault, the Vault must be empty.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -82,13 +84,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Glacier Vaults using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:glacier/vault:Vault archive my_archive
+ * $ pulumi import aws:glacier/vault:Vault archive my_archive
  * ```
  * 
  */

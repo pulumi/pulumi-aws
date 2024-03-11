@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** AWS WorkSpaces service requires [`workspaces_DefaultRole`](https://docs.aws.amazon.com/workspaces/latest/adminguide/workspaces-access-control.html#create-default-role) IAM role to operate normally.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -77,13 +79,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Workspaces using their ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:workspaces/workspace:Workspace example ws-9z9zmbkhv
+ * $ pulumi import aws:workspaces/workspace:Workspace example ws-9z9zmbkhv
  * ```
  * 
  */

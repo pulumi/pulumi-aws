@@ -6,22 +6,6 @@ import * as utilities from "../utilities";
 
 /**
  * Retrieve EKS Clusters list
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const example = aws.eks.getClusters({});
- * const exampleGetCluster = .reduce((__obj, [, ]) => ({ ...__obj, [__key]: aws.eks.getCluster({
- *     name: __value,
- * }) }));
- * ```
  */
 export function getClusters(opts?: pulumi.InvokeOptions): Promise<GetClustersResult> {
 
@@ -45,22 +29,6 @@ export interface GetClustersResult {
 }
 /**
  * Retrieve EKS Clusters list
- *
- * ## Example Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const example = aws.eks.getClusters({});
- * const exampleGetCluster = .reduce((__obj, [, ]) => ({ ...__obj, [__key]: aws.eks.getCluster({
- *     name: __value,
- * }) }));
- * ```
  */
 export function getClustersOutput(opts?: pulumi.InvokeOptions): pulumi.Output<GetClustersResult> {
     return pulumi.output(getClusters(opts))

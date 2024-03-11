@@ -21,7 +21,10 @@ public final class AuditmanagerFunctions {
      * Data source for managing an AWS Audit Manager Control.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -51,7 +54,11 @@ public final class AuditmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### With Framework Resource
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -106,6 +113,7 @@ public final class AuditmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetControlResult> getControl(GetControlArgs args) {
@@ -115,7 +123,10 @@ public final class AuditmanagerFunctions {
      * Data source for managing an AWS Audit Manager Control.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -145,7 +156,11 @@ public final class AuditmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### With Framework Resource
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -200,6 +215,7 @@ public final class AuditmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetControlResult> getControlPlain(GetControlPlainArgs args) {
@@ -209,7 +225,10 @@ public final class AuditmanagerFunctions {
      * Data source for managing an AWS Audit Manager Control.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -239,7 +258,11 @@ public final class AuditmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### With Framework Resource
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -294,6 +317,7 @@ public final class AuditmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetControlResult> getControl(GetControlArgs args, InvokeOptions options) {
@@ -303,7 +327,10 @@ public final class AuditmanagerFunctions {
      * Data source for managing an AWS Audit Manager Control.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -333,7 +360,11 @@ public final class AuditmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### With Framework Resource
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -388,6 +419,7 @@ public final class AuditmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetControlResult> getControlPlain(GetControlPlainArgs args, InvokeOptions options) {
@@ -397,7 +429,10 @@ public final class AuditmanagerFunctions {
      * Data source for managing an AWS Audit Manager Framework.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -427,6 +462,7 @@ public final class AuditmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFrameworkResult> getFramework(GetFrameworkArgs args) {
@@ -436,7 +472,10 @@ public final class AuditmanagerFunctions {
      * Data source for managing an AWS Audit Manager Framework.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -466,6 +505,7 @@ public final class AuditmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFrameworkResult> getFrameworkPlain(GetFrameworkPlainArgs args) {
@@ -475,7 +515,10 @@ public final class AuditmanagerFunctions {
      * Data source for managing an AWS Audit Manager Framework.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -505,6 +548,7 @@ public final class AuditmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetFrameworkResult> getFramework(GetFrameworkArgs args, InvokeOptions options) {
@@ -514,7 +558,10 @@ public final class AuditmanagerFunctions {
      * Data source for managing an AWS Audit Manager Framework.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -544,6 +591,7 @@ public final class AuditmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetFrameworkResult> getFrameworkPlain(GetFrameworkPlainArgs args, InvokeOptions options) {

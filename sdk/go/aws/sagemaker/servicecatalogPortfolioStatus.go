@@ -18,6 +18,7 @@ import (
 //
 // Usage:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,15 +42,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import models using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sagemaker/servicecatalogPortfolioStatus:ServicecatalogPortfolioStatus example us-east-1
-//
+// $ pulumi import aws:sagemaker/servicecatalogPortfolioStatus:ServicecatalogPortfolioStatus example us-east-1
 // ```
 type ServicecatalogPortfolioStatus struct {
 	pulumi.CustomResourceState

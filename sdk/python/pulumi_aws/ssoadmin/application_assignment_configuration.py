@@ -106,8 +106,10 @@ class ApplicationAssignmentConfiguration(pulumi.CustomResource):
         > Deleting this resource will return the assignment configuration for the application to the default AWS behavior (ie. `assignment_required = true`).
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -116,13 +118,14 @@ class ApplicationAssignmentConfiguration(pulumi.CustomResource):
             application_arn=example_aws_ssoadmin_application["applicationArn"],
             assignment_required=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SSO Admin Application Assignment Configuration using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ssoadmin/applicationAssignmentConfiguration:ApplicationAssignmentConfiguration example arn:aws:sso::012345678901:application/id-12345678
+        $ pulumi import aws:ssoadmin/applicationAssignmentConfiguration:ApplicationAssignmentConfiguration example arn:aws:sso::012345678901:application/id-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -145,8 +148,10 @@ class ApplicationAssignmentConfiguration(pulumi.CustomResource):
         > Deleting this resource will return the assignment configuration for the application to the default AWS behavior (ie. `assignment_required = true`).
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -155,13 +160,14 @@ class ApplicationAssignmentConfiguration(pulumi.CustomResource):
             application_arn=example_aws_ssoadmin_application["applicationArn"],
             assignment_required=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SSO Admin Application Assignment Configuration using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ssoadmin/applicationAssignmentConfiguration:ApplicationAssignmentConfiguration example arn:aws:sso::012345678901:application/id-12345678
+        $ pulumi import aws:ssoadmin/applicationAssignmentConfiguration:ApplicationAssignmentConfiguration example arn:aws:sso::012345678901:application/id-12345678
         ```
 
         :param str resource_name: The name of the resource.

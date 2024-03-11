@@ -468,8 +468,10 @@ class EntityRecognizer(pulumi.CustomResource):
         Resource for managing an AWS Comprehend Entity Recognizer.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -497,13 +499,14 @@ class EntityRecognizer(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Comprehend Entity Recognizer using the ARN. For example:
 
         ```sh
-         $ pulumi import aws:comprehend/entityRecognizer:EntityRecognizer example arn:aws:comprehend:us-west-2:123456789012:entity-recognizer/example
+        $ pulumi import aws:comprehend/entityRecognizer:EntityRecognizer example arn:aws:comprehend:us-west-2:123456789012:entity-recognizer/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -545,8 +548,10 @@ class EntityRecognizer(pulumi.CustomResource):
         Resource for managing an AWS Comprehend Entity Recognizer.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -574,13 +579,14 @@ class EntityRecognizer(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Comprehend Entity Recognizer using the ARN. For example:
 
         ```sh
-         $ pulumi import aws:comprehend/entityRecognizer:EntityRecognizer example arn:aws:comprehend:us-west-2:123456789012:entity-recognizer/example
+        $ pulumi import aws:comprehend/entityRecognizer:EntityRecognizer example arn:aws:comprehend:us-west-2:123456789012:entity-recognizer/example
         ```
 
         :param str resource_name: The name of the resource.

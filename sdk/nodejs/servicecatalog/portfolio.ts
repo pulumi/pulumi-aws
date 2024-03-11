@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,13 +20,14 @@ import * as utilities from "../utilities";
  *     providerName: "Brett",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Service Catalog Portfolios using the Service Catalog Portfolio `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:servicecatalog/portfolio:Portfolio testfolio port-12344321
+ * $ pulumi import aws:servicecatalog/portfolio:Portfolio testfolio port-12344321
  * ```
  */
 export class Portfolio extends pulumi.CustomResource {

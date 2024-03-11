@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Cur
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -46,13 +47,14 @@ namespace Pulumi.Aws.Cur
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Report Definitions using the `report_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cur/reportDefinition:ReportDefinition example_cur_report_definition example-cur-report-definition
+    /// $ pulumi import aws:cur/reportDefinition:ReportDefinition example_cur_report_definition example-cur-report-definition
     /// ```
     /// </summary>
     [AwsResourceType("aws:cur/reportDefinition:ReportDefinition")]

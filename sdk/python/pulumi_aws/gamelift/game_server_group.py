@@ -463,6 +463,7 @@ class GameServerGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -484,9 +485,11 @@ class GameServerGroup(pulumi.CustomResource):
             min_size=1,
             role_arn=example_aws_iam_role["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         Full usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -526,8 +529,11 @@ class GameServerGroup(pulumi.CustomResource):
                 "subnet-23456789",
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example IAM Role for GameLift Game Server Group
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -551,13 +557,14 @@ class GameServerGroup(pulumi.CustomResource):
             policy_arn=f"arn:{current.partition}:iam::aws:policy/GameLiftGameServerGroupPolicy",
             role=example.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import GameLift Game Server Group using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:gamelift/gameServerGroup:GameServerGroup example example
+        $ pulumi import aws:gamelift/gameServerGroup:GameServerGroup example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -592,6 +599,7 @@ class GameServerGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -613,9 +621,11 @@ class GameServerGroup(pulumi.CustomResource):
             min_size=1,
             role_arn=example_aws_iam_role["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         Full usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -655,8 +665,11 @@ class GameServerGroup(pulumi.CustomResource):
                 "subnet-23456789",
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Example IAM Role for GameLift Game Server Group
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -680,13 +693,14 @@ class GameServerGroup(pulumi.CustomResource):
             policy_arn=f"arn:{current.partition}:iam::aws:policy/GameLiftGameServerGroupPolicy",
             role=example.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import GameLift Game Server Group using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:gamelift/gameServerGroup:GameServerGroup example example
+        $ pulumi import aws:gamelift/gameServerGroup:GameServerGroup example example
         ```
 
         :param str resource_name: The name of the resource.

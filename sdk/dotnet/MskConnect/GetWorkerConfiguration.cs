@@ -14,10 +14,9 @@ namespace Pulumi.Aws.MskConnect
         /// <summary>
         /// Get information on an Amazon MSK Connect Worker Configuration.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,8 +32,7 @@ namespace Pulumi.Aws.MskConnect
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetWorkerConfigurationResult> InvokeAsync(GetWorkerConfigurationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetWorkerConfigurationResult>("aws:mskconnect/getWorkerConfiguration:getWorkerConfiguration", args ?? new GetWorkerConfigurationArgs(), options.WithDefaults());
@@ -42,10 +40,9 @@ namespace Pulumi.Aws.MskConnect
         /// <summary>
         /// Get information on an Amazon MSK Connect Worker Configuration.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,8 +58,7 @@ namespace Pulumi.Aws.MskConnect
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetWorkerConfigurationResult> Invoke(GetWorkerConfigurationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetWorkerConfigurationResult>("aws:mskconnect/getWorkerConfiguration:getWorkerConfiguration", args ?? new GetWorkerConfigurationInvokeArgs(), options.WithDefaults());

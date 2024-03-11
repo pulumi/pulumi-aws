@@ -24,6 +24,8 @@ public final class RedshiftserverlessFunctions {
      * Provides redshift serverless temporary credentials for a workgroup.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -52,6 +54,7 @@ public final class RedshiftserverlessFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCredentialsResult> getCredentials(GetCredentialsArgs args) {
@@ -61,6 +64,8 @@ public final class RedshiftserverlessFunctions {
      * Provides redshift serverless temporary credentials for a workgroup.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -89,6 +94,7 @@ public final class RedshiftserverlessFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCredentialsResult> getCredentialsPlain(GetCredentialsPlainArgs args) {
@@ -98,6 +104,8 @@ public final class RedshiftserverlessFunctions {
      * Provides redshift serverless temporary credentials for a workgroup.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -126,6 +134,7 @@ public final class RedshiftserverlessFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCredentialsResult> getCredentials(GetCredentialsArgs args, InvokeOptions options) {
@@ -135,6 +144,8 @@ public final class RedshiftserverlessFunctions {
      * Provides redshift serverless temporary credentials for a workgroup.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -163,6 +174,7 @@ public final class RedshiftserverlessFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCredentialsResult> getCredentialsPlain(GetCredentialsPlainArgs args, InvokeOptions options) {
@@ -172,6 +184,8 @@ public final class RedshiftserverlessFunctions {
      * Data source for managing an AWS Redshift Serverless Namespace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -200,6 +214,7 @@ public final class RedshiftserverlessFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNamespaceResult> getNamespace(GetNamespaceArgs args) {
@@ -209,6 +224,8 @@ public final class RedshiftserverlessFunctions {
      * Data source for managing an AWS Redshift Serverless Namespace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -237,6 +254,7 @@ public final class RedshiftserverlessFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNamespaceResult> getNamespacePlain(GetNamespacePlainArgs args) {
@@ -246,6 +264,8 @@ public final class RedshiftserverlessFunctions {
      * Data source for managing an AWS Redshift Serverless Namespace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -274,6 +294,7 @@ public final class RedshiftserverlessFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetNamespaceResult> getNamespace(GetNamespaceArgs args, InvokeOptions options) {
@@ -283,6 +304,8 @@ public final class RedshiftserverlessFunctions {
      * Data source for managing an AWS Redshift Serverless Namespace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -311,6 +334,7 @@ public final class RedshiftserverlessFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetNamespaceResult> getNamespacePlain(GetNamespacePlainArgs args, InvokeOptions options) {
@@ -320,7 +344,10 @@ public final class RedshiftserverlessFunctions {
      * Data source for managing an AWS Redshift Serverless Workgroup.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -349,6 +376,7 @@ public final class RedshiftserverlessFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetWorkgroupResult> getWorkgroup(GetWorkgroupArgs args) {
@@ -358,7 +386,10 @@ public final class RedshiftserverlessFunctions {
      * Data source for managing an AWS Redshift Serverless Workgroup.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -387,6 +418,7 @@ public final class RedshiftserverlessFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetWorkgroupResult> getWorkgroupPlain(GetWorkgroupPlainArgs args) {
@@ -396,7 +428,10 @@ public final class RedshiftserverlessFunctions {
      * Data source for managing an AWS Redshift Serverless Workgroup.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -425,6 +460,7 @@ public final class RedshiftserverlessFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetWorkgroupResult> getWorkgroup(GetWorkgroupArgs args, InvokeOptions options) {
@@ -434,7 +470,10 @@ public final class RedshiftserverlessFunctions {
      * Data source for managing an AWS Redshift Serverless Workgroup.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -463,6 +502,7 @@ public final class RedshiftserverlessFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetWorkgroupResult> getWorkgroupPlain(GetWorkgroupPlainArgs args, InvokeOptions options) {

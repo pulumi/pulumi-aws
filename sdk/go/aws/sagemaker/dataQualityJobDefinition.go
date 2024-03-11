@@ -18,6 +18,7 @@ import (
 //
 // Basic usage:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -66,15 +67,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import data quality job definitions using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition test_data_quality_job_definition data-quality-job-definition-foo
-//
+// $ pulumi import aws:sagemaker/dataQualityJobDefinition:DataQualityJobDefinition test_data_quality_job_definition data-quality-job-definition-foo
 // ```
 type DataQualityJobDefinition struct {
 	pulumi.CustomResourceState

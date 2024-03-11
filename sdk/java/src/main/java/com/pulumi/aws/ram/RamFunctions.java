@@ -18,6 +18,8 @@ public final class RamFunctions {
      * `aws.ram.ResourceShare` Retrieve information about a RAM Resource Share.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -47,7 +49,11 @@ public final class RamFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Search by filters
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -81,6 +87,7 @@ public final class RamFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResourceShareResult> getResourceShare(GetResourceShareArgs args) {
@@ -90,6 +97,8 @@ public final class RamFunctions {
      * `aws.ram.ResourceShare` Retrieve information about a RAM Resource Share.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -119,7 +128,11 @@ public final class RamFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Search by filters
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -153,6 +166,7 @@ public final class RamFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResourceShareResult> getResourceSharePlain(GetResourceSharePlainArgs args) {
@@ -162,6 +176,8 @@ public final class RamFunctions {
      * `aws.ram.ResourceShare` Retrieve information about a RAM Resource Share.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -191,7 +207,11 @@ public final class RamFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Search by filters
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -225,6 +245,7 @@ public final class RamFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetResourceShareResult> getResourceShare(GetResourceShareArgs args, InvokeOptions options) {
@@ -234,6 +255,8 @@ public final class RamFunctions {
      * `aws.ram.ResourceShare` Retrieve information about a RAM Resource Share.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -263,7 +286,11 @@ public final class RamFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ## Search by filters
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -297,6 +324,7 @@ public final class RamFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetResourceShareResult> getResourceSharePlain(GetResourceSharePlainArgs args, InvokeOptions options) {

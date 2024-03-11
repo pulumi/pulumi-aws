@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Provides a resource to create a SES template.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -51,13 +53,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import SES templates using the template name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ses/template:Template MyTemplate MyTemplate
+ * $ pulumi import aws:ses/template:Template MyTemplate MyTemplate
  * ```
  * 
  */

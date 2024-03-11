@@ -102,6 +102,7 @@ class TrackerAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -112,13 +113,14 @@ class TrackerAssociation(pulumi.CustomResource):
             consumer_arn=example.collection_arn,
             tracker_name=example_tracker.tracker_name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Location Tracker Association using the `tracker_name|consumer_arn`. For example:
 
         ```sh
-         $ pulumi import aws:location/trackerAssociation:TrackerAssociation example "tracker_name|consumer_arn"
+        $ pulumi import aws:location/trackerAssociation:TrackerAssociation example "tracker_name|consumer_arn"
         ```
 
         :param str resource_name: The name of the resource.
@@ -137,6 +139,7 @@ class TrackerAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -147,13 +150,14 @@ class TrackerAssociation(pulumi.CustomResource):
             consumer_arn=example.collection_arn,
             tracker_name=example_tracker.tracker_name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Location Tracker Association using the `tracker_name|consumer_arn`. For example:
 
         ```sh
-         $ pulumi import aws:location/trackerAssociation:TrackerAssociation example "tracker_name|consumer_arn"
+        $ pulumi import aws:location/trackerAssociation:TrackerAssociation example "tracker_name|consumer_arn"
         ```
 
         :param str resource_name: The name of the resource.

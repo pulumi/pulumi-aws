@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS Kendra FAQ.
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,8 +51,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With File Format
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -81,8 +86,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With Language Code
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -113,15 +121,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_kendra_faq` using the unique identifiers of the FAQ and index separated by a slash (`/`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:kendra/faq:Faq example faq-123456780/idx-8012925589
-//
+// $ pulumi import aws:kendra/faq:Faq example faq-123456780/idx-8012925589
 // ```
 type Faq struct {
 	pulumi.CustomResourceState

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -75,15 +76,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_lightsail_lb_attachment` using the name attribute. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:lightsail/lbAttachment:LbAttachment test example-load-balancer,example-instance
-//
+// $ pulumi import aws:lightsail/lbAttachment:LbAttachment test example-load-balancer,example-instance
 // ```
 type LbAttachment struct {
 	pulumi.CustomResourceState

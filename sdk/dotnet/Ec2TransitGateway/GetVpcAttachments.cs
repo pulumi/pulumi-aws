@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// Get information on EC2 Transit Gateway VPC Attachments.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### By Filter
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -46,8 +46,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetVpcAttachmentsResult> InvokeAsync(GetVpcAttachmentsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcAttachmentsResult>("aws:ec2transitgateway/getVpcAttachments:getVpcAttachments", args ?? new GetVpcAttachmentsArgs(), options.WithDefaults());
@@ -55,11 +54,11 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// Get information on EC2 Transit Gateway VPC Attachments.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### By Filter
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -87,8 +86,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetVpcAttachmentsResult> Invoke(GetVpcAttachmentsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcAttachmentsResult>("aws:ec2transitgateway/getVpcAttachments:getVpcAttachments", args ?? new GetVpcAttachmentsInvokeArgs(), options.WithDefaults());

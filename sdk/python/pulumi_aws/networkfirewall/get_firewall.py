@@ -209,24 +209,32 @@ def get_firewall(arn: Optional[str] = None,
     Retrieve information about a firewall.
 
     ## Example Usage
+
     ### Find firewall policy by ARN
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.networkfirewall.get_firewall(arn=arn)
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Find firewall policy by Name
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.networkfirewall.get_firewall(name="Test")
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Find firewall policy by ARN and Name
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -234,6 +242,7 @@ def get_firewall(arn: Optional[str] = None,
     example = aws.networkfirewall.get_firewall(arn=arn,
         name="Test")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str arn: ARN of the firewall.
@@ -273,24 +282,32 @@ def get_firewall_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     Retrieve information about a firewall.
 
     ## Example Usage
+
     ### Find firewall policy by ARN
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.networkfirewall.get_firewall(arn=arn)
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Find firewall policy by Name
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.networkfirewall.get_firewall(name="Test")
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Find firewall policy by ARN and Name
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -298,6 +315,7 @@ def get_firewall_output(arn: Optional[pulumi.Input[Optional[str]]] = None,
     example = aws.networkfirewall.get_firewall(arn=arn,
         name="Test")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str arn: ARN of the firewall.

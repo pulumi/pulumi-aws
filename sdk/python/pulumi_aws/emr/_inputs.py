@@ -299,8 +299,10 @@ class ClusterCoreInstanceFleetInstanceTypeConfigArgs:
                  weighted_capacity: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] instance_type: EC2 instance type, such as m4.xlarge.
-        :param pulumi.Input[str] bid_price: Bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
-        :param pulumi.Input[float] bid_price_as_percentage_of_on_demand_price: Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+        :param pulumi.Input[str] bid_price: Bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
+               (MISSING)
+        :param pulumi.Input[float] bid_price_as_percentage_of_on_demand_price: Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%!)(MISSING). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
+               (MISSING)
         :param pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigConfigurationArgs']]] configurations: Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterCoreInstanceFleetInstanceTypeConfigEbsConfigArgs']]] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
         :param pulumi.Input[int] weighted_capacity: Number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
@@ -333,7 +335,8 @@ class ClusterCoreInstanceFleetInstanceTypeConfigArgs:
     @pulumi.getter(name="bidPrice")
     def bid_price(self) -> Optional[pulumi.Input[str]]:
         """
-        Bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+        Bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
+        (MISSING)
         """
         return pulumi.get(self, "bid_price")
 
@@ -345,7 +348,8 @@ class ClusterCoreInstanceFleetInstanceTypeConfigArgs:
     @pulumi.getter(name="bidPriceAsPercentageOfOnDemandPrice")
     def bid_price_as_percentage_of_on_demand_price(self) -> Optional[pulumi.Input[float]]:
         """
-        Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+        Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%!)(MISSING). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
+        (MISSING)
         """
         return pulumi.get(self, "bid_price_as_percentage_of_on_demand_price")
 
@@ -1207,8 +1211,10 @@ class ClusterMasterInstanceFleetInstanceTypeConfigArgs:
                  weighted_capacity: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] instance_type: EC2 instance type, such as m4.xlarge.
-        :param pulumi.Input[str] bid_price: Bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
-        :param pulumi.Input[float] bid_price_as_percentage_of_on_demand_price: Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+        :param pulumi.Input[str] bid_price: Bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
+               (MISSING)
+        :param pulumi.Input[float] bid_price_as_percentage_of_on_demand_price: Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%!)(MISSING). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
+               (MISSING)
         :param pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigConfigurationArgs']]] configurations: Configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
         :param pulumi.Input[Sequence[pulumi.Input['ClusterMasterInstanceFleetInstanceTypeConfigEbsConfigArgs']]] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
         :param pulumi.Input[int] weighted_capacity: Number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
@@ -1241,7 +1247,8 @@ class ClusterMasterInstanceFleetInstanceTypeConfigArgs:
     @pulumi.getter(name="bidPrice")
     def bid_price(self) -> Optional[pulumi.Input[str]]:
         """
-        Bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+        Bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
+        (MISSING)
         """
         return pulumi.get(self, "bid_price")
 
@@ -1253,7 +1260,8 @@ class ClusterMasterInstanceFleetInstanceTypeConfigArgs:
     @pulumi.getter(name="bidPriceAsPercentageOfOnDemandPrice")
     def bid_price_as_percentage_of_on_demand_price(self) -> Optional[pulumi.Input[float]]:
         """
-        Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+        Bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%!)(MISSING). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
+        (MISSING)
         """
         return pulumi.get(self, "bid_price_as_percentage_of_on_demand_price")
 
@@ -1893,8 +1901,10 @@ class InstanceFleetInstanceTypeConfigArgs:
                  weighted_capacity: Optional[pulumi.Input[int]] = None):
         """
         :param pulumi.Input[str] instance_type: An EC2 instance type, such as m4.xlarge.
-        :param pulumi.Input[str] bid_price: The bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
-        :param pulumi.Input[float] bid_price_as_percentage_of_on_demand_price: The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+        :param pulumi.Input[str] bid_price: The bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
+               (MISSING)
+        :param pulumi.Input[float] bid_price_as_percentage_of_on_demand_price: The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%!)(MISSING). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
+               (MISSING)
         :param pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigConfigurationArgs']]] configurations: A configuration classification that applies when provisioning cluster instances, which can include configurations for applications and software that run on the cluster. List of `configuration` blocks.
         :param pulumi.Input[Sequence[pulumi.Input['InstanceFleetInstanceTypeConfigEbsConfigArgs']]] ebs_configs: Configuration block(s) for EBS volumes attached to each instance in the instance group. Detailed below.
         :param pulumi.Input[int] weighted_capacity: The number of units that a provisioned instance of this type provides toward fulfilling the target capacities defined in `emr.InstanceFleet`.
@@ -1927,7 +1937,8 @@ class InstanceFleetInstanceTypeConfigArgs:
     @pulumi.getter(name="bidPrice")
     def bid_price(self) -> Optional[pulumi.Input[str]]:
         """
-        The bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+        The bid price for each EC2 Spot instance type as defined by `instance_type`. Expressed in USD. If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
+        (MISSING)
         """
         return pulumi.get(self, "bid_price")
 
@@ -1939,7 +1950,8 @@ class InstanceFleetInstanceTypeConfigArgs:
     @pulumi.getter(name="bidPriceAsPercentageOfOnDemandPrice")
     def bid_price_as_percentage_of_on_demand_price(self) -> Optional[pulumi.Input[float]]:
         """
-        The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%.
+        The bid price, as a percentage of On-Demand price, for each EC2 Spot instance as defined by `instance_type`. Expressed as a number (for example, 20 specifies 20%!)(MISSING). If neither `bid_price` nor `bid_price_as_percentage_of_on_demand_price` is provided, `bid_price_as_percentage_of_on_demand_price` defaults to 100%!
+        (MISSING)
         """
         return pulumi.get(self, "bid_price_as_percentage_of_on_demand_price")
 

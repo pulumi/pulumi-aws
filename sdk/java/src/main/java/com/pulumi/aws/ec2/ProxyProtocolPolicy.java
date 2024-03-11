@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Provides a proxy protocol policy, which allows an ELB to carry a client connection information to a backend.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -70,6 +72,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:ec2/proxyProtocolPolicy:ProxyProtocolPolicy")

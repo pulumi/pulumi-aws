@@ -793,6 +793,7 @@ class ClusterInstance(pulumi.CustomResource):
 
         The following example will create a neptune cluster with two neptune instances(one writer and one reader).
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -813,13 +814,14 @@ class ClusterInstance(pulumi.CustomResource):
                 instance_class="db.r4.large",
                 apply_immediately=True))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_neptune_cluster_instance` using the instance identifier. For example:
 
         ```sh
-         $ pulumi import aws:neptune/clusterInstance:ClusterInstance example my-instance
+        $ pulumi import aws:neptune/clusterInstance:ClusterInstance example my-instance
         ```
 
         :param str resource_name: The name of the resource.
@@ -861,6 +863,7 @@ class ClusterInstance(pulumi.CustomResource):
 
         The following example will create a neptune cluster with two neptune instances(one writer and one reader).
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -881,13 +884,14 @@ class ClusterInstance(pulumi.CustomResource):
                 instance_class="db.r4.large",
                 apply_immediately=True))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_neptune_cluster_instance` using the instance identifier. For example:
 
         ```sh
-         $ pulumi import aws:neptune/clusterInstance:ClusterInstance example my-instance
+        $ pulumi import aws:neptune/clusterInstance:ClusterInstance example my-instance
         ```
 
         :param str resource_name: The name of the resource.

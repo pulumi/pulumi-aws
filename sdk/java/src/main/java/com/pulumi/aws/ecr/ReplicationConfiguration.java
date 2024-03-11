@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides an Elastic Container Registry Replication Configuration.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -62,7 +64,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Multiple Region Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -111,8 +117,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Repository Filter Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -160,13 +169,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import ECR Replication Configuration using the `registry_id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ecr/replicationConfiguration:ReplicationConfiguration service 012345678912
+ * $ pulumi import aws:ecr/replicationConfiguration:ReplicationConfiguration service 012345678912
  * ```
  * 
  */

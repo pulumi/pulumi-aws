@@ -14,11 +14,11 @@ namespace Pulumi.Aws.ServiceCatalog
         /// <summary>
         /// Provides information on Service Catalog Portfolio Constraints.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +34,7 @@ namespace Pulumi.Aws.ServiceCatalog
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetPortfolioConstraintsResult> InvokeAsync(GetPortfolioConstraintsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetPortfolioConstraintsResult>("aws:servicecatalog/getPortfolioConstraints:getPortfolioConstraints", args ?? new GetPortfolioConstraintsArgs(), options.WithDefaults());
@@ -43,11 +42,11 @@ namespace Pulumi.Aws.ServiceCatalog
         /// <summary>
         /// Provides information on Service Catalog Portfolio Constraints.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +62,7 @@ namespace Pulumi.Aws.ServiceCatalog
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetPortfolioConstraintsResult> Invoke(GetPortfolioConstraintsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetPortfolioConstraintsResult>("aws:servicecatalog/getPortfolioConstraints:getPortfolioConstraints", args ?? new GetPortfolioConstraintsInvokeArgs(), options.WithDefaults());

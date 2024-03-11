@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -27,13 +28,14 @@ import * as utilities from "../utilities";
  * });
  * const example = new aws.applicationinsights.Application("example", {resourceGroupName: exampleGroup.name});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import ApplicationInsights Applications using the `resource_group_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:applicationinsights/application:Application some some-application
+ * $ pulumi import aws:applicationinsights/application:Application some some-application
  * ```
  */
 export class Application extends pulumi.CustomResource {

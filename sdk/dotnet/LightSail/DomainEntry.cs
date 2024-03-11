@@ -16,6 +16,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -39,13 +40,14 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_lightsail_domain_entry` using the id attribute. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:lightsail/domainEntry:DomainEntry example www,mydomain.com,A,127.0.0.1
+    /// $ pulumi import aws:lightsail/domainEntry:DomainEntry example www,mydomain.com,A,127.0.0.1
     /// ```
     /// </summary>
     [AwsResourceType("aws:lightsail/domainEntry:DomainEntry")]

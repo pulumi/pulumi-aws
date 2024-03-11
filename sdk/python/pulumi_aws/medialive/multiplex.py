@@ -245,8 +245,10 @@ class Multiplex(pulumi.CustomResource):
         Resource for managing an AWS MediaLive Multiplex.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -269,13 +271,14 @@ class Multiplex(pulumi.CustomResource):
                 "tag1": "value1",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import MediaLive Multiplex using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:medialive/multiplex:Multiplex example 12345678
+        $ pulumi import aws:medialive/multiplex:Multiplex example 12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -298,8 +301,10 @@ class Multiplex(pulumi.CustomResource):
         Resource for managing an AWS MediaLive Multiplex.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -322,13 +327,14 @@ class Multiplex(pulumi.CustomResource):
                 "tag1": "value1",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import MediaLive Multiplex using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:medialive/multiplex:Multiplex example 12345678
+        $ pulumi import aws:medialive/multiplex:Multiplex example 12345678
         ```
 
         :param str resource_name: The name of the resource.

@@ -67,6 +67,8 @@ public final class InstanceGroupArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -110,6 +112,7 @@ public final class InstanceGroupArgs extends com.pulumi.resources.ResourceArgs {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     @Import(name="configurationsJson")
@@ -117,6 +120,8 @@ public final class InstanceGroupArgs extends com.pulumi.resources.ResourceArgs {
 
     /**
      * @return A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -160,6 +165,7 @@ public final class InstanceGroupArgs extends com.pulumi.resources.ResourceArgs {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public Optional<Output<String>> configurationsJson() {
@@ -338,6 +344,8 @@ public final class InstanceGroupArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param configurationsJson A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
+         * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -381,6 +389,7 @@ public final class InstanceGroupArgs extends com.pulumi.resources.ResourceArgs {
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 
@@ -392,6 +401,8 @@ public final class InstanceGroupArgs extends com.pulumi.resources.ResourceArgs {
 
         /**
          * @param configurationsJson A JSON string for supplying list of configurations specific to the EMR instance group. Note that this can only be changed when using EMR release 5.21 or later.
+         * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -435,6 +446,7 @@ public final class InstanceGroupArgs extends com.pulumi.resources.ResourceArgs {
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 

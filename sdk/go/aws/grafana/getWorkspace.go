@@ -14,8 +14,10 @@ import (
 // Provides an Amazon Managed Grafana workspace data source.
 //
 // ## Example Usage
+//
 // ### Basic configuration
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupWorkspace(ctx *pulumi.Context, args *LookupWorkspaceArgs, opts ...pulumi.InvokeOption) (*LookupWorkspaceResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupWorkspaceResult

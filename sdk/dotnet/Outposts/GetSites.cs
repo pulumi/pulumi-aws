@@ -14,10 +14,9 @@ namespace Pulumi.Aws.Outposts
         /// <summary>
         /// Provides details about multiple Outposts Sites.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -30,8 +29,7 @@ namespace Pulumi.Aws.Outposts
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSitesResult> InvokeAsync(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSitesResult>("aws:outposts/getSites:getSites", InvokeArgs.Empty, options.WithDefaults());
@@ -39,10 +37,9 @@ namespace Pulumi.Aws.Outposts
         /// <summary>
         /// Provides details about multiple Outposts Sites.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -55,8 +52,7 @@ namespace Pulumi.Aws.Outposts
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSitesResult> Invoke(InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSitesResult>("aws:outposts/getSites:getSites", InvokeArgs.Empty, options.WithDefaults());

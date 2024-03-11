@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Manages an EC2 Transit Gateway.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,13 +51,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_ec2_transit_gateway` using the EC2 Transit Gateway identifier. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2transitgateway/transitGateway:TransitGateway example tgw-12345678
+ * $ pulumi import aws:ec2transitgateway/transitGateway:TransitGateway example tgw-12345678
  * ```
  * 
  */

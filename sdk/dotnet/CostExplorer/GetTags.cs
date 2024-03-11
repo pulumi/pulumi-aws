@@ -14,10 +14,9 @@ namespace Pulumi.Aws.CostExplorer
         /// <summary>
         /// Provides details about a specific CE Tags.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -37,8 +36,7 @@ namespace Pulumi.Aws.CostExplorer
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetTagsResult> InvokeAsync(GetTagsArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTagsResult>("aws:costexplorer/getTags:getTags", args ?? new GetTagsArgs(), options.WithDefaults());
@@ -46,10 +44,9 @@ namespace Pulumi.Aws.CostExplorer
         /// <summary>
         /// Provides details about a specific CE Tags.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -69,8 +66,7 @@ namespace Pulumi.Aws.CostExplorer
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetTagsResult> Invoke(GetTagsInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTagsResult>("aws:costexplorer/getTags:getTags", args ?? new GetTagsInvokeArgs(), options.WithDefaults());

@@ -13,8 +13,10 @@ import {InstanceProfile} from "../iam";
  * Provides an EC2 instance resource. This allows instances to be created, updated, and deleted.
  *
  * ## Example Usage
+ *
  * ### Basic example using AMI lookup
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -41,8 +43,11 @@ import {InstanceProfile} from "../iam";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Spot instance example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -74,8 +79,11 @@ import {InstanceProfile} from "../iam";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Network and credit specification example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -113,8 +121,11 @@ import {InstanceProfile} from "../iam";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### CPU options example
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -154,12 +165,15 @@ import {InstanceProfile} from "../iam";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Host resource group or Licence Manager registered AMI example
  *
  * A host resource group is a collection of Dedicated Hosts that you can manage as a single entity. As you launch instances, License Manager allocates the hosts and launches instances on them based on the settings that you configured. You can add existing Dedicated Hosts to a host resource group and take advantage of automated host management through License Manager.
  *
  * > **NOTE:** A dedicated host is automatically associated with a License Manager host resource group if **Allocate hosts automatically** is enabled. Otherwise, use the `hostResourceGroupArn` argument to explicitly associate the instance with the host resource group.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -171,6 +185,8 @@ import {InstanceProfile} from "../iam";
  *     tenancy: "host",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Tag Guide
  *
  * These are the five types of tags you might encounter relative to an `aws.ec2.Instance`:
@@ -188,7 +204,7 @@ import {InstanceProfile} from "../iam";
  * Using `pulumi import`, import instances using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/instance:Instance web i-12345678
+ * $ pulumi import aws:ec2/instance:Instance web i-12345678
  * ```
  */
 export class Instance extends pulumi.CustomResource {

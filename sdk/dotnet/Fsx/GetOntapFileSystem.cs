@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Fsx
         /// <summary>
         /// Retrieve information on FSx ONTAP File System.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +34,7 @@ namespace Pulumi.Aws.Fsx
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetOntapFileSystemResult> InvokeAsync(GetOntapFileSystemArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetOntapFileSystemResult>("aws:fsx/getOntapFileSystem:getOntapFileSystem", args ?? new GetOntapFileSystemArgs(), options.WithDefaults());
@@ -43,11 +42,11 @@ namespace Pulumi.Aws.Fsx
         /// <summary>
         /// Retrieve information on FSx ONTAP File System.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +62,7 @@ namespace Pulumi.Aws.Fsx
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetOntapFileSystemResult> Invoke(GetOntapFileSystemInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetOntapFileSystemResult>("aws:fsx/getOntapFileSystem:getOntapFileSystem", args ?? new GetOntapFileSystemInvokeArgs(), options.WithDefaults());

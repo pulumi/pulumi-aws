@@ -175,8 +175,10 @@ class VirtualCluster(pulumi.CustomResource):
         Manages an EMR Containers (EMR on EKS) Virtual Cluster.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -193,13 +195,14 @@ class VirtualCluster(pulumi.CustomResource):
             ),
             name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EKS Clusters using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:emrcontainers/virtualCluster:VirtualCluster example a1b2c3d4e5f6g7h8i9j10k11l
+        $ pulumi import aws:emrcontainers/virtualCluster:VirtualCluster example a1b2c3d4e5f6g7h8i9j10k11l
         ```
 
         :param str resource_name: The name of the resource.
@@ -218,8 +221,10 @@ class VirtualCluster(pulumi.CustomResource):
         Manages an EMR Containers (EMR on EKS) Virtual Cluster.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -236,13 +241,14 @@ class VirtualCluster(pulumi.CustomResource):
             ),
             name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EKS Clusters using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:emrcontainers/virtualCluster:VirtualCluster example a1b2c3d4e5f6g7h8i9j10k11l
+        $ pulumi import aws:emrcontainers/virtualCluster:VirtualCluster example a1b2c3d4e5f6g7h8i9j10k11l
         ```
 
         :param str resource_name: The name of the resource.

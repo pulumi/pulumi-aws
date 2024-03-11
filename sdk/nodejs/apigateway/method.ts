@@ -11,6 +11,7 @@ import {RestApi} from "./index";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -31,8 +32,11 @@ import {RestApi} from "./index";
  *     authorization: "NONE",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Usage with Cognito User Pool Authorizer
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -65,13 +69,14 @@ import {RestApi} from "./index";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_api_gateway_method` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD`. For example:
  *
  * ```sh
- *  $ pulumi import aws:apigateway/method:Method example 12345abcde/67890fghij/GET
+ * $ pulumi import aws:apigateway/method:Method example 12345abcde/67890fghij/GET
  * ```
  */
 export class Method extends pulumi.CustomResource {

@@ -438,6 +438,7 @@ class Permissions(pulumi.CustomResource):
 
         This example shows removing the `IAMAllowedPrincipals` default security settings and making the caller a Lake Formation admin. Since `create_database_default_permissions` and `create_table_default_permissions` are not set in the `lakeformation.DataLakeSettings` resource, they are cleared.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -446,6 +447,7 @@ class Permissions(pulumi.CustomResource):
         current_get_session_context = aws.iam.get_session_context(arn=current.arn)
         test = aws.lakeformation.DataLakeSettings("test", admins=[current_get_session_context.issuer_arn])
         ```
+        <!--End PulumiCodeChooser -->
 
         To remove existing `IAMAllowedPrincipals` permissions, use the [AWS Lake Formation Console](https://console.aws.amazon.com/lakeformation/) or [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lakeformation/batch-revoke-permissions.html).
 
@@ -462,6 +464,7 @@ class Permissions(pulumi.CustomResource):
 
         AWS does not support combining `IAMAllowedPrincipals` permissions and non-`IAMAllowedPrincipals` permissions. Doing so results in unexpected permissions and behaviors. For example, this configuration grants a user `SELECT` on a column in a table.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -485,6 +488,7 @@ class Permissions(pulumi.CustomResource):
                 column_names=["event"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         The resulting permissions depend on whether the table had `IAMAllowedPrincipals` (IAP) permissions or not.
 
@@ -501,8 +505,10 @@ class Permissions(pulumi.CustomResource):
         If the `principal` is also a data lake administrator, AWS grants implicit permissions that can cause errors using this resource. For example, AWS implicitly grants a `principal`/administrator `permissions` and `permissions_with_grant_option` of `ALL`, `ALTER`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT` on a table. If you use this resource to explicitly grant the `principal`/administrator `permissions` but _not_ `permissions_with_grant_option` of `ALL`, `ALTER`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT` on the table, this resource will read the implicit `permissions_with_grant_option` and attempt to revoke them when the resource is destroyed. Doing so will cause an `InvalidInputException: No permissions revoked` error because you cannot revoke implicit permissions _per se_. To workaround this problem, explicitly grant the `principal`/administrator `permissions` _and_ `permissions_with_grant_option`, which can then be revoked. Similarly, granting a `principal`/administrator permissions on a table with columns and providing `column_names`, will result in a `InvalidInputException: Permissions modification is invalid` error because you are narrowing the implicit permissions. Instead, set `wildcard` to `true` and remove the `column_names`.
 
         ## Example Usage
+
         ### Grant Permissions For A Lake Formation S3 Resource
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -514,8 +520,11 @@ class Permissions(pulumi.CustomResource):
                 arn=example_aws_lakeformation_resource["arn"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Grant Permissions For A Glue Catalog Database
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -532,8 +541,11 @@ class Permissions(pulumi.CustomResource):
                 catalog_id="110376042874",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Grant Permissions Using Tag-Based Access Control
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -562,6 +574,7 @@ class Permissions(pulumi.CustomResource):
                 ],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -607,6 +620,7 @@ class Permissions(pulumi.CustomResource):
 
         This example shows removing the `IAMAllowedPrincipals` default security settings and making the caller a Lake Formation admin. Since `create_database_default_permissions` and `create_table_default_permissions` are not set in the `lakeformation.DataLakeSettings` resource, they are cleared.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -615,6 +629,7 @@ class Permissions(pulumi.CustomResource):
         current_get_session_context = aws.iam.get_session_context(arn=current.arn)
         test = aws.lakeformation.DataLakeSettings("test", admins=[current_get_session_context.issuer_arn])
         ```
+        <!--End PulumiCodeChooser -->
 
         To remove existing `IAMAllowedPrincipals` permissions, use the [AWS Lake Formation Console](https://console.aws.amazon.com/lakeformation/) or [AWS CLI](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/lakeformation/batch-revoke-permissions.html).
 
@@ -631,6 +646,7 @@ class Permissions(pulumi.CustomResource):
 
         AWS does not support combining `IAMAllowedPrincipals` permissions and non-`IAMAllowedPrincipals` permissions. Doing so results in unexpected permissions and behaviors. For example, this configuration grants a user `SELECT` on a column in a table.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -654,6 +670,7 @@ class Permissions(pulumi.CustomResource):
                 column_names=["event"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         The resulting permissions depend on whether the table had `IAMAllowedPrincipals` (IAP) permissions or not.
 
@@ -670,8 +687,10 @@ class Permissions(pulumi.CustomResource):
         If the `principal` is also a data lake administrator, AWS grants implicit permissions that can cause errors using this resource. For example, AWS implicitly grants a `principal`/administrator `permissions` and `permissions_with_grant_option` of `ALL`, `ALTER`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT` on a table. If you use this resource to explicitly grant the `principal`/administrator `permissions` but _not_ `permissions_with_grant_option` of `ALL`, `ALTER`, `DELETE`, `DESCRIBE`, `DROP`, `INSERT`, and `SELECT` on the table, this resource will read the implicit `permissions_with_grant_option` and attempt to revoke them when the resource is destroyed. Doing so will cause an `InvalidInputException: No permissions revoked` error because you cannot revoke implicit permissions _per se_. To workaround this problem, explicitly grant the `principal`/administrator `permissions` _and_ `permissions_with_grant_option`, which can then be revoked. Similarly, granting a `principal`/administrator permissions on a table with columns and providing `column_names`, will result in a `InvalidInputException: Permissions modification is invalid` error because you are narrowing the implicit permissions. Instead, set `wildcard` to `true` and remove the `column_names`.
 
         ## Example Usage
+
         ### Grant Permissions For A Lake Formation S3 Resource
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -683,8 +702,11 @@ class Permissions(pulumi.CustomResource):
                 arn=example_aws_lakeformation_resource["arn"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Grant Permissions For A Glue Catalog Database
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -701,8 +723,11 @@ class Permissions(pulumi.CustomResource):
                 catalog_id="110376042874",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Grant Permissions Using Tag-Based Access Control
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -731,6 +756,7 @@ class Permissions(pulumi.CustomResource):
                 ],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param PermissionsArgs args: The arguments to use to populate this resource's properties.

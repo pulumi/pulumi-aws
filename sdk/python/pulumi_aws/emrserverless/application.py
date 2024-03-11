@@ -438,8 +438,10 @@ class Application(pulumi.CustomResource):
         Manages an EMR Serverless Application.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -449,8 +451,11 @@ class Application(pulumi.CustomResource):
             release_label="emr-6.6.0",
             type="hive")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Initial Capacity Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -470,8 +475,11 @@ class Application(pulumi.CustomResource):
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Maximum Capacity Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -485,13 +493,14 @@ class Application(pulumi.CustomResource):
                 memory="10 GB",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EMR Severless applications using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:emrserverless/application:Application example id
+        $ pulumi import aws:emrserverless/application:Application example id
         ```
 
         :param str resource_name: The name of the resource.
@@ -518,8 +527,10 @@ class Application(pulumi.CustomResource):
         Manages an EMR Serverless Application.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -529,8 +540,11 @@ class Application(pulumi.CustomResource):
             release_label="emr-6.6.0",
             type="hive")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Initial Capacity Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -550,8 +564,11 @@ class Application(pulumi.CustomResource):
                 ),
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Maximum Capacity Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -565,13 +582,14 @@ class Application(pulumi.CustomResource):
                 memory="10 GB",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EMR Severless applications using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:emrserverless/application:Application example id
+        $ pulumi import aws:emrserverless/application:Application example id
         ```
 
         :param str resource_name: The name of the resource.

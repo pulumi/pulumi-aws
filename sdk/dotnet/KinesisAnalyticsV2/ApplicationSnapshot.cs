@@ -15,6 +15,7 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,13 +32,14 @@ namespace Pulumi.Aws.KinesisAnalyticsV2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_kinesisanalyticsv2_application` using `application_name` together with `snapshot_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot example example-application/example-snapshot
+    /// $ pulumi import aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot example example-application/example-snapshot
     /// ```
     /// </summary>
     [AwsResourceType("aws:kinesisanalyticsv2/applicationSnapshot:ApplicationSnapshot")]

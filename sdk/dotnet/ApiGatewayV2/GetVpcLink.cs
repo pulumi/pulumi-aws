@@ -14,11 +14,11 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// <summary>
         /// Data source for managing an AWS API Gateway V2 VPC Link.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +34,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetVpcLinkResult> InvokeAsync(GetVpcLinkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcLinkResult>("aws:apigatewayv2/getVpcLink:getVpcLink", args ?? new GetVpcLinkArgs(), options.WithDefaults());
@@ -43,11 +42,11 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// <summary>
         /// Data source for managing an AWS API Gateway V2 VPC Link.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +62,7 @@ namespace Pulumi.Aws.ApiGatewayV2
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetVpcLinkResult> Invoke(GetVpcLinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcLinkResult>("aws:apigatewayv2/getVpcLink:getVpcLink", args ?? new GetVpcLinkInvokeArgs(), options.WithDefaults());

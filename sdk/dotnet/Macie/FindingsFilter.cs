@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Macie
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -48,13 +49,14 @@ namespace Pulumi.Aws.Macie
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_macie2_findings_filter` using the id. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:macie/findingsFilter:FindingsFilter example abcd1
+    /// $ pulumi import aws:macie/findingsFilter:FindingsFilter example abcd1
     /// ```
     /// </summary>
     [AwsResourceType("aws:macie/findingsFilter:FindingsFilter")]

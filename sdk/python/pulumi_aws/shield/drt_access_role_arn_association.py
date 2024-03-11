@@ -97,8 +97,10 @@ class DrtAccessRoleArnAssociation(pulumi.CustomResource):
         For more information see [Configure AWS SRT Support](https://docs.aws.amazon.com/waf/latest/developerguide/authorize-srt.html)
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -122,13 +124,14 @@ class DrtAccessRoleArnAssociation(pulumi.CustomResource):
             policy_arn="arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy")
         test_drt_access_role_arn_association = aws.shield.DrtAccessRoleArnAssociation("test", role_arn=test.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Shield DRT access role ARN association using the AWS account ID. For example:
 
         ```sh
-         $ pulumi import aws:shield/drtAccessRoleArnAssociation:DrtAccessRoleArnAssociation example 123456789012
+        $ pulumi import aws:shield/drtAccessRoleArnAssociation:DrtAccessRoleArnAssociation example 123456789012
         ```
 
         :param str resource_name: The name of the resource.
@@ -146,8 +149,10 @@ class DrtAccessRoleArnAssociation(pulumi.CustomResource):
         For more information see [Configure AWS SRT Support](https://docs.aws.amazon.com/waf/latest/developerguide/authorize-srt.html)
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -171,13 +176,14 @@ class DrtAccessRoleArnAssociation(pulumi.CustomResource):
             policy_arn="arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy")
         test_drt_access_role_arn_association = aws.shield.DrtAccessRoleArnAssociation("test", role_arn=test.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Shield DRT access role ARN association using the AWS account ID. For example:
 
         ```sh
-         $ pulumi import aws:shield/drtAccessRoleArnAssociation:DrtAccessRoleArnAssociation example 123456789012
+        $ pulumi import aws:shield/drtAccessRoleArnAssociation:DrtAccessRoleArnAssociation example 123456789012
         ```
 
         :param str resource_name: The name of the resource.

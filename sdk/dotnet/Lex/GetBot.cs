@@ -14,10 +14,9 @@ namespace Pulumi.Aws.Lex
         /// <summary>
         /// Provides details about a specific Amazon Lex Bot.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +33,7 @@ namespace Pulumi.Aws.Lex
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetBotResult> InvokeAsync(GetBotArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBotResult>("aws:lex/getBot:getBot", args ?? new GetBotArgs(), options.WithDefaults());
@@ -43,10 +41,9 @@ namespace Pulumi.Aws.Lex
         /// <summary>
         /// Provides details about a specific Amazon Lex Bot.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +60,7 @@ namespace Pulumi.Aws.Lex
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetBotResult> Invoke(GetBotInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBotResult>("aws:lex/getBot:getBot", args ?? new GetBotInvokeArgs(), options.WithDefaults());

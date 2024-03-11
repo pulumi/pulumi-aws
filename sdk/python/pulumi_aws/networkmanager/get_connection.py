@@ -155,6 +155,7 @@ def get_connection(connection_id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -162,6 +163,7 @@ def get_connection(connection_id: Optional[str] = None,
     example = aws.networkmanager.get_connection(global_network_id=global_network_id,
         connection_id=connection_id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str connection_id: ID of the specific connection to retrieve.
@@ -198,6 +200,7 @@ def get_connection_output(connection_id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -205,6 +208,7 @@ def get_connection_output(connection_id: Optional[pulumi.Input[str]] = None,
     example = aws.networkmanager.get_connection(global_network_id=global_network_id,
         connection_id=connection_id)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str connection_id: ID of the specific connection to retrieve.

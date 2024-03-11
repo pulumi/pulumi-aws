@@ -14,10 +14,9 @@ namespace Pulumi.Aws.Signer
         /// <summary>
         /// Provides information about a Signer Signing Job.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,8 +32,7 @@ namespace Pulumi.Aws.Signer
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSigningJobResult> InvokeAsync(GetSigningJobArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSigningJobResult>("aws:signer/getSigningJob:getSigningJob", args ?? new GetSigningJobArgs(), options.WithDefaults());
@@ -42,10 +40,9 @@ namespace Pulumi.Aws.Signer
         /// <summary>
         /// Provides information about a Signer Signing Job.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,8 +58,7 @@ namespace Pulumi.Aws.Signer
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSigningJobResult> Invoke(GetSigningJobInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSigningJobResult>("aws:signer/getSigningJob:getSigningJob", args ?? new GetSigningJobInvokeArgs(), options.WithDefaults());

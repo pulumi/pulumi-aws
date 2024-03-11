@@ -27,7 +27,10 @@ import javax.annotation.Nullable;
  * `aws.cfg.Recorder` resource.
  * 
  * ## Example Usage
+ * 
  * ### Template Body
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -74,7 +77,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Template S3 URI
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -131,13 +138,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Config Conformance Packs using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cfg/conformancePack:ConformancePack example example
+ * $ pulumi import aws:cfg/conformancePack:ConformancePack example example
  * ```
  * 
  */

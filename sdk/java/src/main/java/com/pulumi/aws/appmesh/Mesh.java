@@ -20,7 +20,10 @@ import javax.annotation.Nullable;
  * Provides an AWS App Mesh service mesh resource.
  * 
  * ## Example Usage
+ * 
  * ### Basic
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,7 +52,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Egress Filter
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -85,13 +92,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import App Mesh service meshes using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:appmesh/mesh:Mesh simple simpleapp
+ * $ pulumi import aws:appmesh/mesh:Mesh simple simpleapp
  * ```
  * 
  */

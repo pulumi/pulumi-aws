@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,15 +45,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import certificates using the `certificate_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:dms/certificate:Certificate test test-dms-certificate-tf
-//
+// $ pulumi import aws:dms/certificate:Certificate test test-dms-certificate-tf
 // ```
 type Certificate struct {
 	pulumi.CustomResourceState

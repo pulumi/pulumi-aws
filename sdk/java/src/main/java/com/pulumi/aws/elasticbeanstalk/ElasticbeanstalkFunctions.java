@@ -24,6 +24,8 @@ public final class ElasticbeanstalkFunctions {
      * Retrieve information about an Elastic Beanstalk Application.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -54,6 +56,7 @@ public final class ElasticbeanstalkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetApplicationResult> getApplication(GetApplicationArgs args) {
@@ -63,6 +66,8 @@ public final class ElasticbeanstalkFunctions {
      * Retrieve information about an Elastic Beanstalk Application.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -93,6 +98,7 @@ public final class ElasticbeanstalkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetApplicationResult> getApplicationPlain(GetApplicationPlainArgs args) {
@@ -102,6 +108,8 @@ public final class ElasticbeanstalkFunctions {
      * Retrieve information about an Elastic Beanstalk Application.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -132,6 +140,7 @@ public final class ElasticbeanstalkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetApplicationResult> getApplication(GetApplicationArgs args, InvokeOptions options) {
@@ -141,6 +150,8 @@ public final class ElasticbeanstalkFunctions {
      * Retrieve information about an Elastic Beanstalk Application.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -171,6 +182,7 @@ public final class ElasticbeanstalkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetApplicationResult> getApplicationPlain(GetApplicationPlainArgs args, InvokeOptions options) {
@@ -180,6 +192,8 @@ public final class ElasticbeanstalkFunctions {
      * Use this data source to get the ID of an [elastic beanstalk hosted zone](http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -206,6 +220,7 @@ public final class ElasticbeanstalkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetHostedZoneResult> getHostedZone() {
@@ -215,6 +230,8 @@ public final class ElasticbeanstalkFunctions {
      * Use this data source to get the ID of an [elastic beanstalk hosted zone](http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -241,6 +258,7 @@ public final class ElasticbeanstalkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetHostedZoneResult> getHostedZonePlain() {
@@ -250,6 +268,8 @@ public final class ElasticbeanstalkFunctions {
      * Use this data source to get the ID of an [elastic beanstalk hosted zone](http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -276,6 +296,7 @@ public final class ElasticbeanstalkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetHostedZoneResult> getHostedZone(GetHostedZoneArgs args) {
@@ -285,6 +306,8 @@ public final class ElasticbeanstalkFunctions {
      * Use this data source to get the ID of an [elastic beanstalk hosted zone](http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -311,6 +334,7 @@ public final class ElasticbeanstalkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetHostedZoneResult> getHostedZonePlain(GetHostedZonePlainArgs args) {
@@ -320,6 +344,8 @@ public final class ElasticbeanstalkFunctions {
      * Use this data source to get the ID of an [elastic beanstalk hosted zone](http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -346,6 +372,7 @@ public final class ElasticbeanstalkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetHostedZoneResult> getHostedZone(GetHostedZoneArgs args, InvokeOptions options) {
@@ -355,6 +382,8 @@ public final class ElasticbeanstalkFunctions {
      * Use this data source to get the ID of an [elastic beanstalk hosted zone](http://docs.aws.amazon.com/general/latest/gr/rande.html#elasticbeanstalk_region).
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -381,6 +410,7 @@ public final class ElasticbeanstalkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetHostedZoneResult> getHostedZonePlain(GetHostedZonePlainArgs args, InvokeOptions options) {
@@ -390,6 +420,8 @@ public final class ElasticbeanstalkFunctions {
      * Use this data source to get the name of a elastic beanstalk solution stack.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -419,6 +451,7 @@ public final class ElasticbeanstalkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSolutionStackResult> getSolutionStack(GetSolutionStackArgs args) {
@@ -428,6 +461,8 @@ public final class ElasticbeanstalkFunctions {
      * Use this data source to get the name of a elastic beanstalk solution stack.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -457,6 +492,7 @@ public final class ElasticbeanstalkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSolutionStackResult> getSolutionStackPlain(GetSolutionStackPlainArgs args) {
@@ -466,6 +502,8 @@ public final class ElasticbeanstalkFunctions {
      * Use this data source to get the name of a elastic beanstalk solution stack.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -495,6 +533,7 @@ public final class ElasticbeanstalkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSolutionStackResult> getSolutionStack(GetSolutionStackArgs args, InvokeOptions options) {
@@ -504,6 +543,8 @@ public final class ElasticbeanstalkFunctions {
      * Use this data source to get the name of a elastic beanstalk solution stack.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -533,6 +574,7 @@ public final class ElasticbeanstalkFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSolutionStackResult> getSolutionStackPlain(GetSolutionStackPlainArgs args, InvokeOptions options) {

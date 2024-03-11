@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Ecs
     /// Manages a revision of an ECS task definition to be used in `aws.ecs.Service`.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Example
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -82,8 +84,11 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With AppMesh Proxy
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -117,8 +122,11 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Example Using `docker_volume_configuration`
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -158,8 +166,11 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Example Using `efs_volume_configuration`
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -199,8 +210,11 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Example Using `fsx_windows_file_server_volume_configuration`
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -249,8 +263,11 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Example Using `container_definitions` and `inference_accelerator`
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -301,8 +318,11 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Example Using `runtime_platform` and `fargate`
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -340,13 +360,14 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import ECS Task Definitions using their ARNs. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ecs/taskDefinition:TaskDefinition example arn:aws:ecs:us-east-1:012345678910:task-definition/mytaskfamily:123
+    /// $ pulumi import aws:ecs/taskDefinition:TaskDefinition example arn:aws:ecs:us-east-1:012345678910:task-definition/mytaskfamily:123
     /// ```
     /// </summary>
     [AwsResourceType("aws:ecs/taskDefinition:TaskDefinition")]

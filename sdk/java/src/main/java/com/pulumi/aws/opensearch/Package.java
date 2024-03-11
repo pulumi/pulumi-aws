@@ -19,7 +19,10 @@ import javax.annotation.Nullable;
  * Manages an AWS Opensearch Package.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -72,13 +75,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import AWS Opensearch Packages using the Package ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:opensearch/package:Package example package-id
+ * $ pulumi import aws:opensearch/package:Package example package-id
  * ```
  * 
  */

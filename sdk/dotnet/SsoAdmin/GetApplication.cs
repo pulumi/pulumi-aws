@@ -14,11 +14,11 @@ namespace Pulumi.Aws.SsoAdmin
         /// <summary>
         /// Data source for managing an AWS SSO Admin Application.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +34,7 @@ namespace Pulumi.Aws.SsoAdmin
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetApplicationResult> InvokeAsync(GetApplicationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetApplicationResult>("aws:ssoadmin/getApplication:getApplication", args ?? new GetApplicationArgs(), options.WithDefaults());
@@ -43,11 +42,11 @@ namespace Pulumi.Aws.SsoAdmin
         /// <summary>
         /// Data source for managing an AWS SSO Admin Application.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +62,7 @@ namespace Pulumi.Aws.SsoAdmin
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetApplicationResult> Invoke(GetApplicationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetApplicationResult>("aws:ssoadmin/getApplication:getApplication", args ?? new GetApplicationInvokeArgs(), options.WithDefaults());

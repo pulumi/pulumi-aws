@@ -98,6 +98,7 @@ class DomainDkim(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -113,13 +114,14 @@ class DomainDkim(pulumi.CustomResource):
                 ttl=600,
                 records=[example_domain_dkim.dkim_tokens.apply(lambda dkim_tokens: f"{dkim_tokens[range['value']]}.dkim.amazonses.com")]))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DKIM tokens using the `domain` attribute. For example:
 
         ```sh
-         $ pulumi import aws:ses/domainDkim:DomainDkim example example.com
+        $ pulumi import aws:ses/domainDkim:DomainDkim example example.com
         ```
 
         :param str resource_name: The name of the resource.
@@ -139,6 +141,7 @@ class DomainDkim(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -154,13 +157,14 @@ class DomainDkim(pulumi.CustomResource):
                 ttl=600,
                 records=[example_domain_dkim.dkim_tokens.apply(lambda dkim_tokens: f"{dkim_tokens[range['value']]}.dkim.amazonses.com")]))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DKIM tokens using the `domain` attribute. For example:
 
         ```sh
-         $ pulumi import aws:ses/domainDkim:DomainDkim example example.com
+        $ pulumi import aws:ses/domainDkim:DomainDkim example example.com
         ```
 
         :param str resource_name: The name of the resource.

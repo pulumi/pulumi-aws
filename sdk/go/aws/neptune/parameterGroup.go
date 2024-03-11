@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -46,15 +47,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Neptune Parameter Groups using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:neptune/parameterGroup:ParameterGroup some_pg some-pg
-//
+// $ pulumi import aws:neptune/parameterGroup:ParameterGroup some_pg some-pg
 // ```
 type ParameterGroup struct {
 	pulumi.CustomResourceState

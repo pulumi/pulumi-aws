@@ -13,8 +13,10 @@ namespace Pulumi.Aws.SsmIncidents
     /// Provides a resource to manage response plans in AWS Systems Manager Incident Manager.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -39,8 +41,11 @@ namespace Pulumi.Aws.SsmIncidents
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Usage With All Fields
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -141,13 +146,14 @@ namespace Pulumi.Aws.SsmIncidents
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import an Incident Manager response plan using the response plan ARN. You can find the response plan ARN in the AWS Management Console. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ssmincidents/responsePlan:ResponsePlan responsePlanName ARNValue
+    /// $ pulumi import aws:ssmincidents/responsePlan:ResponsePlan responsePlanName ARNValue
     /// ```
     /// </summary>
     [AwsResourceType("aws:ssmincidents/responsePlan:ResponsePlan")]

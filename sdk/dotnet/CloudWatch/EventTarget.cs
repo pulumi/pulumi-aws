@@ -15,8 +15,10 @@ namespace Pulumi.Aws.CloudWatch
     /// &gt; **Note:** EventBridge was formerly known as CloudWatch Events. The functionality is identical.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Kinesis Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -80,8 +82,11 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### SSM Document Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -236,8 +241,11 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### RunCommand Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -275,8 +283,11 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### ECS Run Task with Role and Task Override Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -392,8 +403,11 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### API Gateway target
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -434,8 +448,11 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Cross-Account Event Bus target
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -524,8 +541,11 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Input Transformer Usage - JSON Object
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -557,8 +577,11 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Input Transformer Usage - Simple String
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -586,8 +609,11 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Cloudwatch Log Group Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -701,13 +727,14 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EventBridge Targets using `event_bus_name/rule-name/target-id` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cloudwatch/eventTarget:EventTarget test-event-target rule-name/target-id
+    /// $ pulumi import aws:cloudwatch/eventTarget:EventTarget test-event-target rule-name/target-id
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/eventTarget:EventTarget")]

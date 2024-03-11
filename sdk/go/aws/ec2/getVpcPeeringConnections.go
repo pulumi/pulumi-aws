@@ -16,40 +16,6 @@ import (
 //
 // Note: To use this data source in a count, the resources should exist before trying to access
 // the data source.
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/ec2"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-// func main() {
-// pulumi.Run(func(ctx *pulumi.Context) error {
-// // Declare the data source
-// pcs, err := ec2.GetVpcPeeringConnections(ctx, &ec2.GetVpcPeeringConnectionsArgs{
-// Filters: []ec2.GetVpcPeeringConnectionsFilter{
-// {
-// Name: "requester-vpc-info.vpc-id",
-// Values: interface{}{
-// foo.Id,
-// },
-// },
-// },
-// }, nil);
-// if err != nil {
-// return err
-// }
-// // get the details of each resource
-// _ := "TODO: For expression";
-// return nil
-// })
-// }
-// ```
 func GetVpcPeeringConnections(ctx *pulumi.Context, args *GetVpcPeeringConnectionsArgs, opts ...pulumi.InvokeOption) (*GetVpcPeeringConnectionsResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetVpcPeeringConnectionsResult

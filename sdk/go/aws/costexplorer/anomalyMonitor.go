@@ -17,8 +17,10 @@ import (
 // ## Example Usage
 //
 // There are two main types of a Cost Anomaly Monitor: `DIMENSIONAL` and `CUSTOM`.
+//
 // ### Dimensional Example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,8 +46,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Custom Example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -91,15 +96,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_ce_anomaly_monitor` using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:costexplorer/anomalyMonitor:AnomalyMonitor example costAnomalyMonitorARN
-//
+// $ pulumi import aws:costexplorer/anomalyMonitor:AnomalyMonitor example costAnomalyMonitorARN
 // ```
 type AnomalyMonitor struct {
 	pulumi.CustomResourceState

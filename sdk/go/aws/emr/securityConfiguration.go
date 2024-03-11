@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -57,15 +58,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import EMR Security Configurations using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:emr/securityConfiguration:SecurityConfiguration sc example-sc-name
-//
+// $ pulumi import aws:emr/securityConfiguration:SecurityConfiguration sc example-sc-name
 // ```
 type SecurityConfiguration struct {
 	pulumi.CustomResourceState

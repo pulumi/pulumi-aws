@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,6 +42,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupVpcLink(ctx *pulumi.Context, args *LookupVpcLinkArgs, opts ...pulumi.InvokeOption) (*LookupVpcLinkResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupVpcLinkResult

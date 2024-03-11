@@ -9,21 +9,21 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.route53.ResolverFirewallDomainList("example", {name: "example"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
- * Using `pulumi import`, import
- *
- * Route 53 Resolver DNS Firewall domain lists using the Route 53 Resolver DNS Firewall domain list ID. For example:
+ * Using `pulumi import`, import  Route 53 Resolver DNS Firewall domain lists using the Route 53 Resolver DNS Firewall domain list ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:route53/resolverFirewallDomainList:ResolverFirewallDomainList example rslvr-fdl-0123456789abcdef
+ * $ pulumi import aws:route53/resolverFirewallDomainList:ResolverFirewallDomainList example rslvr-fdl-0123456789abcdef
  * ```
  */
 export class ResolverFirewallDomainList extends pulumi.CustomResource {

@@ -15,10 +15,9 @@ namespace Pulumi.Aws.CloudFormation
         /// The CloudFormation Stack data source allows access to stack
         /// outputs and other useful data including the template body.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -45,8 +44,7 @@ namespace Pulumi.Aws.CloudFormation
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetStackResult> InvokeAsync(GetStackArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetStackResult>("aws:cloudformation/getStack:getStack", args ?? new GetStackArgs(), options.WithDefaults());
@@ -55,10 +53,9 @@ namespace Pulumi.Aws.CloudFormation
         /// The CloudFormation Stack data source allows access to stack
         /// outputs and other useful data including the template body.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -85,8 +82,7 @@ namespace Pulumi.Aws.CloudFormation
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetStackResult> Invoke(GetStackInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetStackResult>("aws:cloudformation/getStack:getStack", args ?? new GetStackInvokeArgs(), options.WithDefaults());

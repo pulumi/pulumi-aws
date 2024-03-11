@@ -532,8 +532,10 @@ class Endpoint(pulumi.CustomResource):
         Resource for managing an AWS EC2 (Elastic Compute Cloud) Verified Access Endpoint.
 
         ## Example Usage
+
         ### ALB Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -554,8 +556,11 @@ class Endpoint(pulumi.CustomResource):
             security_group_ids=[example_aws_security_group["id"]],
             verified_access_group_id=example_aws_verifiedaccess_group["id"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Network Interface Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -575,15 +580,14 @@ class Endpoint(pulumi.CustomResource):
             security_group_ids=[example_aws_security_group["id"]],
             verified_access_group_id=example_aws_verifiedaccess_group["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Using `pulumi import`, import Verified Access Instances using the
-
-        `id`. For example:
+        Using `pulumi import`, import Verified Access Instances using the  `id`. For example:
 
         ```sh
-         $ pulumi import aws:verifiedaccess/endpoint:Endpoint example vae-8012925589
+        $ pulumi import aws:verifiedaccess/endpoint:Endpoint example vae-8012925589
         ```
 
         :param str resource_name: The name of the resource.
@@ -614,8 +618,10 @@ class Endpoint(pulumi.CustomResource):
         Resource for managing an AWS EC2 (Elastic Compute Cloud) Verified Access Endpoint.
 
         ## Example Usage
+
         ### ALB Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -636,8 +642,11 @@ class Endpoint(pulumi.CustomResource):
             security_group_ids=[example_aws_security_group["id"]],
             verified_access_group_id=example_aws_verifiedaccess_group["id"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Network Interface Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -657,15 +666,14 @@ class Endpoint(pulumi.CustomResource):
             security_group_ids=[example_aws_security_group["id"]],
             verified_access_group_id=example_aws_verifiedaccess_group["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
-        Using `pulumi import`, import Verified Access Instances using the
-
-        `id`. For example:
+        Using `pulumi import`, import Verified Access Instances using the  `id`. For example:
 
         ```sh
-         $ pulumi import aws:verifiedaccess/endpoint:Endpoint example vae-8012925589
+        $ pulumi import aws:verifiedaccess/endpoint:Endpoint example vae-8012925589
         ```
 
         :param str resource_name: The name of the resource.

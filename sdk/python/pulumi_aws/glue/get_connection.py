@@ -155,12 +155,14 @@ def get_connection(id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.glue.get_connection(id="123456789123:connection")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str id: Concatenation of the catalog ID and connection name. For example, if your account ID is
@@ -195,12 +197,14 @@ def get_connection_output(id: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.glue.get_connection(id="123456789123:connection")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str id: Concatenation of the catalog ID and connection name. For example, if your account ID is

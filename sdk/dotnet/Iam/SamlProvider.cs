@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,13 +35,14 @@ namespace Pulumi.Aws.Iam
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IAM SAML Providers using the `arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:iam/samlProvider:SamlProvider default arn:aws:iam::123456789012:saml-provider/SAMLADFS
+    /// $ pulumi import aws:iam/samlProvider:SamlProvider default arn:aws:iam::123456789012:saml-provider/SAMLADFS
     /// ```
     /// </summary>
     [AwsResourceType("aws:iam/samlProvider:SamlProvider")]

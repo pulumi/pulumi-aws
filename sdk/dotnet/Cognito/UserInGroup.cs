@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -56,6 +57,7 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:cognito/userInGroup:UserInGroup")]
     public partial class UserInGroup : global::Pulumi.CustomResource

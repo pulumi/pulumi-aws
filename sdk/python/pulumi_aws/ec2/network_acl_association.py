@@ -106,6 +106,7 @@ class NetworkAclAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -114,13 +115,14 @@ class NetworkAclAssociation(pulumi.CustomResource):
             network_acl_id=main_aws_network_acl["id"],
             subnet_id=main_aws_subnet["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Network ACL associations using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/networkAclAssociation:NetworkAclAssociation main aclassoc-02baf37f20966b3e6
+        $ pulumi import aws:ec2/networkAclAssociation:NetworkAclAssociation main aclassoc-02baf37f20966b3e6
         ```
 
         :param str resource_name: The name of the resource.
@@ -143,6 +145,7 @@ class NetworkAclAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -151,13 +154,14 @@ class NetworkAclAssociation(pulumi.CustomResource):
             network_acl_id=main_aws_network_acl["id"],
             subnet_id=main_aws_subnet["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Network ACL associations using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/networkAclAssociation:NetworkAclAssociation main aclassoc-02baf37f20966b3e6
+        $ pulumi import aws:ec2/networkAclAssociation:NetworkAclAssociation main aclassoc-02baf37f20966b3e6
         ```
 
         :param str resource_name: The name of the resource.

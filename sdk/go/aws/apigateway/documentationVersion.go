@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -57,15 +58,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import API Gateway documentation versions using `REST-API-ID/VERSION`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:apigateway/documentationVersion:DocumentationVersion example 5i4e1ko720/example-version
-//
+// $ pulumi import aws:apigateway/documentationVersion:DocumentationVersion example 5i4e1ko720/example-version
 // ```
 type DocumentationVersion struct {
 	pulumi.CustomResourceState

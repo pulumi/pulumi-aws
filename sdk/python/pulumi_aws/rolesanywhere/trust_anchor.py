@@ -209,6 +209,7 @@ class TrustAnchor(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -246,13 +247,14 @@ class TrustAnchor(pulumi.CustomResource):
                 source_type="AWS_ACM_PCA",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_rolesanywhere_trust_anchor` using its `id`. For example:
 
         ```sh
-         $ pulumi import aws:rolesanywhere/trustAnchor:TrustAnchor example 92b2fbbb-984d-41a3-a765-e3cbdb69ebb1
+        $ pulumi import aws:rolesanywhere/trustAnchor:TrustAnchor example 92b2fbbb-984d-41a3-a765-e3cbdb69ebb1
         ```
 
         :param str resource_name: The name of the resource.
@@ -273,6 +275,7 @@ class TrustAnchor(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -310,13 +313,14 @@ class TrustAnchor(pulumi.CustomResource):
                 source_type="AWS_ACM_PCA",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_rolesanywhere_trust_anchor` using its `id`. For example:
 
         ```sh
-         $ pulumi import aws:rolesanywhere/trustAnchor:TrustAnchor example 92b2fbbb-984d-41a3-a765-e3cbdb69ebb1
+        $ pulumi import aws:rolesanywhere/trustAnchor:TrustAnchor example 92b2fbbb-984d-41a3-a765-e3cbdb69ebb1
         ```
 
         :param str resource_name: The name of the resource.

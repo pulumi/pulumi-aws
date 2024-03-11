@@ -80,6 +80,7 @@ def get_outpost_instance_type(arn: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -91,6 +92,7 @@ def get_outpost_instance_type(arn: Optional[str] = None,
         ])
     example_ec2_instance = aws.index.Ec2Instance("example", instance_type=example.instance_type)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str arn: Outpost ARN.
@@ -123,6 +125,7 @@ def get_outpost_instance_type_output(arn: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -134,6 +137,7 @@ def get_outpost_instance_type_output(arn: Optional[pulumi.Input[str]] = None,
         ])
     example_ec2_instance = aws.index.Ec2Instance("example", instance_type=example.instance_type)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str arn: Outpost ARN.

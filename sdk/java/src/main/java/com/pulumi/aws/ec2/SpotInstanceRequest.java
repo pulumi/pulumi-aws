@@ -58,6 +58,8 @@ import javax.annotation.Nullable;
  * We recommend using the EC2 Instance resource with `instance_market_options` instead.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -89,6 +91,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:ec2/spotInstanceRequest:SpotInstanceRequest")

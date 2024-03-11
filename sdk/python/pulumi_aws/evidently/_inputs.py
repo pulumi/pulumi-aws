@@ -469,7 +469,7 @@ class LaunchScheduledSplitsConfigStepSegmentOverrideArgs:
         """
         :param pulumi.Input[int] evaluation_order: Specifies a number indicating the order to use to evaluate segment overrides, if there are more than one. Segment overrides with lower numbers are evaluated first.
         :param pulumi.Input[str] segment: The name or ARN of the segment to use.
-        :param pulumi.Input[Mapping[str, pulumi.Input[int]]] weights: The traffic allocation percentages among the feature variations to assign to this segment. This is a set of key-value pairs. The keys are variation names. The values represent the amount of traffic to allocate to that variation for this segment. This is expressed in thousandths of a percent, so a weight of 50000 represents 50% of traffic.
+        :param pulumi.Input[Mapping[str, pulumi.Input[int]]] weights: The traffic allocation percentages among the feature variations to assign to this segment. This is a set of key-value pairs. The keys are variation names. The values represent the amount of traffic to allocate to that variation for this segment. This is expressed in thousandths of a percent, so a weight of 50000 represents 50%!o(MISSING)f traffic.
         """
         pulumi.set(__self__, "evaluation_order", evaluation_order)
         pulumi.set(__self__, "segment", segment)
@@ -503,7 +503,7 @@ class LaunchScheduledSplitsConfigStepSegmentOverrideArgs:
     @pulumi.getter
     def weights(self) -> pulumi.Input[Mapping[str, pulumi.Input[int]]]:
         """
-        The traffic allocation percentages among the feature variations to assign to this segment. This is a set of key-value pairs. The keys are variation names. The values represent the amount of traffic to allocate to that variation for this segment. This is expressed in thousandths of a percent, so a weight of 50000 represents 50% of traffic.
+        The traffic allocation percentages among the feature variations to assign to this segment. This is a set of key-value pairs. The keys are variation names. The values represent the amount of traffic to allocate to that variation for this segment. This is expressed in thousandths of a percent, so a weight of 50000 represents 50%!o(MISSING)f traffic.
         """
         return pulumi.get(self, "weights")
 

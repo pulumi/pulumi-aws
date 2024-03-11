@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -54,15 +55,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_macie2_classification_job` using the id. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:macie2/classificationJob:ClassificationJob example abcd1
-//
+// $ pulumi import aws:macie2/classificationJob:ClassificationJob example abcd1
 // ```
 type ClassificationJob struct {
 	pulumi.CustomResourceState

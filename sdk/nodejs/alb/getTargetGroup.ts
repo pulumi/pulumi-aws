@@ -18,6 +18,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -30,6 +31,7 @@ import * as utilities from "../utilities";
  *     name: lbTgName,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getTargetGroup(args?: GetTargetGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetTargetGroupResult> {
     args = args || {};
@@ -105,6 +107,7 @@ export interface GetTargetGroupResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -117,6 +120,7 @@ export interface GetTargetGroupResult {
  *     name: lbTgName,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getTargetGroupOutput(args?: GetTargetGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetTargetGroupResult> {
     return pulumi.output(args).apply((a: any) => getTargetGroup(a, opts))

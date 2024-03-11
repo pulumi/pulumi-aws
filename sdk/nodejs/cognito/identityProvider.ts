@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -32,13 +33,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_cognito_identity_provider` resources using their User Pool ID and Provider Name. For example:
  *
  * ```sh
- *  $ pulumi import aws:cognito/identityProvider:IdentityProvider example us-west-2_abc123:CorpAD
+ * $ pulumi import aws:cognito/identityProvider:IdentityProvider example us-west-2_abc123:CorpAD
  * ```
  */
 export class IdentityProvider extends pulumi.CustomResource {

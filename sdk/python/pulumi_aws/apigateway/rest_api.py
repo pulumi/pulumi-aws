@@ -562,8 +562,10 @@ class RestApi(pulumi.CustomResource):
         !> **WARN:** When importing Open API Specifications with the `body` argument, by default the API Gateway REST API will be replaced with the Open API Specification thus removing any existing methods, resources, integrations, or endpoints. Endpoint mutations are asynchronous operations, and race conditions with DNS are possible. To overcome this limitation, use the `put_rest_api_mode` attribute and set it to `merge`.
 
         ## Example Usage
+
         ### OpenAPI Specification
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -604,10 +606,13 @@ class RestApi(pulumi.CustomResource):
             rest_api=example.id,
             stage_name="example")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### OpenAPI Specification with Private Endpoints
 
         Using `put_rest_api_mode` = `merge` when importing the OpenAPI Specification, the AWS control plane will not delete all existing literal properties that are not explicitly set in the OpenAPI definition. Impacted API Gateway properties: ApiKeySourceType, BinaryMediaTypes, Description, EndpointConfiguration, MinimumCompressionSize, Name, Policy).
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -680,8 +685,11 @@ class RestApi(pulumi.CustomResource):
             rest_api=example_rest_api.id,
             stage_name="example")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Resources
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -717,15 +725,16 @@ class RestApi(pulumi.CustomResource):
             rest_api=example.id,
             stage_name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_api_gateway_rest_api` using the REST API ID. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/restApi:RestApi example 12345abcde
+        $ pulumi import aws:apigateway/restApi:RestApi example 12345abcde
         ```
-         ~> __NOTE:__ Resource import does not currently support the `body` attribute.
+        ~> __NOTE:__ Resource import does not currently support the `body` attribute.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -757,8 +766,10 @@ class RestApi(pulumi.CustomResource):
         !> **WARN:** When importing Open API Specifications with the `body` argument, by default the API Gateway REST API will be replaced with the Open API Specification thus removing any existing methods, resources, integrations, or endpoints. Endpoint mutations are asynchronous operations, and race conditions with DNS are possible. To overcome this limitation, use the `put_rest_api_mode` attribute and set it to `merge`.
 
         ## Example Usage
+
         ### OpenAPI Specification
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -799,10 +810,13 @@ class RestApi(pulumi.CustomResource):
             rest_api=example.id,
             stage_name="example")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### OpenAPI Specification with Private Endpoints
 
         Using `put_rest_api_mode` = `merge` when importing the OpenAPI Specification, the AWS control plane will not delete all existing literal properties that are not explicitly set in the OpenAPI definition. Impacted API Gateway properties: ApiKeySourceType, BinaryMediaTypes, Description, EndpointConfiguration, MinimumCompressionSize, Name, Policy).
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -875,8 +889,11 @@ class RestApi(pulumi.CustomResource):
             rest_api=example_rest_api.id,
             stage_name="example")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Resources
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -912,15 +929,16 @@ class RestApi(pulumi.CustomResource):
             rest_api=example.id,
             stage_name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_api_gateway_rest_api` using the REST API ID. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/restApi:RestApi example 12345abcde
+        $ pulumi import aws:apigateway/restApi:RestApi example 12345abcde
         ```
-         ~> __NOTE:__ Resource import does not currently support the `body` attribute.
+        ~> __NOTE:__ Resource import does not currently support the `body` attribute.
 
         :param str resource_name: The name of the resource.
         :param RestApiArgs args: The arguments to use to populate this resource's properties.

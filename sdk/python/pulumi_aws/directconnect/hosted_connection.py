@@ -359,6 +359,7 @@ class HostedConnection(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -370,6 +371,7 @@ class HostedConnection(pulumi.CustomResource):
             owner_account_id="123456789012",
             vlan=1)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -390,6 +392,7 @@ class HostedConnection(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -401,6 +404,7 @@ class HostedConnection(pulumi.CustomResource):
             owner_account_id="123456789012",
             vlan=1)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param HostedConnectionArgs args: The arguments to use to populate this resource's properties.

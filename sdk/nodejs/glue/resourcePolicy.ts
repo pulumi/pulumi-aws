@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -28,13 +29,14 @@ import * as utilities from "../utilities";
  * }));
  * const example = new aws.glue.ResourcePolicy("example", {policy: glue_example_policy.then(glue_example_policy => glue_example_policy.json)});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Glue Resource Policy using the account ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:glue/resourcePolicy:ResourcePolicy Test 12356789012
+ * $ pulumi import aws:glue/resourcePolicy:ResourcePolicy Test 12356789012
  * ```
  */
 export class ResourcePolicy extends pulumi.CustomResource {

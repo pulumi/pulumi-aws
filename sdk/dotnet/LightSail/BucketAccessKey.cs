@@ -14,6 +14,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,13 +36,14 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_lightsail_bucket_access_key` using the `id` attribute. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:lightsail/bucketAccessKey:BucketAccessKey test example-bucket,AKIAIOSFODNN7EXAMPLE
+    /// $ pulumi import aws:lightsail/bucketAccessKey:BucketAccessKey test example-bucket,AKIAIOSFODNN7EXAMPLE
     /// ```
     /// </summary>
     [AwsResourceType("aws:lightsail/bucketAccessKey:BucketAccessKey")]

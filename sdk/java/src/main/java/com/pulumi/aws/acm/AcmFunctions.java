@@ -20,6 +20,8 @@ public final class AcmFunctions {
      * it by domain without having to hard code the ARNs as input.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -60,6 +62,7 @@ public final class AcmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCertificateResult> getCertificate(GetCertificateArgs args) {
@@ -71,6 +74,8 @@ public final class AcmFunctions {
      * it by domain without having to hard code the ARNs as input.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -111,6 +116,7 @@ public final class AcmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCertificateResult> getCertificatePlain(GetCertificatePlainArgs args) {
@@ -122,6 +128,8 @@ public final class AcmFunctions {
      * it by domain without having to hard code the ARNs as input.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -162,6 +170,7 @@ public final class AcmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCertificateResult> getCertificate(GetCertificateArgs args, InvokeOptions options) {
@@ -173,6 +182,8 @@ public final class AcmFunctions {
      * it by domain without having to hard code the ARNs as input.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -213,6 +224,7 @@ public final class AcmFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCertificateResult> getCertificatePlain(GetCertificatePlainArgs args, InvokeOptions options) {

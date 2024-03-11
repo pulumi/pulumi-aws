@@ -28,6 +28,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** Due to the expense of testing this resource, we provide it as best effort. If you find it useful, and have the ability to help test or notice issues, consider reaching out to us on GitHub.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -68,13 +70,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import RDS DB Instance Reservations using the `instance_id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:rds/reservedInstance:ReservedInstance reservation_instance CustomReservationID
+ * $ pulumi import aws:rds/reservedInstance:ReservedInstance reservation_instance CustomReservationID
  * ```
  * 
  */

@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * Provides a SQS Queue Redrive Allow Policy resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -66,13 +68,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import SQS Queue Redrive Allow Policies using the queue URL. For example:
  * 
  * ```sh
- *  $ pulumi import aws:sqs/redriveAllowPolicy:RedriveAllowPolicy test https://queue.amazonaws.com/0123456789012/myqueue
+ * $ pulumi import aws:sqs/redriveAllowPolicy:RedriveAllowPolicy test https://queue.amazonaws.com/0123456789012/myqueue
  * ```
  * 
  */

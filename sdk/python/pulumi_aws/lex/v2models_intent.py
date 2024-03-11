@@ -639,7 +639,7 @@ class V2modelsIntent(pulumi.CustomResource):
         Using `pulumi import`, import Lex V2 Models Intent using the `intent_id:bot_id:bot_version:locale_id`. For example:
 
         ```sh
-         $ pulumi import aws:lex/v2modelsIntent:V2modelsIntent example intent-42874:bot-11376:DRAFT:en_US
+        $ pulumi import aws:lex/v2modelsIntent:V2modelsIntent example intent-42874:bot-11376:DRAFT:en_US
         ```
 
         :param str resource_name: The name of the resource.
@@ -674,7 +674,7 @@ class V2modelsIntent(pulumi.CustomResource):
         Using `pulumi import`, import Lex V2 Models Intent using the `intent_id:bot_id:bot_version:locale_id`. For example:
 
         ```sh
-         $ pulumi import aws:lex/v2modelsIntent:V2modelsIntent example intent-42874:bot-11376:DRAFT:en_US
+        $ pulumi import aws:lex/v2modelsIntent:V2modelsIntent example intent-42874:bot-11376:DRAFT:en_US
         ```
 
         :param str resource_name: The name of the resource.

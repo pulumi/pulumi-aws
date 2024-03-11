@@ -134,6 +134,7 @@ class EventStream(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -168,13 +169,14 @@ class EventStream(pulumi.CustomResource):
             role=test_role.id,
             policy=test_role_policy.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Pinpoint Event Stream using the `application-id`. For example:
 
         ```sh
-         $ pulumi import aws:pinpoint/eventStream:EventStream stream application-id
+        $ pulumi import aws:pinpoint/eventStream:EventStream stream application-id
         ```
 
         :param str resource_name: The name of the resource.
@@ -194,6 +196,7 @@ class EventStream(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -228,13 +231,14 @@ class EventStream(pulumi.CustomResource):
             role=test_role.id,
             policy=test_role_policy.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Pinpoint Event Stream using the `application-id`. For example:
 
         ```sh
-         $ pulumi import aws:pinpoint/eventStream:EventStream stream application-id
+        $ pulumi import aws:pinpoint/eventStream:EventStream stream application-id
         ```
 
         :param str resource_name: The name of the resource.

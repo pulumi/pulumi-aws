@@ -19,6 +19,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -68,13 +69,14 @@ namespace Pulumi.Aws.Iam
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IAM user group membership using the user name and group names separated by `/`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:iam/userGroupMembership:UserGroupMembership example1 user1/group1/group2
+    /// $ pulumi import aws:iam/userGroupMembership:UserGroupMembership example1 user1/group1/group2
     /// ```
     /// </summary>
     [AwsResourceType("aws:iam/userGroupMembership:UserGroupMembership")]

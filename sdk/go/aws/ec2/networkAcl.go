@@ -27,6 +27,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -73,15 +74,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Network ACLs using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/networkAcl:NetworkAcl main acl-7aaabd18
-//
+// $ pulumi import aws:ec2/networkAcl:NetworkAcl main acl-7aaabd18
 // ```
 type NetworkAcl struct {
 	pulumi.CustomResourceState

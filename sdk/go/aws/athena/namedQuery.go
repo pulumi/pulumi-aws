@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -82,15 +83,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Athena Named Query using the query ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:athena/namedQuery:NamedQuery example 0123456789
-//
+// $ pulumi import aws:athena/namedQuery:NamedQuery example 0123456789
 // ```
 type NamedQuery struct {
 	pulumi.CustomResourceState

@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// Usage:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -40,13 +41,14 @@ namespace Pulumi.Aws.Sagemaker
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import models using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration lc foo
+    /// $ pulumi import aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration lc foo
     /// ```
     /// </summary>
     [AwsResourceType("aws:sagemaker/notebookInstanceLifecycleConfiguration:NotebookInstanceLifecycleConfiguration")]

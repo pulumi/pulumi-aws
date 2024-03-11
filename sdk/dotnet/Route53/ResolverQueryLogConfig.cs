@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Route53
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,15 +35,14 @@ namespace Pulumi.Aws.Route53
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
-    /// Using `pulumi import`, import
-    /// 
-    /// Route 53 Resolver query logging configurations using the Route 53 Resolver query logging configuration ID. For example:
+    /// Using `pulumi import`, import  Route 53 Resolver query logging configurations using the Route 53 Resolver query logging configuration ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig example rqlc-92edc3b1838248bf
+    /// $ pulumi import aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig example rqlc-92edc3b1838248bf
     /// ```
     /// </summary>
     [AwsResourceType("aws:route53/resolverQueryLogConfig:ResolverQueryLogConfig")]

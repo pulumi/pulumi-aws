@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Xray
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,13 +44,14 @@ namespace Pulumi.Aws.Xray
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import XRay Sampling Rules using the name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:xray/samplingRule:SamplingRule example example
+    /// $ pulumi import aws:xray/samplingRule:SamplingRule example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:xray/samplingRule:SamplingRule")]

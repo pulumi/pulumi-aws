@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -50,15 +51,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Redshift Snapshot Copy Grants by name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:redshift/snapshotCopyGrant:SnapshotCopyGrant test my-grant
-//
+// $ pulumi import aws:redshift/snapshotCopyGrant:SnapshotCopyGrant test my-grant
 // ```
 type SnapshotCopyGrant struct {
 	pulumi.CustomResourceState

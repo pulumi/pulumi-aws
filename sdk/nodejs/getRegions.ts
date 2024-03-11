@@ -14,15 +14,18 @@ import * as utilities from "./utilities";
  *
  * Enabled AWS Regions:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getRegions({});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * All the regions regardless of the availability
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -31,9 +34,11 @@ import * as utilities from "./utilities";
  *     allRegions: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * To see regions that are filtered by `"not-opted-in"`, the `allRegions` argument needs to be set to `true` or no results will be returned.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -46,6 +51,7 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRegions(args?: GetRegionsArgs, opts?: pulumi.InvokeOptions): Promise<GetRegionsResult> {
     args = args || {};
@@ -98,15 +104,18 @@ export interface GetRegionsResult {
  *
  * Enabled AWS Regions:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const current = aws.getRegions({});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * All the regions regardless of the availability
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -115,9 +124,11 @@ export interface GetRegionsResult {
  *     allRegions: true,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * To see regions that are filtered by `"not-opted-in"`, the `allRegions` argument needs to be set to `true` or no results will be returned.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -130,6 +141,7 @@ export interface GetRegionsResult {
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getRegionsOutput(args?: GetRegionsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetRegionsResult> {
     return pulumi.output(args).apply((a: any) => getRegions(a, opts))

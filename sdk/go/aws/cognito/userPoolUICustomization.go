@@ -17,8 +17,10 @@ import (
 // > **Note:** To use this resource, the user pool must have a domain associated with it. For more information, see the Amazon Cognito Developer Guide on [Customizing the Built-in Sign-In and Sign-up Webpages](https://docs.aws.amazon.com/cognito/latest/developerguide/cognito-user-pools-app-ui-customization.html).
 //
 // ## Example Usage
+//
 // ### UI customization settings for a single client
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -72,8 +74,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### UI customization settings for all clients
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -119,15 +124,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Cognito User Pool UI Customizations using the `user_pool_id` and `client_id` separated by `,`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cognito/userPoolUICustomization:UserPoolUICustomization example us-west-2_ZCTarbt5C,12bu4fuk3mlgqa2rtrujgp6egq
-//
+// $ pulumi import aws:cognito/userPoolUICustomization:UserPoolUICustomization example us-west-2_ZCTarbt5C,12bu4fuk3mlgqa2rtrujgp6egq
 // ```
 type UserPoolUICustomization struct {
 	pulumi.CustomResourceState

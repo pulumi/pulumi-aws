@@ -19,7 +19,10 @@ import javax.annotation.Nullable;
  * Provides a Synthetics Group resource.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,13 +51,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import CloudWatch Synthetics Group using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:synthetics/group:Group example example
+ * $ pulumi import aws:synthetics/group:Group example example
  * ```
  * 
  */

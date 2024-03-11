@@ -117,12 +117,14 @@ def get_custom_key_store(custom_key_store_id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     keystore = aws.kms.get_custom_key_store(custom_key_store_name="my_cloudhsm")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str custom_key_store_id: The ID for the custom key store.
@@ -155,12 +157,14 @@ def get_custom_key_store_output(custom_key_store_id: Optional[pulumi.Input[Optio
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     keystore = aws.kms.get_custom_key_store(custom_key_store_name="my_cloudhsm")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str custom_key_store_id: The ID for the custom key store.

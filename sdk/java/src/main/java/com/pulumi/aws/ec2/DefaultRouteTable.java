@@ -27,6 +27,8 @@ import javax.annotation.Nullable;
  * For more information, see the Amazon VPC User Guide on [Route Tables](https://docs.aws.amazon.com/vpc/latest/userguide/VPC_Route_Tables.html). For information about managing normal route tables in this provider, see `aws.ec2.RouteTable`.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -66,8 +68,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * To subsequently remove all managed routes:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -98,13 +103,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Default VPC route tables using the `vpc_id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/defaultRouteTable:DefaultRouteTable example vpc-33cc44dd
+ * $ pulumi import aws:ec2/defaultRouteTable:DefaultRouteTable example vpc-33cc44dd
  * ```
  * 
  */

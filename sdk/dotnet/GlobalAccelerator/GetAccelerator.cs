@@ -14,10 +14,9 @@ namespace Pulumi.Aws.GlobalAccelerator
         /// <summary>
         /// Provides information about a Global Accelerator accelerator.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -37,8 +36,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetAcceleratorResult> InvokeAsync(GetAcceleratorArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAcceleratorResult>("aws:globalaccelerator/getAccelerator:getAccelerator", args ?? new GetAcceleratorArgs(), options.WithDefaults());
@@ -46,10 +44,9 @@ namespace Pulumi.Aws.GlobalAccelerator
         /// <summary>
         /// Provides information about a Global Accelerator accelerator.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -69,8 +66,7 @@ namespace Pulumi.Aws.GlobalAccelerator
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetAcceleratorResult> Invoke(GetAcceleratorInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAcceleratorResult>("aws:globalaccelerator/getAccelerator:getAccelerator", args ?? new GetAcceleratorInvokeArgs(), options.WithDefaults());

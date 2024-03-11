@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,6 +22,7 @@ import * as utilities from "../utilities";
  *     computeEnvironmentName: "batch-mongo-production",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getComputeEnvironment(args: GetComputeEnvironmentArgs, opts?: pulumi.InvokeOptions): Promise<GetComputeEnvironmentResult> {
 
@@ -97,6 +99,7 @@ export interface GetComputeEnvironmentResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -105,6 +108,7 @@ export interface GetComputeEnvironmentResult {
  *     computeEnvironmentName: "batch-mongo-production",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getComputeEnvironmentOutput(args: GetComputeEnvironmentOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetComputeEnvironmentResult> {
     return pulumi.output(args).apply((a: any) => getComputeEnvironment(a, opts))

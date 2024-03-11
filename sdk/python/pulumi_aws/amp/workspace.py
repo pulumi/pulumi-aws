@@ -226,6 +226,7 @@ class Workspace(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -236,8 +237,11 @@ class Workspace(pulumi.CustomResource):
                 "Environment": "production",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### CloudWatch Logging
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -247,8 +251,11 @@ class Workspace(pulumi.CustomResource):
             log_group_arn=example.arn.apply(lambda arn: f"{arn}:*"),
         ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### AWS KMS Customer Managed Keys (CMK)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -260,13 +267,14 @@ class Workspace(pulumi.CustomResource):
             alias="example",
             kms_key_arn=example_key.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AMP Workspaces using the identifier. For example:
 
         ```sh
-         $ pulumi import aws:amp/workspace:Workspace demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
+        $ pulumi import aws:amp/workspace:Workspace demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
         ```
 
         :param str resource_name: The name of the resource.
@@ -287,6 +295,7 @@ class Workspace(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -297,8 +306,11 @@ class Workspace(pulumi.CustomResource):
                 "Environment": "production",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### CloudWatch Logging
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -308,8 +320,11 @@ class Workspace(pulumi.CustomResource):
             log_group_arn=example.arn.apply(lambda arn: f"{arn}:*"),
         ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### AWS KMS Customer Managed Keys (CMK)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -321,13 +336,14 @@ class Workspace(pulumi.CustomResource):
             alias="example",
             kms_key_arn=example_key.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AMP Workspaces using the identifier. For example:
 
         ```sh
-         $ pulumi import aws:amp/workspace:Workspace demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
+        $ pulumi import aws:amp/workspace:Workspace demo ws-C6DCB907-F2D7-4D96-957B-66691F865D8B
         ```
 
         :param str resource_name: The name of the resource.

@@ -517,6 +517,7 @@ class ReceiptRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -538,13 +539,14 @@ class ReceiptRule(pulumi.CustomResource):
                 position=2,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SES receipt rules using the ruleset name and rule name separated by `:`. For example:
 
         ```sh
-         $ pulumi import aws:ses/receiptRule:ReceiptRule my_rule my_rule_set:my_rule
+        $ pulumi import aws:ses/receiptRule:ReceiptRule my_rule my_rule_set:my_rule
         ```
 
         :param str resource_name: The name of the resource.
@@ -575,6 +577,7 @@ class ReceiptRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -596,13 +599,14 @@ class ReceiptRule(pulumi.CustomResource):
                 position=2,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SES receipt rules using the ruleset name and rule name separated by `:`. For example:
 
         ```sh
-         $ pulumi import aws:ses/receiptRule:ReceiptRule my_rule my_rule_set:my_rule
+        $ pulumi import aws:ses/receiptRule:ReceiptRule my_rule my_rule_set:my_rule
         ```
 
         :param str resource_name: The name of the resource.

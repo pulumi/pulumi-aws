@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides a load balancer policy, which can be attached to an ELB listener or backend server.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -124,6 +126,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:elb/loadBalancerPolicy:LoadBalancerPolicy")

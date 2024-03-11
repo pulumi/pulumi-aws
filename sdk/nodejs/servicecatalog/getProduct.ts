@@ -10,8 +10,10 @@ import * as utilities from "../utilities";
  * > **NOTE:** A "provisioning artifact" is also known as a "version," and a "distributor" is also known as a "vendor."
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,6 +22,7 @@ import * as utilities from "../utilities";
  *     id: "prod-dnigbtea24ste",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getProduct(args: GetProductArgs, opts?: pulumi.InvokeOptions): Promise<GetProductResult> {
 
@@ -116,8 +119,10 @@ export interface GetProductResult {
  * > **NOTE:** A "provisioning artifact" is also known as a "version," and a "distributor" is also known as a "vendor."
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -126,6 +131,7 @@ export interface GetProductResult {
  *     id: "prod-dnigbtea24ste",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getProductOutput(args: GetProductOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetProductResult> {
     return pulumi.output(args).apply((a: any) => getProduct(a, opts))

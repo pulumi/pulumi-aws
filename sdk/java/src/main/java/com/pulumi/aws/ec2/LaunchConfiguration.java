@@ -28,6 +28,8 @@ import javax.annotation.Nullable;
  * &gt; **Note** When using `aws.ec2.LaunchConfiguration` with `aws.autoscaling.Group`, it is recommended to use the `name_prefix` (Optional) instead of the `name` (Optional) attribute.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -74,6 +76,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Using with AutoScaling Groups
  * 
  * Launch Configurations cannot be updated after creation with the Amazon
@@ -83,6 +87,8 @@ import javax.annotation.Nullable;
  * it&#39;s recommended to specify `create_before_destroy` in a lifecycle block.
  * Either omit the Launch Configuration `name` attribute, or specify a partial name
  * with `name_prefix`.  Example:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -138,6 +144,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * With this setup this provider generates a unique name for your Launch
  * Configuration and can then update the AutoScaling Group without conflict before
@@ -151,6 +158,8 @@ import javax.annotation.Nullable;
  * reserve your instances at this price.  See the [AWS Spot Instance
  * documentation](https://docs.aws.amazon.com/AWSEC2/latest/UserGuide/using-spot-instances.html)
  * for more information or how to launch [Spot Instances][3] with this provider.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -204,6 +213,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Block devices
  * 
@@ -262,7 +272,7 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import launch configurations using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf pulumi-lg-123456
+ * $ pulumi import aws:ec2/launchConfiguration:LaunchConfiguration as_conf pulumi-lg-123456
  * ```
  * 
  */

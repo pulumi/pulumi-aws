@@ -11,6 +11,7 @@ import {PolicyDocument} from "./index";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -29,13 +30,14 @@ import {PolicyDocument} from "./index";
  *     }),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import IAM Policies using the `arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:iam/policy:Policy administrator arn:aws:iam::123456789012:policy/UsersManageOwnCredentials
+ * $ pulumi import aws:iam/policy:Policy administrator arn:aws:iam::123456789012:policy/UsersManageOwnCredentials
  * ```
  */
 export class Policy extends pulumi.CustomResource {

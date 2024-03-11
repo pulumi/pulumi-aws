@@ -1276,6 +1276,7 @@ class Instance(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1287,6 +1288,8 @@ class Instance(pulumi.CustomResource):
             os="Amazon Linux 2015.09",
             state="stopped")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Block devices
 
         Each of the `*_block_device` attributes controls a portion of the AWS
@@ -1336,7 +1339,7 @@ class Instance(pulumi.CustomResource):
         Using `pulumi import`, import Opsworks Instances using the instance `id`. For example:
 
         ```sh
-         $ pulumi import aws:opsworks/instance:Instance my_instance 4d6d1710-ded9-42a1-b08e-b043ad7af1e2
+        $ pulumi import aws:opsworks/instance:Instance my_instance 4d6d1710-ded9-42a1-b08e-b043ad7af1e2
         ```
 
         :param str resource_name: The name of the resource.
@@ -1385,6 +1388,7 @@ class Instance(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1396,6 +1400,8 @@ class Instance(pulumi.CustomResource):
             os="Amazon Linux 2015.09",
             state="stopped")
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Block devices
 
         Each of the `*_block_device` attributes controls a portion of the AWS
@@ -1445,7 +1451,7 @@ class Instance(pulumi.CustomResource):
         Using `pulumi import`, import Opsworks Instances using the instance `id`. For example:
 
         ```sh
-         $ pulumi import aws:opsworks/instance:Instance my_instance 4d6d1710-ded9-42a1-b08e-b043ad7af1e2
+        $ pulumi import aws:opsworks/instance:Instance my_instance 4d6d1710-ded9-42a1-b08e-b043ad7af1e2
         ```
 
         :param str resource_name: The name of the resource.

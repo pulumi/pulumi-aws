@@ -81,6 +81,7 @@ def get_security_group_rules(filters: Optional[Sequence[pulumi.InputType['GetSec
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -90,6 +91,7 @@ def get_security_group_rules(filters: Optional[Sequence[pulumi.InputType['GetSec
         values=[security_group_id],
     )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetSecurityGroupRulesFilterArgs']] filters: Custom filter block as described below.
@@ -121,6 +123,7 @@ def get_security_group_rules_output(filters: Optional[pulumi.Input[Optional[Sequ
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -130,6 +133,7 @@ def get_security_group_rules_output(filters: Optional[pulumi.Input[Optional[Sequ
         values=[security_group_id],
     )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetSecurityGroupRulesFilterArgs']] filters: Custom filter block as described below.

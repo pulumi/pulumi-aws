@@ -227,8 +227,10 @@ class DomainName(pulumi.CustomResource):
         a particular domain name. An API stage can be associated with the domain name using the `apigatewayv2.ApiMapping` resource.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -241,8 +243,11 @@ class DomainName(pulumi.CustomResource):
                 security_policy="TLS_1_2",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Associated Route 53 Resource Record
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -264,13 +269,14 @@ class DomainName(pulumi.CustomResource):
                 evaluate_target_health=False,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_apigatewayv2_domain_name` using the domain name. For example:
 
         ```sh
-         $ pulumi import aws:apigatewayv2/domainName:DomainName example ws-api.example.com
+        $ pulumi import aws:apigatewayv2/domainName:DomainName example ws-api.example.com
         ```
 
         :param str resource_name: The name of the resource.
@@ -294,8 +300,10 @@ class DomainName(pulumi.CustomResource):
         a particular domain name. An API stage can be associated with the domain name using the `apigatewayv2.ApiMapping` resource.
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -308,8 +316,11 @@ class DomainName(pulumi.CustomResource):
                 security_policy="TLS_1_2",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Associated Route 53 Resource Record
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -331,13 +342,14 @@ class DomainName(pulumi.CustomResource):
                 evaluate_target_health=False,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_apigatewayv2_domain_name` using the domain name. For example:
 
         ```sh
-         $ pulumi import aws:apigatewayv2/domainName:DomainName example ws-api.example.com
+        $ pulumi import aws:apigatewayv2/domainName:DomainName example ws-api.example.com
         ```
 
         :param str resource_name: The name of the resource.

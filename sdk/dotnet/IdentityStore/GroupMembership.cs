@@ -12,59 +12,12 @@ namespace Pulumi.Aws.IdentityStore
     /// <summary>
     /// Resource for managing an AWS IdentityStore Group Membership.
     /// 
-    /// ## Example Usage
-    /// 
-    /// ```csharp
-    /// using System.Collections.Generic;
-    /// using System.Linq;
-    /// using Pulumi;
-    /// using Aws = Pulumi.Aws;
-    /// 
-    /// 	
-    /// object NotImplemented(string errorMessage) 
-    /// {
-    ///     throw new System.NotImplementedException(errorMessage);
-    /// }
-    /// 
-    /// return await Deployment.RunAsync(() =&gt; 
-    /// {
-    ///     var example = Aws.SsoAdmin.GetInstances.Invoke();
-    /// 
-    ///     var exampleUser = new Aws.IdentityStore.User("example", new()
-    ///     {
-    ///         IdentityStoreId = NotImplemented("tolist(data.aws_ssoadmin_instances.example.identity_store_ids)")[0],
-    ///         DisplayName = "John Doe",
-    ///         UserName = "john.doe@example.com",
-    ///         Name = new Aws.IdentityStore.Inputs.UserNameArgs
-    ///         {
-    ///             FamilyName = "Doe",
-    ///             GivenName = "John",
-    ///         },
-    ///     });
-    /// 
-    ///     var exampleGroup = new Aws.IdentityStore.Group("example", new()
-    ///     {
-    ///         IdentityStoreId = NotImplemented("tolist(data.aws_ssoadmin_instances.example.identity_store_ids)")[0],
-    ///         DisplayName = "MyGroup",
-    ///         Description = "Some group name",
-    ///     });
-    /// 
-    ///     var exampleGroupMembership = new Aws.IdentityStore.GroupMembership("example", new()
-    ///     {
-    ///         IdentityStoreId = NotImplemented("tolist(data.aws_ssoadmin_instances.example.identity_store_ids)")[0],
-    ///         GroupId = exampleGroup.GroupId,
-    ///         MemberId = exampleUser.UserId,
-    ///     });
-    /// 
-    /// });
-    /// ```
-    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_identitystore_group_membership` using the `identity_store_id/membership_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:identitystore/groupMembership:GroupMembership example d-0000000000/00000000-0000-0000-0000-000000000000
+    /// $ pulumi import aws:identitystore/groupMembership:GroupMembership example d-0000000000/00000000-0000-0000-0000-000000000000
     /// ```
     /// </summary>
     [AwsResourceType("aws:identitystore/groupMembership:GroupMembership")]

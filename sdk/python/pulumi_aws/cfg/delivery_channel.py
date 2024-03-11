@@ -239,6 +239,7 @@ class DeliveryChannel(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -276,13 +277,14 @@ class DeliveryChannel(pulumi.CustomResource):
             role=r.id,
             policy=p.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Delivery Channel using the name. For example:
 
         ```sh
-         $ pulumi import aws:cfg/deliveryChannel:DeliveryChannel foo example
+        $ pulumi import aws:cfg/deliveryChannel:DeliveryChannel foo example
         ```
 
         :param str resource_name: The name of the resource.
@@ -307,6 +309,7 @@ class DeliveryChannel(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -344,13 +347,14 @@ class DeliveryChannel(pulumi.CustomResource):
             role=r.id,
             policy=p.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Delivery Channel using the name. For example:
 
         ```sh
-         $ pulumi import aws:cfg/deliveryChannel:DeliveryChannel foo example
+        $ pulumi import aws:cfg/deliveryChannel:DeliveryChannel foo example
         ```
 
         :param str resource_name: The name of the resource.

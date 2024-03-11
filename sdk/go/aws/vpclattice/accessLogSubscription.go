@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS VPC Lattice Service Network or Service Access log subscription.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,15 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import VPC Lattice Access Log Subscription using the access log subscription ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:vpclattice/accessLogSubscription:AccessLogSubscription example rft-8012925589
-//
+// $ pulumi import aws:vpclattice/accessLogSubscription:AccessLogSubscription example rft-8012925589
 // ```
 type AccessLogSubscription struct {
 	pulumi.CustomResourceState

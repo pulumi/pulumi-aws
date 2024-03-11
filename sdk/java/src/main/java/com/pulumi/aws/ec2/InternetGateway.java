@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides a resource to create a VPC Internet Gateway.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,13 +50,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Internet Gateways using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/internetGateway:InternetGateway gw igw-c0a643a9
+ * $ pulumi import aws:ec2/internetGateway:InternetGateway gw igw-c0a643a9
  * ```
  * 
  */
@@ -92,6 +95,8 @@ public class InternetGateway extends com.pulumi.resources.CustomResource {
      * A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      * &gt; **Note:** It&#39;s recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -123,6 +128,7 @@ public class InternetGateway extends com.pulumi.resources.CustomResource {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     @Export(name="tags", refs={Map.class,String.class}, tree="[0,1,1]")
@@ -132,6 +138,8 @@ public class InternetGateway extends com.pulumi.resources.CustomResource {
      * @return A map of tags to assign to the resource. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
      * &gt; **Note:** It&#39;s recommended to denote that the AWS Instance or Elastic IP depends on the Internet Gateway. For example:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -163,6 +171,7 @@ public class InternetGateway extends com.pulumi.resources.CustomResource {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public Output<Optional<Map<String,String>>> tags() {

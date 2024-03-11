@@ -13,8 +13,10 @@ namespace Pulumi.Aws.S3
     /// Provides an S3 object resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Uploading a file to a bucket
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -37,8 +39,11 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Encrypting with KMS Key
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -74,8 +79,11 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Server Side Encryption with S3 Default Master Key
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -105,8 +113,11 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Server Side Encryption with AWS-Managed Key
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -136,8 +147,11 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### S3 Object Lock
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -180,6 +194,7 @@ namespace Pulumi.Aws.S3
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -190,12 +205,12 @@ namespace Pulumi.Aws.S3
     /// Import using the `id`, which is the bucket name and the key together:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:s3/bucketObject:BucketObject example some-bucket-name/some/key.txt
+    /// $ pulumi import aws:s3/bucketObject:BucketObject example some-bucket-name/some/key.txt
     /// ```
-    ///  Import using S3 URL syntax:
+    /// Import using S3 URL syntax:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:s3/bucketObject:BucketObject example s3://some-bucket-name/some/key.txt
+    /// $ pulumi import aws:s3/bucketObject:BucketObject example s3://some-bucket-name/some/key.txt
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3/bucketObject:BucketObject")]

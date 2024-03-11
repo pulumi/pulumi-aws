@@ -561,8 +561,10 @@ class Eip(pulumi.CustomResource):
         > **Note:** Do not use `network_interface` to associate the EIP to `lb.LoadBalancer` or `ec2.NatGateway` resources. Instead use the `allocation_id` available in those resources to allow AWS to manage the association, otherwise you will see `AuthFailure` errors.
 
         ## Example Usage
+
         ### Single EIP associated with an instance
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -571,8 +573,11 @@ class Eip(pulumi.CustomResource):
             instance=web["id"],
             domain="vpc")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Multiple EIPs associated with a single network interface
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -592,8 +597,11 @@ class Eip(pulumi.CustomResource):
             network_interface=multi_ip.id,
             associate_with_private_ip="10.0.0.11")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Attaching an EIP to an Instance with a pre-assigned private ip (VPC Only)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -616,8 +624,11 @@ class Eip(pulumi.CustomResource):
             instance=foo.id,
             associate_with_private_ip="10.0.0.12")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Allocating EIP from the BYOIP pool
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -626,13 +637,14 @@ class Eip(pulumi.CustomResource):
             domain="vpc",
             public_ipv4_pool="ipv4pool-ec2-012345")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EIPs in a VPC using their Allocation ID. For example:
 
         ```sh
-         $ pulumi import aws:ec2/eip:Eip bar eipalloc-00a10e96
+        $ pulumi import aws:ec2/eip:Eip bar eipalloc-00a10e96
         ```
 
         :param str resource_name: The name of the resource.
@@ -669,8 +681,10 @@ class Eip(pulumi.CustomResource):
         > **Note:** Do not use `network_interface` to associate the EIP to `lb.LoadBalancer` or `ec2.NatGateway` resources. Instead use the `allocation_id` available in those resources to allow AWS to manage the association, otherwise you will see `AuthFailure` errors.
 
         ## Example Usage
+
         ### Single EIP associated with an instance
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -679,8 +693,11 @@ class Eip(pulumi.CustomResource):
             instance=web["id"],
             domain="vpc")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Multiple EIPs associated with a single network interface
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -700,8 +717,11 @@ class Eip(pulumi.CustomResource):
             network_interface=multi_ip.id,
             associate_with_private_ip="10.0.0.11")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Attaching an EIP to an Instance with a pre-assigned private ip (VPC Only)
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -724,8 +744,11 @@ class Eip(pulumi.CustomResource):
             instance=foo.id,
             associate_with_private_ip="10.0.0.12")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Allocating EIP from the BYOIP pool
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -734,13 +757,14 @@ class Eip(pulumi.CustomResource):
             domain="vpc",
             public_ipv4_pool="ipv4pool-ec2-012345")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EIPs in a VPC using their Allocation ID. For example:
 
         ```sh
-         $ pulumi import aws:ec2/eip:Eip bar eipalloc-00a10e96
+        $ pulumi import aws:ec2/eip:Eip bar eipalloc-00a10e96
         ```
 
         :param str resource_name: The name of the resource.

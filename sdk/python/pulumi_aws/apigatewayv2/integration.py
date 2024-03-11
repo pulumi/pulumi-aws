@@ -680,8 +680,10 @@ class Integration(pulumi.CustomResource):
         More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -690,8 +692,11 @@ class Integration(pulumi.CustomResource):
             api_id=example_aws_apigatewayv2_api["id"],
             integration_type="MOCK")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Lambda Integration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -712,8 +717,11 @@ class Integration(pulumi.CustomResource):
             integration_uri=example.invoke_arn,
             passthrough_behavior="WHEN_NO_MATCH")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### AWS Service Integration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -729,8 +737,11 @@ class Integration(pulumi.CustomResource):
                 "MessageBody": "$request.body.message",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Private Integration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -766,15 +777,16 @@ class Integration(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_apigatewayv2_integration` using the API identifier and integration identifier. For example:
 
         ```sh
-         $ pulumi import aws:apigatewayv2/integration:Integration example aabbccddee/1122334
+        $ pulumi import aws:apigatewayv2/integration:Integration example aabbccddee/1122334
         ```
-         -> __Note:__ The API Gateway managed integration created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
+        -> __Note:__ The API Gateway managed integration created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -816,8 +828,10 @@ class Integration(pulumi.CustomResource):
         More information can be found in the [Amazon API Gateway Developer Guide](https://docs.aws.amazon.com/apigateway/latest/developerguide/apigateway-websocket-api.html).
 
         ## Example Usage
+
         ### Basic
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -826,8 +840,11 @@ class Integration(pulumi.CustomResource):
             api_id=example_aws_apigatewayv2_api["id"],
             integration_type="MOCK")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Lambda Integration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -848,8 +865,11 @@ class Integration(pulumi.CustomResource):
             integration_uri=example.invoke_arn,
             passthrough_behavior="WHEN_NO_MATCH")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### AWS Service Integration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -865,8 +885,11 @@ class Integration(pulumi.CustomResource):
                 "MessageBody": "$request.body.message",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Private Integration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -902,15 +925,16 @@ class Integration(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_apigatewayv2_integration` using the API identifier and integration identifier. For example:
 
         ```sh
-         $ pulumi import aws:apigatewayv2/integration:Integration example aabbccddee/1122334
+        $ pulumi import aws:apigatewayv2/integration:Integration example aabbccddee/1122334
         ```
-         -> __Note:__ The API Gateway managed integration created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
+        -> __Note:__ The API Gateway managed integration created as part of [_quick_create_](https://docs.aws.amazon.com/apigateway/latest/developerguide/api-gateway-basic-concept.html#apigateway-definition-quick-create) cannot be imported.
 
         :param str resource_name: The name of the resource.
         :param IntegrationArgs args: The arguments to use to populate this resource's properties.

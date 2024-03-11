@@ -9,19 +9,21 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const demo = new aws.apigateway.ClientCertificate("demo", {description: "My client certificate"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import API Gateway Client Certificates using the id. For example:
  *
  * ```sh
- *  $ pulumi import aws:apigateway/clientCertificate:ClientCertificate demo ab1cqe
+ * $ pulumi import aws:apigateway/clientCertificate:ClientCertificate demo ab1cqe
  * ```
  */
 export class ClientCertificate extends pulumi.CustomResource {

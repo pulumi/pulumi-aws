@@ -15,8 +15,10 @@ namespace Pulumi.Aws.Transcribe
     /// &gt; This resource can take a significant amount of time to provision. See Language Model [FAQ](https://aws.amazon.com/transcribe/faqs/) for more details.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -114,13 +116,14 @@ namespace Pulumi.Aws.Transcribe
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Transcribe LanguageModel using the `model_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:transcribe/languageModel:LanguageModel example example-name
+    /// $ pulumi import aws:transcribe/languageModel:LanguageModel example example-name
     /// ```
     /// </summary>
     [AwsResourceType("aws:transcribe/languageModel:LanguageModel")]

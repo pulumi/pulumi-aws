@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
  * > **Note:** Api Key argument will be stored in the raw state as plain-text.
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,13 +21,14 @@ import * as utilities from "../utilities";
  *     apiKey: "api_key",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Pinpoint GCM Channel using the `application-id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:pinpoint/gcmChannel:GcmChannel gcm application-id
+ * $ pulumi import aws:pinpoint/gcmChannel:GcmChannel gcm application-id
  * ```
  */
 export class GcmChannel extends pulumi.CustomResource {

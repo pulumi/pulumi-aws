@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -57,15 +58,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Security Hub invite acceptance using the account ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:securityhub/inviteAccepter:InviteAccepter example 123456789012
-//
+// $ pulumi import aws:securityhub/inviteAccepter:InviteAccepter example 123456789012
 // ```
 type InviteAccepter struct {
 	pulumi.CustomResourceState

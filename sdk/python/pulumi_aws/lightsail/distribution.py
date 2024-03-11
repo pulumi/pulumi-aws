@@ -552,10 +552,12 @@ class Distribution(pulumi.CustomResource):
         Resource for managing an AWS Lightsail Distribution.
 
         ## Example Usage
+
         ### Basic Usage
 
         Below is a basic example with a bucket as an origin.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -590,10 +592,13 @@ class Distribution(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### instance origin example
 
         Below is an example of an instance as the origin.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -623,10 +628,13 @@ class Distribution(pulumi.CustomResource):
                 behavior="cache",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### lb origin example
 
         Below is an example with a load balancer as an origin
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -662,13 +670,14 @@ class Distribution(pulumi.CustomResource):
                 behavior="cache",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Lightsail Distribution using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:lightsail/distribution:Distribution example rft-8012925589
+        $ pulumi import aws:lightsail/distribution:Distribution example rft-8012925589
         ```
 
         :param str resource_name: The name of the resource.
@@ -699,10 +708,12 @@ class Distribution(pulumi.CustomResource):
         Resource for managing an AWS Lightsail Distribution.
 
         ## Example Usage
+
         ### Basic Usage
 
         Below is a basic example with a bucket as an origin.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -737,10 +748,13 @@ class Distribution(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### instance origin example
 
         Below is an example of an instance as the origin.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -770,10 +784,13 @@ class Distribution(pulumi.CustomResource):
                 behavior="cache",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### lb origin example
 
         Below is an example with a load balancer as an origin
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -809,13 +826,14 @@ class Distribution(pulumi.CustomResource):
                 behavior="cache",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Lightsail Distribution using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:lightsail/distribution:Distribution example rft-8012925589
+        $ pulumi import aws:lightsail/distribution:Distribution example rft-8012925589
         ```
 
         :param str resource_name: The name of the resource.

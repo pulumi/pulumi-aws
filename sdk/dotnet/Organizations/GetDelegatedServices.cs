@@ -14,10 +14,9 @@ namespace Pulumi.Aws.Organizations
         /// <summary>
         /// Get a list the AWS services for which the specified account is a delegated administrator
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,8 +32,7 @@ namespace Pulumi.Aws.Organizations
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetDelegatedServicesResult> InvokeAsync(GetDelegatedServicesArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetDelegatedServicesResult>("aws:organizations/getDelegatedServices:getDelegatedServices", args ?? new GetDelegatedServicesArgs(), options.WithDefaults());
@@ -42,10 +40,9 @@ namespace Pulumi.Aws.Organizations
         /// <summary>
         /// Get a list the AWS services for which the specified account is a delegated administrator
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,8 +58,7 @@ namespace Pulumi.Aws.Organizations
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetDelegatedServicesResult> Invoke(GetDelegatedServicesInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetDelegatedServicesResult>("aws:organizations/getDelegatedServices:getDelegatedServices", args ?? new GetDelegatedServicesInvokeArgs(), options.WithDefaults());

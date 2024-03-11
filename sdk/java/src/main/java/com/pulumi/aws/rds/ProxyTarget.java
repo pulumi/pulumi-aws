@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides an RDS DB proxy target resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -87,6 +89,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
@@ -97,12 +100,12 @@ import javax.annotation.Nullable;
  * Instances:
  * 
  * ```sh
- *  $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/RDS_INSTANCE/example-instance
+ * $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/RDS_INSTANCE/example-instance
  * ```
- *  Provisioned Clusters:
+ * Provisioned Clusters:
  * 
  * ```sh
- *  $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/TRACKED_CLUSTER/example-cluster
+ * $ pulumi import aws:rds/proxyTarget:ProxyTarget example example-proxy/default/TRACKED_CLUSTER/example-cluster
  * ```
  * 
  */

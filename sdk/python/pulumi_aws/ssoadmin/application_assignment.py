@@ -133,8 +133,10 @@ class ApplicationAssignment(pulumi.CustomResource):
         Resource for managing an AWS SSO Admin Application Assignment.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -144,8 +146,11 @@ class ApplicationAssignment(pulumi.CustomResource):
             principal_id=example_aws_identitystore_user["userId"],
             principal_type="USER")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Group Type
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -155,13 +160,14 @@ class ApplicationAssignment(pulumi.CustomResource):
             principal_id=example_aws_identitystore_group["groupId"],
             principal_type="GROUP")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SSO Admin Application Assignment using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ssoadmin/applicationAssignment:ApplicationAssignment example arn:aws:sso::012345678901:application/id-12345678,abcd1234,USER
+        $ pulumi import aws:ssoadmin/applicationAssignment:ApplicationAssignment example arn:aws:sso::012345678901:application/id-12345678,abcd1234,USER
         ```
 
         :param str resource_name: The name of the resource.
@@ -180,8 +186,10 @@ class ApplicationAssignment(pulumi.CustomResource):
         Resource for managing an AWS SSO Admin Application Assignment.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -191,8 +199,11 @@ class ApplicationAssignment(pulumi.CustomResource):
             principal_id=example_aws_identitystore_user["userId"],
             principal_type="USER")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Group Type
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -202,13 +213,14 @@ class ApplicationAssignment(pulumi.CustomResource):
             principal_id=example_aws_identitystore_group["groupId"],
             principal_type="GROUP")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SSO Admin Application Assignment using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ssoadmin/applicationAssignment:ApplicationAssignment example arn:aws:sso::012345678901:application/id-12345678,abcd1234,USER
+        $ pulumi import aws:ssoadmin/applicationAssignment:ApplicationAssignment example arn:aws:sso::012345678901:application/id-12345678,abcd1234,USER
         ```
 
         :param str resource_name: The name of the resource.

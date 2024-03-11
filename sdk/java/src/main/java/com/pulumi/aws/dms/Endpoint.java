@@ -32,6 +32,8 @@ import javax.annotation.Nullable;
  * &gt; **Note:** All arguments including the password will be stored in the raw state as plain-text. &gt; **Note:** The `s3_settings` argument is deprecated, may not be maintained, and will be removed in a future version. Use the `aws.dms.S3Endpoint` resource instead.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -72,13 +74,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import endpoints using the `endpoint_id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:dms/endpoint:Endpoint test test-dms-endpoint-tf
+ * $ pulumi import aws:dms/endpoint:Endpoint test test-dms-endpoint-tf
  * ```
  * 
  */

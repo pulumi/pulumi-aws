@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Chime
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,13 +32,14 @@ namespace Pulumi.Aws.Chime
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Configuration Recorder using the name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:chime/voiceConnector:VoiceConnector test example
+    /// $ pulumi import aws:chime/voiceConnector:VoiceConnector test example
     /// ```
     /// </summary>
     [AwsResourceType("aws:chime/voiceConnector:VoiceConnector")]

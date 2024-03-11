@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,8 +22,11 @@ import * as utilities from "../utilities";
  *     resourceOwner: "SELF",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Search by filters
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -36,6 +40,7 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getResourceShare(args: GetResourceShareArgs, opts?: pulumi.InvokeOptions): Promise<GetResourceShareResult> {
 
@@ -113,6 +118,7 @@ export interface GetResourceShareResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -122,8 +128,11 @@ export interface GetResourceShareResult {
  *     resourceOwner: "SELF",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Search by filters
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -137,6 +146,7 @@ export interface GetResourceShareResult {
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getResourceShareOutput(args: GetResourceShareOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetResourceShareResult> {
     return pulumi.output(args).apply((a: any) => getResourceShare(a, opts))

@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Provides a CloudWatch Metric Stream resource.
  *
  * ## Example Usage
+ *
  * ### Filters
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -114,8 +116,11 @@ import * as utilities from "../utilities";
  *     policy: firehoseToS3.apply(firehoseToS3 => firehoseToS3.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Additional Statistics
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -146,13 +151,14 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import CloudWatch metric streams using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudwatch/metricStream:MetricStream sample sample-stream-name
+ * $ pulumi import aws:cloudwatch/metricStream:MetricStream sample sample-stream-name
  * ```
  */
 export class MetricStream extends pulumi.CustomResource {

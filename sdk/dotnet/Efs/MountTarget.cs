@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Efs
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -42,13 +43,14 @@ namespace Pulumi.Aws.Efs
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import the EFS mount targets using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:efs/mountTarget:MountTarget alpha fsmt-52a643fb
+    /// $ pulumi import aws:efs/mountTarget:MountTarget alpha fsmt-52a643fb
     /// ```
     /// </summary>
     [AwsResourceType("aws:efs/mountTarget:MountTarget")]

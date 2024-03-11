@@ -17,6 +17,7 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -34,8 +35,11 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Bitbucket Server Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -54,13 +58,14 @@ namespace Pulumi.Aws.CodeBuild
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CodeBuild Source Credential using the CodeBuild Source Credential arn. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:codebuild/sourceCredential:SourceCredential example arn:aws:codebuild:us-west-2:123456789:token:github
+    /// $ pulumi import aws:codebuild/sourceCredential:SourceCredential example arn:aws:codebuild:us-west-2:123456789:token:github
     /// ```
     /// </summary>
     [AwsResourceType("aws:codebuild/sourceCredential:SourceCredential")]

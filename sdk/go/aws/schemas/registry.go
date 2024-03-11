@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,15 +42,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import EventBridge schema registries using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:schemas/registry:Registry test my_own_registry
-//
+// $ pulumi import aws:schemas/registry:Registry test my_own_registry
 // ```
 type Registry struct {
 	pulumi.CustomResourceState

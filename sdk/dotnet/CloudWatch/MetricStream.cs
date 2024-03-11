@@ -13,8 +13,10 @@ namespace Pulumi.Aws.CloudWatch
     /// Provides a CloudWatch Metric Stream resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Filters
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -196,8 +198,11 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Additional Statistics
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -250,13 +255,14 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CloudWatch metric streams using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cloudwatch/metricStream:MetricStream sample sample-stream-name
+    /// $ pulumi import aws:cloudwatch/metricStream:MetricStream sample sample-stream-name
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/metricStream:MetricStream")]

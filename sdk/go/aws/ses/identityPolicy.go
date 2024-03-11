@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -71,15 +72,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SES Identity Policies using the identity and policy name, separated by a pipe character (`|`). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ses/identityPolicy:IdentityPolicy example 'example.com|example'
-//
+// $ pulumi import aws:ses/identityPolicy:IdentityPolicy example 'example.com|example'
 // ```
 type IdentityPolicy struct {
 	pulumi.CustomResourceState

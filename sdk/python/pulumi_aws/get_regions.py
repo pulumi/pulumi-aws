@@ -87,24 +87,29 @@ def get_regions(all_regions: Optional[bool] = None,
 
     Enabled AWS Regions:
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     current = aws.get_regions()
     ```
+    <!--End PulumiCodeChooser -->
 
     All the regions regardless of the availability
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     current = aws.get_regions(all_regions=True)
     ```
+    <!--End PulumiCodeChooser -->
 
     To see regions that are filtered by `"not-opted-in"`, the `all_regions` argument needs to be set to `true` or no results will be returned.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -115,6 +120,7 @@ def get_regions(all_regions: Optional[bool] = None,
             values=["not-opted-in"],
         )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool all_regions: If true the source will query all regions regardless of availability.
@@ -147,24 +153,29 @@ def get_regions_output(all_regions: Optional[pulumi.Input[Optional[bool]]] = Non
 
     Enabled AWS Regions:
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     current = aws.get_regions()
     ```
+    <!--End PulumiCodeChooser -->
 
     All the regions regardless of the availability
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     current = aws.get_regions(all_regions=True)
     ```
+    <!--End PulumiCodeChooser -->
 
     To see regions that are filtered by `"not-opted-in"`, the `all_regions` argument needs to be set to `true` or no results will be returned.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -175,6 +186,7 @@ def get_regions_output(all_regions: Optional[pulumi.Input[Optional[bool]]] = Non
             values=["not-opted-in"],
         )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param bool all_regions: If true the source will query all regions regardless of availability.

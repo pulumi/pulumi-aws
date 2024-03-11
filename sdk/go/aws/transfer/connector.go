@@ -15,8 +15,10 @@ import (
 // Provides a AWS Transfer AS2 Connector resource.
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -51,8 +53,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### SFTP Connector
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -83,15 +88,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Transfer AS2 Connector using the `connector_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:transfer/connector:Connector example c-4221a88afd5f4362a
-//
+// $ pulumi import aws:transfer/connector:Connector example c-4221a88afd5f4362a
 // ```
 type Connector struct {
 	pulumi.CustomResourceState

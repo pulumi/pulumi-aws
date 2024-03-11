@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS IVS (Interactive Video) Recording Configuration.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,15 +47,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import IVS (Interactive Video) Recording Configuration using the ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ivs/recordingConfiguration:RecordingConfiguration example arn:aws:ivs:us-west-2:326937407773:recording-configuration/KAk1sHBl2L47
-//
+// $ pulumi import aws:ivs/recordingConfiguration:RecordingConfiguration example arn:aws:ivs:us-west-2:326937407773:recording-configuration/KAk1sHBl2L47
 // ```
 type RecordingConfiguration struct {
 	pulumi.CustomResourceState

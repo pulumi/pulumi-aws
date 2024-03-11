@@ -185,8 +185,10 @@ class ResourceServer(pulumi.CustomResource):
         Provides a Cognito Resource Server.
 
         ## Example Usage
+
         ### Create a basic resource server
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -197,8 +199,11 @@ class ResourceServer(pulumi.CustomResource):
             name="example",
             user_pool_id=pool.id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Create a resource server with sample-scope
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -213,13 +218,14 @@ class ResourceServer(pulumi.CustomResource):
             )],
             user_pool_id=pool.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_cognito_resource_server` using their User Pool ID and Identifier. For example:
 
         ```sh
-         $ pulumi import aws:cognito/resourceServer:ResourceServer example "us-west-2_abc123|https://example.com"
+        $ pulumi import aws:cognito/resourceServer:ResourceServer example "us-west-2_abc123|https://example.com"
         ```
 
         :param str resource_name: The name of the resource.
@@ -239,8 +245,10 @@ class ResourceServer(pulumi.CustomResource):
         Provides a Cognito Resource Server.
 
         ## Example Usage
+
         ### Create a basic resource server
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -251,8 +259,11 @@ class ResourceServer(pulumi.CustomResource):
             name="example",
             user_pool_id=pool.id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Create a resource server with sample-scope
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -267,13 +278,14 @@ class ResourceServer(pulumi.CustomResource):
             )],
             user_pool_id=pool.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_cognito_resource_server` using their User Pool ID and Identifier. For example:
 
         ```sh
-         $ pulumi import aws:cognito/resourceServer:ResourceServer example "us-west-2_abc123|https://example.com"
+        $ pulumi import aws:cognito/resourceServer:ResourceServer example "us-west-2_abc123|https://example.com"
         ```
 
         :param str resource_name: The name of the resource.

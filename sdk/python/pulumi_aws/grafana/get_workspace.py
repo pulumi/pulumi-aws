@@ -285,14 +285,17 @@ def get_workspace(tags: Optional[Mapping[str, str]] = None,
     Provides an Amazon Managed Grafana workspace data source.
 
     ## Example Usage
+
     ### Basic configuration
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.grafana.get_workspace(workspace_id="g-2054c75a02")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Mapping[str, str] tags: Tags assigned to the resource
@@ -336,14 +339,17 @@ def get_workspace_output(tags: Optional[pulumi.Input[Optional[Mapping[str, str]]
     Provides an Amazon Managed Grafana workspace data source.
 
     ## Example Usage
+
     ### Basic configuration
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.grafana.get_workspace(workspace_id="g-2054c75a02")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Mapping[str, str] tags: Tags assigned to the resource

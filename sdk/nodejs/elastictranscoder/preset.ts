@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -72,13 +73,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Elastic Transcoder presets using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:elastictranscoder/preset:Preset basic_preset 1407981661351-cttk8b
+ * $ pulumi import aws:elastictranscoder/preset:Preset basic_preset 1407981661351-cttk8b
  * ```
  */
 export class Preset extends pulumi.CustomResource {

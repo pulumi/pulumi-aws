@@ -135,6 +135,7 @@ class NetworkAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -143,13 +144,14 @@ class NetworkAssociation(pulumi.CustomResource):
             client_vpn_endpoint_id=example_aws_ec2_client_vpn_endpoint["id"],
             subnet_id=example_aws_subnet["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AWS Client VPN network associations using the endpoint ID and the association ID. Values are separated by a `,`. For example:
 
         ```sh
-         $ pulumi import aws:ec2clientvpn/networkAssociation:NetworkAssociation example cvpn-endpoint-0ac3a1abbccddd666,cvpn-assoc-0b8db902465d069ad
+        $ pulumi import aws:ec2clientvpn/networkAssociation:NetworkAssociation example cvpn-endpoint-0ac3a1abbccddd666,cvpn-assoc-0b8db902465d069ad
         ```
 
         :param str resource_name: The name of the resource.
@@ -169,6 +171,7 @@ class NetworkAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -177,13 +180,14 @@ class NetworkAssociation(pulumi.CustomResource):
             client_vpn_endpoint_id=example_aws_ec2_client_vpn_endpoint["id"],
             subnet_id=example_aws_subnet["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AWS Client VPN network associations using the endpoint ID and the association ID. Values are separated by a `,`. For example:
 
         ```sh
-         $ pulumi import aws:ec2clientvpn/networkAssociation:NetworkAssociation example cvpn-endpoint-0ac3a1abbccddd666,cvpn-assoc-0b8db902465d069ad
+        $ pulumi import aws:ec2clientvpn/networkAssociation:NetworkAssociation example cvpn-endpoint-0ac3a1abbccddd666,cvpn-assoc-0b8db902465d069ad
         ```
 
         :param str resource_name: The name of the resource.

@@ -17,8 +17,10 @@ import (
 // ## Example Usage
 //
 // A MWAA Environment requires an IAM role (`iam.Role`), two subnets in the private zone (`ec2.Subnet`) and a versioned S3 bucket (`s3.BucketV2`).
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,8 +51,11 @@ import (
 // })
 // }
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example with Airflow configuration options
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -85,10 +90,13 @@ import (
 // })
 // }
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example with logging configurations
 //
 // Note that Airflow task logs are enabled by default with the `INFO` log level.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -141,8 +149,11 @@ import (
 // })
 // }
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example with tags
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -177,15 +188,14 @@ import (
 // })
 // }
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import MWAA Environment using `Name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:mwaa/environment:Environment example MyAirflowEnvironment
-//
+// $ pulumi import aws:mwaa/environment:Environment example MyAirflowEnvironment
 // ```
 type Environment struct {
 	pulumi.CustomResourceState

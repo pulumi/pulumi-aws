@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -62,15 +63,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import DB proxies using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:rds/proxy:Proxy example example
-//
+// $ pulumi import aws:rds/proxy:Proxy example example
 // ```
 type Proxy struct {
 	pulumi.CustomResourceState

@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,15 +42,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import IAM Groups using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:iam/group:Group developers developers
-//
+// $ pulumi import aws:iam/group:Group developers developers
 // ```
 type Group struct {
 	pulumi.CustomResourceState

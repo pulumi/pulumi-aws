@@ -441,8 +441,10 @@ class Analysis(pulumi.CustomResource):
         Resource for managing a QuickSight Analysis.
 
         ## Example Usage
+
         ### From Source Template
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -460,13 +462,14 @@ class Analysis(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a QuickSight Analysis using the AWS account ID and analysis ID separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:quicksight/analysis:Analysis example 123456789012,example-id
+        $ pulumi import aws:quicksight/analysis:Analysis example 123456789012,example-id
         ```
 
         :param str resource_name: The name of the resource.
@@ -493,8 +496,10 @@ class Analysis(pulumi.CustomResource):
         Resource for managing a QuickSight Analysis.
 
         ## Example Usage
+
         ### From Source Template
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -512,13 +517,14 @@ class Analysis(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a QuickSight Analysis using the AWS account ID and analysis ID separated by a comma (`,`). For example:
 
         ```sh
-         $ pulumi import aws:quicksight/analysis:Analysis example 123456789012,example-id
+        $ pulumi import aws:quicksight/analysis:Analysis example 123456789012,example-id
         ```
 
         :param str resource_name: The name of the resource.

@@ -11,6 +11,7 @@ import {RestApi} from "./index";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -29,13 +30,14 @@ import {RestApi} from "./index";
  *     }),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_api_gateway_model` using `REST-API-ID/NAME`. For example:
  *
  * ```sh
- *  $ pulumi import aws:apigateway/model:Model example 12345abcde/example
+ * $ pulumi import aws:apigateway/model:Model example 12345abcde/example
  * ```
  */
 export class Model extends pulumi.CustomResource {

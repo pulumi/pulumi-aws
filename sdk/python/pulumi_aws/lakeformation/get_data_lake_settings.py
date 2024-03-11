@@ -157,12 +157,14 @@ def get_data_lake_settings(catalog_id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.lakeformation.get_data_lake_settings(catalog_id="14916253649")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str catalog_id: Identifier for the Data Catalog. By default, the account ID.
@@ -193,12 +195,14 @@ def get_data_lake_settings_output(catalog_id: Optional[pulumi.Input[Optional[str
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.lakeformation.get_data_lake_settings(catalog_id="14916253649")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str catalog_id: Identifier for the Data Catalog. By default, the account ID.

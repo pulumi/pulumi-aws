@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// Get information on EC2 Transit Gateway Attachments.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### By Filter
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -54,8 +54,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetAttachmentsResult> InvokeAsync(GetAttachmentsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetAttachmentsResult>("aws:ec2transitgateway/getAttachments:getAttachments", args ?? new GetAttachmentsArgs(), options.WithDefaults());
@@ -63,11 +62,11 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// <summary>
         /// Get information on EC2 Transit Gateway Attachments.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### By Filter
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -103,8 +102,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetAttachmentsResult> Invoke(GetAttachmentsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetAttachmentsResult>("aws:ec2transitgateway/getAttachments:getAttachments", args ?? new GetAttachmentsInvokeArgs(), options.WithDefaults());

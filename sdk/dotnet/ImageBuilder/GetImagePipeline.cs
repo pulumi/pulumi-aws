@@ -14,10 +14,9 @@ namespace Pulumi.Aws.ImageBuilder
         /// <summary>
         /// Provides details about an Image Builder Image Pipeline.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,8 +32,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetImagePipelineResult> InvokeAsync(GetImagePipelineArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetImagePipelineResult>("aws:imagebuilder/getImagePipeline:getImagePipeline", args ?? new GetImagePipelineArgs(), options.WithDefaults());
@@ -42,10 +40,9 @@ namespace Pulumi.Aws.ImageBuilder
         /// <summary>
         /// Provides details about an Image Builder Image Pipeline.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,8 +58,7 @@ namespace Pulumi.Aws.ImageBuilder
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetImagePipelineResult> Invoke(GetImagePipelineInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetImagePipelineResult>("aws:imagebuilder/getImagePipeline:getImagePipeline", args ?? new GetImagePipelineInvokeArgs(), options.WithDefaults());

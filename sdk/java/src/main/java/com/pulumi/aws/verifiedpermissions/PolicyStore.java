@@ -17,7 +17,10 @@ import javax.annotation.Nullable;
 
 /**
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,14 +52,15 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Verified Permissions Policy Store using the `policy_store_id`. For example:
  * 
- *  console
+ * console
  * 
- * % pulumi import aws_verifiedpermissions_policy_store.example DxQg2j8xvXJQ1tQCYNWj9T
+ *  %!p(MISSING)ulumi import aws_verifiedpermissions_policy_store.example DxQg2j8xvXJQ1tQCYNWj9T
  * 
  */
 @ResourceType(type="aws:verifiedpermissions/policyStore:PolicyStore")

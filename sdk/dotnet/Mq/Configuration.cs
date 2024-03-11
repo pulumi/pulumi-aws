@@ -15,8 +15,10 @@ namespace Pulumi.Aws.Mq
     /// For more information on Amazon MQ, see [Amazon MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/welcome.html).
     /// 
     /// ## Example Usage
+    /// 
     /// ### ActiveMQ
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -44,8 +46,11 @@ namespace Pulumi.Aws.Mq
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### RabbitMQ
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -67,13 +72,14 @@ namespace Pulumi.Aws.Mq
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import MQ Configurations using the configuration ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:mq/configuration:Configuration example c-0187d1eb-88c8-475a-9b79-16ef5a10c94f
+    /// $ pulumi import aws:mq/configuration:Configuration example c-0187d1eb-88c8-475a-9b79-16ef5a10c94f
     /// ```
     /// </summary>
     [AwsResourceType("aws:mq/configuration:Configuration")]

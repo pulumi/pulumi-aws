@@ -18,7 +18,10 @@ public final class PollyFunctions {
      * Data source for managing an AWS Polly Voices.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -45,7 +48,11 @@ public final class PollyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### With Language Code
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -74,6 +81,7 @@ public final class PollyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVoicesResult> getVoices() {
@@ -83,7 +91,10 @@ public final class PollyFunctions {
      * Data source for managing an AWS Polly Voices.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -110,7 +121,11 @@ public final class PollyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### With Language Code
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -139,6 +154,7 @@ public final class PollyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVoicesResult> getVoicesPlain() {
@@ -148,7 +164,10 @@ public final class PollyFunctions {
      * Data source for managing an AWS Polly Voices.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -175,7 +194,11 @@ public final class PollyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### With Language Code
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -204,6 +227,7 @@ public final class PollyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVoicesResult> getVoices(GetVoicesArgs args) {
@@ -213,7 +237,10 @@ public final class PollyFunctions {
      * Data source for managing an AWS Polly Voices.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -240,7 +267,11 @@ public final class PollyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### With Language Code
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -269,6 +300,7 @@ public final class PollyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVoicesResult> getVoicesPlain(GetVoicesPlainArgs args) {
@@ -278,7 +310,10 @@ public final class PollyFunctions {
      * Data source for managing an AWS Polly Voices.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -305,7 +340,11 @@ public final class PollyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### With Language Code
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -334,6 +373,7 @@ public final class PollyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetVoicesResult> getVoices(GetVoicesArgs args, InvokeOptions options) {
@@ -343,7 +383,10 @@ public final class PollyFunctions {
      * Data source for managing an AWS Polly Voices.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -370,7 +413,11 @@ public final class PollyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### With Language Code
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -399,6 +446,7 @@ public final class PollyFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetVoicesResult> getVoicesPlain(GetVoicesPlainArgs args, InvokeOptions options) {

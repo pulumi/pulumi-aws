@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,13 +22,14 @@ import * as utilities from "../utilities";
  *     targetKeyId: a.keyId,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import KMS aliases using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:kms/alias:Alias a alias/my-key-alias
+ * $ pulumi import aws:kms/alias:Alias a alias/my-key-alias
  * ```
  */
 export class Alias extends pulumi.CustomResource {

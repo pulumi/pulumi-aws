@@ -15,8 +15,10 @@ import (
 // A SIP rule associates your SIP media application with a phone number or a Request URI hostname. You can associate a SIP rule with more than one SIP media application. Each application then runs only that rule.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,15 +51,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import a ChimeSDKVoice SIP Rule using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:chime/sdkvoiceSipRule:SdkvoiceSipRule example abcdef123456
-//
+// $ pulumi import aws:chime/sdkvoiceSipRule:SdkvoiceSipRule example abcdef123456
 // ```
 type SdkvoiceSipRule struct {
 	pulumi.CustomResourceState

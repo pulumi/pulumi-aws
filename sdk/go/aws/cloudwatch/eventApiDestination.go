@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -46,15 +47,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import EventBridge API Destinations using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cloudwatch/eventApiDestination:EventApiDestination test api-destination
-//
+// $ pulumi import aws:cloudwatch/eventApiDestination:EventApiDestination test api-destination
 // ```
 type EventApiDestination struct {
 	pulumi.CustomResourceState

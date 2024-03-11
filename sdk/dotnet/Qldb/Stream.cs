@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Qldb
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -41,6 +42,7 @@ namespace Pulumi.Aws.Qldb
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:qldb/stream:Stream")]
     public partial class Stream : global::Pulumi.CustomResource

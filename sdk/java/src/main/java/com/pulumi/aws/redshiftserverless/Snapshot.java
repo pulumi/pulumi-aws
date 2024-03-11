@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Creates a new Amazon Redshift Serverless Snapshot.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,13 +51,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Redshift Serverless Snapshots using the `snapshot_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:redshiftserverless/snapshot:Snapshot example example
+ * $ pulumi import aws:redshiftserverless/snapshot:Snapshot example example
  * ```
  * 
  */

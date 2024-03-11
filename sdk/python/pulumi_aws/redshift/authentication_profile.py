@@ -102,6 +102,7 @@ class AuthenticationProfile(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -115,13 +116,14 @@ class AuthenticationProfile(pulumi.CustomResource):
                 "appID": "example",
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Authentication by `authentication_profile_name`. For example:
 
         ```sh
-         $ pulumi import aws:redshift/authenticationProfile:AuthenticationProfile test example
+        $ pulumi import aws:redshift/authenticationProfile:AuthenticationProfile test example
         ```
 
         :param str resource_name: The name of the resource.
@@ -140,6 +142,7 @@ class AuthenticationProfile(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -153,13 +156,14 @@ class AuthenticationProfile(pulumi.CustomResource):
                 "appID": "example",
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Authentication by `authentication_profile_name`. For example:
 
         ```sh
-         $ pulumi import aws:redshift/authenticationProfile:AuthenticationProfile test example
+        $ pulumi import aws:redshift/authenticationProfile:AuthenticationProfile test example
         ```
 
         :param str resource_name: The name of the resource.

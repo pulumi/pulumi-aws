@@ -39,6 +39,8 @@ public final class S3Functions {
      * The S3 account public access block data source returns account-level public access block configuration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -65,6 +67,7 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAccountPublicAccessBlockResult> getAccountPublicAccessBlock() {
@@ -74,6 +77,8 @@ public final class S3Functions {
      * The S3 account public access block data source returns account-level public access block configuration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -100,6 +105,7 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAccountPublicAccessBlockResult> getAccountPublicAccessBlockPlain() {
@@ -109,6 +115,8 @@ public final class S3Functions {
      * The S3 account public access block data source returns account-level public access block configuration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -135,6 +143,7 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAccountPublicAccessBlockResult> getAccountPublicAccessBlock(GetAccountPublicAccessBlockArgs args) {
@@ -144,6 +153,8 @@ public final class S3Functions {
      * The S3 account public access block data source returns account-level public access block configuration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -170,6 +181,7 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAccountPublicAccessBlockResult> getAccountPublicAccessBlockPlain(GetAccountPublicAccessBlockPlainArgs args) {
@@ -179,6 +191,8 @@ public final class S3Functions {
      * The S3 account public access block data source returns account-level public access block configuration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -205,6 +219,7 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAccountPublicAccessBlockResult> getAccountPublicAccessBlock(GetAccountPublicAccessBlockArgs args, InvokeOptions options) {
@@ -214,6 +229,8 @@ public final class S3Functions {
      * The S3 account public access block data source returns account-level public access block configuration.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -240,6 +257,7 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAccountPublicAccessBlockResult> getAccountPublicAccessBlockPlain(GetAccountPublicAccessBlockPlainArgs args, InvokeOptions options) {
@@ -252,7 +270,10 @@ public final class S3Functions {
      * Distribution.
      * 
      * ## Example Usage
+     * 
      * ### Route53 Record
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -300,7 +321,11 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### CloudFront Origin
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -339,6 +364,7 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBucketResult> getBucket(GetBucketArgs args) {
@@ -351,7 +377,10 @@ public final class S3Functions {
      * Distribution.
      * 
      * ## Example Usage
+     * 
      * ### Route53 Record
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -399,7 +428,11 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### CloudFront Origin
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -438,6 +471,7 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBucketResult> getBucketPlain(GetBucketPlainArgs args) {
@@ -450,7 +484,10 @@ public final class S3Functions {
      * Distribution.
      * 
      * ## Example Usage
+     * 
      * ### Route53 Record
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -498,7 +535,11 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### CloudFront Origin
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -537,6 +578,7 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBucketResult> getBucket(GetBucketArgs args, InvokeOptions options) {
@@ -549,7 +591,10 @@ public final class S3Functions {
      * Distribution.
      * 
      * ## Example Usage
+     * 
      * ### Route53 Record
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -597,7 +642,11 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### CloudFront Origin
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -636,6 +685,7 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBucketResult> getBucketPlain(GetBucketPlainArgs args, InvokeOptions options) {
@@ -653,6 +703,8 @@ public final class S3Functions {
      * 
      * The following example retrieves a text object (which must have a `Content-Type`
      * value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -690,12 +742,15 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following, more-complex example retrieves only the metadata for a zip
      * file stored in S3, which is then used to pass the most recent `version_id`
      * to AWS Lambda for use as a function implementation. More information about
      * Lambda functions is available in the documentation for
      * `aws.lambda.Function`.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -736,6 +791,7 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBucketObjectResult> getBucketObject(GetBucketObjectArgs args) {
@@ -753,6 +809,8 @@ public final class S3Functions {
      * 
      * The following example retrieves a text object (which must have a `Content-Type`
      * value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -790,12 +848,15 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following, more-complex example retrieves only the metadata for a zip
      * file stored in S3, which is then used to pass the most recent `version_id`
      * to AWS Lambda for use as a function implementation. More information about
      * Lambda functions is available in the documentation for
      * `aws.lambda.Function`.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -836,6 +897,7 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBucketObjectResult> getBucketObjectPlain(GetBucketObjectPlainArgs args) {
@@ -853,6 +915,8 @@ public final class S3Functions {
      * 
      * The following example retrieves a text object (which must have a `Content-Type`
      * value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -890,12 +954,15 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following, more-complex example retrieves only the metadata for a zip
      * file stored in S3, which is then used to pass the most recent `version_id`
      * to AWS Lambda for use as a function implementation. More information about
      * Lambda functions is available in the documentation for
      * `aws.lambda.Function`.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -936,6 +1003,7 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBucketObjectResult> getBucketObject(GetBucketObjectArgs args, InvokeOptions options) {
@@ -953,6 +1021,8 @@ public final class S3Functions {
      * 
      * The following example retrieves a text object (which must have a `Content-Type`
      * value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -990,12 +1060,15 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following, more-complex example retrieves only the metadata for a zip
      * file stored in S3, which is then used to pass the most recent `version_id`
      * to AWS Lambda for use as a function implementation. More information about
      * Lambda functions is available in the documentation for
      * `aws.lambda.Function`.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1036,6 +1109,7 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBucketObjectResult> getBucketObjectPlain(GetBucketObjectPlainArgs args, InvokeOptions options) {
@@ -1091,6 +1165,8 @@ public final class S3Functions {
      * ## Example Usage
      * 
      * The following example retrieves IAM policy of a specified S3 bucket.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1120,6 +1196,7 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBucketPolicyResult> getBucketPolicy(GetBucketPolicyArgs args) {
@@ -1131,6 +1208,8 @@ public final class S3Functions {
      * ## Example Usage
      * 
      * The following example retrieves IAM policy of a specified S3 bucket.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1160,6 +1239,7 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBucketPolicyResult> getBucketPolicyPlain(GetBucketPolicyPlainArgs args) {
@@ -1171,6 +1251,8 @@ public final class S3Functions {
      * ## Example Usage
      * 
      * The following example retrieves IAM policy of a specified S3 bucket.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1200,6 +1282,7 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetBucketPolicyResult> getBucketPolicy(GetBucketPolicyArgs args, InvokeOptions options) {
@@ -1211,6 +1294,8 @@ public final class S3Functions {
      * ## Example Usage
      * 
      * The following example retrieves IAM policy of a specified S3 bucket.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1240,6 +1325,7 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetBucketPolicyResult> getBucketPolicyPlain(GetBucketPolicyPlainArgs args, InvokeOptions options) {
@@ -1252,6 +1338,8 @@ public final class S3Functions {
      * &gt; **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1278,6 +1366,7 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCanonicalUserIdResult> getCanonicalUserId() {
@@ -1290,6 +1379,8 @@ public final class S3Functions {
      * &gt; **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1316,6 +1407,7 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCanonicalUserIdResult> getCanonicalUserIdPlain() {
@@ -1328,6 +1420,8 @@ public final class S3Functions {
      * &gt; **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1354,6 +1448,7 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCanonicalUserIdResult> getCanonicalUserId(InvokeArgs args) {
@@ -1366,6 +1461,8 @@ public final class S3Functions {
      * &gt; **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1392,6 +1489,7 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCanonicalUserIdResult> getCanonicalUserIdPlain(InvokeArgs args) {
@@ -1404,6 +1502,8 @@ public final class S3Functions {
      * &gt; **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1430,6 +1530,7 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCanonicalUserIdResult> getCanonicalUserId(InvokeArgs args, InvokeOptions options) {
@@ -1442,6 +1543,8 @@ public final class S3Functions {
      * &gt; **NOTE:** To use this data source, you must have the `s3:ListAllMyBuckets` permission.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1468,6 +1571,7 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCanonicalUserIdResult> getCanonicalUserIdPlain(InvokeArgs args, InvokeOptions options) {
@@ -1477,6 +1581,8 @@ public final class S3Functions {
      * Lists Amazon S3 Express directory buckets.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1502,6 +1608,7 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDirectoryBucketsResult> getDirectoryBuckets() {
@@ -1511,6 +1618,8 @@ public final class S3Functions {
      * Lists Amazon S3 Express directory buckets.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1536,6 +1645,7 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDirectoryBucketsResult> getDirectoryBucketsPlain() {
@@ -1545,6 +1655,8 @@ public final class S3Functions {
      * Lists Amazon S3 Express directory buckets.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1570,6 +1682,7 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDirectoryBucketsResult> getDirectoryBuckets(InvokeArgs args) {
@@ -1579,6 +1692,8 @@ public final class S3Functions {
      * Lists Amazon S3 Express directory buckets.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1604,6 +1719,7 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDirectoryBucketsResult> getDirectoryBucketsPlain(InvokeArgs args) {
@@ -1613,6 +1729,8 @@ public final class S3Functions {
      * Lists Amazon S3 Express directory buckets.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1638,6 +1756,7 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDirectoryBucketsResult> getDirectoryBuckets(InvokeArgs args, InvokeOptions options) {
@@ -1647,6 +1766,8 @@ public final class S3Functions {
      * Lists Amazon S3 Express directory buckets.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1672,6 +1793,7 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDirectoryBucketsResult> getDirectoryBucketsPlain(InvokeArgs args, InvokeOptions options) {
@@ -1687,6 +1809,8 @@ public final class S3Functions {
      * 
      * The following example retrieves a text object (which must have a `Content-Type`
      * value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1724,12 +1848,15 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following, more-complex example retrieves only the metadata for a zip
      * file stored in S3, which is then used to pass the most recent `version_id`
      * to AWS Lambda for use as a function implementation. More information about
      * Lambda functions is available in the documentation for
      * `aws.lambda.Function`.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1770,6 +1897,7 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetObjectResult> getObject(GetObjectArgs args) {
@@ -1785,6 +1913,8 @@ public final class S3Functions {
      * 
      * The following example retrieves a text object (which must have a `Content-Type`
      * value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1822,12 +1952,15 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following, more-complex example retrieves only the metadata for a zip
      * file stored in S3, which is then used to pass the most recent `version_id`
      * to AWS Lambda for use as a function implementation. More information about
      * Lambda functions is available in the documentation for
      * `aws.lambda.Function`.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1868,6 +2001,7 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetObjectResult> getObjectPlain(GetObjectPlainArgs args) {
@@ -1883,6 +2017,8 @@ public final class S3Functions {
      * 
      * The following example retrieves a text object (which must have a `Content-Type`
      * value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1920,12 +2056,15 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following, more-complex example retrieves only the metadata for a zip
      * file stored in S3, which is then used to pass the most recent `version_id`
      * to AWS Lambda for use as a function implementation. More information about
      * Lambda functions is available in the documentation for
      * `aws.lambda.Function`.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1966,6 +2105,7 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetObjectResult> getObject(GetObjectArgs args, InvokeOptions options) {
@@ -1981,6 +2121,8 @@ public final class S3Functions {
      * 
      * The following example retrieves a text object (which must have a `Content-Type`
      * value starting with `text/`) and uses it as the `user_data` for an EC2 instance:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2018,12 +2160,15 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      * The following, more-complex example retrieves only the metadata for a zip
      * file stored in S3, which is then used to pass the most recent `version_id`
      * to AWS Lambda for use as a function implementation. More information about
      * Lambda functions is available in the documentation for
      * `aws.lambda.Function`.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -2064,6 +2209,7 @@ public final class S3Functions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetObjectResult> getObjectPlain(GetObjectPlainArgs args, InvokeOptions options) {

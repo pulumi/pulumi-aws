@@ -25,6 +25,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * The following example below creates a CloudFront origin access identity.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -53,6 +55,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Using With CloudFront
  * 
  * Normally, when referencing an origin access identity in CloudFront, you need to
@@ -60,6 +64,8 @@ import javax.annotation.Nullable;
  * The `cloudfront_access_identity_path` allows this to be circumvented.
  * The below snippet demonstrates use with the `s3_origin_config` structure for the
  * `aws.cloudfront.Distribution` resource:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -94,6 +100,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ### Updating your bucket policy
  * 
@@ -101,6 +108,8 @@ import javax.annotation.Nullable;
  * principal into an `AWS` IAM ARN principal when supplied in an
  * `aws.s3.BucketV2` bucket policy, causing spurious diffs. If
  * you see this behaviour, use the `iam_arn` instead:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -143,6 +152,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * [1]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/Introduction.html
  * [2]: http://docs.aws.amazon.com/AmazonCloudFront/latest/DeveloperGuide/private-content-restricting-access-to-s3.html
@@ -152,7 +162,7 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import Cloudfront Origin Access Identities using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cloudfront/originAccessIdentity:OriginAccessIdentity origin_access E74FTE3AEXAMPLE
+ * $ pulumi import aws:cloudfront/originAccessIdentity:OriginAccessIdentity origin_access E74FTE3AEXAMPLE
  * ```
  * 
  */

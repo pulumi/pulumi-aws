@@ -17,8 +17,10 @@ import (
 // > **NOTE:** The Storage Gateway API requires the gateway to be connected to properly return information after activation. If you are receiving `The specified gateway is not connected` errors during resource creation (gateway activation), ensure your gateway instance meets the [Storage Gateway requirements](https://docs.aws.amazon.com/storagegateway/latest/userguide/Requirements.html).
 //
 // ## Example Usage
+//
 // ### Local Cache
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -59,8 +61,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### FSx File Gateway
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -92,8 +97,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### S3 File Gateway
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -120,8 +128,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Tape Gateway
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -150,8 +161,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Volume Gateway (Cached)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -178,8 +192,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Volume Gateway (Stored)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -206,18 +223,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_storagegateway_gateway` using the gateway Amazon Resource Name (ARN). For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:storagegateway/gateway:Gateway example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678
-//
+// $ pulumi import aws:storagegateway/gateway:Gateway example arn:aws:storagegateway:us-east-1:123456789012:gateway/sgw-12345678
 // ```
-//
-//	Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+// Certain resource arguments, like `gateway_ip_address` do not have a Storage Gateway API method for reading the information after creation, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
 type Gateway struct {
 	pulumi.CustomResourceState
 

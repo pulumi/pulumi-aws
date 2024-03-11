@@ -433,6 +433,7 @@ class Function(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -485,8 +486,11 @@ class Function(pulumi.CustomResource):
         #end
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Code
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -502,13 +506,14 @@ class Function(pulumi.CustomResource):
                 runtime_version="1.0.0",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_appsync_function` using the AppSync API ID and Function ID separated by `-`. For example:
 
         ```sh
-         $ pulumi import aws:appsync/function:Function example xxxxx-yyyyy
+        $ pulumi import aws:appsync/function:Function example xxxxx-yyyyy
         ```
 
         :param str resource_name: The name of the resource.
@@ -536,6 +541,7 @@ class Function(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -588,8 +594,11 @@ class Function(pulumi.CustomResource):
         #end
         \"\"\")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Code
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -605,13 +614,14 @@ class Function(pulumi.CustomResource):
                 runtime_version="1.0.0",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_appsync_function` using the AppSync API ID and Function ID separated by `-`. For example:
 
         ```sh
-         $ pulumi import aws:appsync/function:Function example xxxxx-yyyyy
+        $ pulumi import aws:appsync/function:Function example xxxxx-yyyyy
         ```
 
         :param str resource_name: The name of the resource.

@@ -15,8 +15,10 @@ import (
 // Provides a Glue Data Quality Ruleset Resource. You can refer to the [Glue Developer Guide](https://docs.aws.amazon.com/glue/latest/dg/glue-data-quality.html) for a full explanation of the Glue Data Quality Ruleset functionality
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,8 +43,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With description
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -68,8 +73,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With tags
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -97,8 +105,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With targetTable
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -127,15 +138,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Glue Data Quality Ruleset using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:glue/dataQualityRuleset:DataQualityRuleset example exampleName
-//
+// $ pulumi import aws:glue/dataQualityRuleset:DataQualityRuleset example exampleName
 // ```
 type DataQualityRuleset struct {
 	pulumi.CustomResourceState

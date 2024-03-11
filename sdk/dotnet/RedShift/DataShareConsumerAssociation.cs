@@ -13,8 +13,10 @@ namespace Pulumi.Aws.RedShift
     /// Resource for managing an AWS Redshift Data Share Consumer Association.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,8 +33,11 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Consumer Region
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -49,13 +54,14 @@ namespace Pulumi.Aws.RedShift
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Redshift Data Share Consumer Association using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation example arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example,,,us-west-2
+    /// $ pulumi import aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation example arn:aws:redshift:us-west-2:012345678901:datashare:b3bfde75-73fd-408b-9086-d6fccfd6d588/example,,,us-west-2
     /// ```
     /// </summary>
     [AwsResourceType("aws:redshift/dataShareConsumerAssociation:DataShareConsumerAssociation")]

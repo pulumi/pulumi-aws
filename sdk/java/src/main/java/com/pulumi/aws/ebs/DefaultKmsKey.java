@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** Destroying this resource will reset the default CMK to the account&#39;s AWS-managed default CMK for EBS.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -52,13 +54,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import the EBS default KMS CMK using the KMS key ARN. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ebs/defaultKmsKey:DefaultKmsKey example arn:aws:kms:us-east-1:123456789012:key/abcd-1234
+ * $ pulumi import aws:ebs/defaultKmsKey:DefaultKmsKey example arn:aws:kms:us-east-1:123456789012:key/abcd-1234
  * ```
  * 
  */

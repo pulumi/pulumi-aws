@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Provides an SES event destination
  *
  * ## Example Usage
+ *
  * ### CloudWatch Destination
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -32,8 +34,11 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Kinesis Destination
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -52,8 +57,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### SNS Destination
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -71,13 +79,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import SES event destinations using `configuration_set_name` together with the event destination's `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ses/eventDestination:EventDestination sns some-configuration-set-test/event-destination-sns
+ * $ pulumi import aws:ses/eventDestination:EventDestination sns some-configuration-set-test/event-destination-sns
  * ```
  */
 export class EventDestination extends pulumi.CustomResource {

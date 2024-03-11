@@ -213,8 +213,10 @@ def get_multicast_domain(filters: Optional[Sequence[pulumi.InputType['GetMultica
     Get information on an EC2 Transit Gateway Multicast Domain.
 
     ## Example Usage
+
     ### By Filter
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -224,14 +226,18 @@ def get_multicast_domain(filters: Optional[Sequence[pulumi.InputType['GetMultica
         values=["tgw-mcast-domain-12345678"],
     )])
     ```
+    <!--End PulumiCodeChooser -->
+
     ### By Identifier
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.ec2transitgateway.get_multicast_domain(transit_gateway_multicast_domain_id="tgw-mcast-domain-12345678")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetMulticastDomainFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.
@@ -272,8 +278,10 @@ def get_multicast_domain_output(filters: Optional[pulumi.Input[Optional[Sequence
     Get information on an EC2 Transit Gateway Multicast Domain.
 
     ## Example Usage
+
     ### By Filter
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -283,14 +291,18 @@ def get_multicast_domain_output(filters: Optional[pulumi.Input[Optional[Sequence
         values=["tgw-mcast-domain-12345678"],
     )])
     ```
+    <!--End PulumiCodeChooser -->
+
     ### By Identifier
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.ec2transitgateway.get_multicast_domain(transit_gateway_multicast_domain_id="tgw-mcast-domain-12345678")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetMulticastDomainFilterArgs']] filters: One or more configuration blocks containing name-values filters. Detailed below.

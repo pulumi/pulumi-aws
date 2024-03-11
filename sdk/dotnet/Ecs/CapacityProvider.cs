@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -56,13 +57,14 @@ namespace Pulumi.Aws.Ecs
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import ECS Capacity Providers using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ecs/capacityProvider:CapacityProvider example example
+    /// $ pulumi import aws:ecs/capacityProvider:CapacityProvider example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:ecs/capacityProvider:CapacityProvider")]

@@ -274,6 +274,7 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -284,13 +285,14 @@ class User(pulumi.CustomResource):
             first_name="FIRST NAME",
             last_name="LAST NAME")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_appstream_user` using the `user_name` and `authentication_type` separated by a slash (`/`). For example:
 
         ```sh
-         $ pulumi import aws:appstream/user:User example UserName/AuthenticationType
+        $ pulumi import aws:appstream/user:User example UserName/AuthenticationType
         ```
 
         :param str resource_name: The name of the resource.
@@ -315,6 +317,7 @@ class User(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -325,13 +328,14 @@ class User(pulumi.CustomResource):
             first_name="FIRST NAME",
             last_name="LAST NAME")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_appstream_user` using the `user_name` and `authentication_type` separated by a slash (`/`). For example:
 
         ```sh
-         $ pulumi import aws:appstream/user:User example UserName/AuthenticationType
+        $ pulumi import aws:appstream/user:User example UserName/AuthenticationType
         ```
 
         :param str resource_name: The name of the resource.

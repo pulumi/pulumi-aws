@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Backup
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,13 +33,14 @@ namespace Pulumi.Aws.Backup
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Backup vault lock configuration using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:backup/vaultLockConfiguration:VaultLockConfiguration test TestVault
+    /// $ pulumi import aws:backup/vaultLockConfiguration:VaultLockConfiguration test TestVault
     /// ```
     /// </summary>
     [AwsResourceType("aws:backup/vaultLockConfiguration:VaultLockConfiguration")]

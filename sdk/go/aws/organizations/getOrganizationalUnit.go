@@ -14,8 +14,10 @@ import (
 // Data source for getting an AWS Organizations Organizational Unit.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,6 +46,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupOrganizationalUnit(ctx *pulumi.Context, args *LookupOrganizationalUnitArgs, opts ...pulumi.InvokeOption) (*LookupOrganizationalUnitResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupOrganizationalUnitResult

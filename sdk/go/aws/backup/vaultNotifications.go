@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -84,15 +85,14 @@ import (
 // })
 // }
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Backup vault notifications using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:backup/vaultNotifications:VaultNotifications test TestVault
-//
+// $ pulumi import aws:backup/vaultNotifications:VaultNotifications test TestVault
 // ```
 type VaultNotifications struct {
 	pulumi.CustomResourceState

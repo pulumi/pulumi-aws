@@ -19,6 +19,7 @@ import (
 // > **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -56,18 +57,16 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import a user using the `user_name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:memorydb/user:User example my-user
-//
+// $ pulumi import aws:memorydb/user:User example my-user
 // ```
-//
-//	The `passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
+// The `passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
 type User struct {
 	pulumi.CustomResourceState
 

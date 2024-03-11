@@ -378,6 +378,7 @@ class IdentityPool(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -409,13 +410,14 @@ class IdentityPool(pulumi.CustomResource):
             saml_provider_arns=[default.arn],
             openid_connect_provider_arns=["arn:aws:iam::123456789012:oidc-provider/id.example.com"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Cognito Identity Pool using its ID. For example:
 
         ```sh
-         $ pulumi import aws:cognito/identityPool:IdentityPool mypool us-west-2:1a234567-8901-234b-5cde-f6789g01h2i3
+        $ pulumi import aws:cognito/identityPool:IdentityPool mypool us-west-2:1a234567-8901-234b-5cde-f6789g01h2i3
         ```
 
         :param str resource_name: The name of the resource.
@@ -442,6 +444,7 @@ class IdentityPool(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -473,13 +476,14 @@ class IdentityPool(pulumi.CustomResource):
             saml_provider_arns=[default.arn],
             openid_connect_provider_arns=["arn:aws:iam::123456789012:oidc-provider/id.example.com"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Cognito Identity Pool using its ID. For example:
 
         ```sh
-         $ pulumi import aws:cognito/identityPool:IdentityPool mypool us-west-2:1a234567-8901-234b-5cde-f6789g01h2i3
+        $ pulumi import aws:cognito/identityPool:IdentityPool mypool us-west-2:1a234567-8901-234b-5cde-f6789g01h2i3
         ```
 
         :param str resource_name: The name of the resource.

@@ -873,6 +873,7 @@ class Project(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1044,13 +1045,14 @@ class Project(pulumi.CustomResource):
                 "Environment": "Test",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CodeBuild Project using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:codebuild/project:Project name project-name
+        $ pulumi import aws:codebuild/project:Project name project-name
         ```
 
         :param str resource_name: The name of the resource.
@@ -1092,6 +1094,7 @@ class Project(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1263,13 +1266,14 @@ class Project(pulumi.CustomResource):
                 "Environment": "Test",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CodeBuild Project using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:codebuild/project:Project name project-name
+        $ pulumi import aws:codebuild/project:Project name project-name
         ```
 
         :param str resource_name: The name of the resource.

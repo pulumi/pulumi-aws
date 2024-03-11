@@ -15,8 +15,10 @@ import (
 // Provides an SNS platform application resource
 //
 // ## Example Usage
+//
 // ### Apple Push Notification Service (APNS) using certificate-based authentication
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,8 +45,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Apple Push Notification Service (APNS) using token-based authentication
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -73,8 +78,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Google Cloud Messaging (GCM)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -100,15 +108,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SNS platform applications using the ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sns/platformApplication:PlatformApplication gcm_application arn:aws:sns:us-west-2:0123456789012:app/GCM/gcm_application
-//
+// $ pulumi import aws:sns/platformApplication:PlatformApplication gcm_application arn:aws:sns:us-west-2:0123456789012:app/GCM/gcm_application
 // ```
 type PlatformApplication struct {
 	pulumi.CustomResourceState

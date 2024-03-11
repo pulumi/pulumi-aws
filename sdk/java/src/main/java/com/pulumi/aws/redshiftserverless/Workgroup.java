@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * Creates a new Amazon Redshift Serverless Workgroup.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -53,13 +55,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Redshift Serverless Workgroups using the `workgroup_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:redshiftserverless/workgroup:Workgroup example example
+ * $ pulumi import aws:redshiftserverless/workgroup:Workgroup example example
  * ```
  * 
  */

@@ -347,8 +347,10 @@ class ScheduledAction(pulumi.CustomResource):
         Provides an Application AutoScaling ScheduledAction resource.
 
         ## Example Usage
+
         ### DynamoDB Table Autoscaling
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -370,8 +372,11 @@ class ScheduledAction(pulumi.CustomResource):
                 max_capacity=200,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### ECS Service Autoscaling
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -393,6 +398,7 @@ class ScheduledAction(pulumi.CustomResource):
                 max_capacity=10,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -416,8 +422,10 @@ class ScheduledAction(pulumi.CustomResource):
         Provides an Application AutoScaling ScheduledAction resource.
 
         ## Example Usage
+
         ### DynamoDB Table Autoscaling
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -439,8 +447,11 @@ class ScheduledAction(pulumi.CustomResource):
                 max_capacity=200,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### ECS Service Autoscaling
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -462,6 +473,7 @@ class ScheduledAction(pulumi.CustomResource):
                 max_capacity=10,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param ScheduledActionArgs args: The arguments to use to populate this resource's properties.

@@ -292,6 +292,7 @@ class App(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -306,13 +307,14 @@ class App(pulumi.CustomResource):
                 end="06:00",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Pinpoint App using the `application-id`. For example:
 
         ```sh
-         $ pulumi import aws:pinpoint/app:App name application-id
+        $ pulumi import aws:pinpoint/app:App name application-id
         ```
 
         :param str resource_name: The name of the resource.
@@ -335,6 +337,7 @@ class App(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -349,13 +352,14 @@ class App(pulumi.CustomResource):
                 end="06:00",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Pinpoint App using the `application-id`. For example:
 
         ```sh
-         $ pulumi import aws:pinpoint/app:App name application-id
+        $ pulumi import aws:pinpoint/app:App name application-id
         ```
 
         :param str resource_name: The name of the resource.

@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -43,13 +44,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Workspaces using their ID. For example:
  *
  * ```sh
- *  $ pulumi import aws:workspaces/workspace:Workspace example ws-9z9zmbkhv
+ * $ pulumi import aws:workspaces/workspace:Workspace example ws-9z9zmbkhv
  * ```
  */
 export class Workspace extends pulumi.CustomResource {

@@ -14,10 +14,9 @@ namespace Pulumi.Aws.Bedrock
         /// <summary>
         /// Returns properties of a specific Amazon Bedrock custom model.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,8 +32,7 @@ namespace Pulumi.Aws.Bedrock
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetCustomModelResult> InvokeAsync(GetCustomModelArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCustomModelResult>("aws:bedrock/getCustomModel:getCustomModel", args ?? new GetCustomModelArgs(), options.WithDefaults());
@@ -42,10 +40,9 @@ namespace Pulumi.Aws.Bedrock
         /// <summary>
         /// Returns properties of a specific Amazon Bedrock custom model.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,8 +58,7 @@ namespace Pulumi.Aws.Bedrock
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetCustomModelResult> Invoke(GetCustomModelInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCustomModelResult>("aws:bedrock/getCustomModel:getCustomModel", args ?? new GetCustomModelInvokeArgs(), options.WithDefaults());

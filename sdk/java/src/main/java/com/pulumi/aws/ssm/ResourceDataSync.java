@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Provides a SSM resource data sync.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -95,13 +97,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import SSM resource data sync using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ssm/resourceDataSync:ResourceDataSync example example-name
+ * $ pulumi import aws:ssm/resourceDataSync:ResourceDataSync example example-name
  * ```
  * 
  */

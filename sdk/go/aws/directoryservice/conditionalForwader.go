@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,15 +45,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import conditional forwarders using the directory id and remote_domain_name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:directoryservice/conditionalForwader:ConditionalForwader example d-1234567890:example.com
-//
+// $ pulumi import aws:directoryservice/conditionalForwader:ConditionalForwader example d-1234567890:example.com
 // ```
 type ConditionalForwader struct {
 	pulumi.CustomResourceState

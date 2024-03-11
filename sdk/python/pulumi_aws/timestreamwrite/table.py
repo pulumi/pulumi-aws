@@ -273,8 +273,10 @@ class Table(pulumi.CustomResource):
         Provides a Timestream table resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -283,8 +285,11 @@ class Table(pulumi.CustomResource):
             database_name=example_aws_timestreamwrite_database["databaseName"],
             table_name="example")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Full usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -300,8 +305,11 @@ class Table(pulumi.CustomResource):
                 "Name": "example-timestream-table",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Customer-defined Partition Key
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -317,13 +325,14 @@ class Table(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Timestream tables using the `table_name` and `database_name` separate by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:timestreamwrite/table:Table example ExampleTable:ExampleDatabase
+        $ pulumi import aws:timestreamwrite/table:Table example ExampleTable:ExampleDatabase
         ```
 
         :param str resource_name: The name of the resource.
@@ -345,8 +354,10 @@ class Table(pulumi.CustomResource):
         Provides a Timestream table resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -355,8 +366,11 @@ class Table(pulumi.CustomResource):
             database_name=example_aws_timestreamwrite_database["databaseName"],
             table_name="example")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Full usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -372,8 +386,11 @@ class Table(pulumi.CustomResource):
                 "Name": "example-timestream-table",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Customer-defined Partition Key
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -389,13 +406,14 @@ class Table(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Timestream tables using the `table_name` and `database_name` separate by a colon (`:`). For example:
 
         ```sh
-         $ pulumi import aws:timestreamwrite/table:Table example ExampleTable:ExampleDatabase
+        $ pulumi import aws:timestreamwrite/table:Table example ExampleTable:ExampleDatabase
         ```
 
         :param str resource_name: The name of the resource.

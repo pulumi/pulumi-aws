@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -36,6 +37,7 @@ namespace Pulumi.Aws.Cognito
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -46,12 +48,12 @@ namespace Pulumi.Aws.Cognito
     /// Import using the user pool ID:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example
+    /// $ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example
     /// ```
-    ///  Import using the user pool ID and Client ID separated by a `:`:
+    /// Import using the user pool ID and Client ID separated by a `:`:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example:example
+    /// $ pulumi import aws:cognito/riskConfiguration:RiskConfiguration main example:example
     /// ```
     /// </summary>
     [AwsResourceType("aws:cognito/riskConfiguration:RiskConfiguration")]

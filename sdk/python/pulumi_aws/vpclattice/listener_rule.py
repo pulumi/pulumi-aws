@@ -328,6 +328,7 @@ class ListenerRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -369,8 +370,11 @@ class ListenerRule(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -396,13 +400,14 @@ class ListenerRule(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import VPC Lattice Listener Rule using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:vpclattice/listenerRule:ListenerRule example service123/listener456/rule789
+        $ pulumi import aws:vpclattice/listenerRule:ListenerRule example service123/listener456/rule789
         ```
 
         :param str resource_name: The name of the resource.
@@ -428,6 +433,7 @@ class ListenerRule(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -469,8 +475,11 @@ class ListenerRule(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -496,13 +505,14 @@ class ListenerRule(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import VPC Lattice Listener Rule using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:vpclattice/listenerRule:ListenerRule example service123/listener456/rule789
+        $ pulumi import aws:vpclattice/listenerRule:ListenerRule example service123/listener456/rule789
         ```
 
         :param str resource_name: The name of the resource.

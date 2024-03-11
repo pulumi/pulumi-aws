@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Data source for managing an AWS DMS (Database Migration) Replication Task.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -18,6 +20,7 @@ import * as utilities from "../utilities";
  *     replicationTaskId: testAwsDmsReplicationTask.replicationTaskId,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getReplicationTask(args: GetReplicationTaskArgs, opts?: pulumi.InvokeOptions): Promise<GetReplicationTaskResult> {
 
@@ -103,8 +106,10 @@ export interface GetReplicationTaskResult {
  * Data source for managing an AWS DMS (Database Migration) Replication Task.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -113,6 +118,7 @@ export interface GetReplicationTaskResult {
  *     replicationTaskId: testAwsDmsReplicationTask.replicationTaskId,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getReplicationTaskOutput(args: GetReplicationTaskOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetReplicationTaskResult> {
     return pulumi.output(args).apply((a: any) => getReplicationTask(a, opts))

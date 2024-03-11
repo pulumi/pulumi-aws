@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS Network Manager Attachment Accepter.
 //
 // ## Example Usage
+//
 // ### Example with VPC attachment
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,8 +43,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Example with site-to-site VPN attachment
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -67,6 +72,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type AttachmentAccepter struct {
 	pulumi.CustomResourceState
 

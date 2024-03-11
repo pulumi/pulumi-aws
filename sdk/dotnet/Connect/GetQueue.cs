@@ -14,12 +14,11 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// Provides details about a specific Amazon Connect Queue.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// By `name`
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -36,9 +35,11 @@ namespace Pulumi.Aws.Connect
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// By `queue_id`
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -55,8 +56,7 @@ namespace Pulumi.Aws.Connect
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetQueueResult> InvokeAsync(GetQueueArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetQueueResult>("aws:connect/getQueue:getQueue", args ?? new GetQueueArgs(), options.WithDefaults());
@@ -64,12 +64,11 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// Provides details about a specific Amazon Connect Queue.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// By `name`
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -86,9 +85,11 @@ namespace Pulumi.Aws.Connect
         /// 
         /// });
         /// ```
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// 
         /// By `queue_id`
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -105,8 +106,7 @@ namespace Pulumi.Aws.Connect
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetQueueResult> Invoke(GetQueueInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetQueueResult>("aws:connect/getQueue:getQueue", args ?? new GetQueueInvokeArgs(), options.WithDefaults());

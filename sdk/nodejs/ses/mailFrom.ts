@@ -10,8 +10,10 @@ import * as utilities from "../utilities";
  * > **NOTE:** For the MAIL FROM domain to be fully usable, this resource should be paired with the aws.ses.DomainIdentity resource. To validate the MAIL FROM domain, a DNS MX record is required. To pass SPF checks, a DNS TXT record may also be required. See the [Amazon SES MAIL FROM documentation](https://docs.aws.amazon.com/ses/latest/dg/mail-from.html) for more information.
  *
  * ## Example Usage
+ *
  * ### Domain Identity MAIL FROM
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -39,8 +41,11 @@ import * as utilities from "../utilities";
  *     records: ["v=spf1 include:amazonses.com -all"],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Email Identity MAIL FROM
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -52,13 +57,14 @@ import * as utilities from "../utilities";
  *     mailFromDomain: "mail.example.com",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import MAIL FROM domain using the `domain` attribute. For example:
  *
  * ```sh
- *  $ pulumi import aws:ses/mailFrom:MailFrom example example.com
+ * $ pulumi import aws:ses/mailFrom:MailFrom example example.com
  * ```
  */
 export class MailFrom extends pulumi.CustomResource {

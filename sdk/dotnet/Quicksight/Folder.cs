@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Quicksight
     /// Resource for managing a QuickSight Folder.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,8 +33,11 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With Permissions
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -67,8 +72,11 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### With Parent Folder
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -92,13 +100,14 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import a QuickSight folder using the AWS account ID and folder ID name separated by a comma (`,`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:quicksight/folder:Folder example 123456789012,example-id
+    /// $ pulumi import aws:quicksight/folder:Folder example 123456789012,example-id
     /// ```
     /// </summary>
     [AwsResourceType("aws:quicksight/folder:Folder")]

@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Synthetics
     /// Provides a Synthetics Group resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,13 +32,14 @@ namespace Pulumi.Aws.Synthetics
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import CloudWatch Synthetics Group using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:synthetics/group:Group example example
+    /// $ pulumi import aws:synthetics/group:Group example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:synthetics/group:Group")]

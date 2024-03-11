@@ -14,12 +14,11 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Provides information for multiple EC2 Transit Gateway Route Tables, such as their identifiers.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// The following shows outputting all Transit Gateway Route Table Ids.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -36,8 +35,7 @@ namespace Pulumi.Aws.Ec2
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetTransitGatewayRouteTablesResult> InvokeAsync(GetTransitGatewayRouteTablesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetTransitGatewayRouteTablesResult>("aws:ec2/getTransitGatewayRouteTables:getTransitGatewayRouteTables", args ?? new GetTransitGatewayRouteTablesArgs(), options.WithDefaults());
@@ -45,12 +43,11 @@ namespace Pulumi.Aws.Ec2
         /// <summary>
         /// Provides information for multiple EC2 Transit Gateway Route Tables, such as their identifiers.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// The following shows outputting all Transit Gateway Route Table Ids.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -67,8 +64,7 @@ namespace Pulumi.Aws.Ec2
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetTransitGatewayRouteTablesResult> Invoke(GetTransitGatewayRouteTablesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetTransitGatewayRouteTablesResult>("aws:ec2/getTransitGatewayRouteTables:getTransitGatewayRouteTables", args ?? new GetTransitGatewayRouteTablesInvokeArgs(), options.WithDefaults());

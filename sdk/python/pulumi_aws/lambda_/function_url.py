@@ -253,6 +253,7 @@ class FunctionUrl(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -279,13 +280,14 @@ class FunctionUrl(pulumi.CustomResource):
                 max_age=86400,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Lambda function URLs using the `function_name` or `function_name/qualifier`. For example:
 
         ```sh
-         $ pulumi import aws:lambda/functionUrl:FunctionUrl test_lambda_url my_test_lambda_function
+        $ pulumi import aws:lambda/functionUrl:FunctionUrl test_lambda_url my_test_lambda_function
         ```
 
         :param str resource_name: The name of the resource.
@@ -309,6 +311,7 @@ class FunctionUrl(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -335,13 +338,14 @@ class FunctionUrl(pulumi.CustomResource):
                 max_age=86400,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Lambda function URLs using the `function_name` or `function_name/qualifier`. For example:
 
         ```sh
-         $ pulumi import aws:lambda/functionUrl:FunctionUrl test_lambda_url my_test_lambda_function
+        $ pulumi import aws:lambda/functionUrl:FunctionUrl test_lambda_url my_test_lambda_function
         ```
 
         :param str resource_name: The name of the resource.

@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Ram
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -28,13 +29,14 @@ namespace Pulumi.Aws.Ram
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import the resource using the current AWS account ID. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ram/sharingWithOrganization:SharingWithOrganization example 123456789012
+    /// $ pulumi import aws:ram/sharingWithOrganization:SharingWithOrganization example 123456789012
     /// ```
     /// </summary>
     [AwsResourceType("aws:ram/sharingWithOrganization:SharingWithOrganization")]

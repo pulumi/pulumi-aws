@@ -74,6 +74,7 @@ def get_release_labels(filters: Optional[pulumi.InputType['GetReleaseLabelsFilte
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -83,6 +84,7 @@ def get_release_labels(filters: Optional[pulumi.InputType['GetReleaseLabelsFilte
         prefix="emr-5",
     ))
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param pulumi.InputType['GetReleaseLabelsFiltersArgs'] filters: Filters the results of the request. Prefix specifies the prefix of release labels to return. Application specifies the application (with/without version) of release labels to return. See Filters.
@@ -106,6 +108,7 @@ def get_release_labels_output(filters: Optional[pulumi.Input[Optional[pulumi.Inp
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -115,6 +118,7 @@ def get_release_labels_output(filters: Optional[pulumi.Input[Optional[pulumi.Inp
         prefix="emr-5",
     ))
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param pulumi.InputType['GetReleaseLabelsFiltersArgs'] filters: Filters the results of the request. Prefix specifies the prefix of release labels to return. Application specifies the application (with/without version) of release labels to return. See Filters.

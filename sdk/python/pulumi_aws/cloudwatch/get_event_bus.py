@@ -74,12 +74,14 @@ def get_event_bus(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.cloudwatch.get_event_bus(name="example-bus-name")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Friendly EventBridge event bus name.
@@ -105,12 +107,14 @@ def get_event_bus_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.cloudwatch.get_event_bus(name="example-bus-name")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Friendly EventBridge event bus name.

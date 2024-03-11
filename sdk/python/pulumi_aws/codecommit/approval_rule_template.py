@@ -216,6 +216,7 @@ class ApprovalRuleTemplate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -234,13 +235,14 @@ class ApprovalRuleTemplate(pulumi.CustomResource):
                 }],
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CodeCommit approval rule templates using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate imported ExistingApprovalRuleTemplateName
+        $ pulumi import aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate imported ExistingApprovalRuleTemplateName
         ```
 
         :param str resource_name: The name of the resource.
@@ -260,6 +262,7 @@ class ApprovalRuleTemplate(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -278,13 +281,14 @@ class ApprovalRuleTemplate(pulumi.CustomResource):
                 }],
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CodeCommit approval rule templates using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate imported ExistingApprovalRuleTemplateName
+        $ pulumi import aws:codecommit/approvalRuleTemplate:ApprovalRuleTemplate imported ExistingApprovalRuleTemplateName
         ```
 
         :param str resource_name: The name of the resource.

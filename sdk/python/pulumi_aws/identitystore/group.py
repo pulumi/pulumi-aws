@@ -176,28 +176,13 @@ class Group(pulumi.CustomResource):
         Resource for managing an AWS IdentityStore Group.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        this = aws.identitystore.Group("this",
-            display_name="Example group",
-            description="Example description",
-            identity_store_id=not_implemented("tolist(data.aws_ssoadmin_instances.example.identity_store_ids)")[0])
-        ```
 
         ## Import
 
         Using `pulumi import`, import an Identity Store Group using the combination `identity_store_id/group_id`. For example:
 
         ```sh
-         $ pulumi import aws:identitystore/group:Group example d-9c6705e95c/b8a1c340-8031-7071-a2fb-7dc540320c30
+        $ pulumi import aws:identitystore/group:Group example d-9c6705e95c/b8a1c340-8031-7071-a2fb-7dc540320c30
         ```
 
         :param str resource_name: The name of the resource.
@@ -218,28 +203,13 @@ class Group(pulumi.CustomResource):
         Resource for managing an AWS IdentityStore Group.
 
         ## Example Usage
-        ### Basic Usage
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        this = aws.identitystore.Group("this",
-            display_name="Example group",
-            description="Example description",
-            identity_store_id=not_implemented("tolist(data.aws_ssoadmin_instances.example.identity_store_ids)")[0])
-        ```
 
         ## Import
 
         Using `pulumi import`, import an Identity Store Group using the combination `identity_store_id/group_id`. For example:
 
         ```sh
-         $ pulumi import aws:identitystore/group:Group example d-9c6705e95c/b8a1c340-8031-7071-a2fb-7dc540320c30
+        $ pulumi import aws:identitystore/group:Group example d-9c6705e95c/b8a1c340-8031-7071-a2fb-7dc540320c30
         ```
 
         :param str resource_name: The name of the resource.

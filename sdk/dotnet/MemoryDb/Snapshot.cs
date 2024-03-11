@@ -16,6 +16,7 @@ namespace Pulumi.Aws.MemoryDb
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,13 +33,14 @@ namespace Pulumi.Aws.MemoryDb
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import a snapshot using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:memorydb/snapshot:Snapshot example my-snapshot
+    /// $ pulumi import aws:memorydb/snapshot:Snapshot example my-snapshot
     /// ```
     /// </summary>
     [AwsResourceType("aws:memorydb/snapshot:Snapshot")]

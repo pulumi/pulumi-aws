@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -50,15 +51,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import GameLift Fleets using the ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:gamelift/fleet:Fleet example <fleet-id>
-//
+// $ pulumi import aws:gamelift/fleet:Fleet example <fleet-id>
 // ```
 type Fleet struct {
 	pulumi.CustomResourceState

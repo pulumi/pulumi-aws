@@ -13,8 +13,10 @@ namespace Pulumi.Aws.SecurityLake
     /// Resource for managing an AWS Security Lake Custom Log Source.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -47,13 +49,14 @@ namespace Pulumi.Aws.SecurityLake
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Custom log sources using the source name. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:securitylake/customLogSource:CustomLogSource example example-name
+    /// $ pulumi import aws:securitylake/customLogSource:CustomLogSource example example-name
     /// ```
     /// </summary>
     [AwsResourceType("aws:securitylake/customLogSource:CustomLogSource")]

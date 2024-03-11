@@ -332,8 +332,10 @@ class ResponsePlan(pulumi.CustomResource):
         Provides a resource to manage response plans in AWS Systems Manager Incident Manager.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -348,8 +350,11 @@ class ResponsePlan(pulumi.CustomResource):
                 "key": "value",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Usage With All Fields
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -412,13 +417,14 @@ class ResponsePlan(pulumi.CustomResource):
                 "key": "value",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import an Incident Manager response plan using the response plan ARN. You can find the response plan ARN in the AWS Management Console. For example:
 
         ```sh
-         $ pulumi import aws:ssmincidents/responsePlan:ResponsePlan responsePlanName ARNValue
+        $ pulumi import aws:ssmincidents/responsePlan:ResponsePlan responsePlanName ARNValue
         ```
 
         :param str resource_name: The name of the resource.
@@ -441,8 +447,10 @@ class ResponsePlan(pulumi.CustomResource):
         Provides a resource to manage response plans in AWS Systems Manager Incident Manager.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -457,8 +465,11 @@ class ResponsePlan(pulumi.CustomResource):
                 "key": "value",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Usage With All Fields
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -521,13 +532,14 @@ class ResponsePlan(pulumi.CustomResource):
                 "key": "value",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import an Incident Manager response plan using the response plan ARN. You can find the response plan ARN in the AWS Management Console. For example:
 
         ```sh
-         $ pulumi import aws:ssmincidents/responsePlan:ResponsePlan responsePlanName ARNValue
+        $ pulumi import aws:ssmincidents/responsePlan:ResponsePlan responsePlanName ARNValue
         ```
 
         :param str resource_name: The name of the resource.

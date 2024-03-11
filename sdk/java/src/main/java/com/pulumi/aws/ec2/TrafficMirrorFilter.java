@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * To create a basic traffic mirror filter
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -52,13 +54,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import traffic mirror filter using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ec2/trafficMirrorFilter:TrafficMirrorFilter foo tmf-0fbb93ddf38198f64
+ * $ pulumi import aws:ec2/trafficMirrorFilter:TrafficMirrorFilter foo tmf-0fbb93ddf38198f64
  * ```
  * 
  */

@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,15 +41,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Media Package Channels using the channel ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:mediapackage/channel:Channel kittens kittens-channel
-//
+// $ pulumi import aws:mediapackage/channel:Channel kittens kittens-channel
 // ```
 type Channel struct {
 	pulumi.CustomResourceState

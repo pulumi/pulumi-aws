@@ -259,6 +259,7 @@ class Framework(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -340,13 +341,14 @@ class Framework(pulumi.CustomResource):
                 "Name": "Example Framework",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Backup Framework using the `id` which corresponds to the name of the Backup Framework. For example:
 
         ```sh
-         $ pulumi import aws:backup/framework:Framework test <id>
+        $ pulumi import aws:backup/framework:Framework test <id>
         ```
 
         :param str resource_name: The name of the resource.
@@ -369,6 +371,7 @@ class Framework(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -450,13 +453,14 @@ class Framework(pulumi.CustomResource):
                 "Name": "Example Framework",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Backup Framework using the `id` which corresponds to the name of the Backup Framework. For example:
 
         ```sh
-         $ pulumi import aws:backup/framework:Framework test <id>
+        $ pulumi import aws:backup/framework:Framework test <id>
         ```
 
         :param str resource_name: The name of the resource.

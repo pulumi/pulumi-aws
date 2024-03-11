@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Grafana
     /// Provides an Amazon Managed Grafana workspace SAML configuration resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic configuration
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -69,13 +71,14 @@ namespace Pulumi.Aws.Grafana
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Grafana Workspace SAML configuration using the workspace's `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:grafana/workspaceSamlConfiguration:WorkspaceSamlConfiguration example g-2054c75a02
+    /// $ pulumi import aws:grafana/workspaceSamlConfiguration:WorkspaceSamlConfiguration example g-2054c75a02
     /// ```
     /// </summary>
     [AwsResourceType("aws:grafana/workspaceSamlConfiguration:WorkspaceSamlConfiguration")]

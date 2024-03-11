@@ -14,6 +14,7 @@ namespace Pulumi.Aws.RedshiftServerless
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -37,13 +38,14 @@ namespace Pulumi.Aws.RedshiftServerless
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Redshift Serverless Usage Limits using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:redshiftserverless/usageLimit:UsageLimit example example-id
+    /// $ pulumi import aws:redshiftserverless/usageLimit:UsageLimit example example-id
     /// ```
     /// </summary>
     [AwsResourceType("aws:redshiftserverless/usageLimit:UsageLimit")]

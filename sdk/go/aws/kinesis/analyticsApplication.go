@@ -19,8 +19,10 @@ import (
 // > **Note:** To manage Amazon Kinesis Data Analytics for Apache Flink applications, use the `kinesisanalyticsv2.Application` resource.
 //
 // ## Example Usage
+//
 // ### Kinesis Stream Input
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -78,8 +80,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Starting An Application
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -180,15 +185,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Kinesis Analytics Application using ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:kinesis/analyticsApplication:AnalyticsApplication example arn:aws:kinesisanalytics:us-west-2:1234567890:application/example
-//
+// $ pulumi import aws:kinesis/analyticsApplication:AnalyticsApplication example arn:aws:kinesisanalytics:us-west-2:1234567890:application/example
 // ```
 type AnalyticsApplication struct {
 	pulumi.CustomResourceState

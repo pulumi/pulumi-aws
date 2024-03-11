@@ -21,6 +21,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -51,13 +52,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_ami` using the ID of the AMI. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/ami:Ami example ami-12345678
+    /// $ pulumi import aws:ec2/ami:Ami example ami-12345678
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/ami:Ami")]

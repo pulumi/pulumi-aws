@@ -10,6 +10,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,13 +23,14 @@ import * as utilities from "../utilities";
  *     bgpAsn: 65352,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Direct Connect hosted private virtual interfaces using the VIF `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:directconnect/hostedPrivateVirtualInterface:HostedPrivateVirtualInterface test dxvif-33cc44dd
+ * $ pulumi import aws:directconnect/hostedPrivateVirtualInterface:HostedPrivateVirtualInterface test dxvif-33cc44dd
  * ```
  */
 export class HostedPrivateVirtualInterface extends pulumi.CustomResource {

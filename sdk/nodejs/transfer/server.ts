@@ -15,8 +15,10 @@ import * as utilities from "../utilities";
  * > **NOTE:** Use the `aws.transfer.Tag` resource to manage the system tags used for [custom hostnames](https://docs.aws.amazon.com/transfer/latest/userguide/requirements-dns.html#tag-custom-hostname-cdk).
  *
  * ## Example Usage
+ *
  * ### Basic
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -25,16 +27,22 @@ import * as utilities from "../utilities";
  *     Name: "Example",
  * }});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Security Policy Name
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.transfer.Server("example", {securityPolicyName: "TransferSecurityPolicy-2020-06"});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### VPC Endpoint
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -48,8 +56,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### AWS Directory authentication
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -59,8 +70,11 @@ import * as utilities from "../utilities";
  *     directoryId: exampleAwsDirectoryServiceDirectory.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### AWS Lambda authentication
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -70,8 +84,11 @@ import * as utilities from "../utilities";
  *     "function": exampleAwsLambdaIdentityProvider.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Protocols
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -91,8 +108,11 @@ import * as utilities from "../utilities";
  *     url: `${exampleAwsApiGatewayDeployment.invokeUrl}${exampleAwsApiGatewayResource.path}`,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Using Structured Logging Destinations
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -120,15 +140,16 @@ import * as utilities from "../utilities";
  *     structuredLogDestinations: [pulumi.interpolate`${transfer.arn}:*`],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Transfer Servers using the server `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:transfer/server:Server example s-12345678
+ * $ pulumi import aws:transfer/server:Server example s-12345678
  * ```
- *  Certain resource arguments, such as `host_key`, cannot be read via the API and imported into the provider. This provider will display a difference for these arguments the first run after import if declared in the provider configuration for an imported resource.
+ * Certain resource arguments, such as `host_key`, cannot be read via the API and imported into the provider. This provider will display a difference for these arguments the first run after import if declared in the provider configuration for an imported resource.
  */
 export class Server extends pulumi.CustomResource {
     /**

@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -34,13 +35,14 @@ import * as utilities from "../utilities";
  *     accessPolicy: testDestinationPolicy.apply(testDestinationPolicy => testDestinationPolicy.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import CloudWatch Logs destination policies using the `destination_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy test_destination_policy test_destination
+ * $ pulumi import aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy test_destination_policy test_destination
  * ```
  */
 export class LogDestinationPolicy extends pulumi.CustomResource {

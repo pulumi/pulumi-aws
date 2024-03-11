@@ -22,7 +22,10 @@ import javax.annotation.Nullable;
  * Provides a Timestream table resource.
  * 
  * ## Example Usage
+ * 
  * ### Basic usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -52,7 +55,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Full usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -88,7 +95,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Customer-defined Partition Key
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -127,13 +138,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Timestream tables using the `table_name` and `database_name` separate by a colon (`:`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:timestreamwrite/table:Table example ExampleTable:ExampleDatabase
+ * $ pulumi import aws:timestreamwrite/table:Table example ExampleTable:ExampleDatabase
  * ```
  * 
  */

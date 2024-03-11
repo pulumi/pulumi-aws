@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS IVS (Interactive Video) Playback Key Pair.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -19,13 +21,14 @@ import * as utilities from "../utilities";
  *     input: "./public-key.pem",
  * }).then(invoke => invoke.result)});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import IVS (Interactive Video) Playback Key Pair using the ARN. For example:
  *
  * ```sh
- *  $ pulumi import aws:ivs/playbackKeyPair:PlaybackKeyPair example arn:aws:ivs:us-west-2:326937407773:playback-key/KDJRJNQhiQzA
+ * $ pulumi import aws:ivs/playbackKeyPair:PlaybackKeyPair example arn:aws:ivs:us-west-2:326937407773:playback-key/KDJRJNQhiQzA
  * ```
  */
 export class PlaybackKeyPair extends pulumi.CustomResource {

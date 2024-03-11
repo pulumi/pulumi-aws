@@ -8,82 +8,13 @@ import * as utilities from "../utilities";
  * Provides a Single Sign-On (SSO) Account Assignment resource
  *
  * ## Example Usage
- * ### Basic Usage
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const example = aws.ssoadmin.getInstances({});
- * const exampleGetPermissionSet = aws.ssoadmin.getPermissionSet({
- *     instanceArn: notImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
- *     name: "AWSReadOnlyAccess",
- * });
- * const exampleGetGroup = aws.identitystore.getGroup({
- *     identityStoreId: notImplemented("tolist(data.aws_ssoadmin_instances.example.identity_store_ids)")[0],
- *     alternateIdentifier: {
- *         uniqueAttribute: {
- *             attributePath: "DisplayName",
- *             attributeValue: "ExampleGroup",
- *         },
- *     },
- * });
- * const exampleAccountAssignment = new aws.ssoadmin.AccountAssignment("example", {
- *     instanceArn: notImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
- *     permissionSetArn: exampleGetPermissionSet.then(exampleGetPermissionSet => exampleGetPermissionSet.arn),
- *     principalId: exampleGetGroup.then(exampleGetGroup => exampleGetGroup.groupId),
- *     principalType: "GROUP",
- *     targetId: "123456789012",
- *     targetType: "AWS_ACCOUNT",
- * });
- * ```
- * ### With Managed Policy Attachment
- *
- * > Because destruction of a managed policy attachment resource also re-provisions the associated permission set to all accounts, explicitly indicating the dependency with the account assignment resource via the `dependsOn` meta argument is necessary to ensure proper deletion order when these resources are used together.
- *
- * ```typescript
- * import * as pulumi from "@pulumi/pulumi";
- * import * as aws from "@pulumi/aws";
- *
- * function notImplemented(message: string) {
- *     throw new Error(message);
- * }
- *
- * const example = aws.ssoadmin.getInstances({});
- * const examplePermissionSet = new aws.ssoadmin.PermissionSet("example", {
- *     name: "Example",
- *     instanceArn: notImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
- * });
- * const exampleGroup = new aws.identitystore.Group("example", {
- *     identityStoreId: notImplemented("tolist(data.aws_ssoadmin_instances.sso_instance.identity_store_ids)")[0],
- *     displayName: "Admin",
- *     description: "Admin Group",
- * });
- * const accountAssignment = new aws.ssoadmin.AccountAssignment("account_assignment", {
- *     instanceArn: notImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
- *     permissionSetArn: examplePermissionSet.arn,
- *     principalId: exampleGroup.groupId,
- *     principalType: "GROUP",
- *     targetId: "123456789012",
- *     targetType: "AWS_ACCOUNT",
- * });
- * const exampleManagedPolicyAttachment = new aws.ssoadmin.ManagedPolicyAttachment("example", {
- *     instanceArn: notImplemented("tolist(data.aws_ssoadmin_instances.example.arns)")[0],
- *     managedPolicyArn: "arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup",
- *     permissionSetArn: examplePermissionSet.arn,
- * });
- * ```
  *
  * ## Import
  *
  * Using `pulumi import`, import SSO Account Assignments using the `principal_id`, `principal_type`, `target_id`, `target_type`, `permission_set_arn`, `instance_arn` separated by commas (`,`). For example:
  *
  * ```sh
- *  $ pulumi import aws:ssoadmin/accountAssignment:AccountAssignment example f81d4fae-7dec-11d0-a765-00a0c91e6bf6,GROUP,1234567890,AWS_ACCOUNT,arn:aws:sso:::permissionSet/ssoins-0123456789abcdef/ps-0123456789abcdef,arn:aws:sso:::instance/ssoins-0123456789abcdef
+ * $ pulumi import aws:ssoadmin/accountAssignment:AccountAssignment example f81d4fae-7dec-11d0-a765-00a0c91e6bf6,GROUP,1234567890,AWS_ACCOUNT,arn:aws:sso:::permissionSet/ssoins-0123456789abcdef/ps-0123456789abcdef,arn:aws:sso:::instance/ssoins-0123456789abcdef
  * ```
  */
 export class AccountAssignment extends pulumi.CustomResource {

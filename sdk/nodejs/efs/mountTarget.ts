@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -24,13 +25,14 @@ import * as utilities from "../utilities";
  *     subnetId: alphaSubnet.id,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import the EFS mount targets using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:efs/mountTarget:MountTarget alpha fsmt-52a643fb
+ * $ pulumi import aws:efs/mountTarget:MountTarget alpha fsmt-52a643fb
  * ```
  */
 export class MountTarget extends pulumi.CustomResource {

@@ -14,10 +14,9 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// Provides details about a specific Connect Lambda Function Association.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +33,7 @@ namespace Pulumi.Aws.Connect
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetLambdaFunctionAssociationResult> InvokeAsync(GetLambdaFunctionAssociationArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLambdaFunctionAssociationResult>("aws:connect/getLambdaFunctionAssociation:getLambdaFunctionAssociation", args ?? new GetLambdaFunctionAssociationArgs(), options.WithDefaults());
@@ -43,10 +41,9 @@ namespace Pulumi.Aws.Connect
         /// <summary>
         /// Provides details about a specific Connect Lambda Function Association.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +60,7 @@ namespace Pulumi.Aws.Connect
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetLambdaFunctionAssociationResult> Invoke(GetLambdaFunctionAssociationInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLambdaFunctionAssociationResult>("aws:connect/getLambdaFunctionAssociation:getLambdaFunctionAssociation", args ?? new GetLambdaFunctionAssociationInvokeArgs(), options.WithDefaults());

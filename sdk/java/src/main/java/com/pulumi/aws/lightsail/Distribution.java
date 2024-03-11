@@ -26,9 +26,12 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS Lightsail Distribution.
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
  * 
  * Below is a basic example with a bucket as an origin.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -94,9 +97,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### instance origin example
  * 
  * Below is an example of an instance as the origin.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -167,9 +174,13 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### lb origin example
  * 
  * Below is an example with a load balancer as an origin
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -243,13 +254,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Lightsail Distribution using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:lightsail/distribution:Distribution example rft-8012925589
+ * $ pulumi import aws:lightsail/distribution:Distribution example rft-8012925589
  * ```
  * 
  */

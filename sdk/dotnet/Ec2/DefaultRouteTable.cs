@@ -20,6 +20,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -52,9 +53,11 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// To subsequently remove all managed routes:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -75,13 +78,14 @@ namespace Pulumi.Aws.Ec2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Default VPC route tables using the `vpc_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2/defaultRouteTable:DefaultRouteTable example vpc-33cc44dd
+    /// $ pulumi import aws:ec2/defaultRouteTable:DefaultRouteTable example vpc-33cc44dd
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2/defaultRouteTable:DefaultRouteTable")]

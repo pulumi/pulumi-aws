@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,13 +30,14 @@ namespace Pulumi.Aws.Ec2TransitGateway
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EC2 Instance Connect Endpoints using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint example eice-012345678
+    /// $ pulumi import aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint example eice-012345678
     /// ```
     /// </summary>
     [AwsResourceType("aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint")]

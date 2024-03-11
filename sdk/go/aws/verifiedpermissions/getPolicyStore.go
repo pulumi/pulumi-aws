@@ -14,8 +14,10 @@ import (
 // Data source for managing an AWS Verified Permissions Policy Store.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupPolicyStore(ctx *pulumi.Context, args *LookupPolicyStoreArgs, opts ...pulumi.InvokeOption) (*LookupPolicyStoreResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupPolicyStoreResult

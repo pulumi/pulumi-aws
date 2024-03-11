@@ -169,8 +169,10 @@ class Alias(pulumi.CustomResource):
         Provides a Step Function State Machine Alias.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -194,13 +196,14 @@ class Alias(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SFN (Step Functions) Alias using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:sfn/alias:Alias foo arn:aws:states:us-east-1:123456789098:stateMachine:myStateMachine:foo
+        $ pulumi import aws:sfn/alias:Alias foo arn:aws:states:us-east-1:123456789098:stateMachine:myStateMachine:foo
         ```
 
         :param str resource_name: The name of the resource.
@@ -219,8 +222,10 @@ class Alias(pulumi.CustomResource):
         Provides a Step Function State Machine Alias.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -244,13 +249,14 @@ class Alias(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SFN (Step Functions) Alias using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:sfn/alias:Alias foo arn:aws:states:us-east-1:123456789098:stateMachine:myStateMachine:foo
+        $ pulumi import aws:sfn/alias:Alias foo arn:aws:states:us-east-1:123456789098:stateMachine:myStateMachine:foo
         ```
 
         :param str resource_name: The name of the resource.

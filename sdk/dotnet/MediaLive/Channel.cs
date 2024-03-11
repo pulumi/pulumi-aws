@@ -13,8 +13,10 @@ namespace Pulumi.Aws.MediaLive
     /// Resource for managing an AWS MediaLive Channel.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -134,13 +136,14 @@ namespace Pulumi.Aws.MediaLive
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import MediaLive Channel using the `channel_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:medialive/channel:Channel example 1234567
+    /// $ pulumi import aws:medialive/channel:Channel example 1234567
     /// ```
     /// </summary>
     [AwsResourceType("aws:medialive/channel:Channel")]

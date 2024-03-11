@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  * Manages a CodeBuild webhook, which is an endpoint accepted by the CodeBuild service to trigger builds from source code repositories. Depending on the source type of the CodeBuild project, the CodeBuild service may also automatically create and delete the actual repository webhook as well.
  *
  * ## Example Usage
+ *
  * ### Bitbucket and GitHub
  *
  * When working with [Bitbucket](https://bitbucket.org) and [GitHub](https://github.com) source CodeBuild webhooks, the CodeBuild service will automatically create (on `aws.codebuild.Webhook` resource creation) and delete (on `aws.codebuild.Webhook` resource deletion) the Bitbucket/GitHub repository webhook using its granted OAuth permissions. This behavior cannot be controlled by this provider.
@@ -19,6 +20,7 @@ import * as utilities from "../utilities";
  *
  * > **Note:** Further managing the automatically created Bitbucket/GitHub webhook with the `bitbucketHook`/`githubRepositoryWebhook` resource is only possible with importing that resource after creation of the `aws.codebuild.Webhook` resource. The CodeBuild API does not ever provide the `secret` attribute for the `aws.codebuild.Webhook` resource in this scenario.
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -40,13 +42,14 @@ import * as utilities from "../utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import CodeBuild Webhooks using the CodeBuild Project name. For example:
  *
  * ```sh
- *  $ pulumi import aws:codebuild/webhook:Webhook example MyProjectName
+ * $ pulumi import aws:codebuild/webhook:Webhook example MyProjectName
  * ```
  */
 export class Webhook extends pulumi.CustomResource {

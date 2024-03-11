@@ -766,6 +766,7 @@ class NfsFileShare(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -776,13 +777,14 @@ class NfsFileShare(pulumi.CustomResource):
             location_arn=example_aws_s3_bucket["arn"],
             role_arn=example_aws_iam_role["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_storagegateway_nfs_file_share` using the NFS File Share Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:storagegateway/nfsFileShare:NfsFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
+        $ pulumi import aws:storagegateway/nfsFileShare:NfsFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -819,6 +821,7 @@ class NfsFileShare(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -829,13 +832,14 @@ class NfsFileShare(pulumi.CustomResource):
             location_arn=example_aws_s3_bucket["arn"],
             role_arn=example_aws_iam_role["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_storagegateway_nfs_file_share` using the NFS File Share Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:storagegateway/nfsFileShare:NfsFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
+        $ pulumi import aws:storagegateway/nfsFileShare:NfsFileShare example arn:aws:storagegateway:us-east-1:123456789012:share/share-12345678
         ```
 
         :param str resource_name: The name of the resource.

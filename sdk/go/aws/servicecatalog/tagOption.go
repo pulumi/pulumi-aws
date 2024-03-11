@@ -15,8 +15,10 @@ import (
 // Manages a Service Catalog Tag Option.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,15 +43,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_servicecatalog_tag_option` using the tag option ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:servicecatalog/tagOption:TagOption example tag-pjtvagohlyo3m
-//
+// $ pulumi import aws:servicecatalog/tagOption:TagOption example tag-pjtvagohlyo3m
 // ```
 type TagOption struct {
 	pulumi.CustomResourceState

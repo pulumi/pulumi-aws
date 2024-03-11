@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * Resource for managing an AWS VPC Lattice Listener Rule.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -89,7 +91,11 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -142,13 +148,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import VPC Lattice Listener Rule using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:vpclattice/listenerRule:ListenerRule example service123/listener456/rule789
+ * $ pulumi import aws:vpclattice/listenerRule:ListenerRule example service123/listener456/rule789
  * ```
  * 
  */

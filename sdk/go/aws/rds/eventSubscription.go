@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -77,15 +78,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import DB Event Subscriptions using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:rds/eventSubscription:EventSubscription default rds-event-sub
-//
+// $ pulumi import aws:rds/eventSubscription:EventSubscription default rds-event-sub
 // ```
 type EventSubscription struct {
 	pulumi.CustomResourceState

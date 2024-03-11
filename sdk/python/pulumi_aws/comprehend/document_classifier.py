@@ -554,8 +554,10 @@ class DocumentClassifier(pulumi.CustomResource):
         Resource for managing an AWS Comprehend Document Classifier.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -570,13 +572,14 @@ class DocumentClassifier(pulumi.CustomResource):
             ))
         entities = aws.s3.BucketObjectv2("entities")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Comprehend Document Classifier using the ARN. For example:
 
         ```sh
-         $ pulumi import aws:comprehend/documentClassifier:DocumentClassifier example arn:aws:comprehend:us-west-2:123456789012:document_classifier/example
+        $ pulumi import aws:comprehend/documentClassifier:DocumentClassifier example arn:aws:comprehend:us-west-2:123456789012:document_classifier/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -625,8 +628,10 @@ class DocumentClassifier(pulumi.CustomResource):
         Resource for managing an AWS Comprehend Document Classifier.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -641,13 +646,14 @@ class DocumentClassifier(pulumi.CustomResource):
             ))
         entities = aws.s3.BucketObjectv2("entities")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Comprehend Document Classifier using the ARN. For example:
 
         ```sh
-         $ pulumi import aws:comprehend/documentClassifier:DocumentClassifier example arn:aws:comprehend:us-west-2:123456789012:document_classifier/example
+        $ pulumi import aws:comprehend/documentClassifier:DocumentClassifier example arn:aws:comprehend:us-west-2:123456789012:document_classifier/example
         ```
 
         :param str resource_name: The name of the resource.

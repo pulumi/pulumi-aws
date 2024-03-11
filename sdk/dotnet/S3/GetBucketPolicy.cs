@@ -14,12 +14,11 @@ namespace Pulumi.Aws.S3
         /// <summary>
         /// The bucket policy data source returns IAM policy of an S3 bucket.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// The following example retrieves IAM policy of a specified S3 bucket.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -39,8 +38,7 @@ namespace Pulumi.Aws.S3
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetBucketPolicyResult> InvokeAsync(GetBucketPolicyArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBucketPolicyResult>("aws:s3/getBucketPolicy:getBucketPolicy", args ?? new GetBucketPolicyArgs(), options.WithDefaults());
@@ -48,12 +46,11 @@ namespace Pulumi.Aws.S3
         /// <summary>
         /// The bucket policy data source returns IAM policy of an S3 bucket.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// The following example retrieves IAM policy of a specified S3 bucket.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -73,8 +70,7 @@ namespace Pulumi.Aws.S3
         ///     };
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetBucketPolicyResult> Invoke(GetBucketPolicyInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBucketPolicyResult>("aws:s3/getBucketPolicy:getBucketPolicy", args ?? new GetBucketPolicyInvokeArgs(), options.WithDefaults());

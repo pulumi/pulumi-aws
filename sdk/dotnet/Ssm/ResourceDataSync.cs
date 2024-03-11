@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -112,13 +113,14 @@ namespace Pulumi.Aws.Ssm
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SSM resource data sync using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ssm/resourceDataSync:ResourceDataSync example example-name
+    /// $ pulumi import aws:ssm/resourceDataSync:ResourceDataSync example example-name
     /// ```
     /// </summary>
     [AwsResourceType("aws:ssm/resourceDataSync:ResourceDataSync")]

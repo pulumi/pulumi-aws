@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,15 +45,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Redshift Cluster IAM Roless using the `cluster_identifier`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:redshift/clusterIamRoles:ClusterIamRoles examplegroup1 example
-//
+// $ pulumi import aws:redshift/clusterIamRoles:ClusterIamRoles examplegroup1 example
 // ```
 type ClusterIamRoles struct {
 	pulumi.CustomResourceState

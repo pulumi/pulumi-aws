@@ -95,6 +95,7 @@ def get_cipher_text(context: Optional[Mapping[str, str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -109,6 +110,7 @@ def get_cipher_text(context: Optional[Mapping[str, str]] = None,
     }
     \"\"\")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Mapping[str, str] context: An optional mapping that makes up the encryption context.
@@ -143,6 +145,7 @@ def get_cipher_text_output(context: Optional[pulumi.Input[Optional[Mapping[str, 
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -157,6 +160,7 @@ def get_cipher_text_output(context: Optional[pulumi.Input[Optional[Mapping[str, 
     }
     \"\"\")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Mapping[str, str] context: An optional mapping that makes up the encryption context.

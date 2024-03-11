@@ -14,11 +14,11 @@ namespace Pulumi.Aws.CloudFront
         /// <summary>
         /// Use this data source to retrieve information about a CloudFront cache policy.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,12 +34,13 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### AWS-Managed Policies
         /// 
         /// AWS managed cache policy names are prefixed with `Managed-`:
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -55,8 +56,7 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetCachePolicyResult> InvokeAsync(GetCachePolicyArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetCachePolicyResult>("aws:cloudfront/getCachePolicy:getCachePolicy", args ?? new GetCachePolicyArgs(), options.WithDefaults());
@@ -64,11 +64,11 @@ namespace Pulumi.Aws.CloudFront
         /// <summary>
         /// Use this data source to retrieve information about a CloudFront cache policy.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -84,12 +84,13 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### AWS-Managed Policies
         /// 
         /// AWS managed cache policy names are prefixed with `Managed-`:
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -105,8 +106,7 @@ namespace Pulumi.Aws.CloudFront
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetCachePolicyResult> Invoke(GetCachePolicyInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetCachePolicyResult>("aws:cloudfront/getCachePolicy:getCachePolicy", args ?? new GetCachePolicyInvokeArgs(), options.WithDefaults());

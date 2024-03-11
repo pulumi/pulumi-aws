@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides an AppStream user.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,13 +52,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_appstream_user` using the `user_name` and `authentication_type` separated by a slash (`/`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:appstream/user:User example UserName/AuthenticationType
+ * $ pulumi import aws:appstream/user:User example UserName/AuthenticationType
  * ```
  * 
  */

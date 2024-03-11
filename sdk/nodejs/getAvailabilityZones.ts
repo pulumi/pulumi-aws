@@ -18,8 +18,10 @@ import * as utilities from "./utilities";
  * > When [Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/) are enabled in a region, by default the API and this data source include both Local Zones and Availability Zones. To return only Availability Zones, see the example section below.
  *
  * ## Example Usage
+ *
  * ### By State
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -32,10 +34,13 @@ import * as utilities from "./utilities";
  * const primary = new aws.ec2.Subnet("primary", {availabilityZone: available.then(available => available.names?.[0])});
  * const secondary = new aws.ec2.Subnet("secondary", {availabilityZone: available.then(available => available.names?.[1])});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### By Filter
  *
  * All Local Zones (regardless of opt-in status):
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -51,9 +56,11 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * Only Availability Zones (no Local Zones):
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -65,6 +72,7 @@ import * as utilities from "./utilities";
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAvailabilityZones(args?: GetAvailabilityZonesArgs, opts?: pulumi.InvokeOptions): Promise<GetAvailabilityZonesResult> {
     args = args || {};
@@ -145,8 +153,10 @@ export interface GetAvailabilityZonesResult {
  * > When [Local Zones](https://aws.amazon.com/about-aws/global-infrastructure/localzones/) are enabled in a region, by default the API and this data source include both Local Zones and Availability Zones. To return only Availability Zones, see the example section below.
  *
  * ## Example Usage
+ *
  * ### By State
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -159,10 +169,13 @@ export interface GetAvailabilityZonesResult {
  * const primary = new aws.ec2.Subnet("primary", {availabilityZone: available.then(available => available.names?.[0])});
  * const secondary = new aws.ec2.Subnet("secondary", {availabilityZone: available.then(available => available.names?.[1])});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### By Filter
  *
  * All Local Zones (regardless of opt-in status):
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -178,9 +191,11 @@ export interface GetAvailabilityZonesResult {
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * Only Availability Zones (no Local Zones):
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -192,6 +207,7 @@ export interface GetAvailabilityZonesResult {
  *     }],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getAvailabilityZonesOutput(args?: GetAvailabilityZonesOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetAvailabilityZonesResult> {
     return pulumi.output(args).apply((a: any) => getAvailabilityZones(a, opts))

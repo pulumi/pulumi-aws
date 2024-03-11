@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS Lex V2 Models Bot Locale.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,8 +45,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Voice Settings
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -75,15 +80,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Lex V2 Models Bot Locale using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:lex/v2modelsBotLocale:V2modelsBotLocale example en_US,abcd-12345678,1
-//
+// $ pulumi import aws:lex/v2modelsBotLocale:V2modelsBotLocale example en_US,abcd-12345678,1
 // ```
 type V2modelsBotLocale struct {
 	pulumi.CustomResourceState

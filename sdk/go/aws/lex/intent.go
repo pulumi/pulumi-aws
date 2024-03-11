@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -128,15 +129,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import intents using their name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:lex/intent:Intent order_flowers_intent OrderFlowers
-//
+// $ pulumi import aws:lex/intent:Intent order_flowers_intent OrderFlowers
 // ```
 type Intent struct {
 	pulumi.CustomResourceState

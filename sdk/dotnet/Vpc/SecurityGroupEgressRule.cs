@@ -21,6 +21,7 @@ namespace Pulumi.Aws.Vpc
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -40,13 +41,14 @@ namespace Pulumi.Aws.Vpc
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import security group egress rules using the `security_group_rule_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule example sgr-02108b27edd666983
+    /// $ pulumi import aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule example sgr-02108b27edd666983
     /// ```
     /// </summary>
     [AwsResourceType("aws:vpc/securityGroupEgressRule:SecurityGroupEgressRule")]

@@ -16,6 +16,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -88,13 +89,14 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EventBridge Rules using the `event_bus_name/rule_name` (if you omit `event_bus_name`, the `default` event bus will be used). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cloudwatch/eventRule:EventRule console example-event-bus/capture-console-sign-in
+    /// $ pulumi import aws:cloudwatch/eventRule:EventRule console example-event-bus/capture-console-sign-in
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/eventRule:EventRule")]

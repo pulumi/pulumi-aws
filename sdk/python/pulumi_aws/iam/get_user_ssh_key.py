@@ -116,6 +116,7 @@ def get_user_ssh_key(encoding: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -124,6 +125,7 @@ def get_user_ssh_key(encoding: Optional[str] = None,
         ssh_public_key_id="APKARUZ32GUTKIGARLXE",
         username="test-user")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str encoding: Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.
@@ -157,6 +159,7 @@ def get_user_ssh_key_output(encoding: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -165,6 +168,7 @@ def get_user_ssh_key_output(encoding: Optional[pulumi.Input[str]] = None,
         ssh_public_key_id="APKARUZ32GUTKIGARLXE",
         username="test-user")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str encoding: Specifies the public key encoding format to use in the response. To retrieve the public key in ssh-rsa format, use `SSH`. To retrieve the public key in PEM format, use `PEM`.

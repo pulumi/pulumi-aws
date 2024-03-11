@@ -15,8 +15,10 @@ import (
 // Provides a Simple or Managed Microsoft directory in AWS Directory Service.
 //
 // ## Example Usage
+//
 // ### SimpleAD
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -75,8 +77,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Microsoft Active Directory (MicrosoftAD)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -136,8 +141,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Microsoft Active Directory Connector (ADConnector)
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -198,15 +206,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import DirectoryService directories using the directory `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:directoryservice/directory:Directory sample d-926724cf57
-//
+// $ pulumi import aws:directoryservice/directory:Directory sample d-926724cf57
 // ```
 type Directory struct {
 	pulumi.CustomResourceState

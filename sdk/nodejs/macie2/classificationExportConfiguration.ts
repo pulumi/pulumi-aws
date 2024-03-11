@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,13 +24,14 @@ import * as utilities from "../utilities";
  *     kmsKeyArn: exampleAwsKmsKey.arn,
  * }});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import `aws_macie2_classification_export_configuration` using the account ID and region. For example:
  *
  * ```sh
- *  $ pulumi import aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration example 123456789012:us-west-2
+ * $ pulumi import aws:macie2/classificationExportConfiguration:ClassificationExportConfiguration example 123456789012:us-west-2
  * ```
  */
 export class ClassificationExportConfiguration extends pulumi.CustomResource {

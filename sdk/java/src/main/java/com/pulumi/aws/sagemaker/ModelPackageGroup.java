@@ -19,7 +19,10 @@ import javax.annotation.Nullable;
  * Provides a SageMaker Model Package Group resource.
  * 
  * ## Example Usage
+ * 
  * ### Basic usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -48,13 +51,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import SageMaker Model Package Groups using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:sagemaker/modelPackageGroup:ModelPackageGroup test_model_package_group my-code-repo
+ * $ pulumi import aws:sagemaker/modelPackageGroup:ModelPackageGroup test_model_package_group my-code-repo
  * ```
  * 
  */

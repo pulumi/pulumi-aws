@@ -15,8 +15,10 @@ import (
 // Executes a Redshift Data Statement.
 //
 // ## Example Usage
+//
 // ### clusterIdentifier
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,8 +45,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### workgroupName
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -70,15 +75,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Redshift Data Statements using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:redshiftdata/statement:Statement example example
-//
+// $ pulumi import aws:redshiftdata/statement:Statement example example
 // ```
 type Statement struct {
 	pulumi.CustomResourceState

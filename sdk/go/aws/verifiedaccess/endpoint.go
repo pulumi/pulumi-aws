@@ -15,48 +15,10 @@ import (
 // Resource for managing an AWS EC2 (Elastic Compute Cloud) Verified Access Endpoint.
 //
 // ## Example Usage
-// ### ALB Example
 //
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/verifiedaccess"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := verifiedaccess.NewEndpoint(ctx, "example", &verifiedaccess.EndpointArgs{
-//				ApplicationDomain:    pulumi.String("example.com"),
-//				AttachmentType:       pulumi.String("vpc"),
-//				Description:          pulumi.String("example"),
-//				DomainCertificateArn: pulumi.Any(exampleAwsAcmCertificate.Arn),
-//				EndpointDomainPrefix: pulumi.String("example"),
-//				EndpointType:         pulumi.String("load-balancer"),
-//				LoadBalancerOptions: &verifiedaccess.EndpointLoadBalancerOptionsArgs{
-//					LoadBalancerArn: pulumi.Any(exampleAwsLb.Arn),
-//					Port:            pulumi.Int(443),
-//					Protocol:        pulumi.String("https"),
-//					SubnetIds:       "TODO: For expression",
-//				},
-//				SecurityGroupIds: pulumi.StringArray{
-//					exampleAwsSecurityGroup.Id,
-//				},
-//				VerifiedAccessGroupId: pulumi.Any(exampleAwsVerifiedaccessGroup.Id),
-//			})
-//			if err != nil {
-//				return err
-//			}
-//			return nil
-//		})
-//	}
-//
-// ```
 // ### Network Interface Example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -94,17 +56,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
-// # Using `pulumi import`, import Verified Access Instances using the
-//
-// `id`. For example:
+// Using `pulumi import`, import Verified Access Instances using the  `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:verifiedaccess/endpoint:Endpoint example vae-8012925589
-//
+// $ pulumi import aws:verifiedaccess/endpoint:Endpoint example vae-8012925589
 // ```
 type Endpoint struct {
 	pulumi.CustomResourceState

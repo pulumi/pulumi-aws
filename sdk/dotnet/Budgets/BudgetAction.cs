@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Budgets
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -127,13 +128,14 @@ namespace Pulumi.Aws.Budgets
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import budget actions using `AccountID:ActionID:BudgetName`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:budgets/budgetAction:BudgetAction myBudget 123456789012:some-id:myBudget
+    /// $ pulumi import aws:budgets/budgetAction:BudgetAction myBudget 123456789012:some-id:myBudget
     /// ```
     /// </summary>
     [AwsResourceType("aws:budgets/budgetAction:BudgetAction")]

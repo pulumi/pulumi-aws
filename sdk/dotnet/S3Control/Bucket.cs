@@ -16,6 +16,7 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -32,13 +33,14 @@ namespace Pulumi.Aws.S3Control
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import S3 Control Buckets using Amazon Resource Name (ARN). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:s3control/bucket:Bucket example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
+    /// $ pulumi import aws:s3control/bucket:Bucket example arn:aws:s3-outposts:us-east-1:123456789012:outpost/op-12345678/bucket/example
     /// ```
     /// </summary>
     [AwsResourceType("aws:s3control/bucket:Bucket")]

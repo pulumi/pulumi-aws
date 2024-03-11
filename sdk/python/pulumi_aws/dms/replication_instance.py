@@ -676,6 +676,7 @@ class ReplicationInstance(pulumi.CustomResource):
 
         Create required roles and then create a DMS instance, setting the depends_on to the required role policy attachments.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -730,13 +731,14 @@ class ReplicationInstance(pulumi.CustomResource):
             },
             vpc_security_group_ids=["sg-12345678"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import replication instances using the `replication_instance_id`. For example:
 
         ```sh
-         $ pulumi import aws:dms/replicationInstance:ReplicationInstance test test-dms-replication-instance-tf
+        $ pulumi import aws:dms/replicationInstance:ReplicationInstance test test-dms-replication-instance-tf
         ```
 
         :param str resource_name: The name of the resource.
@@ -781,6 +783,7 @@ class ReplicationInstance(pulumi.CustomResource):
 
         Create required roles and then create a DMS instance, setting the depends_on to the required role policy attachments.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -835,13 +838,14 @@ class ReplicationInstance(pulumi.CustomResource):
             },
             vpc_security_group_ids=["sg-12345678"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import replication instances using the `replication_instance_id`. For example:
 
         ```sh
-         $ pulumi import aws:dms/replicationInstance:ReplicationInstance test test-dms-replication-instance-tf
+        $ pulumi import aws:dms/replicationInstance:ReplicationInstance test test-dms-replication-instance-tf
         ```
 
         :param str resource_name: The name of the resource.

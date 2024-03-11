@@ -354,6 +354,7 @@ class Authorizer(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -404,13 +405,14 @@ class Authorizer(pulumi.CustomResource):
             role=invocation_role.id,
             policy=invocation_policy.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AWS API Gateway Authorizer using the `REST-API-ID/AUTHORIZER-ID`. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/authorizer:Authorizer authorizer 12345abcde/example
+        $ pulumi import aws:apigateway/authorizer:Authorizer authorizer 12345abcde/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -437,6 +439,7 @@ class Authorizer(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -487,13 +490,14 @@ class Authorizer(pulumi.CustomResource):
             role=invocation_role.id,
             policy=invocation_policy.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AWS API Gateway Authorizer using the `REST-API-ID/AUTHORIZER-ID`. For example:
 
         ```sh
-         $ pulumi import aws:apigateway/authorizer:Authorizer authorizer 12345abcde/example
+        $ pulumi import aws:apigateway/authorizer:Authorizer authorizer 12345abcde/example
         ```
 
         :param str resource_name: The name of the resource.

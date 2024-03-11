@@ -16,8 +16,10 @@ import (
 // > **NOTE on preview operations:** This data source calls the `RunTask` API on every read operation, which means new task(s) may be created from a `pulumi preview` command if all attributes are known. Placing this functionality behind a data source is an intentional trade off to enable use cases requiring a one-time task execution without relying on provisioners. Caution should be taken to ensure the data source is only executed once, or that the resulting tasks can safely run in parallel.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,6 +51,7 @@ import (
 // })
 // }
 // ```
+// <!--End PulumiCodeChooser -->
 func GetTaskExecution(ctx *pulumi.Context, args *GetTaskExecutionArgs, opts ...pulumi.InvokeOption) (*GetTaskExecutionResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetTaskExecutionResult

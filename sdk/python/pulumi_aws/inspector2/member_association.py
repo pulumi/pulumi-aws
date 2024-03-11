@@ -117,21 +117,24 @@ class MemberAssociation(pulumi.CustomResource):
         Resource for associating accounts to existing Inspector instances.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.inspector2.MemberAssociation("example", account_id="123456789012")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amazon Inspector Member Association using the `account_id`. For example:
 
         ```sh
-         $ pulumi import aws:inspector2/memberAssociation:MemberAssociation example 123456789012
+        $ pulumi import aws:inspector2/memberAssociation:MemberAssociation example 123456789012
         ```
 
         :param str resource_name: The name of the resource.
@@ -148,21 +151,24 @@ class MemberAssociation(pulumi.CustomResource):
         Resource for associating accounts to existing Inspector instances.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.inspector2.MemberAssociation("example", account_id="123456789012")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Amazon Inspector Member Association using the `account_id`. For example:
 
         ```sh
-         $ pulumi import aws:inspector2/memberAssociation:MemberAssociation example 123456789012
+        $ pulumi import aws:inspector2/memberAssociation:MemberAssociation example 123456789012
         ```
 
         :param str resource_name: The name of the resource.

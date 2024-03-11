@@ -119,14 +119,6 @@ class Schema(pulumi.CustomResource):
         """
         ## Example Usage
 
-        ## Import
-
-        Using `pulumi import`, import Verified Permissions Policy Store Schema using the `policy_store_id`. For example:
-
-         console
-
-        % pulumi import aws_verifiedpermissions_schema.example DxQg2j8xvXJQ1tQCYNWj9T
-
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[pulumi.InputType['SchemaDefinitionArgs']] definition: The definition of the schema.
@@ -140,14 +132,6 @@ class Schema(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
-
-        ## Import
-
-        Using `pulumi import`, import Verified Permissions Policy Store Schema using the `policy_store_id`. For example:
-
-         console
-
-        % pulumi import aws_verifiedpermissions_schema.example DxQg2j8xvXJQ1tQCYNWj9T
 
         :param str resource_name: The name of the resource.
         :param SchemaArgs args: The arguments to use to populate this resource's properties.

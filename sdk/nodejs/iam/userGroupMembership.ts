@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -34,13 +35,14 @@ import * as utilities from "../utilities";
  *     groups: [group3.name],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import IAM user group membership using the user name and group names separated by `/`. For example:
  *
  * ```sh
- *  $ pulumi import aws:iam/userGroupMembership:UserGroupMembership example1 user1/group1/group2
+ * $ pulumi import aws:iam/userGroupMembership:UserGroupMembership example1 user1/group1/group2
  * ```
  */
 export class UserGroupMembership extends pulumi.CustomResource {

@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Provides an AWS Elemental MediaPackage Channel.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -50,13 +52,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Media Package Channels using the channel ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:mediapackage/channel:Channel kittens kittens-channel
+ * $ pulumi import aws:mediapackage/channel:Channel kittens kittens-channel
  * ```
  * 
  */

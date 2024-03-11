@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -17,6 +18,7 @@ import * as utilities from "../utilities";
  *     pipelineId: "pipelineID",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPipeline(args: GetPipelineArgs, opts?: pulumi.InvokeOptions): Promise<GetPipelineResult> {
 
@@ -68,6 +70,7 @@ export interface GetPipelineResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -76,6 +79,7 @@ export interface GetPipelineResult {
  *     pipelineId: "pipelineID",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getPipelineOutput(args: GetPipelineOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetPipelineResult> {
     return pulumi.output(args).apply((a: any) => getPipeline(a, opts))

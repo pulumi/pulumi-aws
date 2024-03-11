@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,15 +41,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import serial console access state. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/serialConsoleAccess:SerialConsoleAccess example default
-//
+// $ pulumi import aws:ec2/serialConsoleAccess:SerialConsoleAccess example default
 // ```
 type SerialConsoleAccess struct {
 	pulumi.CustomResourceState

@@ -1156,6 +1156,7 @@ class Cluster(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1169,6 +1170,7 @@ class Cluster(pulumi.CustomResource):
             iam_database_authentication_enabled=True,
             apply_immediately=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         > **Note:** AWS Neptune does not support user name/password–based access control.
         See the AWS [Docs](https://docs.aws.amazon.com/neptune/latest/userguide/limits.html) for more information.
@@ -1178,7 +1180,7 @@ class Cluster(pulumi.CustomResource):
         Using `pulumi import`, import `aws_neptune_cluster` using the cluster identifier. For example:
 
         ```sh
-         $ pulumi import aws:neptune/cluster:Cluster example my-cluster
+        $ pulumi import aws:neptune/cluster:Cluster example my-cluster
         ```
 
         :param str resource_name: The name of the resource.
@@ -1233,6 +1235,7 @@ class Cluster(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1246,6 +1249,7 @@ class Cluster(pulumi.CustomResource):
             iam_database_authentication_enabled=True,
             apply_immediately=True)
         ```
+        <!--End PulumiCodeChooser -->
 
         > **Note:** AWS Neptune does not support user name/password–based access control.
         See the AWS [Docs](https://docs.aws.amazon.com/neptune/latest/userguide/limits.html) for more information.
@@ -1255,7 +1259,7 @@ class Cluster(pulumi.CustomResource):
         Using `pulumi import`, import `aws_neptune_cluster` using the cluster identifier. For example:
 
         ```sh
-         $ pulumi import aws:neptune/cluster:Cluster example my-cluster
+        $ pulumi import aws:neptune/cluster:Cluster example my-cluster
         ```
 
         :param str resource_name: The name of the resource.

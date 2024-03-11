@@ -139,6 +139,7 @@ class ParameterGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -156,13 +157,14 @@ class ParameterGroup(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DAX Parameter Group using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:dax/parameterGroup:ParameterGroup example my_dax_pg
+        $ pulumi import aws:dax/parameterGroup:ParameterGroup example my_dax_pg
         ```
 
         :param str resource_name: The name of the resource.
@@ -182,6 +184,7 @@ class ParameterGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -199,13 +202,14 @@ class ParameterGroup(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DAX Parameter Group using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:dax/parameterGroup:ParameterGroup example my_dax_pg
+        $ pulumi import aws:dax/parameterGroup:ParameterGroup example my_dax_pg
         ```
 
         :param str resource_name: The name of the resource.

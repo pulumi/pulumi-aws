@@ -330,8 +330,10 @@ class Control(pulumi.CustomResource):
         Resource for managing an AWS Audit Manager Control.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -344,13 +346,14 @@ class Control(pulumi.CustomResource):
                 source_type="MANUAL",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import an Audit Manager Control using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:auditmanager/control:Control example abc123-de45
+        $ pulumi import aws:auditmanager/control:Control example abc123-de45
         ```
 
         :param str resource_name: The name of the resource.
@@ -375,8 +378,10 @@ class Control(pulumi.CustomResource):
         Resource for managing an AWS Audit Manager Control.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -389,13 +394,14 @@ class Control(pulumi.CustomResource):
                 source_type="MANUAL",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import an Audit Manager Control using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:auditmanager/control:Control example abc123-de45
+        $ pulumi import aws:auditmanager/control:Control example abc123-de45
         ```
 
         :param str resource_name: The name of the resource.

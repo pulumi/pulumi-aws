@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -51,15 +52,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Glue Security Configurations using `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:glue/securityConfiguration:SecurityConfiguration example example
-//
+// $ pulumi import aws:glue/securityConfiguration:SecurityConfiguration example example
 // ```
 type SecurityConfiguration struct {
 	pulumi.CustomResourceState

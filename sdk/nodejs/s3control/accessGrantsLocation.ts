@@ -12,6 +12,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,13 +23,14 @@ import * as utilities from "../utilities";
  *     locationScope: "s3://",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import S3 Access Grants locations using the `account_id` and `access_grants_location_id`, separated by a comma (`,`). For example:
  *
  * ```sh
- *  $ pulumi import aws:s3control/accessGrantsLocation:AccessGrantsLocation example 123456789012,default
+ * $ pulumi import aws:s3control/accessGrantsLocation:AccessGrantsLocation example 123456789012,default
  * ```
  */
 export class AccessGrantsLocation extends pulumi.CustomResource {

@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Account
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -33,6 +34,7 @@ namespace Pulumi.Aws.Account
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
@@ -43,12 +45,12 @@ namespace Pulumi.Aws.Account
     /// Import the Alternate Contact for the current account:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:account/alternativeContact:AlternativeContact operations OPERATIONS
+    /// $ pulumi import aws:account/alternativeContact:AlternativeContact operations OPERATIONS
     /// ```
-    ///  Import the Alternate Contact for another account using the `account_id` and `alternate_contact_type` separated by a forward slash (`/`):
+    /// Import the Alternate Contact for another account using the `account_id` and `alternate_contact_type` separated by a forward slash (`/`):
     /// 
     /// ```sh
-    ///  $ pulumi import aws:account/alternativeContact:AlternativeContact operations 1234567890/OPERATIONS
+    /// $ pulumi import aws:account/alternativeContact:AlternativeContact operations 1234567890/OPERATIONS
     /// ```
     /// </summary>
     [AwsResourceType("aws:account/alternativeContact:AlternativeContact")]

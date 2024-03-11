@@ -18,14 +18,13 @@ namespace Pulumi.Aws.Ec2
         /// an input variable and needs to, for example, determine the CIDR block of that
         /// VPC.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// The following example shows how one might accept a VPC id as a variable
         /// and use this data source to obtain the data necessary to create a subnet
         /// within it.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -56,8 +55,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetVpcResult> InvokeAsync(GetVpcArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetVpcResult>("aws:ec2/getVpc:getVpc", args ?? new GetVpcArgs(), options.WithDefaults());
@@ -69,14 +67,13 @@ namespace Pulumi.Aws.Ec2
         /// an input variable and needs to, for example, determine the CIDR block of that
         /// VPC.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
         /// The following example shows how one might accept a VPC id as a variable
         /// and use this data source to obtain the data necessary to create a subnet
         /// within it.
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -107,8 +104,7 @@ namespace Pulumi.Aws.Ec2
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetVpcResult> Invoke(GetVpcInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetVpcResult>("aws:ec2/getVpc:getVpc", args ?? new GetVpcInvokeArgs(), options.WithDefaults());

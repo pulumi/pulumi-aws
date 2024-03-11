@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -40,13 +41,14 @@ import * as utilities from "../utilities";
  *     accessPolicy: example.then(example => example.json),
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import CloudSearch domain service access policies using the domain name. For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy example example-domain
+ * $ pulumi import aws:cloudsearch/domainServiceAccessPolicy:DomainServiceAccessPolicy example example-domain
  * ```
  */
 export class DomainServiceAccessPolicy extends pulumi.CustomResource {

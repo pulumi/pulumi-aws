@@ -1168,8 +1168,10 @@ class Cluster(pulumi.CustomResource):
         > **Note:** Any attribute changes that re-create the resource will be applied immediately, regardless of the value of `apply_immediately`.
 
         ## Example Usage
+
         ### Memcached Cluster
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1182,8 +1184,11 @@ class Cluster(pulumi.CustomResource):
             parameter_group_name="default.memcached1.4",
             port=11211)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Redis Instance
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1197,10 +1202,13 @@ class Cluster(pulumi.CustomResource):
             engine_version="3.2.10",
             port=6379)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Redis Cluster Mode Disabled Read Replica Instance
 
         These inherit their settings from the replication group.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1209,8 +1217,11 @@ class Cluster(pulumi.CustomResource):
             cluster_id="cluster-example",
             replication_group_id=example["id"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Redis Log Delivery configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1237,46 +1248,14 @@ class Cluster(pulumi.CustomResource):
                 ),
             ])
         ```
-        ### Elasticache Cluster in Outpost
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.outposts.get_outposts()
-        example_get_outpost = aws.outposts.get_outpost(id=not_implemented("tolist(data.aws_outposts_outposts.example.ids)")[0])
-        example_vpc = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
-        example_subnet = aws.ec2.Subnet("example",
-            vpc_id=example_vpc.id,
-            cidr_block="10.0.1.0/24",
-            tags={
-                "Name": "my-subnet",
-            })
-        example_subnet_group = aws.elasticache.SubnetGroup("example",
-            name="my-cache-subnet",
-            subnet_ids=[example_subnet.id])
-        example_cluster = aws.elasticache.Cluster("example",
-            cluster_id="cluster-example",
-            outpost_mode="single-outpost",
-            preferred_outpost_arn=example_get_outpost.arn,
-            engine="memcached",
-            node_type="cache.r5.large",
-            num_cache_nodes=2,
-            parameter_group_name="default.memcached1.4",
-            port=11211,
-            subnet_group_name=example_subnet_group.name)
-        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ElastiCache Clusters using the `cluster_id`. For example:
 
         ```sh
-         $ pulumi import aws:elasticache/cluster:Cluster my_cluster my_cluster
+        $ pulumi import aws:elasticache/cluster:Cluster my_cluster my_cluster
         ```
 
         :param str resource_name: The name of the resource.
@@ -1352,8 +1331,10 @@ class Cluster(pulumi.CustomResource):
         > **Note:** Any attribute changes that re-create the resource will be applied immediately, regardless of the value of `apply_immediately`.
 
         ## Example Usage
+
         ### Memcached Cluster
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1366,8 +1347,11 @@ class Cluster(pulumi.CustomResource):
             parameter_group_name="default.memcached1.4",
             port=11211)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Redis Instance
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1381,10 +1365,13 @@ class Cluster(pulumi.CustomResource):
             engine_version="3.2.10",
             port=6379)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Redis Cluster Mode Disabled Read Replica Instance
 
         These inherit their settings from the replication group.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1393,8 +1380,11 @@ class Cluster(pulumi.CustomResource):
             cluster_id="cluster-example",
             replication_group_id=example["id"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Redis Log Delivery configuration
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1421,46 +1411,14 @@ class Cluster(pulumi.CustomResource):
                 ),
             ])
         ```
-        ### Elasticache Cluster in Outpost
-
-        ```python
-        import pulumi
-        import pulumi_aws as aws
-
-
-        def not_implemented(msg):
-            raise NotImplementedError(msg)
-
-        example = aws.outposts.get_outposts()
-        example_get_outpost = aws.outposts.get_outpost(id=not_implemented("tolist(data.aws_outposts_outposts.example.ids)")[0])
-        example_vpc = aws.ec2.Vpc("example", cidr_block="10.0.0.0/16")
-        example_subnet = aws.ec2.Subnet("example",
-            vpc_id=example_vpc.id,
-            cidr_block="10.0.1.0/24",
-            tags={
-                "Name": "my-subnet",
-            })
-        example_subnet_group = aws.elasticache.SubnetGroup("example",
-            name="my-cache-subnet",
-            subnet_ids=[example_subnet.id])
-        example_cluster = aws.elasticache.Cluster("example",
-            cluster_id="cluster-example",
-            outpost_mode="single-outpost",
-            preferred_outpost_arn=example_get_outpost.arn,
-            engine="memcached",
-            node_type="cache.r5.large",
-            num_cache_nodes=2,
-            parameter_group_name="default.memcached1.4",
-            port=11211,
-            subnet_group_name=example_subnet_group.name)
-        ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ElastiCache Clusters using the `cluster_id`. For example:
 
         ```sh
-         $ pulumi import aws:elasticache/cluster:Cluster my_cluster my_cluster
+        $ pulumi import aws:elasticache/cluster:Cluster my_cluster my_cluster
         ```
 
         :param str resource_name: The name of the resource.

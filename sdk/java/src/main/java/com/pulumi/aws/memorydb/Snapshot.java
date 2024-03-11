@@ -23,6 +23,8 @@ import javax.annotation.Nullable;
  * More information about snapshot and restore can be found in the [MemoryDB User Guide](https://docs.aws.amazon.com/memorydb/latest/devguide/snapshots.html).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -52,13 +54,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import a snapshot using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:memorydb/snapshot:Snapshot example my-snapshot
+ * $ pulumi import aws:memorydb/snapshot:Snapshot example my-snapshot
  * ```
  * 
  */

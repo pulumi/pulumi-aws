@@ -119,8 +119,10 @@ def get_alias(description: Optional[str] = None,
     Data source for managing an AWS SFN (Step Functions) State Machine Alias.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -128,6 +130,7 @@ def get_alias(description: Optional[str] = None,
     example = aws.sfn.get_alias(name="my_sfn_alias",
         statemachine_arn=sfn_test["arn"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str description: Description of state machine alias.
@@ -160,8 +163,10 @@ def get_alias_output(description: Optional[pulumi.Input[Optional[str]]] = None,
     Data source for managing an AWS SFN (Step Functions) State Machine Alias.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -169,6 +174,7 @@ def get_alias_output(description: Optional[pulumi.Input[Optional[str]]] = None,
     example = aws.sfn.get_alias(name="my_sfn_alias",
         statemachine_arn=sfn_test["arn"])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str description: Description of state machine alias.

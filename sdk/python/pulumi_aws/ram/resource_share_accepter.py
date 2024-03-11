@@ -186,6 +186,7 @@ class ResourceShareAccepter(pulumi.CustomResource):
 
         This configuration provides an example of using multiple AWS providers to configure two different AWS accounts. In the _sender_ account, the configuration creates a `ram.ResourceShare` and uses a data source in the _receiver_ account to create a `ram.PrincipalAssociation` resource with the _receiver's_ account ID. In the _receiver_ account, the configuration accepts the invitation to share resources with the `ram.ResourceShareAccepter`.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -202,13 +203,14 @@ class ResourceShareAccepter(pulumi.CustomResource):
             resource_share_arn=sender_share.arn)
         receiver_accept = aws.ram.ResourceShareAccepter("receiver_accept", share_arn=sender_invite.resource_share_arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import resource share accepters using the resource share ARN. For example:
 
         ```sh
-         $ pulumi import aws:ram/resourceShareAccepter:ResourceShareAccepter example arn:aws:ram:us-east-1:123456789012:resource-share/c4b56393-e8d9-89d9-6dc9-883752de4767
+        $ pulumi import aws:ram/resourceShareAccepter:ResourceShareAccepter example arn:aws:ram:us-east-1:123456789012:resource-share/c4b56393-e8d9-89d9-6dc9-883752de4767
         ```
 
         :param str resource_name: The name of the resource.
@@ -230,6 +232,7 @@ class ResourceShareAccepter(pulumi.CustomResource):
 
         This configuration provides an example of using multiple AWS providers to configure two different AWS accounts. In the _sender_ account, the configuration creates a `ram.ResourceShare` and uses a data source in the _receiver_ account to create a `ram.PrincipalAssociation` resource with the _receiver's_ account ID. In the _receiver_ account, the configuration accepts the invitation to share resources with the `ram.ResourceShareAccepter`.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -246,13 +249,14 @@ class ResourceShareAccepter(pulumi.CustomResource):
             resource_share_arn=sender_share.arn)
         receiver_accept = aws.ram.ResourceShareAccepter("receiver_accept", share_arn=sender_invite.resource_share_arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import resource share accepters using the resource share ARN. For example:
 
         ```sh
-         $ pulumi import aws:ram/resourceShareAccepter:ResourceShareAccepter example arn:aws:ram:us-east-1:123456789012:resource-share/c4b56393-e8d9-89d9-6dc9-883752de4767
+        $ pulumi import aws:ram/resourceShareAccepter:ResourceShareAccepter example arn:aws:ram:us-east-1:123456789012:resource-share/c4b56393-e8d9-89d9-6dc9-883752de4767
         ```
 
         :param str resource_name: The name of the resource.

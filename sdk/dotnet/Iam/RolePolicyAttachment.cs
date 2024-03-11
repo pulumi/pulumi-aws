@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Iam
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -92,13 +93,14 @@ namespace Pulumi.Aws.Iam
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IAM role policy attachments using the role name and policy arn separated by `/`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:iam/rolePolicyAttachment:RolePolicyAttachment test-attach test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
+    /// $ pulumi import aws:iam/rolePolicyAttachment:RolePolicyAttachment test-attach test-role/arn:aws:iam::xxxxxxxxxxxx:policy/test-policy
     /// ```
     /// </summary>
     [AwsResourceType("aws:iam/rolePolicyAttachment:RolePolicyAttachment")]

@@ -137,6 +137,7 @@ class RouteTableAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -145,7 +146,9 @@ class RouteTableAssociation(pulumi.CustomResource):
             subnet_id=foo["id"],
             route_table_id=bar["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -154,6 +157,7 @@ class RouteTableAssociation(pulumi.CustomResource):
             gateway_id=foo["id"],
             route_table_id=bar["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -164,12 +168,12 @@ class RouteTableAssociation(pulumi.CustomResource):
         With EC2 Subnets:
 
         ```sh
-         $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc subnet-6777656e646f6c796e/rtb-656c65616e6f72
+        $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc subnet-6777656e646f6c796e/rtb-656c65616e6f72
         ```
-         With EC2 Internet Gateways:
+        With EC2 Internet Gateways:
 
         ```sh
-         $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc igw-01b3a60780f8d034a/rtb-656c65616e6f72
+        $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc igw-01b3a60780f8d034a/rtb-656c65616e6f72
         ```
 
         :param str resource_name: The name of the resource.
@@ -190,6 +194,7 @@ class RouteTableAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -198,7 +203,9 @@ class RouteTableAssociation(pulumi.CustomResource):
             subnet_id=foo["id"],
             route_table_id=bar["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -207,6 +214,7 @@ class RouteTableAssociation(pulumi.CustomResource):
             gateway_id=foo["id"],
             route_table_id=bar["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -217,12 +225,12 @@ class RouteTableAssociation(pulumi.CustomResource):
         With EC2 Subnets:
 
         ```sh
-         $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc subnet-6777656e646f6c796e/rtb-656c65616e6f72
+        $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc subnet-6777656e646f6c796e/rtb-656c65616e6f72
         ```
-         With EC2 Internet Gateways:
+        With EC2 Internet Gateways:
 
         ```sh
-         $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc igw-01b3a60780f8d034a/rtb-656c65616e6f72
+        $ pulumi import aws:ec2/routeTableAssociation:RouteTableAssociation assoc igw-01b3a60780f8d034a/rtb-656c65616e6f72
         ```
 
         :param str resource_name: The name of the resource.

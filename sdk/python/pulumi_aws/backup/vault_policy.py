@@ -118,6 +118,7 @@ class VaultPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -145,13 +146,14 @@ class VaultPolicy(pulumi.CustomResource):
             backup_vault_name=example_vault.name,
             policy=example.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Backup vault policy using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:backup/vaultPolicy:VaultPolicy test TestVault
+        $ pulumi import aws:backup/vaultPolicy:VaultPolicy test TestVault
         ```
 
         :param str resource_name: The name of the resource.
@@ -170,6 +172,7 @@ class VaultPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -197,13 +200,14 @@ class VaultPolicy(pulumi.CustomResource):
             backup_vault_name=example_vault.name,
             policy=example.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Backup vault policy using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:backup/vaultPolicy:VaultPolicy test TestVault
+        $ pulumi import aws:backup/vaultPolicy:VaultPolicy test TestVault
         ```
 
         :param str resource_name: The name of the resource.

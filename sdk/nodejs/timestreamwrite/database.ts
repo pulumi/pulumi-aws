@@ -8,16 +8,21 @@ import * as utilities from "../utilities";
  * Provides a Timestream database resource.
  *
  * ## Example Usage
+ *
  * ### Basic usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.timestreamwrite.Database("example", {databaseName: "database-example"});
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Full usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -30,13 +35,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Timestream databases using the `database_name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:timestreamwrite/database:Database example example
+ * $ pulumi import aws:timestreamwrite/database:Database example example
  * ```
  */
 export class Database extends pulumi.CustomResource {

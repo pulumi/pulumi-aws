@@ -27,6 +27,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * Basic usage:
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -56,6 +58,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  */
 @ResourceType(type="aws:ec2/securityGroupAssociation:SecurityGroupAssociation")

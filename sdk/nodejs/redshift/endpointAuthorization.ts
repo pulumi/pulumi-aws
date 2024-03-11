@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -18,13 +19,14 @@ import * as utilities from "../utilities";
  *     clusterIdentifier: exampleAwsRedshiftCluster.clusterIdentifier,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Redshift endpoint authorization using the `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:redshift/endpointAuthorization:EndpointAuthorization example 01234567910:cluster-example-id
+ * $ pulumi import aws:redshift/endpointAuthorization:EndpointAuthorization example 01234567910:cluster-example-id
  * ```
  */
 export class EndpointAuthorization extends pulumi.CustomResource {

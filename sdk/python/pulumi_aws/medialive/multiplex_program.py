@@ -144,8 +144,10 @@ class MultiplexProgram(pulumi.CustomResource):
         Resource for managing an AWS MediaLive MultiplexProgram.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -178,13 +180,14 @@ class MultiplexProgram(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import MediaLive MultiplexProgram using the `id`, or a combination of "`program_name`/`multiplex_id`". For example:
 
         ```sh
-         $ pulumi import aws:medialive/multiplexProgram:MultiplexProgram example example_program/1234567
+        $ pulumi import aws:medialive/multiplexProgram:MultiplexProgram example example_program/1234567
         ```
 
         :param str resource_name: The name of the resource.
@@ -205,8 +208,10 @@ class MultiplexProgram(pulumi.CustomResource):
         Resource for managing an AWS MediaLive MultiplexProgram.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -239,13 +244,14 @@ class MultiplexProgram(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import MediaLive MultiplexProgram using the `id`, or a combination of "`program_name`/`multiplex_id`". For example:
 
         ```sh
-         $ pulumi import aws:medialive/multiplexProgram:MultiplexProgram example example_program/1234567
+        $ pulumi import aws:medialive/multiplexProgram:MultiplexProgram example example_program/1234567
         ```
 
         :param str resource_name: The name of the resource.

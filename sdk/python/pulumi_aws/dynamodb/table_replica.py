@@ -251,8 +251,10 @@ class TableReplica(pulumi.CustomResource):
         > **Note:** Do not use the `replica` configuration block of dynamodb.Table together with this resource as the two configuration options are mutually exclusive.
 
         ## Example Usage
+
         ### Basic Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -274,6 +276,7 @@ class TableReplica(pulumi.CustomResource):
                 "Pozo": "Amargo",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -282,7 +285,7 @@ class TableReplica(pulumi.CustomResource):
         ~> __Note:__ When importing, use the region where the initial or _main_ global table resides, _not_ the region of the replica.
 
         ```sh
-         $ pulumi import aws:dynamodb/tableReplica:TableReplica example TestTable:us-west-2
+        $ pulumi import aws:dynamodb/tableReplica:TableReplica example TestTable:us-west-2
         ```
 
         :param str resource_name: The name of the resource.
@@ -309,8 +312,10 @@ class TableReplica(pulumi.CustomResource):
         > **Note:** Do not use the `replica` configuration block of dynamodb.Table together with this resource as the two configuration options are mutually exclusive.
 
         ## Example Usage
+
         ### Basic Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -332,6 +337,7 @@ class TableReplica(pulumi.CustomResource):
                 "Pozo": "Amargo",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -340,7 +346,7 @@ class TableReplica(pulumi.CustomResource):
         ~> __Note:__ When importing, use the region where the initial or _main_ global table resides, _not_ the region of the replica.
 
         ```sh
-         $ pulumi import aws:dynamodb/tableReplica:TableReplica example TestTable:us-west-2
+        $ pulumi import aws:dynamodb/tableReplica:TableReplica example TestTable:us-west-2
         ```
 
         :param str resource_name: The name of the resource.

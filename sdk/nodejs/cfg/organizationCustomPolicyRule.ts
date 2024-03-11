@@ -10,8 +10,10 @@ import * as utilities from "../utilities";
  * > **NOTE:** This resource must be created in the Organization master account and rules will include the master account unless its ID is added to the `excludedAccounts` argument.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -36,13 +38,14 @@ import * as utilities from "../utilities";
  *     resourceTypesScopes: ["AWS::DynamoDB::Table"],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import a Config Organization Custom Policy Rule using the `name` argument. For example:
  *
  * ```sh
- *  $ pulumi import aws:cfg/organizationCustomPolicyRule:OrganizationCustomPolicyRule example example_rule_name
+ * $ pulumi import aws:cfg/organizationCustomPolicyRule:OrganizationCustomPolicyRule example example_rule_name
  * ```
  */
 export class OrganizationCustomPolicyRule extends pulumi.CustomResource {

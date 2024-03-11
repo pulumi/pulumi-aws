@@ -19,6 +19,8 @@ public final class GetReceivedLicensesFilterArgs extends com.pulumi.resources.Re
      * Name of the field to filter by, as defined by
      * [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedLicenses.html#API_ListReceivedLicenses_RequestSyntax).
      * For example, if filtering using `ProductSKU`, use:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -50,6 +52,7 @@ public final class GetReceivedLicensesFilterArgs extends com.pulumi.resources.Re
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     @Import(name="name", required=true)
@@ -59,6 +62,8 @@ public final class GetReceivedLicensesFilterArgs extends com.pulumi.resources.Re
      * @return Name of the field to filter by, as defined by
      * [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedLicenses.html#API_ListReceivedLicenses_RequestSyntax).
      * For example, if filtering using `ProductSKU`, use:
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -90,6 +95,7 @@ public final class GetReceivedLicensesFilterArgs extends com.pulumi.resources.Re
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public Output<String> name() {
@@ -140,6 +146,8 @@ public final class GetReceivedLicensesFilterArgs extends com.pulumi.resources.Re
          * @param name Name of the field to filter by, as defined by
          * [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedLicenses.html#API_ListReceivedLicenses_RequestSyntax).
          * For example, if filtering using `ProductSKU`, use:
+         * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -171,6 +179,7 @@ public final class GetReceivedLicensesFilterArgs extends com.pulumi.resources.Re
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 
@@ -184,6 +193,8 @@ public final class GetReceivedLicensesFilterArgs extends com.pulumi.resources.Re
          * @param name Name of the field to filter by, as defined by
          * [the underlying AWS API](https://docs.aws.amazon.com/license-manager/latest/APIReference/API_ListReceivedLicenses.html#API_ListReceivedLicenses_RequestSyntax).
          * For example, if filtering using `ProductSKU`, use:
+         * 
+         * &lt;!--Start PulumiCodeChooser --&gt;
          * ```java
          * package generated_program;
          * 
@@ -215,6 +226,7 @@ public final class GetReceivedLicensesFilterArgs extends com.pulumi.resources.Re
          *     }
          * }
          * ```
+         * &lt;!--End PulumiCodeChooser --&gt;
          * 
          * @return builder
          * 

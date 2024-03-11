@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Resource for managing an AWS QuickSight Ingestion.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,13 +22,14 @@ import * as utilities from "../utilities";
  *     ingestionType: "FULL_REFRESH",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import QuickSight Ingestion using the AWS account ID, data set ID, and ingestion ID separated by commas (`,`). For example:
  *
  * ```sh
- *  $ pulumi import aws:quicksight/ingestion:Ingestion example 123456789012,example-dataset-id,example-ingestion-id
+ * $ pulumi import aws:quicksight/ingestion:Ingestion example 123456789012,example-dataset-id,example-ingestion-id
  * ```
  */
 export class Ingestion extends pulumi.CustomResource {

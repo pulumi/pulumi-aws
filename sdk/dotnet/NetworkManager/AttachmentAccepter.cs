@@ -13,8 +13,10 @@ namespace Pulumi.Aws.NetworkManager
     /// Resource for managing an AWS Network Manager Attachment Accepter.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Example with VPC attachment
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,8 +33,11 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Example with site-to-site VPN attachment
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -49,6 +54,7 @@ namespace Pulumi.Aws.NetworkManager
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:networkmanager/attachmentAccepter:AttachmentAccepter")]
     public partial class AttachmentAccepter : global::Pulumi.CustomResource

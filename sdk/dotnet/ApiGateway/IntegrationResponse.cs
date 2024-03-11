@@ -17,6 +17,7 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -81,13 +82,14 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_api_gateway_integration_response` using `REST-API-ID/RESOURCE-ID/HTTP-METHOD/STATUS-CODE`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:apigateway/integrationResponse:IntegrationResponse example 12345abcde/67890fghij/GET/200
+    /// $ pulumi import aws:apigateway/integrationResponse:IntegrationResponse example 12345abcde/67890fghij/GET/200
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/integrationResponse:IntegrationResponse")]

@@ -19,6 +19,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -45,8 +46,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With Existing Active Directory
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -74,8 +78,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### With SAML
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -102,15 +109,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Connect instances using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:connect/instance:Instance example f1288a1f-6193-445a-b47e-af739b2
-//
+// $ pulumi import aws:connect/instance:Instance example f1288a1f-6193-445a-b47e-af739b2
 // ```
 type Instance struct {
 	pulumi.CustomResourceState

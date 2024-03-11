@@ -15,8 +15,10 @@ namespace Pulumi.Aws.DocDB
     /// More information about DocumentDB Global Clusters can be found in the [DocumentDB Developer Guide](https://docs.aws.amazon.com/documentdb/latest/developerguide/global-clusters.html).
     /// 
     /// ## Example Usage
+    /// 
     /// ### New DocumentDB Global Cluster
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -70,8 +72,11 @@ namespace Pulumi.Aws.DocDB
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### New Global Cluster From Existing DB Cluster
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -90,15 +95,16 @@ namespace Pulumi.Aws.DocDB
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_docdb_global_cluster` using the Global Cluster identifier. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:docdb/globalCluster:GlobalCluster example example
+    /// $ pulumi import aws:docdb/globalCluster:GlobalCluster example example
     /// ```
-    ///  Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
+    /// Certain resource arguments, like `source_db_cluster_identifier`, do not have an API method for reading the information after creation. If the argument is set in the Pulumi program on an imported resource, Pulumi will always show a difference. To workaround this behavior, either omit the argument from the Pulumi program or use `ignore_changes` to hide the difference. For example:
     /// </summary>
     [AwsResourceType("aws:docdb/globalCluster:GlobalCluster")]
     public partial class GlobalCluster : global::Pulumi.CustomResource

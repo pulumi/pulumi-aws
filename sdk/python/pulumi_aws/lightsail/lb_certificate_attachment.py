@@ -102,6 +102,7 @@ class LbCertificateAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -121,13 +122,14 @@ class LbCertificateAttachment(pulumi.CustomResource):
             lb_name=test.name,
             certificate_name=test_lb_certificate.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_lightsail_lb_certificate_attachment` using the name attribute. For example:
 
         ```sh
-         $ pulumi import aws:lightsail/lbCertificateAttachment:LbCertificateAttachment test example-load-balancer,example-certificate
+        $ pulumi import aws:lightsail/lbCertificateAttachment:LbCertificateAttachment test example-load-balancer,example-certificate
         ```
 
         :param str resource_name: The name of the resource.
@@ -146,6 +148,7 @@ class LbCertificateAttachment(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -165,13 +168,14 @@ class LbCertificateAttachment(pulumi.CustomResource):
             lb_name=test.name,
             certificate_name=test_lb_certificate.name)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_lightsail_lb_certificate_attachment` using the name attribute. For example:
 
         ```sh
-         $ pulumi import aws:lightsail/lbCertificateAttachment:LbCertificateAttachment test example-load-balancer,example-certificate
+        $ pulumi import aws:lightsail/lbCertificateAttachment:LbCertificateAttachment test example-load-balancer,example-certificate
         ```
 
         :param str resource_name: The name of the resource.

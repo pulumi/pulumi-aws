@@ -12,19 +12,21 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const test = new aws.mediaconvert.Queue("test", {name: "tf-test-queue"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Media Convert Queue using the queue name. For example:
  *
  * ```sh
- *  $ pulumi import aws:mediaconvert/queue:Queue test tf-test-queue
+ * $ pulumi import aws:mediaconvert/queue:Queue test tf-test-queue
  * ```
  */
 export class Queue extends pulumi.CustomResource {

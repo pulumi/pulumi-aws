@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -17,6 +18,7 @@ import * as utilities from "../utilities";
  *     version: "3.6.0",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getEngineVersion(args?: GetEngineVersionArgs, opts?: pulumi.InvokeOptions): Promise<GetEngineVersionResult> {
     args = args || {};
@@ -90,6 +92,7 @@ export interface GetEngineVersionResult {
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -98,6 +101,7 @@ export interface GetEngineVersionResult {
  *     version: "3.6.0",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getEngineVersionOutput(args?: GetEngineVersionOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetEngineVersionResult> {
     return pulumi.output(args).apply((a: any) => getEngineVersion(a, opts))

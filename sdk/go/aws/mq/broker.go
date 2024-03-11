@@ -21,8 +21,10 @@ import (
 // > **NOTE:** Changes to an MQ Broker can occur when you change a parameter, such as `configuration` or `user`, and are reflected in the next maintenance window. Because of this, the provider may report a difference in its planning phase because a modification has not yet taken place. You can use the `applyImmediately` flag to instruct the service to apply the change immediately (see documentation below). Using `applyImmediately` can result in a brief downtime as the broker reboots.
 //
 // ## Example Usage
+//
 // ### Basic Example
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -62,10 +64,13 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### High-throughput Optimized Example
 //
 // This example shows the use of EBS storage for high-throughput optimized performance.
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -106,8 +111,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Cross-Region Data Replication
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -177,6 +185,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // See the [AWS MQ documentation](https://docs.aws.amazon.com/amazon-mq/latest/developer-guide/crdr-for-active-mq.html) on cross-region data replication for additional details.
 //
@@ -185,9 +194,7 @@ import (
 // Using `pulumi import`, import MQ Brokers using their broker id. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:mq/broker:Broker example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
-//
+// $ pulumi import aws:mq/broker:Broker example a1b2c3d4-d5f6-7777-8888-9999aaaabbbbcccc
 // ```
 type Broker struct {
 	pulumi.CustomResourceState

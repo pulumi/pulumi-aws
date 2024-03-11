@@ -16,6 +16,7 @@ namespace Pulumi.Aws.LicenseManager
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,6 +44,8 @@ namespace Pulumi.Aws.LicenseManager
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Rules
     /// 
     /// License rules should be in the format of `#RuleType=RuleValue`. Supported rule types:
@@ -60,7 +63,7 @@ namespace Pulumi.Aws.LicenseManager
     /// Using `pulumi import`, import license configurations using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:licensemanager/licenseConfiguration:LicenseConfiguration example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
+    /// $ pulumi import aws:licensemanager/licenseConfiguration:LicenseConfiguration example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
     /// ```
     /// </summary>
     [AwsResourceType("aws:licensemanager/licenseConfiguration:LicenseConfiguration")]

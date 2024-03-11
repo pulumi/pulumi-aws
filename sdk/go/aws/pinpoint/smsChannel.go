@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,15 +44,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import the Pinpoint SMS Channel using the `application_id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:pinpoint/smsChannel:SmsChannel sms application-id
-//
+// $ pulumi import aws:pinpoint/smsChannel:SmsChannel sms application-id
 // ```
 type SmsChannel struct {
 	pulumi.CustomResourceState

@@ -13,6 +13,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -26,13 +27,14 @@ import * as utilities from "../utilities";
  *     ruleIdentifier: "IAM_PASSWORD_POLICY",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Config Organization Managed Rules using the name. For example:
  *
  * ```sh
- *  $ pulumi import aws:cfg/organizationManagedRule:OrganizationManagedRule example example
+ * $ pulumi import aws:cfg/organizationManagedRule:OrganizationManagedRule example example
  * ```
  */
 export class OrganizationManagedRule extends pulumi.CustomResource {

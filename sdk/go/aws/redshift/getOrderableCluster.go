@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -42,6 +43,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func GetOrderableCluster(ctx *pulumi.Context, args *GetOrderableClusterArgs, opts ...pulumi.InvokeOption) (*GetOrderableClusterResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetOrderableClusterResult

@@ -276,6 +276,7 @@ class SubnetGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -290,13 +291,14 @@ class SubnetGroup(pulumi.CustomResource):
                 "Name": "My DB subnet group",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DB Subnet groups using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:rds/subnetGroup:SubnetGroup default production-subnet-group
+        $ pulumi import aws:rds/subnetGroup:SubnetGroup default production-subnet-group
         ```
 
         :param str resource_name: The name of the resource.
@@ -318,6 +320,7 @@ class SubnetGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -332,13 +335,14 @@ class SubnetGroup(pulumi.CustomResource):
                 "Name": "My DB subnet group",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import DB Subnet groups using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:rds/subnetGroup:SubnetGroup default production-subnet-group
+        $ pulumi import aws:rds/subnetGroup:SubnetGroup default production-subnet-group
         ```
 
         :param str resource_name: The name of the resource.

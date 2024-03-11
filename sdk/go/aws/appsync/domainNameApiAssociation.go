@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,15 +41,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_appsync_domain_name_api_association` using the AppSync domain name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:appsync/domainNameApiAssociation:DomainNameApiAssociation example example.com
-//
+// $ pulumi import aws:appsync/domainNameApiAssociation:DomainNameApiAssociation example example.com
 // ```
 type DomainNameApiAssociation struct {
 	pulumi.CustomResourceState

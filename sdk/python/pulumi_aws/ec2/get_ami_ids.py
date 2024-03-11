@@ -121,6 +121,7 @@ def get_ami_ids(executable_users: Optional[Sequence[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -131,6 +132,7 @@ def get_ami_ids(executable_users: Optional[Sequence[str]] = None,
             values=["ubuntu/images/ubuntu-*-*-amd64-server-*"],
         )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[str] executable_users: Limit search to users with *explicit* launch
@@ -183,6 +185,7 @@ def get_ami_ids_output(executable_users: Optional[pulumi.Input[Optional[Sequence
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -193,6 +196,7 @@ def get_ami_ids_output(executable_users: Optional[pulumi.Input[Optional[Sequence
             values=["ubuntu/images/ubuntu-*-*-amd64-server-*"],
         )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[str] executable_users: Limit search to users with *explicit* launch

@@ -122,6 +122,7 @@ def get_orderable_db_instance(engine: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -135,6 +136,7 @@ def get_orderable_db_instance(engine: Optional[str] = None,
             "db.t3.medium",
         ])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str engine: DB engine. Default: `docdb`
@@ -178,6 +180,7 @@ def get_orderable_db_instance_output(engine: Optional[pulumi.Input[Optional[str]
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -191,6 +194,7 @@ def get_orderable_db_instance_output(engine: Optional[pulumi.Input[Optional[str]
             "db.t3.medium",
         ])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str engine: DB engine. Default: `docdb`

@@ -461,6 +461,7 @@ class PrimaryContact(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -477,13 +478,14 @@ class PrimaryContact(pulumi.CustomResource):
             state_or_region="WA",
             website_url="https://www.examplecorp.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import the Primary Contact using the `account_id`. For example:
 
         ```sh
-         $ pulumi import aws:account/primaryContact:PrimaryContact test 1234567890
+        $ pulumi import aws:account/primaryContact:PrimaryContact test 1234567890
         ```
 
         :param str resource_name: The name of the resource.
@@ -513,6 +515,7 @@ class PrimaryContact(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -529,13 +532,14 @@ class PrimaryContact(pulumi.CustomResource):
             state_or_region="WA",
             website_url="https://www.examplecorp.com")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import the Primary Contact using the `account_id`. For example:
 
         ```sh
-         $ pulumi import aws:account/primaryContact:PrimaryContact test 1234567890
+        $ pulumi import aws:account/primaryContact:PrimaryContact test 1234567890
         ```
 
         :param str resource_name: The name of the resource.

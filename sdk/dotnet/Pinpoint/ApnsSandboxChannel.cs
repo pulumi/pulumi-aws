@@ -15,6 +15,7 @@ namespace Pulumi.Aws.Pinpoint
     /// &gt; **Note:** All arguments, including certificates and tokens, will be stored in the raw state as plain-text.
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -41,13 +42,14 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Pinpoint APNs Sandbox Channel using the `application-id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:pinpoint/apnsSandboxChannel:ApnsSandboxChannel apns_sandbox application-id
+    /// $ pulumi import aws:pinpoint/apnsSandboxChannel:ApnsSandboxChannel apns_sandbox application-id
     /// ```
     /// </summary>
     [AwsResourceType("aws:pinpoint/apnsSandboxChannel:ApnsSandboxChannel")]

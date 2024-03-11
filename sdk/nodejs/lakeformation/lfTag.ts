@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -22,13 +23,14 @@ import * as utilities from "../utilities";
  *     ],
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Lake Formation LF-Tags using the `catalog_id:key`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For example:
  *
  * ```sh
- *  $ pulumi import aws:lakeformation/lfTag:LfTag example 123456789012:some_key
+ * $ pulumi import aws:lakeformation/lfTag:LfTag example 123456789012:some_key
  * ```
  */
 export class LfTag extends pulumi.CustomResource {

@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Manages a DocumentDB database cluster snapshot for DocumentDB clusters.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -49,13 +51,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_docdb_cluster_snapshot` using the cluster snapshot identifier. For example:
  * 
  * ```sh
- *  $ pulumi import aws:docdb/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
+ * $ pulumi import aws:docdb/clusterSnapshot:ClusterSnapshot example my-cluster-snapshot
  * ```
  * 
  */

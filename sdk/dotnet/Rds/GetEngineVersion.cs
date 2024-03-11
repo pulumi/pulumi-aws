@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Information about an RDS engine version.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -39,10 +39,11 @@ namespace Pulumi.Aws.Rds
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### With `filter`
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -71,8 +72,7 @@ namespace Pulumi.Aws.Rds
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetEngineVersionResult> InvokeAsync(GetEngineVersionArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEngineVersionResult>("aws:rds/getEngineVersion:getEngineVersion", args ?? new GetEngineVersionArgs(), options.WithDefaults());
@@ -80,11 +80,11 @@ namespace Pulumi.Aws.Rds
         /// <summary>
         /// Information about an RDS engine version.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -105,10 +105,11 @@ namespace Pulumi.Aws.Rds
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% example %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
+        /// 
         /// ### With `filter`
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -137,8 +138,7 @@ namespace Pulumi.Aws.Rds
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetEngineVersionResult> Invoke(GetEngineVersionInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEngineVersionResult>("aws:rds/getEngineVersion:getEngineVersion", args ?? new GetEngineVersionInvokeArgs(), options.WithDefaults());

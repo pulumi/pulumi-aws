@@ -144,6 +144,7 @@ def get_contact_flow(contact_flow_id: Optional[str] = None,
 
     By name
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -151,9 +152,11 @@ def get_contact_flow(contact_flow_id: Optional[str] = None,
     test = aws.connect.get_contact_flow(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
         name="Test")
     ```
+    <!--End PulumiCodeChooser -->
 
     By contact_flow_id
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -161,6 +164,7 @@ def get_contact_flow(contact_flow_id: Optional[str] = None,
     test = aws.connect.get_contact_flow(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
         contact_flow_id="cccccccc-bbbb-cccc-dddd-111111111111")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str contact_flow_id: Returns information on a specific Contact Flow by contact flow id
@@ -204,6 +208,7 @@ def get_contact_flow_output(contact_flow_id: Optional[pulumi.Input[Optional[str]
 
     By name
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -211,9 +216,11 @@ def get_contact_flow_output(contact_flow_id: Optional[pulumi.Input[Optional[str]
     test = aws.connect.get_contact_flow(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
         name="Test")
     ```
+    <!--End PulumiCodeChooser -->
 
     By contact_flow_id
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -221,6 +228,7 @@ def get_contact_flow_output(contact_flow_id: Optional[pulumi.Input[Optional[str]
     test = aws.connect.get_contact_flow(instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
         contact_flow_id="cccccccc-bbbb-cccc-dddd-111111111111")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str contact_flow_id: Returns information on a specific Contact Flow by contact flow id

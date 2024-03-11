@@ -20,6 +20,8 @@ import javax.annotation.Nullable;
  * Provides a resource to manage an [Amazon Macie Member](https://docs.aws.amazon.com/macie/latest/APIReference/members-id.html).
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -55,13 +57,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_macie2_member` using the account ID of the member account. For example:
  * 
  * ```sh
- *  $ pulumi import aws:macie2/member:Member example 123456789012
+ * $ pulumi import aws:macie2/member:Member example 123456789012
  * ```
  * 
  */

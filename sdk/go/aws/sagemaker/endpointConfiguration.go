@@ -18,6 +18,7 @@ import (
 //
 // Basic usage:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -52,15 +53,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import endpoint configurations using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sagemaker/endpointConfiguration:EndpointConfiguration test_endpoint_config endpoint-config-foo
-//
+// $ pulumi import aws:sagemaker/endpointConfiguration:EndpointConfiguration test_endpoint_config endpoint-config-foo
 // ```
 type EndpointConfiguration struct {
 	pulumi.CustomResourceState

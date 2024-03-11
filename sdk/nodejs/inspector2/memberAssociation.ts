@@ -8,21 +8,24 @@ import * as utilities from "../utilities";
  * Resource for associating accounts to existing Inspector instances.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const example = new aws.inspector2.MemberAssociation("example", {accountId: "123456789012"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Amazon Inspector Member Association using the `account_id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:inspector2/memberAssociation:MemberAssociation example 123456789012
+ * $ pulumi import aws:inspector2/memberAssociation:MemberAssociation example 123456789012
  * ```
  */
 export class MemberAssociation extends pulumi.CustomResource {

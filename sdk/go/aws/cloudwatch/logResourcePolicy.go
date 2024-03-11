@@ -15,8 +15,10 @@ import (
 // Provides a resource to manage a CloudWatch log resource policy.
 //
 // ## Example Usage
+//
 // ### Elasticsearch Log Publishing
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -67,8 +69,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Route53 Query Logging
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -118,15 +123,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CloudWatch log resource policies using the policy name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:cloudwatch/logResourcePolicy:LogResourcePolicy MyPolicy MyPolicy
-//
+// $ pulumi import aws:cloudwatch/logResourcePolicy:LogResourcePolicy MyPolicy MyPolicy
 // ```
 type LogResourcePolicy struct {
 	pulumi.CustomResourceState

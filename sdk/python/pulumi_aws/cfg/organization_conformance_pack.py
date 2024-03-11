@@ -288,8 +288,10 @@ class OrganizationConformancePack(pulumi.CustomResource):
         > **NOTE:** This resource must be created in the Organization master account or a delegated administrator account, and the Organization must have all features enabled. Every Organization account except those configured in the `excluded_accounts` argument must have a Configuration Recorder with proper IAM permissions before the Organization Conformance Pack will successfully create or update. See also the `cfg.Recorder` resource.
 
         ## Example Usage
+
         ### Using Template Body
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -316,8 +318,11 @@ class OrganizationConformancePack(pulumi.CustomResource):
             aws_service_access_principals=["config-multiaccountsetup.amazonaws.com"],
             feature_set="ALL")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Using Template S3 URI
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -342,13 +347,14 @@ class OrganizationConformancePack(pulumi.CustomResource):
             aws_service_access_principals=["config-multiaccountsetup.amazonaws.com"],
             feature_set="ALL")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Config Organization Conformance Packs using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:cfg/organizationConformancePack:OrganizationConformancePack example example
+        $ pulumi import aws:cfg/organizationConformancePack:OrganizationConformancePack example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -373,8 +379,10 @@ class OrganizationConformancePack(pulumi.CustomResource):
         > **NOTE:** This resource must be created in the Organization master account or a delegated administrator account, and the Organization must have all features enabled. Every Organization account except those configured in the `excluded_accounts` argument must have a Configuration Recorder with proper IAM permissions before the Organization Conformance Pack will successfully create or update. See also the `cfg.Recorder` resource.
 
         ## Example Usage
+
         ### Using Template Body
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -401,8 +409,11 @@ class OrganizationConformancePack(pulumi.CustomResource):
             aws_service_access_principals=["config-multiaccountsetup.amazonaws.com"],
             feature_set="ALL")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Using Template S3 URI
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -427,13 +438,14 @@ class OrganizationConformancePack(pulumi.CustomResource):
             aws_service_access_principals=["config-multiaccountsetup.amazonaws.com"],
             feature_set="ALL")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Config Organization Conformance Packs using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:cfg/organizationConformancePack:OrganizationConformancePack example example
+        $ pulumi import aws:cfg/organizationConformancePack:OrganizationConformancePack example example
         ```
 
         :param str resource_name: The name of the resource.

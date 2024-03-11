@@ -285,6 +285,7 @@ class ParameterGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -297,13 +298,14 @@ class ParameterGroup(pulumi.CustomResource):
                 value="yes",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a parameter group using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:memorydb/parameterGroup:ParameterGroup example my-parameter-group
+        $ pulumi import aws:memorydb/parameterGroup:ParameterGroup example my-parameter-group
         ```
 
         :param str resource_name: The name of the resource.
@@ -330,6 +332,7 @@ class ParameterGroup(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -342,13 +345,14 @@ class ParameterGroup(pulumi.CustomResource):
                 value="yes",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a parameter group using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:memorydb/parameterGroup:ParameterGroup example my-parameter-group
+        $ pulumi import aws:memorydb/parameterGroup:ParameterGroup example my-parameter-group
         ```
 
         :param str resource_name: The name of the resource.

@@ -103,8 +103,10 @@ class WebAclAssociation(pulumi.CustomResource):
         > **Note:** An Application Load Balancer can only be associated with one WAF Regional WebACL.
 
         ## Example Usage
+
         ### Application Load Balancer Association
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -156,8 +158,11 @@ class WebAclAssociation(pulumi.CustomResource):
             resource_arn=foo_load_balancer.arn,
             web_acl_id=foo_web_acl.id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### API Gateway Association
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -225,13 +230,14 @@ class WebAclAssociation(pulumi.CustomResource):
             resource_arn=example_stage.arn,
             web_acl_id=foo_web_acl.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import WAF Regional Web ACL Association using their `web_acl_id:resource_arn`. For example:
 
         ```sh
-         $ pulumi import aws:wafregional/webAclAssociation:WebAclAssociation foo web_acl_id:resource_arn
+        $ pulumi import aws:wafregional/webAclAssociation:WebAclAssociation foo web_acl_id:resource_arn
         ```
 
         :param str resource_name: The name of the resource.
@@ -251,8 +257,10 @@ class WebAclAssociation(pulumi.CustomResource):
         > **Note:** An Application Load Balancer can only be associated with one WAF Regional WebACL.
 
         ## Example Usage
+
         ### Application Load Balancer Association
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -304,8 +312,11 @@ class WebAclAssociation(pulumi.CustomResource):
             resource_arn=foo_load_balancer.arn,
             web_acl_id=foo_web_acl.id)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### API Gateway Association
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -373,13 +384,14 @@ class WebAclAssociation(pulumi.CustomResource):
             resource_arn=example_stage.arn,
             web_acl_id=foo_web_acl.id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import WAF Regional Web ACL Association using their `web_acl_id:resource_arn`. For example:
 
         ```sh
-         $ pulumi import aws:wafregional/webAclAssociation:WebAclAssociation foo web_acl_id:resource_arn
+        $ pulumi import aws:wafregional/webAclAssociation:WebAclAssociation foo web_acl_id:resource_arn
         ```
 
         :param str resource_name: The name of the resource.

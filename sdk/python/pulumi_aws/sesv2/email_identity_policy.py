@@ -133,8 +133,10 @@ class EmailIdentityPolicy(pulumi.CustomResource):
         Resource for managing an AWS SESv2 (Simple Email V2) Email Identity Policy.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -166,13 +168,14 @@ class EmailIdentityPolicy(pulumi.CustomResource):
         }}
         \"\"\"))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity Policy using the `example_id_arg`. For example:
 
         ```sh
-         $ pulumi import aws:sesv2/emailIdentityPolicy:EmailIdentityPolicy example example_email_identity|example_policy_name
+        $ pulumi import aws:sesv2/emailIdentityPolicy:EmailIdentityPolicy example example_email_identity|example_policy_name
         ```
 
         :param str resource_name: The name of the resource.
@@ -191,8 +194,10 @@ class EmailIdentityPolicy(pulumi.CustomResource):
         Resource for managing an AWS SESv2 (Simple Email V2) Email Identity Policy.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -224,13 +229,14 @@ class EmailIdentityPolicy(pulumi.CustomResource):
         }}
         \"\"\"))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SESv2 (Simple Email V2) Email Identity Policy using the `example_id_arg`. For example:
 
         ```sh
-         $ pulumi import aws:sesv2/emailIdentityPolicy:EmailIdentityPolicy example example_email_identity|example_policy_name
+        $ pulumi import aws:sesv2/emailIdentityPolicy:EmailIdentityPolicy example example_email_identity|example_policy_name
         ```
 
         :param str resource_name: The name of the resource.

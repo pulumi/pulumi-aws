@@ -17,8 +17,10 @@ import (
 // > **Note:** `alb.Listener` is known as `lb.Listener`. The functionality is identical.
 //
 // ## Example Usage
+//
 // ### Forward Action
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -60,9 +62,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // To a NLB:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -96,8 +100,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Redirect Action
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -137,8 +144,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Fixed-response Action
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -178,8 +188,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Authenticate-cognito Action
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -240,8 +253,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Authenticate-OIDC Action
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -292,8 +308,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Gateway Load Balancer Listener
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -348,15 +367,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import listeners using their ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:lb/listener:Listener front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:listener/app/front-end-alb/8e4497da625e2d8a/9ab28ade35828f96
-//
+// $ pulumi import aws:lb/listener:Listener front_end arn:aws:elasticloadbalancing:us-west-2:187416307283:listener/app/front-end-alb/8e4497da625e2d8a/9ab28ade35828f96
 // ```
 type Listener struct {
 	pulumi.CustomResourceState

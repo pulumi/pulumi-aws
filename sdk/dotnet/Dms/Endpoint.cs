@@ -16,6 +16,7 @@ namespace Pulumi.Aws.Dms
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -47,13 +48,14 @@ namespace Pulumi.Aws.Dms
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import endpoints using the `endpoint_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:dms/endpoint:Endpoint test test-dms-endpoint-tf
+    /// $ pulumi import aws:dms/endpoint:Endpoint test test-dms-endpoint-tf
     /// ```
     /// </summary>
     [AwsResourceType("aws:dms/endpoint:Endpoint")]

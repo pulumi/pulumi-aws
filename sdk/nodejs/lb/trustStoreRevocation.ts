@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Provides a ELBv2 Trust Store Revocation for use with Application Load Balancer Listener resources.
  *
  * ## Example Usage
+ *
  * ### Trust Store With Revocations
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -25,13 +27,14 @@ import * as utilities from "../utilities";
  *     revocationsS3Key: "...",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Trust Store Revocations using their ARN. For example:
  *
  * ```sh
- *  $ pulumi import aws:lb/trustStoreRevocation:TrustStoreRevocation example arn:aws:elasticloadbalancing:us-west-2:187416307283:truststore/my-trust-store/20cfe21448b66314,6
+ * $ pulumi import aws:lb/trustStoreRevocation:TrustStoreRevocation example arn:aws:elasticloadbalancing:us-west-2:187416307283:truststore/my-trust-store/20cfe21448b66314,6
  * ```
  */
 export class TrustStoreRevocation extends pulumi.CustomResource {

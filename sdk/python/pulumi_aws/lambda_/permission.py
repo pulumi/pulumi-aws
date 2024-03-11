@@ -429,8 +429,10 @@ class Permission(pulumi.CustomResource):
         Gives an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -468,8 +470,11 @@ class Permission(pulumi.CustomResource):
             source_arn="arn:aws:events:eu-west-1:111122223333:rule/RunDaily",
             qualifier=test_alias.name)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With SNS
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -506,8 +511,11 @@ class Permission(pulumi.CustomResource):
             protocol="lambda",
             endpoint=func.arn)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With API Gateway REST API
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -522,8 +530,11 @@ class Permission(pulumi.CustomResource):
             principal="apigateway.amazonaws.com",
             source_arn=my_demo_api.execution_arn.apply(lambda execution_arn: f"{execution_arn}/*"))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With CloudWatch Log Group
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -557,8 +568,11 @@ class Permission(pulumi.CustomResource):
             log_group=default.name,
             name="logging_default")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Cross-Account Invocation Policy
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -573,10 +587,13 @@ class Permission(pulumi.CustomResource):
             source_account="444455556666",
             function_url_auth_type="AWS_IAM")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With `replace_triggered_by` Lifecycle Configuration
 
         If omitting the `qualifier` argument (which forces re-creation each time a function version is published), a `lifecycle` block can be used to ensure permissions are re-applied on any change to the underlying function.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -587,13 +604,14 @@ class Permission(pulumi.CustomResource):
             principal="events.amazonaws.com",
             source_arn="arn:aws:events:eu-west-1:111122223333:rule/RunDaily")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Lambda permission statements using function_name/statement_id with an optional qualifier. For example:
 
         ```sh
-         $ pulumi import aws:lambda/permission:Permission test_lambda_permission my_test_lambda_function/AllowExecutionFromCloudWatch
+        $ pulumi import aws:lambda/permission:Permission test_lambda_permission my_test_lambda_function/AllowExecutionFromCloudWatch
         ```
         ```sh
         $ pulumi import aws:lambda/permission:Permission test_lambda_permission my_test_lambda_function:qualifier_name/AllowExecutionFromCloudWatch
@@ -631,8 +649,10 @@ class Permission(pulumi.CustomResource):
         Gives an external source (like an EventBridge Rule, SNS, or S3) permission to access the Lambda function.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -670,8 +690,11 @@ class Permission(pulumi.CustomResource):
             source_arn="arn:aws:events:eu-west-1:111122223333:rule/RunDaily",
             qualifier=test_alias.name)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With SNS
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -708,8 +731,11 @@ class Permission(pulumi.CustomResource):
             protocol="lambda",
             endpoint=func.arn)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With API Gateway REST API
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -724,8 +750,11 @@ class Permission(pulumi.CustomResource):
             principal="apigateway.amazonaws.com",
             source_arn=my_demo_api.execution_arn.apply(lambda execution_arn: f"{execution_arn}/*"))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With CloudWatch Log Group
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -759,8 +788,11 @@ class Permission(pulumi.CustomResource):
             log_group=default.name,
             name="logging_default")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Cross-Account Invocation Policy
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -775,10 +807,13 @@ class Permission(pulumi.CustomResource):
             source_account="444455556666",
             function_url_auth_type="AWS_IAM")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With `replace_triggered_by` Lifecycle Configuration
 
         If omitting the `qualifier` argument (which forces re-creation each time a function version is published), a `lifecycle` block can be used to ensure permissions are re-applied on any change to the underlying function.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -789,13 +824,14 @@ class Permission(pulumi.CustomResource):
             principal="events.amazonaws.com",
             source_arn="arn:aws:events:eu-west-1:111122223333:rule/RunDaily")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Lambda permission statements using function_name/statement_id with an optional qualifier. For example:
 
         ```sh
-         $ pulumi import aws:lambda/permission:Permission test_lambda_permission my_test_lambda_function/AllowExecutionFromCloudWatch
+        $ pulumi import aws:lambda/permission:Permission test_lambda_permission my_test_lambda_function/AllowExecutionFromCloudWatch
         ```
         ```sh
         $ pulumi import aws:lambda/permission:Permission test_lambda_permission my_test_lambda_function:qualifier_name/AllowExecutionFromCloudWatch

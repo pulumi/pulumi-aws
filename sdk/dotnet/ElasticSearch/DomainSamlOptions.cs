@@ -13,8 +13,10 @@ namespace Pulumi.Aws.ElasticSearch
     /// Manages SAML authentication options for an AWS Elasticsearch Domain.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -61,13 +63,14 @@ namespace Pulumi.Aws.ElasticSearch
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Elasticsearch domains using the `domain_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:elasticsearch/domainSamlOptions:DomainSamlOptions example domain_name
+    /// $ pulumi import aws:elasticsearch/domainSamlOptions:DomainSamlOptions example domain_name
     /// ```
     /// </summary>
     [AwsResourceType("aws:elasticsearch/domainSamlOptions:DomainSamlOptions")]

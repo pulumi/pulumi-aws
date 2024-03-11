@@ -185,6 +185,7 @@ class VaultLockConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -195,13 +196,14 @@ class VaultLockConfiguration(pulumi.CustomResource):
             max_retention_days=1200,
             min_retention_days=7)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Backup vault lock configuration using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:backup/vaultLockConfiguration:VaultLockConfiguration test TestVault
+        $ pulumi import aws:backup/vaultLockConfiguration:VaultLockConfiguration test TestVault
         ```
 
         :param str resource_name: The name of the resource.
@@ -222,6 +224,7 @@ class VaultLockConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -232,13 +235,14 @@ class VaultLockConfiguration(pulumi.CustomResource):
             max_retention_days=1200,
             min_retention_days=7)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Backup vault lock configuration using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:backup/vaultLockConfiguration:VaultLockConfiguration test TestVault
+        $ pulumi import aws:backup/vaultLockConfiguration:VaultLockConfiguration test TestVault
         ```
 
         :param str resource_name: The name of the resource.

@@ -198,6 +198,7 @@ class Partner(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -208,13 +209,14 @@ class Partner(pulumi.CustomResource):
             database_name=example_aws_redshift_cluster["databaseName"],
             partner_name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift usage limits using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:redshift/partner:Partner example 01234567910:cluster-example-id:example:example
+        $ pulumi import aws:redshift/partner:Partner example 01234567910:cluster-example-id:example:example
         ```
 
         :param str resource_name: The name of the resource.
@@ -235,6 +237,7 @@ class Partner(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -245,13 +248,14 @@ class Partner(pulumi.CustomResource):
             database_name=example_aws_redshift_cluster["databaseName"],
             partner_name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift usage limits using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:redshift/partner:Partner example 01234567910:cluster-example-id:example:example
+        $ pulumi import aws:redshift/partner:Partner example 01234567910:cluster-example-id:example:example
         ```
 
         :param str resource_name: The name of the resource.

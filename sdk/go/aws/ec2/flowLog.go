@@ -15,8 +15,10 @@ import (
 // interface, subnet, or VPC. Logs are sent to a CloudWatch Log Group, a S3 Bucket, or Amazon Kinesis Data Firehose
 //
 // ## Example Usage
+//
 // ### CloudWatch Logging
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -107,8 +109,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### S3 Logging
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -142,8 +147,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### S3 Logging in Apache Parquet format with per-hour partitions
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -181,15 +189,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Flow Logs using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/flowLog:FlowLog test_flow_log fl-1a2b3c4d
-//
+// $ pulumi import aws:ec2/flowLog:FlowLog test_flow_log fl-1a2b3c4d
 // ```
 type FlowLog struct {
 	pulumi.CustomResourceState

@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Provides an Amazon Managed Grafana workspace resource.
  *
  * ## Example Usage
+ *
  * ### Basic configuration
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -38,13 +40,14 @@ import * as utilities from "../utilities";
  *     roleArn: assume.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Grafana Workspace using the workspace's `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:grafana/workspace:Workspace example g-2054c75a02
+ * $ pulumi import aws:grafana/workspace:Workspace example g-2054c75a02
  * ```
  */
 export class Workspace extends pulumi.CustomResource {

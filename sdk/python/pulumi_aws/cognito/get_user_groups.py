@@ -74,14 +74,17 @@ def get_user_groups(groups: Optional[Sequence[pulumi.InputType['GetUserGroupsGro
     Data source for managing AWS Cognito IDP (Identity Provider) User Groups.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.cognito.get_user_groups(user_pool_id="us-west-2_aaaaaaaaa")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetUserGroupsGroupArgs']] groups: List of groups. See `groups` below.
@@ -107,14 +110,17 @@ def get_user_groups_output(groups: Optional[pulumi.Input[Optional[Sequence[pulum
     Data source for managing AWS Cognito IDP (Identity Provider) User Groups.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.cognito.get_user_groups(user_pool_id="us-west-2_aaaaaaaaa")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetUserGroupsGroupArgs']] groups: List of groups. See `groups` below.

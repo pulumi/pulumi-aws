@@ -373,6 +373,7 @@ class Workspace(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -397,13 +398,14 @@ class Workspace(pulumi.CustomResource):
                 "Department": "IT",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Workspaces using their ID. For example:
 
         ```sh
-         $ pulumi import aws:workspaces/workspace:Workspace example ws-9z9zmbkhv
+        $ pulumi import aws:workspaces/workspace:Workspace example ws-9z9zmbkhv
         ```
 
         :param str resource_name: The name of the resource.
@@ -430,6 +432,7 @@ class Workspace(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -454,13 +457,14 @@ class Workspace(pulumi.CustomResource):
                 "Department": "IT",
             })
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Workspaces using their ID. For example:
 
         ```sh
-         $ pulumi import aws:workspaces/workspace:Workspace example ws-9z9zmbkhv
+        $ pulumi import aws:workspaces/workspace:Workspace example ws-9z9zmbkhv
         ```
 
         :param str resource_name: The name of the resource.

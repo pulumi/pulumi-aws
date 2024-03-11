@@ -139,6 +139,7 @@ class StreamConsumer(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -150,13 +151,14 @@ class StreamConsumer(pulumi.CustomResource):
             name="example-consumer",
             stream_arn=example.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Kinesis Stream Consumers using the Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:kinesis/streamConsumer:StreamConsumer example arn:aws:kinesis:us-west-2:123456789012:stream/example/consumer/example:1616044553
+        $ pulumi import aws:kinesis/streamConsumer:StreamConsumer example arn:aws:kinesis:us-west-2:123456789012:stream/example/consumer/example:1616044553
         ```
 
         :param str resource_name: The name of the resource.
@@ -179,6 +181,7 @@ class StreamConsumer(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -190,13 +193,14 @@ class StreamConsumer(pulumi.CustomResource):
             name="example-consumer",
             stream_arn=example.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Kinesis Stream Consumers using the Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:kinesis/streamConsumer:StreamConsumer example arn:aws:kinesis:us-west-2:123456789012:stream/example/consumer/example:1616044553
+        $ pulumi import aws:kinesis/streamConsumer:StreamConsumer example arn:aws:kinesis:us-west-2:123456789012:stream/example/consumer/example:1616044553
         ```
 
         :param str resource_name: The name of the resource.

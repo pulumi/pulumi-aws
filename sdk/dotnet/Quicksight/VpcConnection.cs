@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Quicksight
     /// Resource for managing an AWS QuickSight VPC Connection.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -92,13 +94,14 @@ namespace Pulumi.Aws.Quicksight
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import QuickSight VPC connection using the AWS account ID and VPC connection ID separated by commas (`,`). For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:quicksight/vpcConnection:VpcConnection example 123456789012,example
+    /// $ pulumi import aws:quicksight/vpcConnection:VpcConnection example 123456789012,example
     /// ```
     /// </summary>
     [AwsResourceType("aws:quicksight/vpcConnection:VpcConnection")]

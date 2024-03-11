@@ -135,6 +135,7 @@ class LfTag(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -147,13 +148,14 @@ class LfTag(pulumi.CustomResource):
                 "Customers",
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Lake Formation LF-Tags using the `catalog_id:key`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For example:
 
         ```sh
-         $ pulumi import aws:lakeformation/lfTag:LfTag example 123456789012:some_key
+        $ pulumi import aws:lakeformation/lfTag:LfTag example 123456789012:some_key
         ```
 
         :param str resource_name: The name of the resource.
@@ -173,6 +175,7 @@ class LfTag(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -185,13 +188,14 @@ class LfTag(pulumi.CustomResource):
                 "Customers",
             ])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Lake Formation LF-Tags using the `catalog_id:key`. If you have not set a Catalog ID specify the AWS Account ID that the database is in. For example:
 
         ```sh
-         $ pulumi import aws:lakeformation/lfTag:LfTag example 123456789012:some_key
+        $ pulumi import aws:lakeformation/lfTag:LfTag example 123456789012:some_key
         ```
 
         :param str resource_name: The name of the resource.

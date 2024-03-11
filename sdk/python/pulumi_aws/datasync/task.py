@@ -406,6 +406,7 @@ class Task(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -418,8 +419,11 @@ class Task(pulumi.CustomResource):
                 bytes_per_second=-1,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Scheduling
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -432,8 +436,11 @@ class Task(pulumi.CustomResource):
                 schedule_expression="cron(0 12 ? * SUN,WED *)",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Filtering
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -451,13 +458,14 @@ class Task(pulumi.CustomResource):
                 value="/folder1|/folder2",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_datasync_task` using the DataSync Task Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:datasync/task:Task example arn:aws:datasync:us-east-1:123456789012:task/task-12345678901234567
+        $ pulumi import aws:datasync/task:Task example arn:aws:datasync:us-east-1:123456789012:task/task-12345678901234567
         ```
 
         :param str resource_name: The name of the resource.
@@ -484,6 +492,7 @@ class Task(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -496,8 +505,11 @@ class Task(pulumi.CustomResource):
                 bytes_per_second=-1,
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Scheduling
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -510,8 +522,11 @@ class Task(pulumi.CustomResource):
                 schedule_expression="cron(0 12 ? * SUN,WED *)",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Filtering
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -529,13 +544,14 @@ class Task(pulumi.CustomResource):
                 value="/folder1|/folder2",
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_datasync_task` using the DataSync Task Amazon Resource Name (ARN). For example:
 
         ```sh
-         $ pulumi import aws:datasync/task:Task example arn:aws:datasync:us-east-1:123456789012:task/task-12345678901234567
+        $ pulumi import aws:datasync/task:Task example arn:aws:datasync:us-east-1:123456789012:task/task-12345678901234567
         ```
 
         :param str resource_name: The name of the resource.

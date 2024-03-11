@@ -305,8 +305,10 @@ class AnomalySubscription(pulumi.CustomResource):
         Provides a CE Anomaly Subscription.
 
         ## Example Usage
+
         ### Basic Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -324,9 +326,13 @@ class AnomalySubscription(pulumi.CustomResource):
                 address="abc@example.com",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Threshold Expression Example
+
         ### For a Specific Dimension
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -347,8 +353,11 @@ class AnomalySubscription(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Using an `and` Expression
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -380,8 +389,11 @@ class AnomalySubscription(pulumi.CustomResource):
                 ],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### SNS Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -441,13 +453,14 @@ class AnomalySubscription(pulumi.CustomResource):
                 address=cost_anomaly_updates.arn,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ce_anomaly_subscription` using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:costexplorer/anomalySubscription:AnomalySubscription example AnomalySubscriptionARN
+        $ pulumi import aws:costexplorer/anomalySubscription:AnomalySubscription example AnomalySubscriptionARN
         ```
 
         :param str resource_name: The name of the resource.
@@ -470,8 +483,10 @@ class AnomalySubscription(pulumi.CustomResource):
         Provides a CE Anomaly Subscription.
 
         ## Example Usage
+
         ### Basic Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -489,9 +504,13 @@ class AnomalySubscription(pulumi.CustomResource):
                 address="abc@example.com",
             )])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Threshold Expression Example
+
         ### For a Specific Dimension
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -512,8 +531,11 @@ class AnomalySubscription(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Using an `and` Expression
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -545,8 +567,11 @@ class AnomalySubscription(pulumi.CustomResource):
                 ],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### SNS Example
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -606,13 +631,14 @@ class AnomalySubscription(pulumi.CustomResource):
                 address=cost_anomaly_updates.arn,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_ce_anomaly_subscription` using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:costexplorer/anomalySubscription:AnomalySubscription example AnomalySubscriptionARN
+        $ pulumi import aws:costexplorer/anomalySubscription:AnomalySubscription example AnomalySubscriptionARN
         ```
 
         :param str resource_name: The name of the resource.

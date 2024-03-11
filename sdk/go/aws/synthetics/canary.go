@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,15 +50,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Synthetics Canaries using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:synthetics/canary:Canary some some-canary
-//
+// $ pulumi import aws:synthetics/canary:Canary some some-canary
 // ```
 type Canary struct {
 	pulumi.CustomResourceState

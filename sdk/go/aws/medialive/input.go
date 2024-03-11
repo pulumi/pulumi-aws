@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS MediaLive Input.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -60,15 +62,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import MediaLive Input using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:medialive/input:Input example 12345678
-//
+// $ pulumi import aws:medialive/input:Input example 12345678
 // ```
 type Input struct {
 	pulumi.CustomResourceState

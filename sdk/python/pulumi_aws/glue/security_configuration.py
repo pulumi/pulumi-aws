@@ -105,6 +105,7 @@ class SecurityConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -124,13 +125,14 @@ class SecurityConfiguration(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Glue Security Configurations using `name`. For example:
 
         ```sh
-         $ pulumi import aws:glue/securityConfiguration:SecurityConfiguration example example
+        $ pulumi import aws:glue/securityConfiguration:SecurityConfiguration example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -149,6 +151,7 @@ class SecurityConfiguration(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -168,13 +171,14 @@ class SecurityConfiguration(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Glue Security Configurations using `name`. For example:
 
         ```sh
-         $ pulumi import aws:glue/securityConfiguration:SecurityConfiguration example example
+        $ pulumi import aws:glue/securityConfiguration:SecurityConfiguration example example
         ```
 
         :param str resource_name: The name of the resource.

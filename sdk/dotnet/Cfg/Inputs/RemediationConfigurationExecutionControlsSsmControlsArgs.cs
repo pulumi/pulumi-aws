@@ -13,13 +13,15 @@ namespace Pulumi.Aws.Cfg.Inputs
     public sealed class RemediationConfigurationExecutionControlsSsmControlsArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%.
+        /// Maximum percentage of remediation actions allowed to run in parallel on the non-compliant resources for that specific rule. The default value is 10%!
+        /// (MISSING)
         /// </summary>
         [Input("concurrentExecutionRatePercentage")]
         public Input<int>? ConcurrentExecutionRatePercentage { get; set; }
 
         /// <summary>
-        /// Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%.
+        /// Percentage of errors that are allowed before SSM stops running automations on non-compliant resources for that specific rule. The default is 50%!
+        /// (MISSING)
         /// </summary>
         [Input("errorPercentage")]
         public Input<int>? ErrorPercentage { get; set; }

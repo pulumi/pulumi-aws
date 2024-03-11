@@ -14,6 +14,7 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,13 +36,14 @@ namespace Pulumi.Aws.CloudWatch
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Cloudwatch Log Stream using the stream's `log_group_name` and `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:cloudwatch/logStream:LogStream foo Yada:SampleLogStream1234
+    /// $ pulumi import aws:cloudwatch/logStream:LogStream foo Yada:SampleLogStream1234
     /// ```
     /// </summary>
     [AwsResourceType("aws:cloudwatch/logStream:LogStream")]

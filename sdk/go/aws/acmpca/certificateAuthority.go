@@ -17,8 +17,10 @@ import (
 // > **NOTE:** Creating this resource will leave the certificate authority in a `PENDING_CERTIFICATE` status, which means it cannot yet issue certificates. To complete this setup, you must fully sign the certificate authority CSR available in the `certificateSigningRequest` attribute. The `acmpca.CertificateAuthorityCertificate` resource can be used for this purpose.
 //
 // ## Example Usage
+//
 // ### Basic
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,8 +51,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Short-lived certificate
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -81,8 +86,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Enable Certificate Revocation List
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -167,15 +175,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import `aws_acmpca_certificate_authority` using the certificate authority ARN. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:acmpca/certificateAuthority:CertificateAuthority example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
-//
+// $ pulumi import aws:acmpca/certificateAuthority:CertificateAuthority example arn:aws:acm-pca:us-east-1:123456789012:certificate-authority/12345678-1234-1234-1234-123456789012
 // ```
 type CertificateAuthority struct {
 	pulumi.CustomResourceState

@@ -429,6 +429,7 @@ class EnvironmentEC2(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -438,9 +439,11 @@ class EnvironmentEC2(pulumi.CustomResource):
             name="example-env",
             image_id="amazonlinux-2023-x86_64")
         ```
+        <!--End PulumiCodeChooser -->
 
         Get the URL of the Cloud9 environment after creation:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -452,9 +455,11 @@ class EnvironmentEC2(pulumi.CustomResource):
         )])
         pulumi.export("cloud9Url", example.id.apply(lambda id: f"https://{region}.console.aws.amazon.com/cloud9/ide/{id}"))
         ```
+        <!--End PulumiCodeChooser -->
 
         Allocate a static IP to the Cloud9 environment:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -469,6 +474,7 @@ class EnvironmentEC2(pulumi.CustomResource):
             domain="vpc")
         pulumi.export("cloud9PublicIp", cloud9_eip.public_ip)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -505,6 +511,7 @@ class EnvironmentEC2(pulumi.CustomResource):
 
         Basic usage:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -514,9 +521,11 @@ class EnvironmentEC2(pulumi.CustomResource):
             name="example-env",
             image_id="amazonlinux-2023-x86_64")
         ```
+        <!--End PulumiCodeChooser -->
 
         Get the URL of the Cloud9 environment after creation:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -528,9 +537,11 @@ class EnvironmentEC2(pulumi.CustomResource):
         )])
         pulumi.export("cloud9Url", example.id.apply(lambda id: f"https://{region}.console.aws.amazon.com/cloud9/ide/{id}"))
         ```
+        <!--End PulumiCodeChooser -->
 
         Allocate a static IP to the Cloud9 environment:
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -545,6 +556,7 @@ class EnvironmentEC2(pulumi.CustomResource):
             domain="vpc")
         pulumi.export("cloud9PublicIp", cloud9_eip.public_ip)
         ```
+        <!--End PulumiCodeChooser -->
 
         :param str resource_name: The name of the resource.
         :param EnvironmentEC2Args args: The arguments to use to populate this resource's properties.

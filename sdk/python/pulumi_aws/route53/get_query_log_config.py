@@ -128,13 +128,16 @@ def get_query_log_config(filters: Optional[Sequence[pulumi.InputType['GetQueryLo
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.route53.get_query_log_config(resolver_query_log_config_id="rqlc-1abc2345ef678g91h")
     ```
+    <!--End PulumiCodeChooser -->
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -150,6 +153,7 @@ def get_query_log_config(filters: Optional[Sequence[pulumi.InputType['GetQueryLo
         ),
     ])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetQueryLogConfigFilterArgs']] filters: One or more name/value pairs to use as filters. There are
@@ -194,13 +198,16 @@ def get_query_log_config_output(filters: Optional[pulumi.Input[Optional[Sequence
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.route53.get_query_log_config(resolver_query_log_config_id="rqlc-1abc2345ef678g91h")
     ```
+    <!--End PulumiCodeChooser -->
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -216,6 +223,7 @@ def get_query_log_config_output(filters: Optional[pulumi.Input[Optional[Sequence
         ),
     ])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetQueryLogConfigFilterArgs']] filters: One or more name/value pairs to use as filters. There are

@@ -501,10 +501,12 @@ class PatchBaseline(pulumi.CustomResource):
         of them is specified.
 
         ## Example Usage
+
         ### Basic Usage
 
         Using `approved_patches` only.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -513,8 +515,11 @@ class PatchBaseline(pulumi.CustomResource):
             name="patch-baseline",
             approved_patches=["KB123456"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Advanced Usage, specifying patch filters
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -577,8 +582,11 @@ class PatchBaseline(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Advanced usage, specifying Microsoft application and Windows patch rules
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -625,8 +633,11 @@ class PatchBaseline(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Advanced usage, specifying alternate patch source repository
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -656,13 +667,14 @@ class PatchBaseline(pulumi.CustomResource):
         \"\"\",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SSM Patch Baselines using their baseline ID. For example:
 
         ```sh
-         $ pulumi import aws:ssm/patchBaseline:PatchBaseline example pb-12345678
+        $ pulumi import aws:ssm/patchBaseline:PatchBaseline example pb-12345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -696,10 +708,12 @@ class PatchBaseline(pulumi.CustomResource):
         of them is specified.
 
         ## Example Usage
+
         ### Basic Usage
 
         Using `approved_patches` only.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -708,8 +722,11 @@ class PatchBaseline(pulumi.CustomResource):
             name="patch-baseline",
             approved_patches=["KB123456"])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Advanced Usage, specifying patch filters
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -772,8 +789,11 @@ class PatchBaseline(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Advanced usage, specifying Microsoft application and Windows patch rules
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -820,8 +840,11 @@ class PatchBaseline(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Advanced usage, specifying alternate patch source repository
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -851,13 +874,14 @@ class PatchBaseline(pulumi.CustomResource):
         \"\"\",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SSM Patch Baselines using their baseline ID. For example:
 
         ```sh
-         $ pulumi import aws:ssm/patchBaseline:PatchBaseline example pb-12345678
+        $ pulumi import aws:ssm/patchBaseline:PatchBaseline example pb-12345678
         ```
 
         :param str resource_name: The name of the resource.

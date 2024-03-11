@@ -19,6 +19,8 @@ import javax.annotation.Nullable;
  * Provides an AppStream Directory Config.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -53,13 +55,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_appstream_directory_config` using the id. For example:
  * 
  * ```sh
- *  $ pulumi import aws:appstream/directoryConfig:DirectoryConfig example directoryNameExample
+ * $ pulumi import aws:appstream/directoryConfig:DirectoryConfig example directoryNameExample
  * ```
  * 
  */

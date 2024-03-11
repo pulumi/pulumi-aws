@@ -1514,6 +1514,7 @@ class Group(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -1564,8 +1565,11 @@ class Group(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Latest Version Of Launch Template
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1584,8 +1588,11 @@ class Group(pulumi.CustomResource):
                 version="$Latest",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Mixed Instances Policy
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1617,8 +1624,11 @@ class Group(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Mixed Instances Policy with Spot Instances and Capacity Rebalance
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1659,10 +1669,13 @@ class Group(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Mixed Instances Policy with Instance level LaunchTemplateSpecification Overrides
 
         When using a diverse instance set, some instance types might require a launch template with configuration values unique to that instance type such as a different AMI (Graviton2), architecture specific user data script, different EBS configuration, or different networking configuration.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1700,10 +1713,13 @@ class Group(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Mixed Instances Policy with Attribute-based Instance Type Selection
 
         As an alternative to manually choosing instance types when creating a mixed instances group, you can specify a set of instance attributes that describe your compute requirements.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1735,8 +1751,11 @@ class Group(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Dynamic tagging
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1778,8 +1797,11 @@ class Group(pulumi.CustomResource):
                 example2["id"],
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Automatically refresh all instances after the group is updated
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1815,8 +1837,11 @@ class Group(pulumi.CustomResource):
                 triggers=["tag"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Auto Scaling group with Warm Pool
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1839,8 +1864,11 @@ class Group(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Auto Scaling group with Traffic Sources
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -1855,6 +1883,8 @@ class Group(pulumi.CustomResource):
             min_size=1,
             force_delete=True)
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Waiting for Capacity
 
         A newly-created ASG is initially empty and begins to scale to `min_size` (or
@@ -1922,7 +1952,7 @@ class Group(pulumi.CustomResource):
         Using `pulumi import`, import Auto Scaling Groups using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:autoscaling/group:Group web web-asg
+        $ pulumi import aws:autoscaling/group:Group web web-asg
         ```
 
         :param str resource_name: The name of the resource.
@@ -2016,6 +2046,7 @@ class Group(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -2066,8 +2097,11 @@ class Group(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### With Latest Version Of Launch Template
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2086,8 +2120,11 @@ class Group(pulumi.CustomResource):
                 version="$Latest",
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Mixed Instances Policy
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2119,8 +2156,11 @@ class Group(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Mixed Instances Policy with Spot Instances and Capacity Rebalance
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2161,10 +2201,13 @@ class Group(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Mixed Instances Policy with Instance level LaunchTemplateSpecification Overrides
 
         When using a diverse instance set, some instance types might require a launch template with configuration values unique to that instance type such as a different AMI (Graviton2), architecture specific user data script, different EBS configuration, or different networking configuration.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2202,10 +2245,13 @@ class Group(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Mixed Instances Policy with Attribute-based Instance Type Selection
 
         As an alternative to manually choosing instance types when creating a mixed instances group, you can specify a set of instance attributes that describe your compute requirements.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2237,8 +2283,11 @@ class Group(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Dynamic tagging
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2280,8 +2329,11 @@ class Group(pulumi.CustomResource):
                 example2["id"],
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Automatically refresh all instances after the group is updated
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2317,8 +2369,11 @@ class Group(pulumi.CustomResource):
                 triggers=["tag"],
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Auto Scaling group with Warm Pool
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2341,8 +2396,11 @@ class Group(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Auto Scaling group with Traffic Sources
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -2357,6 +2415,8 @@ class Group(pulumi.CustomResource):
             min_size=1,
             force_delete=True)
         ```
+        <!--End PulumiCodeChooser -->
+
         ## Waiting for Capacity
 
         A newly-created ASG is initially empty and begins to scale to `min_size` (or
@@ -2424,7 +2484,7 @@ class Group(pulumi.CustomResource):
         Using `pulumi import`, import Auto Scaling Groups using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:autoscaling/group:Group web web-asg
+        $ pulumi import aws:autoscaling/group:Group web web-asg
         ```
 
         :param str resource_name: The name of the resource.

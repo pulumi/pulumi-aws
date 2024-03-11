@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -46,6 +47,7 @@ import (
 // })
 // }
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupInternetGateway(ctx *pulumi.Context, args *LookupInternetGatewayArgs, opts ...pulumi.InvokeOption) (*LookupInternetGatewayResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupInternetGatewayResult

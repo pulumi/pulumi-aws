@@ -14,6 +14,7 @@ namespace Pulumi.Aws.WafRegional
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -48,13 +49,14 @@ namespace Pulumi.Aws.WafRegional
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import AWS WAF Regional XSS Match using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:wafregional/xssMatchSet:XssMatchSet example 12345abcde
+    /// $ pulumi import aws:wafregional/xssMatchSet:XssMatchSet example 12345abcde
     /// ```
     /// </summary>
     [AwsResourceType("aws:wafregional/xssMatchSet:XssMatchSet")]

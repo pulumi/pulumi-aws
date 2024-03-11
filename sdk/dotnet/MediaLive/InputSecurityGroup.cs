@@ -13,8 +13,10 @@ namespace Pulumi.Aws.MediaLive
     /// Resource for managing an AWS MediaLive InputSecurityGroup.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -40,13 +42,14 @@ namespace Pulumi.Aws.MediaLive
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import MediaLive InputSecurityGroup using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:medialive/inputSecurityGroup:InputSecurityGroup example 123456
+    /// $ pulumi import aws:medialive/inputSecurityGroup:InputSecurityGroup example 123456
     /// ```
     /// </summary>
     [AwsResourceType("aws:medialive/inputSecurityGroup:InputSecurityGroup")]

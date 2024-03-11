@@ -226,6 +226,7 @@ class Connection(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -264,13 +265,14 @@ class Connection(pulumi.CustomResource):
             name="tf-test-pipeline",
             role_arn=codepipeline_role["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CodeStar connections using the ARN. For example:
 
         ```sh
-         $ pulumi import aws:codestarconnections/connection:Connection test-connection arn:aws:codestar-connections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448
+        $ pulumi import aws:codestarconnections/connection:Connection test-connection arn:aws:codestar-connections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448
         ```
 
         :param str resource_name: The name of the resource.
@@ -293,6 +295,7 @@ class Connection(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -331,13 +334,14 @@ class Connection(pulumi.CustomResource):
             name="tf-test-pipeline",
             role_arn=codepipeline_role["arn"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CodeStar connections using the ARN. For example:
 
         ```sh
-         $ pulumi import aws:codestarconnections/connection:Connection test-connection arn:aws:codestar-connections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448
+        $ pulumi import aws:codestarconnections/connection:Connection test-connection arn:aws:codestar-connections:us-west-1:0123456789:connection/79d4d357-a2ee-41e4-b350-2fe39ae59448
         ```
 
         :param str resource_name: The name of the resource.

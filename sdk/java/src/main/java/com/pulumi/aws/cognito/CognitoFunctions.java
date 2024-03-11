@@ -36,7 +36,10 @@ public final class CognitoFunctions {
      * Data source for managing an AWS Cognito Identity Pool.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -65,6 +68,7 @@ public final class CognitoFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetIdentityPoolResult> getIdentityPool(GetIdentityPoolArgs args) {
@@ -74,7 +78,10 @@ public final class CognitoFunctions {
      * Data source for managing an AWS Cognito Identity Pool.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -103,6 +110,7 @@ public final class CognitoFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetIdentityPoolResult> getIdentityPoolPlain(GetIdentityPoolPlainArgs args) {
@@ -112,7 +120,10 @@ public final class CognitoFunctions {
      * Data source for managing an AWS Cognito Identity Pool.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -141,6 +152,7 @@ public final class CognitoFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetIdentityPoolResult> getIdentityPool(GetIdentityPoolArgs args, InvokeOptions options) {
@@ -150,7 +162,10 @@ public final class CognitoFunctions {
      * Data source for managing an AWS Cognito Identity Pool.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -179,6 +194,7 @@ public final class CognitoFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetIdentityPoolResult> getIdentityPoolPlain(GetIdentityPoolPlainArgs args, InvokeOptions options) {
@@ -188,7 +204,10 @@ public final class CognitoFunctions {
      * Data source for managing an AWS Cognito IDP (Identity Provider) User Group.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -218,6 +237,7 @@ public final class CognitoFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserGroupResult> getUserGroup(GetUserGroupArgs args) {
@@ -227,7 +247,10 @@ public final class CognitoFunctions {
      * Data source for managing an AWS Cognito IDP (Identity Provider) User Group.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -257,6 +280,7 @@ public final class CognitoFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserGroupResult> getUserGroupPlain(GetUserGroupPlainArgs args) {
@@ -266,7 +290,10 @@ public final class CognitoFunctions {
      * Data source for managing an AWS Cognito IDP (Identity Provider) User Group.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -296,6 +323,7 @@ public final class CognitoFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserGroupResult> getUserGroup(GetUserGroupArgs args, InvokeOptions options) {
@@ -305,7 +333,10 @@ public final class CognitoFunctions {
      * Data source for managing an AWS Cognito IDP (Identity Provider) User Group.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -335,6 +366,7 @@ public final class CognitoFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserGroupResult> getUserGroupPlain(GetUserGroupPlainArgs args, InvokeOptions options) {
@@ -344,7 +376,10 @@ public final class CognitoFunctions {
      * Data source for managing AWS Cognito IDP (Identity Provider) User Groups.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -373,6 +408,7 @@ public final class CognitoFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserGroupsResult> getUserGroups(GetUserGroupsArgs args) {
@@ -382,7 +418,10 @@ public final class CognitoFunctions {
      * Data source for managing AWS Cognito IDP (Identity Provider) User Groups.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -411,6 +450,7 @@ public final class CognitoFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserGroupsResult> getUserGroupsPlain(GetUserGroupsPlainArgs args) {
@@ -420,7 +460,10 @@ public final class CognitoFunctions {
      * Data source for managing AWS Cognito IDP (Identity Provider) User Groups.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -449,6 +492,7 @@ public final class CognitoFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserGroupsResult> getUserGroups(GetUserGroupsArgs args, InvokeOptions options) {
@@ -458,7 +502,10 @@ public final class CognitoFunctions {
      * Data source for managing AWS Cognito IDP (Identity Provider) User Groups.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -487,6 +534,7 @@ public final class CognitoFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserGroupsResult> getUserGroupsPlain(GetUserGroupsPlainArgs args, InvokeOptions options) {
@@ -496,6 +544,8 @@ public final class CognitoFunctions {
      * Provides a Cognito User Pool Client resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -525,6 +575,7 @@ public final class CognitoFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserPoolClientResult> getUserPoolClient(GetUserPoolClientArgs args) {
@@ -534,6 +585,8 @@ public final class CognitoFunctions {
      * Provides a Cognito User Pool Client resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -563,6 +616,7 @@ public final class CognitoFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserPoolClientResult> getUserPoolClientPlain(GetUserPoolClientPlainArgs args) {
@@ -572,6 +626,8 @@ public final class CognitoFunctions {
      * Provides a Cognito User Pool Client resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -601,6 +657,7 @@ public final class CognitoFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserPoolClientResult> getUserPoolClient(GetUserPoolClientArgs args, InvokeOptions options) {
@@ -610,6 +667,8 @@ public final class CognitoFunctions {
      * Provides a Cognito User Pool Client resource.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -639,6 +698,7 @@ public final class CognitoFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserPoolClientResult> getUserPoolClientPlain(GetUserPoolClientPlainArgs args, InvokeOptions options) {
@@ -648,6 +708,8 @@ public final class CognitoFunctions {
      * Use this data source to get a list of Cognito user pools clients for a Cognito IdP user pool.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -676,6 +738,7 @@ public final class CognitoFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserPoolClientsResult> getUserPoolClients(GetUserPoolClientsArgs args) {
@@ -685,6 +748,8 @@ public final class CognitoFunctions {
      * Use this data source to get a list of Cognito user pools clients for a Cognito IdP user pool.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -713,6 +778,7 @@ public final class CognitoFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserPoolClientsResult> getUserPoolClientsPlain(GetUserPoolClientsPlainArgs args) {
@@ -722,6 +788,8 @@ public final class CognitoFunctions {
      * Use this data source to get a list of Cognito user pools clients for a Cognito IdP user pool.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -750,6 +818,7 @@ public final class CognitoFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserPoolClientsResult> getUserPoolClients(GetUserPoolClientsArgs args, InvokeOptions options) {
@@ -759,6 +828,8 @@ public final class CognitoFunctions {
      * Use this data source to get a list of Cognito user pools clients for a Cognito IdP user pool.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -787,6 +858,7 @@ public final class CognitoFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserPoolClientsResult> getUserPoolClientsPlain(GetUserPoolClientsPlainArgs args, InvokeOptions options) {
@@ -796,6 +868,8 @@ public final class CognitoFunctions {
      * Use this data source to get the signing certificate for a Cognito IdP user pool.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -824,6 +898,7 @@ public final class CognitoFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserPoolSigningCertificateResult> getUserPoolSigningCertificate(GetUserPoolSigningCertificateArgs args) {
@@ -833,6 +908,8 @@ public final class CognitoFunctions {
      * Use this data source to get the signing certificate for a Cognito IdP user pool.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -861,6 +938,7 @@ public final class CognitoFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserPoolSigningCertificateResult> getUserPoolSigningCertificatePlain(GetUserPoolSigningCertificatePlainArgs args) {
@@ -870,6 +948,8 @@ public final class CognitoFunctions {
      * Use this data source to get the signing certificate for a Cognito IdP user pool.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -898,6 +978,7 @@ public final class CognitoFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserPoolSigningCertificateResult> getUserPoolSigningCertificate(GetUserPoolSigningCertificateArgs args, InvokeOptions options) {
@@ -907,6 +988,8 @@ public final class CognitoFunctions {
      * Use this data source to get the signing certificate for a Cognito IdP user pool.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -935,6 +1018,7 @@ public final class CognitoFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserPoolSigningCertificateResult> getUserPoolSigningCertificatePlain(GetUserPoolSigningCertificatePlainArgs args, InvokeOptions options) {
@@ -944,6 +1028,8 @@ public final class CognitoFunctions {
      * Use this data source to get a list of cognito user pools.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -987,6 +1073,7 @@ public final class CognitoFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserPoolsResult> getUserPools(GetUserPoolsArgs args) {
@@ -996,6 +1083,8 @@ public final class CognitoFunctions {
      * Use this data source to get a list of cognito user pools.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1039,6 +1128,7 @@ public final class CognitoFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserPoolsResult> getUserPoolsPlain(GetUserPoolsPlainArgs args) {
@@ -1048,6 +1138,8 @@ public final class CognitoFunctions {
      * Use this data source to get a list of cognito user pools.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1091,6 +1183,7 @@ public final class CognitoFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetUserPoolsResult> getUserPools(GetUserPoolsArgs args, InvokeOptions options) {
@@ -1100,6 +1193,8 @@ public final class CognitoFunctions {
      * Use this data source to get a list of cognito user pools.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1143,6 +1238,7 @@ public final class CognitoFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetUserPoolsResult> getUserPoolsPlain(GetUserPoolsPlainArgs args, InvokeOptions options) {

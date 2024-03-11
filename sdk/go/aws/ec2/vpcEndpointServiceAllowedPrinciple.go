@@ -24,6 +24,7 @@ import (
 //
 // Basic usage:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -53,6 +54,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type VpcEndpointServiceAllowedPrinciple struct {
 	pulumi.CustomResourceState
 

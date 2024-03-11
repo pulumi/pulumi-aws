@@ -20,7 +20,10 @@ import javax.annotation.Nullable;
  * Up to 10 log buckets can be associated for DRT Access sharing with the Shield Response Team (SRT).
  * 
  * ## Example Usage
+ * 
  * ### Basic Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -56,13 +59,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Shield DRT access log bucket associations using the `log_bucket`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:shield/drtAccessLogBucketAssociation:DrtAccessLogBucketAssociation example example-bucket
+ * $ pulumi import aws:shield/drtAccessLogBucketAssociation:DrtAccessLogBucketAssociation example example-bucket
  * ```
  * 
  */

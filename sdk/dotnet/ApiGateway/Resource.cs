@@ -14,6 +14,7 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -37,13 +38,14 @@ namespace Pulumi.Aws.ApiGateway
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_api_gateway_resource` using `REST-API-ID/RESOURCE-ID`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:apigateway/resource:Resource example 12345abcde/67890fghij
+    /// $ pulumi import aws:apigateway/resource:Resource example 12345abcde/67890fghij
     /// ```
     /// </summary>
     [AwsResourceType("aws:apigateway/resource:Resource")]

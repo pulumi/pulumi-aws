@@ -13,8 +13,10 @@ import * as utilities from "../utilities";
  * > This resource cannot be used with S3 directory buckets.
  *
  * ## Example Usage
+ *
  * ### Add analytics configuration for entire S3 bucket and export results to a second S3 bucket
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -35,8 +37,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Add analytics configuration with S3 object filter
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -54,13 +59,14 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import S3 bucket analytics configurations using `bucket:analytics`. For example:
  *
  * ```sh
- *  $ pulumi import aws:s3/analyticsConfiguration:AnalyticsConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
+ * $ pulumi import aws:s3/analyticsConfiguration:AnalyticsConfiguration my-bucket-entire-bucket my-bucket:EntireBucket
  * ```
  */
 export class AnalyticsConfiguration extends pulumi.CustomResource {

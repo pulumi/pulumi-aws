@@ -13,13 +13,13 @@ namespace Pulumi.Aws.Sagemaker.Inputs
     public sealed class EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationGetArgs : global::Pulumi.ResourceArgs
     {
         /// <summary>
-        /// Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50% of the variant's total instance count. See Canary Size.
+        /// Batch size for the first step to turn on traffic on the new endpoint fleet. Value must be less than or equal to 50%!o(MISSING)f the variant's total instance count. See Canary Size.
         /// </summary>
         [Input("canarySize")]
         public Input<Inputs.EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationCanarySizeGetArgs>? CanarySize { get; set; }
 
         /// <summary>
-        /// Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50% of the variant's total instance count. See Linear Step Size.
+        /// Batch size for each step to turn on traffic on the new endpoint fleet. Value must be 10-50%!o(MISSING)f the variant's total instance count. See Linear Step Size.
         /// </summary>
         [Input("linearStepSize")]
         public Input<Inputs.EndpointDeploymentConfigBlueGreenUpdatePolicyTrafficRoutingConfigurationLinearStepSizeGetArgs>? LinearStepSize { get; set; }

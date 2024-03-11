@@ -518,6 +518,7 @@ class CapacityReservation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -528,13 +529,14 @@ class CapacityReservation(pulumi.CustomResource):
             availability_zone="eu-west-1a",
             instance_count=1)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Capacity Reservations using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/capacityReservation:CapacityReservation web cr-0123456789abcdef0
+        $ pulumi import aws:ec2/capacityReservation:CapacityReservation web cr-0123456789abcdef0
         ```
 
         :param str resource_name: The name of the resource.
@@ -564,6 +566,7 @@ class CapacityReservation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -574,13 +577,14 @@ class CapacityReservation(pulumi.CustomResource):
             availability_zone="eu-west-1a",
             instance_count=1)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Capacity Reservations using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2/capacityReservation:CapacityReservation web cr-0123456789abcdef0
+        $ pulumi import aws:ec2/capacityReservation:CapacityReservation web cr-0123456789abcdef0
         ```
 
         :param str resource_name: The name of the resource.

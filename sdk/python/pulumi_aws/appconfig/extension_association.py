@@ -167,6 +167,7 @@ class ExtensionAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -201,13 +202,14 @@ class ExtensionAssociation(pulumi.CustomResource):
             extension_arn=test_extension.arn,
             resource_arn=test_application.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AppConfig Extension Associations using their extension association ID. For example:
 
         ```sh
-         $ pulumi import aws:appconfig/extensionAssociation:ExtensionAssociation example 71rxuzt
+        $ pulumi import aws:appconfig/extensionAssociation:ExtensionAssociation example 71rxuzt
         ```
 
         :param str resource_name: The name of the resource.
@@ -227,6 +229,7 @@ class ExtensionAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -261,13 +264,14 @@ class ExtensionAssociation(pulumi.CustomResource):
             extension_arn=test_extension.arn,
             resource_arn=test_application.arn)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import AppConfig Extension Associations using their extension association ID. For example:
 
         ```sh
-         $ pulumi import aws:appconfig/extensionAssociation:ExtensionAssociation example 71rxuzt
+        $ pulumi import aws:appconfig/extensionAssociation:ExtensionAssociation example 71rxuzt
         ```
 
         :param str resource_name: The name of the resource.

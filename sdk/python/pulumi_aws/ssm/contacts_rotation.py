@@ -279,8 +279,10 @@ class ContactsRotation(pulumi.CustomResource):
                  __props__=None):
         """
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -298,8 +300,11 @@ class ContactsRotation(pulumi.CustomResource):
             ),
             time_zone_id="Australia/Sydney")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Usage with Weekly Settings and Shift Coverages Fields
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -347,8 +352,11 @@ class ContactsRotation(pulumi.CustomResource):
                 "key2": "tag2",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Usage with Monthly Settings Fields
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -378,13 +386,14 @@ class ContactsRotation(pulumi.CustomResource):
             ),
             time_zone_id="Australia/Sydney")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CodeGuru Profiler Profiling Group using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:ssm/contactsRotation:ContactsRotation example arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example
+        $ pulumi import aws:ssm/contactsRotation:ContactsRotation example arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -406,8 +415,10 @@ class ContactsRotation(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None):
         """
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -425,8 +436,11 @@ class ContactsRotation(pulumi.CustomResource):
             ),
             time_zone_id="Australia/Sydney")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Usage with Weekly Settings and Shift Coverages Fields
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -474,8 +488,11 @@ class ContactsRotation(pulumi.CustomResource):
                 "key2": "tag2",
             })
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Usage with Monthly Settings Fields
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -505,13 +522,14 @@ class ContactsRotation(pulumi.CustomResource):
             ),
             time_zone_id="Australia/Sydney")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CodeGuru Profiler Profiling Group using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:ssm/contactsRotation:ContactsRotation example arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example
+        $ pulumi import aws:ssm/contactsRotation:ContactsRotation example arn:aws:ssm-contacts:us-east-1:012345678910:rotation/example
         ```
 
         :param str resource_name: The name of the resource.

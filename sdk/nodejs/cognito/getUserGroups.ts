@@ -11,8 +11,10 @@ import * as utilities from "../utilities";
  * Data source for managing AWS Cognito IDP (Identity Provider) User Groups.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -21,6 +23,7 @@ import * as utilities from "../utilities";
  *     userPoolId: "us-west-2_aaaaaaaaa",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getUserGroups(args: GetUserGroupsArgs, opts?: pulumi.InvokeOptions): Promise<GetUserGroupsResult> {
 
@@ -63,8 +66,10 @@ export interface GetUserGroupsResult {
  * Data source for managing AWS Cognito IDP (Identity Provider) User Groups.
  *
  * ## Example Usage
+ *
  * ### Basic Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -73,6 +78,7 @@ export interface GetUserGroupsResult {
  *     userPoolId: "us-west-2_aaaaaaaaa",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getUserGroupsOutput(args: GetUserGroupsOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserGroupsResult> {
     return pulumi.output(args).apply((a: any) => getUserGroups(a, opts))

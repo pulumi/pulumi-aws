@@ -324,6 +324,7 @@ def get_subnet(availability_zone: Optional[str] = None,
 
     The following example shows how one might accept a subnet ID as a variable and use this data source to obtain the data necessary to create a security group that allows connections from hosts in that subnet.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -340,10 +341,13 @@ def get_subnet(availability_zone: Optional[str] = None,
             protocol="tcp",
         )])
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Filter Example
 
     If you want to match against tag `Name`, use:
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -353,6 +357,7 @@ def get_subnet(availability_zone: Optional[str] = None,
         values=["yakdriver"],
     )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str availability_zone: Availability zone where the subnet must reside.
@@ -429,6 +434,7 @@ def get_subnet_output(availability_zone: Optional[pulumi.Input[Optional[str]]] =
 
     The following example shows how one might accept a subnet ID as a variable and use this data source to obtain the data necessary to create a security group that allows connections from hosts in that subnet.
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -445,10 +451,13 @@ def get_subnet_output(availability_zone: Optional[pulumi.Input[Optional[str]]] =
             protocol="tcp",
         )])
     ```
+    <!--End PulumiCodeChooser -->
+
     ### Filter Example
 
     If you want to match against tag `Name`, use:
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -458,6 +467,7 @@ def get_subnet_output(availability_zone: Optional[pulumi.Input[Optional[str]]] =
         values=["yakdriver"],
     )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str availability_zone: Availability zone where the subnet must reside.

@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -69,15 +70,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Workspaces using their ID. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:workspaces/workspace:Workspace example ws-9z9zmbkhv
-//
+// $ pulumi import aws:workspaces/workspace:Workspace example ws-9z9zmbkhv
 // ```
 type Workspace struct {
 	pulumi.CustomResourceState

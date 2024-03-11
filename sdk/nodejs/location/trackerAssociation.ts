@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,13 +21,14 @@ import * as utilities from "../utilities";
  *     trackerName: exampleTracker.trackerName,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Location Tracker Association using the `tracker_name|consumer_arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:location/trackerAssociation:TrackerAssociation example "tracker_name|consumer_arn"
+ * $ pulumi import aws:location/trackerAssociation:TrackerAssociation example "tracker_name|consumer_arn"
  * ```
  */
 export class TrackerAssociation extends pulumi.CustomResource {

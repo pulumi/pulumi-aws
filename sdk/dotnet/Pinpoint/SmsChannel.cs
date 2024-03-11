@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -31,13 +32,14 @@ namespace Pulumi.Aws.Pinpoint
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import the Pinpoint SMS Channel using the `application_id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:pinpoint/smsChannel:SmsChannel sms application-id
+    /// $ pulumi import aws:pinpoint/smsChannel:SmsChannel sms application-id
     /// ```
     /// </summary>
     [AwsResourceType("aws:pinpoint/smsChannel:SmsChannel")]

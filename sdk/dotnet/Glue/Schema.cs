@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Glue
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -33,13 +34,14 @@ namespace Pulumi.Aws.Glue
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Glue Registries using `arn`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:glue/schema:Schema example arn:aws:glue:us-west-2:123456789012:schema/example/example
+    /// $ pulumi import aws:glue/schema:Schema example arn:aws:glue:us-west-2:123456789012:schema/example/example
     /// ```
     /// </summary>
     [AwsResourceType("aws:glue/schema:Schema")]

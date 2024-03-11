@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** An alarm (composite or metric) cannot be destroyed when there are other composite alarms depending on it. This can lead to a cyclical dependency on update, as the provider will unsuccessfully attempt to destroy alarms before updating the rule. Consider using `depends_on`, references to alarm names, and two-stage updates.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -65,13 +67,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import a CloudWatch Composite Alarm using the `alarm_name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cloudwatch/compositeAlarm:CompositeAlarm test my-alarm
+ * $ pulumi import aws:cloudwatch/compositeAlarm:CompositeAlarm test my-alarm
  * ```
  * 
  */

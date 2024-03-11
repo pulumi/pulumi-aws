@@ -21,6 +21,8 @@ public final class VpcFunctions {
      * `aws.vpc.getSecurityGroupRule` provides details about a specific security group rule.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -49,6 +51,7 @@ public final class VpcFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSecurityGroupRuleResult> getSecurityGroupRule() {
@@ -58,6 +61,8 @@ public final class VpcFunctions {
      * `aws.vpc.getSecurityGroupRule` provides details about a specific security group rule.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -86,6 +91,7 @@ public final class VpcFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSecurityGroupRuleResult> getSecurityGroupRulePlain() {
@@ -95,6 +101,8 @@ public final class VpcFunctions {
      * `aws.vpc.getSecurityGroupRule` provides details about a specific security group rule.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -123,6 +131,7 @@ public final class VpcFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSecurityGroupRuleResult> getSecurityGroupRule(GetSecurityGroupRuleArgs args) {
@@ -132,6 +141,8 @@ public final class VpcFunctions {
      * `aws.vpc.getSecurityGroupRule` provides details about a specific security group rule.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -160,6 +171,7 @@ public final class VpcFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSecurityGroupRuleResult> getSecurityGroupRulePlain(GetSecurityGroupRulePlainArgs args) {
@@ -169,6 +181,8 @@ public final class VpcFunctions {
      * `aws.vpc.getSecurityGroupRule` provides details about a specific security group rule.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -197,6 +211,7 @@ public final class VpcFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSecurityGroupRuleResult> getSecurityGroupRule(GetSecurityGroupRuleArgs args, InvokeOptions options) {
@@ -206,6 +221,8 @@ public final class VpcFunctions {
      * `aws.vpc.getSecurityGroupRule` provides details about a specific security group rule.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -234,6 +251,7 @@ public final class VpcFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSecurityGroupRuleResult> getSecurityGroupRulePlain(GetSecurityGroupRulePlainArgs args, InvokeOptions options) {
@@ -243,6 +261,8 @@ public final class VpcFunctions {
      * This resource can be useful for getting back a set of security group rule IDs.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -274,6 +294,7 @@ public final class VpcFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSecurityGroupRulesResult> getSecurityGroupRules() {
@@ -283,6 +304,8 @@ public final class VpcFunctions {
      * This resource can be useful for getting back a set of security group rule IDs.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -314,6 +337,7 @@ public final class VpcFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSecurityGroupRulesResult> getSecurityGroupRulesPlain() {
@@ -323,6 +347,8 @@ public final class VpcFunctions {
      * This resource can be useful for getting back a set of security group rule IDs.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -354,6 +380,7 @@ public final class VpcFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSecurityGroupRulesResult> getSecurityGroupRules(GetSecurityGroupRulesArgs args) {
@@ -363,6 +390,8 @@ public final class VpcFunctions {
      * This resource can be useful for getting back a set of security group rule IDs.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -394,6 +423,7 @@ public final class VpcFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSecurityGroupRulesResult> getSecurityGroupRulesPlain(GetSecurityGroupRulesPlainArgs args) {
@@ -403,6 +433,8 @@ public final class VpcFunctions {
      * This resource can be useful for getting back a set of security group rule IDs.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -434,6 +466,7 @@ public final class VpcFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSecurityGroupRulesResult> getSecurityGroupRules(GetSecurityGroupRulesArgs args, InvokeOptions options) {
@@ -443,6 +476,8 @@ public final class VpcFunctions {
      * This resource can be useful for getting back a set of security group rule IDs.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -474,6 +509,7 @@ public final class VpcFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSecurityGroupRulesResult> getSecurityGroupRulesPlain(GetSecurityGroupRulesPlainArgs args, InvokeOptions options) {

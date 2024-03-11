@@ -21,6 +21,8 @@ import javax.annotation.Nullable;
  * Manages an RDS database instance snapshot copy. For managing RDS database cluster snapshots, see the `aws.rds.ClusterSnapshot` resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -72,13 +74,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_db_snapshot_copy` using the snapshot identifier. For example:
  * 
  * ```sh
- *  $ pulumi import aws:rds/snapshotCopy:SnapshotCopy example my-snapshot
+ * $ pulumi import aws:rds/snapshotCopy:SnapshotCopy example my-snapshot
  * ```
  * 
  */

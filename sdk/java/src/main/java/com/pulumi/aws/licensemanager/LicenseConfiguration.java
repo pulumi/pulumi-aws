@@ -24,6 +24,8 @@ import javax.annotation.Nullable;
  * &gt; **Note:** Removing the `license_count` attribute is not supported by the License Manager API.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -58,6 +60,8 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Rules
  * 
  * License rules should be in the format of `#RuleType=RuleValue`. Supported rule types:
@@ -75,7 +79,7 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import license configurations using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:licensemanager/licenseConfiguration:LicenseConfiguration example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
+ * $ pulumi import aws:licensemanager/licenseConfiguration:LicenseConfiguration example arn:aws:license-manager:eu-west-1:123456789012:license-configuration:lic-0123456789abcdef0123456789abcdef
  * ```
  * 
  */

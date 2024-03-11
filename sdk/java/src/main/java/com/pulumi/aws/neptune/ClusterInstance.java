@@ -26,6 +26,8 @@ import javax.annotation.Nullable;
  * ## Example Usage
  * 
  * The following example will create a neptune cluster with two neptune instances(one writer and one reader).
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -73,13 +75,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_neptune_cluster_instance` using the instance identifier. For example:
  * 
  * ```sh
- *  $ pulumi import aws:neptune/clusterInstance:ClusterInstance example my-instance
+ * $ pulumi import aws:neptune/clusterInstance:ClusterInstance example my-instance
  * ```
  * 
  */

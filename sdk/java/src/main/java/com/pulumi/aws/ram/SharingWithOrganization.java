@@ -17,6 +17,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** Use this resource to manage resource sharing within your organization, **not** the `aws.organizations.Organization` resource with `ram.amazonaws.com` configured in `aws_service_access_principals`.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -42,13 +44,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import the resource using the current AWS account ID. For example:
  * 
  * ```sh
- *  $ pulumi import aws:ram/sharingWithOrganization:SharingWithOrganization example 123456789012
+ * $ pulumi import aws:ram/sharingWithOrganization:SharingWithOrganization example 123456789012
  * ```
  * 
  */

@@ -29,6 +29,8 @@ public final class DirectconnectFunctions {
      * Retrieve information about a Direct Connect Connection.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -57,6 +59,7 @@ public final class DirectconnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetConnectionResult> getConnection(GetConnectionArgs args) {
@@ -66,6 +69,8 @@ public final class DirectconnectFunctions {
      * Retrieve information about a Direct Connect Connection.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -94,6 +99,7 @@ public final class DirectconnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetConnectionResult> getConnectionPlain(GetConnectionPlainArgs args) {
@@ -103,6 +109,8 @@ public final class DirectconnectFunctions {
      * Retrieve information about a Direct Connect Connection.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -131,6 +139,7 @@ public final class DirectconnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetConnectionResult> getConnection(GetConnectionArgs args, InvokeOptions options) {
@@ -140,6 +149,8 @@ public final class DirectconnectFunctions {
      * Retrieve information about a Direct Connect Connection.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -168,6 +179,7 @@ public final class DirectconnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetConnectionResult> getConnectionPlain(GetConnectionPlainArgs args, InvokeOptions options) {
@@ -177,6 +189,8 @@ public final class DirectconnectFunctions {
      * Retrieve information about a Direct Connect Gateway.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -205,6 +219,7 @@ public final class DirectconnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetGatewayResult> getGateway(GetGatewayArgs args) {
@@ -214,6 +229,8 @@ public final class DirectconnectFunctions {
      * Retrieve information about a Direct Connect Gateway.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -242,6 +259,7 @@ public final class DirectconnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetGatewayResult> getGatewayPlain(GetGatewayPlainArgs args) {
@@ -251,6 +269,8 @@ public final class DirectconnectFunctions {
      * Retrieve information about a Direct Connect Gateway.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -279,6 +299,7 @@ public final class DirectconnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetGatewayResult> getGateway(GetGatewayArgs args, InvokeOptions options) {
@@ -288,6 +309,8 @@ public final class DirectconnectFunctions {
      * Retrieve information about a Direct Connect Gateway.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -316,6 +339,7 @@ public final class DirectconnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetGatewayResult> getGatewayPlain(GetGatewayPlainArgs args, InvokeOptions options) {
@@ -328,6 +352,8 @@ public final class DirectconnectFunctions {
      * &gt; **Note:** This data source is different from the `aws.directconnect.getLocations` data source which retrieves information about all the AWS Direct Connect locations in the current AWS Region.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -356,6 +382,7 @@ public final class DirectconnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocationResult> getLocation(GetLocationArgs args) {
@@ -368,6 +395,8 @@ public final class DirectconnectFunctions {
      * &gt; **Note:** This data source is different from the `aws.directconnect.getLocations` data source which retrieves information about all the AWS Direct Connect locations in the current AWS Region.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -396,6 +425,7 @@ public final class DirectconnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocationResult> getLocationPlain(GetLocationPlainArgs args) {
@@ -408,6 +438,8 @@ public final class DirectconnectFunctions {
      * &gt; **Note:** This data source is different from the `aws.directconnect.getLocations` data source which retrieves information about all the AWS Direct Connect locations in the current AWS Region.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -436,6 +468,7 @@ public final class DirectconnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocationResult> getLocation(GetLocationArgs args, InvokeOptions options) {
@@ -448,6 +481,8 @@ public final class DirectconnectFunctions {
      * &gt; **Note:** This data source is different from the `aws.directconnect.getLocations` data source which retrieves information about all the AWS Direct Connect locations in the current AWS Region.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -476,6 +511,7 @@ public final class DirectconnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocationResult> getLocationPlain(GetLocationPlainArgs args, InvokeOptions options) {
@@ -488,6 +524,8 @@ public final class DirectconnectFunctions {
      * &gt; **Note:** This data source is different from the `aws.directconnect.getLocation` data source which retrieves information about a specific AWS Direct Connect location in the current AWS Region.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -513,6 +551,7 @@ public final class DirectconnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocationsResult> getLocations() {
@@ -525,6 +564,8 @@ public final class DirectconnectFunctions {
      * &gt; **Note:** This data source is different from the `aws.directconnect.getLocation` data source which retrieves information about a specific AWS Direct Connect location in the current AWS Region.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -550,6 +591,7 @@ public final class DirectconnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocationsResult> getLocationsPlain() {
@@ -562,6 +604,8 @@ public final class DirectconnectFunctions {
      * &gt; **Note:** This data source is different from the `aws.directconnect.getLocation` data source which retrieves information about a specific AWS Direct Connect location in the current AWS Region.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -587,6 +631,7 @@ public final class DirectconnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocationsResult> getLocations(InvokeArgs args) {
@@ -599,6 +644,8 @@ public final class DirectconnectFunctions {
      * &gt; **Note:** This data source is different from the `aws.directconnect.getLocation` data source which retrieves information about a specific AWS Direct Connect location in the current AWS Region.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -624,6 +671,7 @@ public final class DirectconnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocationsResult> getLocationsPlain(InvokeArgs args) {
@@ -636,6 +684,8 @@ public final class DirectconnectFunctions {
      * &gt; **Note:** This data source is different from the `aws.directconnect.getLocation` data source which retrieves information about a specific AWS Direct Connect location in the current AWS Region.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -661,6 +711,7 @@ public final class DirectconnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetLocationsResult> getLocations(InvokeArgs args, InvokeOptions options) {
@@ -673,6 +724,8 @@ public final class DirectconnectFunctions {
      * &gt; **Note:** This data source is different from the `aws.directconnect.getLocation` data source which retrieves information about a specific AWS Direct Connect location in the current AWS Region.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -698,6 +751,7 @@ public final class DirectconnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetLocationsResult> getLocationsPlain(InvokeArgs args, InvokeOptions options) {
@@ -707,7 +761,10 @@ public final class DirectconnectFunctions {
      * Data source for retrieving Router Configuration instructions for a given AWS Direct Connect Virtual Interface and Router Type.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -737,6 +794,7 @@ public final class DirectconnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRouterConfigurationResult> getRouterConfiguration(GetRouterConfigurationArgs args) {
@@ -746,7 +804,10 @@ public final class DirectconnectFunctions {
      * Data source for retrieving Router Configuration instructions for a given AWS Direct Connect Virtual Interface and Router Type.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -776,6 +837,7 @@ public final class DirectconnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRouterConfigurationResult> getRouterConfigurationPlain(GetRouterConfigurationPlainArgs args) {
@@ -785,7 +847,10 @@ public final class DirectconnectFunctions {
      * Data source for retrieving Router Configuration instructions for a given AWS Direct Connect Virtual Interface and Router Type.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -815,6 +880,7 @@ public final class DirectconnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRouterConfigurationResult> getRouterConfiguration(GetRouterConfigurationArgs args, InvokeOptions options) {
@@ -824,7 +890,10 @@ public final class DirectconnectFunctions {
      * Data source for retrieving Router Configuration instructions for a given AWS Direct Connect Virtual Interface and Router Type.
      * 
      * ## Example Usage
+     * 
      * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -854,6 +923,7 @@ public final class DirectconnectFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRouterConfigurationResult> getRouterConfigurationPlain(GetRouterConfigurationPlainArgs args, InvokeOptions options) {

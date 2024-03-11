@@ -413,6 +413,7 @@ class DataSource(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -430,13 +431,14 @@ class DataSource(pulumi.CustomResource):
             ),
             type="S3")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a QuickSight data source using the AWS account ID, and data source ID separated by a slash (`/`). For example:
 
         ```sh
-         $ pulumi import aws:quicksight/dataSource:DataSource example 123456789123/my-data-source-id
+        $ pulumi import aws:quicksight/dataSource:DataSource example 123456789123/my-data-source-id
         ```
 
         :param str resource_name: The name of the resource.
@@ -465,6 +467,7 @@ class DataSource(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -482,13 +485,14 @@ class DataSource(pulumi.CustomResource):
             ),
             type="S3")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a QuickSight data source using the AWS account ID, and data source ID separated by a slash (`/`). For example:
 
         ```sh
-         $ pulumi import aws:quicksight/dataSource:DataSource example 123456789123/my-data-source-id
+        $ pulumi import aws:quicksight/dataSource:DataSource example 123456789123/my-data-source-id
         ```
 
         :param str resource_name: The name of the resource.

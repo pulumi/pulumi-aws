@@ -11,15 +11,18 @@ import * as utilities from "../utilities";
  *
  * Basic usage:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
  *
  * const main = new aws.ec2.Vpc("main", {cidrBlock: "10.0.0.0/16"});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * Basic usage with tags:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -32,9 +35,11 @@ import * as utilities from "../utilities";
  *     },
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * VPC with CIDR from AWS IPAM:
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -57,13 +62,14 @@ import * as utilities from "../utilities";
  *     ipv4NetmaskLength: 28,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import VPCs using the VPC `id`. For example:
  *
  * ```sh
- *  $ pulumi import aws:ec2/vpc:Vpc test_vpc vpc-a01106c2
+ * $ pulumi import aws:ec2/vpc:Vpc test_vpc vpc-a01106c2
  * ```
  */
 export class Vpc extends pulumi.CustomResource {

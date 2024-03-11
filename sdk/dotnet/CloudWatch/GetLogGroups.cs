@@ -14,10 +14,9 @@ namespace Pulumi.Aws.CloudWatch
         /// <summary>
         /// Use this data source to get a list of AWS Cloudwatch Log Groups
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,8 +32,7 @@ namespace Pulumi.Aws.CloudWatch
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetLogGroupsResult> InvokeAsync(GetLogGroupsArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetLogGroupsResult>("aws:cloudwatch/getLogGroups:getLogGroups", args ?? new GetLogGroupsArgs(), options.WithDefaults());
@@ -42,10 +40,9 @@ namespace Pulumi.Aws.CloudWatch
         /// <summary>
         /// Use this data source to get a list of AWS Cloudwatch Log Groups
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,8 +58,7 @@ namespace Pulumi.Aws.CloudWatch
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetLogGroupsResult> Invoke(GetLogGroupsInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetLogGroupsResult>("aws:cloudwatch/getLogGroups:getLogGroups", args ?? new GetLogGroupsInvokeArgs(), options.WithDefaults());

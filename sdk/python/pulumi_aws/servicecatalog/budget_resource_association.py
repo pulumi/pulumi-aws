@@ -103,8 +103,10 @@ class BudgetResourceAssociation(pulumi.CustomResource):
         > **Tip:** A "resource" is either a Service Catalog portfolio or product.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -113,13 +115,14 @@ class BudgetResourceAssociation(pulumi.CustomResource):
             budget_name="budget-pjtvyakdlyo3m",
             resource_id="prod-dnigbtea24ste")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_servicecatalog_budget_resource_association` using the budget name and resource ID. For example:
 
         ```sh
-         $ pulumi import aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation example budget-pjtvyakdlyo3m:prod-dnigbtea24ste
+        $ pulumi import aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation example budget-pjtvyakdlyo3m:prod-dnigbtea24ste
         ```
 
         :param str resource_name: The name of the resource.
@@ -139,8 +142,10 @@ class BudgetResourceAssociation(pulumi.CustomResource):
         > **Tip:** A "resource" is either a Service Catalog portfolio or product.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -149,13 +154,14 @@ class BudgetResourceAssociation(pulumi.CustomResource):
             budget_name="budget-pjtvyakdlyo3m",
             resource_id="prod-dnigbtea24ste")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_servicecatalog_budget_resource_association` using the budget name and resource ID. For example:
 
         ```sh
-         $ pulumi import aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation example budget-pjtvyakdlyo3m:prod-dnigbtea24ste
+        $ pulumi import aws:servicecatalog/budgetResourceAssociation:BudgetResourceAssociation example budget-pjtvyakdlyo3m:prod-dnigbtea24ste
         ```
 
         :param str resource_name: The name of the resource.

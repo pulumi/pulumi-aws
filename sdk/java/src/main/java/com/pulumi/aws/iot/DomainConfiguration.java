@@ -22,6 +22,8 @@ import javax.annotation.Nullable;
  * Creates and manages an AWS IoT domain configuration.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -53,13 +55,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import domain configurations using the name. For example:
  * 
  * ```sh
- *  $ pulumi import aws:iot/domainConfiguration:DomainConfiguration example example
+ * $ pulumi import aws:iot/domainConfiguration:DomainConfiguration example example
  * ```
  * 
  */

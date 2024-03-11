@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,15 +45,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import an ACL using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:memorydb/acl:Acl example my-acl
-//
+// $ pulumi import aws:memorydb/acl:Acl example my-acl
 // ```
 type Acl struct {
 	pulumi.CustomResourceState

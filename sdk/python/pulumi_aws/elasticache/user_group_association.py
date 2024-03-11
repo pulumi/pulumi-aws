@@ -104,6 +104,7 @@ class UserGroupAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -128,13 +129,14 @@ class UserGroupAssociation(pulumi.CustomResource):
             user_group_id=example.user_group_id,
             user_id=example_user.user_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ElastiCache user group associations using the `user_group_id` and `user_id`. For example:
 
         ```sh
-         $ pulumi import aws:elasticache/userGroupAssociation:UserGroupAssociation example userGoupId1,userId
+        $ pulumi import aws:elasticache/userGroupAssociation:UserGroupAssociation example userGoupId1,userId
         ```
 
         :param str resource_name: The name of the resource.
@@ -155,6 +157,7 @@ class UserGroupAssociation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -179,13 +182,14 @@ class UserGroupAssociation(pulumi.CustomResource):
             user_group_id=example.user_group_id,
             user_id=example_user.user_id)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ElastiCache user group associations using the `user_group_id` and `user_id`. For example:
 
         ```sh
-         $ pulumi import aws:elasticache/userGroupAssociation:UserGroupAssociation example userGoupId1,userId
+        $ pulumi import aws:elasticache/userGroupAssociation:UserGroupAssociation example userGoupId1,userId
         ```
 
         :param str resource_name: The name of the resource.

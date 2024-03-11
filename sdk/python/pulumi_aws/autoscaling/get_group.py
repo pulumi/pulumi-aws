@@ -406,12 +406,14 @@ def get_group(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     foo = aws.autoscaling.get_group(name="foo")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specify the exact name of the desired autoscaling group.
@@ -463,12 +465,14 @@ def get_group_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     foo = aws.autoscaling.get_group(name="foo")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Specify the exact name of the desired autoscaling group.

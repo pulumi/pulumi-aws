@@ -24,6 +24,8 @@ public final class ServicediscoveryFunctions {
      * Retrieves information about a Service Discovery private or public DNS namespace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -53,6 +55,7 @@ public final class ServicediscoveryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDnsNamespaceResult> getDnsNamespace(GetDnsNamespaceArgs args) {
@@ -62,6 +65,8 @@ public final class ServicediscoveryFunctions {
      * Retrieves information about a Service Discovery private or public DNS namespace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -91,6 +96,7 @@ public final class ServicediscoveryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDnsNamespaceResult> getDnsNamespacePlain(GetDnsNamespacePlainArgs args) {
@@ -100,6 +106,8 @@ public final class ServicediscoveryFunctions {
      * Retrieves information about a Service Discovery private or public DNS namespace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -129,6 +137,7 @@ public final class ServicediscoveryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetDnsNamespaceResult> getDnsNamespace(GetDnsNamespaceArgs args, InvokeOptions options) {
@@ -138,6 +147,8 @@ public final class ServicediscoveryFunctions {
      * Retrieves information about a Service Discovery private or public DNS namespace.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -167,6 +178,7 @@ public final class ServicediscoveryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetDnsNamespaceResult> getDnsNamespacePlain(GetDnsNamespacePlainArgs args, InvokeOptions options) {
@@ -174,6 +186,8 @@ public final class ServicediscoveryFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -202,6 +216,7 @@ public final class ServicediscoveryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetHttpNamespaceResult> getHttpNamespace(GetHttpNamespaceArgs args) {
@@ -209,6 +224,8 @@ public final class ServicediscoveryFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -237,6 +254,7 @@ public final class ServicediscoveryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetHttpNamespaceResult> getHttpNamespacePlain(GetHttpNamespacePlainArgs args) {
@@ -244,6 +262,8 @@ public final class ServicediscoveryFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -272,6 +292,7 @@ public final class ServicediscoveryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetHttpNamespaceResult> getHttpNamespace(GetHttpNamespaceArgs args, InvokeOptions options) {
@@ -279,6 +300,8 @@ public final class ServicediscoveryFunctions {
     }
     /**
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -307,6 +330,7 @@ public final class ServicediscoveryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetHttpNamespaceResult> getHttpNamespacePlain(GetHttpNamespacePlainArgs args, InvokeOptions options) {
@@ -316,6 +340,8 @@ public final class ServicediscoveryFunctions {
      * Retrieves information about a Service Discovery Service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -345,6 +371,7 @@ public final class ServicediscoveryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args) {
@@ -354,6 +381,8 @@ public final class ServicediscoveryFunctions {
      * Retrieves information about a Service Discovery Service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -383,6 +412,7 @@ public final class ServicediscoveryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args) {
@@ -392,6 +422,8 @@ public final class ServicediscoveryFunctions {
      * Retrieves information about a Service Discovery Service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -421,6 +453,7 @@ public final class ServicediscoveryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetServiceResult> getService(GetServiceArgs args, InvokeOptions options) {
@@ -430,6 +463,8 @@ public final class ServicediscoveryFunctions {
      * Retrieves information about a Service Discovery Service.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -459,6 +494,7 @@ public final class ServicediscoveryFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetServiceResult> getServicePlain(GetServicePlainArgs args, InvokeOptions options) {

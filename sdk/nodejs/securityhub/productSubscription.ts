@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -17,13 +18,14 @@ import * as utilities from "../utilities";
  * const current = aws.getRegion({});
  * const exampleProductSubscription = new aws.securityhub.ProductSubscription("example", {productArn: current.then(current => `arn:aws:securityhub:${current.name}:733251395267:product/alertlogic/althreatmanagement`)});
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import Security Hub product subscriptions using `product_arn,arn`. For example:
  *
  * ```sh
- *  $ pulumi import aws:securityhub/productSubscription:ProductSubscription example arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement
+ * $ pulumi import aws:securityhub/productSubscription:ProductSubscription example arn:aws:securityhub:eu-west-1:733251395267:product/alertlogic/althreatmanagement,arn:aws:securityhub:eu-west-1:123456789012:product-subscription/alertlogic/althreatmanagement
  * ```
  */
 export class ProductSubscription extends pulumi.CustomResource {

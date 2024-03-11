@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Mq
         /// <summary>
         /// Retrieve information about available broker engines.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +34,7 @@ namespace Pulumi.Aws.Mq
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetBrokerEngineTypesResult> InvokeAsync(GetBrokerEngineTypesArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetBrokerEngineTypesResult>("aws:mq/getBrokerEngineTypes:getBrokerEngineTypes", args ?? new GetBrokerEngineTypesArgs(), options.WithDefaults());
@@ -43,11 +42,11 @@ namespace Pulumi.Aws.Mq
         /// <summary>
         /// Retrieve information about available broker engines.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +62,7 @@ namespace Pulumi.Aws.Mq
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetBrokerEngineTypesResult> Invoke(GetBrokerEngineTypesInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetBrokerEngineTypesResult>("aws:mq/getBrokerEngineTypes:getBrokerEngineTypes", args ?? new GetBrokerEngineTypesInvokeArgs(), options.WithDefaults());

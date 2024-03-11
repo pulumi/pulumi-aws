@@ -18,6 +18,7 @@ namespace Pulumi.Aws.Fis
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -71,13 +72,14 @@ namespace Pulumi.Aws.Fis
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import FIS Experiment Templates using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:fis/experimentTemplate:ExperimentTemplate template EXT123AbCdEfGhIjK
+    /// $ pulumi import aws:fis/experimentTemplate:ExperimentTemplate template EXT123AbCdEfGhIjK
     /// ```
     /// </summary>
     [AwsResourceType("aws:fis/experimentTemplate:ExperimentTemplate")]

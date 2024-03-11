@@ -106,6 +106,7 @@ class VoiceConnectorTerminationCredentials(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -129,13 +130,14 @@ class VoiceConnectorTerminationCredentials(pulumi.CustomResource):
                 password="test!",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Chime Voice Connector Termination Credentials using the `voice_connector_id`. For example:
 
         ```sh
-         $ pulumi import aws:chime/voiceConnectorTerminationCredentials:VoiceConnectorTerminationCredentials default abcdef1ghij2klmno3pqr4
+        $ pulumi import aws:chime/voiceConnectorTerminationCredentials:VoiceConnectorTerminationCredentials default abcdef1ghij2klmno3pqr4
         ```
 
         :param str resource_name: The name of the resource.
@@ -156,6 +158,7 @@ class VoiceConnectorTerminationCredentials(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -179,13 +182,14 @@ class VoiceConnectorTerminationCredentials(pulumi.CustomResource):
                 password="test!",
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Chime Voice Connector Termination Credentials using the `voice_connector_id`. For example:
 
         ```sh
-         $ pulumi import aws:chime/voiceConnectorTerminationCredentials:VoiceConnectorTerminationCredentials default abcdef1ghij2klmno3pqr4
+        $ pulumi import aws:chime/voiceConnectorTerminationCredentials:VoiceConnectorTerminationCredentials default abcdef1ghij2klmno3pqr4
         ```
 
         :param str resource_name: The name of the resource.

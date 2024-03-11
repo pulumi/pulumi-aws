@@ -14,6 +14,7 @@ namespace Pulumi.Aws.GameLift
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -47,9 +48,11 @@ namespace Pulumi.Aws.GameLift
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// Full usage:
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -105,8 +108,11 @@ namespace Pulumi.Aws.GameLift
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ### Example IAM Role for GameLift Game Server Group
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -158,13 +164,14 @@ namespace Pulumi.Aws.GameLift
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import GameLift Game Server Group using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:gamelift/gameServerGroup:GameServerGroup example example
+    /// $ pulumi import aws:gamelift/gameServerGroup:GameServerGroup example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:gamelift/gameServerGroup:GameServerGroup")]

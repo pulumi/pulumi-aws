@@ -272,6 +272,7 @@ class ThreatIntelSet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -293,13 +294,14 @@ class ThreatIntelSet(pulumi.CustomResource):
             location=pulumi.Output.all(my_threat_intel_set.bucket, my_threat_intel_set.key).apply(lambda bucket, key: f"https://s3.amazonaws.com/{bucket}/{key}"),
             name="MyThreatIntelSet")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import GuardDuty ThreatIntelSet using the primary GuardDuty detector ID and ThreatIntelSetID. For example:
 
         ```sh
-         $ pulumi import aws:guardduty/threatIntelSet:ThreatIntelSet MyThreatIntelSet 00b00fd5aecc0ab60a708659477e9617:123456789012
+        $ pulumi import aws:guardduty/threatIntelSet:ThreatIntelSet MyThreatIntelSet 00b00fd5aecc0ab60a708659477e9617:123456789012
         ```
 
         :param str resource_name: The name of the resource.
@@ -324,6 +326,7 @@ class ThreatIntelSet(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -345,13 +348,14 @@ class ThreatIntelSet(pulumi.CustomResource):
             location=pulumi.Output.all(my_threat_intel_set.bucket, my_threat_intel_set.key).apply(lambda bucket, key: f"https://s3.amazonaws.com/{bucket}/{key}"),
             name="MyThreatIntelSet")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import GuardDuty ThreatIntelSet using the primary GuardDuty detector ID and ThreatIntelSetID. For example:
 
         ```sh
-         $ pulumi import aws:guardduty/threatIntelSet:ThreatIntelSet MyThreatIntelSet 00b00fd5aecc0ab60a708659477e9617:123456789012
+        $ pulumi import aws:guardduty/threatIntelSet:ThreatIntelSet MyThreatIntelSet 00b00fd5aecc0ab60a708659477e9617:123456789012
         ```
 
         :param str resource_name: The name of the resource.

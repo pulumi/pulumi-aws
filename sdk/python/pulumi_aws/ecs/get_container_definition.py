@@ -167,6 +167,7 @@ def get_container_definition(container_name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -174,6 +175,7 @@ def get_container_definition(container_name: Optional[str] = None,
     ecs_mongo = aws.ecs.get_container_definition(task_definition=mongo["id"],
         container_name="mongodb")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str container_name: Name of the container definition
@@ -209,6 +211,7 @@ def get_container_definition_output(container_name: Optional[pulumi.Input[str]] 
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -216,6 +219,7 @@ def get_container_definition_output(container_name: Optional[pulumi.Input[str]] 
     ecs_mongo = aws.ecs.get_container_definition(task_definition=mongo["id"],
         container_name="mongodb")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str container_name: Name of the container definition

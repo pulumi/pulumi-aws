@@ -21,6 +21,8 @@ public final class GlobalacceleratorFunctions {
      * Provides information about a Global Accelerator accelerator.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -53,6 +55,7 @@ public final class GlobalacceleratorFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAcceleratorResult> getAccelerator() {
@@ -62,6 +65,8 @@ public final class GlobalacceleratorFunctions {
      * Provides information about a Global Accelerator accelerator.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -94,6 +99,7 @@ public final class GlobalacceleratorFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAcceleratorResult> getAcceleratorPlain() {
@@ -103,6 +109,8 @@ public final class GlobalacceleratorFunctions {
      * Provides information about a Global Accelerator accelerator.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -135,6 +143,7 @@ public final class GlobalacceleratorFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAcceleratorResult> getAccelerator(GetAcceleratorArgs args) {
@@ -144,6 +153,8 @@ public final class GlobalacceleratorFunctions {
      * Provides information about a Global Accelerator accelerator.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -176,6 +187,7 @@ public final class GlobalacceleratorFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAcceleratorResult> getAcceleratorPlain(GetAcceleratorPlainArgs args) {
@@ -185,6 +197,8 @@ public final class GlobalacceleratorFunctions {
      * Provides information about a Global Accelerator accelerator.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -217,6 +231,7 @@ public final class GlobalacceleratorFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetAcceleratorResult> getAccelerator(GetAcceleratorArgs args, InvokeOptions options) {
@@ -226,6 +241,8 @@ public final class GlobalacceleratorFunctions {
      * Provides information about a Global Accelerator accelerator.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -258,6 +275,7 @@ public final class GlobalacceleratorFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetAcceleratorResult> getAcceleratorPlain(GetAcceleratorPlainArgs args, InvokeOptions options) {
@@ -267,6 +285,8 @@ public final class GlobalacceleratorFunctions {
      * Provides information about a Global Accelerator custom routing accelerator.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -299,6 +319,7 @@ public final class GlobalacceleratorFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCustomRoutingAcceleratorResult> getCustomRoutingAccelerator() {
@@ -308,6 +329,8 @@ public final class GlobalacceleratorFunctions {
      * Provides information about a Global Accelerator custom routing accelerator.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -340,6 +363,7 @@ public final class GlobalacceleratorFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCustomRoutingAcceleratorResult> getCustomRoutingAcceleratorPlain() {
@@ -349,6 +373,8 @@ public final class GlobalacceleratorFunctions {
      * Provides information about a Global Accelerator custom routing accelerator.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -381,6 +407,7 @@ public final class GlobalacceleratorFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCustomRoutingAcceleratorResult> getCustomRoutingAccelerator(GetCustomRoutingAcceleratorArgs args) {
@@ -390,6 +417,8 @@ public final class GlobalacceleratorFunctions {
      * Provides information about a Global Accelerator custom routing accelerator.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -422,6 +451,7 @@ public final class GlobalacceleratorFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCustomRoutingAcceleratorResult> getCustomRoutingAcceleratorPlain(GetCustomRoutingAcceleratorPlainArgs args) {
@@ -431,6 +461,8 @@ public final class GlobalacceleratorFunctions {
      * Provides information about a Global Accelerator custom routing accelerator.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -463,6 +495,7 @@ public final class GlobalacceleratorFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetCustomRoutingAcceleratorResult> getCustomRoutingAccelerator(GetCustomRoutingAcceleratorArgs args, InvokeOptions options) {
@@ -472,6 +505,8 @@ public final class GlobalacceleratorFunctions {
      * Provides information about a Global Accelerator custom routing accelerator.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -504,6 +539,7 @@ public final class GlobalacceleratorFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetCustomRoutingAcceleratorResult> getCustomRoutingAcceleratorPlain(GetCustomRoutingAcceleratorPlainArgs args, InvokeOptions options) {

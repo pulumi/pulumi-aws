@@ -245,19 +245,21 @@ class VirtualMfaDevice(pulumi.CustomResource):
 
         **Using certs on file:**
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.iam.VirtualMfaDevice("example", virtual_mfa_device_name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM Virtual MFA Devices using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:iam/virtualMfaDevice:VirtualMfaDevice example arn:aws:iam::123456789012:mfa/example
+        $ pulumi import aws:iam/virtualMfaDevice:VirtualMfaDevice example arn:aws:iam::123456789012:mfa/example
         ```
 
         :param str resource_name: The name of the resource.
@@ -284,19 +286,21 @@ class VirtualMfaDevice(pulumi.CustomResource):
 
         **Using certs on file:**
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.iam.VirtualMfaDevice("example", virtual_mfa_device_name="example")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import IAM Virtual MFA Devices using the `arn`. For example:
 
         ```sh
-         $ pulumi import aws:iam/virtualMfaDevice:VirtualMfaDevice example arn:aws:iam::123456789012:mfa/example
+        $ pulumi import aws:iam/virtualMfaDevice:VirtualMfaDevice example arn:aws:iam::123456789012:mfa/example
         ```
 
         :param str resource_name: The name of the resource.

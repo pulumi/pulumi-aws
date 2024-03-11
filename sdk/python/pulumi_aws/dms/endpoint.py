@@ -902,6 +902,7 @@ class Endpoint(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -924,13 +925,14 @@ class Endpoint(pulumi.CustomResource):
             },
             username="test")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import endpoints using the `endpoint_id`. For example:
 
         ```sh
-         $ pulumi import aws:dms/endpoint:Endpoint test test-dms-endpoint-tf
+        $ pulumi import aws:dms/endpoint:Endpoint test test-dms-endpoint-tf
         ```
 
         :param str resource_name: The name of the resource.
@@ -976,6 +978,7 @@ class Endpoint(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -998,13 +1001,14 @@ class Endpoint(pulumi.CustomResource):
             },
             username="test")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import endpoints using the `endpoint_id`. For example:
 
         ```sh
-         $ pulumi import aws:dms/endpoint:Endpoint test test-dms-endpoint-tf
+        $ pulumi import aws:dms/endpoint:Endpoint test test-dms-endpoint-tf
         ```
 
         :param str resource_name: The name of the resource.

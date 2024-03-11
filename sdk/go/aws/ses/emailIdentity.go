@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,15 +40,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SES email identities using the email address. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ses/emailIdentity:EmailIdentity example email@example.com
-//
+// $ pulumi import aws:ses/emailIdentity:EmailIdentity example email@example.com
 // ```
 type EmailIdentity struct {
 	pulumi.CustomResourceState

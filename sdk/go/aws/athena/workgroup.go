@@ -15,6 +15,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -51,15 +52,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Athena Workgroups using their name. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:athena/workgroup:Workgroup example example
-//
+// $ pulumi import aws:athena/workgroup:Workgroup example example
 // ```
 type Workgroup struct {
 	pulumi.CustomResourceState

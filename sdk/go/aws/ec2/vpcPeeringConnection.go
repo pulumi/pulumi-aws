@@ -30,6 +30,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -55,9 +56,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // Basic usage with connection options:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -89,9 +92,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // Basic usage with tags:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -133,9 +138,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // Basic usage with region:
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -174,6 +181,8 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Notes
 //
 // If both VPCs are not in the same AWS account and region do not enable the `autoAccept` attribute.
@@ -185,9 +194,7 @@ import (
 // Using `pulumi import`, import VPC Peering resources using the VPC peering `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:ec2/vpcPeeringConnection:VpcPeeringConnection test_connection pcx-111aaa111
-//
+// $ pulumi import aws:ec2/vpcPeeringConnection:VpcPeeringConnection test_connection pcx-111aaa111
 // ```
 type VpcPeeringConnection struct {
 	pulumi.CustomResourceState

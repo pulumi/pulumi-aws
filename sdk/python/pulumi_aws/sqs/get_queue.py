@@ -99,12 +99,14 @@ def get_queue(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.sqs.get_queue(name="queue")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the queue to match.
@@ -135,12 +137,14 @@ def get_queue_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.sqs.get_queue(name="queue")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Name of the queue to match.

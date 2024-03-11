@@ -14,11 +14,11 @@ namespace Pulumi.Aws.Oam
         /// <summary>
         /// Data source for managing an AWS CloudWatch Observability Access Manager Sink.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -34,8 +34,7 @@ namespace Pulumi.Aws.Oam
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetSinkResult> InvokeAsync(GetSinkArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetSinkResult>("aws:oam/getSink:getSink", args ?? new GetSinkArgs(), options.WithDefaults());
@@ -43,11 +42,11 @@ namespace Pulumi.Aws.Oam
         /// <summary>
         /// Data source for managing an AWS CloudWatch Observability Access Manager Sink.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
+        /// 
         /// ### Basic Usage
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -63,8 +62,7 @@ namespace Pulumi.Aws.Oam
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetSinkResult> Invoke(GetSinkInvokeArgs args, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetSinkResult>("aws:oam/getSink:getSink", args ?? new GetSinkInvokeArgs(), options.WithDefaults());

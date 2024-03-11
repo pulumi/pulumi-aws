@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS KMS (Key Management) Custom Key Store.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -50,15 +52,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import KMS (Key Management) Custom Key Store using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:kms/customKeyStore:CustomKeyStore example cks-5ebd4ef395a96288e
-//
+// $ pulumi import aws:kms/customKeyStore:CustomKeyStore example cks-5ebd4ef395a96288e
 // ```
 type CustomKeyStore struct {
 	pulumi.CustomResourceState

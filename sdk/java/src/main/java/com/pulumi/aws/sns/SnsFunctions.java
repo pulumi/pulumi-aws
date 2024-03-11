@@ -20,6 +20,8 @@ public final class SnsFunctions {
      * without having to hard code the ARNs as input.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -48,6 +50,7 @@ public final class SnsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTopicResult> getTopic(GetTopicArgs args) {
@@ -59,6 +62,8 @@ public final class SnsFunctions {
      * without having to hard code the ARNs as input.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -87,6 +92,7 @@ public final class SnsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTopicResult> getTopicPlain(GetTopicPlainArgs args) {
@@ -98,6 +104,8 @@ public final class SnsFunctions {
      * without having to hard code the ARNs as input.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -126,6 +134,7 @@ public final class SnsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetTopicResult> getTopic(GetTopicArgs args, InvokeOptions options) {
@@ -137,6 +146,8 @@ public final class SnsFunctions {
      * without having to hard code the ARNs as input.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -165,6 +176,7 @@ public final class SnsFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetTopicResult> getTopicPlain(GetTopicPlainArgs args, InvokeOptions options) {

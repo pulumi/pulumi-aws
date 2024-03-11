@@ -112,18 +112,23 @@ class BlockPublicAccessConfiguration(pulumi.CustomResource):
         Resource for managing an AWS EMR block public access configuration. This region level security configuration restricts the launch of EMR clusters that have associated security groups permitting public access on unspecified ports. See the [EMR Block Public Access Configuration](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-block-public-access.html) documentation for further information.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.emr.BlockPublicAccessConfiguration("example", block_public_security_group_rules=True)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Default Configuration
 
         By default, each AWS region is equipped with a block public access configuration that prevents EMR clusters from being launched if they have security group rules permitting public access on any port except for port 22. The default configuration can be managed using this resource.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -135,12 +140,15 @@ class BlockPublicAccessConfiguration(pulumi.CustomResource):
                 max_range=22,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         > **NOTE:** If an `emr.BlockPublicAccessConfiguration` resource is destroyed, the configuration will reset to this default configuration.
+
         ### Multiple Permitted Public Security Group Rule Ranges
 
         The resource permits specification of multiple `permitted_public_security_group_rule_range` blocks.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -158,23 +166,27 @@ class BlockPublicAccessConfiguration(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Disabling Block Public Access
 
         To permit EMR clusters to be launched in the configured region regardless of associated security group rules, the Block Public Access feature can be disabled using this resource.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.emr.BlockPublicAccessConfiguration("example", block_public_security_group_rules=False)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import the current EMR Block Public Access Configuration. For example:
 
         ```sh
-         $ pulumi import aws:emr/blockPublicAccessConfiguration:BlockPublicAccessConfiguration example current
+        $ pulumi import aws:emr/blockPublicAccessConfiguration:BlockPublicAccessConfiguration example current
         ```
 
         :param str resource_name: The name of the resource.
@@ -194,18 +206,23 @@ class BlockPublicAccessConfiguration(pulumi.CustomResource):
         Resource for managing an AWS EMR block public access configuration. This region level security configuration restricts the launch of EMR clusters that have associated security groups permitting public access on unspecified ports. See the [EMR Block Public Access Configuration](https://docs.aws.amazon.com/emr/latest/ManagementGuide/emr-block-public-access.html) documentation for further information.
 
         ## Example Usage
+
         ### Basic Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.emr.BlockPublicAccessConfiguration("example", block_public_security_group_rules=True)
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Default Configuration
 
         By default, each AWS region is equipped with a block public access configuration that prevents EMR clusters from being launched if they have security group rules permitting public access on any port except for port 22. The default configuration can be managed using this resource.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -217,12 +234,15 @@ class BlockPublicAccessConfiguration(pulumi.CustomResource):
                 max_range=22,
             )])
         ```
+        <!--End PulumiCodeChooser -->
 
         > **NOTE:** If an `emr.BlockPublicAccessConfiguration` resource is destroyed, the configuration will reset to this default configuration.
+
         ### Multiple Permitted Public Security Group Rule Ranges
 
         The resource permits specification of multiple `permitted_public_security_group_rule_range` blocks.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -240,23 +260,27 @@ class BlockPublicAccessConfiguration(pulumi.CustomResource):
                 ),
             ])
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Disabling Block Public Access
 
         To permit EMR clusters to be launched in the configured region regardless of associated security group rules, the Block Public Access feature can be disabled using this resource.
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.emr.BlockPublicAccessConfiguration("example", block_public_security_group_rules=False)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import the current EMR Block Public Access Configuration. For example:
 
         ```sh
-         $ pulumi import aws:emr/blockPublicAccessConfiguration:BlockPublicAccessConfiguration example current
+        $ pulumi import aws:emr/blockPublicAccessConfiguration:BlockPublicAccessConfiguration example current
         ```
 
         :param str resource_name: The name of the resource.

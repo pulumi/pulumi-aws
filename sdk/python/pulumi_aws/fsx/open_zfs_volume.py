@@ -532,6 +532,7 @@ class OpenZfsVolume(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -540,13 +541,14 @@ class OpenZfsVolume(pulumi.CustomResource):
             name="testvolume",
             parent_volume_id=test_aws_fsx_openzfs_file_system["rootVolumeId"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import FSx Volumes using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:fsx/openZfsVolume:OpenZfsVolume example fsvol-543ab12b1ca672f33
+        $ pulumi import aws:fsx/openZfsVolume:OpenZfsVolume example fsvol-543ab12b1ca672f33
         ```
 
         :param str resource_name: The name of the resource.
@@ -577,6 +579,7 @@ class OpenZfsVolume(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -585,13 +588,14 @@ class OpenZfsVolume(pulumi.CustomResource):
             name="testvolume",
             parent_volume_id=test_aws_fsx_openzfs_file_system["rootVolumeId"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import FSx Volumes using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:fsx/openZfsVolume:OpenZfsVolume example fsvol-543ab12b1ca672f33
+        $ pulumi import aws:fsx/openZfsVolume:OpenZfsVolume example fsvol-543ab12b1ca672f33
         ```
 
         :param str resource_name: The name of the resource.

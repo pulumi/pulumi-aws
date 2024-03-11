@@ -30,6 +30,8 @@ public final class SecretsmanagerFunctions {
      * Generate a random password.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -59,6 +61,7 @@ public final class SecretsmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRandomPasswordResult> getRandomPassword() {
@@ -68,6 +71,8 @@ public final class SecretsmanagerFunctions {
      * Generate a random password.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -97,6 +102,7 @@ public final class SecretsmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRandomPasswordResult> getRandomPasswordPlain() {
@@ -106,6 +112,8 @@ public final class SecretsmanagerFunctions {
      * Generate a random password.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -135,6 +143,7 @@ public final class SecretsmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRandomPasswordResult> getRandomPassword(GetRandomPasswordArgs args) {
@@ -144,6 +153,8 @@ public final class SecretsmanagerFunctions {
      * Generate a random password.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -173,6 +184,7 @@ public final class SecretsmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRandomPasswordResult> getRandomPasswordPlain(GetRandomPasswordPlainArgs args) {
@@ -182,6 +194,8 @@ public final class SecretsmanagerFunctions {
      * Generate a random password.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -211,6 +225,7 @@ public final class SecretsmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetRandomPasswordResult> getRandomPassword(GetRandomPasswordArgs args, InvokeOptions options) {
@@ -220,6 +235,8 @@ public final class SecretsmanagerFunctions {
      * Generate a random password.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -249,6 +266,7 @@ public final class SecretsmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetRandomPasswordResult> getRandomPasswordPlain(GetRandomPasswordPlainArgs args, InvokeOptions options) {
@@ -258,7 +276,10 @@ public final class SecretsmanagerFunctions {
      * Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
      * 
      * ## Example Usage
+     * 
      * ### ARN
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -287,7 +308,11 @@ public final class SecretsmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -316,6 +341,7 @@ public final class SecretsmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSecretResult> getSecret() {
@@ -325,7 +351,10 @@ public final class SecretsmanagerFunctions {
      * Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
      * 
      * ## Example Usage
+     * 
      * ### ARN
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -354,7 +383,11 @@ public final class SecretsmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -383,6 +416,7 @@ public final class SecretsmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSecretResult> getSecretPlain() {
@@ -392,7 +426,10 @@ public final class SecretsmanagerFunctions {
      * Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
      * 
      * ## Example Usage
+     * 
      * ### ARN
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -421,7 +458,11 @@ public final class SecretsmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -450,6 +491,7 @@ public final class SecretsmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSecretResult> getSecret(GetSecretArgs args) {
@@ -459,7 +501,10 @@ public final class SecretsmanagerFunctions {
      * Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
      * 
      * ## Example Usage
+     * 
      * ### ARN
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -488,7 +533,11 @@ public final class SecretsmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -517,6 +566,7 @@ public final class SecretsmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSecretResult> getSecretPlain(GetSecretPlainArgs args) {
@@ -526,7 +576,10 @@ public final class SecretsmanagerFunctions {
      * Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
      * 
      * ## Example Usage
+     * 
      * ### ARN
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -555,7 +608,11 @@ public final class SecretsmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -584,6 +641,7 @@ public final class SecretsmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSecretResult> getSecret(GetSecretArgs args, InvokeOptions options) {
@@ -593,7 +651,10 @@ public final class SecretsmanagerFunctions {
      * Retrieve metadata information about a Secrets Manager secret. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
      * 
      * ## Example Usage
+     * 
      * ### ARN
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -622,7 +683,11 @@ public final class SecretsmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Name
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -651,6 +716,7 @@ public final class SecretsmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSecretResult> getSecretPlain(GetSecretPlainArgs args, InvokeOptions options) {
@@ -660,7 +726,10 @@ public final class SecretsmanagerFunctions {
      * Retrieve information about a Secrets Manager secret rotation. To retrieve secret metadata, see the `aws.secretsmanager.Secret` data source. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
      * 
      * ## Example Usage
+     * 
      * ### Retrieve Secret Rotation Configuration
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -689,6 +758,7 @@ public final class SecretsmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSecretRotationResult> getSecretRotation(GetSecretRotationArgs args) {
@@ -698,7 +768,10 @@ public final class SecretsmanagerFunctions {
      * Retrieve information about a Secrets Manager secret rotation. To retrieve secret metadata, see the `aws.secretsmanager.Secret` data source. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
      * 
      * ## Example Usage
+     * 
      * ### Retrieve Secret Rotation Configuration
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -727,6 +800,7 @@ public final class SecretsmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSecretRotationResult> getSecretRotationPlain(GetSecretRotationPlainArgs args) {
@@ -736,7 +810,10 @@ public final class SecretsmanagerFunctions {
      * Retrieve information about a Secrets Manager secret rotation. To retrieve secret metadata, see the `aws.secretsmanager.Secret` data source. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
      * 
      * ## Example Usage
+     * 
      * ### Retrieve Secret Rotation Configuration
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -765,6 +842,7 @@ public final class SecretsmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSecretRotationResult> getSecretRotation(GetSecretRotationArgs args, InvokeOptions options) {
@@ -774,7 +852,10 @@ public final class SecretsmanagerFunctions {
      * Retrieve information about a Secrets Manager secret rotation. To retrieve secret metadata, see the `aws.secretsmanager.Secret` data source. To retrieve a secret value, see the `aws.secretsmanager.SecretVersion` data source.
      * 
      * ## Example Usage
+     * 
      * ### Retrieve Secret Rotation Configuration
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -803,6 +884,7 @@ public final class SecretsmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSecretRotationResult> getSecretRotationPlain(GetSecretRotationPlainArgs args, InvokeOptions options) {
@@ -812,9 +894,12 @@ public final class SecretsmanagerFunctions {
      * Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the `aws.secretsmanager.Secret` data source.
      * 
      * ## Example Usage
+     * 
      * ### Retrieve Current Secret Version
      * 
      * By default, this data sources retrieves information based on the `AWSCURRENT` staging label.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -843,7 +928,11 @@ public final class SecretsmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Retrieve Specific Secret Version
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -873,6 +962,7 @@ public final class SecretsmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSecretVersionResult> getSecretVersion(GetSecretVersionArgs args) {
@@ -882,9 +972,12 @@ public final class SecretsmanagerFunctions {
      * Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the `aws.secretsmanager.Secret` data source.
      * 
      * ## Example Usage
+     * 
      * ### Retrieve Current Secret Version
      * 
      * By default, this data sources retrieves information based on the `AWSCURRENT` staging label.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -913,7 +1006,11 @@ public final class SecretsmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Retrieve Specific Secret Version
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -943,6 +1040,7 @@ public final class SecretsmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSecretVersionResult> getSecretVersionPlain(GetSecretVersionPlainArgs args) {
@@ -952,9 +1050,12 @@ public final class SecretsmanagerFunctions {
      * Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the `aws.secretsmanager.Secret` data source.
      * 
      * ## Example Usage
+     * 
      * ### Retrieve Current Secret Version
      * 
      * By default, this data sources retrieves information based on the `AWSCURRENT` staging label.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -983,7 +1084,11 @@ public final class SecretsmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Retrieve Specific Secret Version
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1013,6 +1118,7 @@ public final class SecretsmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSecretVersionResult> getSecretVersion(GetSecretVersionArgs args, InvokeOptions options) {
@@ -1022,9 +1128,12 @@ public final class SecretsmanagerFunctions {
      * Retrieve information about a Secrets Manager secret version, including its secret value. To retrieve secret metadata, see the `aws.secretsmanager.Secret` data source.
      * 
      * ## Example Usage
+     * 
      * ### Retrieve Current Secret Version
      * 
      * By default, this data sources retrieves information based on the `AWSCURRENT` staging label.
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1053,7 +1162,11 @@ public final class SecretsmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
      * ### Retrieve Specific Secret Version
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1083,6 +1196,7 @@ public final class SecretsmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSecretVersionResult> getSecretVersionPlain(GetSecretVersionPlainArgs args, InvokeOptions options) {
@@ -1092,6 +1206,8 @@ public final class SecretsmanagerFunctions {
      * Use this data source to get the ARNs and names of Secrets Manager secrets matching the specified criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1123,6 +1239,7 @@ public final class SecretsmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSecretsResult> getSecrets() {
@@ -1132,6 +1249,8 @@ public final class SecretsmanagerFunctions {
      * Use this data source to get the ARNs and names of Secrets Manager secrets matching the specified criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1163,6 +1282,7 @@ public final class SecretsmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSecretsResult> getSecretsPlain() {
@@ -1172,6 +1292,8 @@ public final class SecretsmanagerFunctions {
      * Use this data source to get the ARNs and names of Secrets Manager secrets matching the specified criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1203,6 +1325,7 @@ public final class SecretsmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSecretsResult> getSecrets(GetSecretsArgs args) {
@@ -1212,6 +1335,8 @@ public final class SecretsmanagerFunctions {
      * Use this data source to get the ARNs and names of Secrets Manager secrets matching the specified criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1243,6 +1368,7 @@ public final class SecretsmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSecretsResult> getSecretsPlain(GetSecretsPlainArgs args) {
@@ -1252,6 +1378,8 @@ public final class SecretsmanagerFunctions {
      * Use this data source to get the ARNs and names of Secrets Manager secrets matching the specified criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1283,6 +1411,7 @@ public final class SecretsmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static Output<GetSecretsResult> getSecrets(GetSecretsArgs args, InvokeOptions options) {
@@ -1292,6 +1421,8 @@ public final class SecretsmanagerFunctions {
      * Use this data source to get the ARNs and names of Secrets Manager secrets matching the specified criteria.
      * 
      * ## Example Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
      * ```java
      * package generated_program;
      * 
@@ -1323,6 +1454,7 @@ public final class SecretsmanagerFunctions {
      *     }
      * }
      * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
      * 
      */
     public static CompletableFuture<GetSecretsResult> getSecretsPlain(GetSecretsPlainArgs args, InvokeOptions options) {

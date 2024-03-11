@@ -17,8 +17,10 @@ namespace Pulumi.Aws.Inspector2
     /// &gt; **NOTE:** When this resource is deleted, EC2, ECR, Lambda, and Lambda code scans will no longer be automatically enabled for new members of your Amazon Inspector organization.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -40,6 +42,7 @@ namespace Pulumi.Aws.Inspector2
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:inspector2/organizationConfiguration:OrganizationConfiguration")]
     public partial class OrganizationConfiguration : global::Pulumi.CustomResource

@@ -200,8 +200,10 @@ class AppImageConfig(pulumi.CustomResource):
         Provides a SageMaker App Image Config resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -214,8 +216,11 @@ class AppImageConfig(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Default File System Config
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -229,13 +234,14 @@ class AppImageConfig(pulumi.CustomResource):
                 file_system_config=aws.sagemaker.AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs(),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker App Image Configs using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/appImageConfig:AppImageConfig example example
+        $ pulumi import aws:sagemaker/appImageConfig:AppImageConfig example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -254,8 +260,10 @@ class AppImageConfig(pulumi.CustomResource):
         Provides a SageMaker App Image Config resource.
 
         ## Example Usage
+
         ### Basic usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -268,8 +276,11 @@ class AppImageConfig(pulumi.CustomResource):
                 ),
             ))
         ```
+        <!--End PulumiCodeChooser -->
+
         ### Default File System Config
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -283,13 +294,14 @@ class AppImageConfig(pulumi.CustomResource):
                 file_system_config=aws.sagemaker.AppImageConfigKernelGatewayImageConfigFileSystemConfigArgs(),
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import SageMaker App Image Configs using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:sagemaker/appImageConfig:AppImageConfig example example
+        $ pulumi import aws:sagemaker/appImageConfig:AppImageConfig example example
         ```
 
         :param str resource_name: The name of the resource.

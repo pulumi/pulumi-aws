@@ -96,6 +96,7 @@ def get_container_recipes(filters: Optional[Sequence[pulumi.InputType['GetContai
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -106,6 +107,7 @@ def get_container_recipes(filters: Optional[Sequence[pulumi.InputType['GetContai
             values=["Linux"],
         )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetContainerRecipesFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.
@@ -134,6 +136,7 @@ def get_container_recipes_output(filters: Optional[pulumi.Input[Optional[Sequenc
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -144,6 +147,7 @@ def get_container_recipes_output(filters: Optional[pulumi.Input[Optional[Sequenc
             values=["Linux"],
         )])
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param Sequence[pulumi.InputType['GetContainerRecipesFilterArgs']] filters: Configuration block(s) for filtering. Detailed below.

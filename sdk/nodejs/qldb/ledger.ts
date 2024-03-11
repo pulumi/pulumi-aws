@@ -11,6 +11,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -20,13 +21,14 @@ import * as utilities from "../utilities";
  *     permissionsMode: "STANDARD",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import QLDB Ledgers using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:qldb/ledger:Ledger sample-ledger sample-ledger
+ * $ pulumi import aws:qldb/ledger:Ledger sample-ledger sample-ledger
  * ```
  */
 export class Ledger extends pulumi.CustomResource {

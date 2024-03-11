@@ -15,8 +15,10 @@ import (
 // Resource for managing an AWS SESv2 (Simple Email V2) Contact List.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,8 +42,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Extended Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -74,15 +79,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import SESv2 (Simple Email V2) Contact List using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:sesv2/contactList:ContactList example example
-//
+// $ pulumi import aws:sesv2/contactList:ContactList example example
 // ```
 type ContactList struct {
 	pulumi.CustomResourceState

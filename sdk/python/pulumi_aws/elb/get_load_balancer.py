@@ -239,6 +239,7 @@ def get_load_balancer(name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -249,6 +250,7 @@ def get_load_balancer(name: Optional[str] = None,
         lb_name = ""
     test = aws.elb.get_load_balancer(name=lb_name)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Unique name of the load balancer.
@@ -298,6 +300,7 @@ def get_load_balancer_output(name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -308,6 +311,7 @@ def get_load_balancer_output(name: Optional[pulumi.Input[str]] = None,
         lb_name = ""
     test = aws.elb.get_load_balancer(name=lb_name)
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str name: Unique name of the load balancer.

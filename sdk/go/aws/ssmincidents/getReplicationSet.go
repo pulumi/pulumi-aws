@@ -16,8 +16,10 @@ import (
 // Use this data source to manage a replication set in AWS Systems Manager Incident Manager.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,6 +41,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 func LookupReplicationSet(ctx *pulumi.Context, args *LookupReplicationSetArgs, opts ...pulumi.InvokeOption) (*LookupReplicationSetResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv LookupReplicationSetResult

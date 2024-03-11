@@ -14,6 +14,7 @@ namespace Pulumi.Aws.RolesAnywhere
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -62,13 +63,14 @@ namespace Pulumi.Aws.RolesAnywhere
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_rolesanywhere_profile` using its `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:rolesanywhere/profile:Profile example db138a85-8925-4f9f-a409-08231233cacf
+    /// $ pulumi import aws:rolesanywhere/profile:Profile example db138a85-8925-4f9f-a409-08231233cacf
     /// ```
     /// </summary>
     [AwsResourceType("aws:rolesanywhere/profile:Profile")]

@@ -15,8 +15,10 @@ import (
 // Provides the ability to register a target with an AWS VPC Lattice Target Group.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -44,6 +46,7 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 type TargetGroupAttachment struct {
 	pulumi.CustomResourceState
 

@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -40,15 +41,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import a keyspace using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:keyspaces/keyspace:Keyspace example my_keyspace
-//
+// $ pulumi import aws:keyspaces/keyspace:Keyspace example my_keyspace
 // ```
 type Keyspace struct {
 	pulumi.CustomResourceState

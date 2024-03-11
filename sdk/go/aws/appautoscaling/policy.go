@@ -15,8 +15,10 @@ import (
 // Provides an Application AutoScaling Policy resource.
 //
 // ## Example Usage
+//
 // ### DynamoDB Table Autoscaling
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -64,8 +66,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### ECS Service Autoscaling
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -114,8 +119,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Preserve desired count when updating an autoscaled ECS Service
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -142,8 +150,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Aurora Read Replica Autoscaling
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -191,8 +202,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### Create target tracking scaling policy using metric math
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -283,8 +297,11 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
+//
 // ### MSK / Kafka Autoscaling
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -328,15 +345,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Application AutoScaling Policy using the `service-namespace` , `resource-id`, `scalable-dimension` and `policy-name` separated by `/`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:appautoscaling/policy:Policy test-policy service-namespace/resource-id/scalable-dimension/policy-name
-//
+// $ pulumi import aws:appautoscaling/policy:Policy test-policy service-namespace/resource-id/scalable-dimension/policy-name
 // ```
 type Policy struct {
 	pulumi.CustomResourceState

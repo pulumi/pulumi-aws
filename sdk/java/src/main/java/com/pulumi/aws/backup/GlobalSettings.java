@@ -18,6 +18,8 @@ import javax.annotation.Nullable;
  * Provides an AWS Backup Global Settings resource.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -46,13 +48,14 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
  * Using `pulumi import`, import Backup Global Settings using the `id`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:backup/globalSettings:GlobalSettings example 123456789012
+ * $ pulumi import aws:backup/globalSettings:GlobalSettings example 123456789012
  * ```
  * 
  */

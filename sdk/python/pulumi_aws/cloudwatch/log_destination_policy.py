@@ -135,6 +135,7 @@ class LogDestinationPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -156,13 +157,14 @@ class LogDestinationPolicy(pulumi.CustomResource):
             destination_name=test_destination.name,
             access_policy=test_destination_policy.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudWatch Logs destination policies using the `destination_name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy test_destination_policy test_destination
+        $ pulumi import aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy test_destination_policy test_destination
         ```
 
         :param str resource_name: The name of the resource.
@@ -182,6 +184,7 @@ class LogDestinationPolicy(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -203,13 +206,14 @@ class LogDestinationPolicy(pulumi.CustomResource):
             destination_name=test_destination.name,
             access_policy=test_destination_policy.json)
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import CloudWatch Logs destination policies using the `destination_name`. For example:
 
         ```sh
-         $ pulumi import aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy test_destination_policy test_destination
+        $ pulumi import aws:cloudwatch/logDestinationPolicy:LogDestinationPolicy test_destination_policy test_destination
         ```
 
         :param str resource_name: The name of the resource.

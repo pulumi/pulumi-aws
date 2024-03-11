@@ -14,6 +14,7 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -35,13 +36,14 @@ namespace Pulumi.Aws.LightSail
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import `aws_lightsail_lb` using the name attribute. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:lightsail/lb:Lb test example-load-balancer
+    /// $ pulumi import aws:lightsail/lb:Lb test example-load-balancer
     /// ```
     /// </summary>
     [AwsResourceType("aws:lightsail/lb:Lb")]

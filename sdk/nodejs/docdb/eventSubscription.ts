@@ -9,6 +9,7 @@ import * as utilities from "../utilities";
  *
  * ## Example Usage
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -37,13 +38,14 @@ import * as utilities from "../utilities";
  *     snsTopicArn: exampleTopic.arn,
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import DocumentDB Event Subscriptions using the `name`. For example:
  *
  * ```sh
- *  $ pulumi import aws:docdb/eventSubscription:EventSubscription example event-sub
+ * $ pulumi import aws:docdb/eventSubscription:EventSubscription example event-sub
  * ```
  */
 export class EventSubscription extends pulumi.CustomResource {

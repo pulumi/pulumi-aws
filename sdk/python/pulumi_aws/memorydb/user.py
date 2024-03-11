@@ -234,6 +234,7 @@ class User(pulumi.CustomResource):
         > **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -248,15 +249,16 @@ class User(pulumi.CustomResource):
                 passwords=[example["result"]],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a user using the `user_name`. For example:
 
         ```sh
-         $ pulumi import aws:memorydb/user:User example my-user
+        $ pulumi import aws:memorydb/user:User example my-user
         ```
-         The `passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
+        The `passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -281,6 +283,7 @@ class User(pulumi.CustomResource):
         > **Note:** All arguments including the username and passwords will be stored in the raw state as plain-text.
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -295,15 +298,16 @@ class User(pulumi.CustomResource):
                 passwords=[example["result"]],
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a user using the `user_name`. For example:
 
         ```sh
-         $ pulumi import aws:memorydb/user:User example my-user
+        $ pulumi import aws:memorydb/user:User example my-user
         ```
-         The `passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
+        The `passwords` are not available for imported resources, as this information cannot be read back from the MemoryDB API.
 
         :param str resource_name: The name of the resource.
         :param UserArgs args: The arguments to use to populate this resource's properties.

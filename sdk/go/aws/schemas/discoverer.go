@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -49,15 +50,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import EventBridge discoverers using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:schemas/discoverer:Discoverer test 123
-//
+// $ pulumi import aws:schemas/discoverer:Discoverer test 123
 // ```
 type Discoverer struct {
 	pulumi.CustomResourceState

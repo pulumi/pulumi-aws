@@ -14,6 +14,7 @@ namespace Pulumi.Aws.SimpleDB
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -29,13 +30,14 @@ namespace Pulumi.Aws.SimpleDB
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import SimpleDB Domains using the `name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:simpledb/domain:Domain users users
+    /// $ pulumi import aws:simpledb/domain:Domain users users
     /// ```
     /// </summary>
     [AwsResourceType("aws:simpledb/domain:Domain")]

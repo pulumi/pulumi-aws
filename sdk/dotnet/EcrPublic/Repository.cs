@@ -16,6 +16,7 @@ namespace Pulumi.Aws.EcrPublic
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -54,13 +55,14 @@ namespace Pulumi.Aws.EcrPublic
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import ECR Public Repositories using the `repository_name`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ecrpublic/repository:Repository example example
+    /// $ pulumi import aws:ecrpublic/repository:Repository example example
     /// ```
     /// </summary>
     [AwsResourceType("aws:ecrpublic/repository:Repository")]

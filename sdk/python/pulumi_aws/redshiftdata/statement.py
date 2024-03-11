@@ -334,8 +334,10 @@ class Statement(pulumi.CustomResource):
         Executes a Redshift Data Statement.
 
         ## Example Usage
+
         ### cluster_identifier
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -346,8 +348,11 @@ class Statement(pulumi.CustomResource):
             db_user=example_aws_redshift_cluster["masterUsername"],
             sql="CREATE GROUP group_name;")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### workgroup_name
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -357,13 +362,14 @@ class Statement(pulumi.CustomResource):
             database="dev",
             sql="CREATE GROUP group_name;")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Data Statements using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:redshiftdata/statement:Statement example example
+        $ pulumi import aws:redshiftdata/statement:Statement example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -389,8 +395,10 @@ class Statement(pulumi.CustomResource):
         Executes a Redshift Data Statement.
 
         ## Example Usage
+
         ### cluster_identifier
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -401,8 +409,11 @@ class Statement(pulumi.CustomResource):
             db_user=example_aws_redshift_cluster["masterUsername"],
             sql="CREATE GROUP group_name;")
         ```
+        <!--End PulumiCodeChooser -->
+
         ### workgroup_name
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -412,13 +423,14 @@ class Statement(pulumi.CustomResource):
             database="dev",
             sql="CREATE GROUP group_name;")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import Redshift Data Statements using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:redshiftdata/statement:Statement example example
+        $ pulumi import aws:redshiftdata/statement:Statement example example
         ```
 
         :param str resource_name: The name of the resource.

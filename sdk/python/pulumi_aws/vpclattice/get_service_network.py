@@ -153,14 +153,17 @@ def get_service_network(service_network_identifier: Optional[str] = None,
     Data source for managing an AWS VPC Lattice Service Network.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.vpclattice.get_service_network(service_network_identifier="snsa-01112223334445556")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str service_network_identifier: Identifier of the service network.
@@ -192,14 +195,17 @@ def get_service_network_output(service_network_identifier: Optional[pulumi.Input
     Data source for managing an AWS VPC Lattice Service Network.
 
     ## Example Usage
+
     ### Basic Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
 
     example = aws.vpclattice.get_service_network(service_network_identifier="snsa-01112223334445556")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str service_network_identifier: Identifier of the service network.

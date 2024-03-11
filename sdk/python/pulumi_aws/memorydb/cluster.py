@@ -922,6 +922,7 @@ class Cluster(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -935,13 +936,14 @@ class Cluster(pulumi.CustomResource):
             snapshot_retention_limit=7,
             subnet_group_name=example_aws_memorydb_subnet_group["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a cluster using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:memorydb/cluster:Cluster example my-cluster
+        $ pulumi import aws:memorydb/cluster:Cluster example my-cluster
         ```
 
         :param str resource_name: The name of the resource.
@@ -986,6 +988,7 @@ class Cluster(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -999,13 +1002,14 @@ class Cluster(pulumi.CustomResource):
             snapshot_retention_limit=7,
             subnet_group_name=example_aws_memorydb_subnet_group["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import a cluster using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:memorydb/cluster:Cluster example my-cluster
+        $ pulumi import aws:memorydb/cluster:Cluster example my-cluster
         ```
 
         :param str resource_name: The name of the resource.

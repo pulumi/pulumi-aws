@@ -13,8 +13,10 @@ namespace Pulumi.Aws.Grafana
     /// Provides an Amazon Managed Grafana workspace role association resource.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic configuration
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -70,6 +72,7 @@ namespace Pulumi.Aws.Grafana
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:grafana/roleAssociation:RoleAssociation")]
     public partial class RoleAssociation : global::Pulumi.CustomResource

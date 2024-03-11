@@ -16,6 +16,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -39,15 +40,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import the EFS access points using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:efs/accessPoint:AccessPoint test fsap-52a643fb
-//
+// $ pulumi import aws:efs/accessPoint:AccessPoint test fsap-52a643fb
 // ```
 type AccessPoint struct {
 	pulumi.CustomResourceState

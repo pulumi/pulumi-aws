@@ -12,35 +12,6 @@ import (
 )
 
 // Retrieve EKS Clusters list
-//
-// ## Example Usage
-//
-// ```go
-// package main
-//
-// import (
-//
-//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/eks"
-//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
-//
-// )
-//
-//	func notImplemented(message string) pulumi.AnyOutput {
-//		panic(message)
-//	}
-//
-//	func main() {
-//		pulumi.Run(func(ctx *pulumi.Context) error {
-//			_, err := eks.GetClusters(ctx, nil, nil)
-//			if err != nil {
-//				return err
-//			}
-//			_ := "TODO: For expression"
-//			return nil
-//		})
-//	}
-//
-// ```
 func GetClusters(ctx *pulumi.Context, opts ...pulumi.InvokeOption) (*GetClustersResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetClustersResult

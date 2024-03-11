@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -110,13 +111,14 @@ namespace Pulumi.Aws.Transfer
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import Transfer SSH Public Key using the `server_id` and `user_name` and `ssh_public_key_id` separated by `/`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:transfer/sshKey:SshKey bar s-12345678/test-username/key-12345
+    /// $ pulumi import aws:transfer/sshKey:SshKey bar s-12345678/test-username/key-12345
     /// ```
     /// </summary>
     [AwsResourceType("aws:transfer/sshKey:SshKey")]

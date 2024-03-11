@@ -14,6 +14,7 @@ namespace Pulumi.Aws.Ebs
     /// 
     /// ## Example Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -43,13 +44,14 @@ namespace Pulumi.Aws.Ebs
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import EBS Snapshot using the `id`. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ebs/snapshot:Snapshot id snap-049df61146c4d7901
+    /// $ pulumi import aws:ebs/snapshot:Snapshot id snap-049df61146c4d7901
     /// ```
     /// </summary>
     [AwsResourceType("aws:ebs/snapshot:Snapshot")]

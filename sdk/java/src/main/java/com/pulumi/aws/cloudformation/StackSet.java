@@ -27,6 +27,8 @@ import javax.annotation.Nullable;
  * &gt; **NOTE:** All `NoEcho` template parameters must be ignored with the `lifecycle` configuration block `ignore_changes` argument.
  * 
  * ## Example Usage
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
  * package generated_program;
  * 
@@ -118,6 +120,7 @@ import javax.annotation.Nullable;
  *     }
  * }
  * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
  * 
  * ## Import
  * 
@@ -126,12 +129,12 @@ import javax.annotation.Nullable;
  * Using `pulumi import`, import CloudFormation StackSets using the `name`. For example:
  * 
  * ```sh
- *  $ pulumi import aws:cloudformation/stackSet:StackSet example example
+ * $ pulumi import aws:cloudformation/stackSet:StackSet example example
  * ```
- *  Using `pulumi import`, import CloudFormation StackSets when acting a delegated administrator in a member account using the `name` and `call_as` values separated by a comma (`,`). For example:
+ * Using `pulumi import`, import CloudFormation StackSets when acting a delegated administrator in a member account using the `name` and `call_as` values separated by a comma (`,`). For example:
  * 
  * ```sh
- *  $ pulumi import aws:cloudformation/stackSet:StackSet example example,DELEGATED_ADMIN
+ * $ pulumi import aws:cloudformation/stackSet:StackSet example example,DELEGATED_ADMIN
  * ```
  * 
  */

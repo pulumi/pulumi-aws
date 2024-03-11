@@ -13,8 +13,10 @@ namespace Pulumi.Aws.IvsChat
     /// Resource for managing an AWS IVS (Interactive Video) Chat Room.
     /// 
     /// ## Example Usage
+    /// 
     /// ### Basic Usage
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -30,8 +32,11 @@ namespace Pulumi.Aws.IvsChat
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Usage with Logging Configuration to S3 Bucket
     /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
     /// using System.Collections.Generic;
     /// using System.Linq;
@@ -69,13 +74,14 @@ namespace Pulumi.Aws.IvsChat
     /// 
     /// });
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import IVS (Interactive Video) Chat Room using the ARN. For example:
     /// 
     /// ```sh
-    ///  $ pulumi import aws:ivschat/room:Room example arn:aws:ivschat:us-west-2:326937407773:room/GoXEXyB4VwHb
+    /// $ pulumi import aws:ivschat/room:Room example arn:aws:ivschat:us-west-2:326937407773:room/GoXEXyB4VwHb
     /// ```
     /// </summary>
     [AwsResourceType("aws:ivschat/room:Room")]

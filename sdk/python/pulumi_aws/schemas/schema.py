@@ -321,6 +321,7 @@ class Schema(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -353,13 +354,14 @@ class Schema(pulumi.CustomResource):
                 },
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EventBridge schema using the `name` and `registry_name`. For example:
 
         ```sh
-         $ pulumi import aws:schemas/schema:Schema test name/registry
+        $ pulumi import aws:schemas/schema:Schema test name/registry
         ```
 
         :param str resource_name: The name of the resource.
@@ -384,6 +386,7 @@ class Schema(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import json
@@ -416,13 +419,14 @@ class Schema(pulumi.CustomResource):
                 },
             }))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EventBridge schema using the `name` and `registry_name`. For example:
 
         ```sh
-         $ pulumi import aws:schemas/schema:Schema test name/registry
+        $ pulumi import aws:schemas/schema:Schema test name/registry
         ```
 
         :param str resource_name: The name of the resource.

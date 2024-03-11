@@ -14,8 +14,10 @@ import (
 // Resource for managing an AWS CodeGuru Profiler Profiling Group.
 //
 // ## Example Usage
+//
 // ### Basic Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -43,15 +45,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import CodeGuru Profiler Profiling Group using the `id`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:codeguruprofiler/profilingGroup:ProfilingGroup example profiling_group-name-12345678
-//
+// $ pulumi import aws:codeguruprofiler/profilingGroup:ProfilingGroup example profiling_group-name-12345678
 // ```
 type ProfilingGroup struct {
 	pulumi.CustomResourceState

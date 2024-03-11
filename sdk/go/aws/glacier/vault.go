@@ -17,6 +17,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -85,15 +86,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import Glacier Vaults using the `name`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:glacier/vault:Vault archive my_archive
-//
+// $ pulumi import aws:glacier/vault:Vault archive my_archive
 // ```
 type Vault struct {
 	pulumi.CustomResourceState

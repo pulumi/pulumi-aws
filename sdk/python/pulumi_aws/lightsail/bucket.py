@@ -283,6 +283,7 @@ class Bucket(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -291,13 +292,14 @@ class Bucket(pulumi.CustomResource):
             name="mytestbucket",
             bundle_id="small_1_0")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_lightsail_bucket` using the `name` attribute. For example:
 
         ```sh
-         $ pulumi import aws:lightsail/bucket:Bucket test example-bucket
+        $ pulumi import aws:lightsail/bucket:Bucket test example-bucket
         ```
 
         :param str resource_name: The name of the resource.
@@ -318,6 +320,7 @@ class Bucket(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -326,13 +329,14 @@ class Bucket(pulumi.CustomResource):
             name="mytestbucket",
             bundle_id="small_1_0")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_lightsail_bucket` using the `name` attribute. For example:
 
         ```sh
-         $ pulumi import aws:lightsail/bucket:Bucket test example-bucket
+        $ pulumi import aws:lightsail/bucket:Bucket test example-bucket
         ```
 
         :param str resource_name: The name of the resource.

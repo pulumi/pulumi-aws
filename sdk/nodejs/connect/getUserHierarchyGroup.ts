@@ -14,6 +14,7 @@ import * as utilities from "../utilities";
  *
  * By `name`
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -23,9 +24,11 @@ import * as utilities from "../utilities";
  *     name: "Example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * By `hierarchyGroupId`
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -35,6 +38,7 @@ import * as utilities from "../utilities";
  *     hierarchyGroupId: "cccccccc-bbbb-cccc-dddd-111111111111",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getUserHierarchyGroup(args: GetUserHierarchyGroupArgs, opts?: pulumi.InvokeOptions): Promise<GetUserHierarchyGroupResult> {
 
@@ -107,6 +111,7 @@ export interface GetUserHierarchyGroupResult {
  *
  * By `name`
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -116,9 +121,11 @@ export interface GetUserHierarchyGroupResult {
  *     name: "Example",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * By `hierarchyGroupId`
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -128,6 +135,7 @@ export interface GetUserHierarchyGroupResult {
  *     hierarchyGroupId: "cccccccc-bbbb-cccc-dddd-111111111111",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getUserHierarchyGroupOutput(args: GetUserHierarchyGroupOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetUserHierarchyGroupResult> {
     return pulumi.output(args).apply((a: any) => getUserHierarchyGroup(a, opts))

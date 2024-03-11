@@ -118,6 +118,7 @@ def get_alias(function_name: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -125,6 +126,7 @@ def get_alias(function_name: Optional[str] = None,
     production = aws.lambda.get_alias(function_name="my-lambda-func",
         name="production")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str function_name: Name of the aliased Lambda function.
@@ -155,6 +157,7 @@ def get_alias_output(function_name: Optional[pulumi.Input[str]] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -162,6 +165,7 @@ def get_alias_output(function_name: Optional[pulumi.Input[str]] = None,
     production = aws.lambda.get_alias(function_name="my-lambda-func",
         name="production")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str function_name: Name of the aliased Lambda function.

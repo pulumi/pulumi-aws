@@ -93,6 +93,7 @@ def get_instance_storage_config(association_id: Optional[str] = None,
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -101,6 +102,7 @@ def get_instance_storage_config(association_id: Optional[str] = None,
         instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
         resource_type="CONTACT_TRACE_RECORDS")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str association_id: The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.
@@ -132,6 +134,7 @@ def get_instance_storage_config_output(association_id: Optional[pulumi.Input[str
 
     ## Example Usage
 
+    <!--Start PulumiCodeChooser -->
     ```python
     import pulumi
     import pulumi_aws as aws
@@ -140,6 +143,7 @@ def get_instance_storage_config_output(association_id: Optional[pulumi.Input[str
         instance_id="aaaaaaaa-bbbb-cccc-dddd-111111111111",
         resource_type="CONTACT_TRACE_RECORDS")
     ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str association_id: The existing association identifier that uniquely identifies the resource type and storage config for the given instance ID.

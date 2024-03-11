@@ -246,6 +246,7 @@ class RouteCalculation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -254,13 +255,14 @@ class RouteCalculation(pulumi.CustomResource):
             calculator_name="example",
             data_source="Here")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_location_route_calculator` using the route calculator name. For example:
 
         ```sh
-         $ pulumi import aws:location/routeCalculation:RouteCalculation example example
+        $ pulumi import aws:location/routeCalculation:RouteCalculation example example
         ```
 
         :param str resource_name: The name of the resource.
@@ -283,6 +285,7 @@ class RouteCalculation(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -291,13 +294,14 @@ class RouteCalculation(pulumi.CustomResource):
             calculator_name="example",
             data_source="Here")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import `aws_location_route_calculator` using the route calculator name. For example:
 
         ```sh
-         $ pulumi import aws:location/routeCalculation:RouteCalculation example example
+        $ pulumi import aws:location/routeCalculation:RouteCalculation example example
         ```
 
         :param str resource_name: The name of the resource.

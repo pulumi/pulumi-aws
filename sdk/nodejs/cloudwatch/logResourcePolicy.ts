@@ -8,8 +8,10 @@ import * as utilities from "../utilities";
  * Provides a resource to manage a CloudWatch log resource policy.
  *
  * ## Example Usage
+ *
  * ### Elasticsearch Log Publishing
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -33,8 +35,11 @@ import * as utilities from "../utilities";
  *     policyName: "elasticsearch-log-publishing-policy",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ### Route53 Query Logging
  *
+ * <!--Start PulumiCodeChooser -->
  * ```typescript
  * import * as pulumi from "@pulumi/pulumi";
  * import * as aws from "@pulumi/aws";
@@ -57,13 +62,14 @@ import * as utilities from "../utilities";
  *     policyName: "route53-query-logging-policy",
  * });
  * ```
+ * <!--End PulumiCodeChooser -->
  *
  * ## Import
  *
  * Using `pulumi import`, import CloudWatch log resource policies using the policy name. For example:
  *
  * ```sh
- *  $ pulumi import aws:cloudwatch/logResourcePolicy:LogResourcePolicy MyPolicy MyPolicy
+ * $ pulumi import aws:cloudwatch/logResourcePolicy:LogResourcePolicy MyPolicy MyPolicy
  * ```
  */
 export class LogResourcePolicy extends pulumi.CustomResource {

@@ -14,10 +14,9 @@ namespace Pulumi.Aws.DocDB
         /// <summary>
         /// Information about a DocumentDB engine version.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -33,8 +32,7 @@ namespace Pulumi.Aws.DocDB
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Task<GetEngineVersionResult> InvokeAsync(GetEngineVersionArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.InvokeAsync<GetEngineVersionResult>("aws:docdb/getEngineVersion:getEngineVersion", args ?? new GetEngineVersionArgs(), options.WithDefaults());
@@ -42,10 +40,9 @@ namespace Pulumi.Aws.DocDB
         /// <summary>
         /// Information about a DocumentDB engine version.
         /// 
-        /// {{% examples %}}
         /// ## Example Usage
-        /// {{% example %}}
         /// 
+        /// &lt;!--Start PulumiCodeChooser --&gt;
         /// ```csharp
         /// using System.Collections.Generic;
         /// using System.Linq;
@@ -61,8 +58,7 @@ namespace Pulumi.Aws.DocDB
         /// 
         /// });
         /// ```
-        /// {{% /example %}}
-        /// {{% /examples %}}
+        /// &lt;!--End PulumiCodeChooser --&gt;
         /// </summary>
         public static Output<GetEngineVersionResult> Invoke(GetEngineVersionInvokeArgs? args = null, InvokeOptions? options = null)
             => global::Pulumi.Deployment.Instance.Invoke<GetEngineVersionResult>("aws:docdb/getEngineVersion:getEngineVersion", args ?? new GetEngineVersionInvokeArgs(), options.WithDefaults());

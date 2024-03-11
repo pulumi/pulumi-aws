@@ -18,6 +18,7 @@ import (
 //
 // ## Example Usage
 //
+// <!--Start PulumiCodeChooser -->
 // ```go
 // package main
 //
@@ -41,15 +42,14 @@ import (
 //	}
 //
 // ```
+// <!--End PulumiCodeChooser -->
 //
 // ## Import
 //
 // Using `pulumi import`, import the current Account Alias using the `account_alias`. For example:
 //
 // ```sh
-//
-//	$ pulumi import aws:iam/accountAlias:AccountAlias alias my-account-alias
-//
+// $ pulumi import aws:iam/accountAlias:AccountAlias alias my-account-alias
 // ```
 type AccountAlias struct {
 	pulumi.CustomResourceState

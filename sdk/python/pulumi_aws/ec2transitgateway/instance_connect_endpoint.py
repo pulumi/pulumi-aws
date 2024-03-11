@@ -330,19 +330,21 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ec2transitgateway.InstanceConnectEndpoint("example", subnet_id=example_aws_subnet["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EC2 Instance Connect Endpoints using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint example eice-012345678
+        $ pulumi import aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint example eice-012345678
         ```
 
         :param str resource_name: The name of the resource.
@@ -363,19 +365,21 @@ class InstanceConnectEndpoint(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         example = aws.ec2transitgateway.InstanceConnectEndpoint("example", subnet_id=example_aws_subnet["id"])
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import EC2 Instance Connect Endpoints using the `id`. For example:
 
         ```sh
-         $ pulumi import aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint example eice-012345678
+        $ pulumi import aws:ec2transitgateway/instanceConnectEndpoint:InstanceConnectEndpoint example eice-012345678
         ```
 
         :param str resource_name: The name of the resource.

@@ -236,12 +236,14 @@ class SmsPreferences(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         update_sms_prefs = aws.sns.SmsPreferences("update_sms_prefs")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
@@ -267,12 +269,14 @@ class SmsPreferences(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
 
         update_sms_prefs = aws.sns.SmsPreferences("update_sms_prefs")
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 

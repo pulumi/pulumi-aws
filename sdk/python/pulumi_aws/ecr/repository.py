@@ -312,6 +312,7 @@ class Repository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -323,13 +324,14 @@ class Repository(pulumi.CustomResource):
                 scan_on_push=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ECR Repositories using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:ecr/repository:Repository service test-service
+        $ pulumi import aws:ecr/repository:Repository service test-service
         ```
 
         :param str resource_name: The name of the resource.
@@ -353,6 +355,7 @@ class Repository(pulumi.CustomResource):
 
         ## Example Usage
 
+        <!--Start PulumiCodeChooser -->
         ```python
         import pulumi
         import pulumi_aws as aws
@@ -364,13 +367,14 @@ class Repository(pulumi.CustomResource):
                 scan_on_push=True,
             ))
         ```
+        <!--End PulumiCodeChooser -->
 
         ## Import
 
         Using `pulumi import`, import ECR Repositories using the `name`. For example:
 
         ```sh
-         $ pulumi import aws:ecr/repository:Repository service test-service
+        $ pulumi import aws:ecr/repository:Repository service test-service
         ```
 
         :param str resource_name: The name of the resource.
