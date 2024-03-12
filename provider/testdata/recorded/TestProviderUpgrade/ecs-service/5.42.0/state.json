@@ -1,0 +1,569 @@
+{
+    "version": 3,
+    "deployment": {
+        "manifest": {
+            "time": "2024-03-12T12:27:58.744655Z",
+            "magic": "4fa6a6dae0ccab3589c700b0790a52fa47015f8ec72d37a2e10816857250b8c2",
+            "version": "v3.108.1"
+        },
+        "secrets_providers": {
+            "type": "passphrase",
+            "state": {
+                "salt": "v1:e/DNALPfkuo=:v1:ko3gNkmUL9a2HmnX:DyjGqMUL1j1bEe2yvt5PMDhDd/JMjQ=="
+            }
+        },
+        "resources": [
+            {
+                "urn": "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::pulumi:pulumi:Stack::ecs-service-p-it-venelins-m-ecs-servic-25015773",
+                "custom": false,
+                "type": "pulumi:pulumi:Stack",
+                "created": "2024-03-12T12:27:42.863753Z",
+                "modified": "2024-03-12T12:27:42.863753Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::pulumi:providers:aws::default",
+                "custom": true,
+                "id": "b1dba4ef-407d-4285-910a-f6dd309fbf20",
+                "type": "pulumi:providers:aws",
+                "created": "2024-03-12T12:27:44.504415Z",
+                "modified": "2024-03-12T12:27:44.504415Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::aws:iam/role:Role::ecsExecutionRole",
+                "custom": true,
+                "id": "ecsExecutionRole-a0bdd3a",
+                "type": "aws:iam/role:Role",
+                "inputs": {
+                    "__defaults": [
+                        "forceDetachPolicies",
+                        "maxSessionDuration",
+                        "name",
+                        "path"
+                    ],
+                    "assumeRolePolicy": "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Action\": \"sts:AssumeRole\",\n      \"Principal\": {\n        \"Service\": \"ecs-tasks.amazonaws.com\"\n      },\n      \"Effect\": \"Allow\",\n      \"Sid\": \"\"\n    }\n  ]\n}\n",
+                    "forceDetachPolicies": false,
+                    "maxSessionDuration": 3600,
+                    "name": "ecsExecutionRole-a0bdd3a",
+                    "path": "/"
+                },
+                "outputs": {
+                    "arn": "arn:aws:iam::616138583583:role/ecsExecutionRole-a0bdd3a",
+                    "assumeRolePolicy": "{\"Statement\":[{\"Action\":\"sts:AssumeRole\",\"Effect\":\"Allow\",\"Principal\":{\"Service\":\"ecs-tasks.amazonaws.com\"},\"Sid\":\"\"}],\"Version\":\"2012-10-17\"}",
+                    "createDate": "2024-03-12T12:27:46Z",
+                    "description": "",
+                    "forceDetachPolicies": false,
+                    "id": "ecsExecutionRole-a0bdd3a",
+                    "inlinePolicies": [],
+                    "managedPolicyArns": [],
+                    "maxSessionDuration": 3600,
+                    "name": "ecsExecutionRole-a0bdd3a",
+                    "namePrefix": "",
+                    "path": "/",
+                    "roleLastUseds": [
+                        {
+                            "lastUsedDate": "",
+                            "region": ""
+                        }
+                    ],
+                    "tags": {},
+                    "tagsAll": {},
+                    "uniqueId": "AROAY65FYVYP2BJSY5PAX"
+                },
+                "parent": "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::pulumi:pulumi:Stack::ecs-service-p-it-venelins-m-ecs-servic-25015773",
+                "provider": "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::pulumi:providers:aws::default::b1dba4ef-407d-4285-910a-f6dd309fbf20",
+                "propertyDependencies": {
+                    "assumeRolePolicy": null
+                },
+                "created": "2024-03-12T12:27:46.839654Z",
+                "modified": "2024-03-12T12:27:46.839654Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::aws:iam/rolePolicy:RolePolicy::ecsExecutionRolePolicy",
+                "custom": true,
+                "id": "ecsExecutionRole-a0bdd3a:ecsExecutionRolePolicy-a9ace28",
+                "type": "aws:iam/rolePolicy:RolePolicy",
+                "inputs": {
+                    "__defaults": [
+                        "name"
+                    ],
+                    "name": "ecsExecutionRolePolicy-a9ace28",
+                    "policy": "{\n  \"Version\": \"2012-10-17\",\n  \"Statement\": [\n    {\n      \"Action\": [\n        \"logs:*\",\n        \"ecs:*\"\n      ],\n      \"Effect\": \"Allow\",\n      \"Resource\": \"*\"\n    }\n  ]\n}\n",
+                    "role": "ecsExecutionRole-a0bdd3a"
+                },
+                "outputs": {
+                    "id": "ecsExecutionRole-a0bdd3a:ecsExecutionRolePolicy-a9ace28",
+                    "name": "ecsExecutionRolePolicy-a9ace28",
+                    "policy": "{\"Version\":\"2012-10-17\",\"Statement\":[{\"Action\":[\"logs:*\",\"ecs:*\"],\"Effect\":\"Allow\",\"Resource\":\"*\"}]}",
+                    "role": "ecsExecutionRole-a0bdd3a"
+                },
+                "parent": "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::pulumi:pulumi:Stack::ecs-service-p-it-venelins-m-ecs-servic-25015773",
+                "dependencies": [
+                    "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::aws:iam/role:Role::ecsExecutionRole"
+                ],
+                "provider": "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::pulumi:providers:aws::default::b1dba4ef-407d-4285-910a-f6dd309fbf20",
+                "propertyDependencies": {
+                    "policy": null,
+                    "role": [
+                        "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::aws:iam/role:Role::ecsExecutionRole"
+                    ]
+                },
+                "created": "2024-03-12T12:27:47.153066Z",
+                "modified": "2024-03-12T12:27:47.153066Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::aws:ecs/taskDefinition:TaskDefinition::taskDefinition",
+                "custom": true,
+                "id": "fargate-task-definition",
+                "type": "aws:ecs/taskDefinition:TaskDefinition",
+                "inputs": {
+                    "__defaults": [
+                        "skipDestroy"
+                    ],
+                    "containerDefinitions": "[{\n  \"name\": \"my-app\",\n  \"image\": \"nginx\",\n  \"portMappings\": [{\n    \"containerPort\": 80,\n    \"hostPort\": 80,\n    \"protocol\": \"tcp\"\n  }]\n}]\n",
+                    "cpu": 256,
+                    "executionRoleArn": "arn:aws:iam::616138583583:role/ecsExecutionRole-a0bdd3a",
+                    "family": "fargate-task-definition",
+                    "memory": 512,
+                    "networkMode": "awsvpc",
+                    "requiresCompatibilities": [
+                        "FARGATE"
+                    ],
+                    "skipDestroy": false
+                },
+                "outputs": {
+                    "__meta": "{\"schema_version\":\"1\"}",
+                    "arn": "arn:aws:ecs:us-west-2:616138583583:task-definition/fargate-task-definition:228",
+                    "arnWithoutRevision": "arn:aws:ecs:us-west-2:616138583583:task-definition/fargate-task-definition",
+                    "containerDefinitions": "[{\"cpu\":0,\"environment\":[],\"essential\":true,\"image\":\"nginx\",\"mountPoints\":[],\"name\":\"my-app\",\"portMappings\":[{\"containerPort\":80,\"hostPort\":80,\"protocol\":\"tcp\"}],\"systemControls\":[],\"volumesFrom\":[]}]",
+                    "cpu": "256",
+                    "ephemeralStorage": null,
+                    "executionRoleArn": "arn:aws:iam::616138583583:role/ecsExecutionRole-a0bdd3a",
+                    "family": "fargate-task-definition",
+                    "id": "fargate-task-definition",
+                    "inferenceAccelerators": [],
+                    "ipcMode": "",
+                    "memory": "512",
+                    "networkMode": "awsvpc",
+                    "pidMode": "",
+                    "placementConstraints": [],
+                    "proxyConfiguration": null,
+                    "requiresCompatibilities": [
+                        "FARGATE"
+                    ],
+                    "revision": 228,
+                    "runtimePlatform": null,
+                    "skipDestroy": false,
+                    "tags": {},
+                    "tagsAll": {},
+                    "taskRoleArn": "",
+                    "volumes": []
+                },
+                "parent": "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::pulumi:pulumi:Stack::ecs-service-p-it-venelins-m-ecs-servic-25015773",
+                "dependencies": [
+                    "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::aws:iam/role:Role::ecsExecutionRole"
+                ],
+                "provider": "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::pulumi:providers:aws::default::b1dba4ef-407d-4285-910a-f6dd309fbf20",
+                "propertyDependencies": {
+                    "containerDefinitions": null,
+                    "cpu": null,
+                    "executionRoleArn": [
+                        "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::aws:iam/role:Role::ecsExecutionRole"
+                    ],
+                    "family": null,
+                    "memory": null,
+                    "networkMode": null,
+                    "requiresCompatibilities": null
+                },
+                "created": "2024-03-12T12:27:47.261667Z",
+                "modified": "2024-03-12T12:27:47.261667Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::aws:ec2/vpc:Vpc::vpc",
+                "custom": true,
+                "id": "vpc-07658190e07d2fa25",
+                "type": "aws:ec2/vpc:Vpc",
+                "inputs": {
+                    "__defaults": [
+                        "enableDnsSupport",
+                        "instanceTenancy"
+                    ],
+                    "cidrBlock": "10.0.0.0/16",
+                    "enableDnsSupport": true,
+                    "instanceTenancy": "default"
+                },
+                "outputs": {
+                    "__meta": "{\"schema_version\":\"1\"}",
+                    "arn": "arn:aws:ec2:us-west-2:616138583583:vpc/vpc-07658190e07d2fa25",
+                    "assignGeneratedIpv6CidrBlock": false,
+                    "cidrBlock": "10.0.0.0/16",
+                    "defaultNetworkAclId": "acl-07a46b1da32cacea2",
+                    "defaultRouteTableId": "rtb-0c321b892a54bd3ac",
+                    "defaultSecurityGroupId": "sg-013e80499e69cd168",
+                    "dhcpOptionsId": "dopt-1649d26e",
+                    "enableClassiclink": false,
+                    "enableClassiclinkDnsSupport": false,
+                    "enableDnsHostnames": false,
+                    "enableDnsSupport": true,
+                    "enableNetworkAddressUsageMetrics": false,
+                    "id": "vpc-07658190e07d2fa25",
+                    "instanceTenancy": "default",
+                    "ipv6AssociationId": "",
+                    "ipv6CidrBlock": "",
+                    "ipv6CidrBlockNetworkBorderGroup": "",
+                    "ipv6IpamPoolId": "",
+                    "ipv6NetmaskLength": 0,
+                    "mainRouteTableId": "rtb-0c321b892a54bd3ac",
+                    "ownerId": "616138583583",
+                    "tags": {},
+                    "tagsAll": {}
+                },
+                "parent": "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::pulumi:pulumi:Stack::ecs-service-p-it-venelins-m-ecs-servic-25015773",
+                "provider": "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::pulumi:providers:aws::default::b1dba4ef-407d-4285-910a-f6dd309fbf20",
+                "propertyDependencies": {
+                    "cidrBlock": null
+                },
+                "created": "2024-03-12T12:27:49.400201Z",
+                "modified": "2024-03-12T12:27:49.400201Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::aws:ec2/subnet:Subnet::subnet",
+                "custom": true,
+                "id": "subnet-0f31fe3bce2701630",
+                "type": "aws:ec2/subnet:Subnet",
+                "inputs": {
+                    "__defaults": [
+                        "assignIpv6AddressOnCreation",
+                        "enableDns64",
+                        "enableResourceNameDnsARecordOnLaunch",
+                        "enableResourceNameDnsAaaaRecordOnLaunch",
+                        "ipv6Native",
+                        "mapPublicIpOnLaunch"
+                    ],
+                    "assignIpv6AddressOnCreation": false,
+                    "cidrBlock": "10.0.1.0/24",
+                    "enableDns64": false,
+                    "enableResourceNameDnsARecordOnLaunch": false,
+                    "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                    "ipv6Native": false,
+                    "mapPublicIpOnLaunch": false,
+                    "vpcId": "vpc-07658190e07d2fa25"
+                },
+                "outputs": {
+                    "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":1200000000000},\"schema_version\":\"1\"}",
+                    "arn": "arn:aws:ec2:us-west-2:616138583583:subnet/subnet-0f31fe3bce2701630",
+                    "assignIpv6AddressOnCreation": false,
+                    "availabilityZone": "us-west-2d",
+                    "availabilityZoneId": "usw2-az4",
+                    "cidrBlock": "10.0.1.0/24",
+                    "customerOwnedIpv4Pool": "",
+                    "enableDns64": false,
+                    "enableLniAtDeviceIndex": 0,
+                    "enableResourceNameDnsARecordOnLaunch": false,
+                    "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                    "id": "subnet-0f31fe3bce2701630",
+                    "ipv6CidrBlock": "",
+                    "ipv6CidrBlockAssociationId": "",
+                    "ipv6Native": false,
+                    "mapCustomerOwnedIpOnLaunch": false,
+                    "mapPublicIpOnLaunch": false,
+                    "outpostArn": "",
+                    "ownerId": "616138583583",
+                    "privateDnsHostnameTypeOnLaunch": "ip-name",
+                    "tags": {},
+                    "tagsAll": {},
+                    "vpcId": "vpc-07658190e07d2fa25"
+                },
+                "parent": "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::pulumi:pulumi:Stack::ecs-service-p-it-venelins-m-ecs-servic-25015773",
+                "dependencies": [
+                    "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::aws:ec2/vpc:Vpc::vpc"
+                ],
+                "provider": "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::pulumi:providers:aws::default::b1dba4ef-407d-4285-910a-f6dd309fbf20",
+                "propertyDependencies": {
+                    "cidrBlock": null,
+                    "vpcId": [
+                        "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::aws:ec2/vpc:Vpc::vpc"
+                    ]
+                },
+                "created": "2024-03-12T12:27:50.661663Z",
+                "modified": "2024-03-12T12:27:50.661663Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::aws:ec2/subnet:Subnet::secondSubnet",
+                "custom": true,
+                "id": "subnet-06032f753529640e6",
+                "type": "aws:ec2/subnet:Subnet",
+                "inputs": {
+                    "__defaults": [
+                        "assignIpv6AddressOnCreation",
+                        "enableDns64",
+                        "enableResourceNameDnsARecordOnLaunch",
+                        "enableResourceNameDnsAaaaRecordOnLaunch",
+                        "ipv6Native",
+                        "mapPublicIpOnLaunch"
+                    ],
+                    "assignIpv6AddressOnCreation": false,
+                    "cidrBlock": "10.0.2.0/24",
+                    "enableDns64": false,
+                    "enableResourceNameDnsARecordOnLaunch": false,
+                    "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                    "ipv6Native": false,
+                    "mapPublicIpOnLaunch": false,
+                    "vpcId": "vpc-07658190e07d2fa25"
+                },
+                "outputs": {
+                    "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":1200000000000},\"schema_version\":\"1\"}",
+                    "arn": "arn:aws:ec2:us-west-2:616138583583:subnet/subnet-06032f753529640e6",
+                    "assignIpv6AddressOnCreation": false,
+                    "availabilityZone": "us-west-2b",
+                    "availabilityZoneId": "usw2-az1",
+                    "cidrBlock": "10.0.2.0/24",
+                    "customerOwnedIpv4Pool": "",
+                    "enableDns64": false,
+                    "enableLniAtDeviceIndex": 0,
+                    "enableResourceNameDnsARecordOnLaunch": false,
+                    "enableResourceNameDnsAaaaRecordOnLaunch": false,
+                    "id": "subnet-06032f753529640e6",
+                    "ipv6CidrBlock": "",
+                    "ipv6CidrBlockAssociationId": "",
+                    "ipv6Native": false,
+                    "mapCustomerOwnedIpOnLaunch": false,
+                    "mapPublicIpOnLaunch": false,
+                    "outpostArn": "",
+                    "ownerId": "616138583583",
+                    "privateDnsHostnameTypeOnLaunch": "ip-name",
+                    "tags": {},
+                    "tagsAll": {},
+                    "vpcId": "vpc-07658190e07d2fa25"
+                },
+                "parent": "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::pulumi:pulumi:Stack::ecs-service-p-it-venelins-m-ecs-servic-25015773",
+                "dependencies": [
+                    "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::aws:ec2/vpc:Vpc::vpc"
+                ],
+                "provider": "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::pulumi:providers:aws::default::b1dba4ef-407d-4285-910a-f6dd309fbf20",
+                "propertyDependencies": {
+                    "cidrBlock": null,
+                    "vpcId": [
+                        "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::aws:ec2/vpc:Vpc::vpc"
+                    ]
+                },
+                "created": "2024-03-12T12:27:50.731951Z",
+                "modified": "2024-03-12T12:27:50.731951Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::aws:ec2/securityGroup:SecurityGroup::ecsSecurityGroup",
+                "custom": true,
+                "id": "sg-0860d9318fe0575a7",
+                "type": "aws:ec2/securityGroup:SecurityGroup",
+                "inputs": {
+                    "__defaults": [
+                        "description",
+                        "name",
+                        "revokeRulesOnDelete"
+                    ],
+                    "description": "Managed by Pulumi",
+                    "ingress": [
+                        {
+                            "__defaults": [
+                                "self"
+                            ],
+                            "cidrBlocks": [
+                                "0.0.0.0/0"
+                            ],
+                            "fromPort": 80,
+                            "protocol": "tcp",
+                            "self": false,
+                            "toPort": 80
+                        }
+                    ],
+                    "name": "ecsSecurityGroup-c7a45de",
+                    "revokeRulesOnDelete": false,
+                    "vpcId": "vpc-07658190e07d2fa25"
+                },
+                "outputs": {
+                    "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":600000000000,\"delete\":900000000000},\"schema_version\":\"1\"}",
+                    "arn": "arn:aws:ec2:us-west-2:616138583583:security-group/sg-0860d9318fe0575a7",
+                    "description": "Managed by Pulumi",
+                    "egress": [],
+                    "id": "sg-0860d9318fe0575a7",
+                    "ingress": [
+                        {
+                            "cidrBlocks": [
+                                "0.0.0.0/0"
+                            ],
+                            "description": "",
+                            "fromPort": 80,
+                            "ipv6CidrBlocks": [],
+                            "prefixListIds": [],
+                            "protocol": "tcp",
+                            "securityGroups": [],
+                            "self": false,
+                            "toPort": 80
+                        }
+                    ],
+                    "name": "ecsSecurityGroup-c7a45de",
+                    "namePrefix": "",
+                    "ownerId": "616138583583",
+                    "revokeRulesOnDelete": false,
+                    "tags": {},
+                    "tagsAll": {},
+                    "vpcId": "vpc-07658190e07d2fa25"
+                },
+                "parent": "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::pulumi:pulumi:Stack::ecs-service-p-it-venelins-m-ecs-servic-25015773",
+                "dependencies": [
+                    "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::aws:ec2/vpc:Vpc::vpc"
+                ],
+                "provider": "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::pulumi:providers:aws::default::b1dba4ef-407d-4285-910a-f6dd309fbf20",
+                "propertyDependencies": {
+                    "ingress": null,
+                    "vpcId": [
+                        "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::aws:ec2/vpc:Vpc::vpc"
+                    ]
+                },
+                "created": "2024-03-12T12:27:52.717621Z",
+                "modified": "2024-03-12T12:27:52.717621Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::aws:ecs/cluster:Cluster::ecsCluster",
+                "custom": true,
+                "id": "arn:aws:ecs:us-west-2:616138583583:cluster/ecsCluster-e90fa1d",
+                "type": "aws:ecs/cluster:Cluster",
+                "inputs": {
+                    "__defaults": [
+                        "name"
+                    ],
+                    "name": "ecsCluster-e90fa1d"
+                },
+                "outputs": {
+                    "arn": "arn:aws:ecs:us-west-2:616138583583:cluster/ecsCluster-e90fa1d",
+                    "capacityProviders": [],
+                    "defaultCapacityProviderStrategies": [],
+                    "id": "arn:aws:ecs:us-west-2:616138583583:cluster/ecsCluster-e90fa1d",
+                    "name": "ecsCluster-e90fa1d",
+                    "serviceConnectDefaults": null,
+                    "settings": [
+                        {
+                            "name": "containerInsights",
+                            "value": "disabled"
+                        }
+                    ],
+                    "tags": {},
+                    "tagsAll": {}
+                },
+                "parent": "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::pulumi:pulumi:Stack::ecs-service-p-it-venelins-m-ecs-servic-25015773",
+                "provider": "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::pulumi:providers:aws::default::b1dba4ef-407d-4285-910a-f6dd309fbf20",
+                "created": "2024-03-12T12:27:57.668221Z",
+                "modified": "2024-03-12T12:27:57.668221Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::aws:ecs/service:Service::ecsService",
+                "custom": true,
+                "id": "arn:aws:ecs:us-west-2:616138583583:service/ecsCluster-e90fa1d/ecsService-6aae01f",
+                "type": "aws:ecs/service:Service",
+                "inputs": {
+                    "__defaults": [
+                        "deploymentMaximumPercent",
+                        "deploymentMinimumHealthyPercent",
+                        "enableEcsManagedTags",
+                        "enableExecuteCommand",
+                        "name",
+                        "schedulingStrategy",
+                        "waitForSteadyState"
+                    ],
+                    "cluster": "arn:aws:ecs:us-west-2:616138583583:cluster/ecsCluster-e90fa1d",
+                    "deploymentMaximumPercent": 200,
+                    "deploymentMinimumHealthyPercent": 100,
+                    "desiredCount": 1,
+                    "enableEcsManagedTags": false,
+                    "enableExecuteCommand": false,
+                    "launchType": "FARGATE",
+                    "name": "ecsService-6aae01f",
+                    "networkConfiguration": {
+                        "__defaults": [],
+                        "assignPublicIp": true,
+                        "securityGroups": [
+                            "sg-0860d9318fe0575a7"
+                        ],
+                        "subnets": [
+                            "subnet-0f31fe3bce2701630",
+                            "subnet-06032f753529640e6"
+                        ]
+                    },
+                    "schedulingStrategy": "REPLICA",
+                    "taskDefinition": "arn:aws:ecs:us-west-2:616138583583:task-definition/fargate-task-definition:228",
+                    "waitForSteadyState": false
+                },
+                "outputs": {
+                    "__meta": "{\"e2bfb730-ecaa-11e6-8f88-34363bc7c4c0\":{\"create\":1200000000000,\"delete\":1200000000000,\"update\":1200000000000}}",
+                    "alarms": null,
+                    "capacityProviderStrategies": [],
+                    "cluster": "arn:aws:ecs:us-west-2:616138583583:cluster/ecsCluster-e90fa1d",
+                    "deploymentCircuitBreaker": {
+                        "enable": false,
+                        "rollback": false
+                    },
+                    "deploymentController": {
+                        "type": "ECS"
+                    },
+                    "deploymentMaximumPercent": 200,
+                    "deploymentMinimumHealthyPercent": 100,
+                    "desiredCount": 1,
+                    "enableEcsManagedTags": false,
+                    "enableExecuteCommand": false,
+                    "healthCheckGracePeriodSeconds": 0,
+                    "iamRole": "/aws-service-role/ecs.amazonaws.com/AWSServiceRoleForECS",
+                    "id": "arn:aws:ecs:us-west-2:616138583583:service/ecsCluster-e90fa1d/ecsService-6aae01f",
+                    "launchType": "FARGATE",
+                    "loadBalancers": [],
+                    "name": "ecsService-6aae01f",
+                    "networkConfiguration": {
+                        "assignPublicIp": true,
+                        "securityGroups": [
+                            "sg-0860d9318fe0575a7"
+                        ],
+                        "subnets": [
+                            "subnet-0f31fe3bce2701630",
+                            "subnet-06032f753529640e6"
+                        ]
+                    },
+                    "orderedPlacementStrategies": [],
+                    "placementConstraints": [],
+                    "platformVersion": "LATEST",
+                    "propagateTags": "NONE",
+                    "schedulingStrategy": "REPLICA",
+                    "serviceRegistries": null,
+                    "tags": {},
+                    "tagsAll": {},
+                    "taskDefinition": "arn:aws:ecs:us-west-2:616138583583:task-definition/fargate-task-definition:228",
+                    "triggers": {},
+                    "waitForSteadyState": false
+                },
+                "parent": "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::pulumi:pulumi:Stack::ecs-service-p-it-venelins-m-ecs-servic-25015773",
+                "dependencies": [
+                    "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::aws:ec2/securityGroup:SecurityGroup::ecsSecurityGroup",
+                    "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::aws:ec2/subnet:Subnet::secondSubnet",
+                    "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::aws:ec2/subnet:Subnet::subnet",
+                    "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::aws:ecs/cluster:Cluster::ecsCluster",
+                    "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::aws:ecs/taskDefinition:TaskDefinition::taskDefinition"
+                ],
+                "provider": "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::pulumi:providers:aws::default::b1dba4ef-407d-4285-910a-f6dd309fbf20",
+                "propertyDependencies": {
+                    "cluster": [
+                        "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::aws:ecs/cluster:Cluster::ecsCluster"
+                    ],
+                    "desiredCount": null,
+                    "launchType": null,
+                    "networkConfiguration": [
+                        "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::aws:ec2/securityGroup:SecurityGroup::ecsSecurityGroup",
+                        "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::aws:ec2/subnet:Subnet::secondSubnet",
+                        "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::aws:ec2/subnet:Subnet::subnet"
+                    ],
+                    "taskDefinition": [
+                        "urn:pulumi:p-it-venelins-m-ecs-servic-25015773::ecs-service::aws:ecs/taskDefinition:TaskDefinition::taskDefinition"
+                    ]
+                },
+                "created": "2024-03-12T12:27:58.744334Z",
+                "modified": "2024-03-12T12:27:58.744334Z"
+            }
+        ]
+    }
+}

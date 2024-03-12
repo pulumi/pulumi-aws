@@ -84,3 +84,19 @@ func TestKmsKey(t *testing.T) {
 func TestSecretsManagerSecret(t *testing.T) {
 	test(t, filepath.Join("test-programs", "secretsmanager-secret"))
 }
+
+func TestEC2Networking(t *testing.T) {
+	test(t, filepath.Join("test-programs", "ec2-networking"))
+}
+
+func TestECSService(t *testing.T) {
+	test(t, filepath.Join("test-programs", "ecs-service"))
+}
+
+func TestIAMUser(t *testing.T){
+	test(t, filepath.Join("test-programs", "iam-user"))
+}
+
+func TestLB(t *testing.T){
+	test(t, filepath.Join("test-programs", "lb"))
+}

@@ -16,7 +16,7 @@ require (
 //
 // We use this for gRPC based testing.
 replace (
-	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20240202163305-e2a20ae13ef9
+	github.com/hashicorp/terraform-plugin-sdk/v2 => github.com/pulumi/terraform-plugin-sdk/v2 v2.0.0-20240229143312-4f60ee4e2975
 
 	github.com/hashicorp/terraform-provider-aws => ../upstream
 	github.com/pulumi/pulumi-aws/provider/v6 => ../provider

@@ -1,0 +1,52 @@
+name: ec2-networking
+runtime: yaml
+config:
+  aws:region: us-west-2
+resources:
+  MyVPC:
+    type: aws:ec2:Vpc
+    properties:
+      cidrBlock: "10.0.0.0/16"
+  MySubnet:
+    type: aws:ec2:Subnet
+    properties:
+      cidrBlock: "10.0.1.0/24"
+      vpcId: ${MyVPC.id}
+  MyInternetGateway:
+    type: aws:ec2/internetGateway:InternetGateway
+  MyGatewayAttachment:
+    type: aws:ec2:InternetGatewayAttachment
+    properties:
+      vpcId: ${MyVPC.id}
+      internetGatewayId: ${MyInternetGateway.id}
+  MyEIP:
+    type: aws:ec2:Eip
+  MyNatGateway:
+    type: aws:ec2:NatGateway
+    properties:
+      allocationId: ${MyEIP.id}
+      subnetId: ${MySubnet.id}
+  MyRouteTable:
+    type: aws:ec2:RouteTable
+    properties:
+      vpcId: ${MyVPC.id}
+  MyRoute:
+    type: aws:ec2:Route
+    properties:
+      routeTableId: ${MyRouteTable.id}
+      destinationCidrBlock: "0.0.0.0/0"
+      natGatewayId: ${MyNatGateway.id}
+  MyRouteTableAssociation:
+    type: aws:ec2:RouteTableAssociation
+    properties:
+      subnetId: ${MySubnet.id}
+      routeTableId: ${MyRouteTable.id}
+outputs:
+  vpcId: ${MyVPC.id}
+  subnetId: ${MySubnet.id}
+  internetGatewayId: ${MyInternetGateway.id}
+  eipId: ${MyEIP.id}
+  natGatewayId: ${MyNatGateway.id}
+  routeTableId: ${MyRouteTable.id}
+  routeId: ${MyRoute.id}
+  routeTableAssociationId: ${MyRouteTableAssociation.id}
