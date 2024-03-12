@@ -54,7 +54,7 @@ import (
 //			}
 //			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
 //				Name:             pulumi.String("AWSGlueServiceRole-foo"),
-//				AssumeRolePolicy: *pulumi.String(example.Json),
+//				AssumeRolePolicy: pulumi.String(example.Json),
 //			})
 //			if err != nil {
 //				return err
