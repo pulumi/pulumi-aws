@@ -65,7 +65,7 @@ import (
 //			}
 //			_, err = secretsmanager.NewSecretPolicy(ctx, "example", &secretsmanager.SecretPolicyArgs{
 //				SecretArn: exampleSecret.Arn,
-//				Policy:    *pulumi.String(example.Json),
+//				Policy:    pulumi.String(example.Json),
 //			})
 //			if err != nil {
 //				return err

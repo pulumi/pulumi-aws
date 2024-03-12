@@ -66,7 +66,7 @@ import (
 //			verification, err := tls.NewCertRequest(ctx, "verification", &tls.CertRequestArgs{
 //				PrivateKeyPem: verificationPrivateKey.PrivateKeyPem,
 //				Subject: &tls.CertRequestSubjectArgs{
-//					CommonName: *pulumi.String(example.RegistrationCode),
+//					CommonName: pulumi.String(example.RegistrationCode),
 //				},
 //			})
 //			if err != nil {
