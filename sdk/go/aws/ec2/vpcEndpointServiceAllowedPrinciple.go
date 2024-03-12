@@ -44,7 +44,7 @@ import (
 //			}
 //			_, err = ec2.NewVpcEndpointServiceAllowedPrinciple(ctx, "allow_me_to_foo", &ec2.VpcEndpointServiceAllowedPrincipleArgs{
 //				VpcEndpointServiceId: pulumi.Any(foo.Id),
-//				PrincipalArn:         *pulumi.String(current.Arn),
+//				PrincipalArn:         pulumi.String(current.Arn),
 //			})
 //			if err != nil {
 //				return err

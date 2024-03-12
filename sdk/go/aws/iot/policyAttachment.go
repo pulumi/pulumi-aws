@@ -49,7 +49,7 @@ import (
 //			}
 //			pubsubPolicy, err := iot.NewPolicy(ctx, "pubsub", &iot.PolicyArgs{
 //				Name:   pulumi.String("PubSubToAnyTopic"),
-//				Policy: *pulumi.String(pubsub.Json),
+//				Policy: pulumi.String(pubsub.Json),
 //			})
 //			if err != nil {
 //				return err

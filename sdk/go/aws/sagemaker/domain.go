@@ -55,7 +55,7 @@ import (
 //			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
 //				Name:             pulumi.String("example"),
 //				Path:             pulumi.String("/"),
-//				AssumeRolePolicy: *pulumi.String(example.Json),
+//				AssumeRolePolicy: pulumi.String(example.Json),
 //			})
 //			if err != nil {
 //				return err

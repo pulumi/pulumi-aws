@@ -271,7 +271,7 @@ import (
 //			}
 //			defaultRole, err := iam.NewRole(ctx, "default", &iam.RoleArgs{
 //				Name:             pulumi.String("iam_for_lambda_called_from_cloudwatch_logs"),
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
