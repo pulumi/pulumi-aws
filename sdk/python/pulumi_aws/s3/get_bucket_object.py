@@ -21,7 +21,10 @@ class GetBucketObjectResult:
     """
     A collection of values returned by getBucketObject.
     """
-    def __init__(__self__, body=None, bucket=None, bucket_key_enabled=None, cache_control=None, content_disposition=None, content_encoding=None, content_language=None, content_length=None, content_type=None, etag=None, expiration=None, expires=None, id=None, key=None, last_modified=None, metadata=None, object_lock_legal_hold_status=None, object_lock_mode=None, object_lock_retain_until_date=None, range=None, server_side_encryption=None, sse_kms_key_id=None, storage_class=None, tags=None, version_id=None, website_redirect_location=None):
+    def __init__(__self__, arn=None, body=None, bucket=None, bucket_key_enabled=None, cache_control=None, content_disposition=None, content_encoding=None, content_language=None, content_length=None, content_type=None, etag=None, expiration=None, expires=None, id=None, key=None, last_modified=None, metadata=None, object_lock_legal_hold_status=None, object_lock_mode=None, object_lock_retain_until_date=None, range=None, server_side_encryption=None, sse_kms_key_id=None, storage_class=None, tags=None, version_id=None, website_redirect_location=None):
+        if arn and not isinstance(arn, str):
+            raise TypeError("Expected argument 'arn' to be a str")
+        pulumi.set(__self__, "arn", arn)
         if body and not isinstance(body, str):
             raise TypeError("Expected argument 'body' to be a str")
         pulumi.set(__self__, "body", body)
@@ -100,6 +103,11 @@ class GetBucketObjectResult:
         if website_redirect_location and not isinstance(website_redirect_location, str):
             raise TypeError("Expected argument 'website_redirect_location' to be a str")
         pulumi.set(__self__, "website_redirect_location", website_redirect_location)
+
+    @property
+    @pulumi.getter
+    def arn(self) -> str:
+        return pulumi.get(self, "arn")
 
     @property
     @pulumi.getter
@@ -310,6 +318,7 @@ class AwaitableGetBucketObjectResult(GetBucketObjectResult):
         if False:
             yield self
         return GetBucketObjectResult(
+            arn=self.arn,
             body=self.body,
             bucket=self.bucket,
             bucket_key_enabled=self.bucket_key_enabled,
@@ -410,6 +419,7 @@ def get_bucket_object(bucket: Optional[str] = None,
     __ret__ = pulumi.runtime.invoke('aws:s3/getBucketObject:getBucketObject', __args__, opts=opts, typ=GetBucketObjectResult).value
 
     return AwaitableGetBucketObjectResult(
+        arn=pulumi.get(__ret__, 'arn'),
         body=pulumi.get(__ret__, 'body'),
         bucket=pulumi.get(__ret__, 'bucket'),
         bucket_key_enabled=pulumi.get(__ret__, 'bucket_key_enabled'),

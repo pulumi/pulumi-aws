@@ -15,6 +15,7 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class GetBucketObjectResult {
+    private String arn;
     /**
      * @return Object data (see **limitations above** to understand cases in which this field is actually available)
      * 
@@ -141,6 +142,9 @@ public final class GetBucketObjectResult {
     private String websiteRedirectLocation;
 
     private GetBucketObjectResult() {}
+    public String arn() {
+        return this.arn;
+    }
     /**
      * @return Object data (see **limitations above** to understand cases in which this field is actually available)
      * 
@@ -327,6 +331,7 @@ public final class GetBucketObjectResult {
     }
     @CustomType.Builder
     public static final class Builder {
+        private String arn;
         private String body;
         private String bucket;
         private Boolean bucketKeyEnabled;
@@ -356,6 +361,7 @@ public final class GetBucketObjectResult {
         public Builder() {}
         public Builder(GetBucketObjectResult defaults) {
     	      Objects.requireNonNull(defaults);
+    	      this.arn = defaults.arn;
     	      this.body = defaults.body;
     	      this.bucket = defaults.bucket;
     	      this.bucketKeyEnabled = defaults.bucketKeyEnabled;
@@ -384,6 +390,14 @@ public final class GetBucketObjectResult {
     	      this.websiteRedirectLocation = defaults.websiteRedirectLocation;
         }
 
+        @CustomType.Setter
+        public Builder arn(String arn) {
+            if (arn == null) {
+              throw new MissingRequiredPropertyException("GetBucketObjectResult", "arn");
+            }
+            this.arn = arn;
+            return this;
+        }
         @CustomType.Setter
         public Builder body(String body) {
             if (body == null) {
@@ -592,6 +606,7 @@ public final class GetBucketObjectResult {
         }
         public GetBucketObjectResult build() {
             final var _resultValue = new GetBucketObjectResult();
+            _resultValue.arn = arn;
             _resultValue.body = body;
             _resultValue.bucket = bucket;
             _resultValue.bucketKeyEnabled = bucketKeyEnabled;

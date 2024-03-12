@@ -131,6 +131,7 @@ type LookupBucketObjectArgs struct {
 
 // A collection of values returned by getBucketObject.
 type LookupBucketObjectResult struct {
+	Arn string `pulumi:"arn"`
 	// Object data (see **limitations above** to understand cases in which this field is actually available)
 	Body string `pulumi:"body"`
 	// Deprecated: Use the aws_s3_object data source instead
@@ -228,6 +229,10 @@ func (o LookupBucketObjectResultOutput) ToLookupBucketObjectResultOutput() Looku
 
 func (o LookupBucketObjectResultOutput) ToLookupBucketObjectResultOutputWithContext(ctx context.Context) LookupBucketObjectResultOutput {
 	return o
+}
+
+func (o LookupBucketObjectResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
 // Object data (see **limitations above** to understand cases in which this field is actually available)

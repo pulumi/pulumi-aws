@@ -15,14 +15,14 @@ public final class DetectorFeatureAdditionalConfigurationArgs extends com.pulumi
     public static final DetectorFeatureAdditionalConfigurationArgs Empty = new DetectorFeatureAdditionalConfigurationArgs();
 
     /**
-     * The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`.
+     * The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
      * 
      */
     @Import(name="name", required=true)
     private Output<String> name;
 
     /**
-     * @return The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`.
+     * @return The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
      * 
      */
     public Output<String> name() {
@@ -70,7 +70,7 @@ public final class DetectorFeatureAdditionalConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param name The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`.
+         * @param name The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
          * 
          * @return builder
          * 
@@ -81,7 +81,7 @@ public final class DetectorFeatureAdditionalConfigurationArgs extends com.pulumi
         }
 
         /**
-         * @param name The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`.
+         * @param name The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
          * 
          * @return builder
          * 

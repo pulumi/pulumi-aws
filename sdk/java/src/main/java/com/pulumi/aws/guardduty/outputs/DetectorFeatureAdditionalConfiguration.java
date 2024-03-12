@@ -11,7 +11,7 @@ import java.util.Objects;
 @CustomType
 public final class DetectorFeatureAdditionalConfiguration {
     /**
-     * @return The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`.
+     * @return The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
      * 
      */
     private String name;
@@ -23,7 +23,7 @@ public final class DetectorFeatureAdditionalConfiguration {
 
     private DetectorFeatureAdditionalConfiguration() {}
     /**
-     * @return The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`.
+     * @return The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
      * 
      */
     public String name() {

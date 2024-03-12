@@ -144,7 +144,7 @@ export class ClusterInstance extends pulumi.CustomResource {
     public /*out*/ readonly endpoint!: pulumi.Output<string>;
     /**
      * Name of the database engine to be used for the RDS cluster instance.
-     * Valid Values: `aurora-mysql`, `aurora-postgresql`.
+     * Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
      */
     public readonly engine!: pulumi.Output<EngineType>;
     /**
@@ -386,7 +386,7 @@ export interface ClusterInstanceState {
     endpoint?: pulumi.Input<string>;
     /**
      * Name of the database engine to be used for the RDS cluster instance.
-     * Valid Values: `aurora-mysql`, `aurora-postgresql`.
+     * Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
      */
     engine?: pulumi.Input<EngineType>;
     /**
@@ -519,7 +519,7 @@ export interface ClusterInstanceArgs {
     dbSubnetGroupName?: pulumi.Input<string>;
     /**
      * Name of the database engine to be used for the RDS cluster instance.
-     * Valid Values: `aurora-mysql`, `aurora-postgresql`.
+     * Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
      */
     engine: pulumi.Input<EngineType>;
     /**

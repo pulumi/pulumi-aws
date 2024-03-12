@@ -266,6 +266,12 @@ namespace Pulumi.Aws.S3
         public Output<string> Acl { get; private set; } = null!;
 
         /// <summary>
+        /// ARN of the object.
+        /// </summary>
+        [Output("arn")]
+        public Output<string> Arn { get; private set; } = null!;
+
+        /// <summary>
         /// Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
         /// </summary>
         [Output("bucket")]
@@ -694,6 +700,12 @@ namespace Pulumi.Aws.S3
         /// </summary>
         [Input("acl")]
         public Input<string>? Acl { get; set; }
+
+        /// <summary>
+        /// ARN of the object.
+        /// </summary>
+        [Input("arn")]
+        public Input<string>? Arn { get; set; }
 
         /// <summary>
         /// Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.

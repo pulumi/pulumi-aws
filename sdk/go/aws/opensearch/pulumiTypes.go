@@ -388,9 +388,13 @@ type DomainAutoTuneOptions struct {
 	// Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
 	DesiredState string `pulumi:"desiredState"`
 	// Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
+	//
+	// **NOTE:** Maintenance windows are deprecated and have been replaced with [off-peak windows](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html). Consequently, `maintenanceSchedule` configuration blocks cannot be specified when `useOffPeakWindow` is set to `true`.
 	MaintenanceSchedules []DomainAutoTuneOptionsMaintenanceSchedule `pulumi:"maintenanceSchedules"`
 	// Whether to roll back to default Auto-Tune settings when disabling Auto-Tune. Valid values: `DEFAULT_ROLLBACK` or `NO_ROLLBACK`.
 	RollbackOnDisable *string `pulumi:"rollbackOnDisable"`
+	// Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain's configured daily off-peak window. Defaults to `false`.
+	UseOffPeakWindow *bool `pulumi:"useOffPeakWindow"`
 }
 
 // DomainAutoTuneOptionsInput is an input type that accepts DomainAutoTuneOptionsArgs and DomainAutoTuneOptionsOutput values.
@@ -408,9 +412,13 @@ type DomainAutoTuneOptionsArgs struct {
 	// Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
 	DesiredState pulumi.StringInput `pulumi:"desiredState"`
 	// Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
+	//
+	// **NOTE:** Maintenance windows are deprecated and have been replaced with [off-peak windows](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html). Consequently, `maintenanceSchedule` configuration blocks cannot be specified when `useOffPeakWindow` is set to `true`.
 	MaintenanceSchedules DomainAutoTuneOptionsMaintenanceScheduleArrayInput `pulumi:"maintenanceSchedules"`
 	// Whether to roll back to default Auto-Tune settings when disabling Auto-Tune. Valid values: `DEFAULT_ROLLBACK` or `NO_ROLLBACK`.
 	RollbackOnDisable pulumi.StringPtrInput `pulumi:"rollbackOnDisable"`
+	// Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain's configured daily off-peak window. Defaults to `false`.
+	UseOffPeakWindow pulumi.BoolPtrInput `pulumi:"useOffPeakWindow"`
 }
 
 func (DomainAutoTuneOptionsArgs) ElementType() reflect.Type {
@@ -496,6 +504,8 @@ func (o DomainAutoTuneOptionsOutput) DesiredState() pulumi.StringOutput {
 }
 
 // Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
+//
+// **NOTE:** Maintenance windows are deprecated and have been replaced with [off-peak windows](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html). Consequently, `maintenanceSchedule` configuration blocks cannot be specified when `useOffPeakWindow` is set to `true`.
 func (o DomainAutoTuneOptionsOutput) MaintenanceSchedules() DomainAutoTuneOptionsMaintenanceScheduleArrayOutput {
 	return o.ApplyT(func(v DomainAutoTuneOptions) []DomainAutoTuneOptionsMaintenanceSchedule {
 		return v.MaintenanceSchedules
@@ -505,6 +515,11 @@ func (o DomainAutoTuneOptionsOutput) MaintenanceSchedules() DomainAutoTuneOption
 // Whether to roll back to default Auto-Tune settings when disabling Auto-Tune. Valid values: `DEFAULT_ROLLBACK` or `NO_ROLLBACK`.
 func (o DomainAutoTuneOptionsOutput) RollbackOnDisable() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v DomainAutoTuneOptions) *string { return v.RollbackOnDisable }).(pulumi.StringPtrOutput)
+}
+
+// Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain's configured daily off-peak window. Defaults to `false`.
+func (o DomainAutoTuneOptionsOutput) UseOffPeakWindow() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v DomainAutoTuneOptions) *bool { return v.UseOffPeakWindow }).(pulumi.BoolPtrOutput)
 }
 
 type DomainAutoTuneOptionsPtrOutput struct{ *pulumi.OutputState }
@@ -542,6 +557,8 @@ func (o DomainAutoTuneOptionsPtrOutput) DesiredState() pulumi.StringPtrOutput {
 }
 
 // Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
+//
+// **NOTE:** Maintenance windows are deprecated and have been replaced with [off-peak windows](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html). Consequently, `maintenanceSchedule` configuration blocks cannot be specified when `useOffPeakWindow` is set to `true`.
 func (o DomainAutoTuneOptionsPtrOutput) MaintenanceSchedules() DomainAutoTuneOptionsMaintenanceScheduleArrayOutput {
 	return o.ApplyT(func(v *DomainAutoTuneOptions) []DomainAutoTuneOptionsMaintenanceSchedule {
 		if v == nil {
@@ -559,6 +576,16 @@ func (o DomainAutoTuneOptionsPtrOutput) RollbackOnDisable() pulumi.StringPtrOutp
 		}
 		return v.RollbackOnDisable
 	}).(pulumi.StringPtrOutput)
+}
+
+// Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain's configured daily off-peak window. Defaults to `false`.
+func (o DomainAutoTuneOptionsPtrOutput) UseOffPeakWindow() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *DomainAutoTuneOptions) *bool {
+		if v == nil {
+			return nil
+		}
+		return v.UseOffPeakWindow
+	}).(pulumi.BoolPtrOutput)
 }
 
 type DomainAutoTuneOptionsMaintenanceSchedule struct {

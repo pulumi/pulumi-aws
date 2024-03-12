@@ -10388,6 +10388,17 @@ export namespace batch {
         attemptDurationSeconds?: number;
     }
 
+    export interface JobQueueComputeEnvironmentOrder {
+        /**
+         * The Amazon Resource Name (ARN) of the compute environment.
+         */
+        computeEnvironment: string;
+        /**
+         * The order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
+         */
+        order: number;
+    }
+
     export interface JobQueueTimeouts {
         /**
          * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
@@ -34739,7 +34750,7 @@ export namespace guardduty {
 
     export interface DetectorFeatureAdditionalConfiguration {
         /**
-         * The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`.
+         * The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
          */
         name: string;
         /**
@@ -60521,12 +60532,18 @@ export namespace opensearch {
         desiredState: string;
         /**
          * Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
+         *
+         * **NOTE:** Maintenance windows are deprecated and have been replaced with [off-peak windows](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html). Consequently, `maintenanceSchedule` configuration blocks cannot be specified when `useOffPeakWindow` is set to `true`.
          */
-        maintenanceSchedules: outputs.opensearch.DomainAutoTuneOptionsMaintenanceSchedule[];
+        maintenanceSchedules?: outputs.opensearch.DomainAutoTuneOptionsMaintenanceSchedule[];
         /**
          * Whether to roll back to default Auto-Tune settings when disabling Auto-Tune. Valid values: `DEFAULT_ROLLBACK` or `NO_ROLLBACK`.
          */
         rollbackOnDisable: string;
+        /**
+         * Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain's configured daily off-peak window. Defaults to `false`.
+         */
+        useOffPeakWindow?: boolean;
     }
 
     export interface DomainAutoTuneOptionsMaintenanceSchedule {
@@ -74683,6 +74700,96 @@ export namespace securitylake {
         update?: string;
     }
 
+    export interface SubscriberSource {
+        /**
+         * Amazon Security Lake supports log and event collection for natively supported AWS services.
+         */
+        awsLogSourceResource?: outputs.securitylake.SubscriberSourceAwsLogSourceResource;
+        /**
+         * Amazon Security Lake supports custom source types.
+         */
+        customLogSourceResource?: outputs.securitylake.SubscriberSourceCustomLogSourceResource;
+    }
+
+    export interface SubscriberSourceAwsLogSourceResource {
+        /**
+         * The name for a third-party custom source. This must be a Regionally unique value.
+         */
+        sourceName?: string;
+        /**
+         * The version for a third-party custom source. This must be a Regionally unique value.
+         */
+        sourceVersion?: string;
+    }
+
+    export interface SubscriberSourceCustomLogSourceResource {
+        /**
+         * The attributes of a third-party custom source.
+         */
+        attributes: outputs.securitylake.SubscriberSourceCustomLogSourceResourceAttribute[];
+        providers: outputs.securitylake.SubscriberSourceCustomLogSourceResourceProvider[];
+        /**
+         * The name for a third-party custom source. This must be a Regionally unique value.
+         */
+        sourceName?: string;
+        /**
+         * The version for a third-party custom source. This must be a Regionally unique value.
+         */
+        sourceVersion?: string;
+    }
+
+    export interface SubscriberSourceCustomLogSourceResourceAttribute {
+        /**
+         * The ARN of the AWS Glue crawler.
+         */
+        crawlerArn: string;
+        /**
+         * The ARN of the AWS Glue database where results are written.
+         */
+        databaseArn: string;
+        /**
+         * The ARN of the AWS Glue table.
+         */
+        tableArn: string;
+    }
+
+    export interface SubscriberSourceCustomLogSourceResourceProvider {
+        /**
+         * The location of the partition in the Amazon S3 bucket for Security Lake.
+         */
+        location: string;
+        /**
+         * The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
+         */
+        roleArn: string;
+    }
+
+    export interface SubscriberSubscriberIdentity {
+        /**
+         * The AWS Regions where Security Lake is automatically enabled.
+         */
+        externalId: string;
+        /**
+         * Provides encryption details of Amazon Security Lake object.
+         */
+        principal: string;
+    }
+
+    export interface SubscriberTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+         */
+        delete?: string;
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        update?: string;
+    }
+
 }
 
 export namespace servicecatalog {
@@ -79348,6 +79455,12 @@ export namespace wafv2 {
          * Aggregate the request counts using one or more web request components as the aggregate keys. See `customKey` below for details.
          */
         customKeys?: outputs.wafv2.RuleGroupRuleStatementRateBasedStatementCustomKey[];
+        /**
+         * The amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. Valid values are `60`, `120`, `300`, and `600`. Defaults to `300` (5 minutes).
+         *
+         * **NOTE:** This setting doesn't determine how often AWS WAF checks the rate, but how far back it looks each time it checks. AWS WAF checks the rate about every 10 seconds.
+         */
+        evaluationWindowSec?: number;
         /**
          * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `aggregateKeyType` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
          */
@@ -84769,6 +84882,12 @@ export namespace wafv2 {
          * Aggregate the request counts using one or more web request components as the aggregate keys. See `customKey` below for details.
          */
         customKeys?: outputs.wafv2.WebAclRuleStatementRateBasedStatementCustomKey[];
+        /**
+         * The amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. Valid values are `60`, `120`, `300`, and `600`. Defaults to `300` (5 minutes).
+         *
+         * **NOTE:** This setting doesn't determine how often AWS WAF checks the rate, but how far back it looks each time it checks. AWS WAF checks the rate about every 10 seconds.
+         */
+        evaluationWindowSec?: number;
         /**
          * Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `aggregateKeyType` is set to `FORWARDED_IP`, this block is required. See `forwardedIpConfig` below for details.
          */

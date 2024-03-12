@@ -177,17 +177,23 @@ class DomainAutoTuneOptionsArgs:
     def __init__(__self__, *,
                  desired_state: pulumi.Input[str],
                  maintenance_schedules: Optional[pulumi.Input[Sequence[pulumi.Input['DomainAutoTuneOptionsMaintenanceScheduleArgs']]]] = None,
-                 rollback_on_disable: Optional[pulumi.Input[str]] = None):
+                 rollback_on_disable: Optional[pulumi.Input[str]] = None,
+                 use_off_peak_window: Optional[pulumi.Input[bool]] = None):
         """
         :param pulumi.Input[str] desired_state: Auto-Tune desired state for the domain. Valid values: `ENABLED` or `DISABLED`.
         :param pulumi.Input[Sequence[pulumi.Input['DomainAutoTuneOptionsMaintenanceScheduleArgs']]] maintenance_schedules: Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
+               
+               **NOTE:** Maintenance windows are deprecated and have been replaced with [off-peak windows](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html). Consequently, `maintenance_schedule` configuration blocks cannot be specified when `use_off_peak_window` is set to `true`.
         :param pulumi.Input[str] rollback_on_disable: Whether to roll back to default Auto-Tune settings when disabling Auto-Tune. Valid values: `DEFAULT_ROLLBACK` or `NO_ROLLBACK`.
+        :param pulumi.Input[bool] use_off_peak_window: Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain's configured daily off-peak window. Defaults to `false`.
         """
         pulumi.set(__self__, "desired_state", desired_state)
         if maintenance_schedules is not None:
             pulumi.set(__self__, "maintenance_schedules", maintenance_schedules)
         if rollback_on_disable is not None:
             pulumi.set(__self__, "rollback_on_disable", rollback_on_disable)
+        if use_off_peak_window is not None:
+            pulumi.set(__self__, "use_off_peak_window", use_off_peak_window)
 
     @property
     @pulumi.getter(name="desiredState")
@@ -206,6 +212,8 @@ class DomainAutoTuneOptionsArgs:
     def maintenance_schedules(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['DomainAutoTuneOptionsMaintenanceScheduleArgs']]]]:
         """
         Configuration block for Auto-Tune maintenance windows. Can be specified multiple times for each maintenance window. Detailed below.
+
+        **NOTE:** Maintenance windows are deprecated and have been replaced with [off-peak windows](https://docs.aws.amazon.com/opensearch-service/latest/developerguide/off-peak.html). Consequently, `maintenance_schedule` configuration blocks cannot be specified when `use_off_peak_window` is set to `true`.
         """
         return pulumi.get(self, "maintenance_schedules")
 
@@ -224,6 +232,18 @@ class DomainAutoTuneOptionsArgs:
     @rollback_on_disable.setter
     def rollback_on_disable(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "rollback_on_disable", value)
+
+    @property
+    @pulumi.getter(name="useOffPeakWindow")
+    def use_off_peak_window(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain's configured daily off-peak window. Defaults to `false`.
+        """
+        return pulumi.get(self, "use_off_peak_window")
+
+    @use_off_peak_window.setter
+    def use_off_peak_window(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "use_off_peak_window", value)
 
 
 @pulumi.input_type

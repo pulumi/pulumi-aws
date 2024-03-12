@@ -101,6 +101,7 @@ export interface GetBucketObjectArgs {
  * A collection of values returned by getBucketObject.
  */
 export interface GetBucketObjectResult {
+    readonly arn: string;
     /**
      * Object data (see **limitations above** to understand cases in which this field is actually available)
      */
