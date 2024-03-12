@@ -22,10 +22,10 @@ index d1c4c7d1ab..3e51e53f87 100644
  	if request.Plan.Raw.IsNull() {
  		return
 diff --git a/internal/provider/fwprovider/provider.go b/internal/provider/fwprovider/provider.go
-index 963d905424..be3bc32ec2 100644
+index 027b39dd43..07c0c9ce31 100644
 --- a/internal/provider/fwprovider/provider.go
 +++ b/internal/provider/fwprovider/provider.go
-@@ -425,8 +425,8 @@ func (p *fwprovider) Resources(ctx context.Context) []func() resource.Resource {
+@@ -430,8 +430,8 @@ func (p *fwprovider) Resources(ctx context.Context) []func() resource.Resource {
  					continue
  				}
  				if v, ok := schemaResponse.Schema.Attributes[names.AttrTagsAll]; ok {
@@ -89,10 +89,10 @@ index 942630acae..45b72fc158 100644
  		Blocks: map[string]schema.Block{
  			"control_sets": schema.SetNestedBlock{
 diff --git a/internal/service/batch/job_queue.go b/internal/service/batch/job_queue.go
-index 504a6f5ac3..955cfb4816 100644
+index 728e0ffa3c..67e2411288 100644
 --- a/internal/service/batch/job_queue.go
 +++ b/internal/service/batch/job_queue.go
-@@ -96,7 +96,7 @@ func (r *resourceJobQueue) Schema(ctx context.Context, request resource.SchemaRe
+@@ -109,7 +109,7 @@ func (r *resourceJobQueue) Schema(ctx context.Context, request resource.SchemaRe
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -102,7 +102,7 @@ index 504a6f5ac3..955cfb4816 100644
  	}
  
 diff --git a/internal/service/batch/job_queue_schema.go b/internal/service/batch/job_queue_schema.go
-index bd19814922..45c6b8cadc 100644
+index 8b11271ab7..0ded1f6052 100644
 --- a/internal/service/batch/job_queue_schema.go
 +++ b/internal/service/batch/job_queue_schema.go
 @@ -58,7 +58,7 @@ func jobQueueSchema0(ctx context.Context) schema.Schema {
