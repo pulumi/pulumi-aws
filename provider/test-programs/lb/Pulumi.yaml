@@ -8,6 +8,15 @@ resources:
       enableDnsSupport: true
       enableDnsHostnames: true
 
+  myInternetGateway:
+    type: aws:ec2:InternetGateway
+
+  myVPCGatewayAttachment:
+    type: aws:ec2:InternetGatewayAttachment
+    properties:
+      vpcId: ${exampleVpc.id}
+      internetGatewayId: ${myInternetGateway.id}
+
   exampleSubnet1:
     type: aws:ec2:Subnet
     properties:

@@ -92,8 +92,6 @@ resources:
       protocol: tcp
       cidrBlocks:
         - ${vpc.cidrBlock}
-      ipv6CidrBlocks:
-        - ${vpc.ipv6CidrBlock}
       securityGroupId: ${ecsSecurityGroup}
 
   ecsService:
