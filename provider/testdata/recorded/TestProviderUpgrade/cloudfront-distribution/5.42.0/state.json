@@ -1,0 +1,227 @@
+{
+    "version": 3,
+    "deployment": {
+        "manifest": {
+            "time": "2024-03-12T16:00:49.966711Z",
+            "magic": "4fa6a6dae0ccab3589c700b0790a52fa47015f8ec72d37a2e10816857250b8c2",
+            "version": "v3.108.1"
+        },
+        "secrets_providers": {
+            "type": "passphrase",
+            "state": {
+                "salt": "v1:thCALeIw7xc=:v1:rbCb2jYIYsDYI0S1:nA9Ief6n8awJ7qyl43ZjlmpsfEDTYw=="
+            }
+        },
+        "resources": [
+            {
+                "urn": "urn:pulumi:p-it-venelins-m-cloudfront-352a5bee::cloudfront-distribution::pulumi:pulumi:Stack::cloudfront-distribution-p-it-venelins-m-cloudfront-352a5bee",
+                "custom": false,
+                "type": "pulumi:pulumi:Stack",
+                "created": "2024-03-12T15:56:52.721771Z",
+                "modified": "2024-03-12T15:56:52.721771Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-venelins-m-cloudfront-352a5bee::cloudfront-distribution::pulumi:providers:aws::default",
+                "custom": true,
+                "id": "633c3ccb-a412-47e5-b7db-5b200074fc3a",
+                "type": "pulumi:providers:aws",
+                "created": "2024-03-12T15:56:54.432264Z",
+                "modified": "2024-03-12T15:56:54.432264Z"
+            },
+            {
+                "urn": "urn:pulumi:p-it-venelins-m-cloudfront-352a5bee::cloudfront-distribution::aws:cloudfront/distribution:Distribution::myDistribution",
+                "custom": true,
+                "id": "E3AQAAW1WO7GJ2",
+                "type": "aws:cloudfront/distribution:Distribution",
+                "inputs": {
+                    "__defaults": [
+                        "httpVersion",
+                        "isIpv6Enabled",
+                        "priceClass",
+                        "retainOnDelete",
+                        "waitForDeployment"
+                    ],
+                    "defaultCacheBehavior": {
+                        "__defaults": [
+                            "compress",
+                            "minTtl"
+                        ],
+                        "allowedMethods": [
+                            "GET",
+                            "HEAD",
+                            "OPTIONS"
+                        ],
+                        "cachedMethods": [
+                            "GET",
+                            "HEAD",
+                            "OPTIONS"
+                        ],
+                        "compress": false,
+                        "forwardedValues": {
+                            "__defaults": [],
+                            "cookies": {
+                                "__defaults": [],
+                                "forward": "none"
+                            },
+                            "queryString": false
+                        },
+                        "minTtl": 0,
+                        "targetOriginId": "myS3Origin",
+                        "viewerProtocolPolicy": "allow-all"
+                    },
+                    "defaultRootObject": "index.html",
+                    "enabled": true,
+                    "httpVersion": "http2",
+                    "isIpv6Enabled": false,
+                    "orderedCacheBehaviors": [],
+                    "origins": [
+                        {
+                            "__defaults": [
+                                "connectionAttempts",
+                                "connectionTimeout",
+                                "originPath"
+                            ],
+                            "connectionAttempts": 3,
+                            "connectionTimeout": 10,
+                            "domainName": "mybucket.s3.amazonaws.com",
+                            "originId": "myS3Origin",
+                            "originPath": ""
+                        }
+                    ],
+                    "priceClass": "PriceClass_All",
+                    "restrictions": {
+                        "__defaults": [],
+                        "geoRestriction": {
+                            "__defaults": [],
+                            "restrictionType": "none"
+                        }
+                    },
+                    "retainOnDelete": false,
+                    "viewerCertificate": {
+                        "__defaults": [
+                            "minimumProtocolVersion"
+                        ],
+                        "cloudfrontDefaultCertificate": true,
+                        "minimumProtocolVersion": "TLSv1"
+                    },
+                    "waitForDeployment": true
+                },
+                "outputs": {
+                    "__meta": "{\"schema_version\":\"1\"}",
+                    "aliases": [],
+                    "arn": "arn:aws:cloudfront::616138583583:distribution/E3AQAAW1WO7GJ2",
+                    "callerReference": "terraform-20240312155656008700000001",
+                    "customErrorResponses": [],
+                    "defaultCacheBehavior": {
+                        "allowedMethods": [
+                            "GET",
+                            "HEAD",
+                            "OPTIONS"
+                        ],
+                        "cachePolicyId": "",
+                        "cachedMethods": [
+                            "GET",
+                            "HEAD",
+                            "OPTIONS"
+                        ],
+                        "compress": false,
+                        "defaultTtl": 0,
+                        "fieldLevelEncryptionId": "",
+                        "forwardedValues": {
+                            "cookies": {
+                                "forward": "none",
+                                "whitelistedNames": []
+                            },
+                            "headers": [],
+                            "queryString": false,
+                            "queryStringCacheKeys": []
+                        },
+                        "functionAssociations": [],
+                        "lambdaFunctionAssociations": [],
+                        "maxTtl": 0,
+                        "minTtl": 0,
+                        "originRequestPolicyId": "",
+                        "realtimeLogConfigArn": "",
+                        "responseHeadersPolicyId": "",
+                        "smoothStreaming": false,
+                        "targetOriginId": "myS3Origin",
+                        "trustedKeyGroups": [],
+                        "trustedSigners": [],
+                        "viewerProtocolPolicy": "allow-all"
+                    },
+                    "defaultRootObject": "index.html",
+                    "domainName": "d5w1hsbjrmvfa.cloudfront.net",
+                    "enabled": true,
+                    "etag": "E3Q6JM4Z8LSJS7",
+                    "hostedZoneId": "Z2FDTNDATAQYW2",
+                    "httpVersion": "http2",
+                    "id": "E3AQAAW1WO7GJ2",
+                    "inProgressValidationBatches": 0,
+                    "isIpv6Enabled": false,
+                    "lastModifiedTime": "2024-03-12 15:56:56.358 +0000 UTC",
+                    "loggingConfig": null,
+                    "orderedCacheBehaviors": [],
+                    "origins": [
+                        {
+                            "connectionAttempts": 3,
+                            "connectionTimeout": 10,
+                            "customHeaders": [],
+                            "customOriginConfig": null,
+                            "domainName": "mybucket.s3.amazonaws.com",
+                            "originAccessControlId": "",
+                            "originId": "myS3Origin",
+                            "originPath": "",
+                            "originShield": null,
+                            "s3OriginConfig": null
+                        }
+                    ],
+                    "priceClass": "PriceClass_All",
+                    "restrictions": {
+                        "geoRestriction": {
+                            "locations": [],
+                            "restrictionType": "none"
+                        }
+                    },
+                    "retainOnDelete": false,
+                    "status": "Deployed",
+                    "tags": {},
+                    "tagsAll": {},
+                    "trustedKeyGroups": [
+                        {
+                            "enabled": false,
+                            "items": []
+                        }
+                    ],
+                    "trustedSigners": [
+                        {
+                            "enabled": false,
+                            "items": []
+                        }
+                    ],
+                    "viewerCertificate": {
+                        "acmCertificateArn": "",
+                        "cloudfrontDefaultCertificate": true,
+                        "iamCertificateId": "",
+                        "minimumProtocolVersion": "TLSv1",
+                        "sslSupportMethod": ""
+                    },
+                    "waitForDeployment": true,
+                    "webAclId": ""
+                },
+                "parent": "urn:pulumi:p-it-venelins-m-cloudfront-352a5bee::cloudfront-distribution::pulumi:pulumi:Stack::cloudfront-distribution-p-it-venelins-m-cloudfront-352a5bee",
+                "provider": "urn:pulumi:p-it-venelins-m-cloudfront-352a5bee::cloudfront-distribution::pulumi:providers:aws::default::633c3ccb-a412-47e5-b7db-5b200074fc3a",
+                "propertyDependencies": {
+                    "defaultCacheBehavior": null,
+                    "defaultRootObject": null,
+                    "enabled": null,
+                    "orderedCacheBehaviors": null,
+                    "origins": null,
+                    "restrictions": null,
+                    "viewerCertificate": null
+                },
+                "created": "2024-03-12T16:00:49.966159Z",
+                "modified": "2024-03-12T16:00:49.966159Z"
+            }
+        ]
+    }
+}

@@ -93,10 +93,34 @@ func TestECSService(t *testing.T) {
 	test(t, filepath.Join("test-programs", "ecs-service"))
 }
 
-func TestIAMUser(t *testing.T){
+func TestIAMUser(t *testing.T) {
 	test(t, filepath.Join("test-programs", "iam-user"))
 }
 
-func TestLB(t *testing.T){
+func TestLB(t *testing.T) {
 	test(t, filepath.Join("test-programs", "lb"))
+}
+
+func TestACM(t *testing.T) {
+	test(t, filepath.Join("test-programs", "acm"))
+}
+
+func TestBucketObj(t *testing.T) {
+	test(t, filepath.Join("test-programs", "bucket-obj"))
+}
+
+func TestSubnetGroup(t *testing.T) {
+	test(t, filepath.Join("test-programs", "subnet-group"))
+}
+
+func TestEC2Instance(t *testing.T) {
+	test(t, filepath.Join("test-programs", "ec2-instance"))
+}
+
+func TestCloudfrontDistribution(t *testing.T) {
+	test(t, filepath.Join("test-programs", "cloudfront-distribution"))
+}
+
+func TestSecretVersion(t *testing.T) {
+	test(t, filepath.Join("test-programs", "secretversion"))
 }
