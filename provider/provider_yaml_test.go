@@ -102,6 +102,7 @@ func TestLB(t *testing.T) {
 }
 
 func TestACM(t *testing.T) {
+	t.Skip("Blocked by https://github.com/pulumi/pulumi-aws/issues/3617")
 	test(t, filepath.Join("test-programs", "acm"))
 }
 
