@@ -364,7 +364,7 @@ import (
 // Name: pulumi.String("sg"),
 // Tags: pulumi.StringMap{
 // "workaround1": pulumi.String("tagged-name"),
-// "workaround2": *pulumi.String(_default.Id),
+// "workaround2": pulumi.String(_default.Id),
 // },
 // })
 // if err != nil {

@@ -62,7 +62,7 @@ import (
 //				return err
 //			}
 //			_, err = cloudwatch.NewEventBusPolicy(ctx, "test", &cloudwatch.EventBusPolicyArgs{
-//				Policy:       *pulumi.String(test.Json),
+//				Policy:       pulumi.String(test.Json),
 //				EventBusName: pulumi.Any(testAwsCloudwatchEventBus.Name),
 //			})
 //			if err != nil {
@@ -129,7 +129,7 @@ import (
 // return err
 // }
 // _, err = cloudwatch.NewEventBusPolicy(ctx, "test", &cloudwatch.EventBusPolicyArgs{
-// Policy: *pulumi.String(test.Json),
+// Policy: pulumi.String(test.Json),
 // EventBusName: pulumi.Any(testAwsCloudwatchEventBus.Name),
 // })
 // if err != nil {
@@ -213,7 +213,7 @@ import (
 // return err
 // }
 // _, err = cloudwatch.NewEventBusPolicy(ctx, "test", &cloudwatch.EventBusPolicyArgs{
-// Policy: *pulumi.String(test.Json),
+// Policy: pulumi.String(test.Json),
 // EventBusName: pulumi.Any(testAwsCloudwatchEventBus.Name),
 // })
 // if err != nil {
