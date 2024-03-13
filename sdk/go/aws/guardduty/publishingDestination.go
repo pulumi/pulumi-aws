@@ -156,7 +156,7 @@ import (
 //			gdKey, err := kms.NewKey(ctx, "gd_key", &kms.KeyArgs{
 //				Description:          pulumi.String("Temporary key for AccTest of TF"),
 //				DeletionWindowInDays: pulumi.Int(7),
-//				Policy:               *pulumi.String(kmsPol.Json),
+//				Policy:               pulumi.String(kmsPol.Json),
 //			})
 //			if err != nil {
 //				return err

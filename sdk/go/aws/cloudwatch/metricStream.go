@@ -60,7 +60,7 @@ import (
 //			}
 //			metricStreamToFirehoseRole, err := iam.NewRole(ctx, "metric_stream_to_firehose", &iam.RoleArgs{
 //				Name:             pulumi.String("metric_stream_to_firehose_role"),
-//				AssumeRolePolicy: *pulumi.String(streamsAssumeRole.Json),
+//				AssumeRolePolicy: pulumi.String(streamsAssumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -93,7 +93,7 @@ import (
 //				return err
 //			}
 //			firehoseToS3Role, err := iam.NewRole(ctx, "firehose_to_s3", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(firehoseAssumeRole.Json),
+//				AssumeRolePolicy: pulumi.String(firehoseAssumeRole.Json),
 //			})
 //			if err != nil {
 //				return err

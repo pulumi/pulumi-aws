@@ -64,7 +64,7 @@ import (
 //				return err
 //			}
 //			testRole, err := iam.NewRole(ctx, "test_role", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -97,7 +97,7 @@ import (
 //			_, err = iam.NewRolePolicy(ctx, "test_role_policy", &iam.RolePolicyArgs{
 //				Name:   pulumi.String("test_policy"),
 //				Role:   testRole.ID(),
-//				Policy: *pulumi.String(testRolePolicy.Json),
+//				Policy: pulumi.String(testRolePolicy.Json),
 //			})
 //			if err != nil {
 //				return err

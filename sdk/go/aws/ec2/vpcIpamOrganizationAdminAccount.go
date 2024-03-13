@@ -37,7 +37,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewVpcIpamOrganizationAdminAccount(ctx, "example", &ec2.VpcIpamOrganizationAdminAccountArgs{
-//				DelegatedAdminAccountId: *pulumi.String(delegated.AccountId),
+//				DelegatedAdminAccountId: pulumi.String(delegated.AccountId),
 //			})
 //			if err != nil {
 //				return err

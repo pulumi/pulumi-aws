@@ -43,13 +43,13 @@ import (
 //			foo, err := opensearch.NewOutboundConnection(ctx, "foo", &opensearch.OutboundConnectionArgs{
 //				ConnectionAlias: pulumi.String("outbound_connection"),
 //				LocalDomainInfo: &opensearch.OutboundConnectionLocalDomainInfoArgs{
-//					OwnerId:    *pulumi.String(current.AccountId),
-//					Region:     *pulumi.String(currentGetRegion.Name),
+//					OwnerId:    pulumi.String(current.AccountId),
+//					Region:     pulumi.String(currentGetRegion.Name),
 //					DomainName: pulumi.Any(localDomain.DomainName),
 //				},
 //				RemoteDomainInfo: &opensearch.OutboundConnectionRemoteDomainInfoArgs{
-//					OwnerId:    *pulumi.String(current.AccountId),
-//					Region:     *pulumi.String(currentGetRegion.Name),
+//					OwnerId:    pulumi.String(current.AccountId),
+//					Region:     pulumi.String(currentGetRegion.Name),
 //					DomainName: pulumi.Any(remoteDomain.DomainName),
 //				},
 //			})
