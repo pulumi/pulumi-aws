@@ -531,7 +531,7 @@ import (
 //				Bucket: pulumi.String("mybucket"),
 //				Grants: s3.BucketGrantArray{
 //					&s3.BucketGrantArgs{
-//						Id:   *pulumi.String(currentUser.Id),
+//						Id:   pulumi.String(currentUser.Id),
 //						Type: pulumi.String("CanonicalUser"),
 //						Permissions: pulumi.StringArray{
 //							pulumi.String("FULL_CONTROL"),

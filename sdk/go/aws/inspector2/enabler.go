@@ -73,7 +73,7 @@ import (
 //			}
 //			_, err = inspector2.NewEnabler(ctx, "test", &inspector2.EnablerArgs{
 //				AccountIds: pulumi.StringArray{
-//					*pulumi.String(current.AccountId),
+//					pulumi.String(current.AccountId),
 //				},
 //				ResourceTypes: pulumi.StringArray{
 //					pulumi.String("ECR"),
