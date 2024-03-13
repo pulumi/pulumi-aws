@@ -640,3 +640,14 @@ func TestRoleInlinePolicyAutoName(t *testing.T) {
 	require.Regexp(t, regexp.MustCompile("testrole-*"), inlinePolicy.Name)
 	require.JSONEq(t, `{"Version": "2012-10-17", "Statement": [{"Effect": "Allow", "Action": "s3:GetObject", "Resource": "*" }]}`, inlinePolicy.Policy)
 }
+
+func TestRegress3421Update(t *testing.T) {
+	test := pulumitest.NewPulumiTest(t, "regress-3421",
+        opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
+    )
+
+	test.SetConfig("listenerPort", "80")
+	test.Up()
+	test.SetConfig("listenerPort", "81")
+	test.Up()
+}
