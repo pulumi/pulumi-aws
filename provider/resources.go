@@ -30,7 +30,6 @@ import (
 	"github.com/aws/aws-sdk-go-v2/feature/ec2/imds"
 	awsbase "github.com/hashicorp/aws-sdk-go-base/v2"
 	tfschema "github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-	awsShim "github.com/hashicorp/terraform-provider-aws/shim"
 	"github.com/mitchellh/go-homedir"
 	"github.com/pulumi/pulumi-aws/provider/v6/pkg/version"
 
@@ -778,12 +777,6 @@ var runtimeMetadata []byte
 // Provider returns additional overlaid schema and metadata associated with the aws package.
 func Provider() *tfbridge.ProviderInfo {
 	return ProviderFromMeta(tfbridge.NewProviderMetadata(runtimeMetadata))
-}
-
-func newUpstreamProvider(ctx context.Context) awsShim.UpstreamProvider {
-	upstreamProvider, err := awsShim.NewUpstreamProvider(ctx)
-	contract.AssertNoErrorf(err, "NewUpstreamProvider failed to initialize")
-	return upstreamProvider
 }
 
 func deprecateRuntime(value, name string) schema.EnumValueSpec {
