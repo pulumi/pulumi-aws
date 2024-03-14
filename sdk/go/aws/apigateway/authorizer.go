@@ -62,7 +62,7 @@ import (
 //			invocationRole, err := iam.NewRole(ctx, "invocation_role", &iam.RoleArgs{
 //				Name:             pulumi.String("api_gateway_auth_invocation"),
 //				Path:             pulumi.String("/"),
-//				AssumeRolePolicy: *pulumi.String(invocationAssumeRole.Json),
+//				AssumeRolePolicy: pulumi.String(invocationAssumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -90,7 +90,7 @@ import (
 //			}
 //			lambda, err := iam.NewRole(ctx, "lambda", &iam.RoleArgs{
 //				Name:             pulumi.String("demo-lambda"),
-//				AssumeRolePolicy: *pulumi.String(lambdaAssumeRole.Json),
+//				AssumeRolePolicy: pulumi.String(lambdaAssumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
