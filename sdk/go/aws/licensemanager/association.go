@@ -50,7 +50,7 @@ import (
 //				return err
 //			}
 //			exampleInstance, err := ec2.NewInstance(ctx, "example", &ec2.InstanceArgs{
-//				Ami:          *pulumi.String(example.Id),
+//				Ami:          pulumi.String(example.Id),
 //				InstanceType: pulumi.String("t2.micro"),
 //			})
 //			if err != nil {
