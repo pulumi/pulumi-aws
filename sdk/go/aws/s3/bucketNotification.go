@@ -228,7 +228,7 @@ import (
 //			}
 //			iamForLambda, err := iam.NewRole(ctx, "iam_for_lambda", &iam.RoleArgs{
 //				Name:             pulumi.String("iam_for_lambda"),
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -322,7 +322,7 @@ import (
 //			}
 //			iamForLambda, err := iam.NewRole(ctx, "iam_for_lambda", &iam.RoleArgs{
 //				Name:             pulumi.String("iam_for_lambda"),
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err

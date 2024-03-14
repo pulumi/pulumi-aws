@@ -42,7 +42,7 @@ import (
 //				return err
 //			}
 //			_, err = lakeformation.NewResource(ctx, "example", &lakeformation.ResourceArgs{
-//				Arn: *pulumi.String(example.Arn),
+//				Arn: pulumi.String(example.Arn),
 //			})
 //			if err != nil {
 //				return err
