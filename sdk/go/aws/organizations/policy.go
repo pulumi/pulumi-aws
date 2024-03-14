@@ -48,7 +48,7 @@ import (
 //			}
 //			_, err = organizations.NewPolicy(ctx, "example", &organizations.PolicyArgs{
 //				Name:    pulumi.String("example"),
-//				Content: *pulumi.String(example.Json),
+//				Content: pulumi.String(example.Json),
 //			})
 //			if err != nil {
 //				return err
