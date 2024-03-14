@@ -280,7 +280,7 @@ class DetectorFeatureAdditionalConfiguration(dict):
                  name: str,
                  status: str):
         """
-        :param str name: The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`.
+        :param str name: The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
         :param str status: The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
         """
         pulumi.set(__self__, "name", name)
@@ -290,7 +290,7 @@ class DetectorFeatureAdditionalConfiguration(dict):
     @pulumi.getter
     def name(self) -> str:
         """
-        The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`.
+        The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
         """
         return pulumi.get(self, "name")
 

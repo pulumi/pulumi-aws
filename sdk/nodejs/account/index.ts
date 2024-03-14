@@ -15,6 +15,11 @@ export type PrimaryContact = import("./primaryContact").PrimaryContact;
 export const PrimaryContact: typeof import("./primaryContact").PrimaryContact = null as any;
 utilities.lazyLoad(exports, ["PrimaryContact"], () => require("./primaryContact"));
 
+export { RegionArgs, RegionState } from "./region";
+export type Region = import("./region").Region;
+export const Region: typeof import("./region").Region = null as any;
+utilities.lazyLoad(exports, ["Region"], () => require("./region"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -24,6 +29,8 @@ const _module = {
                 return new AlternativeContact(name, <any>undefined, { urn })
             case "aws:account/primaryContact:PrimaryContact":
                 return new PrimaryContact(name, <any>undefined, { urn })
+            case "aws:account/region:Region":
+                return new Region(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -31,3 +38,4 @@ const _module = {
 };
 pulumi.runtime.registerResourceModule("aws", "account/alternativeContact", _module)
 pulumi.runtime.registerResourceModule("aws", "account/primaryContact", _module)
+pulumi.runtime.registerResourceModule("aws", "account/region", _module)

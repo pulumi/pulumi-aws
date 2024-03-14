@@ -1057,7 +1057,7 @@ func (o DetectorDatasourcesS3LogsPtrOutput) Enable() pulumi.BoolPtrOutput {
 }
 
 type DetectorFeatureAdditionalConfiguration struct {
-	// The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`.
+	// The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
 	Name string `pulumi:"name"`
 	// The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
 	Status string `pulumi:"status"`
@@ -1075,7 +1075,7 @@ type DetectorFeatureAdditionalConfigurationInput interface {
 }
 
 type DetectorFeatureAdditionalConfigurationArgs struct {
-	// The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`.
+	// The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
 	Name pulumi.StringInput `pulumi:"name"`
 	// The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
 	Status pulumi.StringInput `pulumi:"status"`
@@ -1132,7 +1132,7 @@ func (o DetectorFeatureAdditionalConfigurationOutput) ToDetectorFeatureAdditiona
 	return o
 }
 
-// The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`.
+// The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
 func (o DetectorFeatureAdditionalConfigurationOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v DetectorFeatureAdditionalConfiguration) string { return v.Name }).(pulumi.StringOutput)
 }

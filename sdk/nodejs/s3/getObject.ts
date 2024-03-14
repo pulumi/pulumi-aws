@@ -103,6 +103,10 @@ export interface GetObjectArgs {
  */
 export interface GetObjectResult {
     /**
+     * ARN of the object.
+     */
+    readonly arn: string;
+    /**
      * Object data (see **limitations above** to understand cases in which this field is actually available)
      */
     readonly body: string;

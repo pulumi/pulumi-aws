@@ -27,6 +27,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &CustomLogSource{}
 	case "aws:securitylake/dataLake:DataLake":
 		r = &DataLake{}
+	case "aws:securitylake/subscriber:Subscriber":
+		r = &Subscriber{}
 	default:
 		return nil, fmt.Errorf("unknown resource type: %s", typ)
 	}
@@ -53,6 +55,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"securitylake/dataLake",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"securitylake/subscriber",
 		&module{version},
 	)
 }

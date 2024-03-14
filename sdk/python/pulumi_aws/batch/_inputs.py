@@ -30,6 +30,7 @@ __all__ = [
     'JobDefinitionRetryStrategyArgs',
     'JobDefinitionRetryStrategyEvaluateOnExitArgs',
     'JobDefinitionTimeoutArgs',
+    'JobQueueComputeEnvironmentOrderArgs',
     'JobQueueTimeoutsArgs',
     'SchedulingPolicyFairSharePolicyArgs',
     'SchedulingPolicyFairSharePolicyShareDistributionArgs',
@@ -1233,6 +1234,43 @@ class JobDefinitionTimeoutArgs:
     @attempt_duration_seconds.setter
     def attempt_duration_seconds(self, value: Optional[pulumi.Input[int]]):
         pulumi.set(self, "attempt_duration_seconds", value)
+
+
+@pulumi.input_type
+class JobQueueComputeEnvironmentOrderArgs:
+    def __init__(__self__, *,
+                 compute_environment: pulumi.Input[str],
+                 order: pulumi.Input[int]):
+        """
+        :param pulumi.Input[str] compute_environment: The Amazon Resource Name (ARN) of the compute environment.
+        :param pulumi.Input[int] order: The order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
+        """
+        pulumi.set(__self__, "compute_environment", compute_environment)
+        pulumi.set(__self__, "order", order)
+
+    @property
+    @pulumi.getter(name="computeEnvironment")
+    def compute_environment(self) -> pulumi.Input[str]:
+        """
+        The Amazon Resource Name (ARN) of the compute environment.
+        """
+        return pulumi.get(self, "compute_environment")
+
+    @compute_environment.setter
+    def compute_environment(self, value: pulumi.Input[str]):
+        pulumi.set(self, "compute_environment", value)
+
+    @property
+    @pulumi.getter
+    def order(self) -> pulumi.Input[int]:
+        """
+        The order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
+        """
+        return pulumi.get(self, "order")
+
+    @order.setter
+    def order(self, value: pulumi.Input[int]):
+        pulumi.set(self, "order", value)
 
 
 @pulumi.input_type

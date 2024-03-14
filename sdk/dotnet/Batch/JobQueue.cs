@@ -30,10 +30,18 @@ namespace Pulumi.Aws.Batch
     ///         Name = "tf-test-batch-job-queue",
     ///         State = "ENABLED",
     ///         Priority = 1,
-    ///         ComputeEnvironments = new[]
+    ///         ComputeEnvironmentOrders = new[]
     ///         {
-    ///             testEnvironment1.Arn,
-    ///             testEnvironment2.Arn,
+    ///             new Aws.Batch.Inputs.JobQueueComputeEnvironmentOrderArgs
+    ///             {
+    ///                 Order = 1,
+    ///                 ComputeEnvironment = testEnvironment1.Arn,
+    ///             },
+    ///             new Aws.Batch.Inputs.JobQueueComputeEnvironmentOrderArgs
+    ///             {
+    ///                 Order = 2,
+    ///                 ComputeEnvironment = testEnvironment2.Arn,
+    ///             },
     ///         },
     ///     });
     /// 
@@ -76,10 +84,18 @@ namespace Pulumi.Aws.Batch
     ///         SchedulingPolicyArn = example.Arn,
     ///         State = "ENABLED",
     ///         Priority = 1,
-    ///         ComputeEnvironments = new[]
+    ///         ComputeEnvironmentOrders = new[]
     ///         {
-    ///             testEnvironment1.Arn,
-    ///             testEnvironment2.Arn,
+    ///             new Aws.Batch.Inputs.JobQueueComputeEnvironmentOrderArgs
+    ///             {
+    ///                 Order = 1,
+    ///                 ComputeEnvironment = testEnvironment1.Arn,
+    ///             },
+    ///             new Aws.Batch.Inputs.JobQueueComputeEnvironmentOrderArgs
+    ///             {
+    ///                 Order = 2,
+    ///                 ComputeEnvironment = testEnvironment2.Arn,
+    ///             },
     ///         },
     ///     });
     /// 
@@ -105,8 +121,13 @@ namespace Pulumi.Aws.Batch
         public Output<string> Arn { get; private set; } = null!;
 
         /// <summary>
-        /// List of compute environment ARNs mapped to a job queue.
-        /// The position of the compute environments in the list will dictate the order.
+        /// The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
+        /// </summary>
+        [Output("computeEnvironmentOrders")]
+        public Output<ImmutableArray<Outputs.JobQueueComputeEnvironmentOrder>> ComputeEnvironmentOrders { get; private set; } = null!;
+
+        /// <summary>
+        /// (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
         /// </summary>
         [Output("computeEnvironments")]
         public Output<ImmutableArray<string>> ComputeEnvironments { get; private set; } = null!;
@@ -197,13 +218,25 @@ namespace Pulumi.Aws.Batch
 
     public sealed class JobQueueArgs : global::Pulumi.ResourceArgs
     {
-        [Input("computeEnvironments", required: true)]
+        [Input("computeEnvironmentOrders")]
+        private InputList<Inputs.JobQueueComputeEnvironmentOrderArgs>? _computeEnvironmentOrders;
+
+        /// <summary>
+        /// The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
+        /// </summary>
+        public InputList<Inputs.JobQueueComputeEnvironmentOrderArgs> ComputeEnvironmentOrders
+        {
+            get => _computeEnvironmentOrders ?? (_computeEnvironmentOrders = new InputList<Inputs.JobQueueComputeEnvironmentOrderArgs>());
+            set => _computeEnvironmentOrders = value;
+        }
+
+        [Input("computeEnvironments")]
         private InputList<string>? _computeEnvironments;
 
         /// <summary>
-        /// List of compute environment ARNs mapped to a job queue.
-        /// The position of the compute environments in the list will dictate the order.
+        /// (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
         /// </summary>
+        [Obsolete(@"This parameter will be replaced by `compute_environments_order`.")]
         public InputList<string> ComputeEnvironments
         {
             get => _computeEnvironments ?? (_computeEnvironments = new InputList<string>());
@@ -264,13 +297,25 @@ namespace Pulumi.Aws.Batch
         [Input("arn")]
         public Input<string>? Arn { get; set; }
 
+        [Input("computeEnvironmentOrders")]
+        private InputList<Inputs.JobQueueComputeEnvironmentOrderGetArgs>? _computeEnvironmentOrders;
+
+        /// <summary>
+        /// The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
+        /// </summary>
+        public InputList<Inputs.JobQueueComputeEnvironmentOrderGetArgs> ComputeEnvironmentOrders
+        {
+            get => _computeEnvironmentOrders ?? (_computeEnvironmentOrders = new InputList<Inputs.JobQueueComputeEnvironmentOrderGetArgs>());
+            set => _computeEnvironmentOrders = value;
+        }
+
         [Input("computeEnvironments")]
         private InputList<string>? _computeEnvironments;
 
         /// <summary>
-        /// List of compute environment ARNs mapped to a job queue.
-        /// The position of the compute environments in the list will dictate the order.
+        /// (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
         /// </summary>
+        [Obsolete(@"This parameter will be replaced by `compute_environments_order`.")]
         public InputList<string> ComputeEnvironments
         {
             get => _computeEnvironments ?? (_computeEnvironments = new InputList<string>());

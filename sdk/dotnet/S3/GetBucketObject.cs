@@ -253,6 +253,7 @@ namespace Pulumi.Aws.S3
     [OutputType]
     public sealed class GetBucketObjectResult
     {
+        public readonly string Arn;
         /// <summary>
         /// Object data (see **limitations above** to understand cases in which this field is actually available)
         /// </summary>
@@ -351,6 +352,8 @@ namespace Pulumi.Aws.S3
 
         [OutputConstructor]
         private GetBucketObjectResult(
+            string arn,
+
             string body,
 
             string bucket,
@@ -403,6 +406,7 @@ namespace Pulumi.Aws.S3
 
             string websiteRedirectLocation)
         {
+            Arn = arn;
             Body = body;
             Bucket = bucket;
             BucketKeyEnabled = bucketKeyEnabled;

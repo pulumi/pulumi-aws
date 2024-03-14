@@ -35,6 +35,21 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * ARN of the object.
+     * 
+     */
+    @Import(name="arn")
+    private @Nullable Output<String> arn;
+
+    /**
+     * @return ARN of the object.
+     * 
+     */
+    public Optional<Output<String>> arn() {
+        return Optional.ofNullable(this.arn);
+    }
+
+    /**
      * Name of the bucket to put the file in.
      * 
      */
@@ -777,6 +792,7 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
 
     private ObjectCopyState(ObjectCopyState $) {
         this.acl = $.acl;
+        this.arn = $.arn;
         this.bucket = $.bucket;
         this.bucketKeyEnabled = $.bucketKeyEnabled;
         this.cacheControl = $.cacheControl;
@@ -865,6 +881,27 @@ public final class ObjectCopyState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder acl(String acl) {
             return acl(Output.of(acl));
+        }
+
+        /**
+         * @param arn ARN of the object.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(@Nullable Output<String> arn) {
+            $.arn = arn;
+            return this;
+        }
+
+        /**
+         * @param arn ARN of the object.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder arn(String arn) {
+            return arn(Output.of(arn));
         }
 
         /**

@@ -243,7 +243,7 @@ class DetectorFeatureAdditionalConfigurationArgs:
                  name: pulumi.Input[str],
                  status: pulumi.Input[str]):
         """
-        :param pulumi.Input[str] name: The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`.
+        :param pulumi.Input[str] name: The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
         :param pulumi.Input[str] status: The status of the additional configuration. Valid values: `ENABLED`, `DISABLED`.
         """
         pulumi.set(__self__, "name", name)
@@ -253,7 +253,7 @@ class DetectorFeatureAdditionalConfigurationArgs:
     @pulumi.getter
     def name(self) -> pulumi.Input[str]:
         """
-        The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`.
+        The name of the additional configuration. Valid values: `EKS_ADDON_MANAGEMENT`, `ECS_FARGATE_AGENT_MANAGEMENT`.
         """
         return pulumi.get(self, "name")
 

@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Anton Tayanovskyy <anton@pulumi.com>
 Date: Wed, 7 Feb 2024 12:24:44 -0500
-Subject: [PATCH 36/46] Fix tags_all Computed for PF resources
+Subject: [PATCH 36/47] Fix tags_all Computed for PF resources
 
 
 diff --git a/internal/service/amp/scraper.go b/internal/service/amp/scraper.go
@@ -44,10 +44,10 @@ index 130998fa1b..dadc35736d 100644
  		Blocks: map[string]schema.Block{
  			"agent_orchestration_config": schema.ListNestedBlock{
 diff --git a/internal/service/elasticache/serverless_cache.go b/internal/service/elasticache/serverless_cache.go
-index 1ea07b398e..54d8d5b5d7 100644
+index 25d88eb72d..ac51f127f4 100644
 --- a/internal/service/elasticache/serverless_cache.go
 +++ b/internal/service/elasticache/serverless_cache.go
-@@ -176,7 +176,7 @@ func (r *resourceServerlessCache) Schema(ctx context.Context, request resource.S
+@@ -178,7 +178,7 @@ func (r *serverlessCacheResource) Schema(ctx context.Context, request resource.S
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -70,10 +70,10 @@ index 11242d1636..ea24792626 100644
  	}
  
 diff --git a/internal/service/securityhub/automation_rule.go b/internal/service/securityhub/automation_rule.go
-index a2ceb7000f..62014cc5c5 100644
+index b60ec79697..add8d30c09 100644
 --- a/internal/service/securityhub/automation_rule.go
 +++ b/internal/service/securityhub/automation_rule.go
-@@ -74,7 +74,7 @@ func (r *automationRuleResource) Schema(ctx context.Context, request resource.Sc
+@@ -75,7 +75,7 @@ func (r *automationRuleResource) Schema(ctx context.Context, request resource.Sc
  				},
  			},
  			names.AttrTags:    tftags.TagsAttribute(),
@@ -96,7 +96,7 @@ index f74c1b2850..3a95d706f4 100644
  		Blocks: map[string]schema.Block{
  			"configuration": schema.ListNestedBlock{
 diff --git a/internal/service/ssmcontacts/rotation.go b/internal/service/ssmcontacts/rotation.go
-index c34658efc5..86f0437728 100644
+index b515434073..f4bc4a8514 100644
 --- a/internal/service/ssmcontacts/rotation.go
 +++ b/internal/service/ssmcontacts/rotation.go
 @@ -70,7 +70,7 @@ func (r *resourceRotation) Schema(ctx context.Context, request resource.SchemaRe

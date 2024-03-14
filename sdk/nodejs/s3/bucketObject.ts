@@ -180,6 +180,10 @@ export class BucketObject extends pulumi.CustomResource {
      */
     public readonly acl!: pulumi.Output<string | undefined>;
     /**
+     * ARN of the object.
+     */
+    public /*out*/ readonly arn!: pulumi.Output<string>;
+    /**
      * Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
      */
     public readonly bucket!: pulumi.Output<string>;
@@ -300,6 +304,7 @@ export class BucketObject extends pulumi.CustomResource {
         if (opts.id) {
             const state = argsOrState as BucketObjectState | undefined;
             resourceInputs["acl"] = state ? state.acl : undefined;
+            resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["bucket"] = state ? state.bucket : undefined;
             resourceInputs["bucketKeyEnabled"] = state ? state.bucketKeyEnabled : undefined;
             resourceInputs["cacheControl"] = state ? state.cacheControl : undefined;
@@ -354,6 +359,7 @@ export class BucketObject extends pulumi.CustomResource {
             resourceInputs["storageClass"] = args ? args.storageClass : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["websiteRedirect"] = args ? args.websiteRedirect : undefined;
+            resourceInputs["arn"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
             resourceInputs["versionId"] = undefined /*out*/;
         }
@@ -370,6 +376,10 @@ export interface BucketObjectState {
      * [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Defaults to `private`.
      */
     acl?: pulumi.Input<string>;
+    /**
+     * ARN of the object.
+     */
+    arn?: pulumi.Input<string>;
     /**
      * Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
      */
