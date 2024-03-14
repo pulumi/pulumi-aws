@@ -162,7 +162,7 @@ import (
 //				return err
 //			}
 //			exampleSubnet, err := ec2.NewSubnet(ctx, "example", &ec2.SubnetArgs{
-//				AvailabilityZone: *pulumi.String(available.Names[0]),
+//				AvailabilityZone: pulumi.String(available.Names[0]),
 //				CidrBlock: example.CidrBlock.ApplyT(func(cidrBlock string) (std.CidrsubnetResult, error) {
 //					return std.CidrsubnetOutput(ctx, std.CidrsubnetOutputArgs{
 //						Input:   cidrBlock,

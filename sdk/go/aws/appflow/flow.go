@@ -66,7 +66,7 @@ import (
 //			}
 //			exampleSourceBucketPolicy, err := s3.NewBucketPolicy(ctx, "example_source", &s3.BucketPolicyArgs{
 //				Bucket: exampleSourceBucketV2.ID(),
-//				Policy: *pulumi.String(exampleSource.Json),
+//				Policy: pulumi.String(exampleSource.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -118,7 +118,7 @@ import (
 //			}
 //			exampleDestinationBucketPolicy, err := s3.NewBucketPolicy(ctx, "example_destination", &s3.BucketPolicyArgs{
 //				Bucket: exampleDestinationBucketV2.ID(),
-//				Policy: *pulumi.String(exampleDestination.Json),
+//				Policy: pulumi.String(exampleDestination.Json),
 //			})
 //			if err != nil {
 //				return err
