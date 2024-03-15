@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.securityhub;
 
+import com.pulumi.aws.securityhub.inputs.OrganizationConfigurationOrganizationConfigurationArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
@@ -47,11 +48,27 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Re
         return Optional.ofNullable(this.autoEnableStandards);
     }
 
+    /**
+     * Provides information about the way an organization is configured in Security Hub.
+     * 
+     */
+    @Import(name="organizationConfiguration")
+    private @Nullable Output<OrganizationConfigurationOrganizationConfigurationArgs> organizationConfiguration;
+
+    /**
+     * @return Provides information about the way an organization is configured in Security Hub.
+     * 
+     */
+    public Optional<Output<OrganizationConfigurationOrganizationConfigurationArgs>> organizationConfiguration() {
+        return Optional.ofNullable(this.organizationConfiguration);
+    }
+
     private OrganizationConfigurationArgs() {}
 
     private OrganizationConfigurationArgs(OrganizationConfigurationArgs $) {
         this.autoEnable = $.autoEnable;
         this.autoEnableStandards = $.autoEnableStandards;
+        this.organizationConfiguration = $.organizationConfiguration;
     }
 
     public static Builder builder() {
@@ -112,6 +129,27 @@ public final class OrganizationConfigurationArgs extends com.pulumi.resources.Re
          */
         public Builder autoEnableStandards(String autoEnableStandards) {
             return autoEnableStandards(Output.of(autoEnableStandards));
+        }
+
+        /**
+         * @param organizationConfiguration Provides information about the way an organization is configured in Security Hub.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder organizationConfiguration(@Nullable Output<OrganizationConfigurationOrganizationConfigurationArgs> organizationConfiguration) {
+            $.organizationConfiguration = organizationConfiguration;
+            return this;
+        }
+
+        /**
+         * @param organizationConfiguration Provides information about the way an organization is configured in Security Hub.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder organizationConfiguration(OrganizationConfigurationOrganizationConfigurationArgs organizationConfiguration) {
+            return organizationConfiguration(Output.of(organizationConfiguration));
         }
 
         public OrganizationConfigurationArgs build() {

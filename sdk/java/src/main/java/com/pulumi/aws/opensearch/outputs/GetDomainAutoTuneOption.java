@@ -6,6 +6,7 @@ package com.pulumi.aws.opensearch.outputs;
 import com.pulumi.aws.opensearch.outputs.GetDomainAutoTuneOptionMaintenanceSchedule;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
@@ -27,6 +28,11 @@ public final class GetDomainAutoTuneOption {
      * 
      */
     private String rollbackOnDisable;
+    /**
+     * @return Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain&#39;s configured daily off-peak window.
+     * 
+     */
+    private Boolean useOffPeakWindow;
 
     private GetDomainAutoTuneOption() {}
     /**
@@ -50,6 +56,13 @@ public final class GetDomainAutoTuneOption {
     public String rollbackOnDisable() {
         return this.rollbackOnDisable;
     }
+    /**
+     * @return Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain&#39;s configured daily off-peak window.
+     * 
+     */
+    public Boolean useOffPeakWindow() {
+        return this.useOffPeakWindow;
+    }
 
     public static Builder builder() {
         return new Builder();
@@ -63,12 +76,14 @@ public final class GetDomainAutoTuneOption {
         private String desiredState;
         private List<GetDomainAutoTuneOptionMaintenanceSchedule> maintenanceSchedules;
         private String rollbackOnDisable;
+        private Boolean useOffPeakWindow;
         public Builder() {}
         public Builder(GetDomainAutoTuneOption defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.desiredState = defaults.desiredState;
     	      this.maintenanceSchedules = defaults.maintenanceSchedules;
     	      this.rollbackOnDisable = defaults.rollbackOnDisable;
+    	      this.useOffPeakWindow = defaults.useOffPeakWindow;
         }
 
         @CustomType.Setter
@@ -98,11 +113,20 @@ public final class GetDomainAutoTuneOption {
             this.rollbackOnDisable = rollbackOnDisable;
             return this;
         }
+        @CustomType.Setter
+        public Builder useOffPeakWindow(Boolean useOffPeakWindow) {
+            if (useOffPeakWindow == null) {
+              throw new MissingRequiredPropertyException("GetDomainAutoTuneOption", "useOffPeakWindow");
+            }
+            this.useOffPeakWindow = useOffPeakWindow;
+            return this;
+        }
         public GetDomainAutoTuneOption build() {
             final var _resultValue = new GetDomainAutoTuneOption();
             _resultValue.desiredState = desiredState;
             _resultValue.maintenanceSchedules = maintenanceSchedules;
             _resultValue.rollbackOnDisable = rollbackOnDisable;
+            _resultValue.useOffPeakWindow = useOffPeakWindow;
             return _resultValue;
         }
     }

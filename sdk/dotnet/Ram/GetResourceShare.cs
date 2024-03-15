@@ -48,7 +48,6 @@ namespace Pulumi.Aws.Ram
         /// {
         ///     var tagFilter = Aws.Ram.GetResourceShare.Invoke(new()
         ///     {
-        ///         Name = "MyResourceName",
         ///         ResourceOwner = "SELF",
         ///         Filters = new[]
         ///         {
@@ -107,7 +106,6 @@ namespace Pulumi.Aws.Ram
         /// {
         ///     var tagFilter = Aws.Ram.GetResourceShare.Invoke(new()
         ///     {
-        ///         Name = "MyResourceName",
         ///         ResourceOwner = "SELF",
         ///         Filters = new[]
         ///         {
@@ -148,8 +146,8 @@ namespace Pulumi.Aws.Ram
         /// <summary>
         /// Name of the tag key to filter on.
         /// </summary>
-        [Input("name", required: true)]
-        public string Name { get; set; } = null!;
+        [Input("name")]
+        public string? Name { get; set; }
 
         /// <summary>
         /// Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
@@ -198,8 +196,8 @@ namespace Pulumi.Aws.Ram
         /// <summary>
         /// Name of the tag key to filter on.
         /// </summary>
-        [Input("name", required: true)]
-        public Input<string> Name { get; set; } = null!;
+        [Input("name")]
+        public Input<string>? Name { get; set; }
 
         /// <summary>
         /// Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.

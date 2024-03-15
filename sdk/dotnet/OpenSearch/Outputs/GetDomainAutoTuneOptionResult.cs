@@ -25,6 +25,10 @@ namespace Pulumi.Aws.OpenSearch.Outputs
         /// Whether the domain is set to roll back to default Auto-Tune settings when disabling Auto-Tune.
         /// </summary>
         public readonly string RollbackOnDisable;
+        /// <summary>
+        /// Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain's configured daily off-peak window.
+        /// </summary>
+        public readonly bool UseOffPeakWindow;
 
         [OutputConstructor]
         private GetDomainAutoTuneOptionResult(
@@ -32,11 +36,14 @@ namespace Pulumi.Aws.OpenSearch.Outputs
 
             ImmutableArray<Outputs.GetDomainAutoTuneOptionMaintenanceScheduleResult> maintenanceSchedules,
 
-            string rollbackOnDisable)
+            string rollbackOnDisable,
+
+            bool useOffPeakWindow)
         {
             DesiredState = desiredState;
             MaintenanceSchedules = maintenanceSchedules;
             RollbackOnDisable = rollbackOnDisable;
+            UseOffPeakWindow = useOffPeakWindow;
         }
     }
 }

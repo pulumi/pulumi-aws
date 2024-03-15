@@ -264,6 +264,12 @@ namespace Pulumi.Aws.LakeFormation
         public Output<bool?> CatalogResource { get; private set; } = null!;
 
         /// <summary>
+        /// Configuration block for a data cells filter resource. Detailed below.
+        /// </summary>
+        [Output("dataCellsFilter")]
+        public Output<Outputs.PermissionsDataCellsFilter?> DataCellsFilter { get; private set; } = null!;
+
+        /// <summary>
         /// Configuration block for a data location resource. Detailed below.
         /// </summary>
         [Output("dataLocation")]
@@ -382,6 +388,12 @@ namespace Pulumi.Aws.LakeFormation
         public Input<bool>? CatalogResource { get; set; }
 
         /// <summary>
+        /// Configuration block for a data cells filter resource. Detailed below.
+        /// </summary>
+        [Input("dataCellsFilter")]
+        public Input<Inputs.PermissionsDataCellsFilterArgs>? DataCellsFilter { get; set; }
+
+        /// <summary>
         /// Configuration block for a data location resource. Detailed below.
         /// </summary>
         [Input("dataLocation")]
@@ -472,6 +484,12 @@ namespace Pulumi.Aws.LakeFormation
         /// </summary>
         [Input("catalogResource")]
         public Input<bool>? CatalogResource { get; set; }
+
+        /// <summary>
+        /// Configuration block for a data cells filter resource. Detailed below.
+        /// </summary>
+        [Input("dataCellsFilter")]
+        public Input<Inputs.PermissionsDataCellsFilterGetArgs>? DataCellsFilter { get; set; }
 
         /// <summary>
         /// Configuration block for a data location resource. Detailed below.

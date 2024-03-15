@@ -40,7 +40,7 @@ namespace Pulumi.Aws.ElastiCache
     ///             {
     ///                 new Aws.ElastiCache.Inputs.ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs
     ///                 {
-    ///                     Maximum = 5,
+    ///                     Maximum = 5000,
     ///                 },
     ///             },
     ///         },
@@ -84,7 +84,7 @@ namespace Pulumi.Aws.ElastiCache
     ///             {
     ///                 new Aws.ElastiCache.Inputs.ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs
     ///                 {
-    ///                     Maximum = 5,
+    ///                     Maximum = 5000,
     ///                 },
     ///             },
     ///         },

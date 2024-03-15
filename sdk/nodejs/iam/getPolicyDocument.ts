@@ -349,8 +349,10 @@ export function getPolicyDocument(args?: GetPolicyDocumentArgs, opts?: pulumi.In
 
     opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts || {});
     return pulumi.runtime.invoke("aws:iam/getPolicyDocument:getPolicyDocument", {
+        "overrideJson": args.overrideJson,
         "overridePolicyDocuments": args.overridePolicyDocuments,
         "policyId": args.policyId,
+        "sourceJson": args.sourceJson,
         "sourcePolicyDocuments": args.sourcePolicyDocuments,
         "statements": args.statements,
         "version": args.version,
@@ -362,6 +364,10 @@ export function getPolicyDocument(args?: GetPolicyDocumentArgs, opts?: pulumi.In
  */
 export interface GetPolicyDocumentArgs {
     /**
+     * @deprecated Not used
+     */
+    overrideJson?: string;
+    /**
      * List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid` from earlier documents in the list. Statements with non-blank `sid`s will also override statements with the same `sid` from `sourcePolicyDocuments`.  Non-overriding statements will be added to the exported document.
      */
     overridePolicyDocuments?: string[];
@@ -369,6 +375,10 @@ export interface GetPolicyDocumentArgs {
      * ID for the policy document.
      */
     policyId?: string;
+    /**
+     * @deprecated Not used
+     */
+    sourceJson?: string;
     /**
      * List of IAM policy documents that are merged together into the exported document. Statements defined in `sourcePolicyDocuments` must have unique `sid`s. Statements with the same `sid` from `overridePolicyDocuments` will override source statements.
      */
@@ -395,8 +405,16 @@ export interface GetPolicyDocumentResult {
      * Standard JSON policy document rendered based on the arguments above.
      */
     readonly json: string;
+    /**
+     * @deprecated Not used
+     */
+    readonly overrideJson?: string;
     readonly overridePolicyDocuments?: string[];
     readonly policyId?: string;
+    /**
+     * @deprecated Not used
+     */
+    readonly sourceJson?: string;
     readonly sourcePolicyDocuments?: string[];
     readonly statements?: outputs.iam.GetPolicyDocumentStatement[];
     readonly version?: string;
@@ -747,6 +765,10 @@ export function getPolicyDocumentOutput(args?: GetPolicyDocumentOutputArgs, opts
  */
 export interface GetPolicyDocumentOutputArgs {
     /**
+     * @deprecated Not used
+     */
+    overrideJson?: pulumi.Input<string>;
+    /**
      * List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid` from earlier documents in the list. Statements with non-blank `sid`s will also override statements with the same `sid` from `sourcePolicyDocuments`.  Non-overriding statements will be added to the exported document.
      */
     overridePolicyDocuments?: pulumi.Input<pulumi.Input<string>[]>;
@@ -754,6 +776,10 @@ export interface GetPolicyDocumentOutputArgs {
      * ID for the policy document.
      */
     policyId?: pulumi.Input<string>;
+    /**
+     * @deprecated Not used
+     */
+    sourceJson?: pulumi.Input<string>;
     /**
      * List of IAM policy documents that are merged together into the exported document. Statements defined in `sourcePolicyDocuments` must have unique `sid`s. Statements with the same `sid` from `overridePolicyDocuments` will override source statements.
      */

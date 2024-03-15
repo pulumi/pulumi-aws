@@ -87,6 +87,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
         [Output("peerTransitGatewayId")]
         public Output<string> PeerTransitGatewayId { get; private set; } = null!;
 
+        [Output("state")]
+        public Output<string> State { get; private set; } = null!;
+
         /// <summary>
         /// Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         /// </summary>
@@ -212,6 +215,9 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// </summary>
         [Input("peerTransitGatewayId")]
         public Input<string>? PeerTransitGatewayId { get; set; }
+
+        [Input("state")]
+        public Input<string>? State { get; set; }
 
         [Input("tags")]
         private InputMap<string>? _tags;

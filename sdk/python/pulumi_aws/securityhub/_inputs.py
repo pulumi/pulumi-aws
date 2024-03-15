@@ -60,6 +60,18 @@ __all__ = [
     'AutomationRuleCriteriaUserDefinedFieldArgs',
     'AutomationRuleCriteriaVerificationStateArgs',
     'AutomationRuleCriteriaWorkflowStatusArgs',
+    'ConfigurationPolicyConfigurationPolicyArgs',
+    'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs',
+    'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs',
+    'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs',
+    'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs',
+    'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgs',
+    'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs',
+    'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListArgs',
+    'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs',
+    'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgs',
+    'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgs',
+    'ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgs',
     'InsightFiltersArgs',
     'InsightFiltersAwsAccountIdArgs',
     'InsightFiltersCompanyNameArgs',
@@ -160,6 +172,7 @@ __all__ = [
     'InsightFiltersUserDefinedValueArgs',
     'InsightFiltersVerificationStateArgs',
     'InsightFiltersWorkflowStatusArgs',
+    'OrganizationConfigurationOrganizationConfigurationArgs',
 ]
 
 @pulumi.input_type
@@ -2911,6 +2924,444 @@ class AutomationRuleCriteriaWorkflowStatusArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ConfigurationPolicyConfigurationPolicyArgs:
+    def __init__(__self__, *,
+                 enabled_standard_arns: pulumi.Input[Sequence[pulumi.Input[str]]],
+                 service_enabled: pulumi.Input[bool],
+                 security_controls_configuration: Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs']] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_standard_arns: A list that defines which security standards are enabled in the configuration policy.
+        :param pulumi.Input[bool] service_enabled: Indicates whether Security Hub is enabled in the policy.
+        :param pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs'] security_controls_configuration: Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
+        """
+        pulumi.set(__self__, "enabled_standard_arns", enabled_standard_arns)
+        pulumi.set(__self__, "service_enabled", service_enabled)
+        if security_controls_configuration is not None:
+            pulumi.set(__self__, "security_controls_configuration", security_controls_configuration)
+
+    @property
+    @pulumi.getter(name="enabledStandardArns")
+    def enabled_standard_arns(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        """
+        A list that defines which security standards are enabled in the configuration policy.
+        """
+        return pulumi.get(self, "enabled_standard_arns")
+
+    @enabled_standard_arns.setter
+    def enabled_standard_arns(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "enabled_standard_arns", value)
+
+    @property
+    @pulumi.getter(name="serviceEnabled")
+    def service_enabled(self) -> pulumi.Input[bool]:
+        """
+        Indicates whether Security Hub is enabled in the policy.
+        """
+        return pulumi.get(self, "service_enabled")
+
+    @service_enabled.setter
+    def service_enabled(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "service_enabled", value)
+
+    @property
+    @pulumi.getter(name="securityControlsConfiguration")
+    def security_controls_configuration(self) -> Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs']]:
+        """
+        Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
+        """
+        return pulumi.get(self, "security_controls_configuration")
+
+    @security_controls_configuration.setter
+    def security_controls_configuration(self, value: Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs']]):
+        pulumi.set(self, "security_controls_configuration", value)
+
+
+@pulumi.input_type
+class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs:
+    def __init__(__self__, *,
+                 disabled_control_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 enabled_control_identifiers: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 security_control_custom_parameters: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs']]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] disabled_control_identifiers: A list of security controls that are disabled in the configuration policy Security Hub enables all other controls (including newly released controls) other than the listed controls. Conflicts with `enabled_control_identifiers`.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] enabled_control_identifiers: A list of security controls that are enabled in the configuration policy. Security Hub disables all other controls (including newly released controls) other than the listed controls. Conflicts with `disabled_control_identifiers`.
+        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs']]] security_control_custom_parameters: A list of control parameter customizations that are included in a configuration policy. Include multiple blocks to define multiple control custom parameters. See below.
+        """
+        if disabled_control_identifiers is not None:
+            pulumi.set(__self__, "disabled_control_identifiers", disabled_control_identifiers)
+        if enabled_control_identifiers is not None:
+            pulumi.set(__self__, "enabled_control_identifiers", enabled_control_identifiers)
+        if security_control_custom_parameters is not None:
+            pulumi.set(__self__, "security_control_custom_parameters", security_control_custom_parameters)
+
+    @property
+    @pulumi.getter(name="disabledControlIdentifiers")
+    def disabled_control_identifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of security controls that are disabled in the configuration policy Security Hub enables all other controls (including newly released controls) other than the listed controls. Conflicts with `enabled_control_identifiers`.
+        """
+        return pulumi.get(self, "disabled_control_identifiers")
+
+    @disabled_control_identifiers.setter
+    def disabled_control_identifiers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "disabled_control_identifiers", value)
+
+    @property
+    @pulumi.getter(name="enabledControlIdentifiers")
+    def enabled_control_identifiers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of security controls that are enabled in the configuration policy. Security Hub disables all other controls (including newly released controls) other than the listed controls. Conflicts with `disabled_control_identifiers`.
+        """
+        return pulumi.get(self, "enabled_control_identifiers")
+
+    @enabled_control_identifiers.setter
+    def enabled_control_identifiers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "enabled_control_identifiers", value)
+
+    @property
+    @pulumi.getter(name="securityControlCustomParameters")
+    def security_control_custom_parameters(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs']]]]:
+        """
+        A list of control parameter customizations that are included in a configuration policy. Include multiple blocks to define multiple control custom parameters. See below.
+        """
+        return pulumi.get(self, "security_control_custom_parameters")
+
+    @security_control_custom_parameters.setter
+    def security_control_custom_parameters(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs']]]]):
+        pulumi.set(self, "security_control_custom_parameters", value)
+
+
+@pulumi.input_type
+class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs:
+    def __init__(__self__, *,
+                 parameters: pulumi.Input[Sequence[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs']]],
+                 security_control_id: pulumi.Input[str]):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs']]] parameters: An object that specifies parameter values for a control in a configuration policy. See below.
+        :param pulumi.Input[str] security_control_id: The ID of the security control. For more information see the [Security Hub controls reference] documentation.
+        """
+        pulumi.set(__self__, "parameters", parameters)
+        pulumi.set(__self__, "security_control_id", security_control_id)
+
+    @property
+    @pulumi.getter
+    def parameters(self) -> pulumi.Input[Sequence[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs']]]:
+        """
+        An object that specifies parameter values for a control in a configuration policy. See below.
+        """
+        return pulumi.get(self, "parameters")
+
+    @parameters.setter
+    def parameters(self, value: pulumi.Input[Sequence[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs']]]):
+        pulumi.set(self, "parameters", value)
+
+    @property
+    @pulumi.getter(name="securityControlId")
+    def security_control_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the security control. For more information see the [Security Hub controls reference] documentation.
+        """
+        return pulumi.get(self, "security_control_id")
+
+    @security_control_id.setter
+    def security_control_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "security_control_id", value)
+
+
+@pulumi.input_type
+class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs:
+    def __init__(__self__, *,
+                 name: pulumi.Input[str],
+                 value_type: pulumi.Input[str],
+                 bool: Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs']] = None,
+                 double: Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgs']] = None,
+                 enum: Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs']] = None,
+                 enum_list: Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListArgs']] = None,
+                 int: Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs']] = None,
+                 int_list: Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgs']] = None,
+                 string: Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgs']] = None,
+                 string_list: Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgs']] = None):
+        """
+        :param pulumi.Input[str] name: The name of the control parameter. For more information see the [Security Hub controls reference] documentation.
+        :param pulumi.Input[str] value_type: Identifies whether a control parameter uses a custom user-defined value or subscribes to the default Security Hub behavior. Valid values: `DEFAULT`, `CUSTOM`.
+        :param pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs'] bool: The bool `value` for a Boolean-typed Security Hub Control Parameter.
+        :param pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgs'] double: The float `value` for a Double-typed Security Hub Control Parameter.
+        :param pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs'] enum: The string `value` for a Enum-typed Security Hub Control Parameter.
+        :param pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListArgs'] enum_list: The string list `value` for a EnumList-typed Security Hub Control Parameter.
+        :param pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs'] int: The int `value` for a Int-typed Security Hub Control Parameter.
+        :param pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgs'] int_list: The int list `value` for a IntList-typed Security Hub Control Parameter.
+        :param pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgs'] string: The string `value` for a String-typed Security Hub Control Parameter.
+        :param pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgs'] string_list: The string list `value` for a StringList-typed Security Hub Control Parameter.
+        """
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "value_type", value_type)
+        if bool is not None:
+            pulumi.set(__self__, "bool", bool)
+        if double is not None:
+            pulumi.set(__self__, "double", double)
+        if enum is not None:
+            pulumi.set(__self__, "enum", enum)
+        if enum_list is not None:
+            pulumi.set(__self__, "enum_list", enum_list)
+        if int is not None:
+            pulumi.set(__self__, "int", int)
+        if int_list is not None:
+            pulumi.set(__self__, "int_list", int_list)
+        if string is not None:
+            pulumi.set(__self__, "string", string)
+        if string_list is not None:
+            pulumi.set(__self__, "string_list", string_list)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the control parameter. For more information see the [Security Hub controls reference] documentation.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="valueType")
+    def value_type(self) -> pulumi.Input[str]:
+        """
+        Identifies whether a control parameter uses a custom user-defined value or subscribes to the default Security Hub behavior. Valid values: `DEFAULT`, `CUSTOM`.
+        """
+        return pulumi.get(self, "value_type")
+
+    @value_type.setter
+    def value_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value_type", value)
+
+    @property
+    @pulumi.getter
+    def bool(self) -> Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs']]:
+        """
+        The bool `value` for a Boolean-typed Security Hub Control Parameter.
+        """
+        return pulumi.get(self, "bool")
+
+    @bool.setter
+    def bool(self, value: Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs']]):
+        pulumi.set(self, "bool", value)
+
+    @property
+    @pulumi.getter
+    def double(self) -> Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgs']]:
+        """
+        The float `value` for a Double-typed Security Hub Control Parameter.
+        """
+        return pulumi.get(self, "double")
+
+    @double.setter
+    def double(self, value: Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgs']]):
+        pulumi.set(self, "double", value)
+
+    @property
+    @pulumi.getter
+    def enum(self) -> Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs']]:
+        """
+        The string `value` for a Enum-typed Security Hub Control Parameter.
+        """
+        return pulumi.get(self, "enum")
+
+    @enum.setter
+    def enum(self, value: Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs']]):
+        pulumi.set(self, "enum", value)
+
+    @property
+    @pulumi.getter(name="enumList")
+    def enum_list(self) -> Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListArgs']]:
+        """
+        The string list `value` for a EnumList-typed Security Hub Control Parameter.
+        """
+        return pulumi.get(self, "enum_list")
+
+    @enum_list.setter
+    def enum_list(self, value: Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListArgs']]):
+        pulumi.set(self, "enum_list", value)
+
+    @property
+    @pulumi.getter
+    def int(self) -> Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs']]:
+        """
+        The int `value` for a Int-typed Security Hub Control Parameter.
+        """
+        return pulumi.get(self, "int")
+
+    @int.setter
+    def int(self, value: Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs']]):
+        pulumi.set(self, "int", value)
+
+    @property
+    @pulumi.getter(name="intList")
+    def int_list(self) -> Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgs']]:
+        """
+        The int list `value` for a IntList-typed Security Hub Control Parameter.
+        """
+        return pulumi.get(self, "int_list")
+
+    @int_list.setter
+    def int_list(self, value: Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgs']]):
+        pulumi.set(self, "int_list", value)
+
+    @property
+    @pulumi.getter
+    def string(self) -> Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgs']]:
+        """
+        The string `value` for a String-typed Security Hub Control Parameter.
+        """
+        return pulumi.get(self, "string")
+
+    @string.setter
+    def string(self, value: Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgs']]):
+        pulumi.set(self, "string", value)
+
+    @property
+    @pulumi.getter(name="stringList")
+    def string_list(self) -> Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgs']]:
+        """
+        The string list `value` for a StringList-typed Security Hub Control Parameter.
+        """
+        return pulumi.get(self, "string_list")
+
+    @string_list.setter
+    def string_list(self, value: Optional[pulumi.Input['ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgs']]):
+        pulumi.set(self, "string_list", value)
+
+
+@pulumi.input_type
+class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[bool]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[bool]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[bool]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[float]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[float]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[float]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListArgs:
+    def __init__(__self__, *,
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[int]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[int]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[int]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgs:
+    def __init__(__self__, *,
+                 values: pulumi.Input[Sequence[pulumi.Input[int]]]):
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[int]]]:
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[int]]]):
+        pulumi.set(self, "values", value)
+
+
+@pulumi.input_type
+class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgs:
+    def __init__(__self__, *,
+                 values: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(__self__, "values", values)
+
+    @property
+    @pulumi.getter
+    def values(self) -> pulumi.Input[Sequence[pulumi.Input[str]]]:
+        return pulumi.get(self, "values")
+
+    @values.setter
+    def values(self, value: pulumi.Input[Sequence[pulumi.Input[str]]]):
+        pulumi.set(self, "values", value)
 
 
 @pulumi.input_type
@@ -8286,5 +8737,27 @@ class InsightFiltersWorkflowStatusArgs:
     @value.setter
     def value(self, value: pulumi.Input[str]):
         pulumi.set(self, "value", value)
+
+
+@pulumi.input_type
+class OrganizationConfigurationOrganizationConfigurationArgs:
+    def __init__(__self__, *,
+                 configuration_type: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] configuration_type: Indicates whether the organization uses local or central configuration. If using central configuration, `auto_enable` must be set to `false` and `auto_enable_standards` set to `NONE`. More information can be found in the [documentation for central configuration](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html). Valid values: `LOCAL`, `CENTRAL`.
+        """
+        pulumi.set(__self__, "configuration_type", configuration_type)
+
+    @property
+    @pulumi.getter(name="configurationType")
+    def configuration_type(self) -> pulumi.Input[str]:
+        """
+        Indicates whether the organization uses local or central configuration. If using central configuration, `auto_enable` must be set to `false` and `auto_enable_standards` set to `NONE`. More information can be found in the [documentation for central configuration](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html). Valid values: `LOCAL`, `CENTRAL`.
+        """
+        return pulumi.get(self, "configuration_type")
+
+    @configuration_type.setter
+    def configuration_type(self, value: pulumi.Input[str]):
+        pulumi.set(self, "configuration_type", value)
 
 

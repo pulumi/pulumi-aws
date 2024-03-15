@@ -6,6 +6,7 @@ package com.pulumi.aws.lakeformation;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.lakeformation.PermissionsArgs;
 import com.pulumi.aws.lakeformation.inputs.PermissionsState;
+import com.pulumi.aws.lakeformation.outputs.PermissionsDataCellsFilter;
 import com.pulumi.aws.lakeformation.outputs.PermissionsDataLocation;
 import com.pulumi.aws.lakeformation.outputs.PermissionsDatabase;
 import com.pulumi.aws.lakeformation.outputs.PermissionsLfTag;
@@ -332,6 +333,20 @@ public class Permissions extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> catalogResource() {
         return Codegen.optional(this.catalogResource);
+    }
+    /**
+     * Configuration block for a data cells filter resource. Detailed below.
+     * 
+     */
+    @Export(name="dataCellsFilter", refs={PermissionsDataCellsFilter.class}, tree="[0]")
+    private Output</* @Nullable */ PermissionsDataCellsFilter> dataCellsFilter;
+
+    /**
+     * @return Configuration block for a data cells filter resource. Detailed below.
+     * 
+     */
+    public Output<Optional<PermissionsDataCellsFilter>> dataCellsFilter() {
+        return Codegen.optional(this.dataCellsFilter);
     }
     /**
      * Configuration block for a data location resource. Detailed below.

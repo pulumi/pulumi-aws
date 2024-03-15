@@ -14,11 +14,17 @@ import (
 
 // Manages the Security Hub Organization Configuration.
 //
-// > **NOTE:** This resource requires an `securityhub.OrganizationAdminAccount` to be configured (not necessarily with Pulumi). More information about managing Security Hub in an organization can be found in the [Managing administrator and member accounts](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts.html) documentation
+// > **NOTE:** This resource requires an `securityhub.OrganizationAdminAccount` to be configured (not necessarily with Pulumi). More information about managing Security Hub in an organization can be found in the [Managing administrator and member accounts](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts.html) documentation.
+//
+// > **NOTE:** In order to set the `configurationType` to `CENTRAL`, the delegated admin must be a member account of the organization and not the management account. Central configuration also requires an `securityhub.FindingAggregator` to be configured.
 //
 // > **NOTE:** This is an advanced AWS resource. Pulumi will automatically assume management of the Security Hub Organization Configuration without import and perform no actions on removal from the Pulumi program.
 //
+// > **NOTE:** Deleting this resource resets security hub to a local organization configuration with auto enable false.
+//
 // ## Example Usage
+//
+// ### Local Configuration
 //
 // <!--Start PulumiCodeChooser -->
 // ```go
@@ -62,6 +68,50 @@ import (
 // ```
 // <!--End PulumiCodeChooser -->
 //
+// ### Central Configuration
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/securityhub"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := securityhub.NewOrganizationAdminAccount(ctx, "example", &securityhub.OrganizationAdminAccountArgs{
+//				AdminAccountId: pulumi.String("123456789012"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = securityhub.NewFindingAggregator(ctx, "example", &securityhub.FindingAggregatorArgs{
+//				LinkingMode: pulumi.String("ALL_REGIONS"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			_, err = securityhub.NewOrganizationConfiguration(ctx, "example", &securityhub.OrganizationConfigurationArgs{
+//				AutoEnable:          pulumi.Bool(false),
+//				AutoEnableStandards: pulumi.String("NONE"),
+//				OrganizationConfiguration: &securityhub.OrganizationConfigurationOrganizationConfigurationArgs{
+//					ConfigurationType: pulumi.String("CENTRAL"),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Import
 //
 // Using `pulumi import`, import an existing Security Hub enabled account using the AWS account ID. For example:
@@ -76,6 +126,8 @@ type OrganizationConfiguration struct {
 	AutoEnable pulumi.BoolOutput `pulumi:"autoEnable"`
 	// Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
 	AutoEnableStandards pulumi.StringOutput `pulumi:"autoEnableStandards"`
+	// Provides information about the way an organization is configured in Security Hub.
+	OrganizationConfiguration OrganizationConfigurationOrganizationConfigurationOutput `pulumi:"organizationConfiguration"`
 }
 
 // NewOrganizationConfiguration registers a new resource with the given unique name, arguments, and options.
@@ -115,6 +167,8 @@ type organizationConfigurationState struct {
 	AutoEnable *bool `pulumi:"autoEnable"`
 	// Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
 	AutoEnableStandards *string `pulumi:"autoEnableStandards"`
+	// Provides information about the way an organization is configured in Security Hub.
+	OrganizationConfiguration *OrganizationConfigurationOrganizationConfiguration `pulumi:"organizationConfiguration"`
 }
 
 type OrganizationConfigurationState struct {
@@ -122,6 +176,8 @@ type OrganizationConfigurationState struct {
 	AutoEnable pulumi.BoolPtrInput
 	// Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
 	AutoEnableStandards pulumi.StringPtrInput
+	// Provides information about the way an organization is configured in Security Hub.
+	OrganizationConfiguration OrganizationConfigurationOrganizationConfigurationPtrInput
 }
 
 func (OrganizationConfigurationState) ElementType() reflect.Type {
@@ -133,6 +189,8 @@ type organizationConfigurationArgs struct {
 	AutoEnable bool `pulumi:"autoEnable"`
 	// Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
 	AutoEnableStandards *string `pulumi:"autoEnableStandards"`
+	// Provides information about the way an organization is configured in Security Hub.
+	OrganizationConfiguration *OrganizationConfigurationOrganizationConfiguration `pulumi:"organizationConfiguration"`
 }
 
 // The set of arguments for constructing a OrganizationConfiguration resource.
@@ -141,6 +199,8 @@ type OrganizationConfigurationArgs struct {
 	AutoEnable pulumi.BoolInput
 	// Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
 	AutoEnableStandards pulumi.StringPtrInput
+	// Provides information about the way an organization is configured in Security Hub.
+	OrganizationConfiguration OrganizationConfigurationOrganizationConfigurationPtrInput
 }
 
 func (OrganizationConfigurationArgs) ElementType() reflect.Type {
@@ -238,6 +298,13 @@ func (o OrganizationConfigurationOutput) AutoEnable() pulumi.BoolOutput {
 // Whether to automatically enable Security Hub default standards for new member accounts in the organization. By default, this parameter is equal to `DEFAULT`, and new member accounts are automatically enabled with default Security Hub standards. To opt out of enabling default standards for new member accounts, set this parameter equal to `NONE`.
 func (o OrganizationConfigurationOutput) AutoEnableStandards() pulumi.StringOutput {
 	return o.ApplyT(func(v *OrganizationConfiguration) pulumi.StringOutput { return v.AutoEnableStandards }).(pulumi.StringOutput)
+}
+
+// Provides information about the way an organization is configured in Security Hub.
+func (o OrganizationConfigurationOutput) OrganizationConfiguration() OrganizationConfigurationOrganizationConfigurationOutput {
+	return o.ApplyT(func(v *OrganizationConfiguration) OrganizationConfigurationOrganizationConfigurationOutput {
+		return v.OrganizationConfiguration
+	}).(OrganizationConfigurationOrganizationConfigurationOutput)
 }
 
 type OrganizationConfigurationArrayOutput struct{ *pulumi.OutputState }

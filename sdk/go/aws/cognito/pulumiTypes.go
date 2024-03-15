@@ -4297,8 +4297,10 @@ type UserPoolLambdaConfig struct {
 	PreAuthentication *string `pulumi:"preAuthentication"`
 	// Pre-registration AWS Lambda trigger.
 	PreSignUp *string `pulumi:"preSignUp"`
-	// Allow to customize identity token claims before token generation.
+	// Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the LambdaArn of `preTokenGenerationConfig`.
 	PreTokenGeneration *string `pulumi:"preTokenGeneration"`
+	// Allow to customize access tokens. See pre_token_configuration_type
+	PreTokenGenerationConfig *UserPoolLambdaConfigPreTokenGenerationConfig `pulumi:"preTokenGenerationConfig"`
 	// User migration Lambda config type.
 	UserMigration *string `pulumi:"userMigration"`
 	// Verifies the authentication challenge response.
@@ -4337,8 +4339,10 @@ type UserPoolLambdaConfigArgs struct {
 	PreAuthentication pulumi.StringPtrInput `pulumi:"preAuthentication"`
 	// Pre-registration AWS Lambda trigger.
 	PreSignUp pulumi.StringPtrInput `pulumi:"preSignUp"`
-	// Allow to customize identity token claims before token generation.
+	// Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the LambdaArn of `preTokenGenerationConfig`.
 	PreTokenGeneration pulumi.StringPtrInput `pulumi:"preTokenGeneration"`
+	// Allow to customize access tokens. See pre_token_configuration_type
+	PreTokenGenerationConfig UserPoolLambdaConfigPreTokenGenerationConfigPtrInput `pulumi:"preTokenGenerationConfig"`
 	// User migration Lambda config type.
 	UserMigration pulumi.StringPtrInput `pulumi:"userMigration"`
 	// Verifies the authentication challenge response.
@@ -4472,9 +4476,16 @@ func (o UserPoolLambdaConfigOutput) PreSignUp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolLambdaConfig) *string { return v.PreSignUp }).(pulumi.StringPtrOutput)
 }
 
-// Allow to customize identity token claims before token generation.
+// Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the LambdaArn of `preTokenGenerationConfig`.
 func (o UserPoolLambdaConfigOutput) PreTokenGeneration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolLambdaConfig) *string { return v.PreTokenGeneration }).(pulumi.StringPtrOutput)
+}
+
+// Allow to customize access tokens. See pre_token_configuration_type
+func (o UserPoolLambdaConfigOutput) PreTokenGenerationConfig() UserPoolLambdaConfigPreTokenGenerationConfigPtrOutput {
+	return o.ApplyT(func(v UserPoolLambdaConfig) *UserPoolLambdaConfigPreTokenGenerationConfig {
+		return v.PreTokenGenerationConfig
+	}).(UserPoolLambdaConfigPreTokenGenerationConfigPtrOutput)
 }
 
 // User migration Lambda config type.
@@ -4611,7 +4622,7 @@ func (o UserPoolLambdaConfigPtrOutput) PreSignUp() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Allow to customize identity token claims before token generation.
+// Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the LambdaArn of `preTokenGenerationConfig`.
 func (o UserPoolLambdaConfigPtrOutput) PreTokenGeneration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolLambdaConfig) *string {
 		if v == nil {
@@ -4619,6 +4630,16 @@ func (o UserPoolLambdaConfigPtrOutput) PreTokenGeneration() pulumi.StringPtrOutp
 		}
 		return v.PreTokenGeneration
 	}).(pulumi.StringPtrOutput)
+}
+
+// Allow to customize access tokens. See pre_token_configuration_type
+func (o UserPoolLambdaConfigPtrOutput) PreTokenGenerationConfig() UserPoolLambdaConfigPreTokenGenerationConfigPtrOutput {
+	return o.ApplyT(func(v *UserPoolLambdaConfig) *UserPoolLambdaConfigPreTokenGenerationConfig {
+		if v == nil {
+			return nil
+		}
+		return v.PreTokenGenerationConfig
+	}).(UserPoolLambdaConfigPreTokenGenerationConfigPtrOutput)
 }
 
 // User migration Lambda config type.
@@ -4946,6 +4967,162 @@ func (o UserPoolLambdaConfigCustomSmsSenderPtrOutput) LambdaArn() pulumi.StringP
 // The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
 func (o UserPoolLambdaConfigCustomSmsSenderPtrOutput) LambdaVersion() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolLambdaConfigCustomSmsSender) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LambdaVersion
+	}).(pulumi.StringPtrOutput)
+}
+
+type UserPoolLambdaConfigPreTokenGenerationConfig struct {
+	// The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
+	LambdaArn string `pulumi:"lambdaArn"`
+	// The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom email Lambda function. The only supported value is `V1_0`.
+	LambdaVersion string `pulumi:"lambdaVersion"`
+}
+
+// UserPoolLambdaConfigPreTokenGenerationConfigInput is an input type that accepts UserPoolLambdaConfigPreTokenGenerationConfigArgs and UserPoolLambdaConfigPreTokenGenerationConfigOutput values.
+// You can construct a concrete instance of `UserPoolLambdaConfigPreTokenGenerationConfigInput` via:
+//
+//	UserPoolLambdaConfigPreTokenGenerationConfigArgs{...}
+type UserPoolLambdaConfigPreTokenGenerationConfigInput interface {
+	pulumi.Input
+
+	ToUserPoolLambdaConfigPreTokenGenerationConfigOutput() UserPoolLambdaConfigPreTokenGenerationConfigOutput
+	ToUserPoolLambdaConfigPreTokenGenerationConfigOutputWithContext(context.Context) UserPoolLambdaConfigPreTokenGenerationConfigOutput
+}
+
+type UserPoolLambdaConfigPreTokenGenerationConfigArgs struct {
+	// The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
+	LambdaArn pulumi.StringInput `pulumi:"lambdaArn"`
+	// The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom email Lambda function. The only supported value is `V1_0`.
+	LambdaVersion pulumi.StringInput `pulumi:"lambdaVersion"`
+}
+
+func (UserPoolLambdaConfigPreTokenGenerationConfigArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolLambdaConfigPreTokenGenerationConfig)(nil)).Elem()
+}
+
+func (i UserPoolLambdaConfigPreTokenGenerationConfigArgs) ToUserPoolLambdaConfigPreTokenGenerationConfigOutput() UserPoolLambdaConfigPreTokenGenerationConfigOutput {
+	return i.ToUserPoolLambdaConfigPreTokenGenerationConfigOutputWithContext(context.Background())
+}
+
+func (i UserPoolLambdaConfigPreTokenGenerationConfigArgs) ToUserPoolLambdaConfigPreTokenGenerationConfigOutputWithContext(ctx context.Context) UserPoolLambdaConfigPreTokenGenerationConfigOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolLambdaConfigPreTokenGenerationConfigOutput)
+}
+
+func (i UserPoolLambdaConfigPreTokenGenerationConfigArgs) ToUserPoolLambdaConfigPreTokenGenerationConfigPtrOutput() UserPoolLambdaConfigPreTokenGenerationConfigPtrOutput {
+	return i.ToUserPoolLambdaConfigPreTokenGenerationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i UserPoolLambdaConfigPreTokenGenerationConfigArgs) ToUserPoolLambdaConfigPreTokenGenerationConfigPtrOutputWithContext(ctx context.Context) UserPoolLambdaConfigPreTokenGenerationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolLambdaConfigPreTokenGenerationConfigOutput).ToUserPoolLambdaConfigPreTokenGenerationConfigPtrOutputWithContext(ctx)
+}
+
+// UserPoolLambdaConfigPreTokenGenerationConfigPtrInput is an input type that accepts UserPoolLambdaConfigPreTokenGenerationConfigArgs, UserPoolLambdaConfigPreTokenGenerationConfigPtr and UserPoolLambdaConfigPreTokenGenerationConfigPtrOutput values.
+// You can construct a concrete instance of `UserPoolLambdaConfigPreTokenGenerationConfigPtrInput` via:
+//
+//	        UserPoolLambdaConfigPreTokenGenerationConfigArgs{...}
+//
+//	or:
+//
+//	        nil
+type UserPoolLambdaConfigPreTokenGenerationConfigPtrInput interface {
+	pulumi.Input
+
+	ToUserPoolLambdaConfigPreTokenGenerationConfigPtrOutput() UserPoolLambdaConfigPreTokenGenerationConfigPtrOutput
+	ToUserPoolLambdaConfigPreTokenGenerationConfigPtrOutputWithContext(context.Context) UserPoolLambdaConfigPreTokenGenerationConfigPtrOutput
+}
+
+type userPoolLambdaConfigPreTokenGenerationConfigPtrType UserPoolLambdaConfigPreTokenGenerationConfigArgs
+
+func UserPoolLambdaConfigPreTokenGenerationConfigPtr(v *UserPoolLambdaConfigPreTokenGenerationConfigArgs) UserPoolLambdaConfigPreTokenGenerationConfigPtrInput {
+	return (*userPoolLambdaConfigPreTokenGenerationConfigPtrType)(v)
+}
+
+func (*userPoolLambdaConfigPreTokenGenerationConfigPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolLambdaConfigPreTokenGenerationConfig)(nil)).Elem()
+}
+
+func (i *userPoolLambdaConfigPreTokenGenerationConfigPtrType) ToUserPoolLambdaConfigPreTokenGenerationConfigPtrOutput() UserPoolLambdaConfigPreTokenGenerationConfigPtrOutput {
+	return i.ToUserPoolLambdaConfigPreTokenGenerationConfigPtrOutputWithContext(context.Background())
+}
+
+func (i *userPoolLambdaConfigPreTokenGenerationConfigPtrType) ToUserPoolLambdaConfigPreTokenGenerationConfigPtrOutputWithContext(ctx context.Context) UserPoolLambdaConfigPreTokenGenerationConfigPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(UserPoolLambdaConfigPreTokenGenerationConfigPtrOutput)
+}
+
+type UserPoolLambdaConfigPreTokenGenerationConfigOutput struct{ *pulumi.OutputState }
+
+func (UserPoolLambdaConfigPreTokenGenerationConfigOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*UserPoolLambdaConfigPreTokenGenerationConfig)(nil)).Elem()
+}
+
+func (o UserPoolLambdaConfigPreTokenGenerationConfigOutput) ToUserPoolLambdaConfigPreTokenGenerationConfigOutput() UserPoolLambdaConfigPreTokenGenerationConfigOutput {
+	return o
+}
+
+func (o UserPoolLambdaConfigPreTokenGenerationConfigOutput) ToUserPoolLambdaConfigPreTokenGenerationConfigOutputWithContext(ctx context.Context) UserPoolLambdaConfigPreTokenGenerationConfigOutput {
+	return o
+}
+
+func (o UserPoolLambdaConfigPreTokenGenerationConfigOutput) ToUserPoolLambdaConfigPreTokenGenerationConfigPtrOutput() UserPoolLambdaConfigPreTokenGenerationConfigPtrOutput {
+	return o.ToUserPoolLambdaConfigPreTokenGenerationConfigPtrOutputWithContext(context.Background())
+}
+
+func (o UserPoolLambdaConfigPreTokenGenerationConfigOutput) ToUserPoolLambdaConfigPreTokenGenerationConfigPtrOutputWithContext(ctx context.Context) UserPoolLambdaConfigPreTokenGenerationConfigPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v UserPoolLambdaConfigPreTokenGenerationConfig) *UserPoolLambdaConfigPreTokenGenerationConfig {
+		return &v
+	}).(UserPoolLambdaConfigPreTokenGenerationConfigPtrOutput)
+}
+
+// The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
+func (o UserPoolLambdaConfigPreTokenGenerationConfigOutput) LambdaArn() pulumi.StringOutput {
+	return o.ApplyT(func(v UserPoolLambdaConfigPreTokenGenerationConfig) string { return v.LambdaArn }).(pulumi.StringOutput)
+}
+
+// The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom email Lambda function. The only supported value is `V1_0`.
+func (o UserPoolLambdaConfigPreTokenGenerationConfigOutput) LambdaVersion() pulumi.StringOutput {
+	return o.ApplyT(func(v UserPoolLambdaConfigPreTokenGenerationConfig) string { return v.LambdaVersion }).(pulumi.StringOutput)
+}
+
+type UserPoolLambdaConfigPreTokenGenerationConfigPtrOutput struct{ *pulumi.OutputState }
+
+func (UserPoolLambdaConfigPreTokenGenerationConfigPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**UserPoolLambdaConfigPreTokenGenerationConfig)(nil)).Elem()
+}
+
+func (o UserPoolLambdaConfigPreTokenGenerationConfigPtrOutput) ToUserPoolLambdaConfigPreTokenGenerationConfigPtrOutput() UserPoolLambdaConfigPreTokenGenerationConfigPtrOutput {
+	return o
+}
+
+func (o UserPoolLambdaConfigPreTokenGenerationConfigPtrOutput) ToUserPoolLambdaConfigPreTokenGenerationConfigPtrOutputWithContext(ctx context.Context) UserPoolLambdaConfigPreTokenGenerationConfigPtrOutput {
+	return o
+}
+
+func (o UserPoolLambdaConfigPreTokenGenerationConfigPtrOutput) Elem() UserPoolLambdaConfigPreTokenGenerationConfigOutput {
+	return o.ApplyT(func(v *UserPoolLambdaConfigPreTokenGenerationConfig) UserPoolLambdaConfigPreTokenGenerationConfig {
+		if v != nil {
+			return *v
+		}
+		var ret UserPoolLambdaConfigPreTokenGenerationConfig
+		return ret
+	}).(UserPoolLambdaConfigPreTokenGenerationConfigOutput)
+}
+
+// The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
+func (o UserPoolLambdaConfigPreTokenGenerationConfigPtrOutput) LambdaArn() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolLambdaConfigPreTokenGenerationConfig) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.LambdaArn
+	}).(pulumi.StringPtrOutput)
+}
+
+// The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom email Lambda function. The only supported value is `V1_0`.
+func (o UserPoolLambdaConfigPreTokenGenerationConfigPtrOutput) LambdaVersion() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *UserPoolLambdaConfigPreTokenGenerationConfig) *string {
 		if v == nil {
 			return nil
 		}
@@ -7142,6 +7319,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolLambdaConfigCustomEmailSenderPtrInput)(nil)).Elem(), UserPoolLambdaConfigCustomEmailSenderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolLambdaConfigCustomSmsSenderInput)(nil)).Elem(), UserPoolLambdaConfigCustomSmsSenderArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolLambdaConfigCustomSmsSenderPtrInput)(nil)).Elem(), UserPoolLambdaConfigCustomSmsSenderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolLambdaConfigPreTokenGenerationConfigInput)(nil)).Elem(), UserPoolLambdaConfigPreTokenGenerationConfigArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolLambdaConfigPreTokenGenerationConfigPtrInput)(nil)).Elem(), UserPoolLambdaConfigPreTokenGenerationConfigArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolPasswordPolicyInput)(nil)).Elem(), UserPoolPasswordPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolPasswordPolicyPtrInput)(nil)).Elem(), UserPoolPasswordPolicyArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*UserPoolSchemaInput)(nil)).Elem(), UserPoolSchemaArgs{})
@@ -7228,6 +7407,8 @@ func init() {
 	pulumi.RegisterOutputType(UserPoolLambdaConfigCustomEmailSenderPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolLambdaConfigCustomSmsSenderOutput{})
 	pulumi.RegisterOutputType(UserPoolLambdaConfigCustomSmsSenderPtrOutput{})
+	pulumi.RegisterOutputType(UserPoolLambdaConfigPreTokenGenerationConfigOutput{})
+	pulumi.RegisterOutputType(UserPoolLambdaConfigPreTokenGenerationConfigPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolPasswordPolicyOutput{})
 	pulumi.RegisterOutputType(UserPoolPasswordPolicyPtrOutput{})
 	pulumi.RegisterOutputType(UserPoolSchemaOutput{})

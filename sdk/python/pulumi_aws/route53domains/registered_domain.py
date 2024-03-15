@@ -20,6 +20,8 @@ class RegisteredDomainArgs:
                  admin_contact: Optional[pulumi.Input['RegisteredDomainAdminContactArgs']] = None,
                  admin_privacy: Optional[pulumi.Input[bool]] = None,
                  auto_renew: Optional[pulumi.Input[bool]] = None,
+                 billing_contact: Optional[pulumi.Input['RegisteredDomainBillingContactArgs']] = None,
+                 billing_privacy: Optional[pulumi.Input[bool]] = None,
                  name_servers: Optional[pulumi.Input[Sequence[pulumi.Input['RegisteredDomainNameServerArgs']]]] = None,
                  registrant_contact: Optional[pulumi.Input['RegisteredDomainRegistrantContactArgs']] = None,
                  registrant_privacy: Optional[pulumi.Input[bool]] = None,
@@ -33,6 +35,8 @@ class RegisteredDomainArgs:
         :param pulumi.Input['RegisteredDomainAdminContactArgs'] admin_contact: Details about the domain administrative contact. See Contact Blocks for more details.
         :param pulumi.Input[bool] admin_privacy: Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
         :param pulumi.Input[bool] auto_renew: Whether the domain registration is set to renew automatically. Default: `true`.
+        :param pulumi.Input['RegisteredDomainBillingContactArgs'] billing_contact: Details about the domain billing contact. See Contact Blocks for more details.
+        :param pulumi.Input[bool] billing_privacy: Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
         :param pulumi.Input[Sequence[pulumi.Input['RegisteredDomainNameServerArgs']]] name_servers: The list of nameservers for the domain. See `name_server` Blocks for more details.
         :param pulumi.Input['RegisteredDomainRegistrantContactArgs'] registrant_contact: Details about the domain registrant. See Contact Blocks for more details.
         :param pulumi.Input[bool] registrant_privacy: Whether domain registrant contact information is concealed from WHOIS queries. Default: `true`.
@@ -48,6 +52,10 @@ class RegisteredDomainArgs:
             pulumi.set(__self__, "admin_privacy", admin_privacy)
         if auto_renew is not None:
             pulumi.set(__self__, "auto_renew", auto_renew)
+        if billing_contact is not None:
+            pulumi.set(__self__, "billing_contact", billing_contact)
+        if billing_privacy is not None:
+            pulumi.set(__self__, "billing_privacy", billing_privacy)
         if name_servers is not None:
             pulumi.set(__self__, "name_servers", name_servers)
         if registrant_contact is not None:
@@ -110,6 +118,30 @@ class RegisteredDomainArgs:
     @auto_renew.setter
     def auto_renew(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "auto_renew", value)
+
+    @property
+    @pulumi.getter(name="billingContact")
+    def billing_contact(self) -> Optional[pulumi.Input['RegisteredDomainBillingContactArgs']]:
+        """
+        Details about the domain billing contact. See Contact Blocks for more details.
+        """
+        return pulumi.get(self, "billing_contact")
+
+    @billing_contact.setter
+    def billing_contact(self, value: Optional[pulumi.Input['RegisteredDomainBillingContactArgs']]):
+        pulumi.set(self, "billing_contact", value)
+
+    @property
+    @pulumi.getter(name="billingPrivacy")
+    def billing_privacy(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
+        """
+        return pulumi.get(self, "billing_privacy")
+
+    @billing_privacy.setter
+    def billing_privacy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "billing_privacy", value)
 
     @property
     @pulumi.getter(name="nameServers")
@@ -204,6 +236,8 @@ class _RegisteredDomainState:
                  admin_contact: Optional[pulumi.Input['RegisteredDomainAdminContactArgs']] = None,
                  admin_privacy: Optional[pulumi.Input[bool]] = None,
                  auto_renew: Optional[pulumi.Input[bool]] = None,
+                 billing_contact: Optional[pulumi.Input['RegisteredDomainBillingContactArgs']] = None,
+                 billing_privacy: Optional[pulumi.Input[bool]] = None,
                  creation_date: Optional[pulumi.Input[str]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  expiration_date: Optional[pulumi.Input[str]] = None,
@@ -228,6 +262,8 @@ class _RegisteredDomainState:
         :param pulumi.Input['RegisteredDomainAdminContactArgs'] admin_contact: Details about the domain administrative contact. See Contact Blocks for more details.
         :param pulumi.Input[bool] admin_privacy: Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
         :param pulumi.Input[bool] auto_renew: Whether the domain registration is set to renew automatically. Default: `true`.
+        :param pulumi.Input['RegisteredDomainBillingContactArgs'] billing_contact: Details about the domain billing contact. See Contact Blocks for more details.
+        :param pulumi.Input[bool] billing_privacy: Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
         :param pulumi.Input[str] creation_date: The date when the domain was created as found in the response to a WHOIS query.
         :param pulumi.Input[str] domain_name: The name of the registered domain.
         :param pulumi.Input[str] expiration_date: The date when the registration for the domain is set to expire.
@@ -256,6 +292,10 @@ class _RegisteredDomainState:
             pulumi.set(__self__, "admin_privacy", admin_privacy)
         if auto_renew is not None:
             pulumi.set(__self__, "auto_renew", auto_renew)
+        if billing_contact is not None:
+            pulumi.set(__self__, "billing_contact", billing_contact)
+        if billing_privacy is not None:
+            pulumi.set(__self__, "billing_privacy", billing_privacy)
         if creation_date is not None:
             pulumi.set(__self__, "creation_date", creation_date)
         if domain_name is not None:
@@ -353,6 +393,30 @@ class _RegisteredDomainState:
     @auto_renew.setter
     def auto_renew(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "auto_renew", value)
+
+    @property
+    @pulumi.getter(name="billingContact")
+    def billing_contact(self) -> Optional[pulumi.Input['RegisteredDomainBillingContactArgs']]:
+        """
+        Details about the domain billing contact. See Contact Blocks for more details.
+        """
+        return pulumi.get(self, "billing_contact")
+
+    @billing_contact.setter
+    def billing_contact(self, value: Optional[pulumi.Input['RegisteredDomainBillingContactArgs']]):
+        pulumi.set(self, "billing_contact", value)
+
+    @property
+    @pulumi.getter(name="billingPrivacy")
+    def billing_privacy(self) -> Optional[pulumi.Input[bool]]:
+        """
+        Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
+        """
+        return pulumi.get(self, "billing_privacy")
+
+    @billing_privacy.setter
+    def billing_privacy(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "billing_privacy", value)
 
     @property
     @pulumi.getter(name="creationDate")
@@ -570,6 +634,8 @@ class RegisteredDomain(pulumi.CustomResource):
                  admin_contact: Optional[pulumi.Input[pulumi.InputType['RegisteredDomainAdminContactArgs']]] = None,
                  admin_privacy: Optional[pulumi.Input[bool]] = None,
                  auto_renew: Optional[pulumi.Input[bool]] = None,
+                 billing_contact: Optional[pulumi.Input[pulumi.InputType['RegisteredDomainBillingContactArgs']]] = None,
+                 billing_privacy: Optional[pulumi.Input[bool]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegisteredDomainNameServerArgs']]]]] = None,
                  registrant_contact: Optional[pulumi.Input[pulumi.InputType['RegisteredDomainRegistrantContactArgs']]] = None,
@@ -622,6 +688,8 @@ class RegisteredDomain(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['RegisteredDomainAdminContactArgs']] admin_contact: Details about the domain administrative contact. See Contact Blocks for more details.
         :param pulumi.Input[bool] admin_privacy: Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
         :param pulumi.Input[bool] auto_renew: Whether the domain registration is set to renew automatically. Default: `true`.
+        :param pulumi.Input[pulumi.InputType['RegisteredDomainBillingContactArgs']] billing_contact: Details about the domain billing contact. See Contact Blocks for more details.
+        :param pulumi.Input[bool] billing_privacy: Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
         :param pulumi.Input[str] domain_name: The name of the registered domain.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegisteredDomainNameServerArgs']]]] name_servers: The list of nameservers for the domain. See `name_server` Blocks for more details.
         :param pulumi.Input[pulumi.InputType['RegisteredDomainRegistrantContactArgs']] registrant_contact: Details about the domain registrant. See Contact Blocks for more details.
@@ -693,6 +761,8 @@ class RegisteredDomain(pulumi.CustomResource):
                  admin_contact: Optional[pulumi.Input[pulumi.InputType['RegisteredDomainAdminContactArgs']]] = None,
                  admin_privacy: Optional[pulumi.Input[bool]] = None,
                  auto_renew: Optional[pulumi.Input[bool]] = None,
+                 billing_contact: Optional[pulumi.Input[pulumi.InputType['RegisteredDomainBillingContactArgs']]] = None,
+                 billing_privacy: Optional[pulumi.Input[bool]] = None,
                  domain_name: Optional[pulumi.Input[str]] = None,
                  name_servers: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['RegisteredDomainNameServerArgs']]]]] = None,
                  registrant_contact: Optional[pulumi.Input[pulumi.InputType['RegisteredDomainRegistrantContactArgs']]] = None,
@@ -713,6 +783,8 @@ class RegisteredDomain(pulumi.CustomResource):
             __props__.__dict__["admin_contact"] = admin_contact
             __props__.__dict__["admin_privacy"] = admin_privacy
             __props__.__dict__["auto_renew"] = auto_renew
+            __props__.__dict__["billing_contact"] = billing_contact
+            __props__.__dict__["billing_privacy"] = billing_privacy
             if domain_name is None and not opts.urn:
                 raise TypeError("Missing required property 'domain_name'")
             __props__.__dict__["domain_name"] = domain_name
@@ -749,6 +821,8 @@ class RegisteredDomain(pulumi.CustomResource):
             admin_contact: Optional[pulumi.Input[pulumi.InputType['RegisteredDomainAdminContactArgs']]] = None,
             admin_privacy: Optional[pulumi.Input[bool]] = None,
             auto_renew: Optional[pulumi.Input[bool]] = None,
+            billing_contact: Optional[pulumi.Input[pulumi.InputType['RegisteredDomainBillingContactArgs']]] = None,
+            billing_privacy: Optional[pulumi.Input[bool]] = None,
             creation_date: Optional[pulumi.Input[str]] = None,
             domain_name: Optional[pulumi.Input[str]] = None,
             expiration_date: Optional[pulumi.Input[str]] = None,
@@ -778,6 +852,8 @@ class RegisteredDomain(pulumi.CustomResource):
         :param pulumi.Input[pulumi.InputType['RegisteredDomainAdminContactArgs']] admin_contact: Details about the domain administrative contact. See Contact Blocks for more details.
         :param pulumi.Input[bool] admin_privacy: Whether domain administrative contact information is concealed from WHOIS queries. Default: `true`.
         :param pulumi.Input[bool] auto_renew: Whether the domain registration is set to renew automatically. Default: `true`.
+        :param pulumi.Input[pulumi.InputType['RegisteredDomainBillingContactArgs']] billing_contact: Details about the domain billing contact. See Contact Blocks for more details.
+        :param pulumi.Input[bool] billing_privacy: Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
         :param pulumi.Input[str] creation_date: The date when the domain was created as found in the response to a WHOIS query.
         :param pulumi.Input[str] domain_name: The name of the registered domain.
         :param pulumi.Input[str] expiration_date: The date when the registration for the domain is set to expire.
@@ -805,6 +881,8 @@ class RegisteredDomain(pulumi.CustomResource):
         __props__.__dict__["admin_contact"] = admin_contact
         __props__.__dict__["admin_privacy"] = admin_privacy
         __props__.__dict__["auto_renew"] = auto_renew
+        __props__.__dict__["billing_contact"] = billing_contact
+        __props__.__dict__["billing_privacy"] = billing_privacy
         __props__.__dict__["creation_date"] = creation_date
         __props__.__dict__["domain_name"] = domain_name
         __props__.__dict__["expiration_date"] = expiration_date
@@ -863,6 +941,22 @@ class RegisteredDomain(pulumi.CustomResource):
         Whether the domain registration is set to renew automatically. Default: `true`.
         """
         return pulumi.get(self, "auto_renew")
+
+    @property
+    @pulumi.getter(name="billingContact")
+    def billing_contact(self) -> pulumi.Output['outputs.RegisteredDomainBillingContact']:
+        """
+        Details about the domain billing contact. See Contact Blocks for more details.
+        """
+        return pulumi.get(self, "billing_contact")
+
+    @property
+    @pulumi.getter(name="billingPrivacy")
+    def billing_privacy(self) -> pulumi.Output[Optional[bool]]:
+        """
+        Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
+        """
+        return pulumi.get(self, "billing_privacy")
 
     @property
     @pulumi.getter(name="creationDate")

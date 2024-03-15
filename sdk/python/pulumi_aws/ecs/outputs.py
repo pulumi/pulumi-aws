@@ -1366,16 +1366,15 @@ class ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthority(dict):
         return super().get(key, default)
 
     def __init__(__self__, *,
-                 aws_pca_authority_arn: Optional[str] = None):
+                 aws_pca_authority_arn: str):
         """
         :param str aws_pca_authority_arn: The ARN of the `acmpca.CertificateAuthority` used to create the TLS Certificates.
         """
-        if aws_pca_authority_arn is not None:
-            pulumi.set(__self__, "aws_pca_authority_arn", aws_pca_authority_arn)
+        pulumi.set(__self__, "aws_pca_authority_arn", aws_pca_authority_arn)
 
     @property
     @pulumi.getter(name="awsPcaAuthorityArn")
-    def aws_pca_authority_arn(self) -> Optional[str]:
+    def aws_pca_authority_arn(self) -> str:
         """
         The ARN of the `acmpca.CertificateAuthority` used to create the TLS Certificates.
         """

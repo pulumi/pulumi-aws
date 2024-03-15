@@ -15837,9 +15837,13 @@ export namespace cognito {
          */
         preSignUp?: string;
         /**
-         * Allow to customize identity token claims before token generation.
+         * Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the LambdaArn of `preTokenGenerationConfig`.
          */
-        preTokenGeneration?: string;
+        preTokenGeneration: string;
+        /**
+         * Allow to customize access tokens. See pre_token_configuration_type
+         */
+        preTokenGenerationConfig: outputs.cognito.UserPoolLambdaConfigPreTokenGenerationConfig;
         /**
          * User migration Lambda config type.
          */
@@ -15868,6 +15872,17 @@ export namespace cognito {
         lambdaArn: string;
         /**
          * The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
+         */
+        lambdaVersion: string;
+    }
+
+    export interface UserPoolLambdaConfigPreTokenGenerationConfig {
+        /**
+         * The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
+         */
+        lambdaArn: string;
+        /**
+         * The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom email Lambda function. The only supported value is `V1_0`.
          */
         lambdaVersion: string;
     }
@@ -16649,6 +16664,10 @@ export namespace config {
          * Use this to override the default service endpoint URL
          */
         devicefarm?: string;
+        /**
+         * Use this to override the default service endpoint URL
+         */
+        devopsguru?: string;
         /**
          * Use this to override the default service endpoint URL
          */
@@ -25061,7 +25080,7 @@ export namespace ec2 {
 
     export interface InstanceInstanceMarketOptions {
         /**
-         * Type of market for the instance. Valid value is `spot`. Defaults to `spot`.
+         * Type of market for the instance. Valid value is `spot`. Defaults to `spot`. Required if `spotOptions` is specified.
          */
         marketType: string;
         /**
@@ -28731,7 +28750,7 @@ export namespace ecs {
         /**
          * The ARN of the `aws.acmpca.CertificateAuthority` used to create the TLS Certificates.
          */
-        awsPcaAuthorityArn?: string;
+        awsPcaAuthorityArn: string;
     }
 
     export interface ServiceServiceRegistries {
@@ -29728,7 +29747,7 @@ export namespace elasticache {
 
     export interface ServerlessCacheCacheUsageLimitsDataStorage {
         /**
-         * The upper limit for data storage the cache is set to use. Set as Integer.
+         * The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
          */
         maximum: number;
         /**
@@ -29739,7 +29758,7 @@ export namespace elasticache {
 
     export interface ServerlessCacheCacheUsageLimitsEcpuPerSecond {
         /**
-         * The upper limit for data storage the cache is set to use. Set as Integer.
+         * The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
          */
         maximum: number;
     }
@@ -41108,6 +41127,66 @@ export namespace kms {
 }
 
 export namespace lakeformation {
+    export interface DataCellsFilterTableData {
+        /**
+         * A list of column names and/or nested column attributes.
+         */
+        columnNames: string[];
+        columnWildcard?: outputs.lakeformation.DataCellsFilterTableDataColumnWildcard;
+        /**
+         * The name of the database.
+         */
+        databaseName: string;
+        /**
+         * The name of the data cells filter.
+         */
+        name: string;
+        /**
+         * A PartiQL predicate. See Row Filter below for details.
+         */
+        rowFilter?: outputs.lakeformation.DataCellsFilterTableDataRowFilter;
+        /**
+         * The ID of the Data Catalog.
+         */
+        tableCatalogId: string;
+        /**
+         * The name of the table.
+         */
+        tableName: string;
+        /**
+         * ID of the data cells filter version.
+         */
+        versionId: string;
+    }
+
+    export interface DataCellsFilterTableDataColumnWildcard {
+        /**
+         * (Optional) Excludes column names. Any column with this name will be excluded.
+         */
+        excludedColumnNames?: string[];
+    }
+
+    export interface DataCellsFilterTableDataRowFilter {
+        /**
+         * (Optional) A wildcard that matches all rows.
+         */
+        allRowsWildcard?: outputs.lakeformation.DataCellsFilterTableDataRowFilterAllRowsWildcard;
+        /**
+         * (Optional) A filter expression.
+         */
+        filterExpression?: string;
+    }
+
+    export interface DataCellsFilterTableDataRowFilterAllRowsWildcard {
+    }
+
+    export interface DataCellsFilterTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: string;
+    }
+
     export interface DataLakeSettingsCreateDatabaseDefaultPermission {
         /**
          * List of permissions that are granted to the principal. Valid values may include `ALL`, `SELECT`, `ALTER`, `DROP`, `DELETE`, `INSERT`, `DESCRIBE`, and `CREATE_TABLE`. For more details, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
@@ -41150,6 +41229,25 @@ export namespace lakeformation {
          * Principal who is granted permissions.
          */
         principal: string;
+    }
+
+    export interface GetPermissionsDataCellsFilter {
+        /**
+         * The name of the database.
+         */
+        databaseName: string;
+        /**
+         * The name of the data cells filter.
+         */
+        name: string;
+        /**
+         * The ID of the Data Catalog.
+         */
+        tableCatalogId: string;
+        /**
+         * The name of the table.
+         */
+        tableName: string;
     }
 
     export interface GetPermissionsDataLocation {
@@ -41271,6 +41369,25 @@ export namespace lakeformation {
          * Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
          */
         wildcard?: boolean;
+    }
+
+    export interface PermissionsDataCellsFilter {
+        /**
+         * The name of the database.
+         */
+        databaseName: string;
+        /**
+         * The name of the data cells filter.
+         */
+        name: string;
+        /**
+         * The ID of the Data Catalog.
+         */
+        tableCatalogId: string;
+        /**
+         * The name of the table.
+         */
+        tableName: string;
     }
 
     export interface PermissionsDataLocation {
@@ -57987,6 +58104,30 @@ export namespace medialive {
         subnetIds: string[];
     }
 
+    export interface GetInputDestination {
+        ip: string;
+        port: string;
+        url: string;
+        vpcs: any[];
+    }
+
+    export interface GetInputInputDevice {
+        /**
+         * The ID of the Input.
+         */
+        id: string;
+    }
+
+    export interface GetInputMediaConnectFlow {
+        flowArn: string;
+    }
+
+    export interface GetInputSource {
+        passwordParam: string;
+        url: string;
+        username: string;
+    }
+
     export interface InputDestination {
         /**
          * A unique name for the location the RTMP stream is being pushed to.
@@ -60855,6 +60996,10 @@ export namespace opensearch {
          * Whether the domain is set to roll back to default Auto-Tune settings when disabling Auto-Tune.
          */
         rollbackOnDisable: string;
+        /**
+         * Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain's configured daily off-peak window.
+         */
+        useOffPeakWindow: boolean;
     }
 
     export interface GetDomainAutoTuneOptionMaintenanceSchedule {
@@ -66769,6 +66914,65 @@ export namespace route53domains {
     }
 
     export interface RegisteredDomainAdminContact {
+        /**
+         * First line of the contact's address.
+         */
+        addressLine1: string;
+        /**
+         * Second line of contact's address, if any.
+         */
+        addressLine2: string;
+        /**
+         * The city of the contact's address.
+         */
+        city: string;
+        /**
+         * Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
+         */
+        contactType: string;
+        /**
+         * Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
+         */
+        countryCode: string;
+        /**
+         * Email address of the contact.
+         */
+        email: string;
+        /**
+         * A key-value map of parameters required by certain top-level domains.
+         */
+        extraParams: {[key: string]: string};
+        /**
+         * Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+         */
+        fax: string;
+        /**
+         * First name of contact.
+         */
+        firstName: string;
+        /**
+         * Last name of contact.
+         */
+        lastName: string;
+        /**
+         * Name of the organization for contact types other than `PERSON`.
+         */
+        organizationName: string;
+        /**
+         * The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+         */
+        phoneNumber: string;
+        /**
+         * The state or province of the contact's city.
+         */
+        state: string;
+        /**
+         * The zip or postal code of the contact's address.
+         */
+        zipCode: string;
+    }
+
+    export interface RegisteredDomainBillingContact {
         /**
          * First line of the contact's address.
          */
@@ -73034,6 +73238,122 @@ export namespace securityhub {
         value: string;
     }
 
+    export interface ConfigurationPolicyConfigurationPolicy {
+        /**
+         * A list that defines which security standards are enabled in the configuration policy.
+         */
+        enabledStandardArns: string[];
+        /**
+         * Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
+         */
+        securityControlsConfiguration?: outputs.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration;
+        /**
+         * Indicates whether Security Hub is enabled in the policy.
+         */
+        serviceEnabled: boolean;
+    }
+
+    export interface ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration {
+        /**
+         * A list of security controls that are disabled in the configuration policy Security Hub enables all other controls (including newly released controls) other than the listed controls. Conflicts with `enabledControlIdentifiers`.
+         */
+        disabledControlIdentifiers?: string[];
+        /**
+         * A list of security controls that are enabled in the configuration policy. Security Hub disables all other controls (including newly released controls) other than the listed controls. Conflicts with `disabledControlIdentifiers`.
+         */
+        enabledControlIdentifiers?: string[];
+        /**
+         * A list of control parameter customizations that are included in a configuration policy. Include multiple blocks to define multiple control custom parameters. See below.
+         */
+        securityControlCustomParameters?: outputs.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameter[];
+    }
+
+    export interface ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameter {
+        /**
+         * An object that specifies parameter values for a control in a configuration policy. See below.
+         */
+        parameters: outputs.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter[];
+        /**
+         * The ID of the security control. For more information see the [Security Hub controls reference] documentation.
+         */
+        securityControlId: string;
+    }
+
+    export interface ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter {
+        /**
+         * The bool `value` for a Boolean-typed Security Hub Control Parameter.
+         */
+        bool?: outputs.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBool;
+        /**
+         * The float `value` for a Double-typed Security Hub Control Parameter.
+         */
+        double?: outputs.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDouble;
+        /**
+         * The string `value` for a Enum-typed Security Hub Control Parameter.
+         */
+        enum?: outputs.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnum;
+        /**
+         * The string list `value` for a EnumList-typed Security Hub Control Parameter.
+         */
+        enumList?: outputs.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumList;
+        /**
+         * The int `value` for a Int-typed Security Hub Control Parameter.
+         */
+        int?: outputs.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterInt;
+        /**
+         * The int list `value` for a IntList-typed Security Hub Control Parameter.
+         */
+        intList?: outputs.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntList;
+        /**
+         * The name of the control parameter. For more information see the [Security Hub controls reference] documentation.
+         */
+        name: string;
+        /**
+         * The string `value` for a String-typed Security Hub Control Parameter.
+         */
+        string?: outputs.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterString;
+        /**
+         * The string list `value` for a StringList-typed Security Hub Control Parameter.
+         */
+        stringList?: outputs.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringList;
+        /**
+         * Identifies whether a control parameter uses a custom user-defined value or subscribes to the default Security Hub behavior. Valid values: `DEFAULT`, `CUSTOM`.
+         */
+        valueType: string;
+    }
+
+    export interface ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBool {
+        value: boolean;
+    }
+
+    export interface ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDouble {
+        value: number;
+    }
+
+    export interface ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnum {
+        value: string;
+    }
+
+    export interface ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumList {
+        values: string[];
+    }
+
+    export interface ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterInt {
+        value: number;
+    }
+
+    export interface ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntList {
+        values: number[];
+    }
+
+    export interface ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterString {
+        value: string;
+    }
+
+    export interface ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringList {
+        values: string[];
+    }
+
     export interface InsightFilters {
         /**
          * AWS account ID that a finding is generated in. See String_Filter below for more details.
@@ -74542,6 +74862,13 @@ export namespace securityhub {
         value: string;
     }
 
+    export interface OrganizationConfigurationOrganizationConfiguration {
+        /**
+         * Indicates whether the organization uses local or central configuration. If using central configuration, `autoEnable` must be set to `false` and `autoEnableStandards` set to `NONE`. More information can be found in the [documentation for central configuration](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html). Valid values: `LOCAL`, `CENTRAL`.
+         */
+        configurationType: string;
+    }
+
 }
 
 export namespace securitylake {
@@ -74698,6 +75025,43 @@ export namespace securitylake {
          * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
          */
         update?: string;
+    }
+
+    export interface SubscriberNotificationConfiguration {
+        /**
+         * The configurations for HTTPS subscriber notification.
+         */
+        httpsNotificationConfiguration?: outputs.securitylake.SubscriberNotificationConfigurationHttpsNotificationConfiguration;
+        /**
+         * The configurations for SQS subscriber notification.
+         */
+        sqsNotificationConfiguration?: outputs.securitylake.SubscriberNotificationConfigurationSqsNotificationConfiguration;
+    }
+
+    export interface SubscriberNotificationConfigurationHttpsNotificationConfiguration {
+        /**
+         * The key name for the notification subscription.
+         */
+        authorizationApiKeyName?: string;
+        /**
+         * The key value for the notification subscription.
+         */
+        authorizationApiKeyValue?: string;
+        /**
+         * The subscription endpoint in Security Lake. If you prefer notification with an HTTPs endpoint, populate this field.
+         */
+        endpoint?: string;
+        /**
+         * The HTTPS method used for the notification subscription.
+         */
+        httpMethod?: string;
+        /**
+         * The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created. For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
+         */
+        targetRoleArn?: string;
+    }
+
+    export interface SubscriberNotificationConfigurationSqsNotificationConfiguration {
     }
 
     export interface SubscriberSource {

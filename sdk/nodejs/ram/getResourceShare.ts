@@ -32,7 +32,6 @@ import * as utilities from "../utilities";
  * import * as aws from "@pulumi/aws";
  *
  * const tagFilter = aws.ram.getResourceShare({
- *     name: "MyResourceName",
  *     resourceOwner: "SELF",
  *     filters: [{
  *         name: "NameOfTag",
@@ -65,7 +64,7 @@ export interface GetResourceShareArgs {
     /**
      * Name of the tag key to filter on.
      */
-    name: string;
+    name?: string;
     /**
      * Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
      */
@@ -138,7 +137,6 @@ export interface GetResourceShareResult {
  * import * as aws from "@pulumi/aws";
  *
  * const tagFilter = aws.ram.getResourceShare({
- *     name: "MyResourceName",
  *     resourceOwner: "SELF",
  *     filters: [{
  *         name: "NameOfTag",
@@ -163,7 +161,7 @@ export interface GetResourceShareOutputArgs {
     /**
      * Name of the tag key to filter on.
      */
-    name: pulumi.Input<string>;
+    name?: pulumi.Input<string>;
     /**
      * Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
      */

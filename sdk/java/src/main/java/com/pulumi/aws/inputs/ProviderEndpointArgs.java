@@ -1339,6 +1339,21 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
      * Use this to override the default service endpoint URL
      * 
      */
+    @Import(name="devopsguru")
+    private @Nullable Output<String> devopsguru;
+
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
+    public Optional<Output<String>> devopsguru() {
+        return Optional.ofNullable(this.devopsguru);
+    }
+
+    /**
+     * Use this to override the default service endpoint URL
+     * 
+     */
     @Import(name="directconnect")
     private @Nullable Output<String> directconnect;
 
@@ -4201,6 +4216,7 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
         this.deploy = $.deploy;
         this.detective = $.detective;
         this.devicefarm = $.devicefarm;
+        this.devopsguru = $.devopsguru;
         this.directconnect = $.directconnect;
         this.directoryservice = $.directoryservice;
         this.dlm = $.dlm;
@@ -6252,6 +6268,27 @@ public final class ProviderEndpointArgs extends com.pulumi.resources.ResourceArg
          */
         public Builder devicefarm(String devicefarm) {
             return devicefarm(Output.of(devicefarm));
+        }
+
+        /**
+         * @param devopsguru Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder devopsguru(@Nullable Output<String> devopsguru) {
+            $.devopsguru = devopsguru;
+            return this;
+        }
+
+        /**
+         * @param devopsguru Use this to override the default service endpoint URL
+         * 
+         * @return builder
+         * 
+         */
+        public Builder devopsguru(String devopsguru) {
+            return devopsguru(Output.of(devopsguru));
         }
 
         /**

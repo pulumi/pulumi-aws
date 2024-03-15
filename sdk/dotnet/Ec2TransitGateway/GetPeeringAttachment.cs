@@ -231,6 +231,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
         /// Identifier of the peer EC2 Transit Gateway
         /// </summary>
         public readonly string PeerTransitGatewayId;
+        public readonly string State;
         public readonly ImmutableDictionary<string, string> Tags;
         /// <summary>
         /// Identifier of the local EC2 Transit Gateway
@@ -249,6 +250,8 @@ namespace Pulumi.Aws.Ec2TransitGateway
 
             string peerTransitGatewayId,
 
+            string state,
+
             ImmutableDictionary<string, string> tags,
 
             string transitGatewayId)
@@ -258,6 +261,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
             PeerAccountId = peerAccountId;
             PeerRegion = peerRegion;
             PeerTransitGatewayId = peerTransitGatewayId;
+            State = state;
             Tags = tags;
             TransitGatewayId = transitGatewayId;
         }

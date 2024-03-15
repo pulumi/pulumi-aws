@@ -23,19 +23,25 @@ class GetPolicyDocumentResult:
     """
     A collection of values returned by getPolicyDocument.
     """
-    def __init__(__self__, id=None, json=None, override_policy_documents=None, policy_id=None, source_policy_documents=None, statements=None, version=None):
+    def __init__(__self__, id=None, json=None, override_json=None, override_policy_documents=None, policy_id=None, source_json=None, source_policy_documents=None, statements=None, version=None):
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
         if json and not isinstance(json, str):
             raise TypeError("Expected argument 'json' to be a str")
         pulumi.set(__self__, "json", json)
+        if override_json and not isinstance(override_json, str):
+            raise TypeError("Expected argument 'override_json' to be a str")
+        pulumi.set(__self__, "override_json", override_json)
         if override_policy_documents and not isinstance(override_policy_documents, list):
             raise TypeError("Expected argument 'override_policy_documents' to be a list")
         pulumi.set(__self__, "override_policy_documents", override_policy_documents)
         if policy_id and not isinstance(policy_id, str):
             raise TypeError("Expected argument 'policy_id' to be a str")
         pulumi.set(__self__, "policy_id", policy_id)
+        if source_json and not isinstance(source_json, str):
+            raise TypeError("Expected argument 'source_json' to be a str")
+        pulumi.set(__self__, "source_json", source_json)
         if source_policy_documents and not isinstance(source_policy_documents, list):
             raise TypeError("Expected argument 'source_policy_documents' to be a list")
         pulumi.set(__self__, "source_policy_documents", source_policy_documents)
@@ -63,6 +69,14 @@ class GetPolicyDocumentResult:
         return pulumi.get(self, "json")
 
     @property
+    @pulumi.getter(name="overrideJson")
+    def override_json(self) -> Optional[str]:
+        warnings.warn("""Not used""", DeprecationWarning)
+        pulumi.log.warn("""override_json is deprecated: Not used""")
+
+        return pulumi.get(self, "override_json")
+
+    @property
     @pulumi.getter(name="overridePolicyDocuments")
     def override_policy_documents(self) -> Optional[Sequence[str]]:
         return pulumi.get(self, "override_policy_documents")
@@ -71,6 +85,14 @@ class GetPolicyDocumentResult:
     @pulumi.getter(name="policyId")
     def policy_id(self) -> Optional[str]:
         return pulumi.get(self, "policy_id")
+
+    @property
+    @pulumi.getter(name="sourceJson")
+    def source_json(self) -> Optional[str]:
+        warnings.warn("""Not used""", DeprecationWarning)
+        pulumi.log.warn("""source_json is deprecated: Not used""")
+
+        return pulumi.get(self, "source_json")
 
     @property
     @pulumi.getter(name="sourcePolicyDocuments")
@@ -96,15 +118,19 @@ class AwaitableGetPolicyDocumentResult(GetPolicyDocumentResult):
         return GetPolicyDocumentResult(
             id=self.id,
             json=self.json,
+            override_json=self.override_json,
             override_policy_documents=self.override_policy_documents,
             policy_id=self.policy_id,
+            source_json=self.source_json,
             source_policy_documents=self.source_policy_documents,
             statements=self.statements,
             version=self.version)
 
 
-def get_policy_document(override_policy_documents: Optional[Sequence[str]] = None,
+def get_policy_document(override_json: Optional[str] = None,
+                        override_policy_documents: Optional[Sequence[str]] = None,
                         policy_id: Optional[str] = None,
+                        source_json: Optional[str] = None,
                         source_policy_documents: Optional[Sequence[str]] = None,
                         statements: Optional[Sequence[pulumi.InputType['GetPolicyDocumentStatementArgs']]] = None,
                         version: Optional[str] = None,
@@ -419,8 +445,10 @@ def get_policy_document(override_policy_documents: Optional[Sequence[str]] = Non
     :param str version: IAM policy document version. Valid values are `2008-10-17` and `2012-10-17`. Defaults to `2012-10-17`. For more information, see the [AWS IAM User Guide](https://docs.aws.amazon.com/IAM/latest/UserGuide/reference_policies_elements_version.html).
     """
     __args__ = dict()
+    __args__['overrideJson'] = override_json
     __args__['overridePolicyDocuments'] = override_policy_documents
     __args__['policyId'] = policy_id
+    __args__['sourceJson'] = source_json
     __args__['sourcePolicyDocuments'] = source_policy_documents
     __args__['statements'] = statements
     __args__['version'] = version
@@ -430,16 +458,20 @@ def get_policy_document(override_policy_documents: Optional[Sequence[str]] = Non
     return AwaitableGetPolicyDocumentResult(
         id=pulumi.get(__ret__, 'id'),
         json=pulumi.get(__ret__, 'json'),
+        override_json=pulumi.get(__ret__, 'override_json'),
         override_policy_documents=pulumi.get(__ret__, 'override_policy_documents'),
         policy_id=pulumi.get(__ret__, 'policy_id'),
+        source_json=pulumi.get(__ret__, 'source_json'),
         source_policy_documents=pulumi.get(__ret__, 'source_policy_documents'),
         statements=pulumi.get(__ret__, 'statements'),
         version=pulumi.get(__ret__, 'version'))
 
 
 @_utilities.lift_output_func(get_policy_document)
-def get_policy_document_output(override_policy_documents: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
+def get_policy_document_output(override_json: Optional[pulumi.Input[Optional[str]]] = None,
+                               override_policy_documents: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                policy_id: Optional[pulumi.Input[Optional[str]]] = None,
+                               source_json: Optional[pulumi.Input[Optional[str]]] = None,
                                source_policy_documents: Optional[pulumi.Input[Optional[Sequence[str]]]] = None,
                                statements: Optional[pulumi.Input[Optional[Sequence[pulumi.InputType['GetPolicyDocumentStatementArgs']]]]] = None,
                                version: Optional[pulumi.Input[Optional[str]]] = None,

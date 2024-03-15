@@ -25,6 +25,11 @@ export type Subscriber = import("./subscriber").Subscriber;
 export const Subscriber: typeof import("./subscriber").Subscriber = null as any;
 utilities.lazyLoad(exports, ["Subscriber"], () => require("./subscriber"));
 
+export { SubscriberNotificationArgs, SubscriberNotificationState } from "./subscriberNotification";
+export type SubscriberNotification = import("./subscriberNotification").SubscriberNotification;
+export const SubscriberNotification: typeof import("./subscriberNotification").SubscriberNotification = null as any;
+utilities.lazyLoad(exports, ["SubscriberNotification"], () => require("./subscriberNotification"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -38,6 +43,8 @@ const _module = {
                 return new DataLake(name, <any>undefined, { urn })
             case "aws:securitylake/subscriber:Subscriber":
                 return new Subscriber(name, <any>undefined, { urn })
+            case "aws:securitylake/subscriberNotification:SubscriberNotification":
+                return new SubscriberNotification(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -47,3 +54,4 @@ pulumi.runtime.registerResourceModule("aws", "securitylake/awsLogSource", _modul
 pulumi.runtime.registerResourceModule("aws", "securitylake/customLogSource", _module)
 pulumi.runtime.registerResourceModule("aws", "securitylake/dataLake", _module)
 pulumi.runtime.registerResourceModule("aws", "securitylake/subscriber", _module)
+pulumi.runtime.registerResourceModule("aws", "securitylake/subscriberNotification", _module)

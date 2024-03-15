@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.lakeformation.outputs;
 
+import com.pulumi.aws.lakeformation.outputs.GetPermissionsDataCellsFilter;
 import com.pulumi.aws.lakeformation.outputs.GetPermissionsDataLocation;
 import com.pulumi.aws.lakeformation.outputs.GetPermissionsDatabase;
 import com.pulumi.aws.lakeformation.outputs.GetPermissionsLfTag;
@@ -22,6 +23,7 @@ import javax.annotation.Nullable;
 public final class GetPermissionsResult {
     private @Nullable String catalogId;
     private @Nullable Boolean catalogResource;
+    private GetPermissionsDataCellsFilter dataCellsFilter;
     private GetPermissionsDataLocation dataLocation;
     private GetPermissionsDatabase database;
     /**
@@ -51,6 +53,9 @@ public final class GetPermissionsResult {
     }
     public Optional<Boolean> catalogResource() {
         return Optional.ofNullable(this.catalogResource);
+    }
+    public GetPermissionsDataCellsFilter dataCellsFilter() {
+        return this.dataCellsFilter;
     }
     public GetPermissionsDataLocation dataLocation() {
         return this.dataLocation;
@@ -106,6 +111,7 @@ public final class GetPermissionsResult {
     public static final class Builder {
         private @Nullable String catalogId;
         private @Nullable Boolean catalogResource;
+        private GetPermissionsDataCellsFilter dataCellsFilter;
         private GetPermissionsDataLocation dataLocation;
         private GetPermissionsDatabase database;
         private String id;
@@ -121,6 +127,7 @@ public final class GetPermissionsResult {
     	      Objects.requireNonNull(defaults);
     	      this.catalogId = defaults.catalogId;
     	      this.catalogResource = defaults.catalogResource;
+    	      this.dataCellsFilter = defaults.dataCellsFilter;
     	      this.dataLocation = defaults.dataLocation;
     	      this.database = defaults.database;
     	      this.id = defaults.id;
@@ -143,6 +150,14 @@ public final class GetPermissionsResult {
         public Builder catalogResource(@Nullable Boolean catalogResource) {
 
             this.catalogResource = catalogResource;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder dataCellsFilter(GetPermissionsDataCellsFilter dataCellsFilter) {
+            if (dataCellsFilter == null) {
+              throw new MissingRequiredPropertyException("GetPermissionsResult", "dataCellsFilter");
+            }
+            this.dataCellsFilter = dataCellsFilter;
             return this;
         }
         @CustomType.Setter
@@ -235,6 +250,7 @@ public final class GetPermissionsResult {
             final var _resultValue = new GetPermissionsResult();
             _resultValue.catalogId = catalogId;
             _resultValue.catalogResource = catalogResource;
+            _resultValue.dataCellsFilter = dataCellsFilter;
             _resultValue.dataLocation = dataLocation;
             _resultValue.database = database;
             _resultValue.id = id;

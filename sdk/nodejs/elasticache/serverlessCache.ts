@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  *             unit: "GB",
  *         },
  *         ecpuPerSeconds: [{
- *             maximum: 5,
+ *             maximum: 5000,
  *         }],
  *     },
  *     description: "Test Server",
@@ -56,7 +56,7 @@ import * as utilities from "../utilities";
  *             unit: "GB",
  *         },
  *         ecpuPerSeconds: [{
- *             maximum: 5,
+ *             maximum: 5000,
  *         }],
  *     },
  *     dailySnapshotTime: "09:00",

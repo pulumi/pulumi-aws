@@ -6,6 +6,19 @@ import * as utilities from "../utilities";
 
 /**
  * Get a list of brokers that a client application can use to bootstrap.
+ *
+ * ## Example Usage
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.msk.getBootstrapBrokers({
+ *     clusterArn: exampleAwsMskCluster.arn,
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getBootstrapBrokers(args: GetBootstrapBrokersArgs, opts?: pulumi.InvokeOptions): Promise<GetBootstrapBrokersResult> {
 
@@ -77,6 +90,19 @@ export interface GetBootstrapBrokersResult {
 }
 /**
  * Get a list of brokers that a client application can use to bootstrap.
+ *
+ * ## Example Usage
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = aws.msk.getBootstrapBrokers({
+ *     clusterArn: exampleAwsMskCluster.arn,
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
  */
 export function getBootstrapBrokersOutput(args: GetBootstrapBrokersOutputArgs, opts?: pulumi.InvokeOptions): pulumi.Output<GetBootstrapBrokersResult> {
     return pulumi.output(args).apply((a: any) => getBootstrapBrokers(a, opts))

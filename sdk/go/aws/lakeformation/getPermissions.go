@@ -141,6 +141,8 @@ type LookupPermissionsArgs struct {
 	CatalogId *string `pulumi:"catalogId"`
 	// Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
 	CatalogResource *bool `pulumi:"catalogResource"`
+	// Configuration block for a data cells filter resource. Detailed below.
+	DataCellsFilter *GetPermissionsDataCellsFilter `pulumi:"dataCellsFilter"`
 	// Configuration block for a data location resource. Detailed below.
 	DataLocation *GetPermissionsDataLocation `pulumi:"dataLocation"`
 	// Configuration block for a database resource. Detailed below.
@@ -163,10 +165,11 @@ type LookupPermissionsArgs struct {
 
 // A collection of values returned by getPermissions.
 type LookupPermissionsResult struct {
-	CatalogId       *string                    `pulumi:"catalogId"`
-	CatalogResource *bool                      `pulumi:"catalogResource"`
-	DataLocation    GetPermissionsDataLocation `pulumi:"dataLocation"`
-	Database        GetPermissionsDatabase     `pulumi:"database"`
+	CatalogId       *string                       `pulumi:"catalogId"`
+	CatalogResource *bool                         `pulumi:"catalogResource"`
+	DataCellsFilter GetPermissionsDataCellsFilter `pulumi:"dataCellsFilter"`
+	DataLocation    GetPermissionsDataLocation    `pulumi:"dataLocation"`
+	Database        GetPermissionsDatabase        `pulumi:"database"`
 	// The provider-assigned unique ID for this managed resource.
 	Id          string                    `pulumi:"id"`
 	LfTag       GetPermissionsLfTag       `pulumi:"lfTag"`
@@ -199,6 +202,8 @@ type LookupPermissionsOutputArgs struct {
 	CatalogId pulumi.StringPtrInput `pulumi:"catalogId"`
 	// Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
 	CatalogResource pulumi.BoolPtrInput `pulumi:"catalogResource"`
+	// Configuration block for a data cells filter resource. Detailed below.
+	DataCellsFilter GetPermissionsDataCellsFilterPtrInput `pulumi:"dataCellsFilter"`
 	// Configuration block for a data location resource. Detailed below.
 	DataLocation GetPermissionsDataLocationPtrInput `pulumi:"dataLocation"`
 	// Configuration block for a database resource. Detailed below.
@@ -244,6 +249,10 @@ func (o LookupPermissionsResultOutput) CatalogId() pulumi.StringPtrOutput {
 
 func (o LookupPermissionsResultOutput) CatalogResource() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v LookupPermissionsResult) *bool { return v.CatalogResource }).(pulumi.BoolPtrOutput)
+}
+
+func (o LookupPermissionsResultOutput) DataCellsFilter() GetPermissionsDataCellsFilterOutput {
+	return o.ApplyT(func(v LookupPermissionsResult) GetPermissionsDataCellsFilter { return v.DataCellsFilter }).(GetPermissionsDataCellsFilterOutput)
 }
 
 func (o LookupPermissionsResultOutput) DataLocation() GetPermissionsDataLocationOutput {

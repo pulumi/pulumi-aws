@@ -11,14 +11,14 @@ import java.util.Objects;
 @CustomType
 public final class ServerlessCacheCacheUsageLimitsEcpuPerSecond {
     /**
-     * @return The upper limit for data storage the cache is set to use. Set as Integer.
+     * @return The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
      * 
      */
     private Integer maximum;
 
     private ServerlessCacheCacheUsageLimitsEcpuPerSecond() {}
     /**
-     * @return The upper limit for data storage the cache is set to use. Set as Integer.
+     * @return The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
      * 
      */
     public Integer maximum() {

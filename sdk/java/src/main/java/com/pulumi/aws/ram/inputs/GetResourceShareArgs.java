@@ -38,15 +38,15 @@ public final class GetResourceShareArgs extends com.pulumi.resources.InvokeArgs 
      * Name of the tag key to filter on.
      * 
      */
-    @Import(name="name", required=true)
-    private Output<String> name;
+    @Import(name="name")
+    private @Nullable Output<String> name;
 
     /**
      * @return Name of the tag key to filter on.
      * 
      */
-    public Output<String> name() {
-        return this.name;
+    public Optional<Output<String>> name() {
+        return Optional.ofNullable(this.name);
     }
 
     /**
@@ -159,7 +159,7 @@ public final class GetResourceShareArgs extends com.pulumi.resources.InvokeArgs 
          * @return builder
          * 
          */
-        public Builder name(Output<String> name) {
+        public Builder name(@Nullable Output<String> name) {
             $.name = name;
             return this;
         }
@@ -238,9 +238,6 @@ public final class GetResourceShareArgs extends com.pulumi.resources.InvokeArgs 
         }
 
         public GetResourceShareArgs build() {
-            if ($.name == null) {
-                throw new MissingRequiredPropertyException("GetResourceShareArgs", "name");
-            }
             if ($.resourceOwner == null) {
                 throw new MissingRequiredPropertyException("GetResourceShareArgs", "resourceOwner");
             }

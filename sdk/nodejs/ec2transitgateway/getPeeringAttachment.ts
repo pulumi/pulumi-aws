@@ -92,6 +92,7 @@ export interface GetPeeringAttachmentResult {
      * Identifier of the peer EC2 Transit Gateway
      */
     readonly peerTransitGatewayId: string;
+    readonly state: string;
     readonly tags: {[key: string]: string};
     /**
      * Identifier of the local EC2 Transit Gateway

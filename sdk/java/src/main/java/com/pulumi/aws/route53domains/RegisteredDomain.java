@@ -7,6 +7,7 @@ import com.pulumi.aws.Utilities;
 import com.pulumi.aws.route53domains.RegisteredDomainArgs;
 import com.pulumi.aws.route53domains.inputs.RegisteredDomainState;
 import com.pulumi.aws.route53domains.outputs.RegisteredDomainAdminContact;
+import com.pulumi.aws.route53domains.outputs.RegisteredDomainBillingContact;
 import com.pulumi.aws.route53domains.outputs.RegisteredDomainNameServer;
 import com.pulumi.aws.route53domains.outputs.RegisteredDomainRegistrantContact;
 import com.pulumi.aws.route53domains.outputs.RegisteredDomainTechContact;
@@ -150,6 +151,34 @@ public class RegisteredDomain extends com.pulumi.resources.CustomResource {
      */
     public Output<Optional<Boolean>> autoRenew() {
         return Codegen.optional(this.autoRenew);
+    }
+    /**
+     * Details about the domain billing contact. See Contact Blocks for more details.
+     * 
+     */
+    @Export(name="billingContact", refs={RegisteredDomainBillingContact.class}, tree="[0]")
+    private Output<RegisteredDomainBillingContact> billingContact;
+
+    /**
+     * @return Details about the domain billing contact. See Contact Blocks for more details.
+     * 
+     */
+    public Output<RegisteredDomainBillingContact> billingContact() {
+        return this.billingContact;
+    }
+    /**
+     * Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
+     * 
+     */
+    @Export(name="billingPrivacy", refs={Boolean.class}, tree="[0]")
+    private Output</* @Nullable */ Boolean> billingPrivacy;
+
+    /**
+     * @return Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
+     * 
+     */
+    public Output<Optional<Boolean>> billingPrivacy() {
+        return Codegen.optional(this.billingPrivacy);
     }
     /**
      * The date when the domain was created as found in the response to a WHOIS query.

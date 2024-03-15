@@ -82,6 +82,7 @@ export class PeeringAttachment extends pulumi.CustomResource {
      * Identifier of EC2 Transit Gateway to peer with.
      */
     public readonly peerTransitGatewayId!: pulumi.Output<string>;
+    public /*out*/ readonly state!: pulumi.Output<string>;
     /**
      * Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */
@@ -113,6 +114,7 @@ export class PeeringAttachment extends pulumi.CustomResource {
             resourceInputs["peerAccountId"] = state ? state.peerAccountId : undefined;
             resourceInputs["peerRegion"] = state ? state.peerRegion : undefined;
             resourceInputs["peerTransitGatewayId"] = state ? state.peerTransitGatewayId : undefined;
+            resourceInputs["state"] = state ? state.state : undefined;
             resourceInputs["tags"] = state ? state.tags : undefined;
             resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
             resourceInputs["transitGatewayId"] = state ? state.transitGatewayId : undefined;
@@ -132,6 +134,7 @@ export class PeeringAttachment extends pulumi.CustomResource {
             resourceInputs["peerTransitGatewayId"] = args ? args.peerTransitGatewayId : undefined;
             resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["transitGatewayId"] = args ? args.transitGatewayId : undefined;
+            resourceInputs["state"] = undefined /*out*/;
             resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
@@ -155,6 +158,7 @@ export interface PeeringAttachmentState {
      * Identifier of EC2 Transit Gateway to peer with.
      */
     peerTransitGatewayId?: pulumi.Input<string>;
+    state?: pulumi.Input<string>;
     /**
      * Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      */

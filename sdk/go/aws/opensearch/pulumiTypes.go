@@ -5359,6 +5359,8 @@ type GetDomainAutoTuneOption struct {
 	MaintenanceSchedules []GetDomainAutoTuneOptionMaintenanceSchedule `pulumi:"maintenanceSchedules"`
 	// Whether the domain is set to roll back to default Auto-Tune settings when disabling Auto-Tune.
 	RollbackOnDisable string `pulumi:"rollbackOnDisable"`
+	// Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain's configured daily off-peak window.
+	UseOffPeakWindow bool `pulumi:"useOffPeakWindow"`
 }
 
 // GetDomainAutoTuneOptionInput is an input type that accepts GetDomainAutoTuneOptionArgs and GetDomainAutoTuneOptionOutput values.
@@ -5379,6 +5381,8 @@ type GetDomainAutoTuneOptionArgs struct {
 	MaintenanceSchedules GetDomainAutoTuneOptionMaintenanceScheduleArrayInput `pulumi:"maintenanceSchedules"`
 	// Whether the domain is set to roll back to default Auto-Tune settings when disabling Auto-Tune.
 	RollbackOnDisable pulumi.StringInput `pulumi:"rollbackOnDisable"`
+	// Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain's configured daily off-peak window.
+	UseOffPeakWindow pulumi.BoolInput `pulumi:"useOffPeakWindow"`
 }
 
 func (GetDomainAutoTuneOptionArgs) ElementType() reflect.Type {
@@ -5447,6 +5451,11 @@ func (o GetDomainAutoTuneOptionOutput) MaintenanceSchedules() GetDomainAutoTuneO
 // Whether the domain is set to roll back to default Auto-Tune settings when disabling Auto-Tune.
 func (o GetDomainAutoTuneOptionOutput) RollbackOnDisable() pulumi.StringOutput {
 	return o.ApplyT(func(v GetDomainAutoTuneOption) string { return v.RollbackOnDisable }).(pulumi.StringOutput)
+}
+
+// Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain's configured daily off-peak window.
+func (o GetDomainAutoTuneOptionOutput) UseOffPeakWindow() pulumi.BoolOutput {
+	return o.ApplyT(func(v GetDomainAutoTuneOption) bool { return v.UseOffPeakWindow }).(pulumi.BoolOutput)
 }
 
 type GetDomainAutoTuneOptionArrayOutput struct{ *pulumi.OutputState }

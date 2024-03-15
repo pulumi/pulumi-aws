@@ -181,6 +181,10 @@ __all__ = [
     'MultiplexProgramMultiplexProgramSettingsServiceDescriptor',
     'MultiplexProgramMultiplexProgramSettingsVideoSettings',
     'MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings',
+    'GetInputDestinationResult',
+    'GetInputInputDeviceResult',
+    'GetInputMediaConnectFlowResult',
+    'GetInputSourceResult',
 ]
 
 @pulumi.output_type
@@ -12251,5 +12255,94 @@ class MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettings(dict)
         Priority value.
         """
         return pulumi.get(self, "priority")
+
+
+@pulumi.output_type
+class GetInputDestinationResult(dict):
+    def __init__(__self__, *,
+                 ip: str,
+                 port: str,
+                 url: str,
+                 vpcs: Sequence[Any]):
+        pulumi.set(__self__, "ip", ip)
+        pulumi.set(__self__, "port", port)
+        pulumi.set(__self__, "url", url)
+        pulumi.set(__self__, "vpcs", vpcs)
+
+    @property
+    @pulumi.getter
+    def ip(self) -> str:
+        return pulumi.get(self, "ip")
+
+    @property
+    @pulumi.getter
+    def port(self) -> str:
+        return pulumi.get(self, "port")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter
+    def vpcs(self) -> Sequence[Any]:
+        return pulumi.get(self, "vpcs")
+
+
+@pulumi.output_type
+class GetInputInputDeviceResult(dict):
+    def __init__(__self__, *,
+                 id: str):
+        """
+        :param str id: The ID of the Input.
+        """
+        pulumi.set(__self__, "id", id)
+
+    @property
+    @pulumi.getter
+    def id(self) -> str:
+        """
+        The ID of the Input.
+        """
+        return pulumi.get(self, "id")
+
+
+@pulumi.output_type
+class GetInputMediaConnectFlowResult(dict):
+    def __init__(__self__, *,
+                 flow_arn: str):
+        pulumi.set(__self__, "flow_arn", flow_arn)
+
+    @property
+    @pulumi.getter(name="flowArn")
+    def flow_arn(self) -> str:
+        return pulumi.get(self, "flow_arn")
+
+
+@pulumi.output_type
+class GetInputSourceResult(dict):
+    def __init__(__self__, *,
+                 password_param: str,
+                 url: str,
+                 username: str):
+        pulumi.set(__self__, "password_param", password_param)
+        pulumi.set(__self__, "url", url)
+        pulumi.set(__self__, "username", username)
+
+    @property
+    @pulumi.getter(name="passwordParam")
+    def password_param(self) -> str:
+        return pulumi.get(self, "password_param")
+
+    @property
+    @pulumi.getter
+    def url(self) -> str:
+        return pulumi.get(self, "url")
+
+    @property
+    @pulumi.getter
+    def username(self) -> str:
+        return pulumi.get(self, "username")
 
 

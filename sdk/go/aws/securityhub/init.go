@@ -27,6 +27,10 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &ActionTarget{}
 	case "aws:securityhub/automationRule:AutomationRule":
 		r = &AutomationRule{}
+	case "aws:securityhub/configurationPolicy:ConfigurationPolicy":
+		r = &ConfigurationPolicy{}
+	case "aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation":
+		r = &ConfigurationPolicyAssociation{}
 	case "aws:securityhub/findingAggregator:FindingAggregator":
 		r = &FindingAggregator{}
 	case "aws:securityhub/insight:Insight":
@@ -71,6 +75,16 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"securityhub/automationRule",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"securityhub/configurationPolicy",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"securityhub/configurationPolicyAssociation",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

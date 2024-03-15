@@ -23,7 +23,7 @@ class GetPeeringAttachmentResult:
     """
     A collection of values returned by getPeeringAttachment.
     """
-    def __init__(__self__, filters=None, id=None, peer_account_id=None, peer_region=None, peer_transit_gateway_id=None, tags=None, transit_gateway_id=None):
+    def __init__(__self__, filters=None, id=None, peer_account_id=None, peer_region=None, peer_transit_gateway_id=None, state=None, tags=None, transit_gateway_id=None):
         if filters and not isinstance(filters, list):
             raise TypeError("Expected argument 'filters' to be a list")
         pulumi.set(__self__, "filters", filters)
@@ -39,6 +39,9 @@ class GetPeeringAttachmentResult:
         if peer_transit_gateway_id and not isinstance(peer_transit_gateway_id, str):
             raise TypeError("Expected argument 'peer_transit_gateway_id' to be a str")
         pulumi.set(__self__, "peer_transit_gateway_id", peer_transit_gateway_id)
+        if state and not isinstance(state, str):
+            raise TypeError("Expected argument 'state' to be a str")
+        pulumi.set(__self__, "state", state)
         if tags and not isinstance(tags, dict):
             raise TypeError("Expected argument 'tags' to be a dict")
         pulumi.set(__self__, "tags", tags)
@@ -82,6 +85,11 @@ class GetPeeringAttachmentResult:
 
     @property
     @pulumi.getter
+    def state(self) -> str:
+        return pulumi.get(self, "state")
+
+    @property
+    @pulumi.getter
     def tags(self) -> Mapping[str, str]:
         return pulumi.get(self, "tags")
 
@@ -105,6 +113,7 @@ class AwaitableGetPeeringAttachmentResult(GetPeeringAttachmentResult):
             peer_account_id=self.peer_account_id,
             peer_region=self.peer_region,
             peer_transit_gateway_id=self.peer_transit_gateway_id,
+            state=self.state,
             tags=self.tags,
             transit_gateway_id=self.transit_gateway_id)
 
@@ -165,6 +174,7 @@ def get_peering_attachment(filters: Optional[Sequence[pulumi.InputType['GetPeeri
         peer_account_id=pulumi.get(__ret__, 'peer_account_id'),
         peer_region=pulumi.get(__ret__, 'peer_region'),
         peer_transit_gateway_id=pulumi.get(__ret__, 'peer_transit_gateway_id'),
+        state=pulumi.get(__ret__, 'state'),
         tags=pulumi.get(__ret__, 'tags'),
         transit_gateway_id=pulumi.get(__ret__, 'transit_gateway_id'))
 

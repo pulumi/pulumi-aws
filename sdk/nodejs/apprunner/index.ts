@@ -30,6 +30,11 @@ export type Deployment = import("./deployment").Deployment;
 export const Deployment: typeof import("./deployment").Deployment = null as any;
 utilities.lazyLoad(exports, ["Deployment"], () => require("./deployment"));
 
+export { GetHostedZoneIdArgs, GetHostedZoneIdResult, GetHostedZoneIdOutputArgs } from "./getHostedZoneId";
+export const getHostedZoneId: typeof import("./getHostedZoneId").getHostedZoneId = null as any;
+export const getHostedZoneIdOutput: typeof import("./getHostedZoneId").getHostedZoneIdOutput = null as any;
+utilities.lazyLoad(exports, ["getHostedZoneId","getHostedZoneIdOutput"], () => require("./getHostedZoneId"));
+
 export { ObservabilityConfigurationArgs, ObservabilityConfigurationState } from "./observabilityConfiguration";
 export type ObservabilityConfiguration = import("./observabilityConfiguration").ObservabilityConfiguration;
 export const ObservabilityConfiguration: typeof import("./observabilityConfiguration").ObservabilityConfiguration = null as any;

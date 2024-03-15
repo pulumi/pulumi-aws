@@ -42,7 +42,7 @@ public final class MskFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.msk.MskFunctions;
-     * import com.pulumi.aws.msk.inputs.GetClusterArgs;
+     * import com.pulumi.aws.msk.inputs.GetBootstrapBrokersArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -56,7 +56,7 @@ public final class MskFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = MskFunctions.getCluster(GetClusterArgs.builder()
+     *         final var example = MskFunctions.getBootstrapBrokers(GetBootstrapBrokersArgs.builder()
      *             .clusterArn(exampleAwsMskCluster.arn())
      *             .build());
      * 
@@ -82,7 +82,7 @@ public final class MskFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.msk.MskFunctions;
-     * import com.pulumi.aws.msk.inputs.GetClusterArgs;
+     * import com.pulumi.aws.msk.inputs.GetBootstrapBrokersArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -96,7 +96,7 @@ public final class MskFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = MskFunctions.getCluster(GetClusterArgs.builder()
+     *         final var example = MskFunctions.getBootstrapBrokers(GetBootstrapBrokersArgs.builder()
      *             .clusterArn(exampleAwsMskCluster.arn())
      *             .build());
      * 
@@ -122,7 +122,7 @@ public final class MskFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.msk.MskFunctions;
-     * import com.pulumi.aws.msk.inputs.GetClusterArgs;
+     * import com.pulumi.aws.msk.inputs.GetBootstrapBrokersArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -136,7 +136,7 @@ public final class MskFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = MskFunctions.getCluster(GetClusterArgs.builder()
+     *         final var example = MskFunctions.getBootstrapBrokers(GetBootstrapBrokersArgs.builder()
      *             .clusterArn(exampleAwsMskCluster.arn())
      *             .build());
      * 
@@ -162,7 +162,7 @@ public final class MskFunctions {
      * import com.pulumi.Pulumi;
      * import com.pulumi.core.Output;
      * import com.pulumi.aws.msk.MskFunctions;
-     * import com.pulumi.aws.msk.inputs.GetClusterArgs;
+     * import com.pulumi.aws.msk.inputs.GetBootstrapBrokersArgs;
      * import java.util.List;
      * import java.util.ArrayList;
      * import java.util.Map;
@@ -176,7 +176,7 @@ public final class MskFunctions {
      *     }
      * 
      *     public static void stack(Context ctx) {
-     *         final var example = MskFunctions.getCluster(GetClusterArgs.builder()
+     *         final var example = MskFunctions.getBootstrapBrokers(GetBootstrapBrokersArgs.builder()
      *             .clusterArn(exampleAwsMskCluster.arn())
      *             .build());
      * 

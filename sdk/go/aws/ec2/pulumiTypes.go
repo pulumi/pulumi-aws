@@ -6631,7 +6631,7 @@ func (o InstanceEphemeralBlockDeviceArrayOutput) Index(i pulumi.IntInput) Instan
 }
 
 type InstanceInstanceMarketOptions struct {
-	// Type of market for the instance. Valid value is `spot`. Defaults to `spot`.
+	// Type of market for the instance. Valid value is `spot`. Defaults to `spot`. Required if `spotOptions` is specified.
 	MarketType *string `pulumi:"marketType"`
 	// Block to configure the options for Spot Instances. See Spot Options below for details on attributes.
 	SpotOptions *InstanceInstanceMarketOptionsSpotOptions `pulumi:"spotOptions"`
@@ -6649,7 +6649,7 @@ type InstanceInstanceMarketOptionsInput interface {
 }
 
 type InstanceInstanceMarketOptionsArgs struct {
-	// Type of market for the instance. Valid value is `spot`. Defaults to `spot`.
+	// Type of market for the instance. Valid value is `spot`. Defaults to `spot`. Required if `spotOptions` is specified.
 	MarketType pulumi.StringPtrInput `pulumi:"marketType"`
 	// Block to configure the options for Spot Instances. See Spot Options below for details on attributes.
 	SpotOptions InstanceInstanceMarketOptionsSpotOptionsPtrInput `pulumi:"spotOptions"`
@@ -6732,7 +6732,7 @@ func (o InstanceInstanceMarketOptionsOutput) ToInstanceInstanceMarketOptionsPtrO
 	}).(InstanceInstanceMarketOptionsPtrOutput)
 }
 
-// Type of market for the instance. Valid value is `spot`. Defaults to `spot`.
+// Type of market for the instance. Valid value is `spot`. Defaults to `spot`. Required if `spotOptions` is specified.
 func (o InstanceInstanceMarketOptionsOutput) MarketType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v InstanceInstanceMarketOptions) *string { return v.MarketType }).(pulumi.StringPtrOutput)
 }
@@ -6766,7 +6766,7 @@ func (o InstanceInstanceMarketOptionsPtrOutput) Elem() InstanceInstanceMarketOpt
 	}).(InstanceInstanceMarketOptionsOutput)
 }
 
-// Type of market for the instance. Valid value is `spot`. Defaults to `spot`.
+// Type of market for the instance. Valid value is `spot`. Defaults to `spot`. Required if `spotOptions` is specified.
 func (o InstanceInstanceMarketOptionsPtrOutput) MarketType() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *InstanceInstanceMarketOptions) *string {
 		if v == nil {

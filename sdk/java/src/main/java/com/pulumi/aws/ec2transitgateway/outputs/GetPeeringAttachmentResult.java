@@ -31,6 +31,7 @@ public final class GetPeeringAttachmentResult {
      * 
      */
     private String peerTransitGatewayId;
+    private String state;
     private Map<String,String> tags;
     /**
      * @return Identifier of the local EC2 Transit Gateway
@@ -66,6 +67,9 @@ public final class GetPeeringAttachmentResult {
     public String peerTransitGatewayId() {
         return this.peerTransitGatewayId;
     }
+    public String state() {
+        return this.state;
+    }
     public Map<String,String> tags() {
         return this.tags;
     }
@@ -91,6 +95,7 @@ public final class GetPeeringAttachmentResult {
         private String peerAccountId;
         private String peerRegion;
         private String peerTransitGatewayId;
+        private String state;
         private Map<String,String> tags;
         private String transitGatewayId;
         public Builder() {}
@@ -101,6 +106,7 @@ public final class GetPeeringAttachmentResult {
     	      this.peerAccountId = defaults.peerAccountId;
     	      this.peerRegion = defaults.peerRegion;
     	      this.peerTransitGatewayId = defaults.peerTransitGatewayId;
+    	      this.state = defaults.state;
     	      this.tags = defaults.tags;
     	      this.transitGatewayId = defaults.transitGatewayId;
         }
@@ -147,6 +153,14 @@ public final class GetPeeringAttachmentResult {
             return this;
         }
         @CustomType.Setter
+        public Builder state(String state) {
+            if (state == null) {
+              throw new MissingRequiredPropertyException("GetPeeringAttachmentResult", "state");
+            }
+            this.state = state;
+            return this;
+        }
+        @CustomType.Setter
         public Builder tags(Map<String,String> tags) {
             if (tags == null) {
               throw new MissingRequiredPropertyException("GetPeeringAttachmentResult", "tags");
@@ -169,6 +183,7 @@ public final class GetPeeringAttachmentResult {
             _resultValue.peerAccountId = peerAccountId;
             _resultValue.peerRegion = peerRegion;
             _resultValue.peerTransitGatewayId = peerTransitGatewayId;
+            _resultValue.state = state;
             _resultValue.tags = tags;
             _resultValue.transitGatewayId = transitGatewayId;
             return _resultValue;
