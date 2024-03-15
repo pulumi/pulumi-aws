@@ -59,6 +59,16 @@ export class RoleAlias extends pulumi.CustomResource {
      * The identity of the role to which the alias refers.
      */
     public readonly roleArn!: pulumi.Output<string>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    public readonly tags!: pulumi.Output<{[key: string]: string} | undefined>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     *
+     * @deprecated Please use `tags` instead.
+     */
+    public /*out*/ readonly tagsAll!: pulumi.Output<{[key: string]: string}>;
 
     /**
      * Create a RoleAlias resource with the given unique name, arguments, and options.
@@ -77,6 +87,8 @@ export class RoleAlias extends pulumi.CustomResource {
             resourceInputs["arn"] = state ? state.arn : undefined;
             resourceInputs["credentialDuration"] = state ? state.credentialDuration : undefined;
             resourceInputs["roleArn"] = state ? state.roleArn : undefined;
+            resourceInputs["tags"] = state ? state.tags : undefined;
+            resourceInputs["tagsAll"] = state ? state.tagsAll : undefined;
         } else {
             const args = argsOrState as RoleAliasArgs | undefined;
             if ((!args || args.alias === undefined) && !opts.urn) {
@@ -88,7 +100,9 @@ export class RoleAlias extends pulumi.CustomResource {
             resourceInputs["alias"] = args ? args.alias : undefined;
             resourceInputs["credentialDuration"] = args ? args.credentialDuration : undefined;
             resourceInputs["roleArn"] = args ? args.roleArn : undefined;
+            resourceInputs["tags"] = args ? args.tags : undefined;
             resourceInputs["arn"] = undefined /*out*/;
+            resourceInputs["tagsAll"] = undefined /*out*/;
         }
         opts = pulumi.mergeOptions(utilities.resourceOptsDefaults(), opts);
         super(RoleAlias.__pulumiType, name, resourceInputs, opts);
@@ -115,6 +129,16 @@ export interface RoleAliasState {
      * The identity of the role to which the alias refers.
      */
     roleArn?: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+    /**
+     * Map of tags assigned to the resource, including those inherited from the provider `defaultTags` configuration block.
+     *
+     * @deprecated Please use `tags` instead.
+     */
+    tagsAll?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }
 
 /**
@@ -133,4 +157,8 @@ export interface RoleAliasArgs {
      * The identity of the role to which the alias refers.
      */
     roleArn: pulumi.Input<string>;
+    /**
+     * Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
+     */
+    tags?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
 }

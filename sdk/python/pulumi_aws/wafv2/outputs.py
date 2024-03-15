@@ -3067,6 +3067,8 @@ class RuleGroupRuleStatementRateBasedStatement(dict):
             suggest = "aggregate_key_type"
         elif key == "customKeys":
             suggest = "custom_keys"
+        elif key == "evaluationWindowSec":
+            suggest = "evaluation_window_sec"
         elif key == "forwardedIpConfig":
             suggest = "forwarded_ip_config"
         elif key == "scopeDownStatement":
@@ -3087,12 +3089,16 @@ class RuleGroupRuleStatementRateBasedStatement(dict):
                  limit: int,
                  aggregate_key_type: Optional[str] = None,
                  custom_keys: Optional[Sequence['outputs.RuleGroupRuleStatementRateBasedStatementCustomKey']] = None,
+                 evaluation_window_sec: Optional[int] = None,
                  forwarded_ip_config: Optional['outputs.RuleGroupRuleStatementRateBasedStatementForwardedIpConfig'] = None,
                  scope_down_statement: Optional['outputs.RuleGroupRuleStatementRateBasedStatementScopeDownStatement'] = None):
         """
         :param int limit: The limit on requests per 5-minute period for a single originating IP address.
         :param str aggregate_key_type: Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `CUSTOM_KEYS`, `FORWARDED_IP` or `IP`. Default: `IP`.
         :param Sequence['RuleGroupRuleStatementRateBasedStatementCustomKeyArgs'] custom_keys: Aggregate the request counts using one or more web request components as the aggregate keys. See `custom_key` below for details.
+        :param int evaluation_window_sec: The amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. Valid values are `60`, `120`, `300`, and `600`. Defaults to `300` (5 minutes).
+               
+               **NOTE:** This setting doesn't determine how often AWS WAF checks the rate, but how far back it looks each time it checks. AWS WAF checks the rate about every 10 seconds.
         :param 'RuleGroupRuleStatementRateBasedStatementForwardedIpConfigArgs' forwarded_ip_config: The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `aggregate_key_type` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
         :param 'RuleGroupRuleStatementRateBasedStatementScopeDownStatementArgs' scope_down_statement: An optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See Statement above for details. If `aggregate_key_type` is set to `CONSTANT`, this block is required.
         """
@@ -3101,6 +3107,8 @@ class RuleGroupRuleStatementRateBasedStatement(dict):
             pulumi.set(__self__, "aggregate_key_type", aggregate_key_type)
         if custom_keys is not None:
             pulumi.set(__self__, "custom_keys", custom_keys)
+        if evaluation_window_sec is not None:
+            pulumi.set(__self__, "evaluation_window_sec", evaluation_window_sec)
         if forwarded_ip_config is not None:
             pulumi.set(__self__, "forwarded_ip_config", forwarded_ip_config)
         if scope_down_statement is not None:
@@ -3129,6 +3137,16 @@ class RuleGroupRuleStatementRateBasedStatement(dict):
         Aggregate the request counts using one or more web request components as the aggregate keys. See `custom_key` below for details.
         """
         return pulumi.get(self, "custom_keys")
+
+    @property
+    @pulumi.getter(name="evaluationWindowSec")
+    def evaluation_window_sec(self) -> Optional[int]:
+        """
+        The amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. Valid values are `60`, `120`, `300`, and `600`. Defaults to `300` (5 minutes).
+
+        **NOTE:** This setting doesn't determine how often AWS WAF checks the rate, but how far back it looks each time it checks. AWS WAF checks the rate about every 10 seconds.
+        """
+        return pulumi.get(self, "evaluation_window_sec")
 
     @property
     @pulumi.getter(name="forwardedIpConfig")
@@ -23604,6 +23622,8 @@ class WebAclRuleStatementRateBasedStatement(dict):
             suggest = "aggregate_key_type"
         elif key == "customKeys":
             suggest = "custom_keys"
+        elif key == "evaluationWindowSec":
+            suggest = "evaluation_window_sec"
         elif key == "forwardedIpConfig":
             suggest = "forwarded_ip_config"
         elif key == "scopeDownStatement":
@@ -23624,12 +23644,16 @@ class WebAclRuleStatementRateBasedStatement(dict):
                  limit: int,
                  aggregate_key_type: Optional[str] = None,
                  custom_keys: Optional[Sequence['outputs.WebAclRuleStatementRateBasedStatementCustomKey']] = None,
+                 evaluation_window_sec: Optional[int] = None,
                  forwarded_ip_config: Optional['outputs.WebAclRuleStatementRateBasedStatementForwardedIpConfig'] = None,
                  scope_down_statement: Optional['outputs.WebAclRuleStatementRateBasedStatementScopeDownStatement'] = None):
         """
         :param int limit: Limit on requests per 5-minute period for a single originating IP address.
         :param str aggregate_key_type: Setting that indicates how to aggregate the request counts. Valid values include: `CONSTANT`, `CUSTOM_KEYS`, `FORWARDED_IP`, or `IP`. Default: `IP`.
         :param Sequence['WebAclRuleStatementRateBasedStatementCustomKeyArgs'] custom_keys: Aggregate the request counts using one or more web request components as the aggregate keys. See `custom_key` below for details.
+        :param int evaluation_window_sec: The amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. Valid values are `60`, `120`, `300`, and `600`. Defaults to `300` (5 minutes).
+               
+               **NOTE:** This setting doesn't determine how often AWS WAF checks the rate, but how far back it looks each time it checks. AWS WAF checks the rate about every 10 seconds.
         :param 'WebAclRuleStatementRateBasedStatementForwardedIpConfigArgs' forwarded_ip_config: Configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that's reported by the web request origin. If `aggregate_key_type` is set to `FORWARDED_IP`, this block is required. See `forwarded_ip_config` below for details.
         :param 'WebAclRuleStatementRateBasedStatementScopeDownStatementArgs' scope_down_statement: Optional nested statement that narrows the scope of the rate-based statement to matching web requests. This can be any nestable statement, and you can nest statements at any level below this scope-down statement. See `statement` above for details. If `aggregate_key_type` is set to `CONSTANT`, this block is required.
         """
@@ -23638,6 +23662,8 @@ class WebAclRuleStatementRateBasedStatement(dict):
             pulumi.set(__self__, "aggregate_key_type", aggregate_key_type)
         if custom_keys is not None:
             pulumi.set(__self__, "custom_keys", custom_keys)
+        if evaluation_window_sec is not None:
+            pulumi.set(__self__, "evaluation_window_sec", evaluation_window_sec)
         if forwarded_ip_config is not None:
             pulumi.set(__self__, "forwarded_ip_config", forwarded_ip_config)
         if scope_down_statement is not None:
@@ -23666,6 +23692,16 @@ class WebAclRuleStatementRateBasedStatement(dict):
         Aggregate the request counts using one or more web request components as the aggregate keys. See `custom_key` below for details.
         """
         return pulumi.get(self, "custom_keys")
+
+    @property
+    @pulumi.getter(name="evaluationWindowSec")
+    def evaluation_window_sec(self) -> Optional[int]:
+        """
+        The amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. Valid values are `60`, `120`, `300`, and `600`. Defaults to `300` (5 minutes).
+
+        **NOTE:** This setting doesn't determine how often AWS WAF checks the rate, but how far back it looks each time it checks. AWS WAF checks the rate about every 10 seconds.
+        """
+        return pulumi.get(self, "evaluation_window_sec")
 
     @property
     @pulumi.getter(name="forwardedIpConfig")

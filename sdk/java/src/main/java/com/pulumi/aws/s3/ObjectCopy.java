@@ -80,6 +80,20 @@ public class ObjectCopy extends com.pulumi.resources.CustomResource {
         return this.acl;
     }
     /**
+     * ARN of the object.
+     * 
+     */
+    @Export(name="arn", refs={String.class}, tree="[0]")
+    private Output<String> arn;
+
+    /**
+     * @return ARN of the object.
+     * 
+     */
+    public Output<String> arn() {
+        return this.arn;
+    }
+    /**
      * Name of the bucket to put the file in.
      * 
      */

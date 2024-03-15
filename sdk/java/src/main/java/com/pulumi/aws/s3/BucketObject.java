@@ -317,6 +317,20 @@ public class BucketObject extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.acl);
     }
     /**
+     * ARN of the object.
+     * 
+     */
+    @Export(name="arn", refs={String.class}, tree="[0]")
+    private Output<String> arn;
+
+    /**
+     * @return ARN of the object.
+     * 
+     */
+    public Output<String> arn() {
+        return this.arn;
+    }
+    /**
      * Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
      * 
      */

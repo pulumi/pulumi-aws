@@ -20,6 +20,11 @@ export type DataLake = import("./dataLake").DataLake;
 export const DataLake: typeof import("./dataLake").DataLake = null as any;
 utilities.lazyLoad(exports, ["DataLake"], () => require("./dataLake"));
 
+export { SubscriberArgs, SubscriberState } from "./subscriber";
+export type Subscriber = import("./subscriber").Subscriber;
+export const Subscriber: typeof import("./subscriber").Subscriber = null as any;
+utilities.lazyLoad(exports, ["Subscriber"], () => require("./subscriber"));
+
 
 const _module = {
     version: utilities.getVersion(),
@@ -31,6 +36,8 @@ const _module = {
                 return new CustomLogSource(name, <any>undefined, { urn })
             case "aws:securitylake/dataLake:DataLake":
                 return new DataLake(name, <any>undefined, { urn })
+            case "aws:securitylake/subscriber:Subscriber":
+                return new Subscriber(name, <any>undefined, { urn })
             default:
                 throw new Error(`unknown resource type ${type}`);
         }
@@ -39,3 +46,4 @@ const _module = {
 pulumi.runtime.registerResourceModule("aws", "securitylake/awsLogSource", _module)
 pulumi.runtime.registerResourceModule("aws", "securitylake/customLogSource", _module)
 pulumi.runtime.registerResourceModule("aws", "securitylake/dataLake", _module)
+pulumi.runtime.registerResourceModule("aws", "securitylake/subscriber", _module)

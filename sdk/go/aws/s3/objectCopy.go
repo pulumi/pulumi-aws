@@ -57,6 +57,8 @@ type ObjectCopy struct {
 
 	// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `grant`.
 	Acl pulumi.StringOutput `pulumi:"acl"`
+	// ARN of the object.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Name of the bucket to put the file in.
 	Bucket           pulumi.StringOutput `pulumi:"bucket"`
 	BucketKeyEnabled pulumi.BoolOutput   `pulumi:"bucketKeyEnabled"`
@@ -220,6 +222,8 @@ func GetObjectCopy(ctx *pulumi.Context,
 type objectCopyState struct {
 	// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `grant`.
 	Acl *string `pulumi:"acl"`
+	// ARN of the object.
+	Arn *string `pulumi:"arn"`
 	// Name of the bucket to put the file in.
 	Bucket           *string `pulumi:"bucket"`
 	BucketKeyEnabled *bool   `pulumi:"bucketKeyEnabled"`
@@ -326,6 +330,8 @@ type objectCopyState struct {
 type ObjectCopyState struct {
 	// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `grant`.
 	Acl pulumi.StringPtrInput
+	// ARN of the object.
+	Arn pulumi.StringPtrInput
 	// Name of the bucket to put the file in.
 	Bucket           pulumi.StringPtrInput
 	BucketKeyEnabled pulumi.BoolPtrInput
@@ -688,6 +694,11 @@ func (o ObjectCopyOutput) ToObjectCopyOutputWithContext(ctx context.Context) Obj
 // [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `authenticated-read`, `aws-exec-read`, `bucket-owner-read`, and `bucket-owner-full-control`. Conflicts with `grant`.
 func (o ObjectCopyOutput) Acl() pulumi.StringOutput {
 	return o.ApplyT(func(v *ObjectCopy) pulumi.StringOutput { return v.Acl }).(pulumi.StringOutput)
+}
+
+// ARN of the object.
+func (o ObjectCopyOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *ObjectCopy) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // Name of the bucket to put the file in.

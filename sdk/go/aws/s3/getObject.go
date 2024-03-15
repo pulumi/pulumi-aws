@@ -129,6 +129,8 @@ type GetObjectArgs struct {
 
 // A collection of values returned by getObject.
 type GetObjectResult struct {
+	// ARN of the object.
+	Arn string `pulumi:"arn"`
 	// Object data (see **limitations above** to understand cases in which this field is actually available)
 	Body   string `pulumi:"body"`
 	Bucket string `pulumi:"bucket"`
@@ -234,6 +236,11 @@ func (o GetObjectResultOutput) ToGetObjectResultOutput() GetObjectResultOutput {
 
 func (o GetObjectResultOutput) ToGetObjectResultOutputWithContext(ctx context.Context) GetObjectResultOutput {
 	return o
+}
+
+// ARN of the object.
+func (o GetObjectResultOutput) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetObjectResult) string { return v.Arn }).(pulumi.StringOutput)
 }
 
 // Object data (see **limitations above** to understand cases in which this field is actually available)

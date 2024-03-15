@@ -55,6 +55,8 @@ export function getEngineVersion(args: GetEngineVersionArgs, opts?: pulumi.Invok
         "defaultOnly": args.defaultOnly,
         "engine": args.engine,
         "filters": args.filters,
+        "hasMajorTarget": args.hasMajorTarget,
+        "hasMinorTarget": args.hasMinorTarget,
         "includeAll": args.includeAll,
         "latest": args.latest,
         "parameterGroupFamily": args.parameterGroupFamily,
@@ -70,7 +72,7 @@ export function getEngineVersion(args: GetEngineVersionArgs, opts?: pulumi.Invok
  */
 export interface GetEngineVersionArgs {
     /**
-     * When set to `true`, the default version for the specified `engine` or combination of `engine` and major `version` will be returned. Can be used to limit responses to a single version when they would otherwise fail for returning multiple versions.
+     * Whether the engine version must be an AWS-defined default version. Some engines have multiple default versions, such as for each major version. Using `defaultOnly` may help avoid `multiple RDS engine versions` errors. See also `latest`.
      */
     defaultOnly?: boolean;
     /**
@@ -80,15 +82,23 @@ export interface GetEngineVersionArgs {
      */
     engine: string;
     /**
-     * One or more name/value pairs to filter off of. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
+     * One or more name/value pairs to use in filtering versions. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
      */
     filters?: inputs.rds.GetEngineVersionFilter[];
     /**
-     * When set to `true`, the specified `version` or member of `preferredVersions` will be returned even if it is `deprecated`. Otherwise, only `available` versions will be returned.
+     * Whether the engine version must have one or more major upgrade targets. Not including `hasMajorTarget` or setting it to `false` doesn't imply that there's no corresponding major upgrade target for the engine version.
+     */
+    hasMajorTarget?: boolean;
+    /**
+     * Whether the engine version must have one or more minor upgrade targets. Not including `hasMinorTarget` or setting it to `false` doesn't imply that there's no corresponding minor upgrade target for the engine version.
+     */
+    hasMinorTarget?: boolean;
+    /**
+     * Whether the engine version `status` can either be `deprecated` or `available`. When not set or set to `false`, the engine version `status` will always be `available`.
      */
     includeAll?: boolean;
     /**
-     * When set to `true`, the data source attempts to return the most recent version matching the other criteria you provide. This differs from `defaultOnly`. For example, the latest version is not always the default. In addition, AWS may return multiple defaults depending on the criteria. Using `latest` will avoid `multiple RDS engine versions` errors. **Note:** The data source uses a best-effort approach at selecting the latest version but due to the complexity of version identifiers across engines and incomplete version date information provided by AWS, using `latest` may _not_ return the latest version in every situation.
+     * Whether the engine version is the most recent version matching the other criteria. This is different from `defaultOnly` in important ways: "default" relies on AWS-defined defaults, the latest version isn't always the default, and AWS might have multiple default versions for an engine. As a result, `defaultOnly` might not prevent errors from `multiple RDS engine versions`, while `latest` will. (`latest` can be used with `defaultOnly`.) **Note:** The data source uses a best-effort approach at selecting the latest version. Due to the complexity of version identifiers across engines and incomplete version date information provided by AWS, using `latest` may not always result in the engine version being the actual latest version.
      */
     latest?: boolean;
     /**
@@ -96,15 +106,15 @@ export interface GetEngineVersionArgs {
      */
     parameterGroupFamily?: string;
     /**
-     * Ordered list of preferred major version upgrade targets. The version corresponding to the first match in this list will be returned unless the `latest` parameter is set to `true`. If you don't configure `version`, `preferredMajorTargets`, `preferredUpgradeTargets`, and `preferredVersions`, the data source will return the default version for the engine. You can use this with other version criteria.
+     * Ordered list of preferred major version upgrade targets. The engine version will be the first match in the list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don't include any criteria, such as `preferredMajorTargets`.
      */
     preferredMajorTargets?: string[];
     /**
-     * Ordered list of preferred version upgrade targets. The version corresponding to the first match in this list will be returned unless the `latest` parameter is set to `true`. If you don't configure `version`, `preferredMajorTargets`, `preferredUpgradeTargets`, and `preferredVersions`, the data source will return the default version for the engine. You can use this with other version criteria.
+     * Ordered list of preferred version upgrade targets. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don't include any criteria, such as `preferredUpgradeTargets`.
      */
     preferredUpgradeTargets?: string[];
     /**
-     * Ordered list of preferred versions. The first match in this list that matches any other criteria will be returned unless the `latest` parameter is set to `true`. If you don't configure `version`, `preferredMajorTargets`, `preferredUpgradeTargets`, and `preferredVersions`, the data source will return the default version for the engine. You can use this with other version criteria.
+     * Ordered list of preferred versions. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don't include any criteria, such as `preferredVersions`.
      */
     preferredVersions?: string[];
     version?: string;
@@ -115,20 +125,22 @@ export interface GetEngineVersionArgs {
  */
 export interface GetEngineVersionResult {
     /**
-     * The default character set for new instances of this engine version.
+     * Default character set for new instances of the engine version.
      */
     readonly defaultCharacterSet: string;
     readonly defaultOnly?: boolean;
     readonly engine: string;
     /**
-     * Description of the database engine.
+     * Description of the engine.
      */
     readonly engineDescription: string;
     /**
-     * Set of log types that the database engine has available for export to CloudWatch Logs.
+     * Set of log types that the engine version has available for export to CloudWatch Logs.
      */
     readonly exportableLogTypes: string[];
     readonly filters?: outputs.rds.GetEngineVersionFilter[];
+    readonly hasMajorTarget?: boolean;
+    readonly hasMinorTarget?: boolean;
     /**
      * The provider-assigned unique ID for this managed resource.
      */
@@ -140,52 +152,60 @@ export interface GetEngineVersionResult {
     readonly preferredUpgradeTargets?: string[];
     readonly preferredVersions?: string[];
     /**
-     * Status of the database engine version, either available or deprecated.
+     * Status of the engine version, either `available` or `deprecated`.
      */
     readonly status: string;
     /**
-     * Set of the character sets supported by this engine.
+     * Set of character sets supported by th engine version.
      */
     readonly supportedCharacterSets: string[];
     /**
-     * Set of features supported by the database engine.
+     * Set of features supported by the engine version.
      */
     readonly supportedFeatureNames: string[];
     /**
-     * Set of the supported database engine modes.
+     * Set of supported engine version modes.
      */
     readonly supportedModes: string[];
     /**
-     * Set of the time zones supported by this engine.
+     * Set of the time zones supported by the engine version.
      */
     readonly supportedTimezones: string[];
     /**
-     * Indicates whether you can use Aurora global databases with a specific database engine version.
+     * Whether you can use Aurora global databases with the engine version.
      */
     readonly supportsGlobalDatabases: boolean;
     /**
-     * Indicates whether the engine version supports exporting the log types specified by `exportableLogTypes` to CloudWatch Logs.
+     * Whether the engine version supports exporting the log types specified by `exportableLogTypes` to CloudWatch Logs.
      */
     readonly supportsLogExportsToCloudwatch: boolean;
     /**
-     * Indicates whether you can use Aurora parallel query with a specific database engine version.
+     * Whether you can use Aurora parallel query with the engine version.
      */
     readonly supportsParallelQuery: boolean;
     /**
-     * Indicates whether the database engine version supports read replicas.
+     * Whether the engine version supports read replicas.
      */
     readonly supportsReadReplica: boolean;
     /**
-     * Set of engine versions that this database engine version can be upgraded to.
+     * Set of versions that are valid major version upgrades for the engine version.
+     */
+    readonly validMajorTargets: string[];
+    /**
+     * Set of versions that are valid minor version upgrades for the engine version.
+     */
+    readonly validMinorTargets: string[];
+    /**
+     * Set of versions that are valid major or minor upgrades for the engine version.
      */
     readonly validUpgradeTargets: string[];
     readonly version: string;
     /**
-     * Version of the database engine.
+     * Complete engine version.
      */
     readonly versionActual: string;
     /**
-     * Description of the database engine version.
+     * Description of the engine version.
      */
     readonly versionDescription: string;
 }
@@ -239,7 +259,7 @@ export function getEngineVersionOutput(args: GetEngineVersionOutputArgs, opts?: 
  */
 export interface GetEngineVersionOutputArgs {
     /**
-     * When set to `true`, the default version for the specified `engine` or combination of `engine` and major `version` will be returned. Can be used to limit responses to a single version when they would otherwise fail for returning multiple versions.
+     * Whether the engine version must be an AWS-defined default version. Some engines have multiple default versions, such as for each major version. Using `defaultOnly` may help avoid `multiple RDS engine versions` errors. See also `latest`.
      */
     defaultOnly?: pulumi.Input<boolean>;
     /**
@@ -249,15 +269,23 @@ export interface GetEngineVersionOutputArgs {
      */
     engine: pulumi.Input<string>;
     /**
-     * One or more name/value pairs to filter off of. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
+     * One or more name/value pairs to use in filtering versions. There are several valid keys; for a full reference, check out [describe-db-engine-versions in the AWS CLI reference](https://awscli.amazonaws.com/v2/documentation/api/latest/reference/rds/describe-db-engine-versions.html).
      */
     filters?: pulumi.Input<pulumi.Input<inputs.rds.GetEngineVersionFilterArgs>[]>;
     /**
-     * When set to `true`, the specified `version` or member of `preferredVersions` will be returned even if it is `deprecated`. Otherwise, only `available` versions will be returned.
+     * Whether the engine version must have one or more major upgrade targets. Not including `hasMajorTarget` or setting it to `false` doesn't imply that there's no corresponding major upgrade target for the engine version.
+     */
+    hasMajorTarget?: pulumi.Input<boolean>;
+    /**
+     * Whether the engine version must have one or more minor upgrade targets. Not including `hasMinorTarget` or setting it to `false` doesn't imply that there's no corresponding minor upgrade target for the engine version.
+     */
+    hasMinorTarget?: pulumi.Input<boolean>;
+    /**
+     * Whether the engine version `status` can either be `deprecated` or `available`. When not set or set to `false`, the engine version `status` will always be `available`.
      */
     includeAll?: pulumi.Input<boolean>;
     /**
-     * When set to `true`, the data source attempts to return the most recent version matching the other criteria you provide. This differs from `defaultOnly`. For example, the latest version is not always the default. In addition, AWS may return multiple defaults depending on the criteria. Using `latest` will avoid `multiple RDS engine versions` errors. **Note:** The data source uses a best-effort approach at selecting the latest version but due to the complexity of version identifiers across engines and incomplete version date information provided by AWS, using `latest` may _not_ return the latest version in every situation.
+     * Whether the engine version is the most recent version matching the other criteria. This is different from `defaultOnly` in important ways: "default" relies on AWS-defined defaults, the latest version isn't always the default, and AWS might have multiple default versions for an engine. As a result, `defaultOnly` might not prevent errors from `multiple RDS engine versions`, while `latest` will. (`latest` can be used with `defaultOnly`.) **Note:** The data source uses a best-effort approach at selecting the latest version. Due to the complexity of version identifiers across engines and incomplete version date information provided by AWS, using `latest` may not always result in the engine version being the actual latest version.
      */
     latest?: pulumi.Input<boolean>;
     /**
@@ -265,15 +293,15 @@ export interface GetEngineVersionOutputArgs {
      */
     parameterGroupFamily?: pulumi.Input<string>;
     /**
-     * Ordered list of preferred major version upgrade targets. The version corresponding to the first match in this list will be returned unless the `latest` parameter is set to `true`. If you don't configure `version`, `preferredMajorTargets`, `preferredUpgradeTargets`, and `preferredVersions`, the data source will return the default version for the engine. You can use this with other version criteria.
+     * Ordered list of preferred major version upgrade targets. The engine version will be the first match in the list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don't include any criteria, such as `preferredMajorTargets`.
      */
     preferredMajorTargets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Ordered list of preferred version upgrade targets. The version corresponding to the first match in this list will be returned unless the `latest` parameter is set to `true`. If you don't configure `version`, `preferredMajorTargets`, `preferredUpgradeTargets`, and `preferredVersions`, the data source will return the default version for the engine. You can use this with other version criteria.
+     * Ordered list of preferred version upgrade targets. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don't include any criteria, such as `preferredUpgradeTargets`.
      */
     preferredUpgradeTargets?: pulumi.Input<pulumi.Input<string>[]>;
     /**
-     * Ordered list of preferred versions. The first match in this list that matches any other criteria will be returned unless the `latest` parameter is set to `true`. If you don't configure `version`, `preferredMajorTargets`, `preferredUpgradeTargets`, and `preferredVersions`, the data source will return the default version for the engine. You can use this with other version criteria.
+     * Ordered list of preferred versions. The engine version will be the first match in this list unless the `latest` parameter is set to `true`. The engine version will be the default version if you don't include any criteria, such as `preferredVersions`.
      */
     preferredVersions?: pulumi.Input<pulumi.Input<string>[]>;
     version?: pulumi.Input<string>;

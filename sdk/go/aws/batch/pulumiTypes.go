@@ -3405,6 +3405,112 @@ func (o JobDefinitionTimeoutPtrOutput) AttemptDurationSeconds() pulumi.IntPtrOut
 	}).(pulumi.IntPtrOutput)
 }
 
+type JobQueueComputeEnvironmentOrder struct {
+	// The Amazon Resource Name (ARN) of the compute environment.
+	ComputeEnvironment string `pulumi:"computeEnvironment"`
+	// The order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
+	Order int `pulumi:"order"`
+}
+
+// JobQueueComputeEnvironmentOrderInput is an input type that accepts JobQueueComputeEnvironmentOrderArgs and JobQueueComputeEnvironmentOrderOutput values.
+// You can construct a concrete instance of `JobQueueComputeEnvironmentOrderInput` via:
+//
+//	JobQueueComputeEnvironmentOrderArgs{...}
+type JobQueueComputeEnvironmentOrderInput interface {
+	pulumi.Input
+
+	ToJobQueueComputeEnvironmentOrderOutput() JobQueueComputeEnvironmentOrderOutput
+	ToJobQueueComputeEnvironmentOrderOutputWithContext(context.Context) JobQueueComputeEnvironmentOrderOutput
+}
+
+type JobQueueComputeEnvironmentOrderArgs struct {
+	// The Amazon Resource Name (ARN) of the compute environment.
+	ComputeEnvironment pulumi.StringInput `pulumi:"computeEnvironment"`
+	// The order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
+	Order pulumi.IntInput `pulumi:"order"`
+}
+
+func (JobQueueComputeEnvironmentOrderArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobQueueComputeEnvironmentOrder)(nil)).Elem()
+}
+
+func (i JobQueueComputeEnvironmentOrderArgs) ToJobQueueComputeEnvironmentOrderOutput() JobQueueComputeEnvironmentOrderOutput {
+	return i.ToJobQueueComputeEnvironmentOrderOutputWithContext(context.Background())
+}
+
+func (i JobQueueComputeEnvironmentOrderArgs) ToJobQueueComputeEnvironmentOrderOutputWithContext(ctx context.Context) JobQueueComputeEnvironmentOrderOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobQueueComputeEnvironmentOrderOutput)
+}
+
+// JobQueueComputeEnvironmentOrderArrayInput is an input type that accepts JobQueueComputeEnvironmentOrderArray and JobQueueComputeEnvironmentOrderArrayOutput values.
+// You can construct a concrete instance of `JobQueueComputeEnvironmentOrderArrayInput` via:
+//
+//	JobQueueComputeEnvironmentOrderArray{ JobQueueComputeEnvironmentOrderArgs{...} }
+type JobQueueComputeEnvironmentOrderArrayInput interface {
+	pulumi.Input
+
+	ToJobQueueComputeEnvironmentOrderArrayOutput() JobQueueComputeEnvironmentOrderArrayOutput
+	ToJobQueueComputeEnvironmentOrderArrayOutputWithContext(context.Context) JobQueueComputeEnvironmentOrderArrayOutput
+}
+
+type JobQueueComputeEnvironmentOrderArray []JobQueueComputeEnvironmentOrderInput
+
+func (JobQueueComputeEnvironmentOrderArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobQueueComputeEnvironmentOrder)(nil)).Elem()
+}
+
+func (i JobQueueComputeEnvironmentOrderArray) ToJobQueueComputeEnvironmentOrderArrayOutput() JobQueueComputeEnvironmentOrderArrayOutput {
+	return i.ToJobQueueComputeEnvironmentOrderArrayOutputWithContext(context.Background())
+}
+
+func (i JobQueueComputeEnvironmentOrderArray) ToJobQueueComputeEnvironmentOrderArrayOutputWithContext(ctx context.Context) JobQueueComputeEnvironmentOrderArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(JobQueueComputeEnvironmentOrderArrayOutput)
+}
+
+type JobQueueComputeEnvironmentOrderOutput struct{ *pulumi.OutputState }
+
+func (JobQueueComputeEnvironmentOrderOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*JobQueueComputeEnvironmentOrder)(nil)).Elem()
+}
+
+func (o JobQueueComputeEnvironmentOrderOutput) ToJobQueueComputeEnvironmentOrderOutput() JobQueueComputeEnvironmentOrderOutput {
+	return o
+}
+
+func (o JobQueueComputeEnvironmentOrderOutput) ToJobQueueComputeEnvironmentOrderOutputWithContext(ctx context.Context) JobQueueComputeEnvironmentOrderOutput {
+	return o
+}
+
+// The Amazon Resource Name (ARN) of the compute environment.
+func (o JobQueueComputeEnvironmentOrderOutput) ComputeEnvironment() pulumi.StringOutput {
+	return o.ApplyT(func(v JobQueueComputeEnvironmentOrder) string { return v.ComputeEnvironment }).(pulumi.StringOutput)
+}
+
+// The order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
+func (o JobQueueComputeEnvironmentOrderOutput) Order() pulumi.IntOutput {
+	return o.ApplyT(func(v JobQueueComputeEnvironmentOrder) int { return v.Order }).(pulumi.IntOutput)
+}
+
+type JobQueueComputeEnvironmentOrderArrayOutput struct{ *pulumi.OutputState }
+
+func (JobQueueComputeEnvironmentOrderArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]JobQueueComputeEnvironmentOrder)(nil)).Elem()
+}
+
+func (o JobQueueComputeEnvironmentOrderArrayOutput) ToJobQueueComputeEnvironmentOrderArrayOutput() JobQueueComputeEnvironmentOrderArrayOutput {
+	return o
+}
+
+func (o JobQueueComputeEnvironmentOrderArrayOutput) ToJobQueueComputeEnvironmentOrderArrayOutputWithContext(ctx context.Context) JobQueueComputeEnvironmentOrderArrayOutput {
+	return o
+}
+
+func (o JobQueueComputeEnvironmentOrderArrayOutput) Index(i pulumi.IntInput) JobQueueComputeEnvironmentOrderOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) JobQueueComputeEnvironmentOrder {
+		return vs[0].([]JobQueueComputeEnvironmentOrder)[vs[1].(int)]
+	}).(JobQueueComputeEnvironmentOrderOutput)
+}
+
 type JobQueueTimeouts struct {
 	// A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
 	Create *string `pulumi:"create"`
@@ -4735,6 +4841,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionRetryStrategyEvaluateOnExitArrayInput)(nil)).Elem(), JobDefinitionRetryStrategyEvaluateOnExitArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionTimeoutInput)(nil)).Elem(), JobDefinitionTimeoutArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobDefinitionTimeoutPtrInput)(nil)).Elem(), JobDefinitionTimeoutArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobQueueComputeEnvironmentOrderInput)(nil)).Elem(), JobQueueComputeEnvironmentOrderArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*JobQueueComputeEnvironmentOrderArrayInput)(nil)).Elem(), JobQueueComputeEnvironmentOrderArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobQueueTimeoutsInput)(nil)).Elem(), JobQueueTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*JobQueueTimeoutsPtrInput)(nil)).Elem(), JobQueueTimeoutsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*SchedulingPolicyFairSharePolicyInput)(nil)).Elem(), SchedulingPolicyFairSharePolicyArgs{})
@@ -4797,6 +4905,8 @@ func init() {
 	pulumi.RegisterOutputType(JobDefinitionRetryStrategyEvaluateOnExitArrayOutput{})
 	pulumi.RegisterOutputType(JobDefinitionTimeoutOutput{})
 	pulumi.RegisterOutputType(JobDefinitionTimeoutPtrOutput{})
+	pulumi.RegisterOutputType(JobQueueComputeEnvironmentOrderOutput{})
+	pulumi.RegisterOutputType(JobQueueComputeEnvironmentOrderArrayOutput{})
 	pulumi.RegisterOutputType(JobQueueTimeoutsOutput{})
 	pulumi.RegisterOutputType(JobQueueTimeoutsPtrOutput{})
 	pulumi.RegisterOutputType(SchedulingPolicyFairSharePolicyOutput{})

@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: guineveresaenger <guinevere@pulumi.com>
 Date: Fri, 9 Feb 2024 15:25:41 -0800
-Subject: [PATCH 41/46] Include CloudWatch Logging section in Lambda Example
+Subject: [PATCH 41/47] Include CloudWatch Logging section in Lambda Example
 
 
 diff --git a/website/docs/r/lambda_function.html.markdown b/website/docs/r/lambda_function.html.markdown

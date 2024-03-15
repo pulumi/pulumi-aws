@@ -16,23 +16,25 @@ import javax.annotation.Nullable;
 @CustomType
 public final class GetEngineVersionResult {
     /**
-     * @return The default character set for new instances of this engine version.
+     * @return Default character set for new instances of the engine version.
      * 
      */
     private String defaultCharacterSet;
     private @Nullable Boolean defaultOnly;
     private String engine;
     /**
-     * @return Description of the database engine.
+     * @return Description of the engine.
      * 
      */
     private String engineDescription;
     /**
-     * @return Set of log types that the database engine has available for export to CloudWatch Logs.
+     * @return Set of log types that the engine version has available for export to CloudWatch Logs.
      * 
      */
     private List<String> exportableLogTypes;
     private @Nullable List<GetEngineVersionFilter> filters;
+    private @Nullable Boolean hasMajorTarget;
+    private @Nullable Boolean hasMinorTarget;
     /**
      * @return The provider-assigned unique ID for this managed resource.
      * 
@@ -45,70 +47,80 @@ public final class GetEngineVersionResult {
     private @Nullable List<String> preferredUpgradeTargets;
     private @Nullable List<String> preferredVersions;
     /**
-     * @return Status of the database engine version, either available or deprecated.
+     * @return Status of the engine version, either `available` or `deprecated`.
      * 
      */
     private String status;
     /**
-     * @return Set of the character sets supported by this engine.
+     * @return Set of character sets supported by th engine version.
      * 
      */
     private List<String> supportedCharacterSets;
     /**
-     * @return Set of features supported by the database engine.
+     * @return Set of features supported by the engine version.
      * 
      */
     private List<String> supportedFeatureNames;
     /**
-     * @return Set of the supported database engine modes.
+     * @return Set of supported engine version modes.
      * 
      */
     private List<String> supportedModes;
     /**
-     * @return Set of the time zones supported by this engine.
+     * @return Set of the time zones supported by the engine version.
      * 
      */
     private List<String> supportedTimezones;
     /**
-     * @return Indicates whether you can use Aurora global databases with a specific database engine version.
+     * @return Whether you can use Aurora global databases with the engine version.
      * 
      */
     private Boolean supportsGlobalDatabases;
     /**
-     * @return Indicates whether the engine version supports exporting the log types specified by `exportable_log_types` to CloudWatch Logs.
+     * @return Whether the engine version supports exporting the log types specified by `exportable_log_types` to CloudWatch Logs.
      * 
      */
     private Boolean supportsLogExportsToCloudwatch;
     /**
-     * @return Indicates whether you can use Aurora parallel query with a specific database engine version.
+     * @return Whether you can use Aurora parallel query with the engine version.
      * 
      */
     private Boolean supportsParallelQuery;
     /**
-     * @return Indicates whether the database engine version supports read replicas.
+     * @return Whether the engine version supports read replicas.
      * 
      */
     private Boolean supportsReadReplica;
     /**
-     * @return Set of engine versions that this database engine version can be upgraded to.
+     * @return Set of versions that are valid major version upgrades for the engine version.
+     * 
+     */
+    private List<String> validMajorTargets;
+    /**
+     * @return Set of versions that are valid minor version upgrades for the engine version.
+     * 
+     */
+    private List<String> validMinorTargets;
+    /**
+     * @return Set of versions that are valid major or minor upgrades for the engine version.
      * 
      */
     private List<String> validUpgradeTargets;
     private String version;
     /**
-     * @return Version of the database engine.
+     * @return Complete engine version.
      * 
      */
     private String versionActual;
     /**
-     * @return Description of the database engine version.
+     * @return Description of the engine version.
      * 
      */
     private String versionDescription;
 
     private GetEngineVersionResult() {}
     /**
-     * @return The default character set for new instances of this engine version.
+     * @return Default character set for new instances of the engine version.
      * 
      */
     public String defaultCharacterSet() {
@@ -121,14 +133,14 @@ public final class GetEngineVersionResult {
         return this.engine;
     }
     /**
-     * @return Description of the database engine.
+     * @return Description of the engine.
      * 
      */
     public String engineDescription() {
         return this.engineDescription;
     }
     /**
-     * @return Set of log types that the database engine has available for export to CloudWatch Logs.
+     * @return Set of log types that the engine version has available for export to CloudWatch Logs.
      * 
      */
     public List<String> exportableLogTypes() {
@@ -136,6 +148,12 @@ public final class GetEngineVersionResult {
     }
     public List<GetEngineVersionFilter> filters() {
         return this.filters == null ? List.of() : this.filters;
+    }
+    public Optional<Boolean> hasMajorTarget() {
+        return Optional.ofNullable(this.hasMajorTarget);
+    }
+    public Optional<Boolean> hasMinorTarget() {
+        return Optional.ofNullable(this.hasMinorTarget);
     }
     /**
      * @return The provider-assigned unique ID for this managed resource.
@@ -163,70 +181,84 @@ public final class GetEngineVersionResult {
         return this.preferredVersions == null ? List.of() : this.preferredVersions;
     }
     /**
-     * @return Status of the database engine version, either available or deprecated.
+     * @return Status of the engine version, either `available` or `deprecated`.
      * 
      */
     public String status() {
         return this.status;
     }
     /**
-     * @return Set of the character sets supported by this engine.
+     * @return Set of character sets supported by th engine version.
      * 
      */
     public List<String> supportedCharacterSets() {
         return this.supportedCharacterSets;
     }
     /**
-     * @return Set of features supported by the database engine.
+     * @return Set of features supported by the engine version.
      * 
      */
     public List<String> supportedFeatureNames() {
         return this.supportedFeatureNames;
     }
     /**
-     * @return Set of the supported database engine modes.
+     * @return Set of supported engine version modes.
      * 
      */
     public List<String> supportedModes() {
         return this.supportedModes;
     }
     /**
-     * @return Set of the time zones supported by this engine.
+     * @return Set of the time zones supported by the engine version.
      * 
      */
     public List<String> supportedTimezones() {
         return this.supportedTimezones;
     }
     /**
-     * @return Indicates whether you can use Aurora global databases with a specific database engine version.
+     * @return Whether you can use Aurora global databases with the engine version.
      * 
      */
     public Boolean supportsGlobalDatabases() {
         return this.supportsGlobalDatabases;
     }
     /**
-     * @return Indicates whether the engine version supports exporting the log types specified by `exportable_log_types` to CloudWatch Logs.
+     * @return Whether the engine version supports exporting the log types specified by `exportable_log_types` to CloudWatch Logs.
      * 
      */
     public Boolean supportsLogExportsToCloudwatch() {
         return this.supportsLogExportsToCloudwatch;
     }
     /**
-     * @return Indicates whether you can use Aurora parallel query with a specific database engine version.
+     * @return Whether you can use Aurora parallel query with the engine version.
      * 
      */
     public Boolean supportsParallelQuery() {
         return this.supportsParallelQuery;
     }
     /**
-     * @return Indicates whether the database engine version supports read replicas.
+     * @return Whether the engine version supports read replicas.
      * 
      */
     public Boolean supportsReadReplica() {
         return this.supportsReadReplica;
     }
     /**
-     * @return Set of engine versions that this database engine version can be upgraded to.
+     * @return Set of versions that are valid major version upgrades for the engine version.
+     * 
+     */
+    public List<String> validMajorTargets() {
+        return this.validMajorTargets;
+    }
+    /**
+     * @return Set of versions that are valid minor version upgrades for the engine version.
+     * 
+     */
+    public List<String> validMinorTargets() {
+        return this.validMinorTargets;
+    }
+    /**
+     * @return Set of versions that are valid major or minor upgrades for the engine version.
      * 
      */
     public List<String> validUpgradeTargets() {
@@ -236,14 +268,14 @@ public final class GetEngineVersionResult {
         return this.version;
     }
     /**
-     * @return Version of the database engine.
+     * @return Complete engine version.
      * 
      */
     public String versionActual() {
         return this.versionActual;
     }
     /**
-     * @return Description of the database engine version.
+     * @return Description of the engine version.
      * 
      */
     public String versionDescription() {
@@ -265,6 +297,8 @@ public final class GetEngineVersionResult {
         private String engineDescription;
         private List<String> exportableLogTypes;
         private @Nullable List<GetEngineVersionFilter> filters;
+        private @Nullable Boolean hasMajorTarget;
+        private @Nullable Boolean hasMinorTarget;
         private String id;
         private @Nullable Boolean includeAll;
         private @Nullable Boolean latest;
@@ -281,6 +315,8 @@ public final class GetEngineVersionResult {
         private Boolean supportsLogExportsToCloudwatch;
         private Boolean supportsParallelQuery;
         private Boolean supportsReadReplica;
+        private List<String> validMajorTargets;
+        private List<String> validMinorTargets;
         private List<String> validUpgradeTargets;
         private String version;
         private String versionActual;
@@ -294,6 +330,8 @@ public final class GetEngineVersionResult {
     	      this.engineDescription = defaults.engineDescription;
     	      this.exportableLogTypes = defaults.exportableLogTypes;
     	      this.filters = defaults.filters;
+    	      this.hasMajorTarget = defaults.hasMajorTarget;
+    	      this.hasMinorTarget = defaults.hasMinorTarget;
     	      this.id = defaults.id;
     	      this.includeAll = defaults.includeAll;
     	      this.latest = defaults.latest;
@@ -310,6 +348,8 @@ public final class GetEngineVersionResult {
     	      this.supportsLogExportsToCloudwatch = defaults.supportsLogExportsToCloudwatch;
     	      this.supportsParallelQuery = defaults.supportsParallelQuery;
     	      this.supportsReadReplica = defaults.supportsReadReplica;
+    	      this.validMajorTargets = defaults.validMajorTargets;
+    	      this.validMinorTargets = defaults.validMinorTargets;
     	      this.validUpgradeTargets = defaults.validUpgradeTargets;
     	      this.version = defaults.version;
     	      this.versionActual = defaults.versionActual;
@@ -365,6 +405,18 @@ public final class GetEngineVersionResult {
         }
         public Builder filters(GetEngineVersionFilter... filters) {
             return filters(List.of(filters));
+        }
+        @CustomType.Setter
+        public Builder hasMajorTarget(@Nullable Boolean hasMajorTarget) {
+
+            this.hasMajorTarget = hasMajorTarget;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder hasMinorTarget(@Nullable Boolean hasMinorTarget) {
+
+            this.hasMinorTarget = hasMinorTarget;
+            return this;
         }
         @CustomType.Setter
         public Builder id(String id) {
@@ -506,6 +558,28 @@ public final class GetEngineVersionResult {
             return this;
         }
         @CustomType.Setter
+        public Builder validMajorTargets(List<String> validMajorTargets) {
+            if (validMajorTargets == null) {
+              throw new MissingRequiredPropertyException("GetEngineVersionResult", "validMajorTargets");
+            }
+            this.validMajorTargets = validMajorTargets;
+            return this;
+        }
+        public Builder validMajorTargets(String... validMajorTargets) {
+            return validMajorTargets(List.of(validMajorTargets));
+        }
+        @CustomType.Setter
+        public Builder validMinorTargets(List<String> validMinorTargets) {
+            if (validMinorTargets == null) {
+              throw new MissingRequiredPropertyException("GetEngineVersionResult", "validMinorTargets");
+            }
+            this.validMinorTargets = validMinorTargets;
+            return this;
+        }
+        public Builder validMinorTargets(String... validMinorTargets) {
+            return validMinorTargets(List.of(validMinorTargets));
+        }
+        @CustomType.Setter
         public Builder validUpgradeTargets(List<String> validUpgradeTargets) {
             if (validUpgradeTargets == null) {
               throw new MissingRequiredPropertyException("GetEngineVersionResult", "validUpgradeTargets");
@@ -548,6 +622,8 @@ public final class GetEngineVersionResult {
             _resultValue.engineDescription = engineDescription;
             _resultValue.exportableLogTypes = exportableLogTypes;
             _resultValue.filters = filters;
+            _resultValue.hasMajorTarget = hasMajorTarget;
+            _resultValue.hasMinorTarget = hasMinorTarget;
             _resultValue.id = id;
             _resultValue.includeAll = includeAll;
             _resultValue.latest = latest;
@@ -564,6 +640,8 @@ public final class GetEngineVersionResult {
             _resultValue.supportsLogExportsToCloudwatch = supportsLogExportsToCloudwatch;
             _resultValue.supportsParallelQuery = supportsParallelQuery;
             _resultValue.supportsReadReplica = supportsReadReplica;
+            _resultValue.validMajorTargets = validMajorTargets;
+            _resultValue.validMinorTargets = validMinorTargets;
             _resultValue.validUpgradeTargets = validUpgradeTargets;
             _resultValue.version = version;
             _resultValue.versionActual = versionActual;

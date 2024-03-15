@@ -665,6 +665,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "account/region",
+  "fqn": "pulumi_aws.account",
+  "classes": {
+   "aws:account/region:Region": "Region"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "acm/certificate",
   "fqn": "pulumi_aws.acm",
   "classes": {
@@ -9805,6 +9813,14 @@ _utilities.register(
   "fqn": "pulumi_aws.securitylake",
   "classes": {
    "aws:securitylake/dataLake:DataLake": "DataLake"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "securitylake/subscriber",
+  "fqn": "pulumi_aws.securitylake",
+  "classes": {
+   "aws:securitylake/subscriber:Subscriber": "Subscriber"
   }
  },
  {

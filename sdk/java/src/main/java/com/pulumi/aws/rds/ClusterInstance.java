@@ -270,7 +270,7 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
     }
     /**
      * Name of the database engine to be used for the RDS cluster instance.
-     * Valid Values: `aurora-mysql`, `aurora-postgresql`.
+     * Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
      * 
      */
     @Export(name="engine", refs={String.class}, tree="[0]")
@@ -278,7 +278,7 @@ public class ClusterInstance extends com.pulumi.resources.CustomResource {
 
     /**
      * @return Name of the database engine to be used for the RDS cluster instance.
-     * Valid Values: `aurora-mysql`, `aurora-postgresql`.
+     * Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
      * 
      */
     public Output<String> engine() {

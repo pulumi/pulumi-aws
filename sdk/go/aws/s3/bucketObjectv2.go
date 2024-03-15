@@ -321,6 +321,8 @@ type BucketObjectv2 struct {
 
 	// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`.
 	Acl pulumi.StringOutput `pulumi:"acl"`
+	// ARN of the object.
+	Arn pulumi.StringOutput `pulumi:"arn"`
 	// Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
 	Bucket pulumi.StringOutput `pulumi:"bucket"`
 	// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
@@ -434,6 +436,8 @@ func GetBucketObjectv2(ctx *pulumi.Context,
 type bucketObjectv2State struct {
 	// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`.
 	Acl *string `pulumi:"acl"`
+	// ARN of the object.
+	Arn *string `pulumi:"arn"`
 	// Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
 	Bucket interface{} `pulumi:"bucket"`
 	// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
@@ -509,6 +513,8 @@ type bucketObjectv2State struct {
 type BucketObjectv2State struct {
 	// [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`.
 	Acl pulumi.StringPtrInput
+	// ARN of the object.
+	Arn pulumi.StringPtrInput
 	// Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.
 	Bucket pulumi.Input
 	// Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
@@ -798,6 +804,11 @@ func (o BucketObjectv2Output) ToBucketObjectv2OutputWithContext(ctx context.Cont
 // [Canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, `bucket-owner-read`, and `bucket-owner-full-control`.
 func (o BucketObjectv2Output) Acl() pulumi.StringOutput {
 	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringOutput { return v.Acl }).(pulumi.StringOutput)
+}
+
+// ARN of the object.
+func (o BucketObjectv2Output) Arn() pulumi.StringOutput {
+	return o.ApplyT(func(v *BucketObjectv2) pulumi.StringOutput { return v.Arn }).(pulumi.StringOutput)
 }
 
 // Name of the bucket to put the file in. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified.

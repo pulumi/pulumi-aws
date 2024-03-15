@@ -31,6 +31,7 @@ __all__ = [
     'JobDefinitionRetryStrategy',
     'JobDefinitionRetryStrategyEvaluateOnExit',
     'JobDefinitionTimeout',
+    'JobQueueComputeEnvironmentOrder',
     'JobQueueTimeouts',
     'SchedulingPolicyFairSharePolicy',
     'SchedulingPolicyFairSharePolicyShareDistribution',
@@ -1286,6 +1287,52 @@ class JobDefinitionTimeout(dict):
         The time duration in seconds after which AWS Batch terminates your jobs if they have not finished. The minimum value for the timeout is `60` seconds.
         """
         return pulumi.get(self, "attempt_duration_seconds")
+
+
+@pulumi.output_type
+class JobQueueComputeEnvironmentOrder(dict):
+    @staticmethod
+    def __key_warning(key: str):
+        suggest = None
+        if key == "computeEnvironment":
+            suggest = "compute_environment"
+
+        if suggest:
+            pulumi.log.warn(f"Key '{key}' not found in JobQueueComputeEnvironmentOrder. Access the value via the '{suggest}' property getter instead.")
+
+    def __getitem__(self, key: str) -> Any:
+        JobQueueComputeEnvironmentOrder.__key_warning(key)
+        return super().__getitem__(key)
+
+    def get(self, key: str, default = None) -> Any:
+        JobQueueComputeEnvironmentOrder.__key_warning(key)
+        return super().get(key, default)
+
+    def __init__(__self__, *,
+                 compute_environment: str,
+                 order: int):
+        """
+        :param str compute_environment: The Amazon Resource Name (ARN) of the compute environment.
+        :param int order: The order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
+        """
+        pulumi.set(__self__, "compute_environment", compute_environment)
+        pulumi.set(__self__, "order", order)
+
+    @property
+    @pulumi.getter(name="computeEnvironment")
+    def compute_environment(self) -> str:
+        """
+        The Amazon Resource Name (ARN) of the compute environment.
+        """
+        return pulumi.get(self, "compute_environment")
+
+    @property
+    @pulumi.getter
+    def order(self) -> int:
+        """
+        The order of the compute environment. Compute environments are tried in ascending order. For example, if two compute environments are associated with a job queue, the compute environment with a lower order integer value is tried for job placement first.
+        """
+        return pulumi.get(self, "order")
 
 
 @pulumi.output_type

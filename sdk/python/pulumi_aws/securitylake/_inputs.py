@@ -23,6 +23,13 @@ __all__ = [
     'DataLakeConfigurationLifecycleConfigurationTransitionArgs',
     'DataLakeConfigurationReplicationConfigurationArgs',
     'DataLakeTimeoutsArgs',
+    'SubscriberSourceArgs',
+    'SubscriberSourceAwsLogSourceResourceArgs',
+    'SubscriberSourceCustomLogSourceResourceArgs',
+    'SubscriberSourceCustomLogSourceResourceAttributeArgs',
+    'SubscriberSourceCustomLogSourceResourceProviderArgs',
+    'SubscriberSubscriberIdentityArgs',
+    'SubscriberTimeoutsArgs',
 ]
 
 @pulumi.input_type
@@ -515,6 +522,332 @@ class DataLakeConfigurationReplicationConfigurationArgs:
 
 @pulumi.input_type
 class DataLakeTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[str]] = None,
+                 delete: Optional[pulumi.Input[str]] = None,
+                 update: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        :param pulumi.Input[str] delete: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        :param pulumi.Input[str] update: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+        if delete is not None:
+            pulumi.set(__self__, "delete", delete)
+        if update is not None:
+            pulumi.set(__self__, "update", update)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create", value)
+
+    @property
+    @pulumi.getter
+    def delete(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours). Setting a timeout for a Delete operation is only applicable if changes are saved into state before the destroy operation occurs.
+        """
+        return pulumi.get(self, "delete")
+
+    @delete.setter
+    def delete(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "delete", value)
+
+    @property
+    @pulumi.getter
+    def update(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "update")
+
+    @update.setter
+    def update(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "update", value)
+
+
+@pulumi.input_type
+class SubscriberSourceArgs:
+    def __init__(__self__, *,
+                 aws_log_source_resource: Optional[pulumi.Input['SubscriberSourceAwsLogSourceResourceArgs']] = None,
+                 custom_log_source_resource: Optional[pulumi.Input['SubscriberSourceCustomLogSourceResourceArgs']] = None):
+        """
+        :param pulumi.Input['SubscriberSourceAwsLogSourceResourceArgs'] aws_log_source_resource: Amazon Security Lake supports log and event collection for natively supported AWS services.
+        :param pulumi.Input['SubscriberSourceCustomLogSourceResourceArgs'] custom_log_source_resource: Amazon Security Lake supports custom source types.
+        """
+        if aws_log_source_resource is not None:
+            pulumi.set(__self__, "aws_log_source_resource", aws_log_source_resource)
+        if custom_log_source_resource is not None:
+            pulumi.set(__self__, "custom_log_source_resource", custom_log_source_resource)
+
+    @property
+    @pulumi.getter(name="awsLogSourceResource")
+    def aws_log_source_resource(self) -> Optional[pulumi.Input['SubscriberSourceAwsLogSourceResourceArgs']]:
+        """
+        Amazon Security Lake supports log and event collection for natively supported AWS services.
+        """
+        return pulumi.get(self, "aws_log_source_resource")
+
+    @aws_log_source_resource.setter
+    def aws_log_source_resource(self, value: Optional[pulumi.Input['SubscriberSourceAwsLogSourceResourceArgs']]):
+        pulumi.set(self, "aws_log_source_resource", value)
+
+    @property
+    @pulumi.getter(name="customLogSourceResource")
+    def custom_log_source_resource(self) -> Optional[pulumi.Input['SubscriberSourceCustomLogSourceResourceArgs']]:
+        """
+        Amazon Security Lake supports custom source types.
+        """
+        return pulumi.get(self, "custom_log_source_resource")
+
+    @custom_log_source_resource.setter
+    def custom_log_source_resource(self, value: Optional[pulumi.Input['SubscriberSourceCustomLogSourceResourceArgs']]):
+        pulumi.set(self, "custom_log_source_resource", value)
+
+
+@pulumi.input_type
+class SubscriberSourceAwsLogSourceResourceArgs:
+    def __init__(__self__, *,
+                 source_name: Optional[pulumi.Input[str]] = None,
+                 source_version: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] source_name: The name for a third-party custom source. This must be a Regionally unique value.
+        :param pulumi.Input[str] source_version: The version for a third-party custom source. This must be a Regionally unique value.
+        """
+        if source_name is not None:
+            pulumi.set(__self__, "source_name", source_name)
+        if source_version is not None:
+            pulumi.set(__self__, "source_version", source_version)
+
+    @property
+    @pulumi.getter(name="sourceName")
+    def source_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name for a third-party custom source. This must be a Regionally unique value.
+        """
+        return pulumi.get(self, "source_name")
+
+    @source_name.setter
+    def source_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_name", value)
+
+    @property
+    @pulumi.getter(name="sourceVersion")
+    def source_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version for a third-party custom source. This must be a Regionally unique value.
+        """
+        return pulumi.get(self, "source_version")
+
+    @source_version.setter
+    def source_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_version", value)
+
+
+@pulumi.input_type
+class SubscriberSourceCustomLogSourceResourceArgs:
+    def __init__(__self__, *,
+                 attributes: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriberSourceCustomLogSourceResourceAttributeArgs']]]] = None,
+                 providers: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriberSourceCustomLogSourceResourceProviderArgs']]]] = None,
+                 source_name: Optional[pulumi.Input[str]] = None,
+                 source_version: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input['SubscriberSourceCustomLogSourceResourceAttributeArgs']]] attributes: The attributes of a third-party custom source.
+        :param pulumi.Input[str] source_name: The name for a third-party custom source. This must be a Regionally unique value.
+        :param pulumi.Input[str] source_version: The version for a third-party custom source. This must be a Regionally unique value.
+        """
+        if attributes is not None:
+            pulumi.set(__self__, "attributes", attributes)
+        if providers is not None:
+            pulumi.set(__self__, "providers", providers)
+        if source_name is not None:
+            pulumi.set(__self__, "source_name", source_name)
+        if source_version is not None:
+            pulumi.set(__self__, "source_version", source_version)
+
+    @property
+    @pulumi.getter
+    def attributes(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubscriberSourceCustomLogSourceResourceAttributeArgs']]]]:
+        """
+        The attributes of a third-party custom source.
+        """
+        return pulumi.get(self, "attributes")
+
+    @attributes.setter
+    def attributes(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriberSourceCustomLogSourceResourceAttributeArgs']]]]):
+        pulumi.set(self, "attributes", value)
+
+    @property
+    @pulumi.getter
+    def providers(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['SubscriberSourceCustomLogSourceResourceProviderArgs']]]]:
+        return pulumi.get(self, "providers")
+
+    @providers.setter
+    def providers(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['SubscriberSourceCustomLogSourceResourceProviderArgs']]]]):
+        pulumi.set(self, "providers", value)
+
+    @property
+    @pulumi.getter(name="sourceName")
+    def source_name(self) -> Optional[pulumi.Input[str]]:
+        """
+        The name for a third-party custom source. This must be a Regionally unique value.
+        """
+        return pulumi.get(self, "source_name")
+
+    @source_name.setter
+    def source_name(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_name", value)
+
+    @property
+    @pulumi.getter(name="sourceVersion")
+    def source_version(self) -> Optional[pulumi.Input[str]]:
+        """
+        The version for a third-party custom source. This must be a Regionally unique value.
+        """
+        return pulumi.get(self, "source_version")
+
+    @source_version.setter
+    def source_version(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "source_version", value)
+
+
+@pulumi.input_type
+class SubscriberSourceCustomLogSourceResourceAttributeArgs:
+    def __init__(__self__, *,
+                 crawler_arn: pulumi.Input[str],
+                 database_arn: pulumi.Input[str],
+                 table_arn: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] crawler_arn: The ARN of the AWS Glue crawler.
+        :param pulumi.Input[str] database_arn: The ARN of the AWS Glue database where results are written.
+        :param pulumi.Input[str] table_arn: The ARN of the AWS Glue table.
+        """
+        pulumi.set(__self__, "crawler_arn", crawler_arn)
+        pulumi.set(__self__, "database_arn", database_arn)
+        pulumi.set(__self__, "table_arn", table_arn)
+
+    @property
+    @pulumi.getter(name="crawlerArn")
+    def crawler_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the AWS Glue crawler.
+        """
+        return pulumi.get(self, "crawler_arn")
+
+    @crawler_arn.setter
+    def crawler_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "crawler_arn", value)
+
+    @property
+    @pulumi.getter(name="databaseArn")
+    def database_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the AWS Glue database where results are written.
+        """
+        return pulumi.get(self, "database_arn")
+
+    @database_arn.setter
+    def database_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database_arn", value)
+
+    @property
+    @pulumi.getter(name="tableArn")
+    def table_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the AWS Glue table.
+        """
+        return pulumi.get(self, "table_arn")
+
+    @table_arn.setter
+    def table_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "table_arn", value)
+
+
+@pulumi.input_type
+class SubscriberSourceCustomLogSourceResourceProviderArgs:
+    def __init__(__self__, *,
+                 location: pulumi.Input[str],
+                 role_arn: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] location: The location of the partition in the Amazon S3 bucket for Security Lake.
+        :param pulumi.Input[str] role_arn: The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
+        """
+        pulumi.set(__self__, "location", location)
+        pulumi.set(__self__, "role_arn", role_arn)
+
+    @property
+    @pulumi.getter
+    def location(self) -> pulumi.Input[str]:
+        """
+        The location of the partition in the Amazon S3 bucket for Security Lake.
+        """
+        return pulumi.get(self, "location")
+
+    @location.setter
+    def location(self, value: pulumi.Input[str]):
+        pulumi.set(self, "location", value)
+
+    @property
+    @pulumi.getter(name="roleArn")
+    def role_arn(self) -> pulumi.Input[str]:
+        """
+        The ARN of the IAM role to be used by the entity putting logs into your custom source partition.
+        """
+        return pulumi.get(self, "role_arn")
+
+    @role_arn.setter
+    def role_arn(self, value: pulumi.Input[str]):
+        pulumi.set(self, "role_arn", value)
+
+
+@pulumi.input_type
+class SubscriberSubscriberIdentityArgs:
+    def __init__(__self__, *,
+                 external_id: pulumi.Input[str],
+                 principal: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] external_id: The AWS Regions where Security Lake is automatically enabled.
+        :param pulumi.Input[str] principal: Provides encryption details of Amazon Security Lake object.
+        """
+        pulumi.set(__self__, "external_id", external_id)
+        pulumi.set(__self__, "principal", principal)
+
+    @property
+    @pulumi.getter(name="externalId")
+    def external_id(self) -> pulumi.Input[str]:
+        """
+        The AWS Regions where Security Lake is automatically enabled.
+        """
+        return pulumi.get(self, "external_id")
+
+    @external_id.setter
+    def external_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "external_id", value)
+
+    @property
+    @pulumi.getter
+    def principal(self) -> pulumi.Input[str]:
+        """
+        Provides encryption details of Amazon Security Lake object.
+        """
+        return pulumi.get(self, "principal")
+
+    @principal.setter
+    def principal(self, value: pulumi.Input[str]):
+        pulumi.set(self, "principal", value)
+
+
+@pulumi.input_type
+class SubscriberTimeoutsArgs:
     def __init__(__self__, *,
                  create: Optional[pulumi.Input[str]] = None,
                  delete: Optional[pulumi.Input[str]] = None,

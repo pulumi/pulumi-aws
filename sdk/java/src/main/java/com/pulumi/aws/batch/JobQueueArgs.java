@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.batch;
 
+import com.pulumi.aws.batch.inputs.JobQueueComputeEnvironmentOrderArgs;
 import com.pulumi.aws.batch.inputs.JobQueueTimeoutsArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
@@ -21,20 +22,41 @@ public final class JobQueueArgs extends com.pulumi.resources.ResourceArgs {
     public static final JobQueueArgs Empty = new JobQueueArgs();
 
     /**
-     * List of compute environment ARNs mapped to a job queue.
-     * The position of the compute environments in the list will dictate the order.
+     * The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
      * 
      */
-    @Import(name="computeEnvironments", required=true)
-    private Output<List<String>> computeEnvironments;
+    @Import(name="computeEnvironmentOrders")
+    private @Nullable Output<List<JobQueueComputeEnvironmentOrderArgs>> computeEnvironmentOrders;
 
     /**
-     * @return List of compute environment ARNs mapped to a job queue.
-     * The position of the compute environments in the list will dictate the order.
+     * @return The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
      * 
      */
-    public Output<List<String>> computeEnvironments() {
-        return this.computeEnvironments;
+    public Optional<Output<List<JobQueueComputeEnvironmentOrderArgs>>> computeEnvironmentOrders() {
+        return Optional.ofNullable(this.computeEnvironmentOrders);
+    }
+
+    /**
+     * (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
+     * 
+     * @deprecated
+     * This parameter will be replaced by `compute_environments_order`.
+     * 
+     */
+    @Deprecated /* This parameter will be replaced by `compute_environments_order`. */
+    @Import(name="computeEnvironments")
+    private @Nullable Output<List<String>> computeEnvironments;
+
+    /**
+     * @return (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
+     * 
+     * @deprecated
+     * This parameter will be replaced by `compute_environments_order`.
+     * 
+     */
+    @Deprecated /* This parameter will be replaced by `compute_environments_order`. */
+    public Optional<Output<List<String>>> computeEnvironments() {
+        return Optional.ofNullable(this.computeEnvironments);
     }
 
     /**
@@ -124,6 +146,7 @@ public final class JobQueueArgs extends com.pulumi.resources.ResourceArgs {
     private JobQueueArgs() {}
 
     private JobQueueArgs(JobQueueArgs $) {
+        this.computeEnvironmentOrders = $.computeEnvironmentOrders;
         this.computeEnvironments = $.computeEnvironments;
         this.name = $.name;
         this.priority = $.priority;
@@ -152,35 +175,75 @@ public final class JobQueueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param computeEnvironments List of compute environment ARNs mapped to a job queue.
-         * The position of the compute environments in the list will dictate the order.
+         * @param computeEnvironmentOrders The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
          * 
          * @return builder
          * 
          */
-        public Builder computeEnvironments(Output<List<String>> computeEnvironments) {
+        public Builder computeEnvironmentOrders(@Nullable Output<List<JobQueueComputeEnvironmentOrderArgs>> computeEnvironmentOrders) {
+            $.computeEnvironmentOrders = computeEnvironmentOrders;
+            return this;
+        }
+
+        /**
+         * @param computeEnvironmentOrders The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder computeEnvironmentOrders(List<JobQueueComputeEnvironmentOrderArgs> computeEnvironmentOrders) {
+            return computeEnvironmentOrders(Output.of(computeEnvironmentOrders));
+        }
+
+        /**
+         * @param computeEnvironmentOrders The set of compute environments mapped to a job queue and their order relative to each other. The job scheduler uses this parameter to determine which compute environment runs a specific job. Compute environments must be in the VALID state before you can associate them with a job queue. You can associate up to three compute environments with a job queue.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder computeEnvironmentOrders(JobQueueComputeEnvironmentOrderArgs... computeEnvironmentOrders) {
+            return computeEnvironmentOrders(List.of(computeEnvironmentOrders));
+        }
+
+        /**
+         * @param computeEnvironments (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
+         * 
+         * @return builder
+         * 
+         * @deprecated
+         * This parameter will be replaced by `compute_environments_order`.
+         * 
+         */
+        @Deprecated /* This parameter will be replaced by `compute_environments_order`. */
+        public Builder computeEnvironments(@Nullable Output<List<String>> computeEnvironments) {
             $.computeEnvironments = computeEnvironments;
             return this;
         }
 
         /**
-         * @param computeEnvironments List of compute environment ARNs mapped to a job queue.
-         * The position of the compute environments in the list will dictate the order.
+         * @param computeEnvironments (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
          * 
          * @return builder
          * 
+         * @deprecated
+         * This parameter will be replaced by `compute_environments_order`.
+         * 
          */
+        @Deprecated /* This parameter will be replaced by `compute_environments_order`. */
         public Builder computeEnvironments(List<String> computeEnvironments) {
             return computeEnvironments(Output.of(computeEnvironments));
         }
 
         /**
-         * @param computeEnvironments List of compute environment ARNs mapped to a job queue.
-         * The position of the compute environments in the list will dictate the order.
+         * @param computeEnvironments (Optional) This parameter is deprecated, please use `compute_environment_order` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `compute_environments` will always be used over `compute_environment_order`. Please adjust your HCL accordingly.
          * 
          * @return builder
          * 
+         * @deprecated
+         * This parameter will be replaced by `compute_environments_order`.
+         * 
          */
+        @Deprecated /* This parameter will be replaced by `compute_environments_order`. */
         public Builder computeEnvironments(String... computeEnvironments) {
             return computeEnvironments(List.of(computeEnvironments));
         }
@@ -302,9 +365,6 @@ public final class JobQueueArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         public JobQueueArgs build() {
-            if ($.computeEnvironments == null) {
-                throw new MissingRequiredPropertyException("JobQueueArgs", "computeEnvironments");
-            }
             if ($.priority == null) {
                 throw new MissingRequiredPropertyException("JobQueueArgs", "priority");
             }

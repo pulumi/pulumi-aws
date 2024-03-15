@@ -154,7 +154,7 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// Name of the database engine to be used for the RDS cluster instance.
-        /// Valid Values: `aurora-mysql`, `aurora-postgresql`.
+        /// Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
         /// </summary>
         [Output("engine")]
         public Output<string> Engine { get; private set; } = null!;
@@ -387,7 +387,7 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// Name of the database engine to be used for the RDS cluster instance.
-        /// Valid Values: `aurora-mysql`, `aurora-postgresql`.
+        /// Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
         /// </summary>
         [Input("engine", required: true)]
         public Input<string> Engine { get; set; } = null!;
@@ -564,7 +564,7 @@ namespace Pulumi.Aws.Rds
 
         /// <summary>
         /// Name of the database engine to be used for the RDS cluster instance.
-        /// Valid Values: `aurora-mysql`, `aurora-postgresql`.
+        /// Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`.(Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
         /// </summary>
         [Input("engine")]
         public Input<string>? Engine { get; set; }

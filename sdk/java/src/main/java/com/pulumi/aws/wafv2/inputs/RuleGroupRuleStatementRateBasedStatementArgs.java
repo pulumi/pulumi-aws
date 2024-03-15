@@ -52,6 +52,25 @@ public final class RuleGroupRuleStatementRateBasedStatementArgs extends com.pulu
     }
 
     /**
+     * The amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. Valid values are `60`, `120`, `300`, and `600`. Defaults to `300` (5 minutes).
+     * 
+     * **NOTE:** This setting doesn&#39;t determine how often AWS WAF checks the rate, but how far back it looks each time it checks. AWS WAF checks the rate about every 10 seconds.
+     * 
+     */
+    @Import(name="evaluationWindowSec")
+    private @Nullable Output<Integer> evaluationWindowSec;
+
+    /**
+     * @return The amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. Valid values are `60`, `120`, `300`, and `600`. Defaults to `300` (5 minutes).
+     * 
+     * **NOTE:** This setting doesn&#39;t determine how often AWS WAF checks the rate, but how far back it looks each time it checks. AWS WAF checks the rate about every 10 seconds.
+     * 
+     */
+    public Optional<Output<Integer>> evaluationWindowSec() {
+        return Optional.ofNullable(this.evaluationWindowSec);
+    }
+
+    /**
      * The configuration for inspecting IP addresses in an HTTP header that you specify, instead of using the IP address that&#39;s reported by the web request origin. If `aggregate_key_type` is set to `FORWARDED_IP`, this block is required. See Forwarded IP Config below for details.
      * 
      */
@@ -101,6 +120,7 @@ public final class RuleGroupRuleStatementRateBasedStatementArgs extends com.pulu
     private RuleGroupRuleStatementRateBasedStatementArgs(RuleGroupRuleStatementRateBasedStatementArgs $) {
         this.aggregateKeyType = $.aggregateKeyType;
         this.customKeys = $.customKeys;
+        this.evaluationWindowSec = $.evaluationWindowSec;
         this.forwardedIpConfig = $.forwardedIpConfig;
         this.limit = $.limit;
         this.scopeDownStatement = $.scopeDownStatement;
@@ -174,6 +194,31 @@ public final class RuleGroupRuleStatementRateBasedStatementArgs extends com.pulu
          */
         public Builder customKeys(RuleGroupRuleStatementRateBasedStatementCustomKeyArgs... customKeys) {
             return customKeys(List.of(customKeys));
+        }
+
+        /**
+         * @param evaluationWindowSec The amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. Valid values are `60`, `120`, `300`, and `600`. Defaults to `300` (5 minutes).
+         * 
+         * **NOTE:** This setting doesn&#39;t determine how often AWS WAF checks the rate, but how far back it looks each time it checks. AWS WAF checks the rate about every 10 seconds.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder evaluationWindowSec(@Nullable Output<Integer> evaluationWindowSec) {
+            $.evaluationWindowSec = evaluationWindowSec;
+            return this;
+        }
+
+        /**
+         * @param evaluationWindowSec The amount of time, in seconds, that AWS WAF should include in its request counts, looking back from the current time. Valid values are `60`, `120`, `300`, and `600`. Defaults to `300` (5 minutes).
+         * 
+         * **NOTE:** This setting doesn&#39;t determine how often AWS WAF checks the rate, but how far back it looks each time it checks. AWS WAF checks the rate about every 10 seconds.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder evaluationWindowSec(Integer evaluationWindowSec) {
+            return evaluationWindowSec(Output.of(evaluationWindowSec));
         }
 
         /**
