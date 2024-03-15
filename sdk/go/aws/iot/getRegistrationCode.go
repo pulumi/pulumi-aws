@@ -43,7 +43,7 @@ import (
 //				KeyAlgorithm:  pulumi.String("RSA"),
 //				PrivateKeyPem: verification.PrivateKeyPem,
 //				Subject: &tls.CertRequestSubjectArgs{
-//					CommonName: *pulumi.String(example.RegistrationCode),
+//					CommonName: pulumi.String(example.RegistrationCode),
 //				},
 //			})
 //			if err != nil {

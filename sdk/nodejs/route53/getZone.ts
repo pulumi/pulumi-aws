@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  * const www = new aws.route53.Record("www", {
  *     zoneId: selected.then(selected => selected.zoneId),
  *     name: selected.then(selected => `www.${selected.name}`),
- *     type: "A",
+ *     type: aws.route53.RecordType.A,
  *     ttl: 300,
  *     records: ["10.0.0.1"],
  * });
@@ -143,7 +143,7 @@ export interface GetZoneResult {
  * const www = new aws.route53.Record("www", {
  *     zoneId: selected.then(selected => selected.zoneId),
  *     name: selected.then(selected => `www.${selected.name}`),
- *     type: "A",
+ *     type: aws.route53.RecordType.A,
  *     ttl: 300,
  *     records: ["10.0.0.1"],
  * });

@@ -21,7 +21,7 @@ import * as utilities from "../utilities";
  *     allocatedStorage: 10,
  *     engine: "mysql",
  *     engineVersion: "5.6.17",
- *     instanceClass: "db.t2.micro",
+ *     instanceClass: aws.rds.InstanceType.T2_Micro,
  *     dbName: "mydb",
  *     username: "foo",
  *     password: "bar",
@@ -34,7 +34,7 @@ import * as utilities from "../utilities";
  * });
  * // Use the latest production snapshot to create a dev instance.
  * const dev = new aws.rds.Instance("dev", {
- *     instanceClass: "db.t2.micro",
+ *     instanceClass: aws.rds.InstanceType.T2_Micro,
  *     dbName: "mydbdev",
  *     snapshotIdentifier: latestProdSnapshot.apply(latestProdSnapshot => latestProdSnapshot.id),
  * });
@@ -195,7 +195,7 @@ export interface GetSnapshotResult {
  *     allocatedStorage: 10,
  *     engine: "mysql",
  *     engineVersion: "5.6.17",
- *     instanceClass: "db.t2.micro",
+ *     instanceClass: aws.rds.InstanceType.T2_Micro,
  *     dbName: "mydb",
  *     username: "foo",
  *     password: "bar",
@@ -208,7 +208,7 @@ export interface GetSnapshotResult {
  * });
  * // Use the latest production snapshot to create a dev instance.
  * const dev = new aws.rds.Instance("dev", {
- *     instanceClass: "db.t2.micro",
+ *     instanceClass: aws.rds.InstanceType.T2_Micro,
  *     dbName: "mydbdev",
  *     snapshotIdentifier: latestProdSnapshot.apply(latestProdSnapshot => latestProdSnapshot.id),
  * });

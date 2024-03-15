@@ -38,7 +38,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			test, err := ec2.NewPlacementGroup(ctx, "test", &ec2.PlacementGroupArgs{
 //				Name:     pulumi.String("test"),
-//				Strategy: pulumi.String("cluster"),
+//				Strategy: pulumi.String(ec2.PlacementStrategyCluster),
 //			})
 //			if err != nil {
 //				return err
@@ -506,7 +506,7 @@ import (
 //				return err
 //			}
 //			exampleLaunchTemplate, err := ec2.NewLaunchTemplate(ctx, "example", &ec2.LaunchTemplateArgs{
-//				ImageId:      *pulumi.String(example.Id),
+//				ImageId:      pulumi.String(example.Id),
 //				InstanceType: pulumi.String("t3.nano"),
 //			})
 //			if err != nil {

@@ -1932,7 +1932,7 @@ class Cluster(pulumi.CustomResource):
 
         default = aws.rds.Cluster("default",
             cluster_identifier="aurora-cluster-demo",
-            engine="aurora-mysql",
+            engine=aws.rds.EngineType.AURORA_MYSQL,
             engine_version="5.7.mysql_aurora.2.03.2",
             availability_zones=[
                 "us-west-2a",
@@ -1978,7 +1978,7 @@ class Cluster(pulumi.CustomResource):
 
         postgresql = aws.rds.Cluster("postgresql",
             cluster_identifier="aurora-cluster-demo",
-            engine="aurora-postgresql",
+            engine=aws.rds.EngineType.AURORA_POSTGRESQL,
             availability_zones=[
                 "us-west-2a",
                 "us-west-2b",
@@ -2036,8 +2036,8 @@ class Cluster(pulumi.CustomResource):
 
         example = aws.rds.Cluster("example",
             cluster_identifier="example",
-            engine="aurora-postgresql",
-            engine_mode="provisioned",
+            engine=aws.rds.EngineType.AURORA_POSTGRESQL,
+            engine_mode=aws.rds.EngineMode.PROVISIONED,
             engine_version="13.6",
             database_name="test",
             master_username="test",
@@ -2105,7 +2105,7 @@ class Cluster(pulumi.CustomResource):
         example = aws.rds.get_cluster_snapshot(db_cluster_identifier="example-original-cluster",
             most_recent=True)
         example_cluster = aws.rds.Cluster("example",
-            engine="aurora",
+            engine=aws.rds.EngineType.AURORA,
             engine_version="5.6.mysql_aurora.1.22.4",
             cluster_identifier="example",
             snapshot_identifier=example.id)
@@ -2219,7 +2219,7 @@ class Cluster(pulumi.CustomResource):
 
         default = aws.rds.Cluster("default",
             cluster_identifier="aurora-cluster-demo",
-            engine="aurora-mysql",
+            engine=aws.rds.EngineType.AURORA_MYSQL,
             engine_version="5.7.mysql_aurora.2.03.2",
             availability_zones=[
                 "us-west-2a",
@@ -2265,7 +2265,7 @@ class Cluster(pulumi.CustomResource):
 
         postgresql = aws.rds.Cluster("postgresql",
             cluster_identifier="aurora-cluster-demo",
-            engine="aurora-postgresql",
+            engine=aws.rds.EngineType.AURORA_POSTGRESQL,
             availability_zones=[
                 "us-west-2a",
                 "us-west-2b",
@@ -2323,8 +2323,8 @@ class Cluster(pulumi.CustomResource):
 
         example = aws.rds.Cluster("example",
             cluster_identifier="example",
-            engine="aurora-postgresql",
-            engine_mode="provisioned",
+            engine=aws.rds.EngineType.AURORA_POSTGRESQL,
+            engine_mode=aws.rds.EngineMode.PROVISIONED,
             engine_version="13.6",
             database_name="test",
             master_username="test",
@@ -2392,7 +2392,7 @@ class Cluster(pulumi.CustomResource):
         example = aws.rds.get_cluster_snapshot(db_cluster_identifier="example-original-cluster",
             most_recent=True)
         example_cluster = aws.rds.Cluster("example",
-            engine="aurora",
+            engine=aws.rds.EngineType.AURORA,
             engine_version="5.6.mysql_aurora.1.22.4",
             cluster_identifier="example",
             snapshot_identifier=example.id)

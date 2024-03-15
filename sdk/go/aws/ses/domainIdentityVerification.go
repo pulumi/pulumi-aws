@@ -49,7 +49,7 @@ import (
 //				Name: example.ID().ApplyT(func(id string) (string, error) {
 //					return fmt.Sprintf("_amazonses.%v", id), nil
 //				}).(pulumi.StringOutput),
-//				Type: pulumi.String("TXT"),
+//				Type: pulumi.String(route53.RecordTypeTXT),
 //				Ttl:  pulumi.Int(600),
 //				Records: pulumi.StringArray{
 //					example.VerificationToken,

@@ -44,7 +44,7 @@ namespace Pulumi.Aws.S3
         ///     {
         ///         ZoneId = testZone.Apply(getZoneResult =&gt; getZoneResult.Id),
         ///         Name = "bucket",
-        ///         Type = "A",
+        ///         Type = Aws.Route53.RecordType.A,
         ///         Aliases = new[]
         ///         {
         ///             new Aws.Route53.Inputs.RecordAliasArgs
@@ -127,7 +127,7 @@ namespace Pulumi.Aws.S3
         ///     {
         ///         ZoneId = testZone.Apply(getZoneResult =&gt; getZoneResult.Id),
         ///         Name = "bucket",
-        ///         Type = "A",
+        ///         Type = Aws.Route53.RecordType.A,
         ///         Aliases = new[]
         ///         {
         ///             new Aws.Route53.Inputs.RecordAliasArgs

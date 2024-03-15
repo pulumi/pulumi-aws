@@ -32,7 +32,7 @@ namespace Pulumi.Aws.S3
     ///     var b = new Aws.S3.Bucket("b", new()
     ///     {
     ///         BucketName = "my-tf-test-bucket",
-    ///         Acl = "private",
+    ///         Acl = Aws.S3.CannedAcl.Private,
     ///         Tags = 
     ///         {
     ///             { "Name", "My bucket" },
@@ -59,7 +59,7 @@ namespace Pulumi.Aws.S3
     ///     var b = new Aws.S3.Bucket("b", new()
     ///     {
     ///         BucketName = "s3-website-test.mydomain.com",
-    ///         Acl = "public-read",
+    ///         Acl = Aws.S3.CannedAcl.PublicRead,
     ///         Policy = Std.File.Invoke(new()
     ///         {
     ///             Input = "policy.json",
@@ -98,7 +98,7 @@ namespace Pulumi.Aws.S3
     ///     var b = new Aws.S3.Bucket("b", new()
     ///     {
     ///         BucketName = "s3-website-test.mydomain.com",
-    ///         Acl = "public-read",
+    ///         Acl = Aws.S3.CannedAcl.PublicRead,
     ///         CorsRules = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketCorsRuleArgs
@@ -143,7 +143,7 @@ namespace Pulumi.Aws.S3
     ///     var b = new Aws.S3.Bucket("b", new()
     ///     {
     ///         BucketName = "my-tf-test-bucket",
-    ///         Acl = "private",
+    ///         Acl = Aws.S3.CannedAcl.Private,
     ///         Versioning = new Aws.S3.Inputs.BucketVersioningArgs
     ///         {
     ///             Enabled = true,
@@ -168,13 +168,13 @@ namespace Pulumi.Aws.S3
     ///     var logBucket = new Aws.S3.Bucket("log_bucket", new()
     ///     {
     ///         BucketName = "my-tf-log-bucket",
-    ///         Acl = "log-delivery-write",
+    ///         Acl = Aws.S3.CannedAcl.LogDeliveryWrite,
     ///     });
     /// 
     ///     var b = new Aws.S3.Bucket("b", new()
     ///     {
     ///         BucketName = "my-tf-test-bucket",
-    ///         Acl = "private",
+    ///         Acl = Aws.S3.CannedAcl.Private,
     ///         Loggings = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketLoggingArgs
@@ -203,7 +203,7 @@ namespace Pulumi.Aws.S3
     ///     var bucket = new Aws.S3.Bucket("bucket", new()
     ///     {
     ///         BucketName = "my-bucket",
-    ///         Acl = "private",
+    ///         Acl = Aws.S3.CannedAcl.Private,
     ///         LifecycleRules = new[]
     ///         {
     ///             new Aws.S3.Inputs.BucketLifecycleRuleArgs
@@ -250,7 +250,7 @@ namespace Pulumi.Aws.S3
     ///     var versioningBucket = new Aws.S3.Bucket("versioning_bucket", new()
     ///     {
     ///         BucketName = "my-versioning-bucket",
-    ///         Acl = "private",
+    ///         Acl = Aws.S3.CannedAcl.Private,
     ///         Versioning = new Aws.S3.Inputs.BucketVersioningArgs
     ///         {
     ///             Enabled = true,
@@ -330,7 +330,7 @@ namespace Pulumi.Aws.S3
     ///     var source = new Aws.S3.Bucket("source", new()
     ///     {
     ///         BucketName = "tf-test-bucket-source-12345",
-    ///         Acl = "private",
+    ///         Acl = Aws.S3.CannedAcl.Private,
     ///         Versioning = new Aws.S3.Inputs.BucketVersioningArgs
     ///         {
     ///             Enabled = true,

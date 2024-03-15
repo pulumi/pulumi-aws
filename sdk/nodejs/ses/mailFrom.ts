@@ -28,7 +28,7 @@ import * as utilities from "../utilities";
  * const exampleSesDomainMailFromMx = new aws.route53.Record("example_ses_domain_mail_from_mx", {
  *     zoneId: exampleAwsRoute53Zone.id,
  *     name: example.mailFromDomain,
- *     type: "MX",
+ *     type: aws.route53.RecordType.MX,
  *     ttl: 600,
  *     records: ["10 feedback-smtp.us-east-1.amazonses.com"],
  * });
@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  * const exampleSesDomainMailFromTxt = new aws.route53.Record("example_ses_domain_mail_from_txt", {
  *     zoneId: exampleAwsRoute53Zone.id,
  *     name: example.mailFromDomain,
- *     type: "TXT",
+ *     type: aws.route53.RecordType.TXT,
  *     ttl: 600,
  *     records: ["v=spf1 include:amazonses.com -all"],
  * });

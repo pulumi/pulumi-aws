@@ -228,13 +228,13 @@ import (
 // },
 // Overrides: ec2.SpotFleetRequestLaunchTemplateConfigOverrideArray{
 // &ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs{
-// SubnetId: *pulumi.String(example.Ids[0]),
+// SubnetId: pulumi.String(example.Ids[0]),
 // },
 // &ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs{
-// SubnetId: *pulumi.String(example.Ids[1]),
+// SubnetId: pulumi.String(example.Ids[1]),
 // },
 // &ec2.SpotFleetRequestLaunchTemplateConfigOverrideArgs{
-// SubnetId: *pulumi.String(example.Ids[2]),
+// SubnetId: pulumi.String(example.Ids[2]),
 // },
 // },
 // },

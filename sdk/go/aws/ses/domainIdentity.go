@@ -69,7 +69,7 @@ import (
 //			_, err = route53.NewRecord(ctx, "example_amazonses_verification_record", &route53.RecordArgs{
 //				ZoneId: pulumi.String("ABCDEFGHIJ123"),
 //				Name:   pulumi.String("_amazonses.example.com"),
-//				Type:   pulumi.String("TXT"),
+//				Type:   pulumi.String(route53.RecordTypeTXT),
 //				Ttl:    pulumi.Int(600),
 //				Records: pulumi.StringArray{
 //					example.VerificationToken,
