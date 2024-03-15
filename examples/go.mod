@@ -105,6 +105,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/controltower v1.13.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/costoptimizationhub v1.4.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/customerprofiles v1.36.1 // indirect
+	github.com/aws/aws-sdk-go-v2/service/dax v1.19.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/directoryservice v1.24.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/docdbelastic v1.9.0 // indirect
 	github.com/aws/aws-sdk-go-v2/service/dynamodb v1.30.3 // indirect
@@ -113,6 +114,7 @@ require (
 	github.com/aws/aws-sdk-go-v2/service/ecs v1.41.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/eks v1.41.0 // indirect
 	github.com/aws/aws-sdk-go-v2/service/elasticache v1.37.1 // indirect
+	github.com/aws/aws-sdk-go-v2/service/elasticbeanstalk v1.23.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/elasticloadbalancingv2 v1.30.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/emr v1.39.1 // indirect
 	github.com/aws/aws-sdk-go-v2/service/emrserverless v1.17.2 // indirect
@@ -277,6 +279,7 @@ require (
 	github.com/hashicorp/terraform-plugin-framework v1.6.1 // indirect
 	github.com/hashicorp/terraform-plugin-framework-jsontypes v0.1.0 // indirect
 	github.com/hashicorp/terraform-plugin-framework-timeouts v0.4.1 // indirect
+	github.com/hashicorp/terraform-plugin-framework-timetypes v0.3.0 // indirect
 	github.com/hashicorp/terraform-plugin-framework-validators v0.12.0 // indirect
 	github.com/hashicorp/terraform-plugin-go v0.22.0 // indirect
 	github.com/hashicorp/terraform-plugin-log v0.9.0 // indirect

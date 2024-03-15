@@ -1476,6 +1476,8 @@ github.com/aws/aws-sdk-go-v2/service/costoptimizationhub v1.4.1 h1:CBh0CI9D73QnG
 github.com/aws/aws-sdk-go-v2/service/costoptimizationhub v1.4.1/go.mod h1:zwMr7HbCFo7yMDo3HtrAKj7LLW942cc3/wV559Mhx9M=
 github.com/aws/aws-sdk-go-v2/service/customerprofiles v1.36.1 h1:fuoX8H3zlFFbXvuDG0/jBoE4HcrbBTANgYzmpNLEs6s=
 github.com/aws/aws-sdk-go-v2/service/customerprofiles v1.36.1/go.mod h1:4NqexR3UzSSCVJYyxqkEeWvGuHcSudqwdnzJCCC+NvQ=
+github.com/aws/aws-sdk-go-v2/service/dax v1.19.1 h1:m3o6QYXv4zFXTTbSPlMGhGyrJySmGg5ejbrAA9NRrcI=
+github.com/aws/aws-sdk-go-v2/service/dax v1.19.1/go.mod h1:QJzqcWGkvfcpDWQI7S0MkQuESisgPaoVRaONToDvwyo=
 github.com/aws/aws-sdk-go-v2/service/directoryservice v1.24.1 h1:4zKDWmYwlhvwY0r0n++ZJkyHjW4y+ESPSjnJ0iuDGSU=
 github.com/aws/aws-sdk-go-v2/service/directoryservice v1.24.1/go.mod h1:q89pJPdvEFMk5PbnXO4wA/grZlmtYhHNwXnIbH0zQLA=
 github.com/aws/aws-sdk-go-v2/service/docdbelastic v1.9.0 h1:m0cG+eVPpCD9RGkx+K3973fddPNqqeyn/cjHhdF9SJc=
@@ -1492,6 +1494,8 @@ github.com/aws/aws-sdk-go-v2/service/eks v1.41.0 h1:/bitqsA6wgIS2vgjtHJi1JG3SOTb
 github.com/aws/aws-sdk-go-v2/service/eks v1.41.0/go.mod h1:GFqWNwDLyuSevADun69Dg5aurANpv8KNrz2vxYPEqmw=
 github.com/aws/aws-sdk-go-v2/service/elasticache v1.37.1 h1:f1Oc1hr92u+KPw0um3qdZvFOS8rdwUXmvWcOkzzNIbo=
 github.com/aws/aws-sdk-go-v2/service/elasticache v1.37.1/go.mod h1:M4h0TpSwm0tJ9Pj7+OOn19/9Zy6jwXfr3cXSv6dvIpU=
+github.com/aws/aws-sdk-go-v2/service/elasticbeanstalk v1.23.1 h1:C8WyakcSzm9pfNmv/nbBZmkKEyRwQKMZft2jVmkGTGY=
+github.com/aws/aws-sdk-go-v2/service/elasticbeanstalk v1.23.1/go.mod h1:XGovJTsyRNnDERieCR/odSntl/VTyevWg2+8trOc4gI=
 github.com/aws/aws-sdk-go-v2/service/elasticloadbalancingv2 v1.30.1 h1:eDD7nyDlMxlkGhWu0n92LYkuSQIIEwN5CffwiMDohh0=
 github.com/aws/aws-sdk-go-v2/service/elasticloadbalancingv2 v1.30.1/go.mod h1:DGUI2cbxu24m0rNOm7DDmrCtTzR0U0FqE3XpBkR8+r8=
 github.com/aws/aws-sdk-go-v2/service/emr v1.39.1 h1:6mNb+DpB7tRXRkkyF+uD0Va57nDR1O3UnSa1wHtMg2Q=
@@ -2537,6 +2541,8 @@ github.com/hashicorp/terraform-plugin-framework-jsontypes v0.1.0 h1:b8vZYB/SkXJT
 github.com/hashicorp/terraform-plugin-framework-jsontypes v0.1.0/go.mod h1:tP9BC3icoXBz72evMS5UTFvi98CiKhPdXF6yLs1wS8A=
 github.com/hashicorp/terraform-plugin-framework-timeouts v0.4.1 h1:gm5b1kHgFFhaKFhm4h2TgvMUlNzFAtUqlcOWnWPm+9E=
 github.com/hashicorp/terraform-plugin-framework-timeouts v0.4.1/go.mod h1:MsjL1sQ9L7wGwzJ5RjcI6FzEMdyoBnw+XK8ZnOvQOLY=
+github.com/hashicorp/terraform-plugin-framework-timetypes v0.3.0 h1:egR4InfakWkgepZNUATWGwkrPhaAYOTEybPfEol+G/I=
+github.com/hashicorp/terraform-plugin-framework-timetypes v0.3.0/go.mod h1:9vjvl36aY1p6KltaA5QCvGC5hdE/9t4YuhGftw6WOgE=
 github.com/hashicorp/terraform-plugin-framework-validators v0.12.0 h1:HOjBuMbOEzl7snOdOoUfE2Jgeto6JOjLVQ39Ls2nksc=
 github.com/hashicorp/terraform-plugin-framework-validators v0.12.0/go.mod h1:jfHGE/gzjxYz6XoUwi/aYiiKrJDeutQNUtGQXkaHklg=
 github.com/hashicorp/terraform-plugin-go v0.22.0 h1:1OS1Jk5mO0f5hrziWJGXXIxBrMe2j/B8E+DVGw43Xmc=
