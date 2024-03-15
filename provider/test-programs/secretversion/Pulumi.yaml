@@ -1,0 +1,10 @@
+name: secretversion
+runtime: yaml
+resources:
+  mySecret:
+    type: aws:secretsmanager/secret:Secret
+  mySecretVersion:
+    properties:
+      secretId: ${mySecret.id}
+      secretString: MySecretVersionValue
+    type: aws:secretsmanager/secretVersion:SecretVersion
