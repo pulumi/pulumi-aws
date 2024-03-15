@@ -135,7 +135,7 @@ import (
 // }
 // _, err = s3.NewBucketPolicy(ctx, "example", &s3.BucketPolicyArgs{
 // Bucket: pulumi.Any(exampleAwsS3Bucket.Id),
-// Policy: *pulumi.String(s3Policy.Json),
+// Policy: pulumi.String(s3Policy.Json),
 // })
 // if err != nil {
 // return err

@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * const www = new aws.route53.Record("www", {
  *     zoneId: primary.zoneId,
  *     name: "www.example.com",
- *     type: "A",
+ *     type: aws.route53.RecordType.A,
  *     ttl: 300,
  *     records: [lb.publicIp],
  * });
@@ -41,7 +41,7 @@ import * as utilities from "../utilities";
  * const www_dev = new aws.route53.Record("www-dev", {
  *     zoneId: primary.zoneId,
  *     name: "www",
- *     type: "CNAME",
+ *     type: aws.route53.RecordType.CNAME,
  *     ttl: 5,
  *     weightedRoutingPolicies: [{
  *         weight: 10,
@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  * const www_live = new aws.route53.Record("www-live", {
  *     zoneId: primary.zoneId,
  *     name: "www",
- *     type: "CNAME",
+ *     type: aws.route53.RecordType.CNAME,
  *     ttl: 5,
  *     weightedRoutingPolicies: [{
  *         weight: 90,
@@ -73,7 +73,7 @@ import * as utilities from "../utilities";
  * const www = new aws.route53.Record("www", {
  *     zoneId: primary.zoneId,
  *     name: "www.example.com",
- *     type: "CNAME",
+ *     type: aws.route53.RecordType.CNAME,
  *     ttl: 300,
  *     geoproximityRoutingPolicy: {
  *         coordinates: [{
@@ -113,7 +113,7 @@ import * as utilities from "../utilities";
  * const www = new aws.route53.Record("www", {
  *     zoneId: primary.zoneId,
  *     name: "example.com",
- *     type: "A",
+ *     type: aws.route53.RecordType.A,
  *     aliases: [{
  *         name: main.dnsName,
  *         zoneId: main.zoneId,
@@ -137,7 +137,7 @@ import * as utilities from "../utilities";
  *     allowOverwrite: true,
  *     name: "test.example.com",
  *     ttl: 172800,
- *     type: "NS",
+ *     type: aws.route53.RecordType.NS,
  *     zoneId: example.zoneId,
  *     records: [
  *         example.nameServers[0],

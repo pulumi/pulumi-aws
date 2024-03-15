@@ -193,10 +193,10 @@ import (
 //				},
 //				Replicas: dynamodb.TableReplicaTypeArray{
 //					&dynamodb.TableReplicaTypeArgs{
-//						RegionName: *pulumi.String(alternate.Name),
+//						RegionName: pulumi.String(alternate.Name),
 //					},
 //					&dynamodb.TableReplicaTypeArgs{
-//						RegionName:    *pulumi.String(third.Name),
+//						RegionName:    pulumi.String(third.Name),
 //						PropagateTags: pulumi.Bool(true),
 //					},
 //				},

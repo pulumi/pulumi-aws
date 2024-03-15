@@ -75,7 +75,7 @@ import (
 //			subnet1, err := ec2.NewSubnet(ctx, "subnet1", &ec2.SubnetArgs{
 //				VpcId:            vpc1.ID(),
 //				CidrBlock:        pulumi.String("10.0.1.0/24"),
-//				AvailabilityZone: *pulumi.String(available.Names[0]),
+//				AvailabilityZone: pulumi.String(available.Names[0]),
 //			})
 //			if err != nil {
 //				return err
@@ -83,7 +83,7 @@ import (
 //			subnet2, err := ec2.NewSubnet(ctx, "subnet2", &ec2.SubnetArgs{
 //				VpcId:            vpc1.ID(),
 //				CidrBlock:        pulumi.String("10.0.2.0/24"),
-//				AvailabilityZone: *pulumi.String(available.Names[1]),
+//				AvailabilityZone: pulumi.String(available.Names[1]),
 //			})
 //			if err != nil {
 //				return err
@@ -91,30 +91,30 @@ import (
 //			subnet3, err := ec2.NewSubnet(ctx, "subnet3", &ec2.SubnetArgs{
 //				VpcId:            vpc2.ID(),
 //				CidrBlock:        pulumi.String("10.1.1.0/24"),
-//				AvailabilityZone: *pulumi.String(available.Names[0]),
+//				AvailabilityZone: pulumi.String(available.Names[0]),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			instance1, err := ec2.NewInstance(ctx, "instance1", &ec2.InstanceArgs{
-//				Ami:          *pulumi.String(amazonLinux.Id),
-//				InstanceType: pulumi.String("t2.micro"),
+//				Ami:          pulumi.String(amazonLinux.Id),
+//				InstanceType: pulumi.String(ec2.InstanceType_T2_Micro),
 //				SubnetId:     subnet1.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			instance2, err := ec2.NewInstance(ctx, "instance2", &ec2.InstanceArgs{
-//				Ami:          *pulumi.String(amazonLinux.Id),
-//				InstanceType: pulumi.String("t2.micro"),
+//				Ami:          pulumi.String(amazonLinux.Id),
+//				InstanceType: pulumi.String(ec2.InstanceType_T2_Micro),
 //				SubnetId:     subnet2.ID(),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			instance3, err := ec2.NewInstance(ctx, "instance3", &ec2.InstanceArgs{
-//				Ami:          *pulumi.String(amazonLinux.Id),
-//				InstanceType: pulumi.String("t2.micro"),
+//				Ami:          pulumi.String(amazonLinux.Id),
+//				InstanceType: pulumi.String(ec2.InstanceType_T2_Micro),
 //				SubnetId:     subnet3.ID(),
 //			})
 //			if err != nil {

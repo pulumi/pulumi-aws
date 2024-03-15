@@ -240,7 +240,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     ///     var exampleInstance = new Aws.Ec2.Instance("example", new()
     ///     {
-    ///         InstanceType = "t3.small",
+    ///         InstanceType = Aws.Ec2.InstanceType.T3_Small,
     ///         VpcSecurityGroupIds = new[]
     ///         {
     ///             test.Id,

@@ -286,7 +286,7 @@ class EipAssociation(pulumi.CustomResource):
         web = aws.ec2.Instance("web",
             ami="ami-21f78e11",
             availability_zone="us-west-2a",
-            instance_type="t2.micro",
+            instance_type=aws.ec2.InstanceType.T2_MICRO,
             tags={
                 "Name": "HelloWorld",
             })
@@ -348,7 +348,7 @@ class EipAssociation(pulumi.CustomResource):
         web = aws.ec2.Instance("web",
             ami="ami-21f78e11",
             availability_zone="us-west-2a",
-            instance_type="t2.micro",
+            instance_type=aws.ec2.InstanceType.T2_MICRO,
             tags={
                 "Name": "HelloWorld",
             })

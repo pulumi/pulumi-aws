@@ -51,7 +51,7 @@ import * as utilities from "../utilities";
  *     identifier: "mydb",
  *     engine: "postgres",
  *     engineVersion: "13.4",
- *     instanceClass: "db.t3.micro",
+ *     instanceClass: aws.rds.InstanceType.T3_Micro,
  *     dbName: "mydb",
  *     username: "masterusername",
  *     password: "mustbeeightcharacters",

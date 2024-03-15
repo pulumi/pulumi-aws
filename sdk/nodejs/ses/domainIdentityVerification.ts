@@ -24,7 +24,7 @@ import * as utilities from "../utilities";
  * const exampleAmazonsesVerificationRecord = new aws.route53.Record("example_amazonses_verification_record", {
  *     zoneId: exampleAwsRoute53Zone.zoneId,
  *     name: pulumi.interpolate`_amazonses.${example.id}`,
- *     type: "TXT",
+ *     type: aws.route53.RecordType.TXT,
  *     ttl: 600,
  *     records: [example.verificationToken],
  * });

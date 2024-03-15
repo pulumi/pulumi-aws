@@ -117,7 +117,7 @@ class Association(pulumi.CustomResource):
             )])
         example_instance = aws.ec2.Instance("example",
             ami=example.id,
-            instance_type="t2.micro")
+            instance_type=aws.ec2.InstanceType.T2_MICRO)
         example_license_configuration = aws.licensemanager.LicenseConfiguration("example",
             name="Example",
             license_counting_type="Instance")
@@ -166,7 +166,7 @@ class Association(pulumi.CustomResource):
             )])
         example_instance = aws.ec2.Instance("example",
             ami=example.id,
-            instance_type="t2.micro")
+            instance_type=aws.ec2.InstanceType.T2_MICRO)
         example_license_configuration = aws.licensemanager.LicenseConfiguration("example",
             name="Example",
             license_counting_type="Instance")

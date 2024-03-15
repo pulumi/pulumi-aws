@@ -26,7 +26,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleInstance = new aws.ec2.Instance("example", {
  *     ami: example.then(example => example.id),
- *     instanceType: "t2.micro",
+ *     instanceType: aws.ec2.InstanceType.T2_Micro,
  * });
  * const exampleLicenseConfiguration = new aws.licensemanager.LicenseConfiguration("example", {
  *     name: "Example",

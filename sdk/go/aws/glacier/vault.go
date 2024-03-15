@@ -73,7 +73,7 @@ import (
 //						pulumi.String("InventoryRetrievalCompleted"),
 //					},
 //				},
-//				AccessPolicy: *pulumi.String(myArchive.Json),
+//				AccessPolicy: pulumi.String(myArchive.Json),
 //				Tags: pulumi.StringMap{
 //					"Test": pulumi.String("MyArchive"),
 //				},

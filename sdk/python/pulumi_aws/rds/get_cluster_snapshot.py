@@ -297,7 +297,7 @@ def get_cluster_snapshot(db_cluster_identifier: Optional[str] = None,
         db_subnet_group_name="my_db_subnet_group")
     aurora_cluster_instance = aws.rds.ClusterInstance("aurora",
         cluster_identifier=aurora.id,
-        instance_class="db.t2.small",
+        instance_class=aws.rds.InstanceType.T2_SMALL,
         db_subnet_group_name="my_db_subnet_group")
     ```
     <!--End PulumiCodeChooser -->
@@ -384,7 +384,7 @@ def get_cluster_snapshot_output(db_cluster_identifier: Optional[pulumi.Input[Opt
         db_subnet_group_name="my_db_subnet_group")
     aurora_cluster_instance = aws.rds.ClusterInstance("aurora",
         cluster_identifier=aurora.id,
-        instance_class="db.t2.small",
+        instance_class=aws.rds.InstanceType.T2_SMALL,
         db_subnet_group_name="my_db_subnet_group")
     ```
     <!--End PulumiCodeChooser -->
