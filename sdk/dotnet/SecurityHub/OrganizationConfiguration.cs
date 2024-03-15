@@ -81,7 +81,7 @@ namespace Pulumi.Aws.SecurityHub
     ///     {
     ///         AutoEnable = false,
     ///         AutoEnableStandards = "NONE",
-    ///         OrganizationConfiguration = new Aws.SecurityHub.Inputs.OrganizationConfigurationOrganizationConfigurationArgs
+    ///         OrganizationConfigurationDetails = new Aws.SecurityHub.Inputs.OrganizationConfigurationOrganizationConfigurationArgs
     ///         {
     ///             ConfigurationType = "CENTRAL",
     ///         },
@@ -118,7 +118,7 @@ namespace Pulumi.Aws.SecurityHub
         /// Provides information about the way an organization is configured in Security Hub.
         /// </summary>
         [Output("organizationConfiguration")]
-        public Output<Outputs.OrganizationConfigurationOrganizationConfiguration> OrganizationConfiguration { get; private set; } = null!;
+        public Output<Outputs.OrganizationConfigurationOrganizationConfiguration> OrganizationConfigurationDetails { get; private set; } = null!;
 
 
         /// <summary>
@@ -182,7 +182,7 @@ namespace Pulumi.Aws.SecurityHub
         /// Provides information about the way an organization is configured in Security Hub.
         /// </summary>
         [Input("organizationConfiguration")]
-        public Input<Inputs.OrganizationConfigurationOrganizationConfigurationArgs>? OrganizationConfiguration { get; set; }
+        public Input<Inputs.OrganizationConfigurationOrganizationConfigurationArgs>? OrganizationConfigurationDetails { get; set; }
 
         public OrganizationConfigurationArgs()
         {
@@ -208,7 +208,7 @@ namespace Pulumi.Aws.SecurityHub
         /// Provides information about the way an organization is configured in Security Hub.
         /// </summary>
         [Input("organizationConfiguration")]
-        public Input<Inputs.OrganizationConfigurationOrganizationConfigurationGetArgs>? OrganizationConfiguration { get; set; }
+        public Input<Inputs.OrganizationConfigurationOrganizationConfigurationGetArgs>? OrganizationConfigurationDetails { get; set; }
 
         public OrganizationConfigurationState()
         {

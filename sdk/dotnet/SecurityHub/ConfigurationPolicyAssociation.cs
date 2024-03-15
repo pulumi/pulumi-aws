@@ -34,7 +34,7 @@ namespace Pulumi.Aws.SecurityHub
     ///     {
     ///         AutoEnable = false,
     ///         AutoEnableStandards = "NONE",
-    ///         OrganizationConfiguration = new Aws.SecurityHub.Inputs.OrganizationConfigurationOrganizationConfigurationArgs
+    ///         OrganizationConfigurationDetails = new Aws.SecurityHub.Inputs.OrganizationConfigurationOrganizationConfigurationArgs
     ///         {
     ///             ConfigurationType = "CENTRAL",
     ///         },
@@ -44,7 +44,7 @@ namespace Pulumi.Aws.SecurityHub
     ///     {
     ///         Name = "Example",
     ///         Description = "This is an example configuration policy",
-    ///         ConfigurationPolicy = new Aws.SecurityHub.Inputs.ConfigurationPolicyConfigurationPolicyArgs
+    ///         ConfigurationPolicyDetails = new Aws.SecurityHub.Inputs.ConfigurationPolicyConfigurationPolicyArgs
     ///         {
     ///             ServiceEnabled = true,
     ///             EnabledStandardArns = new[]

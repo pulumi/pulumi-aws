@@ -36,7 +36,7 @@ namespace Pulumi.Aws.SecurityHub
     ///     {
     ///         AutoEnable = false,
     ///         AutoEnableStandards = "NONE",
-    ///         OrganizationConfiguration = new Aws.SecurityHub.Inputs.OrganizationConfigurationOrganizationConfigurationArgs
+    ///         OrganizationConfigurationDetails = new Aws.SecurityHub.Inputs.OrganizationConfigurationOrganizationConfigurationArgs
     ///         {
     ///             ConfigurationType = "CENTRAL",
     ///         },
@@ -46,7 +46,7 @@ namespace Pulumi.Aws.SecurityHub
     ///     {
     ///         Name = "Example",
     ///         Description = "This is an example configuration policy",
-    ///         ConfigurationPolicy = new Aws.SecurityHub.Inputs.ConfigurationPolicyConfigurationPolicyArgs
+    ///         ConfigurationPolicyDetails = new Aws.SecurityHub.Inputs.ConfigurationPolicyConfigurationPolicyArgs
     ///         {
     ///             ServiceEnabled = true,
     ///             EnabledStandardArns = new[]
@@ -80,7 +80,7 @@ namespace Pulumi.Aws.SecurityHub
     ///     {
     ///         Name = "Disabled",
     ///         Description = "This is an example of disabled configuration policy",
-    ///         ConfigurationPolicy = new Aws.SecurityHub.Inputs.ConfigurationPolicyConfigurationPolicyArgs
+    ///         ConfigurationPolicyDetails = new Aws.SecurityHub.Inputs.ConfigurationPolicyConfigurationPolicyArgs
     ///         {
     ///             ServiceEnabled = false,
     ///             EnabledStandardArns = new() { },
@@ -106,7 +106,7 @@ namespace Pulumi.Aws.SecurityHub
     ///     {
     ///         Name = "Custom Controls",
     ///         Description = "This is an example of configuration policy with custom control settings",
-    ///         ConfigurationPolicy = new Aws.SecurityHub.Inputs.ConfigurationPolicyConfigurationPolicyArgs
+    ///         ConfigurationPolicyDetails = new Aws.SecurityHub.Inputs.ConfigurationPolicyConfigurationPolicyArgs
     ///         {
     ///             ServiceEnabled = true,
     ///             EnabledStandardArns = new[]
@@ -191,7 +191,7 @@ namespace Pulumi.Aws.SecurityHub
         /// Defines how Security Hub is configured. See below.
         /// </summary>
         [Output("configurationPolicy")]
-        public Output<Outputs.ConfigurationPolicyConfigurationPolicy> ConfigurationPolicy { get; private set; } = null!;
+        public Output<Outputs.ConfigurationPolicyConfigurationPolicy> ConfigurationPolicyDetails { get; private set; } = null!;
 
         /// <summary>
         /// The description of the configuration policy.
@@ -255,7 +255,7 @@ namespace Pulumi.Aws.SecurityHub
         /// Defines how Security Hub is configured. See below.
         /// </summary>
         [Input("configurationPolicy", required: true)]
-        public Input<Inputs.ConfigurationPolicyConfigurationPolicyArgs> ConfigurationPolicy { get; set; } = null!;
+        public Input<Inputs.ConfigurationPolicyConfigurationPolicyArgs> ConfigurationPolicyDetails { get; set; } = null!;
 
         /// <summary>
         /// The description of the configuration policy.
@@ -284,7 +284,7 @@ namespace Pulumi.Aws.SecurityHub
         /// Defines how Security Hub is configured. See below.
         /// </summary>
         [Input("configurationPolicy")]
-        public Input<Inputs.ConfigurationPolicyConfigurationPolicyGetArgs>? ConfigurationPolicy { get; set; }
+        public Input<Inputs.ConfigurationPolicyConfigurationPolicyGetArgs>? ConfigurationPolicyDetails { get; set; }
 
         /// <summary>
         /// The description of the configuration policy.
