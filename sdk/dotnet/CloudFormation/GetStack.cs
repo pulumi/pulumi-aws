@@ -34,7 +34,7 @@ namespace Pulumi.Aws.CloudFormation
         ///     var web = new Aws.Ec2.Instance("web", new()
         ///     {
         ///         Ami = "ami-abb07bcb",
-        ///         InstanceType = "t2.micro",
+        ///         InstanceType = Aws.Ec2.InstanceType.T2_Micro,
         ///         SubnetId = network.Apply(getStackResult =&gt; getStackResult.Outputs?.SubnetId),
         ///         Tags = 
         ///         {
@@ -72,7 +72,7 @@ namespace Pulumi.Aws.CloudFormation
         ///     var web = new Aws.Ec2.Instance("web", new()
         ///     {
         ///         Ami = "ami-abb07bcb",
-        ///         InstanceType = "t2.micro",
+        ///         InstanceType = Aws.Ec2.InstanceType.T2_Micro,
         ///         SubnetId = network.Apply(getStackResult =&gt; getStackResult.Outputs?.SubnetId),
         ///         Tags = 
         ///         {

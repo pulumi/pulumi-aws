@@ -90,21 +90,21 @@ namespace Pulumi.Aws.Ec2TransitGateway
     ///     var instance1 = new Aws.Ec2.Instance("instance1", new()
     ///     {
     ///         Ami = amazonLinux.Apply(getAmiResult =&gt; getAmiResult.Id),
-    ///         InstanceType = "t2.micro",
+    ///         InstanceType = Aws.Ec2.InstanceType.T2_Micro,
     ///         SubnetId = subnet1.Id,
     ///     });
     /// 
     ///     var instance2 = new Aws.Ec2.Instance("instance2", new()
     ///     {
     ///         Ami = amazonLinux.Apply(getAmiResult =&gt; getAmiResult.Id),
-    ///         InstanceType = "t2.micro",
+    ///         InstanceType = Aws.Ec2.InstanceType.T2_Micro,
     ///         SubnetId = subnet2.Id,
     ///     });
     /// 
     ///     var instance3 = new Aws.Ec2.Instance("instance3", new()
     ///     {
     ///         Ami = amazonLinux.Apply(getAmiResult =&gt; getAmiResult.Id),
-    ///         InstanceType = "t2.micro",
+    ///         InstanceType = Aws.Ec2.InstanceType.T2_Micro,
     ///         SubnetId = subnet3.Id,
     ///     });
     /// 

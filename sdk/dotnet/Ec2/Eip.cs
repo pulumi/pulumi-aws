@@ -110,7 +110,7 @@ namespace Pulumi.Aws.Ec2
     ///     var foo = new Aws.Ec2.Instance("foo", new()
     ///     {
     ///         Ami = "ami-5189a661",
-    ///         InstanceType = "t2.micro",
+    ///         InstanceType = Aws.Ec2.InstanceType.T2_Micro,
     ///         PrivateIp = "10.0.0.12",
     ///         SubnetId = myTestSubnet.Id,
     ///     });

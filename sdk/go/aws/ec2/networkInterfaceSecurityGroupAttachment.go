@@ -62,8 +62,8 @@ import (
 //				return err
 //			}
 //			instance, err := ec2.NewInstance(ctx, "instance", &ec2.InstanceArgs{
-//				InstanceType: pulumi.String("t2.micro"),
-//				Ami:          *pulumi.String(ami.Id),
+//				InstanceType: pulumi.String(ec2.InstanceType_T2_Micro),
+//				Ami:          pulumi.String(ami.Id),
 //				Tags: pulumi.StringMap{
 //					"type": pulumi.String("test-instance"),
 //				},
@@ -126,7 +126,7 @@ import (
 //			}
 //			_, err = ec2.NewNetworkInterfaceSecurityGroupAttachment(ctx, "sg_attachment", &ec2.NetworkInterfaceSecurityGroupAttachmentArgs{
 //				SecurityGroupId:    sg.ID(),
-//				NetworkInterfaceId: *pulumi.String(instance.NetworkInterfaceId),
+//				NetworkInterfaceId: pulumi.String(instance.NetworkInterfaceId),
 //			})
 //			if err != nil {
 //				return err

@@ -263,7 +263,7 @@ import (
 //			}
 //			iamForTransfer, err := iam.NewRole(ctx, "iam_for_transfer", &iam.RoleArgs{
 //				NamePrefix:       pulumi.String("iam_for_transfer_"),
-//				AssumeRolePolicy: *pulumi.String(transferAssumeRole.Json),
+//				AssumeRolePolicy: pulumi.String(transferAssumeRole.Json),
 //				ManagedPolicyArns: pulumi.StringArray{
 //					pulumi.String("arn:aws:iam::aws:policy/service-role/AWSTransferLoggingAccess"),
 //				},

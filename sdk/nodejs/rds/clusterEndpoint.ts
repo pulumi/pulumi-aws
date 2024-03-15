@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  *     applyImmediately: true,
  *     clusterIdentifier: _default.id,
  *     identifier: "test1",
- *     instanceClass: "db.t2.small",
+ *     instanceClass: aws.rds.InstanceType.T2_Small,
  *     engine: _default.engine,
  *     engineVersion: _default.engineVersion,
  * });
@@ -40,7 +40,7 @@ import * as utilities from "../utilities";
  *     applyImmediately: true,
  *     clusterIdentifier: _default.id,
  *     identifier: "test2",
- *     instanceClass: "db.t2.small",
+ *     instanceClass: aws.rds.InstanceType.T2_Small,
  *     engine: _default.engine,
  *     engineVersion: _default.engineVersion,
  * });
@@ -48,7 +48,7 @@ import * as utilities from "../utilities";
  *     applyImmediately: true,
  *     clusterIdentifier: _default.id,
  *     identifier: "test3",
- *     instanceClass: "db.t2.small",
+ *     instanceClass: aws.rds.InstanceType.T2_Small,
  *     engine: _default.engine,
  *     engineVersion: _default.engineVersion,
  * });

@@ -604,7 +604,7 @@ class Record(pulumi.CustomResource):
         www = aws.route53.Record("www",
             zone_id=primary["zoneId"],
             name="www.example.com",
-            type="A",
+            type=aws.route53.RecordType.A,
             ttl=300,
             records=[lb["publicIp"]])
         ```
@@ -622,7 +622,7 @@ class Record(pulumi.CustomResource):
         www_dev = aws.route53.Record("www-dev",
             zone_id=primary["zoneId"],
             name="www",
-            type="CNAME",
+            type=aws.route53.RecordType.CNAME,
             ttl=5,
             weighted_routing_policies=[aws.route53.RecordWeightedRoutingPolicyArgs(
                 weight=10,
@@ -632,7 +632,7 @@ class Record(pulumi.CustomResource):
         www_live = aws.route53.Record("www-live",
             zone_id=primary["zoneId"],
             name="www",
-            type="CNAME",
+            type=aws.route53.RecordType.CNAME,
             ttl=5,
             weighted_routing_policies=[aws.route53.RecordWeightedRoutingPolicyArgs(
                 weight=90,
@@ -652,7 +652,7 @@ class Record(pulumi.CustomResource):
         www = aws.route53.Record("www",
             zone_id=primary["zoneId"],
             name="www.example.com",
-            type="CNAME",
+            type=aws.route53.RecordType.CNAME,
             ttl=300,
             geoproximity_routing_policy=aws.route53.RecordGeoproximityRoutingPolicyArgs(
                 coordinates=[aws.route53.RecordGeoproximityRoutingPolicyCoordinateArgs(
@@ -690,7 +690,7 @@ class Record(pulumi.CustomResource):
         www = aws.route53.Record("www",
             zone_id=primary["zoneId"],
             name="example.com",
-            type="A",
+            type=aws.route53.RecordType.A,
             aliases=[aws.route53.RecordAliasArgs(
                 name=main.dns_name,
                 zone_id=main.zone_id,
@@ -713,7 +713,7 @@ class Record(pulumi.CustomResource):
             allow_overwrite=True,
             name="test.example.com",
             ttl=172800,
-            type="NS",
+            type=aws.route53.RecordType.NS,
             zone_id=example.zone_id,
             records=[
                 example.name_servers[0],
@@ -786,7 +786,7 @@ class Record(pulumi.CustomResource):
         www = aws.route53.Record("www",
             zone_id=primary["zoneId"],
             name="www.example.com",
-            type="A",
+            type=aws.route53.RecordType.A,
             ttl=300,
             records=[lb["publicIp"]])
         ```
@@ -804,7 +804,7 @@ class Record(pulumi.CustomResource):
         www_dev = aws.route53.Record("www-dev",
             zone_id=primary["zoneId"],
             name="www",
-            type="CNAME",
+            type=aws.route53.RecordType.CNAME,
             ttl=5,
             weighted_routing_policies=[aws.route53.RecordWeightedRoutingPolicyArgs(
                 weight=10,
@@ -814,7 +814,7 @@ class Record(pulumi.CustomResource):
         www_live = aws.route53.Record("www-live",
             zone_id=primary["zoneId"],
             name="www",
-            type="CNAME",
+            type=aws.route53.RecordType.CNAME,
             ttl=5,
             weighted_routing_policies=[aws.route53.RecordWeightedRoutingPolicyArgs(
                 weight=90,
@@ -834,7 +834,7 @@ class Record(pulumi.CustomResource):
         www = aws.route53.Record("www",
             zone_id=primary["zoneId"],
             name="www.example.com",
-            type="CNAME",
+            type=aws.route53.RecordType.CNAME,
             ttl=300,
             geoproximity_routing_policy=aws.route53.RecordGeoproximityRoutingPolicyArgs(
                 coordinates=[aws.route53.RecordGeoproximityRoutingPolicyCoordinateArgs(
@@ -872,7 +872,7 @@ class Record(pulumi.CustomResource):
         www = aws.route53.Record("www",
             zone_id=primary["zoneId"],
             name="example.com",
-            type="A",
+            type=aws.route53.RecordType.A,
             aliases=[aws.route53.RecordAliasArgs(
                 name=main.dns_name,
                 zone_id=main.zone_id,
@@ -895,7 +895,7 @@ class Record(pulumi.CustomResource):
             allow_overwrite=True,
             name="test.example.com",
             ttl=172800,
-            type="NS",
+            type=aws.route53.RecordType.NS,
             zone_id=example.zone_id,
             records=[
                 example.name_servers[0],

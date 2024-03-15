@@ -53,7 +53,7 @@ namespace Pulumi.Aws.Rds
     ///         EngineVersion = example.EngineVersion,
     ///         Identifier = "test-primary-cluster-instance",
     ///         ClusterIdentifier = primary.Id,
-    ///         InstanceClass = "db.r4.large",
+    ///         InstanceClass = Aws.Rds.InstanceType.R4_Large,
     ///         DbSubnetGroupName = "default",
     ///     });
     /// 
@@ -72,7 +72,7 @@ namespace Pulumi.Aws.Rds
     ///         EngineVersion = example.EngineVersion,
     ///         Identifier = "test-secondary-cluster-instance",
     ///         ClusterIdentifier = secondary.Id,
-    ///         InstanceClass = "db.r4.large",
+    ///         InstanceClass = Aws.Rds.InstanceType.R4_Large,
     ///         DbSubnetGroupName = "default",
     ///     });
     /// 
@@ -117,7 +117,7 @@ namespace Pulumi.Aws.Rds
     ///         EngineVersion = example.EngineVersion,
     ///         Identifier = "test-primary-cluster-instance",
     ///         ClusterIdentifier = primary.Id,
-    ///         InstanceClass = "db.r4.large",
+    ///         InstanceClass = Aws.Rds.InstanceType.R4_Large,
     ///         DbSubnetGroupName = "default",
     ///     });
     /// 
@@ -137,7 +137,7 @@ namespace Pulumi.Aws.Rds
     ///         EngineVersion = example.EngineVersion,
     ///         Identifier = "test-secondary-cluster-instance",
     ///         ClusterIdentifier = secondary.Id,
-    ///         InstanceClass = "db.r4.large",
+    ///         InstanceClass = Aws.Rds.InstanceType.R4_Large,
     ///         DbSubnetGroupName = "default",
     ///     });
     /// 
@@ -210,7 +210,7 @@ namespace Pulumi.Aws.Rds
     ///         Engine = primary.Engine,
     ///         EngineVersion = primary.EngineVersion,
     ///         Identifier = "donetsklviv",
-    ///         InstanceClass = "db.r4.large",
+    ///         InstanceClass = Aws.Rds.InstanceType.R4_Large,
     ///     });
     /// 
     /// });

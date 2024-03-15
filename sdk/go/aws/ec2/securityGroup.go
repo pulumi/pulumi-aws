@@ -284,7 +284,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewInstance(ctx, "example", &ec2.InstanceArgs{
-//				InstanceType: pulumi.String("t3.small"),
+//				InstanceType: pulumi.String(ec2.InstanceType_T3_Small),
 //				VpcSecurityGroupIds: pulumi.StringArray{
 //					test.Id,
 //				},
@@ -364,7 +364,7 @@ import (
 // Name: pulumi.String("sg"),
 // Tags: pulumi.StringMap{
 // "workaround1": pulumi.String("tagged-name"),
-// "workaround2": *pulumi.String(_default.Id),
+// "workaround2": pulumi.String(_default.Id),
 // },
 // })
 // if err != nil {

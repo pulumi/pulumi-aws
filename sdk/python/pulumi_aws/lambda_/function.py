@@ -1367,7 +1367,7 @@ class Function(pulumi.CustomResource):
             role=iam_for_lambda.arn,
             handler="index.test",
             source_code_hash=lambda_.output_base64sha256,
-            runtime="nodejs18.x",
+            runtime=aws.lambda_.Runtime.NODE_JS18D_X,
             environment=aws.lambda_.FunctionEnvironmentArgs(
                 variables={
                     "foo": "bar",
@@ -1413,7 +1413,7 @@ class Function(pulumi.CustomResource):
             name="lambda_function_name",
             role=iam_for_lambda.arn,
             handler="index.test",
-            runtime="nodejs18.x",
+            runtime=aws.lambda_.Runtime.NODE_JS18D_X,
             ephemeral_storage=aws.lambda_.FunctionEphemeralStorageArgs(
                 size=10240,
             ))
@@ -1615,7 +1615,7 @@ class Function(pulumi.CustomResource):
             role=iam_for_lambda.arn,
             handler="index.test",
             source_code_hash=lambda_.output_base64sha256,
-            runtime="nodejs18.x",
+            runtime=aws.lambda_.Runtime.NODE_JS18D_X,
             environment=aws.lambda_.FunctionEnvironmentArgs(
                 variables={
                     "foo": "bar",
@@ -1661,7 +1661,7 @@ class Function(pulumi.CustomResource):
             name="lambda_function_name",
             role=iam_for_lambda.arn,
             handler="index.test",
-            runtime="nodejs18.x",
+            runtime=aws.lambda_.Runtime.NODE_JS18D_X,
             ephemeral_storage=aws.lambda_.FunctionEphemeralStorageArgs(
                 size=10240,
             ))

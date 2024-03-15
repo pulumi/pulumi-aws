@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Ec2TransitGateway
     ///     var test = new Aws.Ec2.Instance("test", new()
     ///     {
     ///         Ami = ubuntu.Apply(getAmiResult =&gt; getAmiResult.Id),
-    ///         InstanceType = "t3.micro",
+    ///         InstanceType = Aws.Ec2.InstanceType.T3_Micro,
     ///         Tags = 
     ///         {
     ///             { "Name", "HelloWorld" },

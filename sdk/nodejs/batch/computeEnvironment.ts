@@ -81,7 +81,7 @@ import * as utilities from "../utilities";
  * });
  * const samplePlacementGroup = new aws.ec2.PlacementGroup("sample", {
  *     name: "sample",
- *     strategy: "cluster",
+ *     strategy: aws.ec2.PlacementStrategy.Cluster,
  * });
  * const sampleComputeEnvironment = new aws.batch.ComputeEnvironment("sample", {
  *     computeEnvironmentName: "sample",
