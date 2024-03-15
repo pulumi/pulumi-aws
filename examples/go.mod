@@ -8,7 +8,7 @@ require (
 	github.com/pulumi/pulumi-aws/provider/v6 v6.0.0-00010101000000-000000000000
 	github.com/pulumi/pulumi-terraform-bridge/pf v0.30.1-0.20240311191722-54802d5b003c
 	github.com/pulumi/pulumi-terraform-bridge/testing v0.0.2-0.20230927165309-e3fd9503f2d3
-	github.com/pulumi/pulumi/pkg/v3 v3.108.1
+	github.com/pulumi/pulumi/pkg/v3 v3.109.0
 	github.com/stretchr/testify v1.8.4
 )
 
@@ -334,7 +334,7 @@ require (
 	github.com/pulumi/esc v0.6.2 // indirect
 	github.com/pulumi/pulumi-terraform-bridge/v3 v3.77.1-0.20240311191722-54802d5b003c // indirect
 	github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.8 // indirect
-	github.com/pulumi/pulumi/sdk/v3 v3.108.1 // indirect
+	github.com/pulumi/pulumi/sdk/v3 v3.110.0 // indirect
 	github.com/pulumi/terraform-diff-reader v0.0.2 // indirect
 	github.com/rivo/uniseg v0.4.4 // indirect
 	github.com/rogpeppe/go-internal v1.11.0 // indirect
@@ -396,3 +396,7 @@ require (
 	gopkg.in/yaml.v3 v3.0.1 // indirect
 	lukechampine.com/frand v1.4.2 // indirect
 )
+
+replace github.com/pulumi/pulumi/pkg/v3 => github.com/pulumi/pulumi/pkg/v3 v3.110.1-0.20240315165618-cf56a896b466
+
+replace github.com/pulumi/pulumi/sdk/v3 => github.com/pulumi/pulumi/sdk/v3 v3.110.1-0.20240315165618-cf56a896b466
