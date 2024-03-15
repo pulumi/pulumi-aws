@@ -29,4 +29,5 @@ resources:
           restrictionType: none
       viewerCertificate:
         cloudfrontDefaultCertificate: true
+      staging: false
     type: aws:cloudfront:Distribution

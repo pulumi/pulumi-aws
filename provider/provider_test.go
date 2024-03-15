@@ -55,14 +55,17 @@ func withNoChangesInResourcesAndNoReplacementsInProvider() providertest.Option {
 	})
 }
 
-func test(t *testing.T, dir string, opts ...providertest.Option) {
+func test(t *testing.T, dir, baselineVersion string, opts ...providertest.Option) {
 	if len(opts) == 0 {
 		opts = []providertest.Option{withNoChangesInResourcesAndNoReplacementsInProvider()}
 	}
 	skipIfShort(t)
+	if baselineVersion == "" {
+		baselineVersion = "5.42.0"
+	}
 	opts = append(opts,
 		providertest.WithProviderName("aws"),
-		providertest.WithBaselineVersion("5.42.0"),
+		providertest.WithBaselineVersion(baselineVersion),
 		providertest.WithResourceProviderServer(providerServer(t)),
 	)
 	ptest := providertest.NewProviderTest(dir, opts...)
@@ -78,7 +81,7 @@ func nodeTest(t *testing.T, dir string, opts ...providertest.Option) {
 		providertest.WithConfig("aws:region", "INVALID_REGION"),
 		providertest.WithConfig("aws:envRegion", envRegion),
 	)
-	test(t, dir, opts...)
+	test(t, dir, "", opts...)
 }
 
 // This version of nodeTest does not aws:region INVALID_REGION manipulation.
@@ -90,7 +93,7 @@ func simpleNodeTest(t *testing.T, dir string, opts ...providertest.Option) {
 	opts = append(opts,
 		providertest.WithConfig("aws:region", envRegion),
 	)
-	test(t, dir, opts...)
+	test(t, dir, "", opts...)
 }
 
 func TestUpgradeCoverage(t *testing.T) {
