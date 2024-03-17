@@ -35,7 +35,7 @@ import (
 //			_, err = ebs.NewVolume(ctx, "example", &ebs.VolumeArgs{
 //				AvailabilityZone: pulumi.String("us-west-2a"),
 //				Encrypted:        pulumi.Bool(true),
-//				KmsKeyId:         *pulumi.String(current.KeyArn),
+//				KmsKeyId:         pulumi.String(current.KeyArn),
 //			})
 //			if err != nil {
 //				return err

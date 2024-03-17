@@ -151,7 +151,7 @@ namespace Pulumi.Aws.Rds
     ///         DbName = "test",
     ///         Engine = "mysql",
     ///         EngineVersion = "5.7",
-    ///         InstanceClass = "db.t3.micro",
+    ///         InstanceClass = Aws.Rds.InstanceType.T3_Micro,
     ///         Username = "foo",
     ///         Password = "foobarbaz",
     ///         ParameterGroupName = "default.mysql5.7",

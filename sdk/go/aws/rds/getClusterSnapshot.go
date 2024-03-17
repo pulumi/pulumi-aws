@@ -42,7 +42,7 @@ import (
 //			// a new dev database.
 //			aurora, err := rds.NewCluster(ctx, "aurora", &rds.ClusterArgs{
 //				ClusterIdentifier:  pulumi.String("development_cluster"),
-//				SnapshotIdentifier: *pulumi.String(developmentFinalSnapshot.Id),
+//				SnapshotIdentifier: pulumi.String(developmentFinalSnapshot.Id),
 //				DbSubnetGroupName:  pulumi.String("my_db_subnet_group"),
 //			})
 //			if err != nil {
@@ -50,7 +50,7 @@ import (
 //			}
 //			_, err = rds.NewClusterInstance(ctx, "aurora", &rds.ClusterInstanceArgs{
 //				ClusterIdentifier: aurora.ID(),
-//				InstanceClass:     pulumi.String("db.t2.small"),
+//				InstanceClass:     pulumi.String(rds.InstanceType_T2_Small),
 //				DbSubnetGroupName: pulumi.String("my_db_subnet_group"),
 //			})
 //			if err != nil {

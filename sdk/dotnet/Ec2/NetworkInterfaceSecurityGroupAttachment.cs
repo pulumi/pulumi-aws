@@ -60,7 +60,7 @@ namespace Pulumi.Aws.Ec2
     /// 
     ///     var instance = new Aws.Ec2.Instance("instance", new()
     ///     {
-    ///         InstanceType = "t2.micro",
+    ///         InstanceType = Aws.Ec2.InstanceType.T2_Micro,
     ///         Ami = ami.Apply(getAmiResult =&gt; getAmiResult.Id),
     ///         Tags = 
     ///         {

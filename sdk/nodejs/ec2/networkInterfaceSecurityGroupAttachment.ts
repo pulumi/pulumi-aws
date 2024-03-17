@@ -38,7 +38,7 @@ import * as utilities from "../utilities";
  *     owners: ["amazon"],
  * });
  * const instance = new aws.ec2.Instance("instance", {
- *     instanceType: "t2.micro",
+ *     instanceType: aws.ec2.InstanceType.T2_Micro,
  *     ami: ami.then(ami => ami.id),
  *     tags: {
  *         type: "test-instance",

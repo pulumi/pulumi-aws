@@ -35,7 +35,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ssm.NewParameter(ctx, "foo", &ssm.ParameterArgs{
 //				Name:  pulumi.String("foo"),
-//				Type:  pulumi.String("String"),
+//				Type:  pulumi.String(ssm.ParameterTypeString),
 //				Value: pulumi.String("bar"),
 //			})
 //			if err != nil {
@@ -66,10 +66,10 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := rds.NewInstance(ctx, "default", &rds.InstanceArgs{
 //				AllocatedStorage:   pulumi.Int(10),
-//				StorageType:        pulumi.String("gp2"),
+//				StorageType:        pulumi.String(rds.StorageTypeGP2),
 //				Engine:             pulumi.String("mysql"),
 //				EngineVersion:      pulumi.String("5.7.16"),
-//				InstanceClass:      pulumi.String("db.t2.micro"),
+//				InstanceClass:      pulumi.String(rds.InstanceType_T2_Micro),
 //				DbName:             pulumi.String("mydb"),
 //				Username:           pulumi.String("foo"),
 //				Password:           pulumi.Any(databaseMasterPassword),
@@ -82,7 +82,7 @@ import (
 //			_, err = ssm.NewParameter(ctx, "secret", &ssm.ParameterArgs{
 //				Name:        pulumi.String("/production/database/password/master"),
 //				Description: pulumi.String("The parameter description"),
-//				Type:        pulumi.String("SecureString"),
+//				Type:        pulumi.String(ssm.ParameterTypeSecureString),
 //				Value:       pulumi.Any(databaseMasterPassword),
 //				Tags: pulumi.StringMap{
 //					"environment": pulumi.String("production"),

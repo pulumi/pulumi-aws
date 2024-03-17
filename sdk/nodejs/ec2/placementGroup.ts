@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  *
  * const web = new aws.ec2.PlacementGroup("web", {
  *     name: "hunky-dory-pg",
- *     strategy: "cluster",
+ *     strategy: aws.ec2.PlacementStrategy.Cluster,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

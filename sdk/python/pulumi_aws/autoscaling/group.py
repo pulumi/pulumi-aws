@@ -1522,7 +1522,7 @@ class Group(pulumi.CustomResource):
 
         test = aws.ec2.PlacementGroup("test",
             name="test",
-            strategy="cluster")
+            strategy=aws.ec2.PlacementStrategy.CLUSTER)
         bar = aws.autoscaling.Group("bar",
             name="foobar3-test",
             max_size=5,
@@ -2054,7 +2054,7 @@ class Group(pulumi.CustomResource):
 
         test = aws.ec2.PlacementGroup("test",
             name="test",
-            strategy="cluster")
+            strategy=aws.ec2.PlacementStrategy.CLUSTER)
         bar = aws.autoscaling.Group("bar",
             name="foobar3-test",
             max_size=5,

@@ -480,7 +480,7 @@ class ComputeEnvironment(pulumi.CustomResource):
             cidr_block="10.1.1.0/24")
         sample_placement_group = aws.ec2.PlacementGroup("sample",
             name="sample",
-            strategy="cluster")
+            strategy=aws.ec2.PlacementStrategy.CLUSTER)
         sample_compute_environment = aws.batch.ComputeEnvironment("sample",
             compute_environment_name="sample",
             compute_resources=aws.batch.ComputeEnvironmentComputeResourcesArgs(
@@ -634,7 +634,7 @@ class ComputeEnvironment(pulumi.CustomResource):
             cidr_block="10.1.1.0/24")
         sample_placement_group = aws.ec2.PlacementGroup("sample",
             name="sample",
-            strategy="cluster")
+            strategy=aws.ec2.PlacementStrategy.CLUSTER)
         sample_compute_environment = aws.batch.ComputeEnvironment("sample",
             compute_environment_name="sample",
             compute_resources=aws.batch.ComputeEnvironmentComputeResourcesArgs(

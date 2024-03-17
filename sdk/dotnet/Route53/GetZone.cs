@@ -39,7 +39,7 @@ namespace Pulumi.Aws.Route53
         ///     {
         ///         ZoneId = selected.Apply(getZoneResult =&gt; getZoneResult.ZoneId),
         ///         Name = $"www.{selected.Apply(getZoneResult =&gt; getZoneResult.Name)}",
-        ///         Type = "A",
+        ///         Type = Aws.Route53.RecordType.A,
         ///         Ttl = 300,
         ///         Records = new[]
         ///         {
@@ -82,7 +82,7 @@ namespace Pulumi.Aws.Route53
         ///     {
         ///         ZoneId = selected.Apply(getZoneResult =&gt; getZoneResult.ZoneId),
         ///         Name = $"www.{selected.Apply(getZoneResult =&gt; getZoneResult.Name)}",
-        ///         Type = "A",
+        ///         Type = Aws.Route53.RecordType.A,
         ///         Ttl = 300,
         ///         Records = new[]
         ///         {
