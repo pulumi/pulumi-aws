@@ -95,7 +95,7 @@ def get_export(name: Optional[str] = None,
     subnet_id = aws.cloudformation.get_export(name="mySubnetIdExportName")
     web = aws.ec2.Instance("web",
         ami="ami-abb07bcb",
-        instance_type="t2.micro",
+        instance_type=aws.ec2.InstanceType.T2_MICRO,
         subnet_id=subnet_id.value)
     ```
     <!--End PulumiCodeChooser -->
@@ -134,7 +134,7 @@ def get_export_output(name: Optional[pulumi.Input[str]] = None,
     subnet_id = aws.cloudformation.get_export(name="mySubnetIdExportName")
     web = aws.ec2.Instance("web",
         ami="ami-abb07bcb",
-        instance_type="t2.micro",
+        instance_type=aws.ec2.InstanceType.T2_MICRO,
         subnet_id=subnet_id.value)
     ```
     <!--End PulumiCodeChooser -->

@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *     exampleAmazonsesDkimRecord.push(new aws.route53.Record(`example_amazonses_dkim_record-${range.value}`, {
  *         zoneId: "ABCDEFGHIJ123",
  *         name: exampleDomainDkim.dkimTokens.apply(dkimTokens => `${dkimTokens[range.value]}._domainkey`),
- *         type: "CNAME",
+ *         type: aws.route53.RecordType.CNAME,
  *         ttl: 600,
  *         records: [exampleDomainDkim.dkimTokens.apply(dkimTokens => `${dkimTokens[range.value]}.dkim.amazonses.com`)],
  *     }));

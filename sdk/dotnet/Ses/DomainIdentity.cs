@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Ses
     ///     {
     ///         ZoneId = "ABCDEFGHIJ123",
     ///         Name = "_amazonses.example.com",
-    ///         Type = "TXT",
+    ///         Type = Aws.Route53.RecordType.TXT,
     ///         Ttl = 600,
     ///         Records = new[]
     ///         {

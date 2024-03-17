@@ -164,7 +164,7 @@ class InstanceState(pulumi.CustomResource):
             owners=["099720109477"])
         test = aws.ec2.Instance("test",
             ami=ubuntu.id,
-            instance_type="t3.micro",
+            instance_type=aws.ec2.InstanceType.T3_MICRO,
             tags={
                 "Name": "HelloWorld",
             })
@@ -222,7 +222,7 @@ class InstanceState(pulumi.CustomResource):
             owners=["099720109477"])
         test = aws.ec2.Instance("test",
             ami=ubuntu.id,
-            instance_type="t3.micro",
+            instance_type=aws.ec2.InstanceType.T3_MICRO,
             tags={
                 "Name": "HelloWorld",
             })

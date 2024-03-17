@@ -96,7 +96,7 @@ import * as utilities from "../utilities";
  *     dbName: "test",
  *     engine: "mysql",
  *     engineVersion: "5.7",
- *     instanceClass: "db.t3.micro",
+ *     instanceClass: aws.rds.InstanceType.T3_Micro,
  *     username: "foo",
  *     password: "foobarbaz",
  *     parameterGroupName: "default.mysql5.7",

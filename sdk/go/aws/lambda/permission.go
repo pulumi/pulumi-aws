@@ -63,7 +63,7 @@ import (
 //				Name:    pulumi.String("lambda_function_name"),
 //				Role:    iamForLambda.Arn,
 //				Handler: pulumi.String("exports.handler"),
-//				Runtime: pulumi.String("nodejs16.x"),
+//				Runtime: pulumi.String(lambda.RuntimeNodeJS16dX),
 //			})
 //			if err != nil {
 //				return err
@@ -149,7 +149,7 @@ import (
 //				Name:    pulumi.String("lambda_called_from_sns"),
 //				Role:    defaultRole.Arn,
 //				Handler: pulumi.String("exports.handler"),
-//				Runtime: pulumi.String("python3.7"),
+//				Runtime: pulumi.String(lambda.RuntimePython3d7),
 //			})
 //			if err != nil {
 //				return err
@@ -271,7 +271,7 @@ import (
 //			}
 //			defaultRole, err := iam.NewRole(ctx, "default", &iam.RoleArgs{
 //				Name:             pulumi.String("iam_for_lambda_called_from_cloudwatch_logs"),
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -281,7 +281,7 @@ import (
 //				Name:    pulumi.String("lambda_called_from_cloudwatch_logs"),
 //				Handler: pulumi.String("exports.handler"),
 //				Role:    defaultRole.Arn,
-//				Runtime: pulumi.String("python3.7"),
+//				Runtime: pulumi.String(lambda.RuntimePython3d7),
 //			})
 //			if err != nil {
 //				return err

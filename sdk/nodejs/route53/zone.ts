@@ -44,7 +44,7 @@ import * as utilities from "../utilities";
  * const dev_ns = new aws.route53.Record("dev-ns", {
  *     zoneId: main.zoneId,
  *     name: "dev.example.com",
- *     type: "NS",
+ *     type: aws.route53.RecordType.NS,
  *     ttl: 30,
  *     records: dev.nameServers,
  * });

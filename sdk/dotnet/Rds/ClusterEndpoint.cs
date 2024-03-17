@@ -45,7 +45,7 @@ namespace Pulumi.Aws.Rds
     ///         ApplyImmediately = true,
     ///         ClusterIdentifier = @default.Id,
     ///         Identifier = "test1",
-    ///         InstanceClass = "db.t2.small",
+    ///         InstanceClass = Aws.Rds.InstanceType.T2_Small,
     ///         Engine = @default.Engine,
     ///         EngineVersion = @default.EngineVersion,
     ///     });
@@ -55,7 +55,7 @@ namespace Pulumi.Aws.Rds
     ///         ApplyImmediately = true,
     ///         ClusterIdentifier = @default.Id,
     ///         Identifier = "test2",
-    ///         InstanceClass = "db.t2.small",
+    ///         InstanceClass = Aws.Rds.InstanceType.T2_Small,
     ///         Engine = @default.Engine,
     ///         EngineVersion = @default.EngineVersion,
     ///     });
@@ -65,7 +65,7 @@ namespace Pulumi.Aws.Rds
     ///         ApplyImmediately = true,
     ///         ClusterIdentifier = @default.Id,
     ///         Identifier = "test3",
-    ///         InstanceClass = "db.t2.small",
+    ///         InstanceClass = Aws.Rds.InstanceType.T2_Small,
     ///         Engine = @default.Engine,
     ///         EngineVersion = @default.EngineVersion,
     ///     });

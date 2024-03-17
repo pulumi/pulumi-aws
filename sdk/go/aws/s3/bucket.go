@@ -36,7 +36,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := s3.NewBucket(ctx, "b", &s3.BucketArgs{
 //				Bucket: pulumi.String("my-tf-test-bucket"),
-//				Acl:    pulumi.String("private"),
+//				Acl:    pulumi.String(s3.CannedAclPrivate),
 //				Tags: pulumi.StringMap{
 //					"Name":        pulumi.String("My bucket"),
 //					"Environment": pulumi.String("Dev"),
@@ -77,7 +77,7 @@ import (
 //			}
 //			_, err = s3.NewBucket(ctx, "b", &s3.BucketArgs{
 //				Bucket: pulumi.String("s3-website-test.mydomain.com"),
-//				Acl:    pulumi.String("public-read"),
+//				Acl:    pulumi.String(s3.CannedAclPublicRead),
 //				Policy: invokeFile.Result,
 //				Website: &s3.BucketWebsiteArgs{
 //					IndexDocument: pulumi.String("index.html"),
@@ -122,7 +122,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := s3.NewBucket(ctx, "b", &s3.BucketArgs{
 //				Bucket: pulumi.String("s3-website-test.mydomain.com"),
-//				Acl:    pulumi.String("public-read"),
+//				Acl:    pulumi.String(s3.CannedAclPublicRead),
 //				CorsRules: s3.BucketCorsRuleArray{
 //					&s3.BucketCorsRuleArgs{
 //						AllowedHeaders: pulumi.StringArray{
@@ -169,7 +169,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := s3.NewBucket(ctx, "b", &s3.BucketArgs{
 //				Bucket: pulumi.String("my-tf-test-bucket"),
-//				Acl:    pulumi.String("private"),
+//				Acl:    pulumi.String(s3.CannedAclPrivate),
 //				Versioning: &s3.BucketVersioningArgs{
 //					Enabled: pulumi.Bool(true),
 //				},
@@ -201,14 +201,14 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			logBucket, err := s3.NewBucket(ctx, "log_bucket", &s3.BucketArgs{
 //				Bucket: pulumi.String("my-tf-log-bucket"),
-//				Acl:    pulumi.String("log-delivery-write"),
+//				Acl:    pulumi.String(s3.CannedAclLogDeliveryWrite),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = s3.NewBucket(ctx, "b", &s3.BucketArgs{
 //				Bucket: pulumi.String("my-tf-test-bucket"),
-//				Acl:    pulumi.String("private"),
+//				Acl:    pulumi.String(s3.CannedAclPrivate),
 //				Loggings: s3.BucketLoggingArray{
 //					&s3.BucketLoggingArgs{
 //						TargetBucket: logBucket.ID(),
@@ -243,7 +243,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := s3.NewBucket(ctx, "bucket", &s3.BucketArgs{
 //				Bucket: pulumi.String("my-bucket"),
-//				Acl:    pulumi.String("private"),
+//				Acl:    pulumi.String(s3.CannedAclPrivate),
 //				LifecycleRules: s3.BucketLifecycleRuleArray{
 //					&s3.BucketLifecycleRuleArgs{
 //						Id:      pulumi.String("log"),
@@ -282,7 +282,7 @@ import (
 //			}
 //			_, err = s3.NewBucket(ctx, "versioning_bucket", &s3.BucketArgs{
 //				Bucket: pulumi.String("my-versioning-bucket"),
-//				Acl:    pulumi.String("private"),
+//				Acl:    pulumi.String(s3.CannedAclPrivate),
 //				Versioning: &s3.BucketVersioningArgs{
 //					Enabled: pulumi.Bool(true),
 //				},
@@ -369,7 +369,7 @@ import (
 //			}
 //			source, err := s3.NewBucket(ctx, "source", &s3.BucketArgs{
 //				Bucket: pulumi.String("tf-test-bucket-source-12345"),
-//				Acl:    pulumi.String("private"),
+//				Acl:    pulumi.String(s3.CannedAclPrivate),
 //				Versioning: &s3.BucketVersioningArgs{
 //					Enabled: pulumi.Bool(true),
 //				},
@@ -531,7 +531,7 @@ import (
 //				Bucket: pulumi.String("mybucket"),
 //				Grants: s3.BucketGrantArray{
 //					&s3.BucketGrantArgs{
-//						Id:   *pulumi.String(currentUser.Id),
+//						Id:   pulumi.String(currentUser.Id),
 //						Type: pulumi.String("CanonicalUser"),
 //						Permissions: pulumi.StringArray{
 //							pulumi.String("FULL_CONTROL"),

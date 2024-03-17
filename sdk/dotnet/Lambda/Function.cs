@@ -80,7 +80,7 @@ namespace Pulumi.Aws.Lambda
     ///         Role = iamForLambda.Arn,
     ///         Handler = "index.test",
     ///         SourceCodeHash = lambda.Apply(getFileResult =&gt; getFileResult.OutputBase64sha256),
-    ///         Runtime = "nodejs18.x",
+    ///         Runtime = Aws.Lambda.Runtime.NodeJS18dX,
     ///         Environment = new Aws.Lambda.Inputs.FunctionEnvironmentArgs
     ///         {
     ///             Variables = 
@@ -170,7 +170,7 @@ namespace Pulumi.Aws.Lambda
     ///         Name = "lambda_function_name",
     ///         Role = iamForLambda.Arn,
     ///         Handler = "index.test",
-    ///         Runtime = "nodejs18.x",
+    ///         Runtime = Aws.Lambda.Runtime.NodeJS18dX,
     ///         EphemeralStorage = new Aws.Lambda.Inputs.FunctionEphemeralStorageArgs
     ///         {
     ///             Size = 10240,

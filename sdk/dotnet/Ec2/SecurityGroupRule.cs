@@ -40,7 +40,7 @@ namespace Pulumi.Aws.Ec2
     ///         Type = "ingress",
     ///         FromPort = 0,
     ///         ToPort = 65535,
-    ///         Protocol = "tcp",
+    ///         Protocol = Aws.Ec2.ProtocolType.TCP,
     ///         CidrBlocks = new[]
     ///         {
     ///             exampleAwsVpc.CidrBlock,
@@ -119,7 +119,7 @@ namespace Pulumi.Aws.Ec2
     ///         SecurityGroupId = "sg-123456",
     ///         FromPort = 443,
     ///         ToPort = 443,
-    ///         Protocol = "tcp",
+    ///         Protocol = Aws.Ec2.ProtocolType.TCP,
     ///         PrefixListIds = new[]
     ///         {
     ///             s3.Apply(getPrefixListResult =&gt; getPrefixListResult.Id),

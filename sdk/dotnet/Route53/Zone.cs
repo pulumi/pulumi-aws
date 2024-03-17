@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Route53
     ///     {
     ///         ZoneId = main.ZoneId,
     ///         Name = "dev.example.com",
-    ///         Type = "NS",
+    ///         Type = Aws.Route53.RecordType.NS,
     ///         Ttl = 30,
     ///         Records = dev.NameServers,
     ///     });

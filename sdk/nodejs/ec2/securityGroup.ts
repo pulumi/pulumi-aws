@@ -161,7 +161,7 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.ec2.SecurityGroup("example", {name: "sg"});
  * const exampleInstance = new aws.ec2.Instance("example", {
- *     instanceType: "t3.small",
+ *     instanceType: aws.ec2.InstanceType.T3_Small,
  *     vpcSecurityGroupIds: [test.id],
  * });
  * ```

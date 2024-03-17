@@ -58,7 +58,7 @@ import (
 //				return err
 //			}
 //			aWSCloudFormationStackSetAdministrationRole, err := iam.NewRole(ctx, "AWSCloudFormationStackSetAdministrationRole", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy.Json),
+//				AssumeRolePolicy: pulumi.String(aWSCloudFormationStackSetAdministrationRoleAssumeRolePolicy.Json),
 //				Name:             pulumi.String("AWSCloudFormationStackSetAdministrationRole"),
 //			})
 //			if err != nil {

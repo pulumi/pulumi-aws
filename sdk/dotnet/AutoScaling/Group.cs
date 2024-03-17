@@ -31,7 +31,7 @@ namespace Pulumi.Aws.AutoScaling
     ///     var test = new Aws.Ec2.PlacementGroup("test", new()
     ///     {
     ///         Name = "test",
-    ///         Strategy = "cluster",
+    ///         Strategy = Aws.Ec2.PlacementStrategy.Cluster,
     ///     });
     /// 
     ///     var bar = new Aws.AutoScaling.Group("bar", new()

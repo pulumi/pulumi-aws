@@ -46,7 +46,7 @@ namespace Pulumi.Aws.Rds
         ///     var auroraClusterInstance = new Aws.Rds.ClusterInstance("aurora", new()
         ///     {
         ///         ClusterIdentifier = aurora.Id,
-        ///         InstanceClass = "db.t2.small",
+        ///         InstanceClass = Aws.Rds.InstanceType.T2_Small,
         ///         DbSubnetGroupName = "my_db_subnet_group",
         ///     });
         /// 
@@ -92,7 +92,7 @@ namespace Pulumi.Aws.Rds
         ///     var auroraClusterInstance = new Aws.Rds.ClusterInstance("aurora", new()
         ///     {
         ///         ClusterIdentifier = aurora.Id,
-        ///         InstanceClass = "db.t2.small",
+        ///         InstanceClass = Aws.Rds.InstanceType.T2_Small,
         ///         DbSubnetGroupName = "my_db_subnet_group",
         ///     });
         /// 
