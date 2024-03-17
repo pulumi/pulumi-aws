@@ -50,8 +50,8 @@ import (
 //			}
 //			_, err = ec2.NewVpnConnection(ctx, "transit", &ec2.VpnConnectionArgs{
 //				VpnGatewayId:      main.ID(),
-//				CustomerGatewayId: *pulumi.String(foo.Id),
-//				Type:              *pulumi.String(foo.Type),
+//				CustomerGatewayId: pulumi.String(foo.Id),
+//				Type:              pulumi.String(foo.Type),
 //				StaticRoutesOnly:  pulumi.Bool(false),
 //			})
 //			if err != nil {

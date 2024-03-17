@@ -62,7 +62,7 @@ import (
 //			}
 //			ecsInstanceRole, err := iam.NewRole(ctx, "ecs_instance_role", &iam.RoleArgs{
 //				Name:             pulumi.String("ecs_instance_role"),
-//				AssumeRolePolicy: *pulumi.String(ec2AssumeRole.Json),
+//				AssumeRolePolicy: pulumi.String(ec2AssumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -104,7 +104,7 @@ import (
 //			}
 //			awsBatchServiceRole, err := iam.NewRole(ctx, "aws_batch_service_role", &iam.RoleArgs{
 //				Name:             pulumi.String("aws_batch_service_role"),
-//				AssumeRolePolicy: *pulumi.String(batchAssumeRole.Json),
+//				AssumeRolePolicy: pulumi.String(batchAssumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -147,7 +147,7 @@ import (
 //			}
 //			samplePlacementGroup, err := ec2.NewPlacementGroup(ctx, "sample", &ec2.PlacementGroupArgs{
 //				Name:     pulumi.String("sample"),
-//				Strategy: pulumi.String("cluster"),
+//				Strategy: pulumi.String(ec2.PlacementStrategyCluster),
 //			})
 //			if err != nil {
 //				return err

@@ -37,7 +37,7 @@ import (
 //			web, err := ec2.NewInstance(ctx, "web", &ec2.InstanceArgs{
 //				Ami:              pulumi.String("ami-21f78e11"),
 //				AvailabilityZone: pulumi.String("us-west-2a"),
-//				InstanceType:     pulumi.String("t2.micro"),
+//				InstanceType:     pulumi.String(ec2.InstanceType_T2_Micro),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("HelloWorld"),
 //				},

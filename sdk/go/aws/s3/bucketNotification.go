@@ -228,7 +228,7 @@ import (
 //			}
 //			iamForLambda, err := iam.NewRole(ctx, "iam_for_lambda", &iam.RoleArgs{
 //				Name:             pulumi.String("iam_for_lambda"),
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -238,7 +238,7 @@ import (
 //				Name:    pulumi.String("example_lambda_name"),
 //				Role:    iamForLambda.Arn,
 //				Handler: pulumi.String("exports.example"),
-//				Runtime: pulumi.String("go1.x"),
+//				Runtime: pulumi.String(lambda.RuntimeGo1dx),
 //			})
 //			if err != nil {
 //				return err
@@ -322,7 +322,7 @@ import (
 //			}
 //			iamForLambda, err := iam.NewRole(ctx, "iam_for_lambda", &iam.RoleArgs{
 //				Name:             pulumi.String("iam_for_lambda"),
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -332,7 +332,7 @@ import (
 //				Name:    pulumi.String("example_lambda_name1"),
 //				Role:    iamForLambda.Arn,
 //				Handler: pulumi.String("exports.example"),
-//				Runtime: pulumi.String("go1.x"),
+//				Runtime: pulumi.String(lambda.RuntimeGo1dx),
 //			})
 //			if err != nil {
 //				return err

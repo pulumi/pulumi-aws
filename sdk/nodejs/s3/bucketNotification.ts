@@ -120,7 +120,7 @@ import * as utilities from "../utilities";
  *     name: "example_lambda_name",
  *     role: iamForLambda.arn,
  *     handler: "exports.example",
- *     runtime: "go1.x",
+ *     runtime: aws.lambda.Runtime.Go1dx,
  * });
  * const bucket = new aws.s3.BucketV2("bucket", {bucket: "your-bucket-name"});
  * const allowBucket = new aws.lambda.Permission("allow_bucket", {
@@ -168,7 +168,7 @@ import * as utilities from "../utilities";
  *     name: "example_lambda_name1",
  *     role: iamForLambda.arn,
  *     handler: "exports.example",
- *     runtime: "go1.x",
+ *     runtime: aws.lambda.Runtime.Go1dx,
  * });
  * const bucket = new aws.s3.BucketV2("bucket", {bucket: "your-bucket-name"});
  * const allowBucket1 = new aws.lambda.Permission("allow_bucket1", {

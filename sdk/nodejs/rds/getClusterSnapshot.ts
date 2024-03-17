@@ -30,7 +30,7 @@ import * as utilities from "../utilities";
  * });
  * const auroraClusterInstance = new aws.rds.ClusterInstance("aurora", {
  *     clusterIdentifier: aurora.id,
- *     instanceClass: "db.t2.small",
+ *     instanceClass: aws.rds.InstanceType.T2_Small,
  *     dbSubnetGroupName: "my_db_subnet_group",
  * });
  * ```
@@ -188,7 +188,7 @@ export interface GetClusterSnapshotResult {
  * });
  * const auroraClusterInstance = new aws.rds.ClusterInstance("aurora", {
  *     clusterIdentifier: aurora.id,
- *     instanceClass: "db.t2.small",
+ *     instanceClass: aws.rds.InstanceType.T2_Small,
  *     dbSubnetGroupName: "my_db_subnet_group",
  * });
  * ```

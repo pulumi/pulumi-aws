@@ -40,8 +40,8 @@ import (
 //			}
 //			_, err = ec2.NewInstance(ctx, "web", &ec2.InstanceArgs{
 //				Ami:          pulumi.String("ami-abb07bcb"),
-//				InstanceType: pulumi.String("t2.micro"),
-//				SubnetId:     *pulumi.String(subnetId.Value),
+//				InstanceType: pulumi.String(ec2.InstanceType_T2_Micro),
+//				SubnetId:     pulumi.String(subnetId.Value),
 //			})
 //			if err != nil {
 //				return err

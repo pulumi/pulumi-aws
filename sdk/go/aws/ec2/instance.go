@@ -54,8 +54,8 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewInstance(ctx, "web", &ec2.InstanceArgs{
-//				Ami:          *pulumi.String(ubuntu.Id),
-//				InstanceType: pulumi.String("t3.micro"),
+//				Ami:          pulumi.String(ubuntu.Id),
+//				InstanceType: pulumi.String(ec2.InstanceType_T3_Micro),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("HelloWorld"),
 //				},
@@ -109,13 +109,13 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewInstance(ctx, "this", &ec2.InstanceArgs{
-//				Ami: *pulumi.String(this.Id),
+//				Ami: pulumi.String(this.Id),
 //				InstanceMarketOptions: &ec2.InstanceInstanceMarketOptionsArgs{
 //					SpotOptions: &ec2.InstanceInstanceMarketOptionsSpotOptionsArgs{
 //						MaxPrice: pulumi.String("0.0031"),
 //					},
 //				},
-//				InstanceType: pulumi.String("t4g.nano"),
+//				InstanceType: pulumi.String(ec2.InstanceType_T4g_Nano),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("test-spot"),
 //				},
@@ -179,7 +179,7 @@ import (
 //			}
 //			_, err = ec2.NewInstance(ctx, "foo", &ec2.InstanceArgs{
 //				Ami:          pulumi.String("ami-005e54dee72cc1d00"),
-//				InstanceType: pulumi.String("t2.micro"),
+//				InstanceType: pulumi.String(ec2.InstanceType_T2_Micro),
 //				NetworkInterfaces: ec2.InstanceNetworkInterfaceArray{
 //					&ec2.InstanceNetworkInterfaceArgs{
 //						NetworkInterfaceId: foo.ID(),
@@ -253,8 +253,8 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewInstance(ctx, "example", &ec2.InstanceArgs{
-//				Ami:          *pulumi.String(amzn_linux_2023_ami.Id),
-//				InstanceType: pulumi.String("c6a.2xlarge"),
+//				Ami:          pulumi.String(amzn_linux_2023_ami.Id),
+//				InstanceType: pulumi.String(ec2.InstanceType_C6a_2XLarge),
 //				SubnetId:     exampleSubnet.ID(),
 //				CpuOptions: &ec2.InstanceCpuOptionsArgs{
 //					CoreCount:      pulumi.Int(2),
@@ -295,7 +295,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewInstance(ctx, "this", &ec2.InstanceArgs{
 //				Ami:                  pulumi.String("ami-0dcc1e21636832c5d"),
-//				InstanceType:         pulumi.String("m5.large"),
+//				InstanceType:         pulumi.String(ec2.InstanceType_M5_Large),
 //				HostResourceGroupArn: pulumi.String("arn:aws:resource-groups:us-west-2:012345678901:group/win-testhost"),
 //				Tenancy:              pulumi.String("host"),
 //			})

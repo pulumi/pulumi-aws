@@ -28,7 +28,7 @@ import {RoutingRule} from "./index";
  *
  * const b = new aws.s3.Bucket("b", {
  *     bucket: "my-tf-test-bucket",
- *     acl: "private",
+ *     acl: aws.s3.CannedAcl.Private,
  *     tags: {
  *         Name: "My bucket",
  *         Environment: "Dev",
@@ -47,7 +47,7 @@ import {RoutingRule} from "./index";
  *
  * const b = new aws.s3.Bucket("b", {
  *     bucket: "s3-website-test.mydomain.com",
- *     acl: "public-read",
+ *     acl: aws.s3.CannedAcl.PublicRead,
  *     policy: std.file({
  *         input: "policy.json",
  *     }).then(invoke => invoke.result),
@@ -77,7 +77,7 @@ import {RoutingRule} from "./index";
  *
  * const b = new aws.s3.Bucket("b", {
  *     bucket: "s3-website-test.mydomain.com",
- *     acl: "public-read",
+ *     acl: aws.s3.CannedAcl.PublicRead,
  *     corsRules: [{
  *         allowedHeaders: ["*"],
  *         allowedMethods: [
@@ -101,7 +101,7 @@ import {RoutingRule} from "./index";
  *
  * const b = new aws.s3.Bucket("b", {
  *     bucket: "my-tf-test-bucket",
- *     acl: "private",
+ *     acl: aws.s3.CannedAcl.Private,
  *     versioning: {
  *         enabled: true,
  *     },
@@ -118,11 +118,11 @@ import {RoutingRule} from "./index";
  *
  * const logBucket = new aws.s3.Bucket("log_bucket", {
  *     bucket: "my-tf-log-bucket",
- *     acl: "log-delivery-write",
+ *     acl: aws.s3.CannedAcl.LogDeliveryWrite,
  * });
  * const b = new aws.s3.Bucket("b", {
  *     bucket: "my-tf-test-bucket",
- *     acl: "private",
+ *     acl: aws.s3.CannedAcl.Private,
  *     loggings: [{
  *         targetBucket: logBucket.id,
  *         targetPrefix: "log/",
@@ -140,7 +140,7 @@ import {RoutingRule} from "./index";
  *
  * const bucket = new aws.s3.Bucket("bucket", {
  *     bucket: "my-bucket",
- *     acl: "private",
+ *     acl: aws.s3.CannedAcl.Private,
  *     lifecycleRules: [
  *         {
  *             id: "log",
@@ -176,7 +176,7 @@ import {RoutingRule} from "./index";
  * });
  * const versioningBucket = new aws.s3.Bucket("versioning_bucket", {
  *     bucket: "my-versioning-bucket",
- *     acl: "private",
+ *     acl: aws.s3.CannedAcl.Private,
  *     versioning: {
  *         enabled: true,
  *     },
@@ -235,7 +235,7 @@ import {RoutingRule} from "./index";
  * });
  * const source = new aws.s3.Bucket("source", {
  *     bucket: "tf-test-bucket-source-12345",
- *     acl: "private",
+ *     acl: aws.s3.CannedAcl.Private,
  *     versioning: {
  *         enabled: true,
  *     },

@@ -68,7 +68,7 @@ import (
 //			// Route53 is not specifically required; any DNS host can be used.
 //			_, err = route53.NewRecord(ctx, "example", &route53.RecordArgs{
 //				Name:   example.DomainName,
-//				Type:   pulumi.String("A"),
+//				Type:   pulumi.String(route53.RecordTypeA),
 //				ZoneId: pulumi.Any(exampleAwsRoute53Zone.Id),
 //				Aliases: route53.RecordAliasArray{
 //					&route53.RecordAliasArgs{
@@ -118,7 +118,7 @@ import (
 //			// Route53 is not specifically required; any DNS host can be used.
 //			_, err = route53.NewRecord(ctx, "example", &route53.RecordArgs{
 //				Name:   example.DomainName,
-//				Type:   pulumi.String("A"),
+//				Type:   pulumi.String(route53.RecordTypeA),
 //				ZoneId: pulumi.Any(exampleAwsRoute53Zone.Id),
 //				Aliases: route53.RecordAliasArray{
 //					&route53.RecordAliasArgs{

@@ -110,7 +110,7 @@ class DomainDkim(pulumi.CustomResource):
             example_amazonses_dkim_record.append(aws.route53.Record(f"example_amazonses_dkim_record-{range['value']}",
                 zone_id="ABCDEFGHIJ123",
                 name=example_domain_dkim.dkim_tokens.apply(lambda dkim_tokens: f"{dkim_tokens[range['value']]}._domainkey"),
-                type="CNAME",
+                type=aws.route53.RecordType.CNAME,
                 ttl=600,
                 records=[example_domain_dkim.dkim_tokens.apply(lambda dkim_tokens: f"{dkim_tokens[range['value']]}.dkim.amazonses.com")]))
         ```
@@ -153,7 +153,7 @@ class DomainDkim(pulumi.CustomResource):
             example_amazonses_dkim_record.append(aws.route53.Record(f"example_amazonses_dkim_record-{range['value']}",
                 zone_id="ABCDEFGHIJ123",
                 name=example_domain_dkim.dkim_tokens.apply(lambda dkim_tokens: f"{dkim_tokens[range['value']]}._domainkey"),
-                type="CNAME",
+                type=aws.route53.RecordType.CNAME,
                 ttl=600,
                 records=[example_domain_dkim.dkim_tokens.apply(lambda dkim_tokens: f"{dkim_tokens[range['value']]}.dkim.amazonses.com")]))
         ```

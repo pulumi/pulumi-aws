@@ -39,7 +39,7 @@ import (
 //			_, err = bedrock.NewCustomModel(ctx, "example", &bedrock.CustomModelArgs{
 //				CustomModelName:     pulumi.String("example-model"),
 //				JobName:             pulumi.String("example-job-1"),
-//				BaseModelIdentifier: *pulumi.String(example.ModelArn),
+//				BaseModelIdentifier: pulumi.String(example.ModelArn),
 //				RoleArn:             pulumi.Any(exampleAwsIamRole.Arn),
 //				Hyperparameters: pulumi.StringMap{
 //					"epochCount":              pulumi.String("1"),

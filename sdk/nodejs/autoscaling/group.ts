@@ -26,7 +26,7 @@ import {Metric} from "./index";
  *
  * const test = new aws.ec2.PlacementGroup("test", {
  *     name: "test",
- *     strategy: "cluster",
+ *     strategy: aws.ec2.PlacementStrategy.Cluster,
  * });
  * const bar = new aws.autoscaling.Group("bar", {
  *     name: "foobar3-test",
