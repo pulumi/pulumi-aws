@@ -19,6 +19,9 @@ const (
 	ManagedPolicyAWSAccountManagementReadOnlyAccess                             = ManagedPolicy("arn:aws:iam::aws:policy/AWSAccountManagementReadOnlyAccess")
 	ManagedPolicyAWSAccountUsageReportAccess                                    = ManagedPolicy("arn:aws:iam::aws:policy/AWSAccountUsageReportAccess")
 	ManagedPolicyAWSAgentlessDiscoveryService                                   = ManagedPolicy("arn:aws:iam::aws:policy/AWSAgentlessDiscoveryService")
+	ManagedPolicyAWSAppFabricFullAccess                                         = ManagedPolicy("arn:aws:iam::aws:policy/AWSAppFabricFullAccess")
+	ManagedPolicyAWSAppFabricReadOnlyAccess                                     = ManagedPolicy("arn:aws:iam::aws:policy/AWSAppFabricReadOnlyAccess")
+	ManagedPolicyAWSAppFabricServiceRolePolicy                                  = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSAppFabricServiceRolePolicy")
 	ManagedPolicyAWSAppMeshEnvoyAccess                                          = ManagedPolicy("arn:aws:iam::aws:policy/AWSAppMeshEnvoyAccess")
 	ManagedPolicyAWSAppMeshFullAccess                                           = ManagedPolicy("arn:aws:iam::aws:policy/AWSAppMeshFullAccess")
 	ManagedPolicyAWSAppMeshPreviewEnvoyAccess                                   = ManagedPolicy("arn:aws:iam::aws:policy/AWSAppMeshPreviewEnvoyAccess")
@@ -60,9 +63,12 @@ const (
 	ManagedPolicyAWSApplicationMigrationReadOnlyAccess                          = ManagedPolicy("arn:aws:iam::aws:policy/AWSApplicationMigrationReadOnlyAccess")
 	ManagedPolicyAWSApplicationMigrationReplicationServerPolicy                 = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSApplicationMigrationReplicationServerPolicy")
 	ManagedPolicyAWSApplicationMigrationSSMAccess                               = ManagedPolicy("arn:aws:iam::aws:policy/AWSApplicationMigrationSSMAccess")
+	ManagedPolicyAWSApplicationMigrationServiceEc2InstancePolicy                = ManagedPolicy("arn:aws:iam::aws:policy/AWSApplicationMigrationServiceEc2InstancePolicy")
 	ManagedPolicyAWSApplicationMigrationServiceRolePolicy                       = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSApplicationMigrationServiceRolePolicy")
 	ManagedPolicyAWSApplicationMigrationVCenterClientPolicy                     = ManagedPolicy("arn:aws:iam::aws:policy/AWSApplicationMigrationVCenterClientPolicy")
 	ManagedPolicyAWSArtifactAccountSync                                         = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSArtifactAccountSync")
+	ManagedPolicyAWSArtifactReportsReadOnlyAccess                               = ManagedPolicy("arn:aws:iam::aws:policy/AWSArtifactReportsReadOnlyAccess")
+	ManagedPolicyAWSArtifactServiceRolePolicy                                   = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSArtifactServiceRolePolicy")
 	ManagedPolicyAWSAuditManagerAdministratorAccess                             = ManagedPolicy("arn:aws:iam::aws:policy/AWSAuditManagerAdministratorAccess")
 	ManagedPolicyAWSAuditManagerServiceRolePolicy                               = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSAuditManagerServiceRolePolicy")
 	ManagedPolicyAWSAutoScalingPlansEC2AutoScalingPolicy                        = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSAutoScalingPlansEC2AutoScalingPolicy")
@@ -101,6 +107,8 @@ const (
 	ManagedPolicyAWSChatbotServiceLinkedRolePolicy                              = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSChatbotServiceLinkedRolePolicy")
 	ManagedPolicyAWSCleanRoomsFullAccess                                        = ManagedPolicy("arn:aws:iam::aws:policy/AWSCleanRoomsFullAccess")
 	ManagedPolicyAWSCleanRoomsFullAccessNoQuerying                              = ManagedPolicy("arn:aws:iam::aws:policy/AWSCleanRoomsFullAccessNoQuerying")
+	ManagedPolicyAWSCleanRoomsMLFullAccess                                      = ManagedPolicy("arn:aws:iam::aws:policy/AWSCleanRoomsMLFullAccess")
+	ManagedPolicyAWSCleanRoomsMLReadOnlyAccess                                  = ManagedPolicy("arn:aws:iam::aws:policy/AWSCleanRoomsMLReadOnlyAccess")
 	ManagedPolicyAWSCleanRoomsReadOnlyAccess                                    = ManagedPolicy("arn:aws:iam::aws:policy/AWSCleanRoomsReadOnlyAccess")
 	ManagedPolicyAWSCloud9Administrator                                         = ManagedPolicy("arn:aws:iam::aws:policy/AWSCloud9Administrator")
 	ManagedPolicyAWSCloud9EnvironmentMember                                     = ManagedPolicy("arn:aws:iam::aws:policy/AWSCloud9EnvironmentMember")
@@ -167,44 +175,50 @@ const (
 	ManagedPolicyAWSConfigServiceRolePolicy                         = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSConfigServiceRolePolicy")
 	ManagedPolicyAWSConfigUserAccess                                = ManagedPolicy("arn:aws:iam::aws:policy/AWSConfigUserAccess")
 	ManagedPolicyAWSConnector                                       = ManagedPolicy("arn:aws:iam::aws:policy/AWSConnector")
+	ManagedPolicyAWSControlTowerAccountServiceRolePolicy            = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSControlTowerAccountServiceRolePolicy")
 	ManagedPolicyAWSControlTowerServiceRolePolicy                   = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSControlTowerServiceRolePolicy")
 	ManagedPolicyAWSCostAndUsageReportAutomationPolicy              = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSCostAndUsageReportAutomationPolicy")
+	ManagedPolicyAWSDMSFleetAdvisorServiceRolePolicy                = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSDMSFleetAdvisorServiceRolePolicy")
+	ManagedPolicyAWSDMSServerlessServiceRolePolicy                  = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSDMSServerlessServiceRolePolicy")
 	ManagedPolicyAWSDataExchangeFullAccess                          = ManagedPolicy("arn:aws:iam::aws:policy/AWSDataExchangeFullAccess")
 	ManagedPolicyAWSDataExchangeProviderFullAccess                  = ManagedPolicy("arn:aws:iam::aws:policy/AWSDataExchangeProviderFullAccess")
 	ManagedPolicyAWSDataExchangeReadOnly                            = ManagedPolicy("arn:aws:iam::aws:policy/AWSDataExchangeReadOnly")
 	ManagedPolicyAWSDataExchangeSubscriberFullAccess                = ManagedPolicy("arn:aws:iam::aws:policy/AWSDataExchangeSubscriberFullAccess")
+	ManagedPolicyAWSDataLifecycleManagerSSMFullAccess               = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSDataLifecycleManagerSSMFullAccess")
 	ManagedPolicyAWSDataLifecycleManagerServiceRole                 = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSDataLifecycleManagerServiceRole")
 	ManagedPolicyAWSDataLifecycleManagerServiceRoleForAMIManagement = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSDataLifecycleManagerServiceRoleForAMIManagement")
-	ManagedPolicyAWSDataPipelineRole                                = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSDataPipelineRole")
-	ManagedPolicy_AWSDataPipeline_FullAccess                        = ManagedPolicy("arn:aws:iam::aws:policy/AWSDataPipeline_FullAccess")
-	ManagedPolicy_AWSDataPipeline_PowerUser                         = ManagedPolicy("arn:aws:iam::aws:policy/AWSDataPipeline_PowerUser")
-	ManagedPolicyAWSDataSyncFullAccess                              = ManagedPolicy("arn:aws:iam::aws:policy/AWSDataSyncFullAccess")
-	ManagedPolicyAWSDataSyncReadOnlyAccess                          = ManagedPolicy("arn:aws:iam::aws:policy/AWSDataSyncReadOnlyAccess")
-	ManagedPolicyAWSDeepLensLambdaFunctionAccessPolicy              = ManagedPolicy("arn:aws:iam::aws:policy/AWSDeepLensLambdaFunctionAccessPolicy")
-	ManagedPolicyAWSDeepLensServiceRolePolicy                       = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSDeepLensServiceRolePolicy")
-	ManagedPolicyAWSDeepRacerAccountAdminAccess                     = ManagedPolicy("arn:aws:iam::aws:policy/AWSDeepRacerAccountAdminAccess")
-	ManagedPolicyAWSDeepRacerCloudFormationAccessPolicy             = ManagedPolicy("arn:aws:iam::aws:policy/AWSDeepRacerCloudFormationAccessPolicy")
-	ManagedPolicyAWSDeepRacerDefaultMultiUserAccess                 = ManagedPolicy("arn:aws:iam::aws:policy/AWSDeepRacerDefaultMultiUserAccess")
-	ManagedPolicyAWSDeepRacerFullAccess                             = ManagedPolicy("arn:aws:iam::aws:policy/AWSDeepRacerFullAccess")
-	ManagedPolicyAWSDeepRacerRoboMakerAccessPolicy                  = ManagedPolicy("arn:aws:iam::aws:policy/AWSDeepRacerRoboMakerAccessPolicy")
-	ManagedPolicyAWSDeepRacerServiceRolePolicy                      = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSDeepRacerServiceRolePolicy")
-	ManagedPolicyAWSDenyAll                                         = ManagedPolicy("arn:aws:iam::aws:policy/AWSDenyAll")
-	ManagedPolicyAWSDeviceFarmFullAccess                            = ManagedPolicy("arn:aws:iam::aws:policy/AWSDeviceFarmFullAccess")
-	ManagedPolicyAWSDeviceFarmServiceRolePolicy                     = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSDeviceFarmServiceRolePolicy")
-	ManagedPolicyAWSDeviceFarmTestGridServiceRolePolicy             = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSDeviceFarmTestGridServiceRolePolicy")
-	ManagedPolicyAWSDirectConnectFullAccess                         = ManagedPolicy("arn:aws:iam::aws:policy/AWSDirectConnectFullAccess")
-	ManagedPolicyAWSDirectConnectReadOnlyAccess                     = ManagedPolicy("arn:aws:iam::aws:policy/AWSDirectConnectReadOnlyAccess")
-	ManagedPolicyAWSDirectConnectServiceRolePolicy                  = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSDirectConnectServiceRolePolicy")
-	ManagedPolicyAWSDirectoryServiceFullAccess                      = ManagedPolicy("arn:aws:iam::aws:policy/AWSDirectoryServiceFullAccess")
-	ManagedPolicyAWSDirectoryServiceReadOnlyAccess                  = ManagedPolicy("arn:aws:iam::aws:policy/AWSDirectoryServiceReadOnlyAccess")
-	ManagedPolicyAWSDiscoveryContinuousExportFirehosePolicy         = ManagedPolicy("arn:aws:iam::aws:policy/AWSDiscoveryContinuousExportFirehosePolicy")
-	ManagedPolicyAWSEC2CapacityReservationFleetRolePolicy           = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSEC2CapacityReservationFleetRolePolicy")
-	ManagedPolicyAWSEC2FleetServiceRolePolicy                       = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSEC2FleetServiceRolePolicy")
-	ManagedPolicyAWSEC2SpotFleetServiceRolePolicy                   = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSEC2SpotFleetServiceRolePolicy")
-	ManagedPolicyAWSEC2SpotServiceRolePolicy                        = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSEC2SpotServiceRolePolicy")
-	ManagedPolicy_AWSECRPullThroughCache_ServiceRolePolicy          = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSECRPullThroughCache_ServiceRolePolicy")
-	ManagedPolicyAWSElasticBeanstalkCustomPlatformforEC2Role        = ManagedPolicy("arn:aws:iam::aws:policy/AWSElasticBeanstalkCustomPlatformforEC2Role")
-	ManagedPolicyAWSElasticBeanstalkEnhancedHealth                  = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSElasticBeanstalkEnhancedHealth")
+	// Deprecated: This policy is deprecated and will be removed in a future release.
+	ManagedPolicyAWSDataPipelineRole                         = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSDataPipelineRole")
+	ManagedPolicy_AWSDataPipeline_FullAccess                 = ManagedPolicy("arn:aws:iam::aws:policy/AWSDataPipeline_FullAccess")
+	ManagedPolicy_AWSDataPipeline_PowerUser                  = ManagedPolicy("arn:aws:iam::aws:policy/AWSDataPipeline_PowerUser")
+	ManagedPolicyAWSDataSyncDiscoveryServiceRolePolicy       = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSDataSyncDiscoveryServiceRolePolicy")
+	ManagedPolicyAWSDataSyncFullAccess                       = ManagedPolicy("arn:aws:iam::aws:policy/AWSDataSyncFullAccess")
+	ManagedPolicyAWSDataSyncReadOnlyAccess                   = ManagedPolicy("arn:aws:iam::aws:policy/AWSDataSyncReadOnlyAccess")
+	ManagedPolicyAWSDeepLensLambdaFunctionAccessPolicy       = ManagedPolicy("arn:aws:iam::aws:policy/AWSDeepLensLambdaFunctionAccessPolicy")
+	ManagedPolicyAWSDeepLensServiceRolePolicy                = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSDeepLensServiceRolePolicy")
+	ManagedPolicyAWSDeepRacerAccountAdminAccess              = ManagedPolicy("arn:aws:iam::aws:policy/AWSDeepRacerAccountAdminAccess")
+	ManagedPolicyAWSDeepRacerCloudFormationAccessPolicy      = ManagedPolicy("arn:aws:iam::aws:policy/AWSDeepRacerCloudFormationAccessPolicy")
+	ManagedPolicyAWSDeepRacerDefaultMultiUserAccess          = ManagedPolicy("arn:aws:iam::aws:policy/AWSDeepRacerDefaultMultiUserAccess")
+	ManagedPolicyAWSDeepRacerFullAccess                      = ManagedPolicy("arn:aws:iam::aws:policy/AWSDeepRacerFullAccess")
+	ManagedPolicyAWSDeepRacerRoboMakerAccessPolicy           = ManagedPolicy("arn:aws:iam::aws:policy/AWSDeepRacerRoboMakerAccessPolicy")
+	ManagedPolicyAWSDeepRacerServiceRolePolicy               = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSDeepRacerServiceRolePolicy")
+	ManagedPolicyAWSDenyAll                                  = ManagedPolicy("arn:aws:iam::aws:policy/AWSDenyAll")
+	ManagedPolicyAWSDeviceFarmFullAccess                     = ManagedPolicy("arn:aws:iam::aws:policy/AWSDeviceFarmFullAccess")
+	ManagedPolicyAWSDeviceFarmServiceRolePolicy              = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSDeviceFarmServiceRolePolicy")
+	ManagedPolicyAWSDeviceFarmTestGridServiceRolePolicy      = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSDeviceFarmTestGridServiceRolePolicy")
+	ManagedPolicyAWSDirectConnectFullAccess                  = ManagedPolicy("arn:aws:iam::aws:policy/AWSDirectConnectFullAccess")
+	ManagedPolicyAWSDirectConnectReadOnlyAccess              = ManagedPolicy("arn:aws:iam::aws:policy/AWSDirectConnectReadOnlyAccess")
+	ManagedPolicyAWSDirectConnectServiceRolePolicy           = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSDirectConnectServiceRolePolicy")
+	ManagedPolicyAWSDirectoryServiceFullAccess               = ManagedPolicy("arn:aws:iam::aws:policy/AWSDirectoryServiceFullAccess")
+	ManagedPolicyAWSDirectoryServiceReadOnlyAccess           = ManagedPolicy("arn:aws:iam::aws:policy/AWSDirectoryServiceReadOnlyAccess")
+	ManagedPolicyAWSDiscoveryContinuousExportFirehosePolicy  = ManagedPolicy("arn:aws:iam::aws:policy/AWSDiscoveryContinuousExportFirehosePolicy")
+	ManagedPolicyAWSEC2CapacityReservationFleetRolePolicy    = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSEC2CapacityReservationFleetRolePolicy")
+	ManagedPolicyAWSEC2FleetServiceRolePolicy                = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSEC2FleetServiceRolePolicy")
+	ManagedPolicyAWSEC2SpotFleetServiceRolePolicy            = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSEC2SpotFleetServiceRolePolicy")
+	ManagedPolicyAWSEC2SpotServiceRolePolicy                 = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSEC2SpotServiceRolePolicy")
+	ManagedPolicy_AWSECRPullThroughCache_ServiceRolePolicy   = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSECRPullThroughCache_ServiceRolePolicy")
+	ManagedPolicyAWSElasticBeanstalkCustomPlatformforEC2Role = ManagedPolicy("arn:aws:iam::aws:policy/AWSElasticBeanstalkCustomPlatformforEC2Role")
+	ManagedPolicyAWSElasticBeanstalkEnhancedHealth           = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSElasticBeanstalkEnhancedHealth")
 	// Deprecated: This policy is deprecated. Please use the AWS managed policy AdministratorAccess-AWSElasticBeanstalk instead.
 	ManagedPolicyAWSElasticBeanstalkFullAccess                       = ManagedPolicy("arn:aws:iam::aws:policy/AWSElasticBeanstalkFullAccess")
 	ManagedPolicyAWSElasticBeanstalkMaintenance                      = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSElasticBeanstalkMaintenance")
@@ -224,62 +238,77 @@ const (
 	ManagedPolicyAWSElasticBeanstalkServiceRolePolicy = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSElasticBeanstalkServiceRolePolicy")
 	ManagedPolicyAWSElasticBeanstalkWebTier           = ManagedPolicy("arn:aws:iam::aws:policy/AWSElasticBeanstalkWebTier")
 	// Deprecated: This has been deprecated in favour of `AWSElasticBeanstalkWorkerTier`
-	ManagedPolicyAWSElasticBeanstakWorkerTier                         = ManagedPolicy("arn:aws:iam::aws:policy/AWSElasticBeanstalkWorkerTier")
-	ManagedPolicyAWSElasticBeanstalkWorkerTier                        = ManagedPolicy("arn:aws:iam::aws:policy/AWSElasticBeanstalkWorkerTier")
-	ManagedPolicyAWSElasticDisasterRecoveryAgentInstallationPolicy    = ManagedPolicy("arn:aws:iam::aws:policy/AWSElasticDisasterRecoveryAgentInstallationPolicy")
-	ManagedPolicyAWSElasticDisasterRecoveryAgentPolicy                = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSElasticDisasterRecoveryAgentPolicy")
-	ManagedPolicyAWSElasticDisasterRecoveryConsoleFullAccess          = ManagedPolicy("arn:aws:iam::aws:policy/AWSElasticDisasterRecoveryConsoleFullAccess")
-	ManagedPolicyAWSElasticDisasterRecoveryConversionServerPolicy     = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSElasticDisasterRecoveryConversionServerPolicy")
-	ManagedPolicyAWSElasticDisasterRecoveryEc2InstancePolicy          = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSElasticDisasterRecoveryEc2InstancePolicy")
-	ManagedPolicyAWSElasticDisasterRecoveryFailbackInstallationPolicy = ManagedPolicy("arn:aws:iam::aws:policy/AWSElasticDisasterRecoveryFailbackInstallationPolicy")
-	ManagedPolicyAWSElasticDisasterRecoveryFailbackPolicy             = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSElasticDisasterRecoveryFailbackPolicy")
-	ManagedPolicyAWSElasticDisasterRecoveryReadOnlyAccess             = ManagedPolicy("arn:aws:iam::aws:policy/AWSElasticDisasterRecoveryReadOnlyAccess")
-	ManagedPolicyAWSElasticDisasterRecoveryRecoveryInstancePolicy     = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSElasticDisasterRecoveryRecoveryInstancePolicy")
-	ManagedPolicyAWSElasticDisasterRecoveryReplicationServerPolicy    = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSElasticDisasterRecoveryReplicationServerPolicy")
-	ManagedPolicyAWSElasticDisasterRecoveryServiceRolePolicy          = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSElasticDisasterRecoveryServiceRolePolicy")
-	ManagedPolicyAWSElasticDisasterRecoveryStagingAccountPolicy       = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSElasticDisasterRecoveryStagingAccountPolicy")
-	ManagedPolicy_AWSElasticDisasterRecoveryStagingAccountPolicy_v2   = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSElasticDisasterRecoveryStagingAccountPolicy_v2")
-	ManagedPolicyAWSElasticLoadBalancingClassicServiceRolePolicy      = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSElasticLoadBalancingClassicServiceRolePolicy")
-	ManagedPolicyAWSElasticLoadBalancingServiceRolePolicy             = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSElasticLoadBalancingServiceRolePolicy")
-	ManagedPolicyAWSElementalMediaConvertFullAccess                   = ManagedPolicy("arn:aws:iam::aws:policy/AWSElementalMediaConvertFullAccess")
-	ManagedPolicyAWSElementalMediaConvertReadOnly                     = ManagedPolicy("arn:aws:iam::aws:policy/AWSElementalMediaConvertReadOnly")
-	ManagedPolicyAWSElementalMediaLiveFullAccess                      = ManagedPolicy("arn:aws:iam::aws:policy/AWSElementalMediaLiveFullAccess")
-	ManagedPolicyAWSElementalMediaLiveReadOnly                        = ManagedPolicy("arn:aws:iam::aws:policy/AWSElementalMediaLiveReadOnly")
-	ManagedPolicyAWSElementalMediaPackageFullAccess                   = ManagedPolicy("arn:aws:iam::aws:policy/AWSElementalMediaPackageFullAccess")
-	ManagedPolicyAWSElementalMediaPackageReadOnly                     = ManagedPolicy("arn:aws:iam::aws:policy/AWSElementalMediaPackageReadOnly")
-	ManagedPolicyAWSElementalMediaStoreFullAccess                     = ManagedPolicy("arn:aws:iam::aws:policy/AWSElementalMediaStoreFullAccess")
-	ManagedPolicyAWSElementalMediaStoreReadOnly                       = ManagedPolicy("arn:aws:iam::aws:policy/AWSElementalMediaStoreReadOnly")
-	ManagedPolicyAWSElementalMediaTailorFullAccess                    = ManagedPolicy("arn:aws:iam::aws:policy/AWSElementalMediaTailorFullAccess")
-	ManagedPolicyAWSElementalMediaTailorReadOnly                      = ManagedPolicy("arn:aws:iam::aws:policy/AWSElementalMediaTailorReadOnly")
-	ManagedPolicyAWSEnhancedClassicNetworkingMangementPolicy          = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSEnhancedClassicNetworkingMangementPolicy")
-	ManagedPolicyAWSFMAdminFullAccess                                 = ManagedPolicy("arn:aws:iam::aws:policy/AWSFMAdminFullAccess")
-	ManagedPolicyAWSFMAdminReadOnlyAccess                             = ManagedPolicy("arn:aws:iam::aws:policy/AWSFMAdminReadOnlyAccess")
-	ManagedPolicyAWSFMMemberReadOnlyAccess                            = ManagedPolicy("arn:aws:iam::aws:policy/AWSFMMemberReadOnlyAccess")
-	ManagedPolicyAWSFaultInjectionSimulatorEC2Access                  = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSFaultInjectionSimulatorEC2Access")
-	ManagedPolicyAWSFaultInjectionSimulatorECSAccess                  = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSFaultInjectionSimulatorECSAccess")
-	ManagedPolicyAWSFaultInjectionSimulatorEKSAccess                  = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSFaultInjectionSimulatorEKSAccess")
-	ManagedPolicyAWSFaultInjectionSimulatorNetworkAccess              = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSFaultInjectionSimulatorNetworkAccess")
-	ManagedPolicyAWSFaultInjectionSimulatorRDSAccess                  = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSFaultInjectionSimulatorRDSAccess")
-	ManagedPolicyAWSFaultInjectionSimulatorSSMAccess                  = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSFaultInjectionSimulatorSSMAccess")
-	ManagedPolicyAWSForWordPressPluginPolicy                          = ManagedPolicy("arn:aws:iam::aws:policy/AWSForWordPressPluginPolicy")
-	ManagedPolicyAWSGlobalAcceleratorSLRPolicy                        = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSGlobalAcceleratorSLRPolicy")
-	ManagedPolicyAWSGlueConsoleFullAccess                             = ManagedPolicy("arn:aws:iam::aws:policy/AWSGlueConsoleFullAccess")
-	ManagedPolicyAWSGlueConsoleSageMakerNotebookFullAccess            = ManagedPolicy("arn:aws:iam::aws:policy/AWSGlueConsoleSageMakerNotebookFullAccess")
-	ManagedPolicyAWSGlueDataBrewServiceRole                           = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSGlueDataBrewServiceRole")
-	ManagedPolicyAWSGlueSchemaRegistryFullAccess                      = ManagedPolicy("arn:aws:iam::aws:policy/AWSGlueSchemaRegistryFullAccess")
-	ManagedPolicyAWSGlueSchemaRegistryReadonlyAccess                  = ManagedPolicy("arn:aws:iam::aws:policy/AWSGlueSchemaRegistryReadonlyAccess")
-	ManagedPolicyAWSGlueServiceNotebookRole                           = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSGlueServiceNotebookRole")
-	ManagedPolicyAWSGlueServiceRole                                   = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole")
-	ManagedPolicyAWSGrafanaAccountAdministrator                       = ManagedPolicy("arn:aws:iam::aws:policy/AWSGrafanaAccountAdministrator")
-	ManagedPolicyAWSGrafanaConsoleReadOnlyAccess                      = ManagedPolicy("arn:aws:iam::aws:policy/AWSGrafanaConsoleReadOnlyAccess")
-	ManagedPolicyAWSGrafanaWorkspacePermissionManagement              = ManagedPolicy("arn:aws:iam::aws:policy/AWSGrafanaWorkspacePermissionManagement")
-	ManagedPolicyAWSGreengrassFullAccess                              = ManagedPolicy("arn:aws:iam::aws:policy/AWSGreengrassFullAccess")
+	ManagedPolicyAWSElasticBeanstakWorkerTier                            = ManagedPolicy("arn:aws:iam::aws:policy/AWSElasticBeanstalkWorkerTier")
+	ManagedPolicyAWSElasticBeanstalkWorkerTier                           = ManagedPolicy("arn:aws:iam::aws:policy/AWSElasticBeanstalkWorkerTier")
+	ManagedPolicyAWSElasticDisasterRecoveryAgentInstallationPolicy       = ManagedPolicy("arn:aws:iam::aws:policy/AWSElasticDisasterRecoveryAgentInstallationPolicy")
+	ManagedPolicyAWSElasticDisasterRecoveryAgentPolicy                   = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSElasticDisasterRecoveryAgentPolicy")
+	ManagedPolicyAWSElasticDisasterRecoveryConsoleFullAccess             = ManagedPolicy("arn:aws:iam::aws:policy/AWSElasticDisasterRecoveryConsoleFullAccess")
+	ManagedPolicy_AWSElasticDisasterRecoveryConsoleFullAccess_v2         = ManagedPolicy("arn:aws:iam::aws:policy/AWSElasticDisasterRecoveryConsoleFullAccess_v2")
+	ManagedPolicyAWSElasticDisasterRecoveryConversionServerPolicy        = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSElasticDisasterRecoveryConversionServerPolicy")
+	ManagedPolicyAWSElasticDisasterRecoveryCrossAccountReplicationPolicy = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSElasticDisasterRecoveryCrossAccountReplicationPolicy")
+	ManagedPolicyAWSElasticDisasterRecoveryEc2InstancePolicy             = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSElasticDisasterRecoveryEc2InstancePolicy")
+	ManagedPolicyAWSElasticDisasterRecoveryFailbackInstallationPolicy    = ManagedPolicy("arn:aws:iam::aws:policy/AWSElasticDisasterRecoveryFailbackInstallationPolicy")
+	ManagedPolicyAWSElasticDisasterRecoveryFailbackPolicy                = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSElasticDisasterRecoveryFailbackPolicy")
+	ManagedPolicyAWSElasticDisasterRecoveryLaunchActionsPolicy           = ManagedPolicy("arn:aws:iam::aws:policy/AWSElasticDisasterRecoveryLaunchActionsPolicy")
+	ManagedPolicyAWSElasticDisasterRecoveryNetworkReplicationPolicy      = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSElasticDisasterRecoveryNetworkReplicationPolicy")
+	ManagedPolicyAWSElasticDisasterRecoveryReadOnlyAccess                = ManagedPolicy("arn:aws:iam::aws:policy/AWSElasticDisasterRecoveryReadOnlyAccess")
+	ManagedPolicyAWSElasticDisasterRecoveryRecoveryInstancePolicy        = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSElasticDisasterRecoveryRecoveryInstancePolicy")
+	ManagedPolicyAWSElasticDisasterRecoveryReplicationServerPolicy       = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSElasticDisasterRecoveryReplicationServerPolicy")
+	ManagedPolicyAWSElasticDisasterRecoveryServiceRolePolicy             = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSElasticDisasterRecoveryServiceRolePolicy")
+	ManagedPolicyAWSElasticDisasterRecoveryStagingAccountPolicy          = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSElasticDisasterRecoveryStagingAccountPolicy")
+	ManagedPolicy_AWSElasticDisasterRecoveryStagingAccountPolicy_v2      = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSElasticDisasterRecoveryStagingAccountPolicy_v2")
+	ManagedPolicyAWSElasticLoadBalancingClassicServiceRolePolicy         = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSElasticLoadBalancingClassicServiceRolePolicy")
+	ManagedPolicyAWSElasticLoadBalancingServiceRolePolicy                = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSElasticLoadBalancingServiceRolePolicy")
+	ManagedPolicyAWSElementalMediaConvertFullAccess                      = ManagedPolicy("arn:aws:iam::aws:policy/AWSElementalMediaConvertFullAccess")
+	ManagedPolicyAWSElementalMediaConvertReadOnly                        = ManagedPolicy("arn:aws:iam::aws:policy/AWSElementalMediaConvertReadOnly")
+	ManagedPolicyAWSElementalMediaLiveFullAccess                         = ManagedPolicy("arn:aws:iam::aws:policy/AWSElementalMediaLiveFullAccess")
+	ManagedPolicyAWSElementalMediaLiveReadOnly                           = ManagedPolicy("arn:aws:iam::aws:policy/AWSElementalMediaLiveReadOnly")
+	ManagedPolicyAWSElementalMediaPackageFullAccess                      = ManagedPolicy("arn:aws:iam::aws:policy/AWSElementalMediaPackageFullAccess")
+	ManagedPolicyAWSElementalMediaPackageReadOnly                        = ManagedPolicy("arn:aws:iam::aws:policy/AWSElementalMediaPackageReadOnly")
+	ManagedPolicyAWSElementalMediaPackageV2FullAccess                    = ManagedPolicy("arn:aws:iam::aws:policy/AWSElementalMediaPackageV2FullAccess")
+	ManagedPolicyAWSElementalMediaPackageV2ReadOnly                      = ManagedPolicy("arn:aws:iam::aws:policy/AWSElementalMediaPackageV2ReadOnly")
+	ManagedPolicyAWSElementalMediaStoreFullAccess                        = ManagedPolicy("arn:aws:iam::aws:policy/AWSElementalMediaStoreFullAccess")
+	ManagedPolicyAWSElementalMediaStoreReadOnly                          = ManagedPolicy("arn:aws:iam::aws:policy/AWSElementalMediaStoreReadOnly")
+	ManagedPolicyAWSElementalMediaTailorFullAccess                       = ManagedPolicy("arn:aws:iam::aws:policy/AWSElementalMediaTailorFullAccess")
+	ManagedPolicyAWSElementalMediaTailorReadOnly                         = ManagedPolicy("arn:aws:iam::aws:policy/AWSElementalMediaTailorReadOnly")
+	ManagedPolicyAWSEnhancedClassicNetworkingMangementPolicy             = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSEnhancedClassicNetworkingMangementPolicy")
+	ManagedPolicyAWSEntityResolutionConsoleFullAccess                    = ManagedPolicy("arn:aws:iam::aws:policy/AWSEntityResolutionConsoleFullAccess")
+	ManagedPolicyAWSEntityResolutionConsoleReadOnlyAccess                = ManagedPolicy("arn:aws:iam::aws:policy/AWSEntityResolutionConsoleReadOnlyAccess")
+	ManagedPolicyAWSFMAdminFullAccess                                    = ManagedPolicy("arn:aws:iam::aws:policy/AWSFMAdminFullAccess")
+	ManagedPolicyAWSFMAdminReadOnlyAccess                                = ManagedPolicy("arn:aws:iam::aws:policy/AWSFMAdminReadOnlyAccess")
+	ManagedPolicyAWSFMMemberReadOnlyAccess                               = ManagedPolicy("arn:aws:iam::aws:policy/AWSFMMemberReadOnlyAccess")
+	ManagedPolicyAWSFaultInjectionSimulatorEC2Access                     = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSFaultInjectionSimulatorEC2Access")
+	ManagedPolicyAWSFaultInjectionSimulatorECSAccess                     = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSFaultInjectionSimulatorECSAccess")
+	ManagedPolicyAWSFaultInjectionSimulatorEKSAccess                     = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSFaultInjectionSimulatorEKSAccess")
+	ManagedPolicyAWSFaultInjectionSimulatorNetworkAccess                 = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSFaultInjectionSimulatorNetworkAccess")
+	ManagedPolicyAWSFaultInjectionSimulatorRDSAccess                     = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSFaultInjectionSimulatorRDSAccess")
+	ManagedPolicyAWSFaultInjectionSimulatorSSMAccess                     = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSFaultInjectionSimulatorSSMAccess")
+	ManagedPolicyAWSFinSpaceServiceRolePolicy                            = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSFinSpaceServiceRolePolicy")
+	ManagedPolicyAWSForWordPressPluginPolicy                             = ManagedPolicy("arn:aws:iam::aws:policy/AWSForWordPressPluginPolicy")
+	ManagedPolicyAWSGitSyncServiceRolePolicy                             = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSGitSyncServiceRolePolicy")
+	ManagedPolicyAWSGlobalAcceleratorSLRPolicy                           = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSGlobalAcceleratorSLRPolicy")
+	ManagedPolicyAWSGlueConsoleFullAccess                                = ManagedPolicy("arn:aws:iam::aws:policy/AWSGlueConsoleFullAccess")
+	ManagedPolicyAWSGlueConsoleSageMakerNotebookFullAccess               = ManagedPolicy("arn:aws:iam::aws:policy/AWSGlueConsoleSageMakerNotebookFullAccess")
+	ManagedPolicyAWSGlueDataBrewServiceRole                              = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSGlueDataBrewServiceRole")
+	ManagedPolicyAWSGlueSchemaRegistryFullAccess                         = ManagedPolicy("arn:aws:iam::aws:policy/AWSGlueSchemaRegistryFullAccess")
+	ManagedPolicyAWSGlueSchemaRegistryReadonlyAccess                     = ManagedPolicy("arn:aws:iam::aws:policy/AWSGlueSchemaRegistryReadonlyAccess")
+	ManagedPolicyAWSGlueServiceNotebookRole                              = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSGlueServiceNotebookRole")
+	ManagedPolicyAWSGlueServiceRole                                      = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSGlueServiceRole")
+	ManagedPolicyAWSGrafanaAccountAdministrator                          = ManagedPolicy("arn:aws:iam::aws:policy/AWSGrafanaAccountAdministrator")
+	ManagedPolicyAWSGrafanaConsoleReadOnlyAccess                         = ManagedPolicy("arn:aws:iam::aws:policy/AWSGrafanaConsoleReadOnlyAccess")
+	ManagedPolicyAWSGrafanaWorkspacePermissionManagement                 = ManagedPolicy("arn:aws:iam::aws:policy/AWSGrafanaWorkspacePermissionManagement")
+	ManagedPolicyAWSGrafanaWorkspacePermissionManagementV2               = ManagedPolicy("arn:aws:iam::aws:policy/AWSGrafanaWorkspacePermissionManagementV2")
+	ManagedPolicyAWSGreengrassFullAccess                                 = ManagedPolicy("arn:aws:iam::aws:policy/AWSGreengrassFullAccess")
 	// Deprecated: Please use AWSGreengrassFullAccess instead
 	ManagedPolicyAWSGreengrassFullccess                                    = ManagedPolicy("arn:aws:iam::aws:policy/AWSGreengrassFullAccess")
 	ManagedPolicyAWSGreengrassReadOnlyAccess                               = ManagedPolicy("arn:aws:iam::aws:policy/AWSGreengrassReadOnlyAccess")
 	ManagedPolicyAWSGreengrassResourceAccessRolePolicy                     = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSGreengrassResourceAccessRolePolicy")
+	ManagedPolicyAWSGroundStationAgentInstancePolicy                       = ManagedPolicy("arn:aws:iam::aws:policy/AWSGroundStationAgentInstancePolicy")
 	ManagedPolicyAWSHealthFullAccess                                       = ManagedPolicy("arn:aws:iam::aws:policy/AWSHealthFullAccess")
+	ManagedPolicyAWSHealthImagingFullAccess                                = ManagedPolicy("arn:aws:iam::aws:policy/AWSHealthImagingFullAccess")
+	ManagedPolicyAWSHealthImagingReadOnlyAccess                            = ManagedPolicy("arn:aws:iam::aws:policy/AWSHealthImagingReadOnlyAccess")
 	ManagedPolicy_AWSHealth_EventProcessorServiceRolePolicy                = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSHealth_EventProcessorServiceRolePolicy")
+	ManagedPolicyAWSIAMIdentityCenterAllowListForIdentityContext           = ManagedPolicy("arn:aws:iam::aws:policy/AWSIAMIdentityCenterAllowListForIdentityContext")
 	ManagedPolicyAWSIPAMServiceRolePolicy                                  = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSIPAMServiceRolePolicy")
 	ManagedPolicyAWSIQContractServiceRolePolicy                            = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSIQContractServiceRolePolicy")
 	ManagedPolicyAWSIQFullAccess                                           = ManagedPolicy("arn:aws:iam::aws:policy/AWSIQFullAccess")
@@ -290,6 +319,7 @@ const (
 	ManagedPolicyAWSImageBuilderReadOnlyAccess                             = ManagedPolicy("arn:aws:iam::aws:policy/AWSImageBuilderReadOnlyAccess")
 	ManagedPolicyAWSImportExportFullAccess                                 = ManagedPolicy("arn:aws:iam::aws:policy/AWSImportExportFullAccess")
 	ManagedPolicyAWSImportExportReadOnlyAccess                             = ManagedPolicy("arn:aws:iam::aws:policy/AWSImportExportReadOnlyAccess")
+	ManagedPolicyAWSIncidentManagerIncidentAccessServiceRolePolicy         = ManagedPolicy("arn:aws:iam::aws:policy/AWSIncidentManagerIncidentAccessServiceRolePolicy")
 	ManagedPolicyAWSIncidentManagerResolverAccess                          = ManagedPolicy("arn:aws:iam::aws:policy/AWSIncidentManagerResolverAccess")
 	ManagedPolicyAWSIncidentManagerServiceRolePolicy                       = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSIncidentManagerServiceRolePolicy")
 	ManagedPolicyAWSIoT1ClickFullAccess                                    = ManagedPolicy("arn:aws:iam::aws:policy/AWSIoT1ClickFullAccess")
@@ -322,6 +352,7 @@ const (
 	ManagedPolicyAWSIoTSiteWiseMonitorServiceRolePolicy                    = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSIoTSiteWiseMonitorServiceRolePolicy")
 	ManagedPolicyAWSIoTSiteWiseReadOnlyAccess                              = ManagedPolicy("arn:aws:iam::aws:policy/AWSIoTSiteWiseReadOnlyAccess")
 	ManagedPolicyAWSIoTThingsRegistration                                  = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSIoTThingsRegistration")
+	ManagedPolicyAWSIoTTwinMakerServiceRolePolicy                          = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSIoTTwinMakerServiceRolePolicy")
 	ManagedPolicyAWSIoTWirelessDataAccess                                  = ManagedPolicy("arn:aws:iam::aws:policy/AWSIoTWirelessDataAccess")
 	ManagedPolicyAWSIoTWirelessFullAccess                                  = ManagedPolicy("arn:aws:iam::aws:policy/AWSIoTWirelessFullAccess")
 	ManagedPolicyAWSIoTWirelessFullPublishAccess                           = ManagedPolicy("arn:aws:iam::aws:policy/AWSIoTWirelessFullPublishAccess")
@@ -346,54 +377,63 @@ const (
 	ManagedPolicyAWSLambdaInvocationDynamoDB   = ManagedPolicy("arn:aws:iam::aws:policy/AWSLambdaInvocation-DynamoDB")
 	ManagedPolicyAWSLambdaKinesisExecutionRole = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSLambdaKinesisExecutionRole")
 	// Deprecated: This has been deprecated in favour of `LambdaReadOnlyAccess`
-	ManagedPolicyAWSLambdaReadOnlyAccess                                       = ManagedPolicy("arn:aws:iam::aws:policy/AWSLambdaReadOnlyAccess")
-	ManagedPolicyLambdaReadOnlyAccess                                          = ManagedPolicy("arn:aws:iam::aws:policy/AWSLambda_ReadOnlyAccess")
-	ManagedPolicyAWSLambdaMSKExecutionRole                                     = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSLambdaMSKExecutionRole")
-	ManagedPolicyAWSLambdaReplicator                                           = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSLambdaReplicator")
-	ManagedPolicyAWSLambdaRole                                                 = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSLambdaRole")
-	ManagedPolicyAWSLambdaSQSQueueExecutionRole                                = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSLambdaSQSQueueExecutionRole")
-	ManagedPolicyAWSLambdaVPCAccessExecutionRole                               = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole")
-	ManagedPolicyAWSLicenseManagerConsumptionPolicy                            = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSLicenseManagerConsumptionPolicy")
-	ManagedPolicyAWSLicenseManagerLinuxSubscriptionsServiceRolePolicy          = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSLicenseManagerLinuxSubscriptionsServiceRolePolicy")
-	ManagedPolicyAWSLicenseManagerMasterAccountRolePolicy                      = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSLicenseManagerMasterAccountRolePolicy")
-	ManagedPolicyAWSLicenseManagerMemberAccountRolePolicy                      = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSLicenseManagerMemberAccountRolePolicy")
-	ManagedPolicyAWSLicenseManagerServiceRolePolicy                            = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSLicenseManagerServiceRolePolicy")
-	ManagedPolicyAWSLicenseManagerUserSubscriptionsServiceRolePolicy           = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSLicenseManagerUserSubscriptionsServiceRolePolicy")
-	ManagedPolicyAWSM2ServicePolicy                                            = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSM2ServicePolicy")
-	ManagedPolicyAWSManagedServicesDeploymentToolkitPolicy                     = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSManagedServicesDeploymentToolkitPolicy")
-	ManagedPolicy_AWSManagedServices_DetectiveControlsConfig_ServiceRolePolicy = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSManagedServices_DetectiveControlsConfig_ServiceRolePolicy")
-	ManagedPolicy_AWSManagedServices_EventsServiceRolePolicy                   = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSManagedServices_EventsServiceRolePolicy")
-	ManagedPolicyAWSMarketplaceAmiIngestion                                    = ManagedPolicy("arn:aws:iam::aws:policy/AWSMarketplaceAmiIngestion")
-	ManagedPolicyAWSMarketplaceFullAccess                                      = ManagedPolicy("arn:aws:iam::aws:policy/AWSMarketplaceFullAccess")
-	ManagedPolicyAWSMarketplaceGetEntitlements                                 = ManagedPolicy("arn:aws:iam::aws:policy/AWSMarketplaceGetEntitlements")
-	ManagedPolicyAWSMarketplaceImageBuildFullAccess                            = ManagedPolicy("arn:aws:iam::aws:policy/AWSMarketplaceImageBuildFullAccess")
-	ManagedPolicyAWSMarketplaceLicenseManagementServiceRolePolicy              = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSMarketplaceLicenseManagementServiceRolePolicy")
-	ManagedPolicyAWSMarketplaceManageSubscriptions                             = ManagedPolicy("arn:aws:iam::aws:policy/AWSMarketplaceManageSubscriptions")
-	ManagedPolicyAWSMarketplaceMeteringFullAccess                              = ManagedPolicy("arn:aws:iam::aws:policy/AWSMarketplaceMeteringFullAccess")
-	ManagedPolicyAWSMarketplaceMeteringRegisterUsage                           = ManagedPolicy("arn:aws:iam::aws:policy/AWSMarketplaceMeteringRegisterUsage")
-	ManagedPolicyAWSMarketplaceProcurementSystemAdminFullAccess                = ManagedPolicy("arn:aws:iam::aws:policy/AWSMarketplaceProcurementSystemAdminFullAccess")
-	ManagedPolicyAWSMarketplacePurchaseOrdersServiceRolePolicy                 = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSMarketplacePurchaseOrdersServiceRolePolicy")
-	ManagedPolicyAWSMarketplaceReadonly                                        = ManagedPolicy("arn:aws:iam::aws:policy/AWSMarketplaceRead-only")
-	ManagedPolicyAWSMarketplaceSellerFullAccess                                = ManagedPolicy("arn:aws:iam::aws:policy/AWSMarketplaceSellerFullAccess")
-	ManagedPolicyAWSMarketplaceSellerProductsFullAccess                        = ManagedPolicy("arn:aws:iam::aws:policy/AWSMarketplaceSellerProductsFullAccess")
-	ManagedPolicyAWSMarketplaceSellerProductsReadOnly                          = ManagedPolicy("arn:aws:iam::aws:policy/AWSMarketplaceSellerProductsReadOnly")
-	ManagedPolicyAWSMediaTailorServiceRolePolicy                               = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSMediaTailorServiceRolePolicy")
-	ManagedPolicyAWSMigrationHubDMSAccess                                      = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSMigrationHubDMSAccess")
-	ManagedPolicyAWSMigrationHubDiscoveryAccess                                = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSMigrationHubDiscoveryAccess")
-	ManagedPolicyAWSMigrationHubFullAccess                                     = ManagedPolicy("arn:aws:iam::aws:policy/AWSMigrationHubFullAccess")
-	ManagedPolicyAWSMigrationHubOrchestratorConsoleFullAccess                  = ManagedPolicy("arn:aws:iam::aws:policy/AWSMigrationHubOrchestratorConsoleFullAccess")
-	ManagedPolicyAWSMigrationHubOrchestratorInstanceRolePolicy                 = ManagedPolicy("arn:aws:iam::aws:policy/AWSMigrationHubOrchestratorInstanceRolePolicy")
-	ManagedPolicyAWSMigrationHubOrchestratorPlugin                             = ManagedPolicy("arn:aws:iam::aws:policy/AWSMigrationHubOrchestratorPlugin")
-	ManagedPolicyAWSMigrationHubOrchestratorServiceRolePolicy                  = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSMigrationHubOrchestratorServiceRolePolicy")
-	ManagedPolicyAWSMigrationHubRefactorSpacesFullAccess                       = ManagedPolicy("arn:aws:iam::aws:policy/AWSMigrationHubRefactorSpacesFullAccess")
-	ManagedPolicyAWSMigrationHubRefactorSpacesServiceRolePolicy                = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSMigrationHubRefactorSpacesServiceRolePolicy")
-	ManagedPolicyAWSMigrationHubSMSAccess                                      = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSMigrationHubSMSAccess")
-	ManagedPolicyAWSMigrationHubStrategyCollector                              = ManagedPolicy("arn:aws:iam::aws:policy/AWSMigrationHubStrategyCollector")
-	ManagedPolicyAWSMigrationHubStrategyConsoleFullAccess                      = ManagedPolicy("arn:aws:iam::aws:policy/AWSMigrationHubStrategyConsoleFullAccess")
-	ManagedPolicyAWSMigrationHubStrategyServiceRolePolicy                      = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSMigrationHubStrategyServiceRolePolicy")
-	ManagedPolicy_AWSMobileHub_FullAccess                                      = ManagedPolicy("arn:aws:iam::aws:policy/AWSMobileHub_FullAccess")
-	ManagedPolicy_AWSMobileHub_ReadOnly                                        = ManagedPolicy("arn:aws:iam::aws:policy/AWSMobileHub_ReadOnly")
-	// Deprecated: This policy is deprecated and will be removed in a future release. Please use AWSMobileHub_FullAccess or AWSMobileHub_ReadOnly instead.
+	ManagedPolicyAWSLambdaReadOnlyAccess                                           = ManagedPolicy("arn:aws:iam::aws:policy/AWSLambdaReadOnlyAccess")
+	ManagedPolicyLambdaReadOnlyAccess                                              = ManagedPolicy("arn:aws:iam::aws:policy/AWSLambda_ReadOnlyAccess")
+	ManagedPolicyAWSLambdaMSKExecutionRole                                         = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSLambdaMSKExecutionRole")
+	ManagedPolicyAWSLambdaReplicator                                               = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSLambdaReplicator")
+	ManagedPolicyAWSLambdaRole                                                     = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSLambdaRole")
+	ManagedPolicyAWSLambdaSQSQueueExecutionRole                                    = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSLambdaSQSQueueExecutionRole")
+	ManagedPolicyAWSLambdaVPCAccessExecutionRole                                   = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSLambdaVPCAccessExecutionRole")
+	ManagedPolicyAWSLicenseManagerConsumptionPolicy                                = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSLicenseManagerConsumptionPolicy")
+	ManagedPolicyAWSLicenseManagerLinuxSubscriptionsServiceRolePolicy              = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSLicenseManagerLinuxSubscriptionsServiceRolePolicy")
+	ManagedPolicyAWSLicenseManagerMasterAccountRolePolicy                          = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSLicenseManagerMasterAccountRolePolicy")
+	ManagedPolicyAWSLicenseManagerMemberAccountRolePolicy                          = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSLicenseManagerMemberAccountRolePolicy")
+	ManagedPolicyAWSLicenseManagerServiceRolePolicy                                = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSLicenseManagerServiceRolePolicy")
+	ManagedPolicyAWSLicenseManagerUserSubscriptionsServiceRolePolicy               = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSLicenseManagerUserSubscriptionsServiceRolePolicy")
+	ManagedPolicyAWSM2ServicePolicy                                                = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSM2ServicePolicy")
+	ManagedPolicyAWSMSKReplicatorExecutionRole                                     = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSMSKReplicatorExecutionRole")
+	ManagedPolicyAWSManagedServicesDeploymentToolkitPolicy                         = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSManagedServicesDeploymentToolkitPolicy")
+	ManagedPolicy_AWSManagedServices_ContactsServiceRolePolicy                     = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSManagedServices_ContactsServiceRolePolicy")
+	ManagedPolicy_AWSManagedServices_DetectiveControlsConfig_ServiceRolePolicy     = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSManagedServices_DetectiveControlsConfig_ServiceRolePolicy")
+	ManagedPolicy_AWSManagedServices_EventsServiceRolePolicy                       = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSManagedServices_EventsServiceRolePolicy")
+	ManagedPolicyAWSMarketplaceAmiIngestion                                        = ManagedPolicy("arn:aws:iam::aws:policy/AWSMarketplaceAmiIngestion")
+	ManagedPolicyAWSMarketplaceDeploymentServiceRolePolicy                         = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSMarketplaceDeploymentServiceRolePolicy")
+	ManagedPolicyAWSMarketplaceFullAccess                                          = ManagedPolicy("arn:aws:iam::aws:policy/AWSMarketplaceFullAccess")
+	ManagedPolicyAWSMarketplaceGetEntitlements                                     = ManagedPolicy("arn:aws:iam::aws:policy/AWSMarketplaceGetEntitlements")
+	ManagedPolicyAWSMarketplaceImageBuildFullAccess                                = ManagedPolicy("arn:aws:iam::aws:policy/AWSMarketplaceImageBuildFullAccess")
+	ManagedPolicyAWSMarketplaceLicenseManagementServiceRolePolicy                  = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSMarketplaceLicenseManagementServiceRolePolicy")
+	ManagedPolicyAWSMarketplaceManageSubscriptions                                 = ManagedPolicy("arn:aws:iam::aws:policy/AWSMarketplaceManageSubscriptions")
+	ManagedPolicyAWSMarketplaceMeteringFullAccess                                  = ManagedPolicy("arn:aws:iam::aws:policy/AWSMarketplaceMeteringFullAccess")
+	ManagedPolicyAWSMarketplaceMeteringRegisterUsage                               = ManagedPolicy("arn:aws:iam::aws:policy/AWSMarketplaceMeteringRegisterUsage")
+	ManagedPolicyAWSMarketplaceProcurementSystemAdminFullAccess                    = ManagedPolicy("arn:aws:iam::aws:policy/AWSMarketplaceProcurementSystemAdminFullAccess")
+	ManagedPolicyAWSMarketplacePurchaseOrdersServiceRolePolicy                     = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSMarketplacePurchaseOrdersServiceRolePolicy")
+	ManagedPolicyAWSMarketplaceReadonly                                            = ManagedPolicy("arn:aws:iam::aws:policy/AWSMarketplaceRead-only")
+	ManagedPolicyAWSMarketplaceResaleAuthorizationServiceRolePolicy                = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSMarketplaceResaleAuthorizationServiceRolePolicy")
+	ManagedPolicyAWSMarketplaceSellerFullAccess                                    = ManagedPolicy("arn:aws:iam::aws:policy/AWSMarketplaceSellerFullAccess")
+	ManagedPolicyAWSMarketplaceSellerProductsFullAccess                            = ManagedPolicy("arn:aws:iam::aws:policy/AWSMarketplaceSellerProductsFullAccess")
+	ManagedPolicyAWSMarketplaceSellerProductsReadOnly                              = ManagedPolicy("arn:aws:iam::aws:policy/AWSMarketplaceSellerProductsReadOnly")
+	ManagedPolicyAWSMediaConnectServicePolicy                                      = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSMediaConnectServicePolicy")
+	ManagedPolicyAWSMediaTailorServiceRolePolicy                                   = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSMediaTailorServiceRolePolicy")
+	ManagedPolicyAWSMigrationHubDMSAccess                                          = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSMigrationHubDMSAccess")
+	ManagedPolicyAWSMigrationHubDiscoveryAccess                                    = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSMigrationHubDiscoveryAccess")
+	ManagedPolicyAWSMigrationHubFullAccess                                         = ManagedPolicy("arn:aws:iam::aws:policy/AWSMigrationHubFullAccess")
+	ManagedPolicyAWSMigrationHubOrchestratorConsoleFullAccess                      = ManagedPolicy("arn:aws:iam::aws:policy/AWSMigrationHubOrchestratorConsoleFullAccess")
+	ManagedPolicyAWSMigrationHubOrchestratorInstanceRolePolicy                     = ManagedPolicy("arn:aws:iam::aws:policy/AWSMigrationHubOrchestratorInstanceRolePolicy")
+	ManagedPolicyAWSMigrationHubOrchestratorPlugin                                 = ManagedPolicy("arn:aws:iam::aws:policy/AWSMigrationHubOrchestratorPlugin")
+	ManagedPolicyAWSMigrationHubOrchestratorServiceRolePolicy                      = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSMigrationHubOrchestratorServiceRolePolicy")
+	ManagedPolicyAWSMigrationHubRefactorSpacesEnvironmentsWithoutBridgesFullAccess = ManagedPolicy("arn:aws:iam::aws:policy/AWSMigrationHubRefactorSpaces-EnvironmentsWithoutBridgesFullAccess")
+	ManagedPolicyAWSMigrationHubRefactorSpacesSSMAutomationPolicy                  = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSMigrationHubRefactorSpaces-SSMAutomationPolicy")
+	ManagedPolicyAWSMigrationHubRefactorSpacesFullAccess                           = ManagedPolicy("arn:aws:iam::aws:policy/AWSMigrationHubRefactorSpacesFullAccess")
+	ManagedPolicyAWSMigrationHubRefactorSpacesServiceRolePolicy                    = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSMigrationHubRefactorSpacesServiceRolePolicy")
+	ManagedPolicyAWSMigrationHubSMSAccess                                          = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSMigrationHubSMSAccess")
+	ManagedPolicyAWSMigrationHubStrategyCollector                                  = ManagedPolicy("arn:aws:iam::aws:policy/AWSMigrationHubStrategyCollector")
+	ManagedPolicyAWSMigrationHubStrategyConsoleFullAccess                          = ManagedPolicy("arn:aws:iam::aws:policy/AWSMigrationHubStrategyConsoleFullAccess")
+	ManagedPolicyAWSMigrationHubStrategyServiceRolePolicy                          = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSMigrationHubStrategyServiceRolePolicy")
+	// Deprecated: This policy is deprecated and will be removed in a future release.
+	ManagedPolicy_AWSMobileHub_FullAccess = ManagedPolicy("arn:aws:iam::aws:policy/AWSMobileHub_FullAccess")
+	// Deprecated: This policy is deprecated and will be removed in a future release.
+	ManagedPolicy_AWSMobileHub_ReadOnly = ManagedPolicy("arn:aws:iam::aws:policy/AWSMobileHub_ReadOnly")
+	// Deprecated: This policy is deprecated and will be removed in a future release.
 	ManagedPolicy_AWSMobileHub_ServiceUseOnly               = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSMobileHub_ServiceUseOnly")
 	ManagedPolicyAWSNetworkFirewallServiceRolePolicy        = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSNetworkFirewallServiceRolePolicy")
 	ManagedPolicyAWSNetworkManagerCloudWANServiceRolePolicy = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSNetworkManagerCloudWANServiceRolePolicy")
@@ -411,236 +451,272 @@ const (
 	// Deprecated: This policy is deprecated and will be removed in a future release. Please use AWSOpsWorksCMServiceRole instead.
 	ManagedPolicyAWSOpsWorksRole = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSOpsWorksRole")
 	// Deprecated: This policy is deprecated and will be removed in a future release. Please use AWSQuickSightDescribeRDS instead.
-	ManagedPolicyAWSQuickSightDescribeRD                                     = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSQuickSightDescribeRDS")
-	ManagedPolicy_AWSOpsWorksRegisterCLI_EC2                                 = ManagedPolicy("arn:aws:iam::aws:policy/AWSOpsWorksRegisterCLI_EC2")
-	ManagedPolicy_AWSOpsWorksRegisterCLI_OnPremises                          = ManagedPolicy("arn:aws:iam::aws:policy/AWSOpsWorksRegisterCLI_OnPremises")
-	ManagedPolicy_OpsWorks_FullAccess                                        = ManagedPolicy("arn:aws:iam::aws:policy/AWSOpsWorks_FullAccess")
-	ManagedPolicyAWSOrganizationsFullAccess                                  = ManagedPolicy("arn:aws:iam::aws:policy/AWSOrganizationsFullAccess")
-	ManagedPolicyAWSOrganizationsReadOnlyAccess                              = ManagedPolicy("arn:aws:iam::aws:policy/AWSOrganizationsReadOnlyAccess")
-	ManagedPolicyAWSOrganizationsServiceTrustPolicy                          = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSOrganizationsServiceTrustPolicy")
-	ManagedPolicyAWSOutpostsAuthorizeServerPolicy                            = ManagedPolicy("arn:aws:iam::aws:policy/AWSOutpostsAuthorizeServerPolicy")
-	ManagedPolicyAWSOutpostsServiceRolePolicy                                = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSOutpostsServiceRolePolicy")
-	ManagedPolicyAWSPanoramaApplianceRolePolicy                              = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSPanoramaApplianceRolePolicy")
-	ManagedPolicyAWSPanoramaApplianceServiceRolePolicy                       = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSPanoramaApplianceServiceRolePolicy")
-	ManagedPolicyAWSPanoramaFullAccess                                       = ManagedPolicy("arn:aws:iam::aws:policy/AWSPanoramaFullAccess")
-	ManagedPolicyAWSPanoramaGreengrassGroupRolePolicy                        = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSPanoramaGreengrassGroupRolePolicy")
-	ManagedPolicyAWSPanoramaSageMakerRolePolicy                              = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSPanoramaSageMakerRolePolicy")
-	ManagedPolicyAWSPanoramaServiceLinkedRolePolicy                          = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSPanoramaServiceLinkedRolePolicy")
-	ManagedPolicyAWSPanoramaServiceRolePolicy                                = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSPanoramaServiceRolePolicy")
-	ManagedPolicyAWSPriceListServiceFullAccess                               = ManagedPolicy("arn:aws:iam::aws:policy/AWSPriceListServiceFullAccess")
-	ManagedPolicyAWSPrivateCAAuditor                                         = ManagedPolicy("arn:aws:iam::aws:policy/AWSPrivateCAAuditor")
-	ManagedPolicyAWSPrivateCAFullAccess                                      = ManagedPolicy("arn:aws:iam::aws:policy/AWSPrivateCAFullAccess")
-	ManagedPolicyAWSPrivateCAPrivilegedUser                                  = ManagedPolicy("arn:aws:iam::aws:policy/AWSPrivateCAPrivilegedUser")
-	ManagedPolicyAWSPrivateCAReadOnly                                        = ManagedPolicy("arn:aws:iam::aws:policy/AWSPrivateCAReadOnly")
-	ManagedPolicyAWSPrivateCAUser                                            = ManagedPolicy("arn:aws:iam::aws:policy/AWSPrivateCAUser")
-	ManagedPolicyAWSPrivateMarketplaceAdminFullAccess                        = ManagedPolicy("arn:aws:iam::aws:policy/AWSPrivateMarketplaceAdminFullAccess")
-	ManagedPolicyAWSPrivateMarketplaceRequests                               = ManagedPolicy("arn:aws:iam::aws:policy/AWSPrivateMarketplaceRequests")
-	ManagedPolicyAWSPrivateNetworksServiceRolePolicy                         = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSPrivateNetworksServiceRolePolicy")
-	ManagedPolicyAWSProtonCodeBuildProvisioningBasicAccess                   = ManagedPolicy("arn:aws:iam::aws:policy/AWSProtonCodeBuildProvisioningBasicAccess")
-	ManagedPolicyAWSProtonCodeBuildProvisioningServiceRolePolicy             = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSProtonCodeBuildProvisioningServiceRolePolicy")
-	ManagedPolicyAWSProtonDeveloperAccess                                    = ManagedPolicy("arn:aws:iam::aws:policy/AWSProtonDeveloperAccess")
-	ManagedPolicyAWSProtonFullAccess                                         = ManagedPolicy("arn:aws:iam::aws:policy/AWSProtonFullAccess")
-	ManagedPolicyAWSProtonReadOnlyAccess                                     = ManagedPolicy("arn:aws:iam::aws:policy/AWSProtonReadOnlyAccess")
-	ManagedPolicyAWSProtonSyncServiceRolePolicy                              = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSProtonSyncServiceRolePolicy")
-	ManagedPolicyAWSPurchaseOrdersServiceRolePolicy                          = ManagedPolicy("arn:aws:iam::aws:policy/AWSPurchaseOrdersServiceRolePolicy")
-	ManagedPolicyAWSQuickSightDescribeRDS                                    = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSQuickSightDescribeRDS")
-	ManagedPolicyAWSQuickSightDescribeRedshift                               = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSQuickSightDescribeRedshift")
-	ManagedPolicyAWSQuickSightElasticsearchPolicy                            = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSQuickSightElasticsearchPolicy")
-	ManagedPolicyAWSQuickSightIoTAnalyticsAccess                             = ManagedPolicy("arn:aws:iam::aws:policy/AWSQuickSightIoTAnalyticsAccess")
-	ManagedPolicyAWSQuickSightListIAM                                        = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSQuickSightListIAM")
-	ManagedPolicyAWSQuickSightSageMakerPolicy                                = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSQuickSightSageMakerPolicy")
-	ManagedPolicyAWSQuickSightTimestreamPolicy                               = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSQuickSightTimestreamPolicy")
-	ManagedPolicyAWSQuicksightAthenaAccess                                   = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSQuicksightAthenaAccess")
-	ManagedPolicyAWSQuicksightOpenSearchPolicy                               = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSQuicksightOpenSearchPolicy")
-	ManagedPolicyAWSReachabilityAnalyzerServiceRolePolicy                    = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSReachabilityAnalyzerServiceRolePolicy")
-	ManagedPolicyAWSRefactoringToolkitFullAccess                             = ManagedPolicy("arn:aws:iam::aws:policy/AWSRefactoringToolkitFullAccess")
-	ManagedPolicyAWSRefactoringToolkitSidecarPolicy                          = ManagedPolicy("arn:aws:iam::aws:policy/AWSRefactoringToolkitSidecarPolicy")
-	ManagedPolicyAWSResourceAccessManagerFullAccess                          = ManagedPolicy("arn:aws:iam::aws:policy/AWSResourceAccessManagerFullAccess")
-	ManagedPolicyAWSResourceAccessManagerReadOnlyAccess                      = ManagedPolicy("arn:aws:iam::aws:policy/AWSResourceAccessManagerReadOnlyAccess")
-	ManagedPolicyAWSResourceAccessManagerResourceShareParticipantAccess      = ManagedPolicy("arn:aws:iam::aws:policy/AWSResourceAccessManagerResourceShareParticipantAccess")
-	ManagedPolicyAWSResourceAccessManagerServiceRolePolicy                   = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSResourceAccessManagerServiceRolePolicy")
-	ManagedPolicyAWSResourceExplorerFullAccess                               = ManagedPolicy("arn:aws:iam::aws:policy/AWSResourceExplorerFullAccess")
-	ManagedPolicyAWSResourceExplorerReadOnlyAccess                           = ManagedPolicy("arn:aws:iam::aws:policy/AWSResourceExplorerReadOnlyAccess")
-	ManagedPolicyAWSResourceExplorerServiceRolePolicy                        = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSResourceExplorerServiceRolePolicy")
-	ManagedPolicyAWSResourceGroupsReadOnlyAccess                             = ManagedPolicy("arn:aws:iam::aws:policy/AWSResourceGroupsReadOnlyAccess")
-	ManagedPolicyAWSRoboMakerReadOnlyAccess                                  = ManagedPolicy("arn:aws:iam::aws:policy/AWSRoboMakerReadOnlyAccess")
-	ManagedPolicyAWSRoboMakerServicePolicy                                   = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSRoboMakerServicePolicy")
-	ManagedPolicyAWSRoboMakerServiceRolePolicy                               = ManagedPolicy("arn:aws:iam::aws:policy/AWSRoboMakerServiceRolePolicy")
-	ManagedPolicy_AWSRoboMaker_FullAccess                                    = ManagedPolicy("arn:aws:iam::aws:policy/AWSRoboMaker_FullAccess")
-	ManagedPolicyAWSRolesAnywhereServicePolicy                               = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSRolesAnywhereServicePolicy")
-	ManagedPolicyAWSSSMForSAPServiceLinkedRolePolicy                         = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSSSMForSAPServiceLinkedRolePolicy")
-	ManagedPolicyAWSSSMOpsInsightsServiceRolePolicy                          = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSSSMOpsInsightsServiceRolePolicy")
-	ManagedPolicyAWSSSODirectoryAdministrator                                = ManagedPolicy("arn:aws:iam::aws:policy/AWSSSODirectoryAdministrator")
-	ManagedPolicyAWSSSODirectoryReadOnly                                     = ManagedPolicy("arn:aws:iam::aws:policy/AWSSSODirectoryReadOnly")
-	ManagedPolicyAWSSSOMasterAccountAdministrator                            = ManagedPolicy("arn:aws:iam::aws:policy/AWSSSOMasterAccountAdministrator")
-	ManagedPolicyAWSSSOMemberAccountAdministrator                            = ManagedPolicy("arn:aws:iam::aws:policy/AWSSSOMemberAccountAdministrator")
-	ManagedPolicyAWSSSOReadOnly                                              = ManagedPolicy("arn:aws:iam::aws:policy/AWSSSOReadOnly")
-	ManagedPolicyAWSSSOServiceRolePolicy                                     = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSSSOServiceRolePolicy")
-	ManagedPolicyAWSSavingsPlansFullAccess                                   = ManagedPolicy("arn:aws:iam::aws:policy/AWSSavingsPlansFullAccess")
-	ManagedPolicyAWSSavingsPlansReadOnlyAccess                               = ManagedPolicy("arn:aws:iam::aws:policy/AWSSavingsPlansReadOnlyAccess")
-	ManagedPolicyAWSSecurityHubFullAccess                                    = ManagedPolicy("arn:aws:iam::aws:policy/AWSSecurityHubFullAccess")
-	ManagedPolicyAWSSecurityHubOrganizationsAccess                           = ManagedPolicy("arn:aws:iam::aws:policy/AWSSecurityHubOrganizationsAccess")
-	ManagedPolicyAWSSecurityHubReadOnlyAccess                                = ManagedPolicy("arn:aws:iam::aws:policy/AWSSecurityHubReadOnlyAccess")
-	ManagedPolicyAWSSecurityHubServiceRolePolicy                             = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSSecurityHubServiceRolePolicy")
-	ManagedPolicyAWSServiceCatalogAdminFullAccess                            = ManagedPolicy("arn:aws:iam::aws:policy/AWSServiceCatalogAdminFullAccess")
-	ManagedPolicyAWSServiceCatalogAdminReadOnlyAccess                        = ManagedPolicy("arn:aws:iam::aws:policy/AWSServiceCatalogAdminReadOnlyAccess")
-	ManagedPolicyAWSServiceCatalogAppRegistryFullAccess                      = ManagedPolicy("arn:aws:iam::aws:policy/AWSServiceCatalogAppRegistryFullAccess")
-	ManagedPolicyAWSServiceCatalogAppRegistryReadOnlyAccess                  = ManagedPolicy("arn:aws:iam::aws:policy/AWSServiceCatalogAppRegistryReadOnlyAccess")
-	ManagedPolicyAWSServiceCatalogAppRegistryServiceRolePolicy               = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSServiceCatalogAppRegistryServiceRolePolicy")
-	ManagedPolicyAWSServiceCatalogEndUserFullAccess                          = ManagedPolicy("arn:aws:iam::aws:policy/AWSServiceCatalogEndUserFullAccess")
-	ManagedPolicyAWSServiceCatalogEndUserReadOnlyAccess                      = ManagedPolicy("arn:aws:iam::aws:policy/AWSServiceCatalogEndUserReadOnlyAccess")
-	ManagedPolicyAWSServiceCatalogSyncServiceRolePolicy                      = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSServiceCatalogSyncServiceRolePolicy")
-	ManagedPolicyAWSServiceRoleForAmazonEKSNodegroup                         = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForAmazonEKSNodegroup")
-	ManagedPolicyAWSServiceRoleForCloudWatchAlarmsActionSSMServiceRolePolicy = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForCloudWatchAlarmsActionSSMServiceRolePolicy")
-	ManagedPolicyAWSServiceRoleForCodeGuruProfiler                           = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForCodeGuru-Profiler")
-	ManagedPolicyAWSServiceRoleForEC2ScheduledInstances                      = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForEC2ScheduledInstances")
-	ManagedPolicyAWSServiceRoleForGroundStationDataflowEndpointGroupPolicy   = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForGroundStationDataflowEndpointGroupPolicy")
-	ManagedPolicyAWSServiceRoleForImageBuilder                               = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForImageBuilder")
-	ManagedPolicyAWSServiceRoleForIoTSiteWise                                = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForIoTSiteWise")
-	ManagedPolicyAWSServiceRoleForLogDeliveryPolicy                          = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForLogDeliveryPolicy")
-	ManagedPolicyAWSServiceRoleForMonitronPolicy                             = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForMonitronPolicy")
-	ManagedPolicyAWSServiceRoleForSMS                                        = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForSMS")
-	ManagedPolicyAWSServiceRolePolicyForBackupReports                        = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSServiceRolePolicyForBackupReports")
-	ManagedPolicyAWSShieldDRTAccessPolicy                                    = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy")
-	ManagedPolicyAWSShieldServiceRolePolicy                                  = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSShieldServiceRolePolicy")
-	ManagedPolicyAWSStepFunctionsConsoleFullAccess                           = ManagedPolicy("arn:aws:iam::aws:policy/AWSStepFunctionsConsoleFullAccess")
-	ManagedPolicyAWSStepFunctionsFullAccess                                  = ManagedPolicy("arn:aws:iam::aws:policy/AWSStepFunctionsFullAccess")
-	ManagedPolicyAWSStepFunctionsReadOnlyAccess                              = ManagedPolicy("arn:aws:iam::aws:policy/AWSStepFunctionsReadOnlyAccess")
-	ManagedPolicyAWSStorageGatewayFullAccess                                 = ManagedPolicy("arn:aws:iam::aws:policy/AWSStorageGatewayFullAccess")
-	ManagedPolicyAWSStorageGatewayReadOnlyAccess                             = ManagedPolicy("arn:aws:iam::aws:policy/AWSStorageGatewayReadOnlyAccess")
-	ManagedPolicyAWSStorageGatewayServiceRolePolicy                          = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSStorageGatewayServiceRolePolicy")
-	ManagedPolicyAWSSupportAccess                                            = ManagedPolicy("arn:aws:iam::aws:policy/AWSSupportAccess")
-	ManagedPolicyAWSSupportAppFullAccess                                     = ManagedPolicy("arn:aws:iam::aws:policy/AWSSupportAppFullAccess")
-	ManagedPolicyAWSSupportAppReadOnlyAccess                                 = ManagedPolicy("arn:aws:iam::aws:policy/AWSSupportAppReadOnlyAccess")
-	ManagedPolicyAWSSupportPlansFullAccess                                   = ManagedPolicy("arn:aws:iam::aws:policy/AWSSupportPlansFullAccess")
-	ManagedPolicyAWSSupportPlansReadOnlyAccess                               = ManagedPolicy("arn:aws:iam::aws:policy/AWSSupportPlansReadOnlyAccess")
-	ManagedPolicyAWSSupportServiceRolePolicy                                 = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSSupportServiceRolePolicy")
-	ManagedPolicyAWSSystemsManagerAccountDiscoveryServicePolicy              = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSSystemsManagerAccountDiscoveryServicePolicy")
-	ManagedPolicyAWSSystemsManagerChangeManagementServicePolicy              = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSSystemsManagerChangeManagementServicePolicy")
-	ManagedPolicyAWSSystemsManagerForSAPFullAccess                           = ManagedPolicy("arn:aws:iam::aws:policy/AWSSystemsManagerForSAPFullAccess")
-	ManagedPolicyAWSSystemsManagerForSAPReadOnlyAccess                       = ManagedPolicy("arn:aws:iam::aws:policy/AWSSystemsManagerForSAPReadOnlyAccess")
-	ManagedPolicyAWSSystemsManagerOpsDataSyncServiceRolePolicy               = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSSystemsManagerOpsDataSyncServiceRolePolicy")
-	ManagedPolicyAWSThinkboxAWSPortalAdminPolicy                             = ManagedPolicy("arn:aws:iam::aws:policy/AWSThinkboxAWSPortalAdminPolicy")
-	ManagedPolicyAWSThinkboxAWSPortalGatewayPolicy                           = ManagedPolicy("arn:aws:iam::aws:policy/AWSThinkboxAWSPortalGatewayPolicy")
-	ManagedPolicyAWSThinkboxAWSPortalWorkerPolicy                            = ManagedPolicy("arn:aws:iam::aws:policy/AWSThinkboxAWSPortalWorkerPolicy")
-	ManagedPolicyAWSThinkboxAssetServerPolicy                                = ManagedPolicy("arn:aws:iam::aws:policy/AWSThinkboxAssetServerPolicy")
-	ManagedPolicyAWSThinkboxDeadlineResourceTrackerAccessPolicy              = ManagedPolicy("arn:aws:iam::aws:policy/AWSThinkboxDeadlineResourceTrackerAccessPolicy")
-	ManagedPolicyAWSThinkboxDeadlineResourceTrackerAdminPolicy               = ManagedPolicy("arn:aws:iam::aws:policy/AWSThinkboxDeadlineResourceTrackerAdminPolicy")
-	ManagedPolicyAWSThinkboxDeadlineSpotEventPluginAdminPolicy               = ManagedPolicy("arn:aws:iam::aws:policy/AWSThinkboxDeadlineSpotEventPluginAdminPolicy")
-	ManagedPolicyAWSThinkboxDeadlineSpotEventPluginWorkerPolicy              = ManagedPolicy("arn:aws:iam::aws:policy/AWSThinkboxDeadlineSpotEventPluginWorkerPolicy")
-	ManagedPolicyAWSTransferConsoleFullAccess                                = ManagedPolicy("arn:aws:iam::aws:policy/AWSTransferConsoleFullAccess")
-	ManagedPolicyAWSTransferFullAccess                                       = ManagedPolicy("arn:aws:iam::aws:policy/AWSTransferFullAccess")
-	ManagedPolicyAWSTransferLoggingAccess                                    = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSTransferLoggingAccess")
-	ManagedPolicyAWSTransferReadOnlyAccess                                   = ManagedPolicy("arn:aws:iam::aws:policy/AWSTransferReadOnlyAccess")
-	ManagedPolicyAWSTrustedAdvisorPriorityFullAccess                         = ManagedPolicy("arn:aws:iam::aws:policy/AWSTrustedAdvisorPriorityFullAccess")
-	ManagedPolicyAWSTrustedAdvisorPriorityReadOnlyAccess                     = ManagedPolicy("arn:aws:iam::aws:policy/AWSTrustedAdvisorPriorityReadOnlyAccess")
-	ManagedPolicyAWSTrustedAdvisorReportingServiceRolePolicy                 = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSTrustedAdvisorReportingServiceRolePolicy")
-	ManagedPolicyAWSTrustedAdvisorServiceRolePolicy                          = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSTrustedAdvisorServiceRolePolicy")
-	ManagedPolicyAWSVPCS2SVpnServiceRolePolicy                               = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSVPCS2SVpnServiceRolePolicy")
-	ManagedPolicyAWSVPCTransitGatewayServiceRolePolicy                       = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSVPCTransitGatewayServiceRolePolicy")
-	ManagedPolicyAWSVPCVerifiedAccessServiceRolePolicy                       = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSVPCVerifiedAccessServiceRolePolicy")
-	ManagedPolicyAWSVendorInsightsAssessorFullAccess                         = ManagedPolicy("arn:aws:iam::aws:policy/AWSVendorInsightsAssessorFullAccess")
-	ManagedPolicyAWSVendorInsightsAssessorReadOnly                           = ManagedPolicy("arn:aws:iam::aws:policy/AWSVendorInsightsAssessorReadOnly")
-	ManagedPolicyAWSVendorInsightsVendorFullAccess                           = ManagedPolicy("arn:aws:iam::aws:policy/AWSVendorInsightsVendorFullAccess")
-	ManagedPolicyAWSVendorInsightsVendorReadOnly                             = ManagedPolicy("arn:aws:iam::aws:policy/AWSVendorInsightsVendorReadOnly")
-	ManagedPolicyAWSVpcLatticeServiceRolePolicy                              = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSVpcLatticeServiceRolePolicy")
-	ManagedPolicyAWSWAFConsoleFullAccess                                     = ManagedPolicy("arn:aws:iam::aws:policy/AWSWAFConsoleFullAccess")
-	ManagedPolicyAWSWAFConsoleReadOnlyAccess                                 = ManagedPolicy("arn:aws:iam::aws:policy/AWSWAFConsoleReadOnlyAccess")
-	ManagedPolicyAWSWAFFullAccess                                            = ManagedPolicy("arn:aws:iam::aws:policy/AWSWAFFullAccess")
-	ManagedPolicyAWSWAFReadOnlyAccess                                        = ManagedPolicy("arn:aws:iam::aws:policy/AWSWAFReadOnlyAccess")
-	ManagedPolicyAWSWellArchitectedOrganizationsServiceRolePolicy            = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSWellArchitectedOrganizationsServiceRolePolicy")
-	ManagedPolicyAWSWickrFullAccess                                          = ManagedPolicy("arn:aws:iam::aws:policy/AWSWickrFullAccess")
-	ManagedPolicyAWSXrayCrossAccountSharingConfiguration                     = ManagedPolicy("arn:aws:iam::aws:policy/AWSXrayCrossAccountSharingConfiguration")
-	ManagedPolicyAWSXrayFullAccess                                           = ManagedPolicy("arn:aws:iam::aws:policy/AWSXrayFullAccess")
-	ManagedPolicyAWSXrayReadOnlyAccess                                       = ManagedPolicy("arn:aws:iam::aws:policy/AWSXrayReadOnlyAccess")
-	ManagedPolicyAWSXrayWriteOnlyAccess                                      = ManagedPolicy("arn:aws:iam::aws:policy/AWSXrayWriteOnlyAccess")
-	ManagedPolicyAWSXRayDaemonWriteAccess                                    = ManagedPolicy("arn:aws:iam::aws:policy/AWSXRayDaemonWriteAccess")
-	ManagedPolicyAccessAnalyzerServiceRolePolicy                             = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AccessAnalyzerServiceRolePolicy")
-	ManagedPolicyAdministratorAccess                                         = ManagedPolicy("arn:aws:iam::aws:policy/AdministratorAccess")
-	ManagedPolicyAdministratorAccessAWSElasticBeanstalk                      = ManagedPolicy("arn:aws:iam::aws:policy/AdministratorAccess-AWSElasticBeanstalk")
-	ManagedPolicyAdministratorAccessAmplify                                  = ManagedPolicy("arn:aws:iam::aws:policy/AdministratorAccess-Amplify")
-	ManagedPolicyAlexaForBusinessDeviceSetup                                 = ManagedPolicy("arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup")
-	ManagedPolicyAlexaForBusinessFullAccess                                  = ManagedPolicy("arn:aws:iam::aws:policy/AlexaForBusinessFullAccess")
-	ManagedPolicyAlexaForBusinessGatewayExecution                            = ManagedPolicy("arn:aws:iam::aws:policy/AlexaForBusinessGatewayExecution")
-	ManagedPolicyAlexaForBusinessLifesizeDelegatedAccessPolicy               = ManagedPolicy("arn:aws:iam::aws:policy/AlexaForBusinessLifesizeDelegatedAccessPolicy")
-	ManagedPolicyAlexaForBusinessNetworkProfileServicePolicy                 = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AlexaForBusinessNetworkProfileServicePolicy")
-	ManagedPolicyAlexaForBusinessPolyDelegatedAccessPolicy                   = ManagedPolicy("arn:aws:iam::aws:policy/AlexaForBusinessPolyDelegatedAccessPolicy")
-	ManagedPolicyAlexaForBusinessReadOnlyAccess                              = ManagedPolicy("arn:aws:iam::aws:policy/AlexaForBusinessReadOnlyAccess")
-	ManagedPolicyAmazonAPIGatewayAdministrator                               = ManagedPolicy("arn:aws:iam::aws:policy/AmazonAPIGatewayAdministrator")
-	ManagedPolicyAmazonAPIGatewayInvokeFullAccess                            = ManagedPolicy("arn:aws:iam::aws:policy/AmazonAPIGatewayInvokeFullAccess")
-	ManagedPolicyAmazonAPIGatewayPushToCloudWatchLogs                        = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs")
-	ManagedPolicyAmazonAppFlowFullAccess                                     = ManagedPolicy("arn:aws:iam::aws:policy/AmazonAppFlowFullAccess")
-	ManagedPolicyAmazonAppFlowReadOnlyAccess                                 = ManagedPolicy("arn:aws:iam::aws:policy/AmazonAppFlowReadOnlyAccess")
-	ManagedPolicyAmazonAppStreamFullAccess                                   = ManagedPolicy("arn:aws:iam::aws:policy/AmazonAppStreamFullAccess")
-	ManagedPolicyAmazonAppStreamPCAAccess                                    = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonAppStreamPCAAccess")
-	ManagedPolicyAmazonAppStreamReadOnlyAccess                               = ManagedPolicy("arn:aws:iam::aws:policy/AmazonAppStreamReadOnlyAccess")
-	ManagedPolicyAmazonAppStreamServiceAccess                                = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonAppStreamServiceAccess")
-	ManagedPolicyAmazonAthenaFullAccess                                      = ManagedPolicy("arn:aws:iam::aws:policy/AmazonAthenaFullAccess")
-	ManagedPolicyAmazonAugmentedAIFullAccess                                 = ManagedPolicy("arn:aws:iam::aws:policy/AmazonAugmentedAIFullAccess")
-	ManagedPolicyAmazonAugmentedAIHumanLoopFullAccess                        = ManagedPolicy("arn:aws:iam::aws:policy/AmazonAugmentedAIHumanLoopFullAccess")
-	ManagedPolicyAmazonAugmentedAIIntegratedAPIAccess                        = ManagedPolicy("arn:aws:iam::aws:policy/AmazonAugmentedAIIntegratedAPIAccess")
-	ManagedPolicyAmazonBraketFullAccess                                      = ManagedPolicy("arn:aws:iam::aws:policy/AmazonBraketFullAccess")
-	ManagedPolicyAmazonBraketJobsExecutionPolicy                             = ManagedPolicy("arn:aws:iam::aws:policy/AmazonBraketJobsExecutionPolicy")
-	ManagedPolicyAmazonBraketServiceRolePolicy                               = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonBraketServiceRolePolicy")
-	ManagedPolicyAmazonChimeFullAccess                                       = ManagedPolicy("arn:aws:iam::aws:policy/AmazonChimeFullAccess")
-	ManagedPolicyAmazonChimeReadOnly                                         = ManagedPolicy("arn:aws:iam::aws:policy/AmazonChimeReadOnly")
-	ManagedPolicyAmazonChimeSDK                                              = ManagedPolicy("arn:aws:iam::aws:policy/AmazonChimeSDK")
-	ManagedPolicyAmazonChimeSDKMediaPipelinesServiceLinkedRolePolicy         = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonChimeSDKMediaPipelinesServiceLinkedRolePolicy")
-	ManagedPolicyAmazonChimeServiceRolePolicy                                = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonChimeServiceRolePolicy")
-	ManagedPolicyAmazonChimeTranscriptionServiceLinkedRolePolicy             = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonChimeTranscriptionServiceLinkedRolePolicy")
-	ManagedPolicyAmazonChimeUserManagement                                   = ManagedPolicy("arn:aws:iam::aws:policy/AmazonChimeUserManagement")
-	ManagedPolicyAmazonChimeVoiceConnectorServiceLinkedRolePolicy            = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonChimeVoiceConnectorServiceLinkedRolePolicy")
-	ManagedPolicyAmazonCloudDirectoryFullAccess                              = ManagedPolicy("arn:aws:iam::aws:policy/AmazonCloudDirectoryFullAccess")
-	ManagedPolicyAmazonCloudDirectoryReadOnlyAccess                          = ManagedPolicy("arn:aws:iam::aws:policy/AmazonCloudDirectoryReadOnlyAccess")
-	ManagedPolicyAmazonCloudWatchEvidentlyFullAccess                         = ManagedPolicy("arn:aws:iam::aws:policy/AmazonCloudWatchEvidentlyFullAccess")
-	ManagedPolicyAmazonCloudWatchEvidentlyReadOnlyAccess                     = ManagedPolicy("arn:aws:iam::aws:policy/AmazonCloudWatchEvidentlyReadOnlyAccess")
-	ManagedPolicyAmazonCloudWatchEvidentlyServiceRolePolicy                  = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonCloudWatchEvidentlyServiceRolePolicy")
-	ManagedPolicyAmazonCloudWatchRUMFullAccess                               = ManagedPolicy("arn:aws:iam::aws:policy/AmazonCloudWatchRUMFullAccess")
-	ManagedPolicyAmazonCloudWatchRUMReadOnlyAccess                           = ManagedPolicy("arn:aws:iam::aws:policy/AmazonCloudWatchRUMReadOnlyAccess")
-	ManagedPolicyAmazonCloudWatchRUMServiceRolePolicy                        = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonCloudWatchRUMServiceRolePolicy")
-	ManagedPolicyAmazonCodeGuruProfilerAgentAccess                           = ManagedPolicy("arn:aws:iam::aws:policy/AmazonCodeGuruProfilerAgentAccess")
-	ManagedPolicyAmazonCodeGuruProfilerFullAccess                            = ManagedPolicy("arn:aws:iam::aws:policy/AmazonCodeGuruProfilerFullAccess")
-	ManagedPolicyAmazonCodeGuruProfilerReadOnlyAccess                        = ManagedPolicy("arn:aws:iam::aws:policy/AmazonCodeGuruProfilerReadOnlyAccess")
-	ManagedPolicyAmazonCodeGuruReviewerFullAccess                            = ManagedPolicy("arn:aws:iam::aws:policy/AmazonCodeGuruReviewerFullAccess")
-	ManagedPolicyAmazonCodeGuruReviewerReadOnlyAccess                        = ManagedPolicy("arn:aws:iam::aws:policy/AmazonCodeGuruReviewerReadOnlyAccess")
-	ManagedPolicyAmazonCodeGuruReviewerServiceRolePolicy                     = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonCodeGuruReviewerServiceRolePolicy")
-	ManagedPolicyAmazonCognitoDeveloperAuthenticatedIdentities               = ManagedPolicy("arn:aws:iam::aws:policy/AmazonCognitoDeveloperAuthenticatedIdentities")
-	ManagedPolicyAmazonCognitoIdpEmailServiceRolePolicy                      = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonCognitoIdpEmailServiceRolePolicy")
-	ManagedPolicyAmazonCognitoIdpServiceRolePolicy                           = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonCognitoIdpServiceRolePolicy")
-	ManagedPolicyAmazonCognitoPowerUser                                      = ManagedPolicy("arn:aws:iam::aws:policy/AmazonCognitoPowerUser")
-	ManagedPolicyAmazonCognitoReadOnly                                       = ManagedPolicy("arn:aws:iam::aws:policy/AmazonCognitoReadOnly")
-	ManagedPolicyAmazonCognitoUnauthenticatedIdentities                      = ManagedPolicy("arn:aws:iam::aws:policy/AmazonCognitoUnauthenticatedIdentities")
-	ManagedPolicyAmazonConnectCampaignsServiceLinkedRolePolicy               = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonConnectCampaignsServiceLinkedRolePolicy")
-	ManagedPolicyAmazonConnectReadOnlyAccess                                 = ManagedPolicy("arn:aws:iam::aws:policy/AmazonConnectReadOnlyAccess")
-	ManagedPolicyAmazonConnectServiceLinkedRolePolicy                        = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonConnectServiceLinkedRolePolicy")
-	ManagedPolicyAmazonConnectVoiceIDFullAccess                              = ManagedPolicy("arn:aws:iam::aws:policy/AmazonConnectVoiceIDFullAccess")
-	ManagedPolicy_AmazonConnect_FullAccess                                   = ManagedPolicy("arn:aws:iam::aws:policy/AmazonConnect_FullAccess")
-	ManagedPolicyAmazonDMSCloudWatchLogsRole                                 = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonDMSCloudWatchLogsRole")
-	ManagedPolicyAmazonDMSRedshiftS3Role                                     = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonDMSRedshiftS3Role")
-	ManagedPolicyAmazonDMSVPCManagementRole                                  = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole")
-	ManagedPolicyAmazonDRSVPCManagement                                      = ManagedPolicy("arn:aws:iam::aws:policy/AmazonDRSVPCManagement")
-	ManagedPolicyAmazonDetectiveFullAccess                                   = ManagedPolicy("arn:aws:iam::aws:policy/AmazonDetectiveFullAccess")
-	ManagedPolicyAmazonDetectiveInvestigatorAccess                           = ManagedPolicy("arn:aws:iam::aws:policy/AmazonDetectiveInvestigatorAccess")
-	ManagedPolicyAmazonDetectiveMemberAccess                                 = ManagedPolicy("arn:aws:iam::aws:policy/AmazonDetectiveMemberAccess")
-	ManagedPolicyAmazonDetectiveServiceLinkedRolePolicy                      = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonDetectiveServiceLinkedRolePolicy")
-	ManagedPolicyAmazonDevOpsGuruConsoleFullAccess                           = ManagedPolicy("arn:aws:iam::aws:policy/AmazonDevOpsGuruConsoleFullAccess")
-	ManagedPolicyAmazonDevOpsGuruFullAccess                                  = ManagedPolicy("arn:aws:iam::aws:policy/AmazonDevOpsGuruFullAccess")
-	ManagedPolicyAmazonDevOpsGuruOrganizationsAccess                         = ManagedPolicy("arn:aws:iam::aws:policy/AmazonDevOpsGuruOrganizationsAccess")
-	ManagedPolicyAmazonDevOpsGuruReadOnlyAccess                              = ManagedPolicy("arn:aws:iam::aws:policy/AmazonDevOpsGuruReadOnlyAccess")
-	ManagedPolicyAmazonDevOpsGuruServiceRolePolicy                           = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonDevOpsGuruServiceRolePolicy")
-	ManagedPolicyAmazonDocDBElasticServiceRolePolicy                         = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonDocDB-ElasticServiceRolePolicy")
-	ManagedPolicyAmazonDocDBConsoleFullAccess                                = ManagedPolicy("arn:aws:iam::aws:policy/AmazonDocDBConsoleFullAccess")
-	ManagedPolicyAmazonDocDBFullAccess                                       = ManagedPolicy("arn:aws:iam::aws:policy/AmazonDocDBFullAccess")
-	ManagedPolicyAmazonDocDBReadOnlyAccess                                   = ManagedPolicy("arn:aws:iam::aws:policy/AmazonDocDBReadOnlyAccess")
-	ManagedPolicyAmazonDynamoDBFullAccess                                    = ManagedPolicy("arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess")
-	ManagedPolicyAmazonDynamoDBFullAccesswithDataPipeline                    = ManagedPolicy("arn:aws:iam::aws:policy/AmazonDynamoDBFullAccesswithDataPipeline")
-	ManagedPolicyAmazonDynamoDBReadOnlyAccess                                = ManagedPolicy("arn:aws:iam::aws:policy/AmazonDynamoDBReadOnlyAccess")
-	ManagedPolicyAmazonEBSCSIDriverPolicy                                    = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy")
-	ManagedPolicyAmazonEC2ContainerRegistryFullAccess                        = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryFullAccess")
-	ManagedPolicyAmazonEC2ContainerRegistryPowerUser                         = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryPowerUser")
-	ManagedPolicyAmazonEC2ContainerRegistryReadOnly                          = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly")
-	ManagedPolicyAmazonEC2ContainerServiceAutoscaleRole                      = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceAutoscaleRole")
-	ManagedPolicyAmazonEC2ContainerServiceEventsRole                         = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceEventsRole")
+	ManagedPolicyAWSQuickSightDescribeRD                                             = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSQuickSightDescribeRDS")
+	ManagedPolicy_AWSOpsWorksRegisterCLI_EC2                                         = ManagedPolicy("arn:aws:iam::aws:policy/AWSOpsWorksRegisterCLI_EC2")
+	ManagedPolicy_AWSOpsWorksRegisterCLI_OnPremises                                  = ManagedPolicy("arn:aws:iam::aws:policy/AWSOpsWorksRegisterCLI_OnPremises")
+	ManagedPolicy_OpsWorks_FullAccess                                                = ManagedPolicy("arn:aws:iam::aws:policy/AWSOpsWorks_FullAccess")
+	ManagedPolicyAWSOrganizationsFullAccess                                          = ManagedPolicy("arn:aws:iam::aws:policy/AWSOrganizationsFullAccess")
+	ManagedPolicyAWSOrganizationsReadOnlyAccess                                      = ManagedPolicy("arn:aws:iam::aws:policy/AWSOrganizationsReadOnlyAccess")
+	ManagedPolicyAWSOrganizationsServiceTrustPolicy                                  = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSOrganizationsServiceTrustPolicy")
+	ManagedPolicyAWSOutpostsAuthorizeServerPolicy                                    = ManagedPolicy("arn:aws:iam::aws:policy/AWSOutpostsAuthorizeServerPolicy")
+	ManagedPolicyAWSOutpostsServiceRolePolicy                                        = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSOutpostsServiceRolePolicy")
+	ManagedPolicyAWSPanoramaApplianceRolePolicy                                      = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSPanoramaApplianceRolePolicy")
+	ManagedPolicyAWSPanoramaApplianceServiceRolePolicy                               = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSPanoramaApplianceServiceRolePolicy")
+	ManagedPolicyAWSPanoramaFullAccess                                               = ManagedPolicy("arn:aws:iam::aws:policy/AWSPanoramaFullAccess")
+	ManagedPolicyAWSPanoramaGreengrassGroupRolePolicy                                = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSPanoramaGreengrassGroupRolePolicy")
+	ManagedPolicyAWSPanoramaSageMakerRolePolicy                                      = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSPanoramaSageMakerRolePolicy")
+	ManagedPolicyAWSPanoramaServiceLinkedRolePolicy                                  = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSPanoramaServiceLinkedRolePolicy")
+	ManagedPolicyAWSPanoramaServiceRolePolicy                                        = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSPanoramaServiceRolePolicy")
+	ManagedPolicyAWSPriceListServiceFullAccess                                       = ManagedPolicy("arn:aws:iam::aws:policy/AWSPriceListServiceFullAccess")
+	ManagedPolicyAWSPrivateCAAuditor                                                 = ManagedPolicy("arn:aws:iam::aws:policy/AWSPrivateCAAuditor")
+	ManagedPolicyAWSPrivateCAFullAccess                                              = ManagedPolicy("arn:aws:iam::aws:policy/AWSPrivateCAFullAccess")
+	ManagedPolicyAWSPrivateCAPrivilegedUser                                          = ManagedPolicy("arn:aws:iam::aws:policy/AWSPrivateCAPrivilegedUser")
+	ManagedPolicyAWSPrivateCAReadOnly                                                = ManagedPolicy("arn:aws:iam::aws:policy/AWSPrivateCAReadOnly")
+	ManagedPolicyAWSPrivateCAUser                                                    = ManagedPolicy("arn:aws:iam::aws:policy/AWSPrivateCAUser")
+	ManagedPolicyAWSPrivateMarketplaceAdminFullAccess                                = ManagedPolicy("arn:aws:iam::aws:policy/AWSPrivateMarketplaceAdminFullAccess")
+	ManagedPolicyAWSPrivateMarketplaceRequests                                       = ManagedPolicy("arn:aws:iam::aws:policy/AWSPrivateMarketplaceRequests")
+	ManagedPolicyAWSPrivateNetworksServiceRolePolicy                                 = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSPrivateNetworksServiceRolePolicy")
+	ManagedPolicyAWSProtonCodeBuildProvisioningBasicAccess                           = ManagedPolicy("arn:aws:iam::aws:policy/AWSProtonCodeBuildProvisioningBasicAccess")
+	ManagedPolicyAWSProtonCodeBuildProvisioningServiceRolePolicy                     = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSProtonCodeBuildProvisioningServiceRolePolicy")
+	ManagedPolicyAWSProtonDeveloperAccess                                            = ManagedPolicy("arn:aws:iam::aws:policy/AWSProtonDeveloperAccess")
+	ManagedPolicyAWSProtonFullAccess                                                 = ManagedPolicy("arn:aws:iam::aws:policy/AWSProtonFullAccess")
+	ManagedPolicyAWSProtonReadOnlyAccess                                             = ManagedPolicy("arn:aws:iam::aws:policy/AWSProtonReadOnlyAccess")
+	ManagedPolicyAWSProtonServiceGitSyncServiceRolePolicy                            = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSProtonServiceGitSyncServiceRolePolicy")
+	ManagedPolicyAWSProtonSyncServiceRolePolicy                                      = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSProtonSyncServiceRolePolicy")
+	ManagedPolicyAWSPurchaseOrdersServiceRolePolicy                                  = ManagedPolicy("arn:aws:iam::aws:policy/AWSPurchaseOrdersServiceRolePolicy")
+	ManagedPolicyAWSQuickSightDescribeRDS                                            = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSQuickSightDescribeRDS")
+	ManagedPolicyAWSQuickSightDescribeRedshift                                       = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSQuickSightDescribeRedshift")
+	ManagedPolicyAWSQuickSightElasticsearchPolicy                                    = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSQuickSightElasticsearchPolicy")
+	ManagedPolicyAWSQuickSightIoTAnalyticsAccess                                     = ManagedPolicy("arn:aws:iam::aws:policy/AWSQuickSightIoTAnalyticsAccess")
+	ManagedPolicyAWSQuickSightListIAM                                                = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSQuickSightListIAM")
+	ManagedPolicyAWSQuickSightSageMakerPolicy                                        = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSQuickSightSageMakerPolicy")
+	ManagedPolicyAWSQuickSightTimestreamPolicy                                       = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSQuickSightTimestreamPolicy")
+	ManagedPolicyAWSQuicksightAthenaAccess                                           = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSQuicksightAthenaAccess")
+	ManagedPolicyAWSQuicksightOpenSearchPolicy                                       = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSQuicksightOpenSearchPolicy")
+	ManagedPolicyAWSReachabilityAnalyzerServiceRolePolicy                            = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSReachabilityAnalyzerServiceRolePolicy")
+	ManagedPolicyAWSRefactoringToolkitFullAccess                                     = ManagedPolicy("arn:aws:iam::aws:policy/AWSRefactoringToolkitFullAccess")
+	ManagedPolicyAWSRefactoringToolkitSidecarPolicy                                  = ManagedPolicy("arn:aws:iam::aws:policy/AWSRefactoringToolkitSidecarPolicy")
+	ManagedPolicyAWSRepostSpaceSupportOperationsPolicy                               = ManagedPolicy("arn:aws:iam::aws:policy/AWSRepostSpaceSupportOperationsPolicy")
+	ManagedPolicyAWSResilienceHubAsssessmentExecutionPolicy                          = ManagedPolicy("arn:aws:iam::aws:policy/AWSResilienceHubAsssessmentExecutionPolicy")
+	ManagedPolicyAWSResourceAccessManagerFullAccess                                  = ManagedPolicy("arn:aws:iam::aws:policy/AWSResourceAccessManagerFullAccess")
+	ManagedPolicyAWSResourceAccessManagerReadOnlyAccess                              = ManagedPolicy("arn:aws:iam::aws:policy/AWSResourceAccessManagerReadOnlyAccess")
+	ManagedPolicyAWSResourceAccessManagerResourceShareParticipantAccess              = ManagedPolicy("arn:aws:iam::aws:policy/AWSResourceAccessManagerResourceShareParticipantAccess")
+	ManagedPolicyAWSResourceAccessManagerServiceRolePolicy                           = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSResourceAccessManagerServiceRolePolicy")
+	ManagedPolicyAWSResourceExplorerFullAccess                                       = ManagedPolicy("arn:aws:iam::aws:policy/AWSResourceExplorerFullAccess")
+	ManagedPolicyAWSResourceExplorerOrganizationsAccess                              = ManagedPolicy("arn:aws:iam::aws:policy/AWSResourceExplorerOrganizationsAccess")
+	ManagedPolicyAWSResourceExplorerReadOnlyAccess                                   = ManagedPolicy("arn:aws:iam::aws:policy/AWSResourceExplorerReadOnlyAccess")
+	ManagedPolicyAWSResourceExplorerServiceRolePolicy                                = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSResourceExplorerServiceRolePolicy")
+	ManagedPolicyAWSResourceGroupsReadOnlyAccess                                     = ManagedPolicy("arn:aws:iam::aws:policy/AWSResourceGroupsReadOnlyAccess")
+	ManagedPolicyAWSRoboMakerReadOnlyAccess                                          = ManagedPolicy("arn:aws:iam::aws:policy/AWSRoboMakerReadOnlyAccess")
+	ManagedPolicyAWSRoboMakerServicePolicy                                           = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSRoboMakerServicePolicy")
+	ManagedPolicyAWSRoboMakerServiceRolePolicy                                       = ManagedPolicy("arn:aws:iam::aws:policy/AWSRoboMakerServiceRolePolicy")
+	ManagedPolicy_AWSRoboMaker_FullAccess                                            = ManagedPolicy("arn:aws:iam::aws:policy/AWSRoboMaker_FullAccess")
+	ManagedPolicyAWSRolesAnywhereServicePolicy                                       = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSRolesAnywhereServicePolicy")
+	ManagedPolicyAWSS3OnOutpostsServiceRolePolicy                                    = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSS3OnOutpostsServiceRolePolicy")
+	ManagedPolicyAWSSSMForSAPServiceLinkedRolePolicy                                 = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSSSMForSAPServiceLinkedRolePolicy")
+	ManagedPolicyAWSSSMOpsInsightsServiceRolePolicy                                  = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSSSMOpsInsightsServiceRolePolicy")
+	ManagedPolicyAWSSSODirectoryAdministrator                                        = ManagedPolicy("arn:aws:iam::aws:policy/AWSSSODirectoryAdministrator")
+	ManagedPolicyAWSSSODirectoryReadOnly                                             = ManagedPolicy("arn:aws:iam::aws:policy/AWSSSODirectoryReadOnly")
+	ManagedPolicyAWSSSOMasterAccountAdministrator                                    = ManagedPolicy("arn:aws:iam::aws:policy/AWSSSOMasterAccountAdministrator")
+	ManagedPolicyAWSSSOMemberAccountAdministrator                                    = ManagedPolicy("arn:aws:iam::aws:policy/AWSSSOMemberAccountAdministrator")
+	ManagedPolicyAWSSSOReadOnly                                                      = ManagedPolicy("arn:aws:iam::aws:policy/AWSSSOReadOnly")
+	ManagedPolicyAWSSSOServiceRolePolicy                                             = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSSSOServiceRolePolicy")
+	ManagedPolicyAWSSavingsPlansFullAccess                                           = ManagedPolicy("arn:aws:iam::aws:policy/AWSSavingsPlansFullAccess")
+	ManagedPolicyAWSSavingsPlansReadOnlyAccess                                       = ManagedPolicy("arn:aws:iam::aws:policy/AWSSavingsPlansReadOnlyAccess")
+	ManagedPolicyAWSSecurityHubFullAccess                                            = ManagedPolicy("arn:aws:iam::aws:policy/AWSSecurityHubFullAccess")
+	ManagedPolicyAWSSecurityHubOrganizationsAccess                                   = ManagedPolicy("arn:aws:iam::aws:policy/AWSSecurityHubOrganizationsAccess")
+	ManagedPolicyAWSSecurityHubReadOnlyAccess                                        = ManagedPolicy("arn:aws:iam::aws:policy/AWSSecurityHubReadOnlyAccess")
+	ManagedPolicyAWSSecurityHubServiceRolePolicy                                     = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSSecurityHubServiceRolePolicy")
+	ManagedPolicyAWSServiceCatalogAdminFullAccess                                    = ManagedPolicy("arn:aws:iam::aws:policy/AWSServiceCatalogAdminFullAccess")
+	ManagedPolicyAWSServiceCatalogAdminReadOnlyAccess                                = ManagedPolicy("arn:aws:iam::aws:policy/AWSServiceCatalogAdminReadOnlyAccess")
+	ManagedPolicyAWSServiceCatalogAppRegistryFullAccess                              = ManagedPolicy("arn:aws:iam::aws:policy/AWSServiceCatalogAppRegistryFullAccess")
+	ManagedPolicyAWSServiceCatalogAppRegistryReadOnlyAccess                          = ManagedPolicy("arn:aws:iam::aws:policy/AWSServiceCatalogAppRegistryReadOnlyAccess")
+	ManagedPolicyAWSServiceCatalogAppRegistryServiceRolePolicy                       = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSServiceCatalogAppRegistryServiceRolePolicy")
+	ManagedPolicyAWSServiceCatalogEndUserFullAccess                                  = ManagedPolicy("arn:aws:iam::aws:policy/AWSServiceCatalogEndUserFullAccess")
+	ManagedPolicyAWSServiceCatalogEndUserReadOnlyAccess                              = ManagedPolicy("arn:aws:iam::aws:policy/AWSServiceCatalogEndUserReadOnlyAccess")
+	ManagedPolicyAWSServiceCatalogOrgsDataSyncServiceRolePolicy                      = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSServiceCatalogOrgsDataSyncServiceRolePolicy")
+	ManagedPolicyAWSServiceCatalogSyncServiceRolePolicy                              = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSServiceCatalogSyncServiceRolePolicy")
+	ManagedPolicyAWSServiceRoleForAmazonEKSNodegroup                                 = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForAmazonEKSNodegroup")
+	ManagedPolicyAWSServiceRoleForCloudWatchAlarmsActionSSMServiceRolePolicy         = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForCloudWatchAlarmsActionSSMServiceRolePolicy")
+	ManagedPolicy_AWSServiceRoleForCloudWatchMetrics_DbPerfInsightsServiceRolePolicy = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForCloudWatchMetrics_DbPerfInsightsServiceRolePolicy")
+	ManagedPolicyAWSServiceRoleForCodeGuruProfiler                                   = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForCodeGuru-Profiler")
+	ManagedPolicyAWSServiceRoleForCodeWhispererPolicy                                = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForCodeWhispererPolicy")
+	ManagedPolicyAWSServiceRoleForEC2ScheduledInstances                              = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForEC2ScheduledInstances")
+	ManagedPolicyAWSServiceRoleForGroundStationDataflowEndpointGroupPolicy           = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForGroundStationDataflowEndpointGroupPolicy")
+	ManagedPolicyAWSServiceRoleForImageBuilder                                       = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForImageBuilder")
+	ManagedPolicyAWSServiceRoleForIoTSiteWise                                        = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForIoTSiteWise")
+	ManagedPolicyAWSServiceRoleForLogDeliveryPolicy                                  = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForLogDeliveryPolicy")
+	ManagedPolicyAWSServiceRoleForMonitronPolicy                                     = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForMonitronPolicy")
+	ManagedPolicyAWSServiceRoleForNeptuneGraphPolicy                                 = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForNeptuneGraphPolicy")
+	ManagedPolicyAWSServiceRoleForPrivateMarketplaceAdminPolicy                      = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForPrivateMarketplaceAdminPolicy")
+	ManagedPolicyAWSServiceRoleForSMS                                                = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSServiceRoleForSMS")
+	ManagedPolicyAWSServiceRolePolicyForBackupReports                                = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSServiceRolePolicyForBackupReports")
+	ManagedPolicyAWSServiceRolePolicyForBackupRestoreTesting                         = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSServiceRolePolicyForBackupRestoreTesting")
+	ManagedPolicyAWSShieldDRTAccessPolicy                                            = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSShieldDRTAccessPolicy")
+	ManagedPolicyAWSShieldServiceRolePolicy                                          = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSShieldServiceRolePolicy")
+	ManagedPolicyAWSStepFunctionsConsoleFullAccess                                   = ManagedPolicy("arn:aws:iam::aws:policy/AWSStepFunctionsConsoleFullAccess")
+	ManagedPolicyAWSStepFunctionsFullAccess                                          = ManagedPolicy("arn:aws:iam::aws:policy/AWSStepFunctionsFullAccess")
+	ManagedPolicyAWSStepFunctionsReadOnlyAccess                                      = ManagedPolicy("arn:aws:iam::aws:policy/AWSStepFunctionsReadOnlyAccess")
+	ManagedPolicyAWSStorageGatewayFullAccess                                         = ManagedPolicy("arn:aws:iam::aws:policy/AWSStorageGatewayFullAccess")
+	ManagedPolicyAWSStorageGatewayReadOnlyAccess                                     = ManagedPolicy("arn:aws:iam::aws:policy/AWSStorageGatewayReadOnlyAccess")
+	ManagedPolicyAWSStorageGatewayServiceRolePolicy                                  = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSStorageGatewayServiceRolePolicy")
+	ManagedPolicyAWSSupplyChainFederationAdminAccess                                 = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSSupplyChainFederationAdminAccess")
+	ManagedPolicyAWSSupportAccess                                                    = ManagedPolicy("arn:aws:iam::aws:policy/AWSSupportAccess")
+	ManagedPolicyAWSSupportAppFullAccess                                             = ManagedPolicy("arn:aws:iam::aws:policy/AWSSupportAppFullAccess")
+	ManagedPolicyAWSSupportAppReadOnlyAccess                                         = ManagedPolicy("arn:aws:iam::aws:policy/AWSSupportAppReadOnlyAccess")
+	ManagedPolicyAWSSupportPlansFullAccess                                           = ManagedPolicy("arn:aws:iam::aws:policy/AWSSupportPlansFullAccess")
+	ManagedPolicyAWSSupportPlansReadOnlyAccess                                       = ManagedPolicy("arn:aws:iam::aws:policy/AWSSupportPlansReadOnlyAccess")
+	ManagedPolicyAWSSupportServiceRolePolicy                                         = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSSupportServiceRolePolicy")
+	ManagedPolicyAWSSystemsManagerAccountDiscoveryServicePolicy                      = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSSystemsManagerAccountDiscoveryServicePolicy")
+	ManagedPolicyAWSSystemsManagerChangeManagementServicePolicy                      = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSSystemsManagerChangeManagementServicePolicy")
+	ManagedPolicyAWSSystemsManagerForSAPFullAccess                                   = ManagedPolicy("arn:aws:iam::aws:policy/AWSSystemsManagerForSAPFullAccess")
+	ManagedPolicyAWSSystemsManagerForSAPReadOnlyAccess                               = ManagedPolicy("arn:aws:iam::aws:policy/AWSSystemsManagerForSAPReadOnlyAccess")
+	ManagedPolicyAWSSystemsManagerOpsDataSyncServiceRolePolicy                       = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSSystemsManagerOpsDataSyncServiceRolePolicy")
+	ManagedPolicyAWSThinkboxAWSPortalAdminPolicy                                     = ManagedPolicy("arn:aws:iam::aws:policy/AWSThinkboxAWSPortalAdminPolicy")
+	ManagedPolicyAWSThinkboxAWSPortalGatewayPolicy                                   = ManagedPolicy("arn:aws:iam::aws:policy/AWSThinkboxAWSPortalGatewayPolicy")
+	ManagedPolicyAWSThinkboxAWSPortalWorkerPolicy                                    = ManagedPolicy("arn:aws:iam::aws:policy/AWSThinkboxAWSPortalWorkerPolicy")
+	ManagedPolicyAWSThinkboxAssetServerPolicy                                        = ManagedPolicy("arn:aws:iam::aws:policy/AWSThinkboxAssetServerPolicy")
+	ManagedPolicyAWSThinkboxDeadlineResourceTrackerAccessPolicy                      = ManagedPolicy("arn:aws:iam::aws:policy/AWSThinkboxDeadlineResourceTrackerAccessPolicy")
+	ManagedPolicyAWSThinkboxDeadlineResourceTrackerAdminPolicy                       = ManagedPolicy("arn:aws:iam::aws:policy/AWSThinkboxDeadlineResourceTrackerAdminPolicy")
+	ManagedPolicyAWSThinkboxDeadlineSpotEventPluginAdminPolicy                       = ManagedPolicy("arn:aws:iam::aws:policy/AWSThinkboxDeadlineSpotEventPluginAdminPolicy")
+	ManagedPolicyAWSThinkboxDeadlineSpotEventPluginWorkerPolicy                      = ManagedPolicy("arn:aws:iam::aws:policy/AWSThinkboxDeadlineSpotEventPluginWorkerPolicy")
+	ManagedPolicyAWSTransferConsoleFullAccess                                        = ManagedPolicy("arn:aws:iam::aws:policy/AWSTransferConsoleFullAccess")
+	ManagedPolicyAWSTransferFullAccess                                               = ManagedPolicy("arn:aws:iam::aws:policy/AWSTransferFullAccess")
+	ManagedPolicyAWSTransferLoggingAccess                                            = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AWSTransferLoggingAccess")
+	ManagedPolicyAWSTransferReadOnlyAccess                                           = ManagedPolicy("arn:aws:iam::aws:policy/AWSTransferReadOnlyAccess")
+	ManagedPolicyAWSTrustedAdvisorPriorityFullAccess                                 = ManagedPolicy("arn:aws:iam::aws:policy/AWSTrustedAdvisorPriorityFullAccess")
+	ManagedPolicyAWSTrustedAdvisorPriorityReadOnlyAccess                             = ManagedPolicy("arn:aws:iam::aws:policy/AWSTrustedAdvisorPriorityReadOnlyAccess")
+	ManagedPolicyAWSTrustedAdvisorReportingServiceRolePolicy                         = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSTrustedAdvisorReportingServiceRolePolicy")
+	ManagedPolicyAWSTrustedAdvisorServiceRolePolicy                                  = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSTrustedAdvisorServiceRolePolicy")
+	ManagedPolicyAWSUserNotificationsServiceLinkedRolePolicy                         = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSUserNotificationsServiceLinkedRolePolicy")
+	ManagedPolicyAWSVPCS2SVpnServiceRolePolicy                                       = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSVPCS2SVpnServiceRolePolicy")
+	ManagedPolicyAWSVPCTransitGatewayServiceRolePolicy                               = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSVPCTransitGatewayServiceRolePolicy")
+	ManagedPolicyAWSVPCVerifiedAccessServiceRolePolicy                               = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSVPCVerifiedAccessServiceRolePolicy")
+	ManagedPolicyAWSVendorInsightsAssessorFullAccess                                 = ManagedPolicy("arn:aws:iam::aws:policy/AWSVendorInsightsAssessorFullAccess")
+	ManagedPolicyAWSVendorInsightsAssessorReadOnly                                   = ManagedPolicy("arn:aws:iam::aws:policy/AWSVendorInsightsAssessorReadOnly")
+	ManagedPolicyAWSVendorInsightsVendorFullAccess                                   = ManagedPolicy("arn:aws:iam::aws:policy/AWSVendorInsightsVendorFullAccess")
+	ManagedPolicyAWSVendorInsightsVendorReadOnly                                     = ManagedPolicy("arn:aws:iam::aws:policy/AWSVendorInsightsVendorReadOnly")
+	ManagedPolicyAWSVpcLatticeServiceRolePolicy                                      = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSVpcLatticeServiceRolePolicy")
+	ManagedPolicyAWSWAFConsoleFullAccess                                             = ManagedPolicy("arn:aws:iam::aws:policy/AWSWAFConsoleFullAccess")
+	ManagedPolicyAWSWAFConsoleReadOnlyAccess                                         = ManagedPolicy("arn:aws:iam::aws:policy/AWSWAFConsoleReadOnlyAccess")
+	ManagedPolicyAWSWAFFullAccess                                                    = ManagedPolicy("arn:aws:iam::aws:policy/AWSWAFFullAccess")
+	ManagedPolicyAWSWAFReadOnlyAccess                                                = ManagedPolicy("arn:aws:iam::aws:policy/AWSWAFReadOnlyAccess")
+	ManagedPolicyAWSWellArchitectedDiscoveryServiceRolePolicy                        = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSWellArchitectedDiscoveryServiceRolePolicy")
+	ManagedPolicyAWSWellArchitectedOrganizationsServiceRolePolicy                    = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSWellArchitectedOrganizationsServiceRolePolicy")
+	ManagedPolicyAWSWickrFullAccess                                                  = ManagedPolicy("arn:aws:iam::aws:policy/AWSWickrFullAccess")
+	ManagedPolicyAWSXRayDaemonWriteAccess                                            = ManagedPolicy("arn:aws:iam::aws:policy/AWSXRayDaemonWriteAccess")
+	ManagedPolicyAWSXrayCrossAccountSharingConfiguration                             = ManagedPolicy("arn:aws:iam::aws:policy/AWSXrayCrossAccountSharingConfiguration")
+	ManagedPolicyAWSXrayFullAccess                                                   = ManagedPolicy("arn:aws:iam::aws:policy/AWSXrayFullAccess")
+	ManagedPolicyAWSXrayReadOnlyAccess                                               = ManagedPolicy("arn:aws:iam::aws:policy/AWSXrayReadOnlyAccess")
+	ManagedPolicyAWSXrayWriteOnlyAccess                                              = ManagedPolicy("arn:aws:iam::aws:policy/AWSXrayWriteOnlyAccess")
+	ManagedPolicyAWSZonalAutoshiftPracticeRunSLRPolicy                               = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSZonalAutoshiftPracticeRunSLRPolicy")
+	ManagedPolicyAWSrePostPrivateCloudWatchAccess                                    = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AWSrePostPrivateCloudWatchAccess")
+	ManagedPolicyAccessAnalyzerServiceRolePolicy                                     = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AccessAnalyzerServiceRolePolicy")
+	ManagedPolicyAdministratorAccess                                                 = ManagedPolicy("arn:aws:iam::aws:policy/AdministratorAccess")
+	ManagedPolicyAdministratorAccessAWSElasticBeanstalk                              = ManagedPolicy("arn:aws:iam::aws:policy/AdministratorAccess-AWSElasticBeanstalk")
+	ManagedPolicyAdministratorAccessAmplify                                          = ManagedPolicy("arn:aws:iam::aws:policy/AdministratorAccess-Amplify")
+	ManagedPolicyAlexaForBusinessDeviceSetup                                         = ManagedPolicy("arn:aws:iam::aws:policy/AlexaForBusinessDeviceSetup")
+	ManagedPolicyAlexaForBusinessFullAccess                                          = ManagedPolicy("arn:aws:iam::aws:policy/AlexaForBusinessFullAccess")
+	ManagedPolicyAlexaForBusinessGatewayExecution                                    = ManagedPolicy("arn:aws:iam::aws:policy/AlexaForBusinessGatewayExecution")
+	ManagedPolicyAlexaForBusinessLifesizeDelegatedAccessPolicy                       = ManagedPolicy("arn:aws:iam::aws:policy/AlexaForBusinessLifesizeDelegatedAccessPolicy")
+	ManagedPolicyAlexaForBusinessNetworkProfileServicePolicy                         = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AlexaForBusinessNetworkProfileServicePolicy")
+	ManagedPolicyAlexaForBusinessPolyDelegatedAccessPolicy                           = ManagedPolicy("arn:aws:iam::aws:policy/AlexaForBusinessPolyDelegatedAccessPolicy")
+	ManagedPolicyAlexaForBusinessReadOnlyAccess                                      = ManagedPolicy("arn:aws:iam::aws:policy/AlexaForBusinessReadOnlyAccess")
+	ManagedPolicyAmazonAPIGatewayAdministrator                                       = ManagedPolicy("arn:aws:iam::aws:policy/AmazonAPIGatewayAdministrator")
+	ManagedPolicyAmazonAPIGatewayInvokeFullAccess                                    = ManagedPolicy("arn:aws:iam::aws:policy/AmazonAPIGatewayInvokeFullAccess")
+	ManagedPolicyAmazonAPIGatewayPushToCloudWatchLogs                                = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonAPIGatewayPushToCloudWatchLogs")
+	ManagedPolicyAmazonAppFlowFullAccess                                             = ManagedPolicy("arn:aws:iam::aws:policy/AmazonAppFlowFullAccess")
+	ManagedPolicyAmazonAppFlowReadOnlyAccess                                         = ManagedPolicy("arn:aws:iam::aws:policy/AmazonAppFlowReadOnlyAccess")
+	ManagedPolicyAmazonAppStreamFullAccess                                           = ManagedPolicy("arn:aws:iam::aws:policy/AmazonAppStreamFullAccess")
+	ManagedPolicyAmazonAppStreamPCAAccess                                            = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonAppStreamPCAAccess")
+	ManagedPolicyAmazonAppStreamReadOnlyAccess                                       = ManagedPolicy("arn:aws:iam::aws:policy/AmazonAppStreamReadOnlyAccess")
+	ManagedPolicyAmazonAppStreamServiceAccess                                        = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonAppStreamServiceAccess")
+	ManagedPolicyAmazonAthenaFullAccess                                              = ManagedPolicy("arn:aws:iam::aws:policy/AmazonAthenaFullAccess")
+	ManagedPolicyAmazonAugmentedAIFullAccess                                         = ManagedPolicy("arn:aws:iam::aws:policy/AmazonAugmentedAIFullAccess")
+	ManagedPolicyAmazonAugmentedAIHumanLoopFullAccess                                = ManagedPolicy("arn:aws:iam::aws:policy/AmazonAugmentedAIHumanLoopFullAccess")
+	ManagedPolicyAmazonAugmentedAIIntegratedAPIAccess                                = ManagedPolicy("arn:aws:iam::aws:policy/AmazonAugmentedAIIntegratedAPIAccess")
+	ManagedPolicyAmazonBedrockFullAccess                                             = ManagedPolicy("arn:aws:iam::aws:policy/AmazonBedrockFullAccess")
+	ManagedPolicyAmazonBedrockReadOnly                                               = ManagedPolicy("arn:aws:iam::aws:policy/AmazonBedrockReadOnly")
+	ManagedPolicyAmazonBraketFullAccess                                              = ManagedPolicy("arn:aws:iam::aws:policy/AmazonBraketFullAccess")
+	ManagedPolicyAmazonBraketJobsExecutionPolicy                                     = ManagedPolicy("arn:aws:iam::aws:policy/AmazonBraketJobsExecutionPolicy")
+	ManagedPolicyAmazonBraketServiceRolePolicy                                       = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonBraketServiceRolePolicy")
+	ManagedPolicyAmazonChimeFullAccess                                               = ManagedPolicy("arn:aws:iam::aws:policy/AmazonChimeFullAccess")
+	ManagedPolicyAmazonChimeReadOnly                                                 = ManagedPolicy("arn:aws:iam::aws:policy/AmazonChimeReadOnly")
+	ManagedPolicyAmazonChimeSDK                                                      = ManagedPolicy("arn:aws:iam::aws:policy/AmazonChimeSDK")
+	ManagedPolicyAmazonChimeSDKMediaPipelinesServiceLinkedRolePolicy                 = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonChimeSDKMediaPipelinesServiceLinkedRolePolicy")
+	ManagedPolicyAmazonChimeSDKMessagingServiceRolePolicy                            = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonChimeSDKMessagingServiceRolePolicy")
+	ManagedPolicyAmazonChimeServiceRolePolicy                                        = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonChimeServiceRolePolicy")
+	ManagedPolicyAmazonChimeTranscriptionServiceLinkedRolePolicy                     = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonChimeTranscriptionServiceLinkedRolePolicy")
+	ManagedPolicyAmazonChimeUserManagement                                           = ManagedPolicy("arn:aws:iam::aws:policy/AmazonChimeUserManagement")
+	ManagedPolicyAmazonChimeVoiceConnectorServiceLinkedRolePolicy                    = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonChimeVoiceConnectorServiceLinkedRolePolicy")
+	ManagedPolicyAmazonCloudDirectoryFullAccess                                      = ManagedPolicy("arn:aws:iam::aws:policy/AmazonCloudDirectoryFullAccess")
+	ManagedPolicyAmazonCloudDirectoryReadOnlyAccess                                  = ManagedPolicy("arn:aws:iam::aws:policy/AmazonCloudDirectoryReadOnlyAccess")
+	ManagedPolicyAmazonCloudWatchEvidentlyFullAccess                                 = ManagedPolicy("arn:aws:iam::aws:policy/AmazonCloudWatchEvidentlyFullAccess")
+	ManagedPolicyAmazonCloudWatchEvidentlyReadOnlyAccess                             = ManagedPolicy("arn:aws:iam::aws:policy/AmazonCloudWatchEvidentlyReadOnlyAccess")
+	ManagedPolicyAmazonCloudWatchEvidentlyServiceRolePolicy                          = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonCloudWatchEvidentlyServiceRolePolicy")
+	ManagedPolicyAmazonCloudWatchRUMFullAccess                                       = ManagedPolicy("arn:aws:iam::aws:policy/AmazonCloudWatchRUMFullAccess")
+	ManagedPolicyAmazonCloudWatchRUMReadOnlyAccess                                   = ManagedPolicy("arn:aws:iam::aws:policy/AmazonCloudWatchRUMReadOnlyAccess")
+	ManagedPolicyAmazonCloudWatchRUMServiceRolePolicy                                = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonCloudWatchRUMServiceRolePolicy")
+	ManagedPolicyAmazonCodeCatalystFullAccess                                        = ManagedPolicy("arn:aws:iam::aws:policy/AmazonCodeCatalystFullAccess")
+	ManagedPolicyAmazonCodeCatalystReadOnlyAccess                                    = ManagedPolicy("arn:aws:iam::aws:policy/AmazonCodeCatalystReadOnlyAccess")
+	ManagedPolicyAmazonCodeCatalystSupportAccess                                     = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonCodeCatalystSupportAccess")
+	ManagedPolicyAmazonCodeGuruProfilerAgentAccess                                   = ManagedPolicy("arn:aws:iam::aws:policy/AmazonCodeGuruProfilerAgentAccess")
+	ManagedPolicyAmazonCodeGuruProfilerFullAccess                                    = ManagedPolicy("arn:aws:iam::aws:policy/AmazonCodeGuruProfilerFullAccess")
+	ManagedPolicyAmazonCodeGuruProfilerReadOnlyAccess                                = ManagedPolicy("arn:aws:iam::aws:policy/AmazonCodeGuruProfilerReadOnlyAccess")
+	ManagedPolicyAmazonCodeGuruReviewerFullAccess                                    = ManagedPolicy("arn:aws:iam::aws:policy/AmazonCodeGuruReviewerFullAccess")
+	ManagedPolicyAmazonCodeGuruReviewerReadOnlyAccess                                = ManagedPolicy("arn:aws:iam::aws:policy/AmazonCodeGuruReviewerReadOnlyAccess")
+	ManagedPolicyAmazonCodeGuruReviewerServiceRolePolicy                             = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonCodeGuruReviewerServiceRolePolicy")
+	ManagedPolicyAmazonCodeGuruSecurityFullAccess                                    = ManagedPolicy("arn:aws:iam::aws:policy/AmazonCodeGuruSecurityFullAccess")
+	ManagedPolicyAmazonCodeGuruSecurityScanAccess                                    = ManagedPolicy("arn:aws:iam::aws:policy/AmazonCodeGuruSecurityScanAccess")
+	ManagedPolicyAmazonCognitoDeveloperAuthenticatedIdentities                       = ManagedPolicy("arn:aws:iam::aws:policy/AmazonCognitoDeveloperAuthenticatedIdentities")
+	ManagedPolicyAmazonCognitoIdpEmailServiceRolePolicy                              = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonCognitoIdpEmailServiceRolePolicy")
+	ManagedPolicyAmazonCognitoIdpServiceRolePolicy                                   = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonCognitoIdpServiceRolePolicy")
+	ManagedPolicyAmazonCognitoPowerUser                                              = ManagedPolicy("arn:aws:iam::aws:policy/AmazonCognitoPowerUser")
+	ManagedPolicyAmazonCognitoReadOnly                                               = ManagedPolicy("arn:aws:iam::aws:policy/AmazonCognitoReadOnly")
+	ManagedPolicyAmazonCognitoUnAuthedIdentitiesSessionPolicy                        = ManagedPolicy("arn:aws:iam::aws:policy/AmazonCognitoUnAuthedIdentitiesSessionPolicy")
+	ManagedPolicyAmazonCognitoUnauthenticatedIdentities                              = ManagedPolicy("arn:aws:iam::aws:policy/AmazonCognitoUnauthenticatedIdentities")
+	ManagedPolicyAmazonConnectCampaignsServiceLinkedRolePolicy                       = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonConnectCampaignsServiceLinkedRolePolicy")
+	ManagedPolicyAmazonConnectReadOnlyAccess                                         = ManagedPolicy("arn:aws:iam::aws:policy/AmazonConnectReadOnlyAccess")
+	ManagedPolicyAmazonConnectServiceLinkedRolePolicy                                = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonConnectServiceLinkedRolePolicy")
+	ManagedPolicyAmazonConnectSynchronizationServiceRolePolicy                       = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonConnectSynchronizationServiceRolePolicy")
+	ManagedPolicyAmazonConnectVoiceIDFullAccess                                      = ManagedPolicy("arn:aws:iam::aws:policy/AmazonConnectVoiceIDFullAccess")
+	ManagedPolicy_AmazonConnect_FullAccess                                           = ManagedPolicy("arn:aws:iam::aws:policy/AmazonConnect_FullAccess")
+	ManagedPolicyAmazonDMSCloudWatchLogsRole                                         = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonDMSCloudWatchLogsRole")
+	ManagedPolicyAmazonDMSRedshiftS3Role                                             = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonDMSRedshiftS3Role")
+	ManagedPolicyAmazonDMSVPCManagementRole                                          = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonDMSVPCManagementRole")
+	ManagedPolicyAmazonDRSVPCManagement                                              = ManagedPolicy("arn:aws:iam::aws:policy/AmazonDRSVPCManagement")
+	ManagedPolicyAmazonDataZoneDomainExecutionRolePolicy                             = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonDataZoneDomainExecutionRolePolicy")
+	ManagedPolicyAmazonDataZoneEnvironmentRolePermissionsBoundary                    = ManagedPolicy("arn:aws:iam::aws:policy/AmazonDataZoneEnvironmentRolePermissionsBoundary")
+	ManagedPolicyAmazonDataZoneFullAccess                                            = ManagedPolicy("arn:aws:iam::aws:policy/AmazonDataZoneFullAccess")
+	ManagedPolicyAmazonDataZoneFullUserAccess                                        = ManagedPolicy("arn:aws:iam::aws:policy/AmazonDataZoneFullUserAccess")
+	ManagedPolicyAmazonDataZoneGlueManageAccessRolePolicy                            = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonDataZoneGlueManageAccessRolePolicy")
+	ManagedPolicyAmazonDataZoneRedshiftGlueProvisioningPolicy                        = ManagedPolicy("arn:aws:iam::aws:policy/AmazonDataZoneRedshiftGlueProvisioningPolicy")
+	ManagedPolicyAmazonDataZoneRedshiftManageAccessRolePolicy                        = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonDataZoneRedshiftManageAccessRolePolicy")
+	ManagedPolicyAmazonDetectiveFullAccess                                           = ManagedPolicy("arn:aws:iam::aws:policy/AmazonDetectiveFullAccess")
+	ManagedPolicyAmazonDetectiveInvestigatorAccess                                   = ManagedPolicy("arn:aws:iam::aws:policy/AmazonDetectiveInvestigatorAccess")
+	ManagedPolicyAmazonDetectiveMemberAccess                                         = ManagedPolicy("arn:aws:iam::aws:policy/AmazonDetectiveMemberAccess")
+	ManagedPolicyAmazonDetectiveOrganizationsAccess                                  = ManagedPolicy("arn:aws:iam::aws:policy/AmazonDetectiveOrganizationsAccess")
+	ManagedPolicyAmazonDetectiveServiceLinkedRolePolicy                              = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonDetectiveServiceLinkedRolePolicy")
+	ManagedPolicyAmazonDevOpsGuruConsoleFullAccess                                   = ManagedPolicy("arn:aws:iam::aws:policy/AmazonDevOpsGuruConsoleFullAccess")
+	ManagedPolicyAmazonDevOpsGuruFullAccess                                          = ManagedPolicy("arn:aws:iam::aws:policy/AmazonDevOpsGuruFullAccess")
+	ManagedPolicyAmazonDevOpsGuruOrganizationsAccess                                 = ManagedPolicy("arn:aws:iam::aws:policy/AmazonDevOpsGuruOrganizationsAccess")
+	ManagedPolicyAmazonDevOpsGuruReadOnlyAccess                                      = ManagedPolicy("arn:aws:iam::aws:policy/AmazonDevOpsGuruReadOnlyAccess")
+	ManagedPolicyAmazonDevOpsGuruServiceRolePolicy                                   = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonDevOpsGuruServiceRolePolicy")
+	ManagedPolicyAmazonDocDBElasticServiceRolePolicy                                 = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonDocDB-ElasticServiceRolePolicy")
+	ManagedPolicyAmazonDocDBConsoleFullAccess                                        = ManagedPolicy("arn:aws:iam::aws:policy/AmazonDocDBConsoleFullAccess")
+	ManagedPolicyAmazonDocDBElasticFullAccess                                        = ManagedPolicy("arn:aws:iam::aws:policy/AmazonDocDBElasticFullAccess")
+	ManagedPolicyAmazonDocDBElasticReadOnlyAccess                                    = ManagedPolicy("arn:aws:iam::aws:policy/AmazonDocDBElasticReadOnlyAccess")
+	ManagedPolicyAmazonDocDBFullAccess                                               = ManagedPolicy("arn:aws:iam::aws:policy/AmazonDocDBFullAccess")
+	ManagedPolicyAmazonDocDBReadOnlyAccess                                           = ManagedPolicy("arn:aws:iam::aws:policy/AmazonDocDBReadOnlyAccess")
+	ManagedPolicyAmazonDynamoDBFullAccess                                            = ManagedPolicy("arn:aws:iam::aws:policy/AmazonDynamoDBFullAccess")
+	ManagedPolicyAmazonDynamoDBFullAccesswithDataPipeline                            = ManagedPolicy("arn:aws:iam::aws:policy/AmazonDynamoDBFullAccesswithDataPipeline")
+	ManagedPolicyAmazonDynamoDBReadOnlyAccess                                        = ManagedPolicy("arn:aws:iam::aws:policy/AmazonDynamoDBReadOnlyAccess")
+	ManagedPolicyAmazonEBSCSIDriverPolicy                                            = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonEBSCSIDriverPolicy")
+	ManagedPolicyAmazonEC2ContainerRegistryFullAccess                                = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryFullAccess")
+	ManagedPolicyAmazonEC2ContainerRegistryPowerUser                                 = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryPowerUser")
+	ManagedPolicyAmazonEC2ContainerRegistryReadOnly                                  = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEC2ContainerRegistryReadOnly")
+	ManagedPolicyAmazonEC2ContainerServiceAutoscaleRole                              = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceAutoscaleRole")
+	ManagedPolicyAmazonEC2ContainerServiceEventsRole                                 = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceEventsRole")
 	// Deprecated: This policy is deprecated and will be removed in a future release. Use AmazonECS_FullAccess instead.
 	ManagedPolicyAmazonEC2ContainerServiceFullAccess = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEC2ContainerServiceFullAccess")
 	ManagedPolicyAmazonEC2ContainerServiceRole       = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonEC2ContainerServiceRole")
@@ -656,122 +732,132 @@ const (
 	ManagedPolicyAmazonEC2RoleforSSM                  = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonEC2RoleforSSM")
 	ManagedPolicyAmazonEC2SpotFleetAutoscaleRole      = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonEC2SpotFleetAutoscaleRole")
 	// Deprecated: This policy is deprecated and will be removed in a future release.
-	ManagedPolicyAmazonEC2SpotFleetRole                         = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonEC2SpotFleetRole")
-	ManagedPolicyAmazonEC2SpotFleetTaggingRole                  = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonEC2SpotFleetTaggingRole")
-	ManagedPolicyAmazonECSFullAccess                            = ManagedPolicy("arn:aws:iam::aws:policy/AmazonECS_FullAccess")
-	ManagedPolicyAmazonECSServiceRolePolicy                     = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonECSServiceRolePolicy")
-	ManagedPolicyAmazonECSTaskExecutionRolePolicy               = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy")
-	ManagedPolicyAmazonEKSClusterPolicy                         = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEKSClusterPolicy")
-	ManagedPolicyAmazonEKSConnectorServiceRolePolicy            = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonEKSConnectorServiceRolePolicy")
-	ManagedPolicyAmazonEKSFargatePodExecutionRolePolicy         = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy")
-	ManagedPolicyAmazonEKSForFargateServiceRolePolicy           = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonEKSForFargateServiceRolePolicy")
-	ManagedPolicyAmazonEKSLocalOutpostClusterPolicy             = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEKSLocalOutpostClusterPolicy")
-	ManagedPolicyAmazonEKSLocalOutpostServiceRolePolicy         = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonEKSLocalOutpostServiceRolePolicy")
-	ManagedPolicyAmazonEKSServicePolicy                         = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEKSServicePolicy")
-	ManagedPolicyAmazonEKSServiceRolePolicy                     = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonEKSServiceRolePolicy")
-	ManagedPolicyAmazonEKSVPCResourceController                 = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEKSVPCResourceController")
-	ManagedPolicyAmazonEKSWorkerNodePolicy                      = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy")
-	ManagedPolicy_AmazonEKS_CNI_Policy                          = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy")
-	ManagedPolicyAmazonEMRCleanupPolicy                         = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonEMRCleanupPolicy")
-	ManagedPolicyAmazonEMRContainersServiceRolePolicy           = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonEMRContainersServiceRolePolicy")
-	ManagedPolicy_AmazonEMRFullAccessPolicy_v2                  = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEMRFullAccessPolicy_v2")
-	ManagedPolicy_AmazonEMRReadOnlyAccessPolicy_v2              = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEMRReadOnlyAccessPolicy_v2")
-	ManagedPolicyAmazonEMRServerlessServiceRolePolicy           = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonEMRServerlessServiceRolePolicy")
-	ManagedPolicy_AmazonEMRServicePolicy_v2                     = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonEMRServicePolicy_v2")
-	ManagedPolicyAmazonESCognitoAccess                          = ManagedPolicy("arn:aws:iam::aws:policy/AmazonESCognitoAccess")
-	ManagedPolicyAmazonESFullAccess                             = ManagedPolicy("arn:aws:iam::aws:policy/AmazonESFullAccess")
-	ManagedPolicyAmazonESReadOnlyAccess                         = ManagedPolicy("arn:aws:iam::aws:policy/AmazonESReadOnlyAccess")
-	ManagedPolicyAmazonElastiCacheFullAccess                    = ManagedPolicy("arn:aws:iam::aws:policy/AmazonElastiCacheFullAccess")
-	ManagedPolicyAmazonElastiCacheReadOnlyAccess                = ManagedPolicy("arn:aws:iam::aws:policy/AmazonElastiCacheReadOnlyAccess")
-	ManagedPolicyAmazonElasticContainerRegistryPublicFullAccess = ManagedPolicy("arn:aws:iam::aws:policy/AmazonElasticContainerRegistryPublicFullAccess")
-	ManagedPolicyAmazonElasticContainerRegistryPublicPowerUser  = ManagedPolicy("arn:aws:iam::aws:policy/AmazonElasticContainerRegistryPublicPowerUser")
-	ManagedPolicyAmazonElasticContainerRegistryPublicReadOnly   = ManagedPolicy("arn:aws:iam::aws:policy/AmazonElasticContainerRegistryPublicReadOnly")
-	ManagedPolicyAmazonElasticFileSystemClientFullAccess        = ManagedPolicy("arn:aws:iam::aws:policy/AmazonElasticFileSystemClientFullAccess")
-	ManagedPolicyAmazonElasticFileSystemClientReadOnlyAccess    = ManagedPolicy("arn:aws:iam::aws:policy/AmazonElasticFileSystemClientReadOnlyAccess")
-	ManagedPolicyAmazonElasticFileSystemClientReadWriteAccess   = ManagedPolicy("arn:aws:iam::aws:policy/AmazonElasticFileSystemClientReadWriteAccess")
-	ManagedPolicyAmazonElasticFileSystemFullAccess              = ManagedPolicy("arn:aws:iam::aws:policy/AmazonElasticFileSystemFullAccess")
-	ManagedPolicyAmazonElasticFileSystemReadOnlyAccess          = ManagedPolicy("arn:aws:iam::aws:policy/AmazonElasticFileSystemReadOnlyAccess")
-	ManagedPolicyAmazonElasticFileSystemServiceRolePolicy       = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonElasticFileSystemServiceRolePolicy")
-	ManagedPolicyAmazonElasticFileSystemsUtils                  = ManagedPolicy("arn:aws:iam::aws:policy/AmazonElasticFileSystemsUtils")
-	ManagedPolicyAmazonElasticMapReduceEditorsRole              = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceEditorsRole")
-	ManagedPolicyAmazonElasticMapReduceFullAccess               = ManagedPolicy("arn:aws:iam::aws:policy/AmazonElasticMapReduceFullAccess")
-	ManagedPolicyAmazonElasticMapReducePlacementGroupPolicy     = ManagedPolicy("arn:aws:iam::aws:policy/AmazonElasticMapReducePlacementGroupPolicy")
-	ManagedPolicyAmazonElasticMapReduceReadOnlyAccess           = ManagedPolicy("arn:aws:iam::aws:policy/AmazonElasticMapReduceReadOnlyAccess")
-	ManagedPolicyAmazonElasticMapReduceRole                     = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceRole")
-	ManagedPolicyAmazonElasticMapReduceforAutoScalingRole       = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceforAutoScalingRole")
-	ManagedPolicyAmazonElasticMapReduceforEC2Role               = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceforEC2Role")
+	ManagedPolicyAmazonEC2SpotFleetRole                                                   = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonEC2SpotFleetRole")
+	ManagedPolicyAmazonEC2SpotFleetTaggingRole                                            = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonEC2SpotFleetTaggingRole")
+	ManagedPolicyAmazonECSFullAccess                                                      = ManagedPolicy("arn:aws:iam::aws:policy/AmazonECS_FullAccess")
+	ManagedPolicyAmazonECSInfrastructureRolePolicyForServiceConnectTransportLayerSecurity = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonECSInfrastructureRolePolicyForServiceConnectTransportLayerSecurity")
+	ManagedPolicyAmazonECSInfrastructureRolePolicyForVolumes                              = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonECSInfrastructureRolePolicyForVolumes")
+	ManagedPolicyAmazonECSServiceRolePolicy                                               = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonECSServiceRolePolicy")
+	ManagedPolicyAmazonECSTaskExecutionRolePolicy                                         = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonECSTaskExecutionRolePolicy")
+	ManagedPolicyAmazonEFSCSIDriverPolicy                                                 = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonEFSCSIDriverPolicy")
+	ManagedPolicyAmazonEKSClusterPolicy                                                   = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEKSClusterPolicy")
+	ManagedPolicyAmazonEKSConnectorServiceRolePolicy                                      = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonEKSConnectorServiceRolePolicy")
+	ManagedPolicyAmazonEKSFargatePodExecutionRolePolicy                                   = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEKSFargatePodExecutionRolePolicy")
+	ManagedPolicyAmazonEKSForFargateServiceRolePolicy                                     = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonEKSForFargateServiceRolePolicy")
+	ManagedPolicyAmazonEKSLocalOutpostClusterPolicy                                       = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEKSLocalOutpostClusterPolicy")
+	ManagedPolicyAmazonEKSLocalOutpostServiceRolePolicy                                   = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonEKSLocalOutpostServiceRolePolicy")
+	ManagedPolicyAmazonEKSServicePolicy                                                   = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEKSServicePolicy")
+	ManagedPolicyAmazonEKSServiceRolePolicy                                               = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonEKSServiceRolePolicy")
+	ManagedPolicyAmazonEKSVPCResourceController                                           = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEKSVPCResourceController")
+	ManagedPolicyAmazonEKSWorkerNodePolicy                                                = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEKSWorkerNodePolicy")
+	ManagedPolicy_AmazonEKS_CNI_Policy                                                    = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEKS_CNI_Policy")
+	ManagedPolicyAmazonEMRCleanupPolicy                                                   = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonEMRCleanupPolicy")
+	ManagedPolicyAmazonEMRContainersServiceRolePolicy                                     = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonEMRContainersServiceRolePolicy")
+	ManagedPolicy_AmazonEMRFullAccessPolicy_v2                                            = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEMRFullAccessPolicy_v2")
+	ManagedPolicy_AmazonEMRReadOnlyAccessPolicy_v2                                        = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEMRReadOnlyAccessPolicy_v2")
+	ManagedPolicyAmazonEMRServerlessServiceRolePolicy                                     = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonEMRServerlessServiceRolePolicy")
+	ManagedPolicy_AmazonEMRServicePolicy_v2                                               = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonEMRServicePolicy_v2")
+	ManagedPolicyAmazonESCognitoAccess                                                    = ManagedPolicy("arn:aws:iam::aws:policy/AmazonESCognitoAccess")
+	ManagedPolicyAmazonESFullAccess                                                       = ManagedPolicy("arn:aws:iam::aws:policy/AmazonESFullAccess")
+	ManagedPolicyAmazonESReadOnlyAccess                                                   = ManagedPolicy("arn:aws:iam::aws:policy/AmazonESReadOnlyAccess")
+	ManagedPolicyAmazonElastiCacheFullAccess                                              = ManagedPolicy("arn:aws:iam::aws:policy/AmazonElastiCacheFullAccess")
+	ManagedPolicyAmazonElastiCacheReadOnlyAccess                                          = ManagedPolicy("arn:aws:iam::aws:policy/AmazonElastiCacheReadOnlyAccess")
+	ManagedPolicyAmazonElasticContainerRegistryPublicFullAccess                           = ManagedPolicy("arn:aws:iam::aws:policy/AmazonElasticContainerRegistryPublicFullAccess")
+	ManagedPolicyAmazonElasticContainerRegistryPublicPowerUser                            = ManagedPolicy("arn:aws:iam::aws:policy/AmazonElasticContainerRegistryPublicPowerUser")
+	ManagedPolicyAmazonElasticContainerRegistryPublicReadOnly                             = ManagedPolicy("arn:aws:iam::aws:policy/AmazonElasticContainerRegistryPublicReadOnly")
+	ManagedPolicyAmazonElasticFileSystemClientFullAccess                                  = ManagedPolicy("arn:aws:iam::aws:policy/AmazonElasticFileSystemClientFullAccess")
+	ManagedPolicyAmazonElasticFileSystemClientReadOnlyAccess                              = ManagedPolicy("arn:aws:iam::aws:policy/AmazonElasticFileSystemClientReadOnlyAccess")
+	ManagedPolicyAmazonElasticFileSystemClientReadWriteAccess                             = ManagedPolicy("arn:aws:iam::aws:policy/AmazonElasticFileSystemClientReadWriteAccess")
+	ManagedPolicyAmazonElasticFileSystemFullAccess                                        = ManagedPolicy("arn:aws:iam::aws:policy/AmazonElasticFileSystemFullAccess")
+	ManagedPolicyAmazonElasticFileSystemReadOnlyAccess                                    = ManagedPolicy("arn:aws:iam::aws:policy/AmazonElasticFileSystemReadOnlyAccess")
+	ManagedPolicyAmazonElasticFileSystemServiceRolePolicy                                 = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonElasticFileSystemServiceRolePolicy")
+	ManagedPolicyAmazonElasticFileSystemsUtils                                            = ManagedPolicy("arn:aws:iam::aws:policy/AmazonElasticFileSystemsUtils")
+	ManagedPolicyAmazonElasticMapReduceEditorsRole                                        = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceEditorsRole")
+	ManagedPolicyAmazonElasticMapReduceFullAccess                                         = ManagedPolicy("arn:aws:iam::aws:policy/AmazonElasticMapReduceFullAccess")
+	ManagedPolicyAmazonElasticMapReducePlacementGroupPolicy                               = ManagedPolicy("arn:aws:iam::aws:policy/AmazonElasticMapReducePlacementGroupPolicy")
+	ManagedPolicyAmazonElasticMapReduceReadOnlyAccess                                     = ManagedPolicy("arn:aws:iam::aws:policy/AmazonElasticMapReduceReadOnlyAccess")
+	ManagedPolicyAmazonElasticMapReduceRole                                               = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceRole")
+	ManagedPolicyAmazonElasticMapReduceforAutoScalingRole                                 = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceforAutoScalingRole")
+	ManagedPolicyAmazonElasticMapReduceforEC2Role                                         = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonElasticMapReduceforEC2Role")
 	// Deprecated: This policy is deprecated and will be removed in a future release. Use ElasticTranscoder_FullAccess instead.
 	ManagedPolicyAmazonElasticTranscoderFullAccess = ManagedPolicy("arn:aws:iam::aws:policy/AmazonElasticTranscoderFullAccess")
 	// Deprecated: This policy is deprecated and will be removed in a future release. Use ElasticTranscoder_JobsSubmitter instead.
 	ManagedPolicyAmazonElasticTranscoderJobsSubmitter = ManagedPolicy("arn:aws:iam::aws:policy/AmazonElasticTranscoderJobsSubmitter")
 	// Deprecated: This policy is deprecated and will be removed in a future release. Use ElasticTranscoder_ReadOnlyAccess instead.
-	ManagedPolicyAmazonElasticTranscoderReadOnlyAccess                 = ManagedPolicy("arn:aws:iam::aws:policy/AmazonElasticTranscoderReadOnlyAccess")
-	ManagedPolicyAmazonElasticTranscoderRole                           = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonElasticTranscoderRole")
-	ManagedPolicy_ElasticTranscoder_FullAccess                         = ManagedPolicy("arn:aws:iam::aws:policy/AmazonElasticTranscoder_FullAccess")
-	ManagedPolicy_ElasticTranscoder_JobsSubmitter                      = ManagedPolicy("arn:aws:iam::aws:policy/AmazonElasticTranscoder_JobsSubmitter")
-	ManagedPolicy_ElasticTranscoder_ReadOnlyAccess                     = ManagedPolicy("arn:aws:iam::aws:policy/AmazonElasticTranscoder_ReadOnlyAccess")
-	ManagedPolicyAmazonElasticsearchServiceRolePolicy                  = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonElasticsearchServiceRolePolicy")
-	ManagedPolicyAmazonEventBridgeApiDestinationsServiceRolePolicy     = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonEventBridgeApiDestinationsServiceRolePolicy")
-	ManagedPolicyAmazonEventBridgeFullAccess                           = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEventBridgeFullAccess")
-	ManagedPolicyAmazonEventBridgePipesFullAccess                      = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEventBridgePipesFullAccess")
-	ManagedPolicyAmazonEventBridgePipesOperatorAccess                  = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEventBridgePipesOperatorAccess")
-	ManagedPolicyAmazonEventBridgePipesReadOnlyAccess                  = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEventBridgePipesReadOnlyAccess")
-	ManagedPolicyAmazonEventBridgeReadOnlyAccess                       = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEventBridgeReadOnlyAccess")
-	ManagedPolicyAmazonEventBridgeSchedulerFullAccess                  = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEventBridgeSchedulerFullAccess")
-	ManagedPolicyAmazonEventBridgeSchedulerReadOnlyAccess              = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEventBridgeSchedulerReadOnlyAccess")
-	ManagedPolicyAmazonEventBridgeSchemasFullAccess                    = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEventBridgeSchemasFullAccess")
-	ManagedPolicyAmazonEventBridgeSchemasReadOnlyAccess                = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEventBridgeSchemasReadOnlyAccess")
-	ManagedPolicyAmazonEventBridgeSchemasServiceRolePolicy             = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonEventBridgeSchemasServiceRolePolicy")
-	ManagedPolicyAmazonFISServiceRolePolicy                            = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonFISServiceRolePolicy")
-	ManagedPolicyAmazonFSxConsoleFullAccess                            = ManagedPolicy("arn:aws:iam::aws:policy/AmazonFSxConsoleFullAccess")
-	ManagedPolicyAmazonFSxConsoleReadOnlyAccess                        = ManagedPolicy("arn:aws:iam::aws:policy/AmazonFSxConsoleReadOnlyAccess")
-	ManagedPolicyAmazonFSxFullAccess                                   = ManagedPolicy("arn:aws:iam::aws:policy/AmazonFSxFullAccess")
-	ManagedPolicyAmazonFSxReadOnlyAccess                               = ManagedPolicy("arn:aws:iam::aws:policy/AmazonFSxReadOnlyAccess")
-	ManagedPolicyAmazonFSxServiceRolePolicy                            = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonFSxServiceRolePolicy")
-	ManagedPolicyAmazonForecastFullAccess                              = ManagedPolicy("arn:aws:iam::aws:policy/AmazonForecastFullAccess")
-	ManagedPolicyAmazonFraudDetectorFullAccessPolicy                   = ManagedPolicy("arn:aws:iam::aws:policy/AmazonFraudDetectorFullAccessPolicy")
-	ManagedPolicyAmazonFreeRTOSFullAccess                              = ManagedPolicy("arn:aws:iam::aws:policy/AmazonFreeRTOSFullAccess")
-	ManagedPolicyAmazonFreeRTOSOTAUpdate                               = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonFreeRTOSOTAUpdate")
-	ManagedPolicyAmazonGlacierFullAccess                               = ManagedPolicy("arn:aws:iam::aws:policy/AmazonGlacierFullAccess")
-	ManagedPolicyAmazonGlacierReadOnlyAccess                           = ManagedPolicy("arn:aws:iam::aws:policy/AmazonGlacierReadOnlyAccess")
-	ManagedPolicyAmazonGrafanaAthenaAccess                             = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonGrafanaAthenaAccess")
-	ManagedPolicyAmazonGrafanaRedshiftAccess                           = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonGrafanaRedshiftAccess")
-	ManagedPolicyAmazonGrafanaServiceLinkedRolePolicy                  = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonGrafanaServiceLinkedRolePolicy")
-	ManagedPolicyAmazonGuardDutyFullAccess                             = ManagedPolicy("arn:aws:iam::aws:policy/AmazonGuardDutyFullAccess")
-	ManagedPolicyAmazonGuardDutyMalwareProtectionServiceRolePolicy     = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonGuardDutyMalwareProtectionServiceRolePolicy")
-	ManagedPolicyAmazonGuardDutyReadOnlyAccess                         = ManagedPolicy("arn:aws:iam::aws:policy/AmazonGuardDutyReadOnlyAccess")
-	ManagedPolicyAmazonGuardDutyServiceRolePolicy                      = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonGuardDutyServiceRolePolicy")
-	ManagedPolicyAmazonHealthLakeFullAccess                            = ManagedPolicy("arn:aws:iam::aws:policy/AmazonHealthLakeFullAccess")
-	ManagedPolicyAmazonHealthLakeReadOnlyAccess                        = ManagedPolicy("arn:aws:iam::aws:policy/AmazonHealthLakeReadOnlyAccess")
-	ManagedPolicyAmazonHoneycodeFullAccess                             = ManagedPolicy("arn:aws:iam::aws:policy/AmazonHoneycodeFullAccess")
-	ManagedPolicyAmazonHoneycodeReadOnlyAccess                         = ManagedPolicy("arn:aws:iam::aws:policy/AmazonHoneycodeReadOnlyAccess")
-	ManagedPolicyAmazonHoneycodeServiceRolePolicy                      = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonHoneycodeServiceRolePolicy")
-	ManagedPolicyAmazonHoneycodeTeamAssociationFullAccess              = ManagedPolicy("arn:aws:iam::aws:policy/AmazonHoneycodeTeamAssociationFullAccess")
-	ManagedPolicyAmazonHoneycodeTeamAssociationReadOnlyAccess          = ManagedPolicy("arn:aws:iam::aws:policy/AmazonHoneycodeTeamAssociationReadOnlyAccess")
-	ManagedPolicyAmazonHoneycodeWorkbookFullAccess                     = ManagedPolicy("arn:aws:iam::aws:policy/AmazonHoneycodeWorkbookFullAccess")
-	ManagedPolicyAmazonHoneycodeWorkbookReadOnlyAccess                 = ManagedPolicy("arn:aws:iam::aws:policy/AmazonHoneycodeWorkbookReadOnlyAccess")
-	ManagedPolicyAmazonInspector2FullAccess                            = ManagedPolicy("arn:aws:iam::aws:policy/AmazonInspector2FullAccess")
-	ManagedPolicyAmazonInspector2ReadOnlyAccess                        = ManagedPolicy("arn:aws:iam::aws:policy/AmazonInspector2ReadOnlyAccess")
-	ManagedPolicyAmazonInspector2ServiceRolePolicy                     = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonInspector2ServiceRolePolicy")
-	ManagedPolicyAmazonInspectorFullAccess                             = ManagedPolicy("arn:aws:iam::aws:policy/AmazonInspectorFullAccess")
-	ManagedPolicyAmazonInspectorReadOnlyAccess                         = ManagedPolicy("arn:aws:iam::aws:policy/AmazonInspectorReadOnlyAccess")
-	ManagedPolicyAmazonInspectorServiceRolePolicy                      = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonInspectorServiceRolePolicy")
-	ManagedPolicyAmazonKendraFullAccess                                = ManagedPolicy("arn:aws:iam::aws:policy/AmazonKendraFullAccess")
-	ManagedPolicyAmazonKendraReadOnlyAccess                            = ManagedPolicy("arn:aws:iam::aws:policy/AmazonKendraReadOnlyAccess")
-	ManagedPolicyAmazonKeyspacesFullAccess                             = ManagedPolicy("arn:aws:iam::aws:policy/AmazonKeyspacesFullAccess")
-	ManagedPolicyAmazonKeyspacesReadOnlyAccess                         = ManagedPolicy("arn:aws:iam::aws:policy/AmazonKeyspacesReadOnlyAccess")
-	ManagedPolicyAmazonKinesisAnalyticsFullAccess                      = ManagedPolicy("arn:aws:iam::aws:policy/AmazonKinesisAnalyticsFullAccess")
-	ManagedPolicyAmazonKinesisAnalyticsReadOnly                        = ManagedPolicy("arn:aws:iam::aws:policy/AmazonKinesisAnalyticsReadOnly")
-	ManagedPolicyAmazonKinesisFirehoseFullAccess                       = ManagedPolicy("arn:aws:iam::aws:policy/AmazonKinesisFirehoseFullAccess")
-	ManagedPolicyAmazonKinesisFirehoseReadOnlyAccess                   = ManagedPolicy("arn:aws:iam::aws:policy/AmazonKinesisFirehoseReadOnlyAccess")
-	ManagedPolicyAmazonKinesisFullAccess                               = ManagedPolicy("arn:aws:iam::aws:policy/AmazonKinesisFullAccess")
-	ManagedPolicyAmazonKinesisReadOnlyAccess                           = ManagedPolicy("arn:aws:iam::aws:policy/AmazonKinesisReadOnlyAccess")
-	ManagedPolicyAmazonKinesisVideoStreamsFullAccess                   = ManagedPolicy("arn:aws:iam::aws:policy/AmazonKinesisVideoStreamsFullAccess")
-	ManagedPolicyAmazonKinesisVideoStreamsReadOnlyAccess               = ManagedPolicy("arn:aws:iam::aws:policy/AmazonKinesisVideoStreamsReadOnlyAccess")
+	ManagedPolicyAmazonElasticTranscoderReadOnlyAccess             = ManagedPolicy("arn:aws:iam::aws:policy/AmazonElasticTranscoderReadOnlyAccess")
+	ManagedPolicyAmazonElasticTranscoderRole                       = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonElasticTranscoderRole")
+	ManagedPolicy_ElasticTranscoder_FullAccess                     = ManagedPolicy("arn:aws:iam::aws:policy/AmazonElasticTranscoder_FullAccess")
+	ManagedPolicy_ElasticTranscoder_JobsSubmitter                  = ManagedPolicy("arn:aws:iam::aws:policy/AmazonElasticTranscoder_JobsSubmitter")
+	ManagedPolicy_ElasticTranscoder_ReadOnlyAccess                 = ManagedPolicy("arn:aws:iam::aws:policy/AmazonElasticTranscoder_ReadOnlyAccess")
+	ManagedPolicyAmazonElasticsearchServiceRolePolicy              = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonElasticsearchServiceRolePolicy")
+	ManagedPolicyAmazonEventBridgeApiDestinationsServiceRolePolicy = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonEventBridgeApiDestinationsServiceRolePolicy")
+	ManagedPolicyAmazonEventBridgeFullAccess                       = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEventBridgeFullAccess")
+	ManagedPolicyAmazonEventBridgePipesFullAccess                  = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEventBridgePipesFullAccess")
+	ManagedPolicyAmazonEventBridgePipesOperatorAccess              = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEventBridgePipesOperatorAccess")
+	ManagedPolicyAmazonEventBridgePipesReadOnlyAccess              = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEventBridgePipesReadOnlyAccess")
+	ManagedPolicyAmazonEventBridgeReadOnlyAccess                   = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEventBridgeReadOnlyAccess")
+	ManagedPolicyAmazonEventBridgeSchedulerFullAccess              = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEventBridgeSchedulerFullAccess")
+	ManagedPolicyAmazonEventBridgeSchedulerReadOnlyAccess          = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEventBridgeSchedulerReadOnlyAccess")
+	ManagedPolicyAmazonEventBridgeSchemasFullAccess                = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEventBridgeSchemasFullAccess")
+	ManagedPolicyAmazonEventBridgeSchemasReadOnlyAccess            = ManagedPolicy("arn:aws:iam::aws:policy/AmazonEventBridgeSchemasReadOnlyAccess")
+	ManagedPolicyAmazonEventBridgeSchemasServiceRolePolicy         = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonEventBridgeSchemasServiceRolePolicy")
+	ManagedPolicyAmazonFISServiceRolePolicy                        = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonFISServiceRolePolicy")
+	ManagedPolicyAmazonFSxConsoleFullAccess                        = ManagedPolicy("arn:aws:iam::aws:policy/AmazonFSxConsoleFullAccess")
+	ManagedPolicyAmazonFSxConsoleReadOnlyAccess                    = ManagedPolicy("arn:aws:iam::aws:policy/AmazonFSxConsoleReadOnlyAccess")
+	ManagedPolicyAmazonFSxFullAccess                               = ManagedPolicy("arn:aws:iam::aws:policy/AmazonFSxFullAccess")
+	ManagedPolicyAmazonFSxReadOnlyAccess                           = ManagedPolicy("arn:aws:iam::aws:policy/AmazonFSxReadOnlyAccess")
+	ManagedPolicyAmazonFSxServiceRolePolicy                        = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonFSxServiceRolePolicy")
+	ManagedPolicyAmazonForecastFullAccess                          = ManagedPolicy("arn:aws:iam::aws:policy/AmazonForecastFullAccess")
+	ManagedPolicyAmazonFraudDetectorFullAccessPolicy               = ManagedPolicy("arn:aws:iam::aws:policy/AmazonFraudDetectorFullAccessPolicy")
+	ManagedPolicyAmazonFreeRTOSFullAccess                          = ManagedPolicy("arn:aws:iam::aws:policy/AmazonFreeRTOSFullAccess")
+	ManagedPolicyAmazonFreeRTOSOTAUpdate                           = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonFreeRTOSOTAUpdate")
+	ManagedPolicyAmazonGlacierFullAccess                           = ManagedPolicy("arn:aws:iam::aws:policy/AmazonGlacierFullAccess")
+	ManagedPolicyAmazonGlacierReadOnlyAccess                       = ManagedPolicy("arn:aws:iam::aws:policy/AmazonGlacierReadOnlyAccess")
+	ManagedPolicyAmazonGrafanaAthenaAccess                         = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonGrafanaAthenaAccess")
+	ManagedPolicyAmazonGrafanaCloudWatchAccess                     = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonGrafanaCloudWatchAccess")
+	ManagedPolicyAmazonGrafanaRedshiftAccess                       = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonGrafanaRedshiftAccess")
+	ManagedPolicyAmazonGrafanaServiceLinkedRolePolicy              = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonGrafanaServiceLinkedRolePolicy")
+	ManagedPolicyAmazonGuardDutyFullAccess                         = ManagedPolicy("arn:aws:iam::aws:policy/AmazonGuardDutyFullAccess")
+	ManagedPolicyAmazonGuardDutyMalwareProtectionServiceRolePolicy = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonGuardDutyMalwareProtectionServiceRolePolicy")
+	ManagedPolicyAmazonGuardDutyReadOnlyAccess                     = ManagedPolicy("arn:aws:iam::aws:policy/AmazonGuardDutyReadOnlyAccess")
+	ManagedPolicyAmazonGuardDutyServiceRolePolicy                  = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonGuardDutyServiceRolePolicy")
+	ManagedPolicyAmazonHealthLakeFullAccess                        = ManagedPolicy("arn:aws:iam::aws:policy/AmazonHealthLakeFullAccess")
+	ManagedPolicyAmazonHealthLakeReadOnlyAccess                    = ManagedPolicy("arn:aws:iam::aws:policy/AmazonHealthLakeReadOnlyAccess")
+	ManagedPolicyAmazonHoneycodeFullAccess                         = ManagedPolicy("arn:aws:iam::aws:policy/AmazonHoneycodeFullAccess")
+	ManagedPolicyAmazonHoneycodeReadOnlyAccess                     = ManagedPolicy("arn:aws:iam::aws:policy/AmazonHoneycodeReadOnlyAccess")
+	ManagedPolicyAmazonHoneycodeServiceRolePolicy                  = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonHoneycodeServiceRolePolicy")
+	ManagedPolicyAmazonHoneycodeTeamAssociationFullAccess          = ManagedPolicy("arn:aws:iam::aws:policy/AmazonHoneycodeTeamAssociationFullAccess")
+	ManagedPolicyAmazonHoneycodeTeamAssociationReadOnlyAccess      = ManagedPolicy("arn:aws:iam::aws:policy/AmazonHoneycodeTeamAssociationReadOnlyAccess")
+	ManagedPolicyAmazonHoneycodeWorkbookFullAccess                 = ManagedPolicy("arn:aws:iam::aws:policy/AmazonHoneycodeWorkbookFullAccess")
+	ManagedPolicyAmazonHoneycodeWorkbookReadOnlyAccess             = ManagedPolicy("arn:aws:iam::aws:policy/AmazonHoneycodeWorkbookReadOnlyAccess")
+	ManagedPolicyAmazonInspector2AgentlessServiceRolePolicy        = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonInspector2AgentlessServiceRolePolicy")
+	ManagedPolicyAmazonInspector2FullAccess                        = ManagedPolicy("arn:aws:iam::aws:policy/AmazonInspector2FullAccess")
+	ManagedPolicyAmazonInspector2ManagedCisPolicy                  = ManagedPolicy("arn:aws:iam::aws:policy/AmazonInspector2ManagedCisPolicy")
+	ManagedPolicyAmazonInspector2ReadOnlyAccess                    = ManagedPolicy("arn:aws:iam::aws:policy/AmazonInspector2ReadOnlyAccess")
+	ManagedPolicyAmazonInspector2ServiceRolePolicy                 = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonInspector2ServiceRolePolicy")
+	ManagedPolicyAmazonInspectorFullAccess                         = ManagedPolicy("arn:aws:iam::aws:policy/AmazonInspectorFullAccess")
+	ManagedPolicyAmazonInspectorReadOnlyAccess                     = ManagedPolicy("arn:aws:iam::aws:policy/AmazonInspectorReadOnlyAccess")
+	ManagedPolicyAmazonInspectorServiceRolePolicy                  = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonInspectorServiceRolePolicy")
+	ManagedPolicyAmazonKendraFullAccess                            = ManagedPolicy("arn:aws:iam::aws:policy/AmazonKendraFullAccess")
+	ManagedPolicyAmazonKendraReadOnlyAccess                        = ManagedPolicy("arn:aws:iam::aws:policy/AmazonKendraReadOnlyAccess")
+	ManagedPolicyAmazonKeyspacesFullAccess                         = ManagedPolicy("arn:aws:iam::aws:policy/AmazonKeyspacesFullAccess")
+	ManagedPolicyAmazonKeyspacesReadOnlyAccess                     = ManagedPolicy("arn:aws:iam::aws:policy/AmazonKeyspacesReadOnlyAccess")
+	ManagedPolicy_AmazonKeyspacesReadOnlyAccess_v2                 = ManagedPolicy("arn:aws:iam::aws:policy/AmazonKeyspacesReadOnlyAccess_v2")
+	ManagedPolicyAmazonKinesisAnalyticsFullAccess                  = ManagedPolicy("arn:aws:iam::aws:policy/AmazonKinesisAnalyticsFullAccess")
+	ManagedPolicyAmazonKinesisAnalyticsReadOnly                    = ManagedPolicy("arn:aws:iam::aws:policy/AmazonKinesisAnalyticsReadOnly")
+	ManagedPolicyAmazonKinesisFirehoseFullAccess                   = ManagedPolicy("arn:aws:iam::aws:policy/AmazonKinesisFirehoseFullAccess")
+	ManagedPolicyAmazonKinesisFirehoseReadOnlyAccess               = ManagedPolicy("arn:aws:iam::aws:policy/AmazonKinesisFirehoseReadOnlyAccess")
+	ManagedPolicyAmazonKinesisFullAccess                           = ManagedPolicy("arn:aws:iam::aws:policy/AmazonKinesisFullAccess")
+	ManagedPolicyAmazonKinesisReadOnlyAccess                       = ManagedPolicy("arn:aws:iam::aws:policy/AmazonKinesisReadOnlyAccess")
+	ManagedPolicyAmazonKinesisVideoStreamsFullAccess               = ManagedPolicy("arn:aws:iam::aws:policy/AmazonKinesisVideoStreamsFullAccess")
+	ManagedPolicyAmazonKinesisVideoStreamsReadOnlyAccess           = ManagedPolicy("arn:aws:iam::aws:policy/AmazonKinesisVideoStreamsReadOnlyAccess")
+	// Deprecated: This policy is deprecated and will be removed in a future release.
 	ManagedPolicy_AmazonLaunchWizard_Fullaccess                        = ManagedPolicy("arn:aws:iam::aws:policy/AmazonLaunchWizard_Fullaccess")
+	ManagedPolicyAmazonLaunchWizardFullAccessV2                        = ManagedPolicy("arn:aws:iam::aws:policy/AmazonLaunchWizardFullAccessV2")
 	ManagedPolicyAmazonLexChannelsAccess                               = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonLexChannelsAccess")
 	ManagedPolicyAmazonLexFullAccess                                   = ManagedPolicy("arn:aws:iam::aws:policy/AmazonLexFullAccess")
 	ManagedPolicyAmazonLexReadOnly                                     = ManagedPolicy("arn:aws:iam::aws:policy/AmazonLexReadOnly")
+	ManagedPolicyAmazonLexReplicationPolicy                            = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonLexReplicationPolicy")
 	ManagedPolicyAmazonLexRunBotsOnly                                  = ManagedPolicy("arn:aws:iam::aws:policy/AmazonLexRunBotsOnly")
 	ManagedPolicyAmazonLexV2BotPolicy                                  = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonLexV2BotPolicy")
 	ManagedPolicyAmazonLookoutEquipmentFullAccess                      = ManagedPolicy("arn:aws:iam::aws:policy/AmazonLookoutEquipmentFullAccess")
@@ -800,295 +886,350 @@ const (
 	ManagedPolicyAmazonMachineLearningReadOnlyAccess                   = ManagedPolicy("arn:aws:iam::aws:policy/AmazonMachineLearningReadOnlyAccess")
 	ManagedPolicyAmazonMachineLearningRealTimePredictionOnlyAccess     = ManagedPolicy("arn:aws:iam::aws:policy/AmazonMachineLearningRealTimePredictionOnlyAccess")
 	// Deprecated: This policy is deprecated. Use AmazonMachineLearningRoleforRedshiftDataSourceV3 instead.
-	ManagedPolicyAmazonMachineLearningRoleforRedshiftDataSource                       = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonMachineLearningRoleforRedshiftDataSource")
-	ManagedPolicyAmazonMachineLearningRoleforRedshiftDataSourceV3                     = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonMachineLearningRoleforRedshiftDataSourceV3")
-	ManagedPolicyAmazonMacieFullAccess                                                = ManagedPolicy("arn:aws:iam::aws:policy/AmazonMacieFullAccess")
-	ManagedPolicyAmazonMacieHandshakeRole                                             = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonMacieHandshakeRole")
-	ManagedPolicyAmazonMacieServiceRole                                               = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonMacieServiceRole")
-	ManagedPolicyAmazonMacieServiceRolePolicy                                         = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonMacieServiceRolePolicy")
-	ManagedPolicyAmazonManagedBlockchainConsoleFullAccess                             = ManagedPolicy("arn:aws:iam::aws:policy/AmazonManagedBlockchainConsoleFullAccess")
-	ManagedPolicyAmazonManagedBlockchainFullAccess                                    = ManagedPolicy("arn:aws:iam::aws:policy/AmazonManagedBlockchainFullAccess")
-	ManagedPolicyAmazonManagedBlockchainReadOnlyAccess                                = ManagedPolicy("arn:aws:iam::aws:policy/AmazonManagedBlockchainReadOnlyAccess")
-	ManagedPolicyAmazonManagedBlockchainServiceRolePolicy                             = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonManagedBlockchainServiceRolePolicy")
-	ManagedPolicyAmazonMechanicalTurkFullAccess                                       = ManagedPolicy("arn:aws:iam::aws:policy/AmazonMechanicalTurkFullAccess")
-	ManagedPolicyAmazonMechanicalTurkReadOnly                                         = ManagedPolicy("arn:aws:iam::aws:policy/AmazonMechanicalTurkReadOnly")
-	ManagedPolicyAmazonMemoryDBFullAccess                                             = ManagedPolicy("arn:aws:iam::aws:policy/AmazonMemoryDBFullAccess")
-	ManagedPolicyAmazonMemoryDBReadOnlyAccess                                         = ManagedPolicy("arn:aws:iam::aws:policy/AmazonMemoryDBReadOnlyAccess")
-	ManagedPolicyAmazonMobileAnalyticsFinancialReportAccess                           = ManagedPolicy("arn:aws:iam::aws:policy/AmazonMobileAnalyticsFinancialReportAccess")
-	ManagedPolicyAmazonMobileAnalyticsFullAccess                                      = ManagedPolicy("arn:aws:iam::aws:policy/AmazonMobileAnalyticsFullAccess")
-	ManagedPolicyAmazonMobileAnalyticsNonfinancialReportAccess                        = ManagedPolicy("arn:aws:iam::aws:policy/AmazonMobileAnalyticsNon-financialReportAccess")
-	ManagedPolicyAmazonMobileAnalyticsWriteOnlyAccess                                 = ManagedPolicy("arn:aws:iam::aws:policy/AmazonMobileAnalyticsWriteOnlyAccess")
-	ManagedPolicyAmazonMonitronFullAccess                                             = ManagedPolicy("arn:aws:iam::aws:policy/AmazonMonitronFullAccess")
-	ManagedPolicyAmazonNimbleStudioLaunchProfileWorker                                = ManagedPolicy("arn:aws:iam::aws:policy/AmazonNimbleStudio-LaunchProfileWorker")
-	ManagedPolicyAmazonNimbleStudioStudioAdmin                                        = ManagedPolicy("arn:aws:iam::aws:policy/AmazonNimbleStudio-StudioAdmin")
-	ManagedPolicyAmazonNimbleStudioStudioUser                                         = ManagedPolicy("arn:aws:iam::aws:policy/AmazonNimbleStudio-StudioUser")
-	ManagedPolicyAmazonOmicsFullAccess                                                = ManagedPolicy("arn:aws:iam::aws:policy/AmazonOmicsFullAccess")
-	ManagedPolicyAmazonOmicsReadOnlyAccess                                            = ManagedPolicy("arn:aws:iam::aws:policy/AmazonOmicsReadOnlyAccess")
-	ManagedPolicyAmazonOpenSearchIngestionServiceRolePolicy                           = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonOpenSearchIngestionServiceRolePolicy")
-	ManagedPolicyAmazonOpenSearchServerlessServiceRolePolicy                          = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonOpenSearchServerlessServiceRolePolicy")
-	ManagedPolicyAmazonOpenSearchServiceCognitoAccess                                 = ManagedPolicy("arn:aws:iam::aws:policy/AmazonOpenSearchServiceCognitoAccess")
-	ManagedPolicyAmazonOpenSearchServiceFullAccess                                    = ManagedPolicy("arn:aws:iam::aws:policy/AmazonOpenSearchServiceFullAccess")
-	ManagedPolicyAmazonOpenSearchServiceReadOnlyAccess                                = ManagedPolicy("arn:aws:iam::aws:policy/AmazonOpenSearchServiceReadOnlyAccess")
-	ManagedPolicyAmazonOpenSearchServiceRolePolicy                                    = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonOpenSearchServiceRolePolicy")
-	ManagedPolicyAmazonPersonalizeFullAccess                                          = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonPersonalizeFullAccess")
-	ManagedPolicyAmazonPollyFullAccess                                                = ManagedPolicy("arn:aws:iam::aws:policy/AmazonPollyFullAccess")
-	ManagedPolicyAmazonPollyReadOnlyAccess                                            = ManagedPolicy("arn:aws:iam::aws:policy/AmazonPollyReadOnlyAccess")
-	ManagedPolicyAmazonPrometheusConsoleFullAccess                                    = ManagedPolicy("arn:aws:iam::aws:policy/AmazonPrometheusConsoleFullAccess")
-	ManagedPolicyAmazonPrometheusFullAccess                                           = ManagedPolicy("arn:aws:iam::aws:policy/AmazonPrometheusFullAccess")
-	ManagedPolicyAmazonPrometheusQueryAccess                                          = ManagedPolicy("arn:aws:iam::aws:policy/AmazonPrometheusQueryAccess")
-	ManagedPolicyAmazonPrometheusRemoteWriteAccess                                    = ManagedPolicy("arn:aws:iam::aws:policy/AmazonPrometheusRemoteWriteAccess")
-	ManagedPolicyAmazonQLDBConsoleFullAccess                                          = ManagedPolicy("arn:aws:iam::aws:policy/AmazonQLDBConsoleFullAccess")
-	ManagedPolicyAmazonQLDBFullAccess                                                 = ManagedPolicy("arn:aws:iam::aws:policy/AmazonQLDBFullAccess")
-	ManagedPolicyAmazonQLDBReadOnly                                                   = ManagedPolicy("arn:aws:iam::aws:policy/AmazonQLDBReadOnly")
-	ManagedPolicyAmazonRDSBetaServiceRolePolicy                                       = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonRDSBetaServiceRolePolicy")
-	ManagedPolicyAmazonRDSCustomPreviewServiceRolePolicy                              = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonRDSCustomPreviewServiceRolePolicy")
-	ManagedPolicyAmazonRDSCustomServiceRolePolicy                                     = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonRDSCustomServiceRolePolicy")
-	ManagedPolicyAmazonRDSDataFullAccess                                              = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRDSDataFullAccess")
-	ManagedPolicyAmazonRDSDirectoryServiceAccess                                      = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonRDSDirectoryServiceAccess")
-	ManagedPolicyAmazonRDSEnhancedMonitoringRole                                      = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonRDSEnhancedMonitoringRole")
-	ManagedPolicyAmazonRDSFullAccess                                                  = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRDSFullAccess")
-	ManagedPolicyAmazonRDSPerformanceInsightsReadOnly                                 = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRDSPerformanceInsightsReadOnly")
-	ManagedPolicyAmazonRDSPreviewServiceRolePolicy                                    = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonRDSPreviewServiceRolePolicy")
-	ManagedPolicyAmazonRDSReadOnlyAccess                                              = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRDSReadOnlyAccess")
-	ManagedPolicyAmazonRDSServiceRolePolicy                                           = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonRDSServiceRolePolicy")
-	ManagedPolicyAmazonRedshiftAllCommandsFullAccess                                  = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRedshiftAllCommandsFullAccess")
-	ManagedPolicyAmazonRedshiftDataFullAccess                                         = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRedshiftDataFullAccess")
-	ManagedPolicyAmazonRedshiftFullAccess                                             = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRedshiftFullAccess")
-	ManagedPolicyAmazonRedshiftQueryEditor                                            = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRedshiftQueryEditor")
-	ManagedPolicyAmazonRedshiftQueryEditorV2FullAccess                                = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRedshiftQueryEditorV2FullAccess")
-	ManagedPolicyAmazonRedshiftQueryEditorV2NoSharing                                 = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRedshiftQueryEditorV2NoSharing")
-	ManagedPolicyAmazonRedshiftQueryEditorV2ReadSharing                               = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRedshiftQueryEditorV2ReadSharing")
-	ManagedPolicyAmazonRedshiftQueryEditorV2ReadWriteSharing                          = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRedshiftQueryEditorV2ReadWriteSharing")
-	ManagedPolicyAmazonRedshiftReadOnlyAccess                                         = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRedshiftReadOnlyAccess")
-	ManagedPolicyAmazonRedshiftServiceLinkedRolePolicy                                = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonRedshiftServiceLinkedRolePolicy")
-	ManagedPolicyAmazonRekognitionCustomLabelsFullAccess                              = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRekognitionCustomLabelsFullAccess")
-	ManagedPolicyAmazonRekognitionFullAccess                                          = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRekognitionFullAccess")
-	ManagedPolicyAmazonRekognitionReadOnlyAccess                                      = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRekognitionReadOnlyAccess")
-	ManagedPolicyAmazonRekognitionServiceRole                                         = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonRekognitionServiceRole")
-	ManagedPolicyAmazonRoute53AutoNamingFullAccess                                    = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRoute53AutoNamingFullAccess")
-	ManagedPolicyAmazonRoute53AutoNamingReadOnlyAccess                                = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRoute53AutoNamingReadOnlyAccess")
-	ManagedPolicyAmazonRoute53AutoNamingRegistrantAccess                              = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRoute53AutoNamingRegistrantAccess")
-	ManagedPolicyAmazonRoute53DomainsFullAccess                                       = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRoute53DomainsFullAccess")
-	ManagedPolicyAmazonRoute53DomainsReadOnlyAccess                                   = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRoute53DomainsReadOnlyAccess")
-	ManagedPolicyAmazonRoute53FullAccess                                              = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRoute53FullAccess")
-	ManagedPolicyAmazonRoute53ReadOnlyAccess                                          = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRoute53ReadOnlyAccess")
-	ManagedPolicyAmazonRoute53RecoveryClusterFullAccess                               = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRoute53RecoveryClusterFullAccess")
-	ManagedPolicyAmazonRoute53RecoveryClusterReadOnlyAccess                           = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRoute53RecoveryClusterReadOnlyAccess")
-	ManagedPolicyAmazonRoute53RecoveryControlConfigFullAccess                         = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRoute53RecoveryControlConfigFullAccess")
-	ManagedPolicyAmazonRoute53RecoveryControlConfigReadOnlyAccess                     = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRoute53RecoveryControlConfigReadOnlyAccess")
-	ManagedPolicyAmazonRoute53RecoveryReadinessFullAccess                             = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRoute53RecoveryReadinessFullAccess")
-	ManagedPolicyAmazonRoute53RecoveryReadinessReadOnlyAccess                         = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRoute53RecoveryReadinessReadOnlyAccess")
-	ManagedPolicyAmazonRoute53ResolverFullAccess                                      = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRoute53ResolverFullAccess")
-	ManagedPolicyAmazonRoute53ResolverReadOnlyAccess                                  = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRoute53ResolverReadOnlyAccess")
-	ManagedPolicyAmazonS3FullAccess                                                   = ManagedPolicy("arn:aws:iam::aws:policy/AmazonS3FullAccess")
-	ManagedPolicyAmazonS3ObjectLambdaExecutionRolePolicy                              = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonS3ObjectLambdaExecutionRolePolicy")
-	ManagedPolicyAmazonS3OutpostsFullAccess                                           = ManagedPolicy("arn:aws:iam::aws:policy/AmazonS3OutpostsFullAccess")
-	ManagedPolicyAmazonS3OutpostsReadOnlyAccess                                       = ManagedPolicy("arn:aws:iam::aws:policy/AmazonS3OutpostsReadOnlyAccess")
-	ManagedPolicyAmazonS3ReadOnlyAccess                                               = ManagedPolicy("arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess")
-	ManagedPolicyAmazonSESFullAccess                                                  = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSESFullAccess")
-	ManagedPolicyAmazonSESReadOnlyAccess                                              = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSESReadOnlyAccess")
-	ManagedPolicyAmazonSNSFullAccess                                                  = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSNSFullAccess")
-	ManagedPolicyAmazonSNSReadOnlyAccess                                              = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSNSReadOnlyAccess")
-	ManagedPolicyAmazonSNSRole                                                        = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonSNSRole")
-	ManagedPolicyAmazonSQSFullAccess                                                  = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSQSFullAccess")
-	ManagedPolicyAmazonSQSReadOnlyAccess                                              = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSQSReadOnlyAccess")
-	ManagedPolicyAmazonSSMAutomationApproverAccess                                    = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSSMAutomationApproverAccess")
-	ManagedPolicyAmazonSSMAutomationRole                                              = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonSSMAutomationRole")
-	ManagedPolicyAmazonSSMDirectoryServiceAccess                                      = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSSMDirectoryServiceAccess")
-	ManagedPolicyAmazonSSMFullAccess                                                  = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSSMFullAccess")
-	ManagedPolicyAmazonSSMMaintenanceWindowRole                                       = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonSSMMaintenanceWindowRole")
-	ManagedPolicyAmazonSSMManagedEC2InstanceDefaultPolicy                             = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSSMManagedEC2InstanceDefaultPolicy")
-	ManagedPolicyAmazonSSMPatchAssociation                                            = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSSMPatchAssociation")
-	ManagedPolicyAmazonSSMReadOnlyAccess                                              = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSSMReadOnlyAccess")
-	ManagedPolicyAmazonSSMManagedInstanceCore                                         = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore")
-	ManagedPolicyAmazonSSMServiceRolePolicy                                           = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonSSMServiceRolePolicy")
-	ManagedPolicyAmazonSageMakerAdminServiceCatalogProductsServiceRolePolicy          = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSageMakerAdmin-ServiceCatalogProductsServiceRolePolicy")
-	ManagedPolicyAmazonSageMakerCanvasForecastAccess                                  = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonSageMakerCanvasForecastAccess")
-	ManagedPolicyAmazonSageMakerCanvasFullAccess                                      = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSageMakerCanvasFullAccess")
-	ManagedPolicyAmazonSageMakerCoreServiceRolePolicy                                 = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonSageMakerCoreServiceRolePolicy")
-	ManagedPolicyAmazonSageMakerEdgeDeviceFleetPolicy                                 = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonSageMakerEdgeDeviceFleetPolicy")
-	ManagedPolicyAmazonSageMakerFeatureStoreAccess                                    = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSageMakerFeatureStoreAccess")
-	ManagedPolicyAmazonSageMakerFullAccess                                            = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSageMakerFullAccess")
-	ManagedPolicyAmazonSageMakerGeospatialExecutionRole                               = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonSageMakerGeospatialExecutionRole")
-	ManagedPolicyAmazonSageMakerGeospatialFullAccess                                  = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonSageMakerGeospatialFullAccess")
-	ManagedPolicyAmazonSageMakerGroundTruthExecution                                  = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSageMakerGroundTruthExecution")
-	ManagedPolicyAmazonSageMakerMechanicalTurkAccess                                  = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSageMakerMechanicalTurkAccess")
-	ManagedPolicyAmazonSageMakerModelGovernanceUseAccess                              = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSageMakerModelGovernanceUseAccess")
-	ManagedPolicyAmazonSageMakerNotebooksServiceRolePolicy                            = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonSageMakerNotebooksServiceRolePolicy")
-	ManagedPolicyAmazonSageMakerPipelinesIntegrations                                 = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSageMakerPipelinesIntegrations")
-	ManagedPolicyAmazonSageMakerReadOnly                                              = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSageMakerReadOnly")
-	ManagedPolicyAmazonSageMakerServiceCatalogProductsApiGatewayServiceRolePolicy     = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonSageMakerServiceCatalogProductsApiGatewayServiceRolePolicy")
-	ManagedPolicyAmazonSageMakerServiceCatalogProductsCloudformationServiceRolePolicy = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonSageMakerServiceCatalogProductsCloudformationServiceRolePolicy")
-	ManagedPolicyAmazonSageMakerServiceCatalogProductsCodeBuildServiceRolePolicy      = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSageMakerServiceCatalogProductsCodeBuildServiceRolePolicy")
-	ManagedPolicyAmazonSageMakerServiceCatalogProductsCodePipelineServiceRolePolicy   = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonSageMakerServiceCatalogProductsCodePipelineServiceRolePolicy")
-	ManagedPolicyAmazonSageMakerServiceCatalogProductsEventsServiceRolePolicy         = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonSageMakerServiceCatalogProductsEventsServiceRolePolicy")
-	ManagedPolicyAmazonSageMakerServiceCatalogProductsFirehoseServiceRolePolicy       = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonSageMakerServiceCatalogProductsFirehoseServiceRolePolicy")
-	ManagedPolicyAmazonSageMakerServiceCatalogProductsGlueServiceRolePolicy           = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonSageMakerServiceCatalogProductsGlueServiceRolePolicy")
-	ManagedPolicyAmazonSageMakerServiceCatalogProductsLambdaServiceRolePolicy         = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonSageMakerServiceCatalogProductsLambdaServiceRolePolicy")
-	ManagedPolicyAmazonSecurityLakePermissionsBoundary                                = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSecurityLakePermissionsBoundary")
-	ManagedPolicyAmazonSumerianFullAccess                                             = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSumerianFullAccess")
-	ManagedPolicyAmazonTextractFullAccess                                             = ManagedPolicy("arn:aws:iam::aws:policy/AmazonTextractFullAccess")
-	ManagedPolicyAmazonTextractServiceRole                                            = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonTextractServiceRole")
-	ManagedPolicyAmazonTimestreamConsoleFullAccess                                    = ManagedPolicy("arn:aws:iam::aws:policy/AmazonTimestreamConsoleFullAccess")
-	ManagedPolicyAmazonTimestreamFullAccess                                           = ManagedPolicy("arn:aws:iam::aws:policy/AmazonTimestreamFullAccess")
-	ManagedPolicyAmazonTimestreamReadOnlyAccess                                       = ManagedPolicy("arn:aws:iam::aws:policy/AmazonTimestreamReadOnlyAccess")
-	ManagedPolicyAmazonTranscribeFullAccess                                           = ManagedPolicy("arn:aws:iam::aws:policy/AmazonTranscribeFullAccess")
-	ManagedPolicyAmazonTranscribeReadOnlyAccess                                       = ManagedPolicy("arn:aws:iam::aws:policy/AmazonTranscribeReadOnlyAccess")
-	ManagedPolicyAmazonVPCCrossAccountNetworkInterfaceOperations                      = ManagedPolicy("arn:aws:iam::aws:policy/AmazonVPCCrossAccountNetworkInterfaceOperations")
-	ManagedPolicyAmazonVPCFullAccess                                                  = ManagedPolicy("arn:aws:iam::aws:policy/AmazonVPCFullAccess")
-	ManagedPolicyAmazonVPCReadOnlyAccess                                              = ManagedPolicy("arn:aws:iam::aws:policy/AmazonVPCReadOnlyAccess")
-	ManagedPolicyAmazonWorkDocsFullAccess                                             = ManagedPolicy("arn:aws:iam::aws:policy/AmazonWorkDocsFullAccess")
-	ManagedPolicyAmazonWorkDocsReadOnlyAccess                                         = ManagedPolicy("arn:aws:iam::aws:policy/AmazonWorkDocsReadOnlyAccess")
-	ManagedPolicyAmazonWorkMailEventsServiceRolePolicy                                = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonWorkMailEventsServiceRolePolicy")
-	ManagedPolicyAmazonWorkMailFullAccess                                             = ManagedPolicy("arn:aws:iam::aws:policy/AmazonWorkMailFullAccess")
-	ManagedPolicyAmazonWorkMailMessageFlowFullAccess                                  = ManagedPolicy("arn:aws:iam::aws:policy/AmazonWorkMailMessageFlowFullAccess")
-	ManagedPolicyAmazonWorkMailMessageFlowReadOnlyAccess                              = ManagedPolicy("arn:aws:iam::aws:policy/AmazonWorkMailMessageFlowReadOnlyAccess")
-	ManagedPolicyAmazonWorkMailReadOnlyAccess                                         = ManagedPolicy("arn:aws:iam::aws:policy/AmazonWorkMailReadOnlyAccess")
-	ManagedPolicyAmazonWorkSpacesAdmin                                                = ManagedPolicy("arn:aws:iam::aws:policy/AmazonWorkSpacesAdmin")
-	ManagedPolicyAmazonWorkSpacesApplicationManagerAdminAccess                        = ManagedPolicy("arn:aws:iam::aws:policy/AmazonWorkSpacesApplicationManagerAdminAccess")
-	ManagedPolicyAmazonWorkSpacesSelfServiceAccess                                    = ManagedPolicy("arn:aws:iam::aws:policy/AmazonWorkSpacesSelfServiceAccess")
-	ManagedPolicyAmazonWorkSpacesServiceAccess                                        = ManagedPolicy("arn:aws:iam::aws:policy/AmazonWorkSpacesServiceAccess")
-	ManagedPolicyAmazonWorkSpacesWebReadOnly                                          = ManagedPolicy("arn:aws:iam::aws:policy/AmazonWorkSpacesWebReadOnly")
-	ManagedPolicyAmazonWorkSpacesWebServiceRolePolicy                                 = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonWorkSpacesWebServiceRolePolicy")
-	ManagedPolicyAmazonWorkspacesPCAAccess                                            = ManagedPolicy("arn:aws:iam::aws:policy/AmazonWorkspacesPCAAccess")
-	ManagedPolicyAmazonZocaloFullAccess                                               = ManagedPolicy("arn:aws:iam::aws:policy/AmazonZocaloFullAccess")
-	ManagedPolicyAmazonZocaloReadOnlyAccess                                           = ManagedPolicy("arn:aws:iam::aws:policy/AmazonZocaloReadOnlyAccess")
-	ManagedPolicyAppIntegrationsServiceLinkedRolePolicy                               = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AppIntegrationsServiceLinkedRolePolicy")
-	ManagedPolicyAppRunnerNetworkingServiceRolePolicy                                 = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AppRunnerNetworkingServiceRolePolicy")
-	ManagedPolicyAppRunnerServiceRolePolicy                                           = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AppRunnerServiceRolePolicy")
-	ManagedPolicyApplicationAutoScalingForAmazonAppStreamAccess                       = ManagedPolicy("arn:aws:iam::aws:policy/service-role/ApplicationAutoScalingForAmazonAppStreamAccess")
-	ManagedPolicyApplicationDiscoveryServiceContinuousExportServiceRolePolicy         = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/ApplicationDiscoveryServiceContinuousExportServiceRolePolicy")
-	ManagedPolicyAutoScalingConsoleFullAccess                                         = ManagedPolicy("arn:aws:iam::aws:policy/AutoScalingConsoleFullAccess")
-	ManagedPolicyAutoScalingConsoleReadOnlyAccess                                     = ManagedPolicy("arn:aws:iam::aws:policy/AutoScalingConsoleReadOnlyAccess")
-	ManagedPolicyAutoScalingFullAccess                                                = ManagedPolicy("arn:aws:iam::aws:policy/AutoScalingFullAccess")
-	ManagedPolicyAutoScalingNotificationAccessRole                                    = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AutoScalingNotificationAccessRole")
-	ManagedPolicyAutoScalingReadOnlyAccess                                            = ManagedPolicy("arn:aws:iam::aws:policy/AutoScalingReadOnlyAccess")
-	ManagedPolicyAutoScalingServiceRolePolicy                                         = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AutoScalingServiceRolePolicy")
-	ManagedPolicyAwsGlueDataBrewFullAccessPolicy                                      = ManagedPolicy("arn:aws:iam::aws:policy/AwsGlueDataBrewFullAccessPolicy")
-	ManagedPolicyAwsGlueSessionUserRestrictedNotebookPolicy                           = ManagedPolicy("arn:aws:iam::aws:policy/AwsGlueSessionUserRestrictedNotebookPolicy")
-	ManagedPolicyAwsGlueSessionUserRestrictedNotebookServiceRole                      = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AwsGlueSessionUserRestrictedNotebookServiceRole")
-	ManagedPolicyAwsGlueSessionUserRestrictedPolicy                                   = ManagedPolicy("arn:aws:iam::aws:policy/AwsGlueSessionUserRestrictedPolicy")
-	ManagedPolicyAwsGlueSessionUserRestrictedServiceRole                              = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AwsGlueSessionUserRestrictedServiceRole")
-	ManagedPolicyBatchServiceRolePolicy                                               = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/BatchServiceRolePolicy")
-	ManagedPolicyBilling                                                              = ManagedPolicy("arn:aws:iam::aws:policy/job-function/Billing")
-	ManagedPolicyCertificateManagerServiceRolePolicy                                  = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/CertificateManagerServiceRolePolicy")
-	ManagedPolicyClientVPNServiceConnectionsRolePolicy                                = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/ClientVPNServiceConnectionsRolePolicy")
-	ManagedPolicyClientVPNServiceRolePolicy                                           = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/ClientVPNServiceRolePolicy")
-	ManagedPolicyCloudFormationStackSetsOrgAdminServiceRolePolicy                     = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/CloudFormationStackSetsOrgAdminServiceRolePolicy")
-	ManagedPolicyCloudFormationStackSetsOrgMemberServiceRolePolicy                    = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/CloudFormationStackSetsOrgMemberServiceRolePolicy")
-	ManagedPolicyCloudFrontFullAccess                                                 = ManagedPolicy("arn:aws:iam::aws:policy/CloudFrontFullAccess")
-	ManagedPolicyCloudFrontReadOnlyAccess                                             = ManagedPolicy("arn:aws:iam::aws:policy/CloudFrontReadOnlyAccess")
-	ManagedPolicyCloudHSMServiceRolePolicy                                            = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/CloudHSMServiceRolePolicy")
-	ManagedPolicyCloudSearchFullAccess                                                = ManagedPolicy("arn:aws:iam::aws:policy/CloudSearchFullAccess")
-	ManagedPolicyCloudSearchReadOnlyAccess                                            = ManagedPolicy("arn:aws:iam::aws:policy/CloudSearchReadOnlyAccess")
-	ManagedPolicyCloudTrailServiceRolePolicy                                          = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/CloudTrailServiceRolePolicy")
-	ManagedPolicyCloudWatchCrossAccountAccess                                         = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/CloudWatch-CrossAccountAccess")
-	ManagedPolicyCloudWatchActionsEC2Access                                           = ManagedPolicy("arn:aws:iam::aws:policy/CloudWatchActionsEC2Access")
-	ManagedPolicyCloudWatchAgentAdminPolicy                                           = ManagedPolicy("arn:aws:iam::aws:policy/CloudWatchAgentAdminPolicy")
-	ManagedPolicyCloudWatchAgentServerPolicy                                          = ManagedPolicy("arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy")
-	ManagedPolicyCloudWatchApplicationInsightsFullAccess                              = ManagedPolicy("arn:aws:iam::aws:policy/CloudWatchApplicationInsightsFullAccess")
-	ManagedPolicyCloudWatchApplicationInsightsReadOnlyAccess                          = ManagedPolicy("arn:aws:iam::aws:policy/CloudWatchApplicationInsightsReadOnlyAccess")
-	ManagedPolicyCloudWatchAutomaticDashboardsAccess                                  = ManagedPolicy("arn:aws:iam::aws:policy/CloudWatchAutomaticDashboardsAccess")
-	ManagedPolicyCloudWatchCrossAccountSharingConfiguration                           = ManagedPolicy("arn:aws:iam::aws:policy/CloudWatchCrossAccountSharingConfiguration")
-	ManagedPolicyCloudWatchEventsBuiltInTargetExecutionAccess                         = ManagedPolicy("arn:aws:iam::aws:policy/service-role/CloudWatchEventsBuiltInTargetExecutionAccess")
-	ManagedPolicyCloudWatchEventsFullAccess                                           = ManagedPolicy("arn:aws:iam::aws:policy/CloudWatchEventsFullAccess")
-	ManagedPolicyCloudWatchEventsInvocationAccess                                     = ManagedPolicy("arn:aws:iam::aws:policy/service-role/CloudWatchEventsInvocationAccess")
-	ManagedPolicyCloudWatchEventsReadOnlyAccess                                       = ManagedPolicy("arn:aws:iam::aws:policy/CloudWatchEventsReadOnlyAccess")
-	ManagedPolicyCloudWatchEventsServiceRolePolicy                                    = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/CloudWatchEventsServiceRolePolicy")
-	ManagedPolicyCloudWatchFullAccess                                                 = ManagedPolicy("arn:aws:iam::aws:policy/CloudWatchFullAccess")
-	ManagedPolicyCloudWatchFullAccessV2                                               = ManagedPolicy("arn:aws:iam::aws:policy/CloudWatchFullAccessV2")
-	ManagedPolicyCloudWatchInternetMonitorServiceRolePolicy                           = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/CloudWatchInternetMonitorServiceRolePolicy")
-	ManagedPolicyCloudWatchLambdaInsightsExecutionRolePolicy                          = ManagedPolicy("arn:aws:iam::aws:policy/CloudWatchLambdaInsightsExecutionRolePolicy")
-	ManagedPolicyCloudWatchLogsCrossAccountSharingConfiguration                       = ManagedPolicy("arn:aws:iam::aws:policy/CloudWatchLogsCrossAccountSharingConfiguration")
-	ManagedPolicyCloudWatchLogsFullAccess                                             = ManagedPolicy("arn:aws:iam::aws:policy/CloudWatchLogsFullAccess")
-	ManagedPolicyCloudWatchLogsReadOnlyAccess                                         = ManagedPolicy("arn:aws:iam::aws:policy/CloudWatchLogsReadOnlyAccess")
-	ManagedPolicyCloudWatchReadOnlyAccess                                             = ManagedPolicy("arn:aws:iam::aws:policy/CloudWatchReadOnlyAccess")
-	ManagedPolicyCloudWatchSyntheticsFullAccess                                       = ManagedPolicy("arn:aws:iam::aws:policy/CloudWatchSyntheticsFullAccess")
-	ManagedPolicyCloudWatchSyntheticsReadOnlyAccess                                   = ManagedPolicy("arn:aws:iam::aws:policy/CloudWatchSyntheticsReadOnlyAccess")
-	ManagedPolicyCloudwatchApplicationInsightsServiceLinkedRolePolicy                 = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/CloudwatchApplicationInsightsServiceLinkedRolePolicy")
-	ManagedPolicyComprehendDataAccessRolePolicy                                       = ManagedPolicy("arn:aws:iam::aws:policy/service-role/ComprehendDataAccessRolePolicy")
-	ManagedPolicyComprehendFullAccess                                                 = ManagedPolicy("arn:aws:iam::aws:policy/ComprehendFullAccess")
-	ManagedPolicyComprehendMedicalFullAccess                                          = ManagedPolicy("arn:aws:iam::aws:policy/ComprehendMedicalFullAccess")
-	ManagedPolicyComprehendReadOnly                                                   = ManagedPolicy("arn:aws:iam::aws:policy/ComprehendReadOnly")
-	ManagedPolicyComputeOptimizerReadOnlyAccess                                       = ManagedPolicy("arn:aws:iam::aws:policy/ComputeOptimizerReadOnlyAccess")
-	ManagedPolicyComputeOptimizerServiceRolePolicy                                    = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/ComputeOptimizerServiceRolePolicy")
-	ManagedPolicyConfigConformsServiceRolePolicy                                      = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/ConfigConformsServiceRolePolicy")
-	ManagedPolicyDAXServiceRolePolicy                                                 = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/DAXServiceRolePolicy")
-	ManagedPolicyDataScientist                                                        = ManagedPolicy("arn:aws:iam::aws:policy/job-function/DataScientist")
-	ManagedPolicyDatabaseAdministrator                                                = ManagedPolicy("arn:aws:iam::aws:policy/job-function/DatabaseAdministrator")
-	ManagedPolicyDynamoDBCloudWatchContributorInsightsServiceRolePolicy               = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/DynamoDBCloudWatchContributorInsightsServiceRolePolicy")
-	ManagedPolicyDynamoDBKinesisReplicationServiceRolePolicy                          = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/DynamoDBKinesisReplicationServiceRolePolicy")
-	ManagedPolicyDynamoDBReplicationServiceRolePolicy                                 = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/DynamoDBReplicationServiceRolePolicy")
-	ManagedPolicyEC2FastLaunchServiceRolePolicy                                       = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/EC2FastLaunchServiceRolePolicy")
-	ManagedPolicyEC2FleetTimeShiftableServiceRolePolicy                               = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/EC2FleetTimeShiftableServiceRolePolicy")
-	ManagedPolicyEC2InstanceConnect                                                   = ManagedPolicy("arn:aws:iam::aws:policy/EC2InstanceConnect")
-	ManagedPolicyEC2InstanceProfileForImageBuilder                                    = ManagedPolicy("arn:aws:iam::aws:policy/EC2InstanceProfileForImageBuilder")
-	ManagedPolicyEC2InstanceProfileForImageBuilderECRContainerBuilds                  = ManagedPolicy("arn:aws:iam::aws:policy/EC2InstanceProfileForImageBuilderECRContainerBuilds")
-	ManagedPolicyECRReplicationServiceRolePolicy                                      = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/ECRReplicationServiceRolePolicy")
-	ManagedPolicyEc2ImageBuilderCrossAccountDistributionAccess                        = ManagedPolicy("arn:aws:iam::aws:policy/Ec2ImageBuilderCrossAccountDistributionAccess")
-	ManagedPolicyEc2InstanceConnectEndpoint                                           = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/Ec2InstanceConnectEndpoint")
-	ManagedPolicyElastiCacheServiceRolePolicy                                         = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/ElastiCacheServiceRolePolicy")
-	ManagedPolicyElasticLoadBalancingFullAccess                                       = ManagedPolicy("arn:aws:iam::aws:policy/ElasticLoadBalancingFullAccess")
-	ManagedPolicyElasticLoadBalancingReadOnly                                         = ManagedPolicy("arn:aws:iam::aws:policy/ElasticLoadBalancingReadOnly")
-	ManagedPolicyElementalActivationsDownloadSoftwareAccess                           = ManagedPolicy("arn:aws:iam::aws:policy/ElementalActivationsDownloadSoftwareAccess")
-	ManagedPolicyElementalActivationsFullAccess                                       = ManagedPolicy("arn:aws:iam::aws:policy/ElementalActivationsFullAccess")
-	ManagedPolicyElementalActivationsGenerateLicenses                                 = ManagedPolicy("arn:aws:iam::aws:policy/ElementalActivationsGenerateLicenses")
-	ManagedPolicyElementalActivationsReadOnlyAccess                                   = ManagedPolicy("arn:aws:iam::aws:policy/ElementalActivationsReadOnlyAccess")
-	ManagedPolicyElementalAppliancesSoftwareFullAccess                                = ManagedPolicy("arn:aws:iam::aws:policy/ElementalAppliancesSoftwareFullAccess")
-	ManagedPolicyElementalAppliancesSoftwareReadOnlyAccess                            = ManagedPolicy("arn:aws:iam::aws:policy/ElementalAppliancesSoftwareReadOnlyAccess")
-	ManagedPolicyElementalSupportCenterFullAccess                                     = ManagedPolicy("arn:aws:iam::aws:policy/ElementalSupportCenterFullAccess")
-	ManagedPolicyFMSServiceRolePolicy                                                 = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/FMSServiceRolePolicy")
-	ManagedPolicyFSxDeleteServiceLinkedRoleAccess                                     = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/FSxDeleteServiceLinkedRoleAccess")
-	ManagedPolicyFusionDevInternalServiceRolePolicy                                   = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/FusionDevInternalServiceRolePolicy")
-	ManagedPolicyGameLiftGameServerGroupPolicy                                        = ManagedPolicy("arn:aws:iam::aws:policy/GameLiftGameServerGroupPolicy")
-	ManagedPolicyGlobalAcceleratorFullAccess                                          = ManagedPolicy("arn:aws:iam::aws:policy/GlobalAcceleratorFullAccess")
-	ManagedPolicyGlobalAcceleratorReadOnlyAccess                                      = ManagedPolicy("arn:aws:iam::aws:policy/GlobalAcceleratorReadOnlyAccess")
-	ManagedPolicyGreengrassOTAUpdateArtifactAccess                                    = ManagedPolicy("arn:aws:iam::aws:policy/service-role/GreengrassOTAUpdateArtifactAccess")
-	ManagedPolicyGroundTruthSyntheticConsoleFullAccess                                = ManagedPolicy("arn:aws:iam::aws:policy/GroundTruthSyntheticConsoleFullAccess")
-	ManagedPolicyGroundTruthSyntheticConsoleReadOnlyAccess                            = ManagedPolicy("arn:aws:iam::aws:policy/GroundTruthSyntheticConsoleReadOnlyAccess")
-	ManagedPolicy_Health_OrganizationsServiceRolePolicy                               = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/Health_OrganizationsServiceRolePolicy")
-	ManagedPolicyIAMAccessAdvisorReadOnly                                             = ManagedPolicy("arn:aws:iam::aws:policy/IAMAccessAdvisorReadOnly")
-	ManagedPolicyIAMAccessAnalyzerFullAccess                                          = ManagedPolicy("arn:aws:iam::aws:policy/IAMAccessAnalyzerFullAccess")
-	ManagedPolicyIAMAccessAnalyzerReadOnlyAccess                                      = ManagedPolicy("arn:aws:iam::aws:policy/IAMAccessAnalyzerReadOnlyAccess")
-	ManagedPolicyIAMFullAccess                                                        = ManagedPolicy("arn:aws:iam::aws:policy/IAMFullAccess")
-	ManagedPolicyIAMReadOnlyAccess                                                    = ManagedPolicy("arn:aws:iam::aws:policy/IAMReadOnlyAccess")
-	ManagedPolicyIAMSelfManageServiceSpecificCredentials                              = ManagedPolicy("arn:aws:iam::aws:policy/IAMSelfManageServiceSpecificCredentials")
-	ManagedPolicyIAMUserChangePassword                                                = ManagedPolicy("arn:aws:iam::aws:policy/IAMUserChangePassword")
-	ManagedPolicyIAMUserSSHKeys                                                       = ManagedPolicy("arn:aws:iam::aws:policy/IAMUserSSHKeys")
-	ManagedPolicyIVSRecordToS3                                                        = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/IVSRecordToS3")
-	ManagedPolicyKafkaConnectServiceRolePolicy                                        = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/KafkaConnectServiceRolePolicy")
-	ManagedPolicyKafkaServiceRolePolicy                                               = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/KafkaServiceRolePolicy")
-	ManagedPolicyLakeFormationDataAccessServiceRolePolicy                             = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/LakeFormationDataAccessServiceRolePolicy")
-	ManagedPolicyLexBotPolicy                                                         = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/LexBotPolicy")
-	ManagedPolicyLexChannelPolicy                                                     = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/LexChannelPolicy")
-	ManagedPolicyLightsailExportAccess                                                = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/LightsailExportAccess")
-	ManagedPolicyMediaPackageServiceRolePolicy                                        = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/MediaPackageServiceRolePolicy")
-	ManagedPolicyMemoryDBServiceRolePolicy                                            = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/MemoryDBServiceRolePolicy")
-	ManagedPolicyMigrationHubDMSAccessServiceRolePolicy                               = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/MigrationHubDMSAccessServiceRolePolicy")
-	ManagedPolicyMigrationHubSMSAccessServiceRolePolicy                               = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/MigrationHubSMSAccessServiceRolePolicy")
-	ManagedPolicyMigrationHubServiceRolePolicy                                        = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/MigrationHubServiceRolePolicy")
-	ManagedPolicyMonitronServiceRolePolicy                                            = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/MonitronServiceRolePolicy")
-	ManagedPolicyNeptuneConsoleFullAccess                                             = ManagedPolicy("arn:aws:iam::aws:policy/NeptuneConsoleFullAccess")
-	ManagedPolicyNeptuneFullAccess                                                    = ManagedPolicy("arn:aws:iam::aws:policy/NeptuneFullAccess")
-	ManagedPolicyNeptuneReadOnlyAccess                                                = ManagedPolicy("arn:aws:iam::aws:policy/NeptuneReadOnlyAccess")
-	ManagedPolicyNetworkAdministrator                                                 = ManagedPolicy("arn:aws:iam::aws:policy/job-function/NetworkAdministrator")
-	ManagedPolicyOAMFullAccess                                                        = ManagedPolicy("arn:aws:iam::aws:policy/OAMFullAccess")
-	ManagedPolicyOAMReadOnlyAccess                                                    = ManagedPolicy("arn:aws:iam::aws:policy/OAMReadOnlyAccess")
-	ManagedPolicyPowerUserAccess                                                      = ManagedPolicy("arn:aws:iam::aws:policy/PowerUserAccess")
-	ManagedPolicyQuickSightAccessForS3StorageManagementAnalyticsReadOnly              = ManagedPolicy("arn:aws:iam::aws:policy/service-role/QuickSightAccessForS3StorageManagementAnalyticsReadOnly")
-	ManagedPolicyRDSCloudHsmAuthorizationRole                                         = ManagedPolicy("arn:aws:iam::aws:policy/service-role/RDSCloudHsmAuthorizationRole")
-	ManagedPolicyROSAManageSubscription                                               = ManagedPolicy("arn:aws:iam::aws:policy/ROSAManageSubscription")
-	ManagedPolicyReadOnlyAccess                                                       = ManagedPolicy("arn:aws:iam::aws:policy/ReadOnlyAccess")
-	ManagedPolicyResourceGroupsServiceRolePolicy                                      = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/ResourceGroupsServiceRolePolicy")
-	ManagedPolicyResourceGroupsandTagEditorFullAccess                                 = ManagedPolicy("arn:aws:iam::aws:policy/ResourceGroupsandTagEditorFullAccess")
-	ManagedPolicyResourceGroupsandTagEditorReadOnlyAccess                             = ManagedPolicy("arn:aws:iam::aws:policy/ResourceGroupsandTagEditorReadOnlyAccess")
-	ManagedPolicyRoute53RecoveryReadinessServiceRolePolicy                            = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/Route53RecoveryReadinessServiceRolePolicy")
-	ManagedPolicyRoute53ResolverServiceRolePolicy                                     = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/Route53ResolverServiceRolePolicy")
-	ManagedPolicyS3StorageLensServiceRolePolicy                                       = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/S3StorageLensServiceRolePolicy")
-	ManagedPolicySecretsManagerReadWrite                                              = ManagedPolicy("arn:aws:iam::aws:policy/SecretsManagerReadWrite")
-	ManagedPolicySecurityAudit                                                        = ManagedPolicy("arn:aws:iam::aws:policy/SecurityAudit")
-	ManagedPolicySecurityLakeServiceLinkedRole                                        = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/SecurityLakeServiceLinkedRole")
-	ManagedPolicyServerMigrationConnector                                             = ManagedPolicy("arn:aws:iam::aws:policy/ServerMigrationConnector")
+	ManagedPolicyAmazonMachineLearningRoleforRedshiftDataSource                              = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonMachineLearningRoleforRedshiftDataSource")
+	ManagedPolicyAmazonMachineLearningRoleforRedshiftDataSourceV3                            = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonMachineLearningRoleforRedshiftDataSourceV3")
+	ManagedPolicyAmazonMacieFullAccess                                                       = ManagedPolicy("arn:aws:iam::aws:policy/AmazonMacieFullAccess")
+	ManagedPolicyAmazonMacieHandshakeRole                                                    = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonMacieHandshakeRole")
+	ManagedPolicyAmazonMacieReadOnlyAccess                                                   = ManagedPolicy("arn:aws:iam::aws:policy/AmazonMacieReadOnlyAccess")
+	ManagedPolicyAmazonMacieServiceRole                                                      = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonMacieServiceRole")
+	ManagedPolicyAmazonMacieServiceRolePolicy                                                = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonMacieServiceRolePolicy")
+	ManagedPolicyAmazonManagedBlockchainConsoleFullAccess                                    = ManagedPolicy("arn:aws:iam::aws:policy/AmazonManagedBlockchainConsoleFullAccess")
+	ManagedPolicyAmazonManagedBlockchainFullAccess                                           = ManagedPolicy("arn:aws:iam::aws:policy/AmazonManagedBlockchainFullAccess")
+	ManagedPolicyAmazonManagedBlockchainReadOnlyAccess                                       = ManagedPolicy("arn:aws:iam::aws:policy/AmazonManagedBlockchainReadOnlyAccess")
+	ManagedPolicyAmazonManagedBlockchainServiceRolePolicy                                    = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonManagedBlockchainServiceRolePolicy")
+	ManagedPolicyAmazonMechanicalTurkFullAccess                                              = ManagedPolicy("arn:aws:iam::aws:policy/AmazonMechanicalTurkFullAccess")
+	ManagedPolicyAmazonMechanicalTurkReadOnly                                                = ManagedPolicy("arn:aws:iam::aws:policy/AmazonMechanicalTurkReadOnly")
+	ManagedPolicyAmazonMemoryDBFullAccess                                                    = ManagedPolicy("arn:aws:iam::aws:policy/AmazonMemoryDBFullAccess")
+	ManagedPolicyAmazonMemoryDBReadOnlyAccess                                                = ManagedPolicy("arn:aws:iam::aws:policy/AmazonMemoryDBReadOnlyAccess")
+	ManagedPolicyAmazonMobileAnalyticsFinancialReportAccess                                  = ManagedPolicy("arn:aws:iam::aws:policy/AmazonMobileAnalyticsFinancialReportAccess")
+	ManagedPolicyAmazonMobileAnalyticsFullAccess                                             = ManagedPolicy("arn:aws:iam::aws:policy/AmazonMobileAnalyticsFullAccess")
+	ManagedPolicyAmazonMobileAnalyticsNonfinancialReportAccess                               = ManagedPolicy("arn:aws:iam::aws:policy/AmazonMobileAnalyticsNon-financialReportAccess")
+	ManagedPolicyAmazonMobileAnalyticsWriteOnlyAccess                                        = ManagedPolicy("arn:aws:iam::aws:policy/AmazonMobileAnalyticsWriteOnlyAccess")
+	ManagedPolicyAmazonMonitronFullAccess                                                    = ManagedPolicy("arn:aws:iam::aws:policy/AmazonMonitronFullAccess")
+	ManagedPolicyAmazonNimbleStudioLaunchProfileWorker                                       = ManagedPolicy("arn:aws:iam::aws:policy/AmazonNimbleStudio-LaunchProfileWorker")
+	ManagedPolicyAmazonNimbleStudioStudioAdmin                                               = ManagedPolicy("arn:aws:iam::aws:policy/AmazonNimbleStudio-StudioAdmin")
+	ManagedPolicyAmazonNimbleStudioStudioUser                                                = ManagedPolicy("arn:aws:iam::aws:policy/AmazonNimbleStudio-StudioUser")
+	ManagedPolicyAmazonOmicsFullAccess                                                       = ManagedPolicy("arn:aws:iam::aws:policy/AmazonOmicsFullAccess")
+	ManagedPolicyAmazonOmicsReadOnlyAccess                                                   = ManagedPolicy("arn:aws:iam::aws:policy/AmazonOmicsReadOnlyAccess")
+	ManagedPolicyAmazonOneEnterpriseFullAccess                                               = ManagedPolicy("arn:aws:iam::aws:policy/AmazonOneEnterpriseFullAccess")
+	ManagedPolicyAmazonOneEnterpriseInstallerAccess                                          = ManagedPolicy("arn:aws:iam::aws:policy/AmazonOneEnterpriseInstallerAccess")
+	ManagedPolicyAmazonOneEnterpriseReadOnlyAccess                                           = ManagedPolicy("arn:aws:iam::aws:policy/AmazonOneEnterpriseReadOnlyAccess")
+	ManagedPolicyAmazonOpenSearchDashboardsServiceRolePolicy                                 = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonOpenSearchDashboardsServiceRolePolicy")
+	ManagedPolicyAmazonOpenSearchIngestionFullAccess                                         = ManagedPolicy("arn:aws:iam::aws:policy/AmazonOpenSearchIngestionFullAccess")
+	ManagedPolicyAmazonOpenSearchIngestionReadOnlyAccess                                     = ManagedPolicy("arn:aws:iam::aws:policy/AmazonOpenSearchIngestionReadOnlyAccess")
+	ManagedPolicyAmazonOpenSearchIngestionServiceRolePolicy                                  = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonOpenSearchIngestionServiceRolePolicy")
+	ManagedPolicyAmazonOpenSearchServerlessServiceRolePolicy                                 = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonOpenSearchServerlessServiceRolePolicy")
+	ManagedPolicyAmazonOpenSearchServiceCognitoAccess                                        = ManagedPolicy("arn:aws:iam::aws:policy/AmazonOpenSearchServiceCognitoAccess")
+	ManagedPolicyAmazonOpenSearchServiceFullAccess                                           = ManagedPolicy("arn:aws:iam::aws:policy/AmazonOpenSearchServiceFullAccess")
+	ManagedPolicyAmazonOpenSearchServiceReadOnlyAccess                                       = ManagedPolicy("arn:aws:iam::aws:policy/AmazonOpenSearchServiceReadOnlyAccess")
+	ManagedPolicyAmazonOpenSearchServiceRolePolicy                                           = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonOpenSearchServiceRolePolicy")
+	ManagedPolicyAmazonPersonalizeFullAccess                                                 = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonPersonalizeFullAccess")
+	ManagedPolicyAmazonPollyFullAccess                                                       = ManagedPolicy("arn:aws:iam::aws:policy/AmazonPollyFullAccess")
+	ManagedPolicyAmazonPollyReadOnlyAccess                                                   = ManagedPolicy("arn:aws:iam::aws:policy/AmazonPollyReadOnlyAccess")
+	ManagedPolicyAmazonPrometheusConsoleFullAccess                                           = ManagedPolicy("arn:aws:iam::aws:policy/AmazonPrometheusConsoleFullAccess")
+	ManagedPolicyAmazonPrometheusFullAccess                                                  = ManagedPolicy("arn:aws:iam::aws:policy/AmazonPrometheusFullAccess")
+	ManagedPolicyAmazonPrometheusQueryAccess                                                 = ManagedPolicy("arn:aws:iam::aws:policy/AmazonPrometheusQueryAccess")
+	ManagedPolicyAmazonPrometheusRemoteWriteAccess                                           = ManagedPolicy("arn:aws:iam::aws:policy/AmazonPrometheusRemoteWriteAccess")
+	ManagedPolicyAmazonPrometheusScraperServiceRolePolicy                                    = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonPrometheusScraperServiceRolePolicy")
+	ManagedPolicyAmazonQFullAccess                                                           = ManagedPolicy("arn:aws:iam::aws:policy/AmazonQFullAccess")
+	ManagedPolicyAmazonQLDBConsoleFullAccess                                                 = ManagedPolicy("arn:aws:iam::aws:policy/AmazonQLDBConsoleFullAccess")
+	ManagedPolicyAmazonQLDBFullAccess                                                        = ManagedPolicy("arn:aws:iam::aws:policy/AmazonQLDBFullAccess")
+	ManagedPolicyAmazonQLDBReadOnly                                                          = ManagedPolicy("arn:aws:iam::aws:policy/AmazonQLDBReadOnly")
+	ManagedPolicyAmazonRDSBetaServiceRolePolicy                                              = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonRDSBetaServiceRolePolicy")
+	ManagedPolicyAmazonRDSCustomInstanceProfileRolePolicy                                    = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRDSCustomInstanceProfileRolePolicy")
+	ManagedPolicyAmazonRDSCustomPreviewServiceRolePolicy                                     = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonRDSCustomPreviewServiceRolePolicy")
+	ManagedPolicyAmazonRDSCustomServiceRolePolicy                                            = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonRDSCustomServiceRolePolicy")
+	ManagedPolicyAmazonRDSDataFullAccess                                                     = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRDSDataFullAccess")
+	ManagedPolicyAmazonRDSDirectoryServiceAccess                                             = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonRDSDirectoryServiceAccess")
+	ManagedPolicyAmazonRDSEnhancedMonitoringRole                                             = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonRDSEnhancedMonitoringRole")
+	ManagedPolicyAmazonRDSFullAccess                                                         = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRDSFullAccess")
+	ManagedPolicyAmazonRDSPerformanceInsightsFullAccess                                      = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRDSPerformanceInsightsFullAccess")
+	ManagedPolicyAmazonRDSPerformanceInsightsReadOnly                                        = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRDSPerformanceInsightsReadOnly")
+	ManagedPolicyAmazonRDSPreviewServiceRolePolicy                                           = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonRDSPreviewServiceRolePolicy")
+	ManagedPolicyAmazonRDSReadOnlyAccess                                                     = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRDSReadOnlyAccess")
+	ManagedPolicyAmazonRDSServiceRolePolicy                                                  = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonRDSServiceRolePolicy")
+	ManagedPolicyAmazonRedshiftAllCommandsFullAccess                                         = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRedshiftAllCommandsFullAccess")
+	ManagedPolicyAmazonRedshiftDataFullAccess                                                = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRedshiftDataFullAccess")
+	ManagedPolicyAmazonRedshiftFullAccess                                                    = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRedshiftFullAccess")
+	ManagedPolicyAmazonRedshiftQueryEditor                                                   = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRedshiftQueryEditor")
+	ManagedPolicyAmazonRedshiftQueryEditorV2FullAccess                                       = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRedshiftQueryEditorV2FullAccess")
+	ManagedPolicyAmazonRedshiftQueryEditorV2NoSharing                                        = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRedshiftQueryEditorV2NoSharing")
+	ManagedPolicyAmazonRedshiftQueryEditorV2ReadSharing                                      = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRedshiftQueryEditorV2ReadSharing")
+	ManagedPolicyAmazonRedshiftQueryEditorV2ReadWriteSharing                                 = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRedshiftQueryEditorV2ReadWriteSharing")
+	ManagedPolicyAmazonRedshiftReadOnlyAccess                                                = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRedshiftReadOnlyAccess")
+	ManagedPolicyAmazonRedshiftServiceLinkedRolePolicy                                       = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonRedshiftServiceLinkedRolePolicy")
+	ManagedPolicyAmazonRekognitionCustomLabelsFullAccess                                     = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRekognitionCustomLabelsFullAccess")
+	ManagedPolicyAmazonRekognitionFullAccess                                                 = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRekognitionFullAccess")
+	ManagedPolicyAmazonRekognitionReadOnlyAccess                                             = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRekognitionReadOnlyAccess")
+	ManagedPolicyAmazonRekognitionServiceRole                                                = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonRekognitionServiceRole")
+	ManagedPolicyAmazonRoute53AutoNamingFullAccess                                           = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRoute53AutoNamingFullAccess")
+	ManagedPolicyAmazonRoute53AutoNamingReadOnlyAccess                                       = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRoute53AutoNamingReadOnlyAccess")
+	ManagedPolicyAmazonRoute53AutoNamingRegistrantAccess                                     = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRoute53AutoNamingRegistrantAccess")
+	ManagedPolicyAmazonRoute53DomainsFullAccess                                              = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRoute53DomainsFullAccess")
+	ManagedPolicyAmazonRoute53DomainsReadOnlyAccess                                          = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRoute53DomainsReadOnlyAccess")
+	ManagedPolicyAmazonRoute53FullAccess                                                     = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRoute53FullAccess")
+	ManagedPolicyAmazonRoute53ReadOnlyAccess                                                 = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRoute53ReadOnlyAccess")
+	ManagedPolicyAmazonRoute53RecoveryClusterFullAccess                                      = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRoute53RecoveryClusterFullAccess")
+	ManagedPolicyAmazonRoute53RecoveryClusterReadOnlyAccess                                  = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRoute53RecoveryClusterReadOnlyAccess")
+	ManagedPolicyAmazonRoute53RecoveryControlConfigFullAccess                                = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRoute53RecoveryControlConfigFullAccess")
+	ManagedPolicyAmazonRoute53RecoveryControlConfigReadOnlyAccess                            = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRoute53RecoveryControlConfigReadOnlyAccess")
+	ManagedPolicyAmazonRoute53RecoveryReadinessFullAccess                                    = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRoute53RecoveryReadinessFullAccess")
+	ManagedPolicyAmazonRoute53RecoveryReadinessReadOnlyAccess                                = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRoute53RecoveryReadinessReadOnlyAccess")
+	ManagedPolicyAmazonRoute53ResolverFullAccess                                             = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRoute53ResolverFullAccess")
+	ManagedPolicyAmazonRoute53ResolverReadOnlyAccess                                         = ManagedPolicy("arn:aws:iam::aws:policy/AmazonRoute53ResolverReadOnlyAccess")
+	ManagedPolicyAmazonS3FullAccess                                                          = ManagedPolicy("arn:aws:iam::aws:policy/AmazonS3FullAccess")
+	ManagedPolicyAmazonS3ObjectLambdaExecutionRolePolicy                                     = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonS3ObjectLambdaExecutionRolePolicy")
+	ManagedPolicyAmazonS3OutpostsFullAccess                                                  = ManagedPolicy("arn:aws:iam::aws:policy/AmazonS3OutpostsFullAccess")
+	ManagedPolicyAmazonS3OutpostsReadOnlyAccess                                              = ManagedPolicy("arn:aws:iam::aws:policy/AmazonS3OutpostsReadOnlyAccess")
+	ManagedPolicyAmazonS3ReadOnlyAccess                                                      = ManagedPolicy("arn:aws:iam::aws:policy/AmazonS3ReadOnlyAccess")
+	ManagedPolicyAmazonSESFullAccess                                                         = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSESFullAccess")
+	ManagedPolicyAmazonSESReadOnlyAccess                                                     = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSESReadOnlyAccess")
+	ManagedPolicyAmazonSNSFullAccess                                                         = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSNSFullAccess")
+	ManagedPolicyAmazonSNSReadOnlyAccess                                                     = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSNSReadOnlyAccess")
+	ManagedPolicyAmazonSNSRole                                                               = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonSNSRole")
+	ManagedPolicyAmazonSQSFullAccess                                                         = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSQSFullAccess")
+	ManagedPolicyAmazonSQSReadOnlyAccess                                                     = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSQSReadOnlyAccess")
+	ManagedPolicyAmazonSSMAutomationApproverAccess                                           = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSSMAutomationApproverAccess")
+	ManagedPolicyAmazonSSMAutomationRole                                                     = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonSSMAutomationRole")
+	ManagedPolicyAmazonSSMDirectoryServiceAccess                                             = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSSMDirectoryServiceAccess")
+	ManagedPolicyAmazonSSMFullAccess                                                         = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSSMFullAccess")
+	ManagedPolicyAmazonSSMMaintenanceWindowRole                                              = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonSSMMaintenanceWindowRole")
+	ManagedPolicyAmazonSSMManagedEC2InstanceDefaultPolicy                                    = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSSMManagedEC2InstanceDefaultPolicy")
+	ManagedPolicyAmazonSSMManagedInstanceCore                                                = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSSMManagedInstanceCore")
+	ManagedPolicyAmazonSSMPatchAssociation                                                   = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSSMPatchAssociation")
+	ManagedPolicyAmazonSSMReadOnlyAccess                                                     = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSSMReadOnlyAccess")
+	ManagedPolicyAmazonSSMServiceRolePolicy                                                  = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonSSMServiceRolePolicy")
+	ManagedPolicyAmazonSageMakerAdminServiceCatalogProductsServiceRolePolicy                 = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSageMakerAdmin-ServiceCatalogProductsServiceRolePolicy")
+	ManagedPolicyAmazonSageMakerCanvasAIServicesAccess                                       = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSageMakerCanvasAIServicesAccess")
+	ManagedPolicyAmazonSageMakerCanvasBedrockAccess                                          = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSageMakerCanvasBedrockAccess")
+	ManagedPolicyAmazonSageMakerCanvasDataPrepFullAccess                                     = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSageMakerCanvasDataPrepFullAccess")
+	ManagedPolicyAmazonSageMakerCanvasDirectDeployAccess                                     = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonSageMakerCanvasDirectDeployAccess")
+	ManagedPolicyAmazonSageMakerCanvasForecastAccess                                         = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonSageMakerCanvasForecastAccess")
+	ManagedPolicyAmazonSageMakerCanvasFullAccess                                             = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSageMakerCanvasFullAccess")
+	ManagedPolicyAmazonSageMakerClusterInstanceRolePolicy                                    = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSageMakerClusterInstanceRolePolicy")
+	ManagedPolicyAmazonSageMakerCoreServiceRolePolicy                                        = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonSageMakerCoreServiceRolePolicy")
+	ManagedPolicyAmazonSageMakerEdgeDeviceFleetPolicy                                        = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonSageMakerEdgeDeviceFleetPolicy")
+	ManagedPolicyAmazonSageMakerFeatureStoreAccess                                           = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSageMakerFeatureStoreAccess")
+	ManagedPolicyAmazonSageMakerFullAccess                                                   = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSageMakerFullAccess")
+	ManagedPolicyAmazonSageMakerGeospatialExecutionRole                                      = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonSageMakerGeospatialExecutionRole")
+	ManagedPolicyAmazonSageMakerGeospatialFullAccess                                         = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonSageMakerGeospatialFullAccess")
+	ManagedPolicyAmazonSageMakerGroundTruthExecution                                         = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSageMakerGroundTruthExecution")
+	ManagedPolicyAmazonSageMakerMechanicalTurkAccess                                         = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSageMakerMechanicalTurkAccess")
+	ManagedPolicyAmazonSageMakerModelGovernanceUseAccess                                     = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSageMakerModelGovernanceUseAccess")
+	ManagedPolicyAmazonSageMakerModelRegistryFullAccess                                      = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSageMakerModelRegistryFullAccess")
+	ManagedPolicyAmazonSageMakerNotebooksServiceRolePolicy                                   = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonSageMakerNotebooksServiceRolePolicy")
+	ManagedPolicyAmazonSageMakerPartnerServiceCatalogProductsApiGatewayServiceRolePolicy     = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonSageMakerPartnerServiceCatalogProductsApiGatewayServiceRolePolicy")
+	ManagedPolicyAmazonSageMakerPartnerServiceCatalogProductsCloudFormationServiceRolePolicy = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonSageMakerPartnerServiceCatalogProductsCloudFormationServiceRolePolicy")
+	ManagedPolicyAmazonSageMakerPartnerServiceCatalogProductsLambdaServiceRolePolicy         = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonSageMakerPartnerServiceCatalogProductsLambdaServiceRolePolicy")
+	ManagedPolicyAmazonSageMakerPipelinesIntegrations                                        = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSageMakerPipelinesIntegrations")
+	ManagedPolicyAmazonSageMakerReadOnly                                                     = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSageMakerReadOnly")
+	ManagedPolicyAmazonSageMakerServiceCatalogProductsApiGatewayServiceRolePolicy            = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonSageMakerServiceCatalogProductsApiGatewayServiceRolePolicy")
+	ManagedPolicyAmazonSageMakerServiceCatalogProductsCloudformationServiceRolePolicy        = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonSageMakerServiceCatalogProductsCloudformationServiceRolePolicy")
+	ManagedPolicyAmazonSageMakerServiceCatalogProductsCodeBuildServiceRolePolicy             = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSageMakerServiceCatalogProductsCodeBuildServiceRolePolicy")
+	ManagedPolicyAmazonSageMakerServiceCatalogProductsCodePipelineServiceRolePolicy          = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonSageMakerServiceCatalogProductsCodePipelineServiceRolePolicy")
+	ManagedPolicyAmazonSageMakerServiceCatalogProductsEventsServiceRolePolicy                = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonSageMakerServiceCatalogProductsEventsServiceRolePolicy")
+	ManagedPolicyAmazonSageMakerServiceCatalogProductsFirehoseServiceRolePolicy              = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonSageMakerServiceCatalogProductsFirehoseServiceRolePolicy")
+	ManagedPolicyAmazonSageMakerServiceCatalogProductsGlueServiceRolePolicy                  = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonSageMakerServiceCatalogProductsGlueServiceRolePolicy")
+	ManagedPolicyAmazonSageMakerServiceCatalogProductsLambdaServiceRolePolicy                = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonSageMakerServiceCatalogProductsLambdaServiceRolePolicy")
+	ManagedPolicyAmazonSecurityLakeAdministrator                                             = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSecurityLakeAdministrator")
+	ManagedPolicyAmazonSecurityLakeMetastoreManager                                          = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonSecurityLakeMetastoreManager")
+	ManagedPolicyAmazonSecurityLakePermissionsBoundary                                       = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSecurityLakePermissionsBoundary")
+	// Deprecated: This policy is deprecated and will be removed in a future release.
+	ManagedPolicyAmazonSumerianFullAccess                                     = ManagedPolicy("arn:aws:iam::aws:policy/AmazonSumerianFullAccess")
+	ManagedPolicyAmazonTextractFullAccess                                     = ManagedPolicy("arn:aws:iam::aws:policy/AmazonTextractFullAccess")
+	ManagedPolicyAmazonTextractServiceRole                                    = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmazonTextractServiceRole")
+	ManagedPolicyAmazonTimestreamConsoleFullAccess                            = ManagedPolicy("arn:aws:iam::aws:policy/AmazonTimestreamConsoleFullAccess")
+	ManagedPolicyAmazonTimestreamFullAccess                                   = ManagedPolicy("arn:aws:iam::aws:policy/AmazonTimestreamFullAccess")
+	ManagedPolicyAmazonTimestreamInfluxDBFullAccess                           = ManagedPolicy("arn:aws:iam::aws:policy/AmazonTimestreamInfluxDBFullAccess")
+	ManagedPolicyAmazonTimestreamInfluxDBServiceRolePolicy                    = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonTimestreamInfluxDBServiceRolePolicy")
+	ManagedPolicyAmazonTimestreamReadOnlyAccess                               = ManagedPolicy("arn:aws:iam::aws:policy/AmazonTimestreamReadOnlyAccess")
+	ManagedPolicyAmazonTranscribeFullAccess                                   = ManagedPolicy("arn:aws:iam::aws:policy/AmazonTranscribeFullAccess")
+	ManagedPolicyAmazonTranscribeReadOnlyAccess                               = ManagedPolicy("arn:aws:iam::aws:policy/AmazonTranscribeReadOnlyAccess")
+	ManagedPolicyAmazonVPCCrossAccountNetworkInterfaceOperations              = ManagedPolicy("arn:aws:iam::aws:policy/AmazonVPCCrossAccountNetworkInterfaceOperations")
+	ManagedPolicyAmazonVPCFullAccess                                          = ManagedPolicy("arn:aws:iam::aws:policy/AmazonVPCFullAccess")
+	ManagedPolicyAmazonVPCNetworkAccessAnalyzerFullAccessPolicy               = ManagedPolicy("arn:aws:iam::aws:policy/AmazonVPCNetworkAccessAnalyzerFullAccessPolicy")
+	ManagedPolicyAmazonVPCReachabilityAnalyzerFullAccessPolicy                = ManagedPolicy("arn:aws:iam::aws:policy/AmazonVPCReachabilityAnalyzerFullAccessPolicy")
+	ManagedPolicyAmazonVPCReachabilityAnalyzerPathComponentReadPolicy         = ManagedPolicy("arn:aws:iam::aws:policy/AmazonVPCReachabilityAnalyzerPathComponentReadPolicy")
+	ManagedPolicyAmazonVPCReadOnlyAccess                                      = ManagedPolicy("arn:aws:iam::aws:policy/AmazonVPCReadOnlyAccess")
+	ManagedPolicyAmazonWorkDocsFullAccess                                     = ManagedPolicy("arn:aws:iam::aws:policy/AmazonWorkDocsFullAccess")
+	ManagedPolicyAmazonWorkDocsReadOnlyAccess                                 = ManagedPolicy("arn:aws:iam::aws:policy/AmazonWorkDocsReadOnlyAccess")
+	ManagedPolicyAmazonWorkMailEventsServiceRolePolicy                        = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonWorkMailEventsServiceRolePolicy")
+	ManagedPolicyAmazonWorkMailFullAccess                                     = ManagedPolicy("arn:aws:iam::aws:policy/AmazonWorkMailFullAccess")
+	ManagedPolicyAmazonWorkMailMessageFlowFullAccess                          = ManagedPolicy("arn:aws:iam::aws:policy/AmazonWorkMailMessageFlowFullAccess")
+	ManagedPolicyAmazonWorkMailMessageFlowReadOnlyAccess                      = ManagedPolicy("arn:aws:iam::aws:policy/AmazonWorkMailMessageFlowReadOnlyAccess")
+	ManagedPolicyAmazonWorkMailReadOnlyAccess                                 = ManagedPolicy("arn:aws:iam::aws:policy/AmazonWorkMailReadOnlyAccess")
+	ManagedPolicyAmazonWorkSpacesAdmin                                        = ManagedPolicy("arn:aws:iam::aws:policy/AmazonWorkSpacesAdmin")
+	ManagedPolicyAmazonWorkSpacesApplicationManagerAdminAccess                = ManagedPolicy("arn:aws:iam::aws:policy/AmazonWorkSpacesApplicationManagerAdminAccess")
+	ManagedPolicyAmazonWorkSpacesSelfServiceAccess                            = ManagedPolicy("arn:aws:iam::aws:policy/AmazonWorkSpacesSelfServiceAccess")
+	ManagedPolicyAmazonWorkSpacesServiceAccess                                = ManagedPolicy("arn:aws:iam::aws:policy/AmazonWorkSpacesServiceAccess")
+	ManagedPolicyAmazonWorkSpacesWebReadOnly                                  = ManagedPolicy("arn:aws:iam::aws:policy/AmazonWorkSpacesWebReadOnly")
+	ManagedPolicyAmazonWorkSpacesWebServiceRolePolicy                         = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AmazonWorkSpacesWebServiceRolePolicy")
+	ManagedPolicyAmazonWorkspacesPCAAccess                                    = ManagedPolicy("arn:aws:iam::aws:policy/AmazonWorkspacesPCAAccess")
+	ManagedPolicyAmazonZocaloFullAccess                                       = ManagedPolicy("arn:aws:iam::aws:policy/AmazonZocaloFullAccess")
+	ManagedPolicyAmazonZocaloReadOnlyAccess                                   = ManagedPolicy("arn:aws:iam::aws:policy/AmazonZocaloReadOnlyAccess")
+	ManagedPolicyAmplifyBackendDeployFullAccess                               = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AmplifyBackendDeployFullAccess")
+	ManagedPolicyAppIntegrationsServiceLinkedRolePolicy                       = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AppIntegrationsServiceLinkedRolePolicy")
+	ManagedPolicyAppRunnerNetworkingServiceRolePolicy                         = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AppRunnerNetworkingServiceRolePolicy")
+	ManagedPolicyAppRunnerServiceRolePolicy                                   = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AppRunnerServiceRolePolicy")
+	ManagedPolicyApplicationAutoScalingForAmazonAppStreamAccess               = ManagedPolicy("arn:aws:iam::aws:policy/service-role/ApplicationAutoScalingForAmazonAppStreamAccess")
+	ManagedPolicyApplicationDiscoveryServiceContinuousExportServiceRolePolicy = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/ApplicationDiscoveryServiceContinuousExportServiceRolePolicy")
+	ManagedPolicyAutoScalingConsoleFullAccess                                 = ManagedPolicy("arn:aws:iam::aws:policy/AutoScalingConsoleFullAccess")
+	ManagedPolicyAutoScalingConsoleReadOnlyAccess                             = ManagedPolicy("arn:aws:iam::aws:policy/AutoScalingConsoleReadOnlyAccess")
+	ManagedPolicyAutoScalingFullAccess                                        = ManagedPolicy("arn:aws:iam::aws:policy/AutoScalingFullAccess")
+	ManagedPolicyAutoScalingNotificationAccessRole                            = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AutoScalingNotificationAccessRole")
+	ManagedPolicyAutoScalingReadOnlyAccess                                    = ManagedPolicy("arn:aws:iam::aws:policy/AutoScalingReadOnlyAccess")
+	ManagedPolicyAutoScalingServiceRolePolicy                                 = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/AutoScalingServiceRolePolicy")
+	ManagedPolicyAwsGlueDataBrewFullAccessPolicy                              = ManagedPolicy("arn:aws:iam::aws:policy/AwsGlueDataBrewFullAccessPolicy")
+	ManagedPolicyAwsGlueSessionUserRestrictedNotebookPolicy                   = ManagedPolicy("arn:aws:iam::aws:policy/AwsGlueSessionUserRestrictedNotebookPolicy")
+	ManagedPolicyAwsGlueSessionUserRestrictedNotebookServiceRole              = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AwsGlueSessionUserRestrictedNotebookServiceRole")
+	ManagedPolicyAwsGlueSessionUserRestrictedPolicy                           = ManagedPolicy("arn:aws:iam::aws:policy/AwsGlueSessionUserRestrictedPolicy")
+	ManagedPolicyAwsGlueSessionUserRestrictedServiceRole                      = ManagedPolicy("arn:aws:iam::aws:policy/service-role/AwsGlueSessionUserRestrictedServiceRole")
+	ManagedPolicyBatchServiceRolePolicy                                       = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/BatchServiceRolePolicy")
+	ManagedPolicyBilling                                                      = ManagedPolicy("arn:aws:iam::aws:policy/job-function/Billing")
+	ManagedPolicyCertificateManagerServiceRolePolicy                          = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/CertificateManagerServiceRolePolicy")
+	ManagedPolicyClientVPNServiceConnectionsRolePolicy                        = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/ClientVPNServiceConnectionsRolePolicy")
+	ManagedPolicyClientVPNServiceRolePolicy                                   = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/ClientVPNServiceRolePolicy")
+	ManagedPolicyCloudFormationStackSetsOrgAdminServiceRolePolicy             = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/CloudFormationStackSetsOrgAdminServiceRolePolicy")
+	ManagedPolicyCloudFormationStackSetsOrgMemberServiceRolePolicy            = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/CloudFormationStackSetsOrgMemberServiceRolePolicy")
+	ManagedPolicyCloudFrontFullAccess                                         = ManagedPolicy("arn:aws:iam::aws:policy/CloudFrontFullAccess")
+	ManagedPolicyCloudFrontReadOnlyAccess                                     = ManagedPolicy("arn:aws:iam::aws:policy/CloudFrontReadOnlyAccess")
+	ManagedPolicyCloudHSMServiceRolePolicy                                    = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/CloudHSMServiceRolePolicy")
+	ManagedPolicyCloudSearchFullAccess                                        = ManagedPolicy("arn:aws:iam::aws:policy/CloudSearchFullAccess")
+	ManagedPolicyCloudSearchReadOnlyAccess                                    = ManagedPolicy("arn:aws:iam::aws:policy/CloudSearchReadOnlyAccess")
+	ManagedPolicyCloudTrailServiceRolePolicy                                  = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/CloudTrailServiceRolePolicy")
+	ManagedPolicyCloudWatchCrossAccountAccess                                 = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/CloudWatch-CrossAccountAccess")
+	ManagedPolicyCloudWatchActionsEC2Access                                   = ManagedPolicy("arn:aws:iam::aws:policy/CloudWatchActionsEC2Access")
+	ManagedPolicyCloudWatchAgentAdminPolicy                                   = ManagedPolicy("arn:aws:iam::aws:policy/CloudWatchAgentAdminPolicy")
+	ManagedPolicyCloudWatchAgentServerPolicy                                  = ManagedPolicy("arn:aws:iam::aws:policy/CloudWatchAgentServerPolicy")
+	ManagedPolicyCloudWatchApplicationInsightsFullAccess                      = ManagedPolicy("arn:aws:iam::aws:policy/CloudWatchApplicationInsightsFullAccess")
+	ManagedPolicyCloudWatchApplicationInsightsReadOnlyAccess                  = ManagedPolicy("arn:aws:iam::aws:policy/CloudWatchApplicationInsightsReadOnlyAccess")
+	ManagedPolicyCloudWatchApplicationSignalsServiceRolePolicy                = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/CloudWatchApplicationSignalsServiceRolePolicy")
+	ManagedPolicyCloudWatchAutomaticDashboardsAccess                          = ManagedPolicy("arn:aws:iam::aws:policy/CloudWatchAutomaticDashboardsAccess")
+	ManagedPolicyCloudWatchCrossAccountSharingConfiguration                   = ManagedPolicy("arn:aws:iam::aws:policy/CloudWatchCrossAccountSharingConfiguration")
+	ManagedPolicyCloudWatchEventsBuiltInTargetExecutionAccess                 = ManagedPolicy("arn:aws:iam::aws:policy/service-role/CloudWatchEventsBuiltInTargetExecutionAccess")
+	ManagedPolicyCloudWatchEventsFullAccess                                   = ManagedPolicy("arn:aws:iam::aws:policy/CloudWatchEventsFullAccess")
+	ManagedPolicyCloudWatchEventsInvocationAccess                             = ManagedPolicy("arn:aws:iam::aws:policy/service-role/CloudWatchEventsInvocationAccess")
+	ManagedPolicyCloudWatchEventsReadOnlyAccess                               = ManagedPolicy("arn:aws:iam::aws:policy/CloudWatchEventsReadOnlyAccess")
+	ManagedPolicyCloudWatchEventsServiceRolePolicy                            = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/CloudWatchEventsServiceRolePolicy")
+	ManagedPolicyCloudWatchFullAccess                                         = ManagedPolicy("arn:aws:iam::aws:policy/CloudWatchFullAccess")
+	ManagedPolicyCloudWatchFullAccessV2                                       = ManagedPolicy("arn:aws:iam::aws:policy/CloudWatchFullAccessV2")
+	ManagedPolicyCloudWatchInternetMonitorServiceRolePolicy                   = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/CloudWatchInternetMonitorServiceRolePolicy")
+	ManagedPolicyCloudWatchLambdaInsightsExecutionRolePolicy                  = ManagedPolicy("arn:aws:iam::aws:policy/CloudWatchLambdaInsightsExecutionRolePolicy")
+	ManagedPolicyCloudWatchLogsCrossAccountSharingConfiguration               = ManagedPolicy("arn:aws:iam::aws:policy/CloudWatchLogsCrossAccountSharingConfiguration")
+	ManagedPolicyCloudWatchLogsFullAccess                                     = ManagedPolicy("arn:aws:iam::aws:policy/CloudWatchLogsFullAccess")
+	ManagedPolicyCloudWatchLogsReadOnlyAccess                                 = ManagedPolicy("arn:aws:iam::aws:policy/CloudWatchLogsReadOnlyAccess")
+	ManagedPolicyCloudWatchNetworkMonitorServiceRolePolicy                    = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/CloudWatchNetworkMonitorServiceRolePolicy")
+	ManagedPolicyCloudWatchReadOnlyAccess                                     = ManagedPolicy("arn:aws:iam::aws:policy/CloudWatchReadOnlyAccess")
+	ManagedPolicyCloudWatchSyntheticsFullAccess                               = ManagedPolicy("arn:aws:iam::aws:policy/CloudWatchSyntheticsFullAccess")
+	ManagedPolicyCloudWatchSyntheticsReadOnlyAccess                           = ManagedPolicy("arn:aws:iam::aws:policy/CloudWatchSyntheticsReadOnlyAccess")
+	ManagedPolicyCloudwatchApplicationInsightsServiceLinkedRolePolicy         = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/CloudwatchApplicationInsightsServiceLinkedRolePolicy")
+	ManagedPolicyComprehendDataAccessRolePolicy                               = ManagedPolicy("arn:aws:iam::aws:policy/service-role/ComprehendDataAccessRolePolicy")
+	ManagedPolicyComprehendFullAccess                                         = ManagedPolicy("arn:aws:iam::aws:policy/ComprehendFullAccess")
+	ManagedPolicyComprehendMedicalFullAccess                                  = ManagedPolicy("arn:aws:iam::aws:policy/ComprehendMedicalFullAccess")
+	ManagedPolicyComprehendReadOnly                                           = ManagedPolicy("arn:aws:iam::aws:policy/ComprehendReadOnly")
+	ManagedPolicyComputeOptimizerReadOnlyAccess                               = ManagedPolicy("arn:aws:iam::aws:policy/ComputeOptimizerReadOnlyAccess")
+	ManagedPolicyComputeOptimizerServiceRolePolicy                            = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/ComputeOptimizerServiceRolePolicy")
+	ManagedPolicyConfigConformsServiceRolePolicy                              = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/ConfigConformsServiceRolePolicy")
+	ManagedPolicyCostOptimizationHubAdminAccess                               = ManagedPolicy("arn:aws:iam::aws:policy/CostOptimizationHubAdminAccess")
+	ManagedPolicyCostOptimizationHubReadOnlyAccess                            = ManagedPolicy("arn:aws:iam::aws:policy/CostOptimizationHubReadOnlyAccess")
+	ManagedPolicyCostOptimizationHubServiceRolePolicy                         = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/CostOptimizationHubServiceRolePolicy")
+	ManagedPolicyCustomerProfilesServiceLinkedRolePolicy                      = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/CustomerProfilesServiceLinkedRolePolicy")
+	ManagedPolicyDAXServiceRolePolicy                                         = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/DAXServiceRolePolicy")
+	ManagedPolicyDataScientist                                                = ManagedPolicy("arn:aws:iam::aws:policy/job-function/DataScientist")
+	ManagedPolicyDatabaseAdministrator                                        = ManagedPolicy("arn:aws:iam::aws:policy/job-function/DatabaseAdministrator")
+	ManagedPolicyDynamoDBCloudWatchContributorInsightsServiceRolePolicy       = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/DynamoDBCloudWatchContributorInsightsServiceRolePolicy")
+	ManagedPolicyDynamoDBKinesisReplicationServiceRolePolicy                  = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/DynamoDBKinesisReplicationServiceRolePolicy")
+	ManagedPolicyDynamoDBReplicationServiceRolePolicy                         = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/DynamoDBReplicationServiceRolePolicy")
+	ManagedPolicyEC2FastLaunchServiceRolePolicy                               = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/EC2FastLaunchServiceRolePolicy")
+	ManagedPolicyEC2FleetTimeShiftableServiceRolePolicy                       = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/EC2FleetTimeShiftableServiceRolePolicy")
+	ManagedPolicyEC2ImageBuilderLifecycleExecutionPolicy                      = ManagedPolicy("arn:aws:iam::aws:policy/service-role/EC2ImageBuilderLifecycleExecutionPolicy")
+	ManagedPolicyEC2InstanceConnect                                           = ManagedPolicy("arn:aws:iam::aws:policy/EC2InstanceConnect")
+	ManagedPolicyEC2InstanceProfileForImageBuilder                            = ManagedPolicy("arn:aws:iam::aws:policy/EC2InstanceProfileForImageBuilder")
+	ManagedPolicyEC2InstanceProfileForImageBuilderECRContainerBuilds          = ManagedPolicy("arn:aws:iam::aws:policy/EC2InstanceProfileForImageBuilderECRContainerBuilds")
+	ManagedPolicyECRReplicationServiceRolePolicy                              = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/ECRReplicationServiceRolePolicy")
+	ManagedPolicyEMRDescribeClusterPolicyForEMRWAL                            = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/EMRDescribeClusterPolicyForEMRWAL")
+	ManagedPolicyEc2ImageBuilderCrossAccountDistributionAccess                = ManagedPolicy("arn:aws:iam::aws:policy/Ec2ImageBuilderCrossAccountDistributionAccess")
+	ManagedPolicyEc2InstanceConnectEndpoint                                   = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/Ec2InstanceConnectEndpoint")
+	ManagedPolicyElastiCacheServiceRolePolicy                                 = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/ElastiCacheServiceRolePolicy")
+	ManagedPolicyElasticLoadBalancingFullAccess                               = ManagedPolicy("arn:aws:iam::aws:policy/ElasticLoadBalancingFullAccess")
+	ManagedPolicyElasticLoadBalancingReadOnly                                 = ManagedPolicy("arn:aws:iam::aws:policy/ElasticLoadBalancingReadOnly")
+	ManagedPolicyElementalActivationsDownloadSoftwareAccess                   = ManagedPolicy("arn:aws:iam::aws:policy/ElementalActivationsDownloadSoftwareAccess")
+	ManagedPolicyElementalActivationsFullAccess                               = ManagedPolicy("arn:aws:iam::aws:policy/ElementalActivationsFullAccess")
+	ManagedPolicyElementalActivationsGenerateLicenses                         = ManagedPolicy("arn:aws:iam::aws:policy/ElementalActivationsGenerateLicenses")
+	ManagedPolicyElementalActivationsReadOnlyAccess                           = ManagedPolicy("arn:aws:iam::aws:policy/ElementalActivationsReadOnlyAccess")
+	ManagedPolicyElementalAppliancesSoftwareFullAccess                        = ManagedPolicy("arn:aws:iam::aws:policy/ElementalAppliancesSoftwareFullAccess")
+	ManagedPolicyElementalAppliancesSoftwareReadOnlyAccess                    = ManagedPolicy("arn:aws:iam::aws:policy/ElementalAppliancesSoftwareReadOnlyAccess")
+	ManagedPolicyElementalSupportCenterFullAccess                             = ManagedPolicy("arn:aws:iam::aws:policy/ElementalSupportCenterFullAccess")
+	ManagedPolicyFMSServiceRolePolicy                                         = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/FMSServiceRolePolicy")
+	ManagedPolicyFSxDeleteServiceLinkedRoleAccess                             = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/FSxDeleteServiceLinkedRoleAccess")
+	// Deprecated: This policy is deprecated and will be removed in a future release.
+	ManagedPolicyFusionDevInternalServiceRolePolicy                      = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/FusionDevInternalServiceRolePolicy")
+	ManagedPolicyGameLiftGameServerGroupPolicy                           = ManagedPolicy("arn:aws:iam::aws:policy/GameLiftGameServerGroupPolicy")
+	ManagedPolicyGlobalAcceleratorFullAccess                             = ManagedPolicy("arn:aws:iam::aws:policy/GlobalAcceleratorFullAccess")
+	ManagedPolicyGlobalAcceleratorReadOnlyAccess                         = ManagedPolicy("arn:aws:iam::aws:policy/GlobalAcceleratorReadOnlyAccess")
+	ManagedPolicyGreengrassOTAUpdateArtifactAccess                       = ManagedPolicy("arn:aws:iam::aws:policy/service-role/GreengrassOTAUpdateArtifactAccess")
+	ManagedPolicyGroundTruthSyntheticConsoleFullAccess                   = ManagedPolicy("arn:aws:iam::aws:policy/GroundTruthSyntheticConsoleFullAccess")
+	ManagedPolicyGroundTruthSyntheticConsoleReadOnlyAccess               = ManagedPolicy("arn:aws:iam::aws:policy/GroundTruthSyntheticConsoleReadOnlyAccess")
+	ManagedPolicy_Health_OrganizationsServiceRolePolicy                  = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/Health_OrganizationsServiceRolePolicy")
+	ManagedPolicyIAMAccessAdvisorReadOnly                                = ManagedPolicy("arn:aws:iam::aws:policy/IAMAccessAdvisorReadOnly")
+	ManagedPolicyIAMAccessAnalyzerFullAccess                             = ManagedPolicy("arn:aws:iam::aws:policy/IAMAccessAnalyzerFullAccess")
+	ManagedPolicyIAMAccessAnalyzerReadOnlyAccess                         = ManagedPolicy("arn:aws:iam::aws:policy/IAMAccessAnalyzerReadOnlyAccess")
+	ManagedPolicyIAMFullAccess                                           = ManagedPolicy("arn:aws:iam::aws:policy/IAMFullAccess")
+	ManagedPolicyIAMReadOnlyAccess                                       = ManagedPolicy("arn:aws:iam::aws:policy/IAMReadOnlyAccess")
+	ManagedPolicyIAMSelfManageServiceSpecificCredentials                 = ManagedPolicy("arn:aws:iam::aws:policy/IAMSelfManageServiceSpecificCredentials")
+	ManagedPolicyIAMUserChangePassword                                   = ManagedPolicy("arn:aws:iam::aws:policy/IAMUserChangePassword")
+	ManagedPolicyIAMUserSSHKeys                                          = ManagedPolicy("arn:aws:iam::aws:policy/IAMUserSSHKeys")
+	ManagedPolicyIVSFullAccess                                           = ManagedPolicy("arn:aws:iam::aws:policy/IVSFullAccess")
+	ManagedPolicyIVSReadOnlyAccess                                       = ManagedPolicy("arn:aws:iam::aws:policy/IVSReadOnlyAccess")
+	ManagedPolicyIVSRecordToS3                                           = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/IVSRecordToS3")
+	ManagedPolicyKafkaConnectServiceRolePolicy                           = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/KafkaConnectServiceRolePolicy")
+	ManagedPolicyKafkaServiceRolePolicy                                  = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/KafkaServiceRolePolicy")
+	ManagedPolicyKeyspacesReplicationServiceRolePolicy                   = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/KeyspacesReplicationServiceRolePolicy")
+	ManagedPolicyLakeFormationDataAccessServiceRolePolicy                = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/LakeFormationDataAccessServiceRolePolicy")
+	ManagedPolicyLexBotPolicy                                            = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/LexBotPolicy")
+	ManagedPolicyLexChannelPolicy                                        = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/LexChannelPolicy")
+	ManagedPolicyLightsailExportAccess                                   = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/LightsailExportAccess")
+	ManagedPolicyMediaConnectGatewayInstanceRolePolicy                   = ManagedPolicy("arn:aws:iam::aws:policy/MediaConnectGatewayInstanceRolePolicy")
+	ManagedPolicyMediaPackageServiceRolePolicy                           = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/MediaPackageServiceRolePolicy")
+	ManagedPolicyMemoryDBServiceRolePolicy                               = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/MemoryDBServiceRolePolicy")
+	ManagedPolicyMigrationHubDMSAccessServiceRolePolicy                  = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/MigrationHubDMSAccessServiceRolePolicy")
+	ManagedPolicyMigrationHubSMSAccessServiceRolePolicy                  = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/MigrationHubSMSAccessServiceRolePolicy")
+	ManagedPolicyMigrationHubServiceRolePolicy                           = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/MigrationHubServiceRolePolicy")
+	ManagedPolicyMonitronServiceRolePolicy                               = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/MonitronServiceRolePolicy")
+	ManagedPolicyNeptuneConsoleFullAccess                                = ManagedPolicy("arn:aws:iam::aws:policy/NeptuneConsoleFullAccess")
+	ManagedPolicyNeptuneFullAccess                                       = ManagedPolicy("arn:aws:iam::aws:policy/NeptuneFullAccess")
+	ManagedPolicyNeptuneGraphReadOnlyAccess                              = ManagedPolicy("arn:aws:iam::aws:policy/NeptuneGraphReadOnlyAccess")
+	ManagedPolicyNeptuneReadOnlyAccess                                   = ManagedPolicy("arn:aws:iam::aws:policy/NeptuneReadOnlyAccess")
+	ManagedPolicyNetworkAdministrator                                    = ManagedPolicy("arn:aws:iam::aws:policy/job-function/NetworkAdministrator")
+	ManagedPolicyOAMFullAccess                                           = ManagedPolicy("arn:aws:iam::aws:policy/OAMFullAccess")
+	ManagedPolicyOAMReadOnlyAccess                                       = ManagedPolicy("arn:aws:iam::aws:policy/OAMReadOnlyAccess")
+	ManagedPolicyPartnerCentralAccountManagementUserRoleAssociation      = ManagedPolicy("arn:aws:iam::aws:policy/PartnerCentralAccountManagementUserRoleAssociation")
+	ManagedPolicyPowerUserAccess                                         = ManagedPolicy("arn:aws:iam::aws:policy/PowerUserAccess")
+	ManagedPolicyQuickSightAccessForS3StorageManagementAnalyticsReadOnly = ManagedPolicy("arn:aws:iam::aws:policy/service-role/QuickSightAccessForS3StorageManagementAnalyticsReadOnly")
+	ManagedPolicyRDSCloudHsmAuthorizationRole                            = ManagedPolicy("arn:aws:iam::aws:policy/service-role/RDSCloudHsmAuthorizationRole")
+	ManagedPolicyROSAAmazonEBSCSIDriverOperatorPolicy                    = ManagedPolicy("arn:aws:iam::aws:policy/service-role/ROSAAmazonEBSCSIDriverOperatorPolicy")
+	ManagedPolicyROSACloudNetworkConfigOperatorPolicy                    = ManagedPolicy("arn:aws:iam::aws:policy/service-role/ROSACloudNetworkConfigOperatorPolicy")
+	ManagedPolicyROSAControlPlaneOperatorPolicy                          = ManagedPolicy("arn:aws:iam::aws:policy/service-role/ROSAControlPlaneOperatorPolicy")
+	ManagedPolicyROSAImageRegistryOperatorPolicy                         = ManagedPolicy("arn:aws:iam::aws:policy/service-role/ROSAImageRegistryOperatorPolicy")
+	ManagedPolicyROSAIngressOperatorPolicy                               = ManagedPolicy("arn:aws:iam::aws:policy/service-role/ROSAIngressOperatorPolicy")
+	ManagedPolicyROSAInstallerPolicy                                     = ManagedPolicy("arn:aws:iam::aws:policy/service-role/ROSAInstallerPolicy")
+	ManagedPolicyROSAKMSProviderPolicy                                   = ManagedPolicy("arn:aws:iam::aws:policy/service-role/ROSAKMSProviderPolicy")
+	ManagedPolicyROSAKubeControllerPolicy                                = ManagedPolicy("arn:aws:iam::aws:policy/service-role/ROSAKubeControllerPolicy")
+	ManagedPolicyROSAManageSubscription                                  = ManagedPolicy("arn:aws:iam::aws:policy/ROSAManageSubscription")
+	ManagedPolicyROSANodePoolManagementPolicy                            = ManagedPolicy("arn:aws:iam::aws:policy/service-role/ROSANodePoolManagementPolicy")
+	ManagedPolicyROSASRESupportPolicy                                    = ManagedPolicy("arn:aws:iam::aws:policy/service-role/ROSASRESupportPolicy")
+	ManagedPolicyROSAWorkerInstancePolicy                                = ManagedPolicy("arn:aws:iam::aws:policy/service-role/ROSAWorkerInstancePolicy")
+	ManagedPolicyReadOnlyAccess                                          = ManagedPolicy("arn:aws:iam::aws:policy/ReadOnlyAccess")
+	ManagedPolicyResourceGroupsServiceRolePolicy                         = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/ResourceGroupsServiceRolePolicy")
+	ManagedPolicyResourceGroupsandTagEditorFullAccess                    = ManagedPolicy("arn:aws:iam::aws:policy/ResourceGroupsandTagEditorFullAccess")
+	ManagedPolicyResourceGroupsandTagEditorReadOnlyAccess                = ManagedPolicy("arn:aws:iam::aws:policy/ResourceGroupsandTagEditorReadOnlyAccess")
+	ManagedPolicyRoute53RecoveryReadinessServiceRolePolicy               = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/Route53RecoveryReadinessServiceRolePolicy")
+	ManagedPolicyRoute53ResolverServiceRolePolicy                        = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/Route53ResolverServiceRolePolicy")
+	ManagedPolicyS3StorageLensServiceRolePolicy                          = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/S3StorageLensServiceRolePolicy")
+	ManagedPolicySecretsManagerReadWrite                                 = ManagedPolicy("arn:aws:iam::aws:policy/SecretsManagerReadWrite")
+	ManagedPolicySecurityAudit                                           = ManagedPolicy("arn:aws:iam::aws:policy/SecurityAudit")
+	ManagedPolicySecurityLakeServiceLinkedRole                           = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/SecurityLakeServiceLinkedRole")
+	ManagedPolicyServerMigrationConnector                                = ManagedPolicy("arn:aws:iam::aws:policy/ServerMigrationConnector")
 	// Deprecated: This policy is deprecated and will be removed in a future release. Use AWSServerMigration_ServiceRole instead.
 	ManagedPolicyServerMigrationServiceRole = ManagedPolicy("arn:aws:iam::aws:policy/service-role/ServerMigrationServiceRole")
 	// Deprecated: This policy is deprecated and will be removed in a future release. Use AWSServiceCatalogAdminFullAccess instead.
@@ -1112,6 +1253,9 @@ const (
 	ManagedPolicyTranslateFullAccess                             = ManagedPolicy("arn:aws:iam::aws:policy/TranslateFullAccess")
 	ManagedPolicyTranslateReadOnly                               = ManagedPolicy("arn:aws:iam::aws:policy/TranslateReadOnly")
 	ManagedPolicyVMImportExportRoleForAWSConnector               = ManagedPolicy("arn:aws:iam::aws:policy/service-role/VMImportExportRoleForAWSConnector")
+	ManagedPolicyVPCLatticeFullAccess                            = ManagedPolicy("arn:aws:iam::aws:policy/VPCLatticeFullAccess")
+	ManagedPolicyVPCLatticeReadOnlyAccess                        = ManagedPolicy("arn:aws:iam::aws:policy/VPCLatticeReadOnlyAccess")
+	ManagedPolicyVPCLatticeServicesInvokeAccess                  = ManagedPolicy("arn:aws:iam::aws:policy/VPCLatticeServicesInvokeAccess")
 	ManagedPolicyViewOnlyAccess                                  = ManagedPolicy("arn:aws:iam::aws:policy/job-function/ViewOnlyAccess")
 	ManagedPolicyWAFLoggingServiceRolePolicy                     = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/WAFLoggingServiceRolePolicy")
 	ManagedPolicyWAFRegionalLoggingServiceRolePolicy             = ManagedPolicy("arn:aws:iam::aws:policy/aws-service-role/WAFRegionalLoggingServiceRolePolicy")
@@ -1249,6 +1393,9 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyAWSAccountManagementReadOnlyAccess
 //	ManagedPolicyAWSAccountUsageReportAccess
 //	ManagedPolicyAWSAgentlessDiscoveryService
+//	ManagedPolicyAWSAppFabricFullAccess
+//	ManagedPolicyAWSAppFabricReadOnlyAccess
+//	ManagedPolicyAWSAppFabricServiceRolePolicy
 //	ManagedPolicyAWSAppMeshEnvoyAccess
 //	ManagedPolicyAWSAppMeshFullAccess
 //	ManagedPolicyAWSAppMeshPreviewEnvoyAccess
@@ -1290,9 +1437,12 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyAWSApplicationMigrationReadOnlyAccess
 //	ManagedPolicyAWSApplicationMigrationReplicationServerPolicy
 //	ManagedPolicyAWSApplicationMigrationSSMAccess
+//	ManagedPolicyAWSApplicationMigrationServiceEc2InstancePolicy
 //	ManagedPolicyAWSApplicationMigrationServiceRolePolicy
 //	ManagedPolicyAWSApplicationMigrationVCenterClientPolicy
 //	ManagedPolicyAWSArtifactAccountSync
+//	ManagedPolicyAWSArtifactReportsReadOnlyAccess
+//	ManagedPolicyAWSArtifactServiceRolePolicy
 //	ManagedPolicyAWSAuditManagerAdministratorAccess
 //	ManagedPolicyAWSAuditManagerServiceRolePolicy
 //	ManagedPolicyAWSAutoScalingPlansEC2AutoScalingPolicy
@@ -1331,6 +1481,8 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyAWSChatbotServiceLinkedRolePolicy
 //	ManagedPolicyAWSCleanRoomsFullAccess
 //	ManagedPolicyAWSCleanRoomsFullAccessNoQuerying
+//	ManagedPolicyAWSCleanRoomsMLFullAccess
+//	ManagedPolicyAWSCleanRoomsMLReadOnlyAccess
 //	ManagedPolicyAWSCleanRoomsReadOnlyAccess
 //	ManagedPolicyAWSCloud9Administrator
 //	ManagedPolicyAWSCloud9EnvironmentMember
@@ -1385,17 +1537,21 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyAWSConfigServiceRolePolicy
 //	ManagedPolicyAWSConfigUserAccess
 //	ManagedPolicyAWSConnector
+//	ManagedPolicyAWSControlTowerAccountServiceRolePolicy
 //	ManagedPolicyAWSControlTowerServiceRolePolicy
 //	ManagedPolicyAWSCostAndUsageReportAutomationPolicy
+//	ManagedPolicyAWSDMSFleetAdvisorServiceRolePolicy
+//	ManagedPolicyAWSDMSServerlessServiceRolePolicy
 //	ManagedPolicyAWSDataExchangeFullAccess
 //	ManagedPolicyAWSDataExchangeProviderFullAccess
 //	ManagedPolicyAWSDataExchangeReadOnly
 //	ManagedPolicyAWSDataExchangeSubscriberFullAccess
+//	ManagedPolicyAWSDataLifecycleManagerSSMFullAccess
 //	ManagedPolicyAWSDataLifecycleManagerServiceRole
 //	ManagedPolicyAWSDataLifecycleManagerServiceRoleForAMIManagement
-//	ManagedPolicyAWSDataPipelineRole
 //	ManagedPolicy_AWSDataPipeline_FullAccess
 //	ManagedPolicy_AWSDataPipeline_PowerUser
+//	ManagedPolicyAWSDataSyncDiscoveryServiceRolePolicy
 //	ManagedPolicyAWSDataSyncFullAccess
 //	ManagedPolicyAWSDataSyncReadOnlyAccess
 //	ManagedPolicyAWSDeepLensLambdaFunctionAccessPolicy
@@ -1441,10 +1597,14 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyAWSElasticDisasterRecoveryAgentInstallationPolicy
 //	ManagedPolicyAWSElasticDisasterRecoveryAgentPolicy
 //	ManagedPolicyAWSElasticDisasterRecoveryConsoleFullAccess
+//	ManagedPolicy_AWSElasticDisasterRecoveryConsoleFullAccess_v2
 //	ManagedPolicyAWSElasticDisasterRecoveryConversionServerPolicy
+//	ManagedPolicyAWSElasticDisasterRecoveryCrossAccountReplicationPolicy
 //	ManagedPolicyAWSElasticDisasterRecoveryEc2InstancePolicy
 //	ManagedPolicyAWSElasticDisasterRecoveryFailbackInstallationPolicy
 //	ManagedPolicyAWSElasticDisasterRecoveryFailbackPolicy
+//	ManagedPolicyAWSElasticDisasterRecoveryLaunchActionsPolicy
+//	ManagedPolicyAWSElasticDisasterRecoveryNetworkReplicationPolicy
 //	ManagedPolicyAWSElasticDisasterRecoveryReadOnlyAccess
 //	ManagedPolicyAWSElasticDisasterRecoveryRecoveryInstancePolicy
 //	ManagedPolicyAWSElasticDisasterRecoveryReplicationServerPolicy
@@ -1459,11 +1619,15 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyAWSElementalMediaLiveReadOnly
 //	ManagedPolicyAWSElementalMediaPackageFullAccess
 //	ManagedPolicyAWSElementalMediaPackageReadOnly
+//	ManagedPolicyAWSElementalMediaPackageV2FullAccess
+//	ManagedPolicyAWSElementalMediaPackageV2ReadOnly
 //	ManagedPolicyAWSElementalMediaStoreFullAccess
 //	ManagedPolicyAWSElementalMediaStoreReadOnly
 //	ManagedPolicyAWSElementalMediaTailorFullAccess
 //	ManagedPolicyAWSElementalMediaTailorReadOnly
 //	ManagedPolicyAWSEnhancedClassicNetworkingMangementPolicy
+//	ManagedPolicyAWSEntityResolutionConsoleFullAccess
+//	ManagedPolicyAWSEntityResolutionConsoleReadOnlyAccess
 //	ManagedPolicyAWSFMAdminFullAccess
 //	ManagedPolicyAWSFMAdminReadOnlyAccess
 //	ManagedPolicyAWSFMMemberReadOnlyAccess
@@ -1473,7 +1637,9 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyAWSFaultInjectionSimulatorNetworkAccess
 //	ManagedPolicyAWSFaultInjectionSimulatorRDSAccess
 //	ManagedPolicyAWSFaultInjectionSimulatorSSMAccess
+//	ManagedPolicyAWSFinSpaceServiceRolePolicy
 //	ManagedPolicyAWSForWordPressPluginPolicy
+//	ManagedPolicyAWSGitSyncServiceRolePolicy
 //	ManagedPolicyAWSGlobalAcceleratorSLRPolicy
 //	ManagedPolicyAWSGlueConsoleFullAccess
 //	ManagedPolicyAWSGlueConsoleSageMakerNotebookFullAccess
@@ -1485,11 +1651,16 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyAWSGrafanaAccountAdministrator
 //	ManagedPolicyAWSGrafanaConsoleReadOnlyAccess
 //	ManagedPolicyAWSGrafanaWorkspacePermissionManagement
+//	ManagedPolicyAWSGrafanaWorkspacePermissionManagementV2
 //	ManagedPolicyAWSGreengrassFullAccess
 //	ManagedPolicyAWSGreengrassReadOnlyAccess
 //	ManagedPolicyAWSGreengrassResourceAccessRolePolicy
+//	ManagedPolicyAWSGroundStationAgentInstancePolicy
 //	ManagedPolicyAWSHealthFullAccess
+//	ManagedPolicyAWSHealthImagingFullAccess
+//	ManagedPolicyAWSHealthImagingReadOnlyAccess
 //	ManagedPolicy_AWSHealth_EventProcessorServiceRolePolicy
+//	ManagedPolicyAWSIAMIdentityCenterAllowListForIdentityContext
 //	ManagedPolicyAWSIPAMServiceRolePolicy
 //	ManagedPolicyAWSIQContractServiceRolePolicy
 //	ManagedPolicyAWSIQFullAccess
@@ -1500,6 +1671,7 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyAWSImageBuilderReadOnlyAccess
 //	ManagedPolicyAWSImportExportFullAccess
 //	ManagedPolicyAWSImportExportReadOnlyAccess
+//	ManagedPolicyAWSIncidentManagerIncidentAccessServiceRolePolicy
 //	ManagedPolicyAWSIncidentManagerResolverAccess
 //	ManagedPolicyAWSIncidentManagerServiceRolePolicy
 //	ManagedPolicyAWSIoT1ClickFullAccess
@@ -1532,6 +1704,7 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyAWSIoTSiteWiseMonitorServiceRolePolicy
 //	ManagedPolicyAWSIoTSiteWiseReadOnlyAccess
 //	ManagedPolicyAWSIoTThingsRegistration
+//	ManagedPolicyAWSIoTTwinMakerServiceRolePolicy
 //	ManagedPolicyAWSIoTWirelessDataAccess
 //	ManagedPolicyAWSIoTWirelessFullAccess
 //	ManagedPolicyAWSIoTWirelessFullPublishAccess
@@ -1566,10 +1739,13 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyAWSLicenseManagerServiceRolePolicy
 //	ManagedPolicyAWSLicenseManagerUserSubscriptionsServiceRolePolicy
 //	ManagedPolicyAWSM2ServicePolicy
+//	ManagedPolicyAWSMSKReplicatorExecutionRole
 //	ManagedPolicyAWSManagedServicesDeploymentToolkitPolicy
+//	ManagedPolicy_AWSManagedServices_ContactsServiceRolePolicy
 //	ManagedPolicy_AWSManagedServices_DetectiveControlsConfig_ServiceRolePolicy
 //	ManagedPolicy_AWSManagedServices_EventsServiceRolePolicy
 //	ManagedPolicyAWSMarketplaceAmiIngestion
+//	ManagedPolicyAWSMarketplaceDeploymentServiceRolePolicy
 //	ManagedPolicyAWSMarketplaceFullAccess
 //	ManagedPolicyAWSMarketplaceGetEntitlements
 //	ManagedPolicyAWSMarketplaceImageBuildFullAccess
@@ -1580,9 +1756,11 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyAWSMarketplaceProcurementSystemAdminFullAccess
 //	ManagedPolicyAWSMarketplacePurchaseOrdersServiceRolePolicy
 //	ManagedPolicyAWSMarketplaceReadonly
+//	ManagedPolicyAWSMarketplaceResaleAuthorizationServiceRolePolicy
 //	ManagedPolicyAWSMarketplaceSellerFullAccess
 //	ManagedPolicyAWSMarketplaceSellerProductsFullAccess
 //	ManagedPolicyAWSMarketplaceSellerProductsReadOnly
+//	ManagedPolicyAWSMediaConnectServicePolicy
 //	ManagedPolicyAWSMediaTailorServiceRolePolicy
 //	ManagedPolicyAWSMigrationHubDMSAccess
 //	ManagedPolicyAWSMigrationHubDiscoveryAccess
@@ -1591,14 +1769,14 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyAWSMigrationHubOrchestratorInstanceRolePolicy
 //	ManagedPolicyAWSMigrationHubOrchestratorPlugin
 //	ManagedPolicyAWSMigrationHubOrchestratorServiceRolePolicy
+//	ManagedPolicyAWSMigrationHubRefactorSpacesEnvironmentsWithoutBridgesFullAccess
+//	ManagedPolicyAWSMigrationHubRefactorSpacesSSMAutomationPolicy
 //	ManagedPolicyAWSMigrationHubRefactorSpacesFullAccess
 //	ManagedPolicyAWSMigrationHubRefactorSpacesServiceRolePolicy
 //	ManagedPolicyAWSMigrationHubSMSAccess
 //	ManagedPolicyAWSMigrationHubStrategyCollector
 //	ManagedPolicyAWSMigrationHubStrategyConsoleFullAccess
 //	ManagedPolicyAWSMigrationHubStrategyServiceRolePolicy
-//	ManagedPolicy_AWSMobileHub_FullAccess
-//	ManagedPolicy_AWSMobileHub_ReadOnly
 //	ManagedPolicyAWSNetworkFirewallServiceRolePolicy
 //	ManagedPolicyAWSNetworkManagerCloudWANServiceRolePolicy
 //	ManagedPolicyAWSNetworkManagerFullAccess
@@ -1637,6 +1815,7 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyAWSProtonDeveloperAccess
 //	ManagedPolicyAWSProtonFullAccess
 //	ManagedPolicyAWSProtonReadOnlyAccess
+//	ManagedPolicyAWSProtonServiceGitSyncServiceRolePolicy
 //	ManagedPolicyAWSProtonSyncServiceRolePolicy
 //	ManagedPolicyAWSPurchaseOrdersServiceRolePolicy
 //	ManagedPolicyAWSQuickSightDescribeRDS
@@ -1651,11 +1830,14 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyAWSReachabilityAnalyzerServiceRolePolicy
 //	ManagedPolicyAWSRefactoringToolkitFullAccess
 //	ManagedPolicyAWSRefactoringToolkitSidecarPolicy
+//	ManagedPolicyAWSRepostSpaceSupportOperationsPolicy
+//	ManagedPolicyAWSResilienceHubAsssessmentExecutionPolicy
 //	ManagedPolicyAWSResourceAccessManagerFullAccess
 //	ManagedPolicyAWSResourceAccessManagerReadOnlyAccess
 //	ManagedPolicyAWSResourceAccessManagerResourceShareParticipantAccess
 //	ManagedPolicyAWSResourceAccessManagerServiceRolePolicy
 //	ManagedPolicyAWSResourceExplorerFullAccess
+//	ManagedPolicyAWSResourceExplorerOrganizationsAccess
 //	ManagedPolicyAWSResourceExplorerReadOnlyAccess
 //	ManagedPolicyAWSResourceExplorerServiceRolePolicy
 //	ManagedPolicyAWSResourceGroupsReadOnlyAccess
@@ -1664,6 +1846,7 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyAWSRoboMakerServiceRolePolicy
 //	ManagedPolicy_AWSRoboMaker_FullAccess
 //	ManagedPolicyAWSRolesAnywhereServicePolicy
+//	ManagedPolicyAWSS3OnOutpostsServiceRolePolicy
 //	ManagedPolicyAWSSSMForSAPServiceLinkedRolePolicy
 //	ManagedPolicyAWSSSMOpsInsightsServiceRolePolicy
 //	ManagedPolicyAWSSSODirectoryAdministrator
@@ -1685,18 +1868,24 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyAWSServiceCatalogAppRegistryServiceRolePolicy
 //	ManagedPolicyAWSServiceCatalogEndUserFullAccess
 //	ManagedPolicyAWSServiceCatalogEndUserReadOnlyAccess
+//	ManagedPolicyAWSServiceCatalogOrgsDataSyncServiceRolePolicy
 //	ManagedPolicyAWSServiceCatalogSyncServiceRolePolicy
 //	ManagedPolicyAWSServiceRoleForAmazonEKSNodegroup
 //	ManagedPolicyAWSServiceRoleForCloudWatchAlarmsActionSSMServiceRolePolicy
+//	ManagedPolicy_AWSServiceRoleForCloudWatchMetrics_DbPerfInsightsServiceRolePolicy
 //	ManagedPolicyAWSServiceRoleForCodeGuruProfiler
+//	ManagedPolicyAWSServiceRoleForCodeWhispererPolicy
 //	ManagedPolicyAWSServiceRoleForEC2ScheduledInstances
 //	ManagedPolicyAWSServiceRoleForGroundStationDataflowEndpointGroupPolicy
 //	ManagedPolicyAWSServiceRoleForImageBuilder
 //	ManagedPolicyAWSServiceRoleForIoTSiteWise
 //	ManagedPolicyAWSServiceRoleForLogDeliveryPolicy
 //	ManagedPolicyAWSServiceRoleForMonitronPolicy
+//	ManagedPolicyAWSServiceRoleForNeptuneGraphPolicy
+//	ManagedPolicyAWSServiceRoleForPrivateMarketplaceAdminPolicy
 //	ManagedPolicyAWSServiceRoleForSMS
 //	ManagedPolicyAWSServiceRolePolicyForBackupReports
+//	ManagedPolicyAWSServiceRolePolicyForBackupRestoreTesting
 //	ManagedPolicyAWSShieldDRTAccessPolicy
 //	ManagedPolicyAWSShieldServiceRolePolicy
 //	ManagedPolicyAWSStepFunctionsConsoleFullAccess
@@ -1705,6 +1894,7 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyAWSStorageGatewayFullAccess
 //	ManagedPolicyAWSStorageGatewayReadOnlyAccess
 //	ManagedPolicyAWSStorageGatewayServiceRolePolicy
+//	ManagedPolicyAWSSupplyChainFederationAdminAccess
 //	ManagedPolicyAWSSupportAccess
 //	ManagedPolicyAWSSupportAppFullAccess
 //	ManagedPolicyAWSSupportAppReadOnlyAccess
@@ -1732,6 +1922,7 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyAWSTrustedAdvisorPriorityReadOnlyAccess
 //	ManagedPolicyAWSTrustedAdvisorReportingServiceRolePolicy
 //	ManagedPolicyAWSTrustedAdvisorServiceRolePolicy
+//	ManagedPolicyAWSUserNotificationsServiceLinkedRolePolicy
 //	ManagedPolicyAWSVPCS2SVpnServiceRolePolicy
 //	ManagedPolicyAWSVPCTransitGatewayServiceRolePolicy
 //	ManagedPolicyAWSVPCVerifiedAccessServiceRolePolicy
@@ -1744,13 +1935,16 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyAWSWAFConsoleReadOnlyAccess
 //	ManagedPolicyAWSWAFFullAccess
 //	ManagedPolicyAWSWAFReadOnlyAccess
+//	ManagedPolicyAWSWellArchitectedDiscoveryServiceRolePolicy
 //	ManagedPolicyAWSWellArchitectedOrganizationsServiceRolePolicy
 //	ManagedPolicyAWSWickrFullAccess
+//	ManagedPolicyAWSXRayDaemonWriteAccess
 //	ManagedPolicyAWSXrayCrossAccountSharingConfiguration
 //	ManagedPolicyAWSXrayFullAccess
 //	ManagedPolicyAWSXrayReadOnlyAccess
 //	ManagedPolicyAWSXrayWriteOnlyAccess
-//	ManagedPolicyAWSXRayDaemonWriteAccess
+//	ManagedPolicyAWSZonalAutoshiftPracticeRunSLRPolicy
+//	ManagedPolicyAWSrePostPrivateCloudWatchAccess
 //	ManagedPolicyAccessAnalyzerServiceRolePolicy
 //	ManagedPolicyAdministratorAccess
 //	ManagedPolicyAdministratorAccessAWSElasticBeanstalk
@@ -1775,6 +1969,8 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyAmazonAugmentedAIFullAccess
 //	ManagedPolicyAmazonAugmentedAIHumanLoopFullAccess
 //	ManagedPolicyAmazonAugmentedAIIntegratedAPIAccess
+//	ManagedPolicyAmazonBedrockFullAccess
+//	ManagedPolicyAmazonBedrockReadOnly
 //	ManagedPolicyAmazonBraketFullAccess
 //	ManagedPolicyAmazonBraketJobsExecutionPolicy
 //	ManagedPolicyAmazonBraketServiceRolePolicy
@@ -1782,6 +1978,7 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyAmazonChimeReadOnly
 //	ManagedPolicyAmazonChimeSDK
 //	ManagedPolicyAmazonChimeSDKMediaPipelinesServiceLinkedRolePolicy
+//	ManagedPolicyAmazonChimeSDKMessagingServiceRolePolicy
 //	ManagedPolicyAmazonChimeServiceRolePolicy
 //	ManagedPolicyAmazonChimeTranscriptionServiceLinkedRolePolicy
 //	ManagedPolicyAmazonChimeUserManagement
@@ -1794,30 +1991,45 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyAmazonCloudWatchRUMFullAccess
 //	ManagedPolicyAmazonCloudWatchRUMReadOnlyAccess
 //	ManagedPolicyAmazonCloudWatchRUMServiceRolePolicy
+//	ManagedPolicyAmazonCodeCatalystFullAccess
+//	ManagedPolicyAmazonCodeCatalystReadOnlyAccess
+//	ManagedPolicyAmazonCodeCatalystSupportAccess
 //	ManagedPolicyAmazonCodeGuruProfilerAgentAccess
 //	ManagedPolicyAmazonCodeGuruProfilerFullAccess
 //	ManagedPolicyAmazonCodeGuruProfilerReadOnlyAccess
 //	ManagedPolicyAmazonCodeGuruReviewerFullAccess
 //	ManagedPolicyAmazonCodeGuruReviewerReadOnlyAccess
 //	ManagedPolicyAmazonCodeGuruReviewerServiceRolePolicy
+//	ManagedPolicyAmazonCodeGuruSecurityFullAccess
+//	ManagedPolicyAmazonCodeGuruSecurityScanAccess
 //	ManagedPolicyAmazonCognitoDeveloperAuthenticatedIdentities
 //	ManagedPolicyAmazonCognitoIdpEmailServiceRolePolicy
 //	ManagedPolicyAmazonCognitoIdpServiceRolePolicy
 //	ManagedPolicyAmazonCognitoPowerUser
 //	ManagedPolicyAmazonCognitoReadOnly
+//	ManagedPolicyAmazonCognitoUnAuthedIdentitiesSessionPolicy
 //	ManagedPolicyAmazonCognitoUnauthenticatedIdentities
 //	ManagedPolicyAmazonConnectCampaignsServiceLinkedRolePolicy
 //	ManagedPolicyAmazonConnectReadOnlyAccess
 //	ManagedPolicyAmazonConnectServiceLinkedRolePolicy
+//	ManagedPolicyAmazonConnectSynchronizationServiceRolePolicy
 //	ManagedPolicyAmazonConnectVoiceIDFullAccess
 //	ManagedPolicy_AmazonConnect_FullAccess
 //	ManagedPolicyAmazonDMSCloudWatchLogsRole
 //	ManagedPolicyAmazonDMSRedshiftS3Role
 //	ManagedPolicyAmazonDMSVPCManagementRole
 //	ManagedPolicyAmazonDRSVPCManagement
+//	ManagedPolicyAmazonDataZoneDomainExecutionRolePolicy
+//	ManagedPolicyAmazonDataZoneEnvironmentRolePermissionsBoundary
+//	ManagedPolicyAmazonDataZoneFullAccess
+//	ManagedPolicyAmazonDataZoneFullUserAccess
+//	ManagedPolicyAmazonDataZoneGlueManageAccessRolePolicy
+//	ManagedPolicyAmazonDataZoneRedshiftGlueProvisioningPolicy
+//	ManagedPolicyAmazonDataZoneRedshiftManageAccessRolePolicy
 //	ManagedPolicyAmazonDetectiveFullAccess
 //	ManagedPolicyAmazonDetectiveInvestigatorAccess
 //	ManagedPolicyAmazonDetectiveMemberAccess
+//	ManagedPolicyAmazonDetectiveOrganizationsAccess
 //	ManagedPolicyAmazonDetectiveServiceLinkedRolePolicy
 //	ManagedPolicyAmazonDevOpsGuruConsoleFullAccess
 //	ManagedPolicyAmazonDevOpsGuruFullAccess
@@ -1826,6 +2038,8 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyAmazonDevOpsGuruServiceRolePolicy
 //	ManagedPolicyAmazonDocDBElasticServiceRolePolicy
 //	ManagedPolicyAmazonDocDBConsoleFullAccess
+//	ManagedPolicyAmazonDocDBElasticFullAccess
+//	ManagedPolicyAmazonDocDBElasticReadOnlyAccess
 //	ManagedPolicyAmazonDocDBFullAccess
 //	ManagedPolicyAmazonDocDBReadOnlyAccess
 //	ManagedPolicyAmazonDynamoDBFullAccess
@@ -1849,8 +2063,11 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyAmazonEC2SpotFleetAutoscaleRole
 //	ManagedPolicyAmazonEC2SpotFleetTaggingRole
 //	ManagedPolicyAmazonECSFullAccess
+//	ManagedPolicyAmazonECSInfrastructureRolePolicyForServiceConnectTransportLayerSecurity
+//	ManagedPolicyAmazonECSInfrastructureRolePolicyForVolumes
 //	ManagedPolicyAmazonECSServiceRolePolicy
 //	ManagedPolicyAmazonECSTaskExecutionRolePolicy
+//	ManagedPolicyAmazonEFSCSIDriverPolicy
 //	ManagedPolicyAmazonEKSClusterPolicy
 //	ManagedPolicyAmazonEKSConnectorServiceRolePolicy
 //	ManagedPolicyAmazonEKSFargatePodExecutionRolePolicy
@@ -1919,6 +2136,7 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyAmazonGlacierFullAccess
 //	ManagedPolicyAmazonGlacierReadOnlyAccess
 //	ManagedPolicyAmazonGrafanaAthenaAccess
+//	ManagedPolicyAmazonGrafanaCloudWatchAccess
 //	ManagedPolicyAmazonGrafanaRedshiftAccess
 //	ManagedPolicyAmazonGrafanaServiceLinkedRolePolicy
 //	ManagedPolicyAmazonGuardDutyFullAccess
@@ -1934,7 +2152,9 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyAmazonHoneycodeTeamAssociationReadOnlyAccess
 //	ManagedPolicyAmazonHoneycodeWorkbookFullAccess
 //	ManagedPolicyAmazonHoneycodeWorkbookReadOnlyAccess
+//	ManagedPolicyAmazonInspector2AgentlessServiceRolePolicy
 //	ManagedPolicyAmazonInspector2FullAccess
+//	ManagedPolicyAmazonInspector2ManagedCisPolicy
 //	ManagedPolicyAmazonInspector2ReadOnlyAccess
 //	ManagedPolicyAmazonInspector2ServiceRolePolicy
 //	ManagedPolicyAmazonInspectorFullAccess
@@ -1944,6 +2164,7 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyAmazonKendraReadOnlyAccess
 //	ManagedPolicyAmazonKeyspacesFullAccess
 //	ManagedPolicyAmazonKeyspacesReadOnlyAccess
+//	ManagedPolicy_AmazonKeyspacesReadOnlyAccess_v2
 //	ManagedPolicyAmazonKinesisAnalyticsFullAccess
 //	ManagedPolicyAmazonKinesisAnalyticsReadOnly
 //	ManagedPolicyAmazonKinesisFirehoseFullAccess
@@ -1952,10 +2173,11 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyAmazonKinesisReadOnlyAccess
 //	ManagedPolicyAmazonKinesisVideoStreamsFullAccess
 //	ManagedPolicyAmazonKinesisVideoStreamsReadOnlyAccess
-//	ManagedPolicy_AmazonLaunchWizard_Fullaccess
+//	ManagedPolicyAmazonLaunchWizardFullAccessV2
 //	ManagedPolicyAmazonLexChannelsAccess
 //	ManagedPolicyAmazonLexFullAccess
 //	ManagedPolicyAmazonLexReadOnly
+//	ManagedPolicyAmazonLexReplicationPolicy
 //	ManagedPolicyAmazonLexRunBotsOnly
 //	ManagedPolicyAmazonLexV2BotPolicy
 //	ManagedPolicyAmazonLookoutEquipmentFullAccess
@@ -1986,6 +2208,7 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyAmazonMachineLearningRoleforRedshiftDataSourceV3
 //	ManagedPolicyAmazonMacieFullAccess
 //	ManagedPolicyAmazonMacieHandshakeRole
+//	ManagedPolicyAmazonMacieReadOnlyAccess
 //	ManagedPolicyAmazonMacieServiceRole
 //	ManagedPolicyAmazonMacieServiceRolePolicy
 //	ManagedPolicyAmazonManagedBlockchainConsoleFullAccess
@@ -2006,6 +2229,12 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyAmazonNimbleStudioStudioUser
 //	ManagedPolicyAmazonOmicsFullAccess
 //	ManagedPolicyAmazonOmicsReadOnlyAccess
+//	ManagedPolicyAmazonOneEnterpriseFullAccess
+//	ManagedPolicyAmazonOneEnterpriseInstallerAccess
+//	ManagedPolicyAmazonOneEnterpriseReadOnlyAccess
+//	ManagedPolicyAmazonOpenSearchDashboardsServiceRolePolicy
+//	ManagedPolicyAmazonOpenSearchIngestionFullAccess
+//	ManagedPolicyAmazonOpenSearchIngestionReadOnlyAccess
 //	ManagedPolicyAmazonOpenSearchIngestionServiceRolePolicy
 //	ManagedPolicyAmazonOpenSearchServerlessServiceRolePolicy
 //	ManagedPolicyAmazonOpenSearchServiceCognitoAccess
@@ -2019,16 +2248,20 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyAmazonPrometheusFullAccess
 //	ManagedPolicyAmazonPrometheusQueryAccess
 //	ManagedPolicyAmazonPrometheusRemoteWriteAccess
+//	ManagedPolicyAmazonPrometheusScraperServiceRolePolicy
+//	ManagedPolicyAmazonQFullAccess
 //	ManagedPolicyAmazonQLDBConsoleFullAccess
 //	ManagedPolicyAmazonQLDBFullAccess
 //	ManagedPolicyAmazonQLDBReadOnly
 //	ManagedPolicyAmazonRDSBetaServiceRolePolicy
+//	ManagedPolicyAmazonRDSCustomInstanceProfileRolePolicy
 //	ManagedPolicyAmazonRDSCustomPreviewServiceRolePolicy
 //	ManagedPolicyAmazonRDSCustomServiceRolePolicy
 //	ManagedPolicyAmazonRDSDataFullAccess
 //	ManagedPolicyAmazonRDSDirectoryServiceAccess
 //	ManagedPolicyAmazonRDSEnhancedMonitoringRole
 //	ManagedPolicyAmazonRDSFullAccess
+//	ManagedPolicyAmazonRDSPerformanceInsightsFullAccess
 //	ManagedPolicyAmazonRDSPerformanceInsightsReadOnly
 //	ManagedPolicyAmazonRDSPreviewServiceRolePolicy
 //	ManagedPolicyAmazonRDSReadOnlyAccess
@@ -2080,13 +2313,18 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyAmazonSSMFullAccess
 //	ManagedPolicyAmazonSSMMaintenanceWindowRole
 //	ManagedPolicyAmazonSSMManagedEC2InstanceDefaultPolicy
+//	ManagedPolicyAmazonSSMManagedInstanceCore
 //	ManagedPolicyAmazonSSMPatchAssociation
 //	ManagedPolicyAmazonSSMReadOnlyAccess
-//	ManagedPolicyAmazonSSMManagedInstanceCore
 //	ManagedPolicyAmazonSSMServiceRolePolicy
 //	ManagedPolicyAmazonSageMakerAdminServiceCatalogProductsServiceRolePolicy
+//	ManagedPolicyAmazonSageMakerCanvasAIServicesAccess
+//	ManagedPolicyAmazonSageMakerCanvasBedrockAccess
+//	ManagedPolicyAmazonSageMakerCanvasDataPrepFullAccess
+//	ManagedPolicyAmazonSageMakerCanvasDirectDeployAccess
 //	ManagedPolicyAmazonSageMakerCanvasForecastAccess
 //	ManagedPolicyAmazonSageMakerCanvasFullAccess
+//	ManagedPolicyAmazonSageMakerClusterInstanceRolePolicy
 //	ManagedPolicyAmazonSageMakerCoreServiceRolePolicy
 //	ManagedPolicyAmazonSageMakerEdgeDeviceFleetPolicy
 //	ManagedPolicyAmazonSageMakerFeatureStoreAccess
@@ -2096,7 +2334,11 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyAmazonSageMakerGroundTruthExecution
 //	ManagedPolicyAmazonSageMakerMechanicalTurkAccess
 //	ManagedPolicyAmazonSageMakerModelGovernanceUseAccess
+//	ManagedPolicyAmazonSageMakerModelRegistryFullAccess
 //	ManagedPolicyAmazonSageMakerNotebooksServiceRolePolicy
+//	ManagedPolicyAmazonSageMakerPartnerServiceCatalogProductsApiGatewayServiceRolePolicy
+//	ManagedPolicyAmazonSageMakerPartnerServiceCatalogProductsCloudFormationServiceRolePolicy
+//	ManagedPolicyAmazonSageMakerPartnerServiceCatalogProductsLambdaServiceRolePolicy
 //	ManagedPolicyAmazonSageMakerPipelinesIntegrations
 //	ManagedPolicyAmazonSageMakerReadOnly
 //	ManagedPolicyAmazonSageMakerServiceCatalogProductsApiGatewayServiceRolePolicy
@@ -2107,17 +2349,23 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyAmazonSageMakerServiceCatalogProductsFirehoseServiceRolePolicy
 //	ManagedPolicyAmazonSageMakerServiceCatalogProductsGlueServiceRolePolicy
 //	ManagedPolicyAmazonSageMakerServiceCatalogProductsLambdaServiceRolePolicy
+//	ManagedPolicyAmazonSecurityLakeAdministrator
+//	ManagedPolicyAmazonSecurityLakeMetastoreManager
 //	ManagedPolicyAmazonSecurityLakePermissionsBoundary
-//	ManagedPolicyAmazonSumerianFullAccess
 //	ManagedPolicyAmazonTextractFullAccess
 //	ManagedPolicyAmazonTextractServiceRole
 //	ManagedPolicyAmazonTimestreamConsoleFullAccess
 //	ManagedPolicyAmazonTimestreamFullAccess
+//	ManagedPolicyAmazonTimestreamInfluxDBFullAccess
+//	ManagedPolicyAmazonTimestreamInfluxDBServiceRolePolicy
 //	ManagedPolicyAmazonTimestreamReadOnlyAccess
 //	ManagedPolicyAmazonTranscribeFullAccess
 //	ManagedPolicyAmazonTranscribeReadOnlyAccess
 //	ManagedPolicyAmazonVPCCrossAccountNetworkInterfaceOperations
 //	ManagedPolicyAmazonVPCFullAccess
+//	ManagedPolicyAmazonVPCNetworkAccessAnalyzerFullAccessPolicy
+//	ManagedPolicyAmazonVPCReachabilityAnalyzerFullAccessPolicy
+//	ManagedPolicyAmazonVPCReachabilityAnalyzerPathComponentReadPolicy
 //	ManagedPolicyAmazonVPCReadOnlyAccess
 //	ManagedPolicyAmazonWorkDocsFullAccess
 //	ManagedPolicyAmazonWorkDocsReadOnlyAccess
@@ -2135,6 +2383,7 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyAmazonWorkspacesPCAAccess
 //	ManagedPolicyAmazonZocaloFullAccess
 //	ManagedPolicyAmazonZocaloReadOnlyAccess
+//	ManagedPolicyAmplifyBackendDeployFullAccess
 //	ManagedPolicyAppIntegrationsServiceLinkedRolePolicy
 //	ManagedPolicyAppRunnerNetworkingServiceRolePolicy
 //	ManagedPolicyAppRunnerServiceRolePolicy
@@ -2170,6 +2419,7 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyCloudWatchAgentServerPolicy
 //	ManagedPolicyCloudWatchApplicationInsightsFullAccess
 //	ManagedPolicyCloudWatchApplicationInsightsReadOnlyAccess
+//	ManagedPolicyCloudWatchApplicationSignalsServiceRolePolicy
 //	ManagedPolicyCloudWatchAutomaticDashboardsAccess
 //	ManagedPolicyCloudWatchCrossAccountSharingConfiguration
 //	ManagedPolicyCloudWatchEventsBuiltInTargetExecutionAccess
@@ -2184,6 +2434,7 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyCloudWatchLogsCrossAccountSharingConfiguration
 //	ManagedPolicyCloudWatchLogsFullAccess
 //	ManagedPolicyCloudWatchLogsReadOnlyAccess
+//	ManagedPolicyCloudWatchNetworkMonitorServiceRolePolicy
 //	ManagedPolicyCloudWatchReadOnlyAccess
 //	ManagedPolicyCloudWatchSyntheticsFullAccess
 //	ManagedPolicyCloudWatchSyntheticsReadOnlyAccess
@@ -2195,6 +2446,10 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyComputeOptimizerReadOnlyAccess
 //	ManagedPolicyComputeOptimizerServiceRolePolicy
 //	ManagedPolicyConfigConformsServiceRolePolicy
+//	ManagedPolicyCostOptimizationHubAdminAccess
+//	ManagedPolicyCostOptimizationHubReadOnlyAccess
+//	ManagedPolicyCostOptimizationHubServiceRolePolicy
+//	ManagedPolicyCustomerProfilesServiceLinkedRolePolicy
 //	ManagedPolicyDAXServiceRolePolicy
 //	ManagedPolicyDataScientist
 //	ManagedPolicyDatabaseAdministrator
@@ -2203,10 +2458,12 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyDynamoDBReplicationServiceRolePolicy
 //	ManagedPolicyEC2FastLaunchServiceRolePolicy
 //	ManagedPolicyEC2FleetTimeShiftableServiceRolePolicy
+//	ManagedPolicyEC2ImageBuilderLifecycleExecutionPolicy
 //	ManagedPolicyEC2InstanceConnect
 //	ManagedPolicyEC2InstanceProfileForImageBuilder
 //	ManagedPolicyEC2InstanceProfileForImageBuilderECRContainerBuilds
 //	ManagedPolicyECRReplicationServiceRolePolicy
+//	ManagedPolicyEMRDescribeClusterPolicyForEMRWAL
 //	ManagedPolicyEc2ImageBuilderCrossAccountDistributionAccess
 //	ManagedPolicyEc2InstanceConnectEndpoint
 //	ManagedPolicyElastiCacheServiceRolePolicy
@@ -2221,7 +2478,6 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyElementalSupportCenterFullAccess
 //	ManagedPolicyFMSServiceRolePolicy
 //	ManagedPolicyFSxDeleteServiceLinkedRoleAccess
-//	ManagedPolicyFusionDevInternalServiceRolePolicy
 //	ManagedPolicyGameLiftGameServerGroupPolicy
 //	ManagedPolicyGlobalAcceleratorFullAccess
 //	ManagedPolicyGlobalAcceleratorReadOnlyAccess
@@ -2237,13 +2493,17 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyIAMSelfManageServiceSpecificCredentials
 //	ManagedPolicyIAMUserChangePassword
 //	ManagedPolicyIAMUserSSHKeys
+//	ManagedPolicyIVSFullAccess
+//	ManagedPolicyIVSReadOnlyAccess
 //	ManagedPolicyIVSRecordToS3
 //	ManagedPolicyKafkaConnectServiceRolePolicy
 //	ManagedPolicyKafkaServiceRolePolicy
+//	ManagedPolicyKeyspacesReplicationServiceRolePolicy
 //	ManagedPolicyLakeFormationDataAccessServiceRolePolicy
 //	ManagedPolicyLexBotPolicy
 //	ManagedPolicyLexChannelPolicy
 //	ManagedPolicyLightsailExportAccess
+//	ManagedPolicyMediaConnectGatewayInstanceRolePolicy
 //	ManagedPolicyMediaPackageServiceRolePolicy
 //	ManagedPolicyMemoryDBServiceRolePolicy
 //	ManagedPolicyMigrationHubDMSAccessServiceRolePolicy
@@ -2252,14 +2512,27 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyMonitronServiceRolePolicy
 //	ManagedPolicyNeptuneConsoleFullAccess
 //	ManagedPolicyNeptuneFullAccess
+//	ManagedPolicyNeptuneGraphReadOnlyAccess
 //	ManagedPolicyNeptuneReadOnlyAccess
 //	ManagedPolicyNetworkAdministrator
 //	ManagedPolicyOAMFullAccess
 //	ManagedPolicyOAMReadOnlyAccess
+//	ManagedPolicyPartnerCentralAccountManagementUserRoleAssociation
 //	ManagedPolicyPowerUserAccess
 //	ManagedPolicyQuickSightAccessForS3StorageManagementAnalyticsReadOnly
 //	ManagedPolicyRDSCloudHsmAuthorizationRole
+//	ManagedPolicyROSAAmazonEBSCSIDriverOperatorPolicy
+//	ManagedPolicyROSACloudNetworkConfigOperatorPolicy
+//	ManagedPolicyROSAControlPlaneOperatorPolicy
+//	ManagedPolicyROSAImageRegistryOperatorPolicy
+//	ManagedPolicyROSAIngressOperatorPolicy
+//	ManagedPolicyROSAInstallerPolicy
+//	ManagedPolicyROSAKMSProviderPolicy
+//	ManagedPolicyROSAKubeControllerPolicy
 //	ManagedPolicyROSAManageSubscription
+//	ManagedPolicyROSANodePoolManagementPolicy
+//	ManagedPolicyROSASRESupportPolicy
+//	ManagedPolicyROSAWorkerInstancePolicy
 //	ManagedPolicyReadOnlyAccess
 //	ManagedPolicyResourceGroupsServiceRolePolicy
 //	ManagedPolicyResourceGroupsandTagEditorFullAccess
@@ -2284,6 +2557,9 @@ func (o ManagedPolicyPtrOutput) ToStringPtrOutputWithContext(ctx context.Context
 //	ManagedPolicyTranslateFullAccess
 //	ManagedPolicyTranslateReadOnly
 //	ManagedPolicyVMImportExportRoleForAWSConnector
+//	ManagedPolicyVPCLatticeFullAccess
+//	ManagedPolicyVPCLatticeReadOnlyAccess
+//	ManagedPolicyVPCLatticeServicesInvokeAccess
 //	ManagedPolicyViewOnlyAccess
 //	ManagedPolicyWAFLoggingServiceRolePolicy
 //	ManagedPolicyWAFRegionalLoggingServiceRolePolicy
