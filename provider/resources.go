@@ -868,11 +868,6 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 		},
 		PreConfigureCallback: preConfigureCallback(&credentialsValidationRun),
 		Resources: map[string]*tfbridge.ResourceInfo{
-			// AWS Certificate Manager
-			"aws_acm_certificate_validation": {
-				Tok:  awsResource(acmMod, "CertificateValidation"),
-				Docs: &tfbridge.DocInfo{ReplaceExamplesSection: true},
-			},
 			// AWS Private Certificate Authority
 			"aws_acmpca_certificate_authority": {Tok: awsResource(acmpcaMod, "CertificateAuthority")},
 			"aws_acmpca_certificate": {
