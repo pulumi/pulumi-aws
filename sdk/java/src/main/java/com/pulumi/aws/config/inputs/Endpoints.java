@@ -455,6 +455,11 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    private @Nullable String devopsguru;
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     private @Nullable String directconnect;
     /**
      * @return Use this to override the default service endpoint URL
@@ -1998,6 +2003,13 @@ public final class Endpoints {
      * @return Use this to override the default service endpoint URL
      * 
      */
+    public Optional<String> devopsguru() {
+        return Optional.ofNullable(this.devopsguru);
+    }
+    /**
+     * @return Use this to override the default service endpoint URL
+     * 
+     */
     public Optional<String> directconnect() {
         return Optional.ofNullable(this.directconnect);
     }
@@ -3387,6 +3399,7 @@ public final class Endpoints {
         private @Nullable String deploy;
         private @Nullable String detective;
         private @Nullable String devicefarm;
+        private @Nullable String devopsguru;
         private @Nullable String directconnect;
         private @Nullable String directoryservice;
         private @Nullable String dlm;
@@ -3663,6 +3676,7 @@ public final class Endpoints {
     	      this.deploy = defaults.deploy;
     	      this.detective = defaults.detective;
     	      this.devicefarm = defaults.devicefarm;
+    	      this.devopsguru = defaults.devopsguru;
     	      this.directconnect = defaults.directconnect;
     	      this.directoryservice = defaults.directoryservice;
     	      this.dlm = defaults.dlm;
@@ -4376,6 +4390,12 @@ public final class Endpoints {
         public Builder devicefarm(@Nullable String devicefarm) {
 
             this.devicefarm = devicefarm;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder devopsguru(@Nullable String devopsguru) {
+
+            this.devopsguru = devopsguru;
             return this;
         }
         @CustomType.Setter
@@ -5578,6 +5598,7 @@ public final class Endpoints {
             _resultValue.deploy = deploy;
             _resultValue.detective = detective;
             _resultValue.devicefarm = devicefarm;
+            _resultValue.devopsguru = devopsguru;
             _resultValue.directconnect = directconnect;
             _resultValue.directoryservice = directoryservice;
             _resultValue.dlm = dlm;

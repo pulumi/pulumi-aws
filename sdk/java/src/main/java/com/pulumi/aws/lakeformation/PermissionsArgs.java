@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.lakeformation;
 
+import com.pulumi.aws.lakeformation.inputs.PermissionsDataCellsFilterArgs;
 import com.pulumi.aws.lakeformation.inputs.PermissionsDataLocationArgs;
 import com.pulumi.aws.lakeformation.inputs.PermissionsDatabaseArgs;
 import com.pulumi.aws.lakeformation.inputs.PermissionsLfTagArgs;
@@ -52,6 +53,21 @@ public final class PermissionsArgs extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> catalogResource() {
         return Optional.ofNullable(this.catalogResource);
+    }
+
+    /**
+     * Configuration block for a data cells filter resource. Detailed below.
+     * 
+     */
+    @Import(name="dataCellsFilter")
+    private @Nullable Output<PermissionsDataCellsFilterArgs> dataCellsFilter;
+
+    /**
+     * @return Configuration block for a data cells filter resource. Detailed below.
+     * 
+     */
+    public Optional<Output<PermissionsDataCellsFilterArgs>> dataCellsFilter() {
+        return Optional.ofNullable(this.dataCellsFilter);
     }
 
     /**
@@ -206,6 +222,7 @@ public final class PermissionsArgs extends com.pulumi.resources.ResourceArgs {
     private PermissionsArgs(PermissionsArgs $) {
         this.catalogId = $.catalogId;
         this.catalogResource = $.catalogResource;
+        this.dataCellsFilter = $.dataCellsFilter;
         this.dataLocation = $.dataLocation;
         this.database = $.database;
         this.lfTag = $.lfTag;
@@ -275,6 +292,27 @@ public final class PermissionsArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder catalogResource(Boolean catalogResource) {
             return catalogResource(Output.of(catalogResource));
+        }
+
+        /**
+         * @param dataCellsFilter Configuration block for a data cells filter resource. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataCellsFilter(@Nullable Output<PermissionsDataCellsFilterArgs> dataCellsFilter) {
+            $.dataCellsFilter = dataCellsFilter;
+            return this;
+        }
+
+        /**
+         * @param dataCellsFilter Configuration block for a data cells filter resource. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataCellsFilter(PermissionsDataCellsFilterArgs dataCellsFilter) {
+            return dataCellsFilter(Output.of(dataCellsFilter));
         }
 
         /**

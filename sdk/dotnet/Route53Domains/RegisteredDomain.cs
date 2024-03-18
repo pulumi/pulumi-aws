@@ -93,6 +93,18 @@ namespace Pulumi.Aws.Route53Domains
         public Output<bool?> AutoRenew { get; private set; } = null!;
 
         /// <summary>
+        /// Details about the domain billing contact. See Contact Blocks for more details.
+        /// </summary>
+        [Output("billingContact")]
+        public Output<Outputs.RegisteredDomainBillingContact> BillingContact { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
+        /// </summary>
+        [Output("billingPrivacy")]
+        public Output<bool?> BillingPrivacy { get; private set; } = null!;
+
+        /// <summary>
         /// The date when the domain was created as found in the response to a WHOIS query.
         /// </summary>
         [Output("creationDate")]
@@ -259,6 +271,18 @@ namespace Pulumi.Aws.Route53Domains
         public Input<bool>? AutoRenew { get; set; }
 
         /// <summary>
+        /// Details about the domain billing contact. See Contact Blocks for more details.
+        /// </summary>
+        [Input("billingContact")]
+        public Input<Inputs.RegisteredDomainBillingContactArgs>? BillingContact { get; set; }
+
+        /// <summary>
+        /// Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
+        /// </summary>
+        [Input("billingPrivacy")]
+        public Input<bool>? BillingPrivacy { get; set; }
+
+        /// <summary>
         /// The name of the registered domain.
         /// </summary>
         [Input("domainName", required: true)]
@@ -355,6 +379,18 @@ namespace Pulumi.Aws.Route53Domains
         /// </summary>
         [Input("autoRenew")]
         public Input<bool>? AutoRenew { get; set; }
+
+        /// <summary>
+        /// Details about the domain billing contact. See Contact Blocks for more details.
+        /// </summary>
+        [Input("billingContact")]
+        public Input<Inputs.RegisteredDomainBillingContactGetArgs>? BillingContact { get; set; }
+
+        /// <summary>
+        /// Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
+        /// </summary>
+        [Input("billingPrivacy")]
+        public Input<bool>? BillingPrivacy { get; set; }
 
         /// <summary>
         /// The date when the domain was created as found in the response to a WHOIS query.

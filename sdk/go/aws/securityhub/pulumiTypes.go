@@ -6751,6 +6751,1752 @@ func (o AutomationRuleCriteriaWorkflowStatusArrayOutput) Index(i pulumi.IntInput
 	}).(AutomationRuleCriteriaWorkflowStatusOutput)
 }
 
+type ConfigurationPolicyConfigurationPolicy struct {
+	// A list that defines which security standards are enabled in the configuration policy.
+	EnabledStandardArns []string `pulumi:"enabledStandardArns"`
+	// Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
+	SecurityControlsConfiguration *ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration `pulumi:"securityControlsConfiguration"`
+	// Indicates whether Security Hub is enabled in the policy.
+	ServiceEnabled bool `pulumi:"serviceEnabled"`
+}
+
+// ConfigurationPolicyConfigurationPolicyInput is an input type that accepts ConfigurationPolicyConfigurationPolicyArgs and ConfigurationPolicyConfigurationPolicyOutput values.
+// You can construct a concrete instance of `ConfigurationPolicyConfigurationPolicyInput` via:
+//
+//	ConfigurationPolicyConfigurationPolicyArgs{...}
+type ConfigurationPolicyConfigurationPolicyInput interface {
+	pulumi.Input
+
+	ToConfigurationPolicyConfigurationPolicyOutput() ConfigurationPolicyConfigurationPolicyOutput
+	ToConfigurationPolicyConfigurationPolicyOutputWithContext(context.Context) ConfigurationPolicyConfigurationPolicyOutput
+}
+
+type ConfigurationPolicyConfigurationPolicyArgs struct {
+	// A list that defines which security standards are enabled in the configuration policy.
+	EnabledStandardArns pulumi.StringArrayInput `pulumi:"enabledStandardArns"`
+	// Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
+	SecurityControlsConfiguration ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrInput `pulumi:"securityControlsConfiguration"`
+	// Indicates whether Security Hub is enabled in the policy.
+	ServiceEnabled pulumi.BoolInput `pulumi:"serviceEnabled"`
+}
+
+func (ConfigurationPolicyConfigurationPolicyArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationPolicyConfigurationPolicy)(nil)).Elem()
+}
+
+func (i ConfigurationPolicyConfigurationPolicyArgs) ToConfigurationPolicyConfigurationPolicyOutput() ConfigurationPolicyConfigurationPolicyOutput {
+	return i.ToConfigurationPolicyConfigurationPolicyOutputWithContext(context.Background())
+}
+
+func (i ConfigurationPolicyConfigurationPolicyArgs) ToConfigurationPolicyConfigurationPolicyOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicyOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyConfigurationPolicyOutput)
+}
+
+func (i ConfigurationPolicyConfigurationPolicyArgs) ToConfigurationPolicyConfigurationPolicyPtrOutput() ConfigurationPolicyConfigurationPolicyPtrOutput {
+	return i.ToConfigurationPolicyConfigurationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationPolicyConfigurationPolicyArgs) ToConfigurationPolicyConfigurationPolicyPtrOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyConfigurationPolicyOutput).ToConfigurationPolicyConfigurationPolicyPtrOutputWithContext(ctx)
+}
+
+// ConfigurationPolicyConfigurationPolicyPtrInput is an input type that accepts ConfigurationPolicyConfigurationPolicyArgs, ConfigurationPolicyConfigurationPolicyPtr and ConfigurationPolicyConfigurationPolicyPtrOutput values.
+// You can construct a concrete instance of `ConfigurationPolicyConfigurationPolicyPtrInput` via:
+//
+//	        ConfigurationPolicyConfigurationPolicyArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfigurationPolicyConfigurationPolicyPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationPolicyConfigurationPolicyPtrOutput() ConfigurationPolicyConfigurationPolicyPtrOutput
+	ToConfigurationPolicyConfigurationPolicyPtrOutputWithContext(context.Context) ConfigurationPolicyConfigurationPolicyPtrOutput
+}
+
+type configurationPolicyConfigurationPolicyPtrType ConfigurationPolicyConfigurationPolicyArgs
+
+func ConfigurationPolicyConfigurationPolicyPtr(v *ConfigurationPolicyConfigurationPolicyArgs) ConfigurationPolicyConfigurationPolicyPtrInput {
+	return (*configurationPolicyConfigurationPolicyPtrType)(v)
+}
+
+func (*configurationPolicyConfigurationPolicyPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationPolicyConfigurationPolicy)(nil)).Elem()
+}
+
+func (i *configurationPolicyConfigurationPolicyPtrType) ToConfigurationPolicyConfigurationPolicyPtrOutput() ConfigurationPolicyConfigurationPolicyPtrOutput {
+	return i.ToConfigurationPolicyConfigurationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationPolicyConfigurationPolicyPtrType) ToConfigurationPolicyConfigurationPolicyPtrOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicyPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyConfigurationPolicyPtrOutput)
+}
+
+type ConfigurationPolicyConfigurationPolicyOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationPolicyConfigurationPolicyOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationPolicyConfigurationPolicy)(nil)).Elem()
+}
+
+func (o ConfigurationPolicyConfigurationPolicyOutput) ToConfigurationPolicyConfigurationPolicyOutput() ConfigurationPolicyConfigurationPolicyOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicyOutput) ToConfigurationPolicyConfigurationPolicyOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicyOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicyOutput) ToConfigurationPolicyConfigurationPolicyPtrOutput() ConfigurationPolicyConfigurationPolicyPtrOutput {
+	return o.ToConfigurationPolicyConfigurationPolicyPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationPolicyConfigurationPolicyOutput) ToConfigurationPolicyConfigurationPolicyPtrOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicyPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationPolicyConfigurationPolicy) *ConfigurationPolicyConfigurationPolicy {
+		return &v
+	}).(ConfigurationPolicyConfigurationPolicyPtrOutput)
+}
+
+// A list that defines which security standards are enabled in the configuration policy.
+func (o ConfigurationPolicyConfigurationPolicyOutput) EnabledStandardArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfigurationPolicyConfigurationPolicy) []string { return v.EnabledStandardArns }).(pulumi.StringArrayOutput)
+}
+
+// Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
+func (o ConfigurationPolicyConfigurationPolicyOutput) SecurityControlsConfiguration() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrOutput {
+	return o.ApplyT(func(v ConfigurationPolicyConfigurationPolicy) *ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration {
+		return v.SecurityControlsConfiguration
+	}).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrOutput)
+}
+
+// Indicates whether Security Hub is enabled in the policy.
+func (o ConfigurationPolicyConfigurationPolicyOutput) ServiceEnabled() pulumi.BoolOutput {
+	return o.ApplyT(func(v ConfigurationPolicyConfigurationPolicy) bool { return v.ServiceEnabled }).(pulumi.BoolOutput)
+}
+
+type ConfigurationPolicyConfigurationPolicyPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationPolicyConfigurationPolicyPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationPolicyConfigurationPolicy)(nil)).Elem()
+}
+
+func (o ConfigurationPolicyConfigurationPolicyPtrOutput) ToConfigurationPolicyConfigurationPolicyPtrOutput() ConfigurationPolicyConfigurationPolicyPtrOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicyPtrOutput) ToConfigurationPolicyConfigurationPolicyPtrOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicyPtrOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicyPtrOutput) Elem() ConfigurationPolicyConfigurationPolicyOutput {
+	return o.ApplyT(func(v *ConfigurationPolicyConfigurationPolicy) ConfigurationPolicyConfigurationPolicy {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationPolicyConfigurationPolicy
+		return ret
+	}).(ConfigurationPolicyConfigurationPolicyOutput)
+}
+
+// A list that defines which security standards are enabled in the configuration policy.
+func (o ConfigurationPolicyConfigurationPolicyPtrOutput) EnabledStandardArns() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConfigurationPolicyConfigurationPolicy) []string {
+		if v == nil {
+			return nil
+		}
+		return v.EnabledStandardArns
+	}).(pulumi.StringArrayOutput)
+}
+
+// Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
+func (o ConfigurationPolicyConfigurationPolicyPtrOutput) SecurityControlsConfiguration() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrOutput {
+	return o.ApplyT(func(v *ConfigurationPolicyConfigurationPolicy) *ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityControlsConfiguration
+	}).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrOutput)
+}
+
+// Indicates whether Security Hub is enabled in the policy.
+func (o ConfigurationPolicyConfigurationPolicyPtrOutput) ServiceEnabled() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ConfigurationPolicyConfigurationPolicy) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.ServiceEnabled
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration struct {
+	// A list of security controls that are disabled in the configuration policy Security Hub enables all other controls (including newly released controls) other than the listed controls. Conflicts with `enabledControlIdentifiers`.
+	DisabledControlIdentifiers []string `pulumi:"disabledControlIdentifiers"`
+	// A list of security controls that are enabled in the configuration policy. Security Hub disables all other controls (including newly released controls) other than the listed controls. Conflicts with `disabledControlIdentifiers`.
+	EnabledControlIdentifiers []string `pulumi:"enabledControlIdentifiers"`
+	// A list of control parameter customizations that are included in a configuration policy. Include multiple blocks to define multiple control custom parameters. See below.
+	SecurityControlCustomParameters []ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameter `pulumi:"securityControlCustomParameters"`
+}
+
+// ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationInput is an input type that accepts ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs and ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationOutput values.
+// You can construct a concrete instance of `ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationInput` via:
+//
+//	ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs{...}
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationInput interface {
+	pulumi.Input
+
+	ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationOutput
+	ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationOutputWithContext(context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationOutput
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs struct {
+	// A list of security controls that are disabled in the configuration policy Security Hub enables all other controls (including newly released controls) other than the listed controls. Conflicts with `enabledControlIdentifiers`.
+	DisabledControlIdentifiers pulumi.StringArrayInput `pulumi:"disabledControlIdentifiers"`
+	// A list of security controls that are enabled in the configuration policy. Security Hub disables all other controls (including newly released controls) other than the listed controls. Conflicts with `disabledControlIdentifiers`.
+	EnabledControlIdentifiers pulumi.StringArrayInput `pulumi:"enabledControlIdentifiers"`
+	// A list of control parameter customizations that are included in a configuration policy. Include multiple blocks to define multiple control custom parameters. See below.
+	SecurityControlCustomParameters ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArrayInput `pulumi:"securityControlCustomParameters"`
+}
+
+func (ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration)(nil)).Elem()
+}
+
+func (i ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationOutput {
+	return i.ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationOutputWithContext(context.Background())
+}
+
+func (i ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationOutput)
+}
+
+func (i ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrOutput {
+	return i.ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationOutput).ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrOutputWithContext(ctx)
+}
+
+// ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrInput is an input type that accepts ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs, ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtr and ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrOutput values.
+// You can construct a concrete instance of `ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrInput` via:
+//
+//	        ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrOutput
+	ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrOutputWithContext(context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrOutput
+}
+
+type configurationPolicyConfigurationPolicySecurityControlsConfigurationPtrType ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs
+
+func ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtr(v *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrInput {
+	return (*configurationPolicyConfigurationPolicySecurityControlsConfigurationPtrType)(v)
+}
+
+func (*configurationPolicyConfigurationPolicySecurityControlsConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration)(nil)).Elem()
+}
+
+func (i *configurationPolicyConfigurationPolicySecurityControlsConfigurationPtrType) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrOutput {
+	return i.ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationPolicyConfigurationPolicySecurityControlsConfigurationPtrType) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrOutput)
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration)(nil)).Elem()
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrOutput {
+	return o.ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration) *ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration {
+		return &v
+	}).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrOutput)
+}
+
+// A list of security controls that are disabled in the configuration policy Security Hub enables all other controls (including newly released controls) other than the listed controls. Conflicts with `enabledControlIdentifiers`.
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationOutput) DisabledControlIdentifiers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration) []string {
+		return v.DisabledControlIdentifiers
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of security controls that are enabled in the configuration policy. Security Hub disables all other controls (including newly released controls) other than the listed controls. Conflicts with `disabledControlIdentifiers`.
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationOutput) EnabledControlIdentifiers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration) []string {
+		return v.EnabledControlIdentifiers
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of control parameter customizations that are included in a configuration policy. Include multiple blocks to define multiple control custom parameters. See below.
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationOutput) SecurityControlCustomParameters() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArrayOutput {
+	return o.ApplyT(func(v ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration) []ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameter {
+		return v.SecurityControlCustomParameters
+	}).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArrayOutput)
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration)(nil)).Elem()
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrOutput) Elem() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationOutput {
+	return o.ApplyT(func(v *ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration) ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration
+		return ret
+	}).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationOutput)
+}
+
+// A list of security controls that are disabled in the configuration policy Security Hub enables all other controls (including newly released controls) other than the listed controls. Conflicts with `enabledControlIdentifiers`.
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrOutput) DisabledControlIdentifiers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.DisabledControlIdentifiers
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of security controls that are enabled in the configuration policy. Security Hub disables all other controls (including newly released controls) other than the listed controls. Conflicts with `disabledControlIdentifiers`.
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrOutput) EnabledControlIdentifiers() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration) []string {
+		if v == nil {
+			return nil
+		}
+		return v.EnabledControlIdentifiers
+	}).(pulumi.StringArrayOutput)
+}
+
+// A list of control parameter customizations that are included in a configuration policy. Include multiple blocks to define multiple control custom parameters. See below.
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrOutput) SecurityControlCustomParameters() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArrayOutput {
+	return o.ApplyT(func(v *ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration) []ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameter {
+		if v == nil {
+			return nil
+		}
+		return v.SecurityControlCustomParameters
+	}).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArrayOutput)
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameter struct {
+	// An object that specifies parameter values for a control in a configuration policy. See below.
+	Parameters []ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter `pulumi:"parameters"`
+	// The ID of the security control. For more information see the [Security Hub controls reference] documentation.
+	SecurityControlId string `pulumi:"securityControlId"`
+}
+
+// ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterInput is an input type that accepts ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs and ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterOutput values.
+// You can construct a concrete instance of `ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterInput` via:
+//
+//	ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs{...}
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterInput interface {
+	pulumi.Input
+
+	ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterOutput
+	ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterOutputWithContext(context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterOutput
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs struct {
+	// An object that specifies parameter values for a control in a configuration policy. See below.
+	Parameters ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArrayInput `pulumi:"parameters"`
+	// The ID of the security control. For more information see the [Security Hub controls reference] documentation.
+	SecurityControlId pulumi.StringInput `pulumi:"securityControlId"`
+}
+
+func (ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameter)(nil)).Elem()
+}
+
+func (i ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterOutput {
+	return i.ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterOutputWithContext(context.Background())
+}
+
+func (i ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterOutput)
+}
+
+// ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArrayInput is an input type that accepts ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArray and ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArrayOutput values.
+// You can construct a concrete instance of `ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArrayInput` via:
+//
+//	ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArray{ ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs{...} }
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArrayInput interface {
+	pulumi.Input
+
+	ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArrayOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArrayOutput
+	ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArrayOutputWithContext(context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArrayOutput
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArray []ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterInput
+
+func (ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameter)(nil)).Elem()
+}
+
+func (i ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArray) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArrayOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArrayOutput {
+	return i.ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArrayOutputWithContext(context.Background())
+}
+
+func (i ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArray) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArrayOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArrayOutput)
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameter)(nil)).Elem()
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterOutput {
+	return o
+}
+
+// An object that specifies parameter values for a control in a configuration policy. See below.
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterOutput) Parameters() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArrayOutput {
+	return o.ApplyT(func(v ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameter) []ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter {
+		return v.Parameters
+	}).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArrayOutput)
+}
+
+// The ID of the security control. For more information see the [Security Hub controls reference] documentation.
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterOutput) SecurityControlId() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameter) string {
+		return v.SecurityControlId
+	}).(pulumi.StringOutput)
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameter)(nil)).Elem()
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArrayOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArrayOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArrayOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArrayOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArrayOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArrayOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArrayOutput) Index(i pulumi.IntInput) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameter {
+		return vs[0].([]ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameter)[vs[1].(int)]
+	}).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterOutput)
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter struct {
+	// The bool `value` for a Boolean-typed Security Hub Control Parameter.
+	Bool *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBool `pulumi:"bool"`
+	// The float `value` for a Double-typed Security Hub Control Parameter.
+	Double *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDouble `pulumi:"double"`
+	// The string `value` for a Enum-typed Security Hub Control Parameter.
+	Enum *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnum `pulumi:"enum"`
+	// The string list `value` for a EnumList-typed Security Hub Control Parameter.
+	EnumList *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumList `pulumi:"enumList"`
+	// The int `value` for a Int-typed Security Hub Control Parameter.
+	Int *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterInt `pulumi:"int"`
+	// The int list `value` for a IntList-typed Security Hub Control Parameter.
+	IntList *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntList `pulumi:"intList"`
+	// The name of the control parameter. For more information see the [Security Hub controls reference] documentation.
+	Name string `pulumi:"name"`
+	// The string `value` for a String-typed Security Hub Control Parameter.
+	String *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterString `pulumi:"string"`
+	// The string list `value` for a StringList-typed Security Hub Control Parameter.
+	StringList *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringList `pulumi:"stringList"`
+	// Identifies whether a control parameter uses a custom user-defined value or subscribes to the default Security Hub behavior. Valid values: `DEFAULT`, `CUSTOM`.
+	ValueType string `pulumi:"valueType"`
+}
+
+// ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterInput is an input type that accepts ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs and ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterOutput values.
+// You can construct a concrete instance of `ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterInput` via:
+//
+//	ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs{...}
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterInput interface {
+	pulumi.Input
+
+	ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterOutput
+	ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterOutputWithContext(context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterOutput
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs struct {
+	// The bool `value` for a Boolean-typed Security Hub Control Parameter.
+	Bool ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrInput `pulumi:"bool"`
+	// The float `value` for a Double-typed Security Hub Control Parameter.
+	Double ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrInput `pulumi:"double"`
+	// The string `value` for a Enum-typed Security Hub Control Parameter.
+	Enum ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrInput `pulumi:"enum"`
+	// The string list `value` for a EnumList-typed Security Hub Control Parameter.
+	EnumList ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrInput `pulumi:"enumList"`
+	// The int `value` for a Int-typed Security Hub Control Parameter.
+	Int ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrInput `pulumi:"int"`
+	// The int list `value` for a IntList-typed Security Hub Control Parameter.
+	IntList ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrInput `pulumi:"intList"`
+	// The name of the control parameter. For more information see the [Security Hub controls reference] documentation.
+	Name pulumi.StringInput `pulumi:"name"`
+	// The string `value` for a String-typed Security Hub Control Parameter.
+	String ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrInput `pulumi:"string"`
+	// The string list `value` for a StringList-typed Security Hub Control Parameter.
+	StringList ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrInput `pulumi:"stringList"`
+	// Identifies whether a control parameter uses a custom user-defined value or subscribes to the default Security Hub behavior. Valid values: `DEFAULT`, `CUSTOM`.
+	ValueType pulumi.StringInput `pulumi:"valueType"`
+}
+
+func (ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter)(nil)).Elem()
+}
+
+func (i ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterOutput {
+	return i.ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterOutputWithContext(context.Background())
+}
+
+func (i ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterOutput)
+}
+
+// ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArrayInput is an input type that accepts ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArray and ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArrayOutput values.
+// You can construct a concrete instance of `ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArrayInput` via:
+//
+//	ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArray{ ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs{...} }
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArrayInput interface {
+	pulumi.Input
+
+	ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArrayOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArrayOutput
+	ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArrayOutputWithContext(context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArrayOutput
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArray []ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterInput
+
+func (ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter)(nil)).Elem()
+}
+
+func (i ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArray) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArrayOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArrayOutput {
+	return i.ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArrayOutputWithContext(context.Background())
+}
+
+func (i ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArray) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArrayOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArrayOutput)
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter)(nil)).Elem()
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterOutput {
+	return o
+}
+
+// The bool `value` for a Boolean-typed Security Hub Control Parameter.
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterOutput) Bool() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrOutput {
+	return o.ApplyT(func(v ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter) *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBool {
+		return v.Bool
+	}).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrOutput)
+}
+
+// The float `value` for a Double-typed Security Hub Control Parameter.
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterOutput) Double() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrOutput {
+	return o.ApplyT(func(v ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter) *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDouble {
+		return v.Double
+	}).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrOutput)
+}
+
+// The string `value` for a Enum-typed Security Hub Control Parameter.
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterOutput) Enum() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrOutput {
+	return o.ApplyT(func(v ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter) *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnum {
+		return v.Enum
+	}).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrOutput)
+}
+
+// The string list `value` for a EnumList-typed Security Hub Control Parameter.
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterOutput) EnumList() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrOutput {
+	return o.ApplyT(func(v ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter) *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumList {
+		return v.EnumList
+	}).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrOutput)
+}
+
+// The int `value` for a Int-typed Security Hub Control Parameter.
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterOutput) Int() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrOutput {
+	return o.ApplyT(func(v ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter) *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterInt {
+		return v.Int
+	}).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrOutput)
+}
+
+// The int list `value` for a IntList-typed Security Hub Control Parameter.
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterOutput) IntList() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrOutput {
+	return o.ApplyT(func(v ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter) *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntList {
+		return v.IntList
+	}).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrOutput)
+}
+
+// The name of the control parameter. For more information see the [Security Hub controls reference] documentation.
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterOutput) Name() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter) string {
+		return v.Name
+	}).(pulumi.StringOutput)
+}
+
+// The string `value` for a String-typed Security Hub Control Parameter.
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterOutput) String() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrOutput {
+	return o.ApplyT(func(v ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter) *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterString {
+		return v.String
+	}).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrOutput)
+}
+
+// The string list `value` for a StringList-typed Security Hub Control Parameter.
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterOutput) StringList() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrOutput {
+	return o.ApplyT(func(v ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter) *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringList {
+		return v.StringList
+	}).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrOutput)
+}
+
+// Identifies whether a control parameter uses a custom user-defined value or subscribes to the default Security Hub behavior. Valid values: `DEFAULT`, `CUSTOM`.
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterOutput) ValueType() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter) string {
+		return v.ValueType
+	}).(pulumi.StringOutput)
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArrayOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter)(nil)).Elem()
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArrayOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArrayOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArrayOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArrayOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArrayOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArrayOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArrayOutput) Index(i pulumi.IntInput) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter {
+		return vs[0].([]ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter)[vs[1].(int)]
+	}).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterOutput)
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBool struct {
+	Value bool `pulumi:"value"`
+}
+
+// ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolInput is an input type that accepts ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs and ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolOutput values.
+// You can construct a concrete instance of `ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolInput` via:
+//
+//	ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs{...}
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolInput interface {
+	pulumi.Input
+
+	ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolOutput
+	ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolOutputWithContext(context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolOutput
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs struct {
+	Value pulumi.BoolInput `pulumi:"value"`
+}
+
+func (ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBool)(nil)).Elem()
+}
+
+func (i ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolOutput {
+	return i.ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolOutputWithContext(context.Background())
+}
+
+func (i ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolOutput)
+}
+
+func (i ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrOutput {
+	return i.ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolOutput).ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrOutputWithContext(ctx)
+}
+
+// ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrInput is an input type that accepts ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs, ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtr and ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrOutput values.
+// You can construct a concrete instance of `ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrInput` via:
+//
+//	        ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrOutput
+	ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrOutputWithContext(context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrOutput
+}
+
+type configurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrType ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs
+
+func ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtr(v *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrInput {
+	return (*configurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrType)(v)
+}
+
+func (*configurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBool)(nil)).Elem()
+}
+
+func (i *configurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrType) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrOutput {
+	return i.ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrType) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrOutput)
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBool)(nil)).Elem()
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrOutput {
+	return o.ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBool) *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBool {
+		return &v
+	}).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrOutput)
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolOutput) Value() pulumi.BoolOutput {
+	return o.ApplyT(func(v ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBool) bool {
+		return v.Value
+	}).(pulumi.BoolOutput)
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBool)(nil)).Elem()
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrOutput) Elem() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolOutput {
+	return o.ApplyT(func(v *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBool) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBool {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBool
+		return ret
+	}).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolOutput)
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrOutput) Value() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBool) *bool {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.BoolPtrOutput)
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDouble struct {
+	Value float64 `pulumi:"value"`
+}
+
+// ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleInput is an input type that accepts ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgs and ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleOutput values.
+// You can construct a concrete instance of `ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleInput` via:
+//
+//	ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgs{...}
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleInput interface {
+	pulumi.Input
+
+	ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleOutput
+	ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleOutputWithContext(context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleOutput
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgs struct {
+	Value pulumi.Float64Input `pulumi:"value"`
+}
+
+func (ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDouble)(nil)).Elem()
+}
+
+func (i ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgs) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleOutput {
+	return i.ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleOutputWithContext(context.Background())
+}
+
+func (i ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgs) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleOutput)
+}
+
+func (i ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgs) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrOutput {
+	return i.ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgs) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleOutput).ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrOutputWithContext(ctx)
+}
+
+// ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrInput is an input type that accepts ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgs, ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtr and ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrOutput values.
+// You can construct a concrete instance of `ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrInput` via:
+//
+//	        ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrInput interface {
+	pulumi.Input
+
+	ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrOutput
+	ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrOutputWithContext(context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrOutput
+}
+
+type configurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrType ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgs
+
+func ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtr(v *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgs) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrInput {
+	return (*configurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrType)(v)
+}
+
+func (*configurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDouble)(nil)).Elem()
+}
+
+func (i *configurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrType) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrOutput {
+	return i.ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrOutputWithContext(context.Background())
+}
+
+func (i *configurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrType) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrOutput)
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDouble)(nil)).Elem()
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrOutput {
+	return o.ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDouble) *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDouble {
+		return &v
+	}).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrOutput)
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleOutput) Value() pulumi.Float64Output {
+	return o.ApplyT(func(v ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDouble) float64 {
+		return v.Value
+	}).(pulumi.Float64Output)
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDouble)(nil)).Elem()
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrOutput) Elem() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleOutput {
+	return o.ApplyT(func(v *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDouble) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDouble {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDouble
+		return ret
+	}).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleOutput)
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrOutput) Value() pulumi.Float64PtrOutput {
+	return o.ApplyT(func(v *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDouble) *float64 {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.Float64PtrOutput)
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnum struct {
+	Value string `pulumi:"value"`
+}
+
+// ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumInput is an input type that accepts ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs and ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumOutput values.
+// You can construct a concrete instance of `ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumInput` via:
+//
+//	ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs{...}
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumInput interface {
+	pulumi.Input
+
+	ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumOutput
+	ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumOutputWithContext(context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumOutput
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs struct {
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnum)(nil)).Elem()
+}
+
+func (i ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumOutput {
+	return i.ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumOutputWithContext(context.Background())
+}
+
+func (i ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumOutput)
+}
+
+func (i ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrOutput {
+	return i.ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumOutput).ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrOutputWithContext(ctx)
+}
+
+// ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrInput is an input type that accepts ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs, ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtr and ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrOutput values.
+// You can construct a concrete instance of `ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrInput` via:
+//
+//	        ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrOutput
+	ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrOutputWithContext(context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrOutput
+}
+
+type configurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrType ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs
+
+func ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtr(v *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrInput {
+	return (*configurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrType)(v)
+}
+
+func (*configurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnum)(nil)).Elem()
+}
+
+func (i *configurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrType) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrOutput {
+	return i.ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrType) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrOutput)
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnum)(nil)).Elem()
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrOutput {
+	return o.ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnum) *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnum {
+		return &v
+	}).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrOutput)
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnum) string {
+		return v.Value
+	}).(pulumi.StringOutput)
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnum)(nil)).Elem()
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrOutput) Elem() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumOutput {
+	return o.ApplyT(func(v *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnum) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnum {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnum
+		return ret
+	}).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumOutput)
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnum) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumList struct {
+	Values []string `pulumi:"values"`
+}
+
+// ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListInput is an input type that accepts ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListArgs and ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListOutput values.
+// You can construct a concrete instance of `ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListInput` via:
+//
+//	ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListArgs{...}
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListInput interface {
+	pulumi.Input
+
+	ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListOutput
+	ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListOutputWithContext(context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListOutput
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListArgs struct {
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumList)(nil)).Elem()
+}
+
+func (i ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListArgs) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListOutput {
+	return i.ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListOutputWithContext(context.Background())
+}
+
+func (i ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListArgs) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListOutput)
+}
+
+func (i ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListArgs) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrOutput {
+	return i.ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListArgs) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListOutput).ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrOutputWithContext(ctx)
+}
+
+// ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrInput is an input type that accepts ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListArgs, ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtr and ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrOutput values.
+// You can construct a concrete instance of `ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrInput` via:
+//
+//	        ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrOutput
+	ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrOutputWithContext(context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrOutput
+}
+
+type configurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrType ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListArgs
+
+func ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtr(v *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListArgs) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrInput {
+	return (*configurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrType)(v)
+}
+
+func (*configurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumList)(nil)).Elem()
+}
+
+func (i *configurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrType) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrOutput {
+	return i.ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrType) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrOutput)
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumList)(nil)).Elem()
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrOutput {
+	return o.ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumList) *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumList {
+		return &v
+	}).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrOutput)
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumList) []string {
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumList)(nil)).Elem()
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrOutput) Elem() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListOutput {
+	return o.ApplyT(func(v *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumList) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumList {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumList
+		return ret
+	}).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListOutput)
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumList) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterInt struct {
+	Value int `pulumi:"value"`
+}
+
+// ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntInput is an input type that accepts ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs and ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntOutput values.
+// You can construct a concrete instance of `ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntInput` via:
+//
+//	ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs{...}
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntInput interface {
+	pulumi.Input
+
+	ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntOutput
+	ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntOutputWithContext(context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntOutput
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs struct {
+	Value pulumi.IntInput `pulumi:"value"`
+}
+
+func (ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterInt)(nil)).Elem()
+}
+
+func (i ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntOutput {
+	return i.ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntOutputWithContext(context.Background())
+}
+
+func (i ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntOutput)
+}
+
+func (i ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrOutput {
+	return i.ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntOutput).ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrOutputWithContext(ctx)
+}
+
+// ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrInput is an input type that accepts ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs, ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtr and ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrOutput values.
+// You can construct a concrete instance of `ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrInput` via:
+//
+//	        ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrOutput
+	ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrOutputWithContext(context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrOutput
+}
+
+type configurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrType ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs
+
+func ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtr(v *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrInput {
+	return (*configurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrType)(v)
+}
+
+func (*configurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterInt)(nil)).Elem()
+}
+
+func (i *configurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrType) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrOutput {
+	return i.ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrType) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrOutput)
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterInt)(nil)).Elem()
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrOutput {
+	return o.ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterInt) *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterInt {
+		return &v
+	}).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrOutput)
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntOutput) Value() pulumi.IntOutput {
+	return o.ApplyT(func(v ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterInt) int {
+		return v.Value
+	}).(pulumi.IntOutput)
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterInt)(nil)).Elem()
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrOutput) Elem() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntOutput {
+	return o.ApplyT(func(v *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterInt) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterInt {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterInt
+		return ret
+	}).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntOutput)
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrOutput) Value() pulumi.IntPtrOutput {
+	return o.ApplyT(func(v *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterInt) *int {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.IntPtrOutput)
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntList struct {
+	Values []int `pulumi:"values"`
+}
+
+// ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListInput is an input type that accepts ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgs and ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListOutput values.
+// You can construct a concrete instance of `ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListInput` via:
+//
+//	ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgs{...}
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListInput interface {
+	pulumi.Input
+
+	ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListOutput
+	ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListOutputWithContext(context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListOutput
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgs struct {
+	Values pulumi.IntArrayInput `pulumi:"values"`
+}
+
+func (ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntList)(nil)).Elem()
+}
+
+func (i ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgs) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListOutput {
+	return i.ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListOutputWithContext(context.Background())
+}
+
+func (i ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgs) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListOutput)
+}
+
+func (i ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgs) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrOutput {
+	return i.ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgs) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListOutput).ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrOutputWithContext(ctx)
+}
+
+// ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrInput is an input type that accepts ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgs, ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtr and ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrOutput values.
+// You can construct a concrete instance of `ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrInput` via:
+//
+//	        ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrOutput
+	ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrOutputWithContext(context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrOutput
+}
+
+type configurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrType ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgs
+
+func ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtr(v *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgs) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrInput {
+	return (*configurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrType)(v)
+}
+
+func (*configurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntList)(nil)).Elem()
+}
+
+func (i *configurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrType) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrOutput {
+	return i.ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrType) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrOutput)
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntList)(nil)).Elem()
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrOutput {
+	return o.ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntList) *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntList {
+		return &v
+	}).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrOutput)
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListOutput) Values() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntList) []int {
+		return v.Values
+	}).(pulumi.IntArrayOutput)
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntList)(nil)).Elem()
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrOutput) Elem() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListOutput {
+	return o.ApplyT(func(v *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntList) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntList {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntList
+		return ret
+	}).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListOutput)
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrOutput) Values() pulumi.IntArrayOutput {
+	return o.ApplyT(func(v *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntList) []int {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.IntArrayOutput)
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterString struct {
+	Value string `pulumi:"value"`
+}
+
+// ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringInput is an input type that accepts ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgs and ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringOutput values.
+// You can construct a concrete instance of `ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringInput` via:
+//
+//	ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgs{...}
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringInput interface {
+	pulumi.Input
+
+	ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringOutput
+	ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringOutputWithContext(context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringOutput
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgs struct {
+	Value pulumi.StringInput `pulumi:"value"`
+}
+
+func (ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterString)(nil)).Elem()
+}
+
+func (i ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgs) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringOutput {
+	return i.ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringOutputWithContext(context.Background())
+}
+
+func (i ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgs) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringOutput)
+}
+
+func (i ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgs) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrOutput {
+	return i.ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgs) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringOutput).ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrOutputWithContext(ctx)
+}
+
+// ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrInput is an input type that accepts ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgs, ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtr and ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrOutput values.
+// You can construct a concrete instance of `ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrInput` via:
+//
+//	        ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrOutput
+	ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrOutputWithContext(context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrOutput
+}
+
+type configurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrType ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgs
+
+func ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtr(v *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgs) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrInput {
+	return (*configurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrType)(v)
+}
+
+func (*configurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterString)(nil)).Elem()
+}
+
+func (i *configurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrType) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrOutput {
+	return i.ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrType) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrOutput)
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterString)(nil)).Elem()
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrOutput {
+	return o.ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterString) *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterString {
+		return &v
+	}).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrOutput)
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringOutput) Value() pulumi.StringOutput {
+	return o.ApplyT(func(v ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterString) string {
+		return v.Value
+	}).(pulumi.StringOutput)
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterString)(nil)).Elem()
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrOutput) Elem() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringOutput {
+	return o.ApplyT(func(v *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterString) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterString {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterString
+		return ret
+	}).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringOutput)
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrOutput) Value() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterString) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.Value
+	}).(pulumi.StringPtrOutput)
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringList struct {
+	Values []string `pulumi:"values"`
+}
+
+// ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListInput is an input type that accepts ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgs and ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListOutput values.
+// You can construct a concrete instance of `ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListInput` via:
+//
+//	ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgs{...}
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListInput interface {
+	pulumi.Input
+
+	ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListOutput
+	ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListOutputWithContext(context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListOutput
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgs struct {
+	Values pulumi.StringArrayInput `pulumi:"values"`
+}
+
+func (ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringList)(nil)).Elem()
+}
+
+func (i ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgs) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListOutput {
+	return i.ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListOutputWithContext(context.Background())
+}
+
+func (i ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgs) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListOutput)
+}
+
+func (i ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgs) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrOutput {
+	return i.ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrOutputWithContext(context.Background())
+}
+
+func (i ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgs) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListOutput).ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrOutputWithContext(ctx)
+}
+
+// ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrInput is an input type that accepts ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgs, ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtr and ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrOutput values.
+// You can construct a concrete instance of `ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrInput` via:
+//
+//	        ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgs{...}
+//
+//	or:
+//
+//	        nil
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrInput interface {
+	pulumi.Input
+
+	ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrOutput
+	ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrOutputWithContext(context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrOutput
+}
+
+type configurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrType ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgs
+
+func ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtr(v *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgs) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrInput {
+	return (*configurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrType)(v)
+}
+
+func (*configurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringList)(nil)).Elem()
+}
+
+func (i *configurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrType) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrOutput {
+	return i.ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrOutputWithContext(context.Background())
+}
+
+func (i *configurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrType) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrOutput)
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringList)(nil)).Elem()
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrOutput {
+	return o.ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrOutputWithContext(context.Background())
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringList) *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringList {
+		return &v
+	}).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrOutput)
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringList) []string {
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
+type ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrOutput struct{ *pulumi.OutputState }
+
+func (ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringList)(nil)).Elem()
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrOutput() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrOutput) ToConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrOutputWithContext(ctx context.Context) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrOutput {
+	return o
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrOutput) Elem() ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListOutput {
+	return o.ApplyT(func(v *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringList) ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringList {
+		if v != nil {
+			return *v
+		}
+		var ret ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringList
+		return ret
+	}).(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListOutput)
+}
+
+func (o ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrOutput) Values() pulumi.StringArrayOutput {
+	return o.ApplyT(func(v *ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringList) []string {
+		if v == nil {
+			return nil
+		}
+		return v.Values
+	}).(pulumi.StringArrayOutput)
+}
+
 type InsightFilters struct {
 	// AWS account ID that a finding is generated in. See String_Filter below for more details.
 	AwsAccountIds []InsightFiltersAwsAccountId `pulumi:"awsAccountIds"`
@@ -19791,6 +21537,143 @@ func (o InsightFiltersWorkflowStatusArrayOutput) Index(i pulumi.IntInput) Insigh
 	}).(InsightFiltersWorkflowStatusOutput)
 }
 
+type OrganizationConfigurationOrganizationConfiguration struct {
+	// Indicates whether the organization uses local or central configuration. If using central configuration, `autoEnable` must be set to `false` and `autoEnableStandards` set to `NONE`. More information can be found in the [documentation for central configuration](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html). Valid values: `LOCAL`, `CENTRAL`.
+	ConfigurationType string `pulumi:"configurationType"`
+}
+
+// OrganizationConfigurationOrganizationConfigurationInput is an input type that accepts OrganizationConfigurationOrganizationConfigurationArgs and OrganizationConfigurationOrganizationConfigurationOutput values.
+// You can construct a concrete instance of `OrganizationConfigurationOrganizationConfigurationInput` via:
+//
+//	OrganizationConfigurationOrganizationConfigurationArgs{...}
+type OrganizationConfigurationOrganizationConfigurationInput interface {
+	pulumi.Input
+
+	ToOrganizationConfigurationOrganizationConfigurationOutput() OrganizationConfigurationOrganizationConfigurationOutput
+	ToOrganizationConfigurationOrganizationConfigurationOutputWithContext(context.Context) OrganizationConfigurationOrganizationConfigurationOutput
+}
+
+type OrganizationConfigurationOrganizationConfigurationArgs struct {
+	// Indicates whether the organization uses local or central configuration. If using central configuration, `autoEnable` must be set to `false` and `autoEnableStandards` set to `NONE`. More information can be found in the [documentation for central configuration](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html). Valid values: `LOCAL`, `CENTRAL`.
+	ConfigurationType pulumi.StringInput `pulumi:"configurationType"`
+}
+
+func (OrganizationConfigurationOrganizationConfigurationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationConfigurationOrganizationConfiguration)(nil)).Elem()
+}
+
+func (i OrganizationConfigurationOrganizationConfigurationArgs) ToOrganizationConfigurationOrganizationConfigurationOutput() OrganizationConfigurationOrganizationConfigurationOutput {
+	return i.ToOrganizationConfigurationOrganizationConfigurationOutputWithContext(context.Background())
+}
+
+func (i OrganizationConfigurationOrganizationConfigurationArgs) ToOrganizationConfigurationOrganizationConfigurationOutputWithContext(ctx context.Context) OrganizationConfigurationOrganizationConfigurationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationOrganizationConfigurationOutput)
+}
+
+func (i OrganizationConfigurationOrganizationConfigurationArgs) ToOrganizationConfigurationOrganizationConfigurationPtrOutput() OrganizationConfigurationOrganizationConfigurationPtrOutput {
+	return i.ToOrganizationConfigurationOrganizationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i OrganizationConfigurationOrganizationConfigurationArgs) ToOrganizationConfigurationOrganizationConfigurationPtrOutputWithContext(ctx context.Context) OrganizationConfigurationOrganizationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationOrganizationConfigurationOutput).ToOrganizationConfigurationOrganizationConfigurationPtrOutputWithContext(ctx)
+}
+
+// OrganizationConfigurationOrganizationConfigurationPtrInput is an input type that accepts OrganizationConfigurationOrganizationConfigurationArgs, OrganizationConfigurationOrganizationConfigurationPtr and OrganizationConfigurationOrganizationConfigurationPtrOutput values.
+// You can construct a concrete instance of `OrganizationConfigurationOrganizationConfigurationPtrInput` via:
+//
+//	        OrganizationConfigurationOrganizationConfigurationArgs{...}
+//
+//	or:
+//
+//	        nil
+type OrganizationConfigurationOrganizationConfigurationPtrInput interface {
+	pulumi.Input
+
+	ToOrganizationConfigurationOrganizationConfigurationPtrOutput() OrganizationConfigurationOrganizationConfigurationPtrOutput
+	ToOrganizationConfigurationOrganizationConfigurationPtrOutputWithContext(context.Context) OrganizationConfigurationOrganizationConfigurationPtrOutput
+}
+
+type organizationConfigurationOrganizationConfigurationPtrType OrganizationConfigurationOrganizationConfigurationArgs
+
+func OrganizationConfigurationOrganizationConfigurationPtr(v *OrganizationConfigurationOrganizationConfigurationArgs) OrganizationConfigurationOrganizationConfigurationPtrInput {
+	return (*organizationConfigurationOrganizationConfigurationPtrType)(v)
+}
+
+func (*organizationConfigurationOrganizationConfigurationPtrType) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationConfigurationOrganizationConfiguration)(nil)).Elem()
+}
+
+func (i *organizationConfigurationOrganizationConfigurationPtrType) ToOrganizationConfigurationOrganizationConfigurationPtrOutput() OrganizationConfigurationOrganizationConfigurationPtrOutput {
+	return i.ToOrganizationConfigurationOrganizationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (i *organizationConfigurationOrganizationConfigurationPtrType) ToOrganizationConfigurationOrganizationConfigurationPtrOutputWithContext(ctx context.Context) OrganizationConfigurationOrganizationConfigurationPtrOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(OrganizationConfigurationOrganizationConfigurationPtrOutput)
+}
+
+type OrganizationConfigurationOrganizationConfigurationOutput struct{ *pulumi.OutputState }
+
+func (OrganizationConfigurationOrganizationConfigurationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*OrganizationConfigurationOrganizationConfiguration)(nil)).Elem()
+}
+
+func (o OrganizationConfigurationOrganizationConfigurationOutput) ToOrganizationConfigurationOrganizationConfigurationOutput() OrganizationConfigurationOrganizationConfigurationOutput {
+	return o
+}
+
+func (o OrganizationConfigurationOrganizationConfigurationOutput) ToOrganizationConfigurationOrganizationConfigurationOutputWithContext(ctx context.Context) OrganizationConfigurationOrganizationConfigurationOutput {
+	return o
+}
+
+func (o OrganizationConfigurationOrganizationConfigurationOutput) ToOrganizationConfigurationOrganizationConfigurationPtrOutput() OrganizationConfigurationOrganizationConfigurationPtrOutput {
+	return o.ToOrganizationConfigurationOrganizationConfigurationPtrOutputWithContext(context.Background())
+}
+
+func (o OrganizationConfigurationOrganizationConfigurationOutput) ToOrganizationConfigurationOrganizationConfigurationPtrOutputWithContext(ctx context.Context) OrganizationConfigurationOrganizationConfigurationPtrOutput {
+	return o.ApplyTWithContext(ctx, func(_ context.Context, v OrganizationConfigurationOrganizationConfiguration) *OrganizationConfigurationOrganizationConfiguration {
+		return &v
+	}).(OrganizationConfigurationOrganizationConfigurationPtrOutput)
+}
+
+// Indicates whether the organization uses local or central configuration. If using central configuration, `autoEnable` must be set to `false` and `autoEnableStandards` set to `NONE`. More information can be found in the [documentation for central configuration](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html). Valid values: `LOCAL`, `CENTRAL`.
+func (o OrganizationConfigurationOrganizationConfigurationOutput) ConfigurationType() pulumi.StringOutput {
+	return o.ApplyT(func(v OrganizationConfigurationOrganizationConfiguration) string { return v.ConfigurationType }).(pulumi.StringOutput)
+}
+
+type OrganizationConfigurationOrganizationConfigurationPtrOutput struct{ *pulumi.OutputState }
+
+func (OrganizationConfigurationOrganizationConfigurationPtrOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((**OrganizationConfigurationOrganizationConfiguration)(nil)).Elem()
+}
+
+func (o OrganizationConfigurationOrganizationConfigurationPtrOutput) ToOrganizationConfigurationOrganizationConfigurationPtrOutput() OrganizationConfigurationOrganizationConfigurationPtrOutput {
+	return o
+}
+
+func (o OrganizationConfigurationOrganizationConfigurationPtrOutput) ToOrganizationConfigurationOrganizationConfigurationPtrOutputWithContext(ctx context.Context) OrganizationConfigurationOrganizationConfigurationPtrOutput {
+	return o
+}
+
+func (o OrganizationConfigurationOrganizationConfigurationPtrOutput) Elem() OrganizationConfigurationOrganizationConfigurationOutput {
+	return o.ApplyT(func(v *OrganizationConfigurationOrganizationConfiguration) OrganizationConfigurationOrganizationConfiguration {
+		if v != nil {
+			return *v
+		}
+		var ret OrganizationConfigurationOrganizationConfiguration
+		return ret
+	}).(OrganizationConfigurationOrganizationConfigurationOutput)
+}
+
+// Indicates whether the organization uses local or central configuration. If using central configuration, `autoEnable` must be set to `false` and `autoEnableStandards` set to `NONE`. More information can be found in the [documentation for central configuration](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html). Valid values: `LOCAL`, `CENTRAL`.
+func (o OrganizationConfigurationOrganizationConfigurationPtrOutput) ConfigurationType() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v *OrganizationConfigurationOrganizationConfiguration) *string {
+		if v == nil {
+			return nil
+		}
+		return &v.ConfigurationType
+	}).(pulumi.StringPtrOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleActionInput)(nil)).Elem(), AutomationRuleActionArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleActionArrayInput)(nil)).Elem(), AutomationRuleActionArray{})
@@ -19892,6 +21775,30 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaVerificationStateArrayInput)(nil)).Elem(), AutomationRuleCriteriaVerificationStateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaWorkflowStatusInput)(nil)).Elem(), AutomationRuleCriteriaWorkflowStatusArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*AutomationRuleCriteriaWorkflowStatusArrayInput)(nil)).Elem(), AutomationRuleCriteriaWorkflowStatusArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyConfigurationPolicyInput)(nil)).Elem(), ConfigurationPolicyConfigurationPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyConfigurationPolicyPtrInput)(nil)).Elem(), ConfigurationPolicyConfigurationPolicyArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationInput)(nil)).Elem(), ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrInput)(nil)).Elem(), ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterInput)(nil)).Elem(), ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArrayInput)(nil)).Elem(), ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterInput)(nil)).Elem(), ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArrayInput)(nil)).Elem(), ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolInput)(nil)).Elem(), ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrInput)(nil)).Elem(), ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleInput)(nil)).Elem(), ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrInput)(nil)).Elem(), ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumInput)(nil)).Elem(), ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrInput)(nil)).Elem(), ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListInput)(nil)).Elem(), ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrInput)(nil)).Elem(), ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntInput)(nil)).Elem(), ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrInput)(nil)).Elem(), ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListInput)(nil)).Elem(), ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrInput)(nil)).Elem(), ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringInput)(nil)).Elem(), ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrInput)(nil)).Elem(), ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListInput)(nil)).Elem(), ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrInput)(nil)).Elem(), ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightFiltersInput)(nil)).Elem(), InsightFiltersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightFiltersPtrInput)(nil)).Elem(), InsightFiltersArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightFiltersAwsAccountIdInput)(nil)).Elem(), InsightFiltersAwsAccountIdArgs{})
@@ -20092,6 +21999,8 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightFiltersVerificationStateArrayInput)(nil)).Elem(), InsightFiltersVerificationStateArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightFiltersWorkflowStatusInput)(nil)).Elem(), InsightFiltersWorkflowStatusArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*InsightFiltersWorkflowStatusArrayInput)(nil)).Elem(), InsightFiltersWorkflowStatusArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationOrganizationConfigurationInput)(nil)).Elem(), OrganizationConfigurationOrganizationConfigurationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*OrganizationConfigurationOrganizationConfigurationPtrInput)(nil)).Elem(), OrganizationConfigurationOrganizationConfigurationArgs{})
 	pulumi.RegisterOutputType(AutomationRuleActionOutput{})
 	pulumi.RegisterOutputType(AutomationRuleActionArrayOutput{})
 	pulumi.RegisterOutputType(AutomationRuleActionFindingFieldsUpdateOutput{})
@@ -20192,6 +22101,30 @@ func init() {
 	pulumi.RegisterOutputType(AutomationRuleCriteriaVerificationStateArrayOutput{})
 	pulumi.RegisterOutputType(AutomationRuleCriteriaWorkflowStatusOutput{})
 	pulumi.RegisterOutputType(AutomationRuleCriteriaWorkflowStatusArrayOutput{})
+	pulumi.RegisterOutputType(ConfigurationPolicyConfigurationPolicyOutput{})
+	pulumi.RegisterOutputType(ConfigurationPolicyConfigurationPolicyPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationOutput{})
+	pulumi.RegisterOutputType(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterOutput{})
+	pulumi.RegisterOutputType(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterArrayOutput{})
+	pulumi.RegisterOutputType(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterOutput{})
+	pulumi.RegisterOutputType(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterArrayOutput{})
+	pulumi.RegisterOutputType(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolOutput{})
+	pulumi.RegisterOutputType(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBoolPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoubleOutput{})
+	pulumi.RegisterOutputType(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDoublePtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumOutput{})
+	pulumi.RegisterOutputType(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListOutput{})
+	pulumi.RegisterOutputType(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumListPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntOutput{})
+	pulumi.RegisterOutputType(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListOutput{})
+	pulumi.RegisterOutputType(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntListPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringOutput{})
+	pulumi.RegisterOutputType(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringPtrOutput{})
+	pulumi.RegisterOutputType(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListOutput{})
+	pulumi.RegisterOutputType(ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringListPtrOutput{})
 	pulumi.RegisterOutputType(InsightFiltersOutput{})
 	pulumi.RegisterOutputType(InsightFiltersPtrOutput{})
 	pulumi.RegisterOutputType(InsightFiltersAwsAccountIdOutput{})
@@ -20392,4 +22325,6 @@ func init() {
 	pulumi.RegisterOutputType(InsightFiltersVerificationStateArrayOutput{})
 	pulumi.RegisterOutputType(InsightFiltersWorkflowStatusOutput{})
 	pulumi.RegisterOutputType(InsightFiltersWorkflowStatusArrayOutput{})
+	pulumi.RegisterOutputType(OrganizationConfigurationOrganizationConfigurationOutput{})
+	pulumi.RegisterOutputType(OrganizationConfigurationOrganizationConfigurationPtrOutput{})
 }

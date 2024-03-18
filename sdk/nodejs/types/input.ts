@@ -501,6 +501,10 @@ export interface ProviderEndpoint {
     /**
      * Use this to override the default service endpoint URL
      */
+    devopsguru?: pulumi.Input<string>;
+    /**
+     * Use this to override the default service endpoint URL
+     */
     directconnect?: pulumi.Input<string>;
     /**
      * Use this to override the default service endpoint URL
@@ -14712,9 +14716,13 @@ export namespace cognito {
          */
         preSignUp?: pulumi.Input<string>;
         /**
-         * Allow to customize identity token claims before token generation.
+         * Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the LambdaArn of `preTokenGenerationConfig`.
          */
         preTokenGeneration?: pulumi.Input<string>;
+        /**
+         * Allow to customize access tokens. See pre_token_configuration_type
+         */
+        preTokenGenerationConfig?: pulumi.Input<inputs.cognito.UserPoolLambdaConfigPreTokenGenerationConfig>;
         /**
          * User migration Lambda config type.
          */
@@ -14743,6 +14751,17 @@ export namespace cognito {
         lambdaArn: pulumi.Input<string>;
         /**
          * The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom SMS Lambda function. The only supported value is `V1_0`.
+         */
+        lambdaVersion: pulumi.Input<string>;
+    }
+
+    export interface UserPoolLambdaConfigPreTokenGenerationConfig {
+        /**
+         * The Lambda Amazon Resource Name of the Lambda function that Amazon Cognito triggers to send email notifications to users.
+         */
+        lambdaArn: pulumi.Input<string>;
+        /**
+         * The Lambda version represents the signature of the "request" attribute in the "event" information Amazon Cognito passes to your custom email Lambda function. The only supported value is `V1_0`.
          */
         lambdaVersion: pulumi.Input<string>;
     }
@@ -20897,7 +20916,7 @@ export namespace ec2 {
 
     export interface InstanceInstanceMarketOptions {
         /**
-         * Type of market for the instance. Valid value is `spot`. Defaults to `spot`.
+         * Type of market for the instance. Valid value is `spot`. Defaults to `spot`. Required if `spotOptions` is specified.
          */
         marketType?: pulumi.Input<string>;
         /**
@@ -24785,7 +24804,7 @@ export namespace ecs {
         /**
          * The ARN of the `aws.acmpca.CertificateAuthority` used to create the TLS Certificates.
          */
-        awsPcaAuthorityArn?: pulumi.Input<string>;
+        awsPcaAuthorityArn: pulumi.Input<string>;
     }
 
     export interface ServiceServiceRegistries {
@@ -25534,7 +25553,7 @@ export namespace elasticache {
 
     export interface ServerlessCacheCacheUsageLimitsDataStorage {
         /**
-         * The upper limit for data storage the cache is set to use. Set as Integer.
+         * The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
          */
         maximum: pulumi.Input<number>;
         /**
@@ -25545,7 +25564,7 @@ export namespace elasticache {
 
     export interface ServerlessCacheCacheUsageLimitsEcpuPerSecond {
         /**
-         * The upper limit for data storage the cache is set to use. Set as Integer.
+         * The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
          */
         maximum: pulumi.Input<number>;
     }
@@ -35643,6 +35662,66 @@ export namespace kms {
 }
 
 export namespace lakeformation {
+    export interface DataCellsFilterTableData {
+        /**
+         * A list of column names and/or nested column attributes.
+         */
+        columnNames?: pulumi.Input<pulumi.Input<string>[]>;
+        columnWildcard?: pulumi.Input<inputs.lakeformation.DataCellsFilterTableDataColumnWildcard>;
+        /**
+         * The name of the database.
+         */
+        databaseName: pulumi.Input<string>;
+        /**
+         * The name of the data cells filter.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * A PartiQL predicate. See Row Filter below for details.
+         */
+        rowFilter?: pulumi.Input<inputs.lakeformation.DataCellsFilterTableDataRowFilter>;
+        /**
+         * The ID of the Data Catalog.
+         */
+        tableCatalogId: pulumi.Input<string>;
+        /**
+         * The name of the table.
+         */
+        tableName: pulumi.Input<string>;
+        /**
+         * ID of the data cells filter version.
+         */
+        versionId?: pulumi.Input<string>;
+    }
+
+    export interface DataCellsFilterTableDataColumnWildcard {
+        /**
+         * (Optional) Excludes column names. Any column with this name will be excluded.
+         */
+        excludedColumnNames?: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface DataCellsFilterTableDataRowFilter {
+        /**
+         * (Optional) A wildcard that matches all rows.
+         */
+        allRowsWildcard?: pulumi.Input<inputs.lakeformation.DataCellsFilterTableDataRowFilterAllRowsWildcard>;
+        /**
+         * (Optional) A filter expression.
+         */
+        filterExpression?: pulumi.Input<string>;
+    }
+
+    export interface DataCellsFilterTableDataRowFilterAllRowsWildcard {
+    }
+
+    export interface DataCellsFilterTimeouts {
+        /**
+         * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+         */
+        create?: pulumi.Input<string>;
+    }
+
     export interface DataLakeSettingsCreateDatabaseDefaultPermission {
         /**
          * List of permissions that are granted to the principal. Valid values may include `ALL`, `SELECT`, `ALTER`, `DROP`, `DELETE`, `INSERT`, `DESCRIBE`, and `CREATE_TABLE`. For more details, see [Lake Formation Permissions Reference](https://docs.aws.amazon.com/lake-formation/latest/dg/lf-permissions-reference.html).
@@ -35663,6 +35742,44 @@ export namespace lakeformation {
          * Principal who is granted permissions. To enforce metadata and underlying data access control only by IAM on new databases and tables set `principal` to `IAM_ALLOWED_PRINCIPALS` and `permissions` to `["ALL"]`.
          */
         principal?: pulumi.Input<string>;
+    }
+
+    export interface GetPermissionsDataCellsFilter {
+        /**
+         * The name of the database.
+         */
+        databaseName: string;
+        /**
+         * The name of the data cells filter.
+         */
+        name: string;
+        /**
+         * The ID of the Data Catalog.
+         */
+        tableCatalogId: string;
+        /**
+         * The name of the table.
+         */
+        tableName: string;
+    }
+
+    export interface GetPermissionsDataCellsFilterArgs {
+        /**
+         * The name of the database.
+         */
+        databaseName: pulumi.Input<string>;
+        /**
+         * The name of the data cells filter.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The ID of the Data Catalog.
+         */
+        tableCatalogId: pulumi.Input<string>;
+        /**
+         * The name of the table.
+         */
+        tableName: pulumi.Input<string>;
     }
 
     export interface GetPermissionsDataLocation {
@@ -35905,6 +36022,25 @@ export namespace lakeformation {
          * Whether to use a wildcard representing every table under a database. At least one of `name` or `wildcard` is required. Defaults to `false`.
          */
         wildcard?: pulumi.Input<boolean>;
+    }
+
+    export interface PermissionsDataCellsFilter {
+        /**
+         * The name of the database.
+         */
+        databaseName: pulumi.Input<string>;
+        /**
+         * The name of the data cells filter.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The ID of the Data Catalog.
+         */
+        tableCatalogId: pulumi.Input<string>;
+        /**
+         * The name of the table.
+         */
+        tableName: pulumi.Input<string>;
     }
 
     export interface PermissionsDataLocation {
@@ -60317,6 +60453,65 @@ export namespace route53domains {
         zipCode?: pulumi.Input<string>;
     }
 
+    export interface RegisteredDomainBillingContact {
+        /**
+         * First line of the contact's address.
+         */
+        addressLine1?: pulumi.Input<string>;
+        /**
+         * Second line of contact's address, if any.
+         */
+        addressLine2?: pulumi.Input<string>;
+        /**
+         * The city of the contact's address.
+         */
+        city?: pulumi.Input<string>;
+        /**
+         * Indicates whether the contact is a person, company, association, or public organization. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-ContactType) for valid values.
+         */
+        contactType?: pulumi.Input<string>;
+        /**
+         * Code for the country of the contact's address. See the [AWS API documentation](https://docs.aws.amazon.com/Route53/latest/APIReference/API_domains_ContactDetail.html#Route53Domains-Type-domains_ContactDetail-CountryCode) for valid values.
+         */
+        countryCode?: pulumi.Input<string>;
+        /**
+         * Email address of the contact.
+         */
+        email?: pulumi.Input<string>;
+        /**
+         * A key-value map of parameters required by certain top-level domains.
+         */
+        extraParams?: pulumi.Input<{[key: string]: pulumi.Input<string>}>;
+        /**
+         * Fax number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+         */
+        fax?: pulumi.Input<string>;
+        /**
+         * First name of contact.
+         */
+        firstName?: pulumi.Input<string>;
+        /**
+         * Last name of contact.
+         */
+        lastName?: pulumi.Input<string>;
+        /**
+         * Name of the organization for contact types other than `PERSON`.
+         */
+        organizationName?: pulumi.Input<string>;
+        /**
+         * The phone number of the contact. Phone number must be specified in the format "+[country dialing code].[number including any area code]".
+         */
+        phoneNumber?: pulumi.Input<string>;
+        /**
+         * The state or province of the contact's city.
+         */
+        state?: pulumi.Input<string>;
+        /**
+         * The zip or postal code of the contact's address.
+         */
+        zipCode?: pulumi.Input<string>;
+    }
+
     export interface RegisteredDomainNameServer {
         /**
          * Glue IP addresses of a name server. The list can contain only one IPv4 and one IPv6 address.
@@ -66479,6 +66674,122 @@ export namespace securityhub {
         value: pulumi.Input<string>;
     }
 
+    export interface ConfigurationPolicyConfigurationPolicy {
+        /**
+         * A list that defines which security standards are enabled in the configuration policy.
+         */
+        enabledStandardArns: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Defines which security controls are enabled in the configuration policy and any customizations to parameters affecting them. See below.
+         */
+        securityControlsConfiguration?: pulumi.Input<inputs.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration>;
+        /**
+         * Indicates whether Security Hub is enabled in the policy.
+         */
+        serviceEnabled: pulumi.Input<boolean>;
+    }
+
+    export interface ConfigurationPolicyConfigurationPolicySecurityControlsConfiguration {
+        /**
+         * A list of security controls that are disabled in the configuration policy Security Hub enables all other controls (including newly released controls) other than the listed controls. Conflicts with `enabledControlIdentifiers`.
+         */
+        disabledControlIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of security controls that are enabled in the configuration policy. Security Hub disables all other controls (including newly released controls) other than the listed controls. Conflicts with `disabledControlIdentifiers`.
+         */
+        enabledControlIdentifiers?: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * A list of control parameter customizations that are included in a configuration policy. Include multiple blocks to define multiple control custom parameters. See below.
+         */
+        securityControlCustomParameters?: pulumi.Input<pulumi.Input<inputs.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameter>[]>;
+    }
+
+    export interface ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameter {
+        /**
+         * An object that specifies parameter values for a control in a configuration policy. See below.
+         */
+        parameters: pulumi.Input<pulumi.Input<inputs.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter>[]>;
+        /**
+         * The ID of the security control. For more information see the [Security Hub controls reference] documentation.
+         */
+        securityControlId: pulumi.Input<string>;
+    }
+
+    export interface ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameter {
+        /**
+         * The bool `value` for a Boolean-typed Security Hub Control Parameter.
+         */
+        bool?: pulumi.Input<inputs.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBool>;
+        /**
+         * The float `value` for a Double-typed Security Hub Control Parameter.
+         */
+        double?: pulumi.Input<inputs.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDouble>;
+        /**
+         * The string `value` for a Enum-typed Security Hub Control Parameter.
+         */
+        enum?: pulumi.Input<inputs.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnum>;
+        /**
+         * The string list `value` for a EnumList-typed Security Hub Control Parameter.
+         */
+        enumList?: pulumi.Input<inputs.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumList>;
+        /**
+         * The int `value` for a Int-typed Security Hub Control Parameter.
+         */
+        int?: pulumi.Input<inputs.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterInt>;
+        /**
+         * The int list `value` for a IntList-typed Security Hub Control Parameter.
+         */
+        intList?: pulumi.Input<inputs.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntList>;
+        /**
+         * The name of the control parameter. For more information see the [Security Hub controls reference] documentation.
+         */
+        name: pulumi.Input<string>;
+        /**
+         * The string `value` for a String-typed Security Hub Control Parameter.
+         */
+        string?: pulumi.Input<inputs.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterString>;
+        /**
+         * The string list `value` for a StringList-typed Security Hub Control Parameter.
+         */
+        stringList?: pulumi.Input<inputs.securityhub.ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringList>;
+        /**
+         * Identifies whether a control parameter uses a custom user-defined value or subscribes to the default Security Hub behavior. Valid values: `DEFAULT`, `CUSTOM`.
+         */
+        valueType: pulumi.Input<string>;
+    }
+
+    export interface ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterBool {
+        value: pulumi.Input<boolean>;
+    }
+
+    export interface ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterDouble {
+        value: pulumi.Input<number>;
+    }
+
+    export interface ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnum {
+        value: pulumi.Input<string>;
+    }
+
+    export interface ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterEnumList {
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterInt {
+        value: pulumi.Input<number>;
+    }
+
+    export interface ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterIntList {
+        values: pulumi.Input<pulumi.Input<number>[]>;
+    }
+
+    export interface ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterString {
+        value: pulumi.Input<string>;
+    }
+
+    export interface ConfigurationPolicyConfigurationPolicySecurityControlsConfigurationSecurityControlCustomParameterParameterStringList {
+        values: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
     export interface InsightFilters {
         /**
          * AWS account ID that a finding is generated in. See String_Filter below for more details.
@@ -67986,6 +68297,13 @@ export namespace securityhub {
          */
         value: pulumi.Input<string>;
     }
+
+    export interface OrganizationConfigurationOrganizationConfiguration {
+        /**
+         * Indicates whether the organization uses local or central configuration. If using central configuration, `autoEnable` must be set to `false` and `autoEnableStandards` set to `NONE`. More information can be found in the [documentation for central configuration](https://docs.aws.amazon.com/securityhub/latest/userguide/central-configuration-intro.html). Valid values: `LOCAL`, `CENTRAL`.
+         */
+        configurationType: pulumi.Input<string>;
+    }
 }
 
 export namespace securitylake {
@@ -68142,6 +68460,43 @@ export namespace securitylake {
          * A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
          */
         update?: pulumi.Input<string>;
+    }
+
+    export interface SubscriberNotificationConfiguration {
+        /**
+         * The configurations for HTTPS subscriber notification.
+         */
+        httpsNotificationConfiguration?: pulumi.Input<inputs.securitylake.SubscriberNotificationConfigurationHttpsNotificationConfiguration>;
+        /**
+         * The configurations for SQS subscriber notification.
+         */
+        sqsNotificationConfiguration?: pulumi.Input<inputs.securitylake.SubscriberNotificationConfigurationSqsNotificationConfiguration>;
+    }
+
+    export interface SubscriberNotificationConfigurationHttpsNotificationConfiguration {
+        /**
+         * The key name for the notification subscription.
+         */
+        authorizationApiKeyName?: pulumi.Input<string>;
+        /**
+         * The key value for the notification subscription.
+         */
+        authorizationApiKeyValue?: pulumi.Input<string>;
+        /**
+         * The subscription endpoint in Security Lake. If you prefer notification with an HTTPs endpoint, populate this field.
+         */
+        endpoint?: pulumi.Input<string>;
+        /**
+         * The HTTPS method used for the notification subscription.
+         */
+        httpMethod?: pulumi.Input<string>;
+        /**
+         * The Amazon Resource Name (ARN) of the EventBridge API destinations IAM role that you created. For more information about ARNs and how to use them in policies, see Managing data access and AWS Managed Policies in the Amazon Security Lake User Guide.
+         */
+        targetRoleArn?: pulumi.Input<string>;
+    }
+
+    export interface SubscriberNotificationConfigurationSqsNotificationConfiguration {
     }
 
     export interface SubscriberSource {

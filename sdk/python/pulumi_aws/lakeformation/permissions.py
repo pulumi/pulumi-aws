@@ -20,6 +20,7 @@ class PermissionsArgs:
                  principal: pulumi.Input[str],
                  catalog_id: Optional[pulumi.Input[str]] = None,
                  catalog_resource: Optional[pulumi.Input[bool]] = None,
+                 data_cells_filter: Optional[pulumi.Input['PermissionsDataCellsFilterArgs']] = None,
                  data_location: Optional[pulumi.Input['PermissionsDataLocationArgs']] = None,
                  database: Optional[pulumi.Input['PermissionsDatabaseArgs']] = None,
                  lf_tag: Optional[pulumi.Input['PermissionsLfTagArgs']] = None,
@@ -37,6 +38,7 @@ class PermissionsArgs:
                One of the following is required:
         :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
         :param pulumi.Input[bool] catalog_resource: Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
+        :param pulumi.Input['PermissionsDataCellsFilterArgs'] data_cells_filter: Configuration block for a data cells filter resource. Detailed below.
         :param pulumi.Input['PermissionsDataLocationArgs'] data_location: Configuration block for a data location resource. Detailed below.
         :param pulumi.Input['PermissionsDatabaseArgs'] database: Configuration block for a database resource. Detailed below.
         :param pulumi.Input['PermissionsLfTagArgs'] lf_tag: Configuration block for an LF-tag resource. Detailed below.
@@ -53,6 +55,8 @@ class PermissionsArgs:
             pulumi.set(__self__, "catalog_id", catalog_id)
         if catalog_resource is not None:
             pulumi.set(__self__, "catalog_resource", catalog_resource)
+        if data_cells_filter is not None:
+            pulumi.set(__self__, "data_cells_filter", data_cells_filter)
         if data_location is not None:
             pulumi.set(__self__, "data_location", data_location)
         if database is not None:
@@ -119,6 +123,18 @@ class PermissionsArgs:
     @catalog_resource.setter
     def catalog_resource(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "catalog_resource", value)
+
+    @property
+    @pulumi.getter(name="dataCellsFilter")
+    def data_cells_filter(self) -> Optional[pulumi.Input['PermissionsDataCellsFilterArgs']]:
+        """
+        Configuration block for a data cells filter resource. Detailed below.
+        """
+        return pulumi.get(self, "data_cells_filter")
+
+    @data_cells_filter.setter
+    def data_cells_filter(self, value: Optional[pulumi.Input['PermissionsDataCellsFilterArgs']]):
+        pulumi.set(self, "data_cells_filter", value)
 
     @property
     @pulumi.getter(name="dataLocation")
@@ -212,6 +228,7 @@ class _PermissionsState:
     def __init__(__self__, *,
                  catalog_id: Optional[pulumi.Input[str]] = None,
                  catalog_resource: Optional[pulumi.Input[bool]] = None,
+                 data_cells_filter: Optional[pulumi.Input['PermissionsDataCellsFilterArgs']] = None,
                  data_location: Optional[pulumi.Input['PermissionsDataLocationArgs']] = None,
                  database: Optional[pulumi.Input['PermissionsDatabaseArgs']] = None,
                  lf_tag: Optional[pulumi.Input['PermissionsLfTagArgs']] = None,
@@ -225,6 +242,7 @@ class _PermissionsState:
         Input properties used for looking up and filtering Permissions resources.
         :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
         :param pulumi.Input[bool] catalog_resource: Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
+        :param pulumi.Input['PermissionsDataCellsFilterArgs'] data_cells_filter: Configuration block for a data cells filter resource. Detailed below.
         :param pulumi.Input['PermissionsDataLocationArgs'] data_location: Configuration block for a data location resource. Detailed below.
         :param pulumi.Input['PermissionsDatabaseArgs'] database: Configuration block for a database resource. Detailed below.
         :param pulumi.Input['PermissionsLfTagArgs'] lf_tag: Configuration block for an LF-tag resource. Detailed below.
@@ -245,6 +263,8 @@ class _PermissionsState:
             pulumi.set(__self__, "catalog_id", catalog_id)
         if catalog_resource is not None:
             pulumi.set(__self__, "catalog_resource", catalog_resource)
+        if data_cells_filter is not None:
+            pulumi.set(__self__, "data_cells_filter", data_cells_filter)
         if data_location is not None:
             pulumi.set(__self__, "data_location", data_location)
         if database is not None:
@@ -287,6 +307,18 @@ class _PermissionsState:
     @catalog_resource.setter
     def catalog_resource(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "catalog_resource", value)
+
+    @property
+    @pulumi.getter(name="dataCellsFilter")
+    def data_cells_filter(self) -> Optional[pulumi.Input['PermissionsDataCellsFilterArgs']]:
+        """
+        Configuration block for a data cells filter resource. Detailed below.
+        """
+        return pulumi.get(self, "data_cells_filter")
+
+    @data_cells_filter.setter
+    def data_cells_filter(self, value: Optional[pulumi.Input['PermissionsDataCellsFilterArgs']]):
+        pulumi.set(self, "data_cells_filter", value)
 
     @property
     @pulumi.getter(name="dataLocation")
@@ -410,6 +442,7 @@ class Permissions(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: Optional[pulumi.Input[str]] = None,
                  catalog_resource: Optional[pulumi.Input[bool]] = None,
+                 data_cells_filter: Optional[pulumi.Input[pulumi.InputType['PermissionsDataCellsFilterArgs']]] = None,
                  data_location: Optional[pulumi.Input[pulumi.InputType['PermissionsDataLocationArgs']]] = None,
                  database: Optional[pulumi.Input[pulumi.InputType['PermissionsDatabaseArgs']]] = None,
                  lf_tag: Optional[pulumi.Input[pulumi.InputType['PermissionsLfTagArgs']]] = None,
@@ -580,6 +613,7 @@ class Permissions(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
         :param pulumi.Input[bool] catalog_resource: Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
+        :param pulumi.Input[pulumi.InputType['PermissionsDataCellsFilterArgs']] data_cells_filter: Configuration block for a data cells filter resource. Detailed below.
         :param pulumi.Input[pulumi.InputType['PermissionsDataLocationArgs']] data_location: Configuration block for a data location resource. Detailed below.
         :param pulumi.Input[pulumi.InputType['PermissionsDatabaseArgs']] database: Configuration block for a database resource. Detailed below.
         :param pulumi.Input[pulumi.InputType['PermissionsLfTagArgs']] lf_tag: Configuration block for an LF-tag resource. Detailed below.
@@ -775,6 +809,7 @@ class Permissions(pulumi.CustomResource):
                  opts: Optional[pulumi.ResourceOptions] = None,
                  catalog_id: Optional[pulumi.Input[str]] = None,
                  catalog_resource: Optional[pulumi.Input[bool]] = None,
+                 data_cells_filter: Optional[pulumi.Input[pulumi.InputType['PermissionsDataCellsFilterArgs']]] = None,
                  data_location: Optional[pulumi.Input[pulumi.InputType['PermissionsDataLocationArgs']]] = None,
                  database: Optional[pulumi.Input[pulumi.InputType['PermissionsDatabaseArgs']]] = None,
                  lf_tag: Optional[pulumi.Input[pulumi.InputType['PermissionsLfTagArgs']]] = None,
@@ -795,6 +830,7 @@ class Permissions(pulumi.CustomResource):
 
             __props__.__dict__["catalog_id"] = catalog_id
             __props__.__dict__["catalog_resource"] = catalog_resource
+            __props__.__dict__["data_cells_filter"] = data_cells_filter
             __props__.__dict__["data_location"] = data_location
             __props__.__dict__["database"] = database
             __props__.__dict__["lf_tag"] = lf_tag
@@ -820,6 +856,7 @@ class Permissions(pulumi.CustomResource):
             opts: Optional[pulumi.ResourceOptions] = None,
             catalog_id: Optional[pulumi.Input[str]] = None,
             catalog_resource: Optional[pulumi.Input[bool]] = None,
+            data_cells_filter: Optional[pulumi.Input[pulumi.InputType['PermissionsDataCellsFilterArgs']]] = None,
             data_location: Optional[pulumi.Input[pulumi.InputType['PermissionsDataLocationArgs']]] = None,
             database: Optional[pulumi.Input[pulumi.InputType['PermissionsDatabaseArgs']]] = None,
             lf_tag: Optional[pulumi.Input[pulumi.InputType['PermissionsLfTagArgs']]] = None,
@@ -838,6 +875,7 @@ class Permissions(pulumi.CustomResource):
         :param pulumi.ResourceOptions opts: Options for the resource.
         :param pulumi.Input[str] catalog_id: Identifier for the Data Catalog. By default, the account ID. The Data Catalog is the persistent metadata store. It contains database definitions, table definitions, and other control information to manage your Lake Formation environment.
         :param pulumi.Input[bool] catalog_resource: Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
+        :param pulumi.Input[pulumi.InputType['PermissionsDataCellsFilterArgs']] data_cells_filter: Configuration block for a data cells filter resource. Detailed below.
         :param pulumi.Input[pulumi.InputType['PermissionsDataLocationArgs']] data_location: Configuration block for a data location resource. Detailed below.
         :param pulumi.Input[pulumi.InputType['PermissionsDatabaseArgs']] database: Configuration block for a database resource. Detailed below.
         :param pulumi.Input[pulumi.InputType['PermissionsLfTagArgs']] lf_tag: Configuration block for an LF-tag resource. Detailed below.
@@ -860,6 +898,7 @@ class Permissions(pulumi.CustomResource):
 
         __props__.__dict__["catalog_id"] = catalog_id
         __props__.__dict__["catalog_resource"] = catalog_resource
+        __props__.__dict__["data_cells_filter"] = data_cells_filter
         __props__.__dict__["data_location"] = data_location
         __props__.__dict__["database"] = database
         __props__.__dict__["lf_tag"] = lf_tag
@@ -886,6 +925,14 @@ class Permissions(pulumi.CustomResource):
         Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
         """
         return pulumi.get(self, "catalog_resource")
+
+    @property
+    @pulumi.getter(name="dataCellsFilter")
+    def data_cells_filter(self) -> pulumi.Output[Optional['outputs.PermissionsDataCellsFilter']]:
+        """
+        Configuration block for a data cells filter resource. Detailed below.
+        """
+        return pulumi.get(self, "data_cells_filter")
 
     @property
     @pulumi.getter(name="dataLocation")

@@ -24,8 +24,22 @@ public final class GetPolicyDocumentResult {
      * 
      */
     private String json;
+    /**
+     * @deprecated
+     * Not used
+     * 
+     */
+    @Deprecated /* Not used */
+    private @Nullable String overrideJson;
     private @Nullable List<String> overridePolicyDocuments;
     private @Nullable String policyId;
+    /**
+     * @deprecated
+     * Not used
+     * 
+     */
+    @Deprecated /* Not used */
+    private @Nullable String sourceJson;
     private @Nullable List<String> sourcePolicyDocuments;
     private @Nullable List<GetPolicyDocumentStatement> statements;
     private @Nullable String version;
@@ -45,11 +59,29 @@ public final class GetPolicyDocumentResult {
     public String json() {
         return this.json;
     }
+    /**
+     * @deprecated
+     * Not used
+     * 
+     */
+    @Deprecated /* Not used */
+    public Optional<String> overrideJson() {
+        return Optional.ofNullable(this.overrideJson);
+    }
     public List<String> overridePolicyDocuments() {
         return this.overridePolicyDocuments == null ? List.of() : this.overridePolicyDocuments;
     }
     public Optional<String> policyId() {
         return Optional.ofNullable(this.policyId);
+    }
+    /**
+     * @deprecated
+     * Not used
+     * 
+     */
+    @Deprecated /* Not used */
+    public Optional<String> sourceJson() {
+        return Optional.ofNullable(this.sourceJson);
     }
     public List<String> sourcePolicyDocuments() {
         return this.sourcePolicyDocuments == null ? List.of() : this.sourcePolicyDocuments;
@@ -72,8 +104,10 @@ public final class GetPolicyDocumentResult {
     public static final class Builder {
         private String id;
         private String json;
+        private @Nullable String overrideJson;
         private @Nullable List<String> overridePolicyDocuments;
         private @Nullable String policyId;
+        private @Nullable String sourceJson;
         private @Nullable List<String> sourcePolicyDocuments;
         private @Nullable List<GetPolicyDocumentStatement> statements;
         private @Nullable String version;
@@ -82,8 +116,10 @@ public final class GetPolicyDocumentResult {
     	      Objects.requireNonNull(defaults);
     	      this.id = defaults.id;
     	      this.json = defaults.json;
+    	      this.overrideJson = defaults.overrideJson;
     	      this.overridePolicyDocuments = defaults.overridePolicyDocuments;
     	      this.policyId = defaults.policyId;
+    	      this.sourceJson = defaults.sourceJson;
     	      this.sourcePolicyDocuments = defaults.sourcePolicyDocuments;
     	      this.statements = defaults.statements;
     	      this.version = defaults.version;
@@ -106,6 +142,12 @@ public final class GetPolicyDocumentResult {
             return this;
         }
         @CustomType.Setter
+        public Builder overrideJson(@Nullable String overrideJson) {
+
+            this.overrideJson = overrideJson;
+            return this;
+        }
+        @CustomType.Setter
         public Builder overridePolicyDocuments(@Nullable List<String> overridePolicyDocuments) {
 
             this.overridePolicyDocuments = overridePolicyDocuments;
@@ -118,6 +160,12 @@ public final class GetPolicyDocumentResult {
         public Builder policyId(@Nullable String policyId) {
 
             this.policyId = policyId;
+            return this;
+        }
+        @CustomType.Setter
+        public Builder sourceJson(@Nullable String sourceJson) {
+
+            this.sourceJson = sourceJson;
             return this;
         }
         @CustomType.Setter
@@ -148,8 +196,10 @@ public final class GetPolicyDocumentResult {
             final var _resultValue = new GetPolicyDocumentResult();
             _resultValue.id = id;
             _resultValue.json = json;
+            _resultValue.overrideJson = overrideJson;
             _resultValue.overridePolicyDocuments = overridePolicyDocuments;
             _resultValue.policyId = policyId;
+            _resultValue.sourceJson = sourceJson;
             _resultValue.sourcePolicyDocuments = sourcePolicyDocuments;
             _resultValue.statements = statements;
             _resultValue.version = version;

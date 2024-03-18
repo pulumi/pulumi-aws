@@ -1918,15 +1918,18 @@ class GetDomainAutoTuneOptionResult(dict):
     def __init__(__self__, *,
                  desired_state: str,
                  maintenance_schedules: Sequence['outputs.GetDomainAutoTuneOptionMaintenanceScheduleResult'],
-                 rollback_on_disable: str):
+                 rollback_on_disable: str,
+                 use_off_peak_window: bool):
         """
         :param str desired_state: Auto-Tune desired state for the domain.
         :param Sequence['GetDomainAutoTuneOptionMaintenanceScheduleArgs'] maintenance_schedules: A list of the nested configurations for the Auto-Tune maintenance windows of the domain.
         :param str rollback_on_disable: Whether the domain is set to roll back to default Auto-Tune settings when disabling Auto-Tune.
+        :param bool use_off_peak_window: Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain's configured daily off-peak window.
         """
         pulumi.set(__self__, "desired_state", desired_state)
         pulumi.set(__self__, "maintenance_schedules", maintenance_schedules)
         pulumi.set(__self__, "rollback_on_disable", rollback_on_disable)
+        pulumi.set(__self__, "use_off_peak_window", use_off_peak_window)
 
     @property
     @pulumi.getter(name="desiredState")
@@ -1951,6 +1954,14 @@ class GetDomainAutoTuneOptionResult(dict):
         Whether the domain is set to roll back to default Auto-Tune settings when disabling Auto-Tune.
         """
         return pulumi.get(self, "rollback_on_disable")
+
+    @property
+    @pulumi.getter(name="useOffPeakWindow")
+    def use_off_peak_window(self) -> bool:
+        """
+        Whether to schedule Auto-Tune optimizations that require blue/green deployments during the domain's configured daily off-peak window.
+        """
+        return pulumi.get(self, "use_off_peak_window")
 
 
 @pulumi.output_type

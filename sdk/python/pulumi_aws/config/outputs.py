@@ -325,6 +325,7 @@ class Endpoints(dict):
                  deploy: Optional[str] = None,
                  detective: Optional[str] = None,
                  devicefarm: Optional[str] = None,
+                 devopsguru: Optional[str] = None,
                  directconnect: Optional[str] = None,
                  directoryservice: Optional[str] = None,
                  dlm: Optional[str] = None,
@@ -599,6 +600,7 @@ class Endpoints(dict):
         :param str deploy: Use this to override the default service endpoint URL
         :param str detective: Use this to override the default service endpoint URL
         :param str devicefarm: Use this to override the default service endpoint URL
+        :param str devopsguru: Use this to override the default service endpoint URL
         :param str directconnect: Use this to override the default service endpoint URL
         :param str directoryservice: Use this to override the default service endpoint URL
         :param str dlm: Use this to override the default service endpoint URL
@@ -961,6 +963,8 @@ class Endpoints(dict):
             pulumi.set(__self__, "detective", detective)
         if devicefarm is not None:
             pulumi.set(__self__, "devicefarm", devicefarm)
+        if devopsguru is not None:
+            pulumi.set(__self__, "devopsguru", devopsguru)
         if directconnect is not None:
             pulumi.set(__self__, "directconnect", directconnect)
         if directoryservice is not None:
@@ -2035,6 +2039,14 @@ class Endpoints(dict):
         Use this to override the default service endpoint URL
         """
         return pulumi.get(self, "devicefarm")
+
+    @property
+    @pulumi.getter
+    def devopsguru(self) -> Optional[str]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "devopsguru")
 
     @property
     @pulumi.getter

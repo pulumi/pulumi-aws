@@ -5,10 +5,10 @@ Subject: [PATCH 06/47] Remove lakeformation catalog_resource default
 
 
 diff --git a/internal/service/lakeformation/permissions.go b/internal/service/lakeformation/permissions.go
-index 594d25ee73..258163d0a5 100644
+index 7bec89f0bd..d478310a18 100644
 --- a/internal/service/lakeformation/permissions.go
 +++ b/internal/service/lakeformation/permissions.go
-@@ -40,8 +40,8 @@ func ResourcePermissions() *schema.Resource {
+@@ -42,8 +42,8 @@ func ResourcePermissions() *schema.Resource {
  				ValidateFunc: verify.ValidAccountID,
  			},
  			"catalog_resource": {

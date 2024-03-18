@@ -29,7 +29,7 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ram.LookupResourceShare(ctx, &ram.LookupResourceShareArgs{
-//				Name:          "example",
+//				Name:          pulumi.StringRef("example"),
 //				ResourceOwner: "SELF",
 //			}, nil)
 //			if err != nil {
@@ -58,7 +58,6 @@ import (
 //	func main() {
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ram.LookupResourceShare(ctx, &ram.LookupResourceShareArgs{
-//				Name:          "MyResourceName",
 //				ResourceOwner: "SELF",
 //				Filters: []ram.GetResourceShareFilter{
 //					{
@@ -93,7 +92,7 @@ type LookupResourceShareArgs struct {
 	// Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
 	Filters []GetResourceShareFilter `pulumi:"filters"`
 	// Name of the tag key to filter on.
-	Name string `pulumi:"name"`
+	Name *string `pulumi:"name"`
 	// Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
 	ResourceOwner string `pulumi:"resourceOwner"`
 	// Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.
@@ -140,7 +139,7 @@ type LookupResourceShareOutputArgs struct {
 	// Filter used to scope the list e.g., by tags. See [related docs] (https://docs.aws.amazon.com/ram/latest/APIReference/API_TagFilter.html).
 	Filters GetResourceShareFilterArrayInput `pulumi:"filters"`
 	// Name of the tag key to filter on.
-	Name pulumi.StringInput `pulumi:"name"`
+	Name pulumi.StringPtrInput `pulumi:"name"`
 	// Owner of the resource share. Valid values are `SELF` or `OTHER-ACCOUNTS`.
 	ResourceOwner pulumi.StringInput `pulumi:"resourceOwner"`
 	// Specifies that you want to retrieve details of only those resource shares that have this status. Valid values are `PENDING`, `ACTIVE`, `FAILED`, `DELETING`, and `DELETED`.

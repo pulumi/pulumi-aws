@@ -178,6 +178,17 @@ def get_bootstrap_brokers(cluster_arn: Optional[str] = None,
     """
     Get a list of brokers that a client application can use to bootstrap.
 
+    ## Example Usage
+
+    <!--Start PulumiCodeChooser -->
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.msk.get_bootstrap_brokers(cluster_arn=example_aws_msk_cluster["arn"])
+    ```
+    <!--End PulumiCodeChooser -->
+
 
     :param str cluster_arn: ARN of the cluster the nodes belong to.
     """
@@ -206,6 +217,17 @@ def get_bootstrap_brokers_output(cluster_arn: Optional[pulumi.Input[str]] = None
                                  opts: Optional[pulumi.InvokeOptions] = None) -> pulumi.Output[GetBootstrapBrokersResult]:
     """
     Get a list of brokers that a client application can use to bootstrap.
+
+    ## Example Usage
+
+    <!--Start PulumiCodeChooser -->
+    ```python
+    import pulumi
+    import pulumi_aws as aws
+
+    example = aws.msk.get_bootstrap_brokers(cluster_arn=example_aws_msk_cluster["arn"])
+    ```
+    <!--End PulumiCodeChooser -->
 
 
     :param str cluster_arn: ARN of the cluster the nodes belong to.

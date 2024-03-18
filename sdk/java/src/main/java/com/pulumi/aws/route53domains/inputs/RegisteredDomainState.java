@@ -4,6 +4,7 @@
 package com.pulumi.aws.route53domains.inputs;
 
 import com.pulumi.aws.route53domains.inputs.RegisteredDomainAdminContactArgs;
+import com.pulumi.aws.route53domains.inputs.RegisteredDomainBillingContactArgs;
 import com.pulumi.aws.route53domains.inputs.RegisteredDomainNameServerArgs;
 import com.pulumi.aws.route53domains.inputs.RegisteredDomainRegistrantContactArgs;
 import com.pulumi.aws.route53domains.inputs.RegisteredDomainTechContactArgs;
@@ -95,6 +96,36 @@ public final class RegisteredDomainState extends com.pulumi.resources.ResourceAr
      */
     public Optional<Output<Boolean>> autoRenew() {
         return Optional.ofNullable(this.autoRenew);
+    }
+
+    /**
+     * Details about the domain billing contact. See Contact Blocks for more details.
+     * 
+     */
+    @Import(name="billingContact")
+    private @Nullable Output<RegisteredDomainBillingContactArgs> billingContact;
+
+    /**
+     * @return Details about the domain billing contact. See Contact Blocks for more details.
+     * 
+     */
+    public Optional<Output<RegisteredDomainBillingContactArgs>> billingContact() {
+        return Optional.ofNullable(this.billingContact);
+    }
+
+    /**
+     * Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
+     * 
+     */
+    @Import(name="billingPrivacy")
+    private @Nullable Output<Boolean> billingPrivacy;
+
+    /**
+     * @return Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
+     * 
+     */
+    public Optional<Output<Boolean>> billingPrivacy() {
+        return Optional.ofNullable(this.billingPrivacy);
     }
 
     /**
@@ -368,6 +399,8 @@ public final class RegisteredDomainState extends com.pulumi.resources.ResourceAr
         this.adminContact = $.adminContact;
         this.adminPrivacy = $.adminPrivacy;
         this.autoRenew = $.autoRenew;
+        this.billingContact = $.billingContact;
+        this.billingPrivacy = $.billingPrivacy;
         this.creationDate = $.creationDate;
         this.domainName = $.domainName;
         this.expirationDate = $.expirationDate;
@@ -508,6 +541,48 @@ public final class RegisteredDomainState extends com.pulumi.resources.ResourceAr
          */
         public Builder autoRenew(Boolean autoRenew) {
             return autoRenew(Output.of(autoRenew));
+        }
+
+        /**
+         * @param billingContact Details about the domain billing contact. See Contact Blocks for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder billingContact(@Nullable Output<RegisteredDomainBillingContactArgs> billingContact) {
+            $.billingContact = billingContact;
+            return this;
+        }
+
+        /**
+         * @param billingContact Details about the domain billing contact. See Contact Blocks for more details.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder billingContact(RegisteredDomainBillingContactArgs billingContact) {
+            return billingContact(Output.of(billingContact));
+        }
+
+        /**
+         * @param billingPrivacy Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder billingPrivacy(@Nullable Output<Boolean> billingPrivacy) {
+            $.billingPrivacy = billingPrivacy;
+            return this;
+        }
+
+        /**
+         * @param billingPrivacy Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder billingPrivacy(Boolean billingPrivacy) {
+            return billingPrivacy(Output.of(billingPrivacy));
         }
 
         /**

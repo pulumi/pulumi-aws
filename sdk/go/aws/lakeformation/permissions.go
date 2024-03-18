@@ -286,6 +286,8 @@ type Permissions struct {
 	CatalogId pulumi.StringPtrOutput `pulumi:"catalogId"`
 	// Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
 	CatalogResource pulumi.BoolPtrOutput `pulumi:"catalogResource"`
+	// Configuration block for a data cells filter resource. Detailed below.
+	DataCellsFilter PermissionsDataCellsFilterPtrOutput `pulumi:"dataCellsFilter"`
 	// Configuration block for a data location resource. Detailed below.
 	DataLocation PermissionsDataLocationOutput `pulumi:"dataLocation"`
 	// Configuration block for a database resource. Detailed below.
@@ -352,6 +354,8 @@ type permissionsState struct {
 	CatalogId *string `pulumi:"catalogId"`
 	// Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
 	CatalogResource *bool `pulumi:"catalogResource"`
+	// Configuration block for a data cells filter resource. Detailed below.
+	DataCellsFilter *PermissionsDataCellsFilter `pulumi:"dataCellsFilter"`
 	// Configuration block for a data location resource. Detailed below.
 	DataLocation *PermissionsDataLocation `pulumi:"dataLocation"`
 	// Configuration block for a database resource. Detailed below.
@@ -383,6 +387,8 @@ type PermissionsState struct {
 	CatalogId pulumi.StringPtrInput
 	// Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
 	CatalogResource pulumi.BoolPtrInput
+	// Configuration block for a data cells filter resource. Detailed below.
+	DataCellsFilter PermissionsDataCellsFilterPtrInput
 	// Configuration block for a data location resource. Detailed below.
 	DataLocation PermissionsDataLocationPtrInput
 	// Configuration block for a database resource. Detailed below.
@@ -418,6 +424,8 @@ type permissionsArgs struct {
 	CatalogId *string `pulumi:"catalogId"`
 	// Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
 	CatalogResource *bool `pulumi:"catalogResource"`
+	// Configuration block for a data cells filter resource. Detailed below.
+	DataCellsFilter *PermissionsDataCellsFilter `pulumi:"dataCellsFilter"`
 	// Configuration block for a data location resource. Detailed below.
 	DataLocation *PermissionsDataLocation `pulumi:"dataLocation"`
 	// Configuration block for a database resource. Detailed below.
@@ -450,6 +458,8 @@ type PermissionsArgs struct {
 	CatalogId pulumi.StringPtrInput
 	// Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
 	CatalogResource pulumi.BoolPtrInput
+	// Configuration block for a data cells filter resource. Detailed below.
+	DataCellsFilter PermissionsDataCellsFilterPtrInput
 	// Configuration block for a data location resource. Detailed below.
 	DataLocation PermissionsDataLocationPtrInput
 	// Configuration block for a database resource. Detailed below.
@@ -571,6 +581,11 @@ func (o PermissionsOutput) CatalogId() pulumi.StringPtrOutput {
 // Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
 func (o PermissionsOutput) CatalogResource() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Permissions) pulumi.BoolPtrOutput { return v.CatalogResource }).(pulumi.BoolPtrOutput)
+}
+
+// Configuration block for a data cells filter resource. Detailed below.
+func (o PermissionsOutput) DataCellsFilter() PermissionsDataCellsFilterPtrOutput {
+	return o.ApplyT(func(v *Permissions) PermissionsDataCellsFilterPtrOutput { return v.DataCellsFilter }).(PermissionsDataCellsFilterPtrOutput)
 }
 
 // Configuration block for a data location resource. Detailed below.

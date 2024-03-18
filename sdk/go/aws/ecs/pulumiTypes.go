@@ -3508,7 +3508,7 @@ func (o ServiceServiceConnectConfigurationServiceTlsPtrOutput) RoleArn() pulumi.
 
 type ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthority struct {
 	// The ARN of the `acmpca.CertificateAuthority` used to create the TLS Certificates.
-	AwsPcaAuthorityArn *string `pulumi:"awsPcaAuthorityArn"`
+	AwsPcaAuthorityArn string `pulumi:"awsPcaAuthorityArn"`
 }
 
 // ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityInput is an input type that accepts ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityArgs and ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityOutput values.
@@ -3524,7 +3524,7 @@ type ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityInput interf
 
 type ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityArgs struct {
 	// The ARN of the `acmpca.CertificateAuthority` used to create the TLS Certificates.
-	AwsPcaAuthorityArn pulumi.StringPtrInput `pulumi:"awsPcaAuthorityArn"`
+	AwsPcaAuthorityArn pulumi.StringInput `pulumi:"awsPcaAuthorityArn"`
 }
 
 func (ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityArgs) ElementType() reflect.Type {
@@ -3605,10 +3605,10 @@ func (o ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityOutput) T
 }
 
 // The ARN of the `acmpca.CertificateAuthority` used to create the TLS Certificates.
-func (o ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityOutput) AwsPcaAuthorityArn() pulumi.StringPtrOutput {
-	return o.ApplyT(func(v ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthority) *string {
+func (o ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityOutput) AwsPcaAuthorityArn() pulumi.StringOutput {
+	return o.ApplyT(func(v ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthority) string {
 		return v.AwsPcaAuthorityArn
-	}).(pulumi.StringPtrOutput)
+	}).(pulumi.StringOutput)
 }
 
 type ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityPtrOutput struct{ *pulumi.OutputState }
@@ -3641,7 +3641,7 @@ func (o ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityPtrOutput
 		if v == nil {
 			return nil
 		}
-		return v.AwsPcaAuthorityArn
+		return &v.AwsPcaAuthorityArn
 	}).(pulumi.StringPtrOutput)
 }
 

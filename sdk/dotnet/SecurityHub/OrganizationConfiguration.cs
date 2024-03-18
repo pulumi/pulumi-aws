@@ -12,11 +12,17 @@ namespace Pulumi.Aws.SecurityHub
     /// <summary>
     /// Manages the Security Hub Organization Configuration.
     /// 
-    /// &gt; **NOTE:** This resource requires an `aws.securityhub.OrganizationAdminAccount` to be configured (not necessarily with Pulumi). More information about managing Security Hub in an organization can be found in the [Managing administrator and member accounts](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts.html) documentation
+    /// &gt; **NOTE:** This resource requires an `aws.securityhub.OrganizationAdminAccount` to be configured (not necessarily with Pulumi). More information about managing Security Hub in an organization can be found in the [Managing administrator and member accounts](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts.html) documentation.
+    /// 
+    /// &gt; **NOTE:** In order to set the `configuration_type` to `CENTRAL`, the delegated admin must be a member account of the organization and not the management account. Central configuration also requires an `aws.securityhub.FindingAggregator` to be configured.
     /// 
     /// &gt; **NOTE:** This is an advanced AWS resource. Pulumi will automatically assume management of the Security Hub Organization Configuration without import and perform no actions on removal from the Pulumi program.
     /// 
+    /// &gt; **NOTE:** Deleting this resource resets security hub to a local organization configuration with auto enable false.
+    /// 
     /// ## Example Usage
+    /// 
+    /// ### Local Configuration
     /// 
     /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
@@ -50,6 +56,41 @@ namespace Pulumi.Aws.SecurityHub
     /// ```
     /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
+    /// ### Central Configuration
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.SecurityHub.OrganizationAdminAccount("example", new()
+    ///     {
+    ///         AdminAccountId = "123456789012",
+    ///     });
+    /// 
+    ///     var exampleFindingAggregator = new Aws.SecurityHub.FindingAggregator("example", new()
+    ///     {
+    ///         LinkingMode = "ALL_REGIONS",
+    ///     });
+    /// 
+    ///     var exampleOrganizationConfiguration = new Aws.SecurityHub.OrganizationConfiguration("example", new()
+    ///     {
+    ///         AutoEnable = false,
+    ///         AutoEnableStandards = "NONE",
+    ///         OrganizationConfigurationDetails = new Aws.SecurityHub.Inputs.OrganizationConfigurationOrganizationConfigurationArgs
+    ///         {
+    ///             ConfigurationType = "CENTRAL",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import an existing Security Hub enabled account using the AWS account ID. For example:
@@ -72,6 +113,12 @@ namespace Pulumi.Aws.SecurityHub
         /// </summary>
         [Output("autoEnableStandards")]
         public Output<string> AutoEnableStandards { get; private set; } = null!;
+
+        /// <summary>
+        /// Provides information about the way an organization is configured in Security Hub.
+        /// </summary>
+        [Output("organizationConfiguration")]
+        public Output<Outputs.OrganizationConfigurationOrganizationConfiguration> OrganizationConfigurationDetails { get; private set; } = null!;
 
 
         /// <summary>
@@ -131,6 +178,12 @@ namespace Pulumi.Aws.SecurityHub
         [Input("autoEnableStandards")]
         public Input<string>? AutoEnableStandards { get; set; }
 
+        /// <summary>
+        /// Provides information about the way an organization is configured in Security Hub.
+        /// </summary>
+        [Input("organizationConfiguration")]
+        public Input<Inputs.OrganizationConfigurationOrganizationConfigurationArgs>? OrganizationConfigurationDetails { get; set; }
+
         public OrganizationConfigurationArgs()
         {
         }
@@ -150,6 +203,12 @@ namespace Pulumi.Aws.SecurityHub
         /// </summary>
         [Input("autoEnableStandards")]
         public Input<string>? AutoEnableStandards { get; set; }
+
+        /// <summary>
+        /// Provides information about the way an organization is configured in Security Hub.
+        /// </summary>
+        [Input("organizationConfiguration")]
+        public Input<Inputs.OrganizationConfigurationOrganizationConfigurationGetArgs>? OrganizationConfigurationDetails { get; set; }
 
         public OrganizationConfigurationState()
         {

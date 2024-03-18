@@ -16,14 +16,14 @@ public final class ServerlessCacheCacheUsageLimitsDataStorageArgs extends com.pu
     public static final ServerlessCacheCacheUsageLimitsDataStorageArgs Empty = new ServerlessCacheCacheUsageLimitsDataStorageArgs();
 
     /**
-     * The upper limit for data storage the cache is set to use. Set as Integer.
+     * The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
      * 
      */
     @Import(name="maximum", required=true)
     private Output<Integer> maximum;
 
     /**
-     * @return The upper limit for data storage the cache is set to use. Set as Integer.
+     * @return The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
      * 
      */
     public Output<Integer> maximum() {
@@ -71,7 +71,7 @@ public final class ServerlessCacheCacheUsageLimitsDataStorageArgs extends com.pu
         }
 
         /**
-         * @param maximum The upper limit for data storage the cache is set to use. Set as Integer.
+         * @param maximum The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
          * 
          * @return builder
          * 
@@ -82,7 +82,7 @@ public final class ServerlessCacheCacheUsageLimitsDataStorageArgs extends com.pu
         }
 
         /**
-         * @param maximum The upper limit for data storage the cache is set to use. Set as Integer.
+         * @param maximum The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
          * 
          * @return builder
          * 

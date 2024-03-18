@@ -794,6 +794,10 @@ namespace Pulumi.Aws
             /// <summary>
             /// Use this to override the default service endpoint URL
             /// </summary>
+                public string? Devopsguru { get; set; } = null!;
+            /// <summary>
+            /// Use this to override the default service endpoint URL
+            /// </summary>
                 public string? Directconnect { get; set; } = null!;
             /// <summary>
             /// Use this to override the default service endpoint URL

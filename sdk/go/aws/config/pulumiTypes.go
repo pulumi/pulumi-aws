@@ -467,6 +467,8 @@ type Endpoints struct {
 	// Use this to override the default service endpoint URL
 	Devicefarm *string `pulumi:"devicefarm"`
 	// Use this to override the default service endpoint URL
+	Devopsguru *string `pulumi:"devopsguru"`
+	// Use this to override the default service endpoint URL
 	Directconnect *string `pulumi:"directconnect"`
 	// Use this to override the default service endpoint URL
 	Directoryservice *string `pulumi:"directoryservice"`
@@ -1026,6 +1028,8 @@ type EndpointsArgs struct {
 	Detective pulumi.StringPtrInput `pulumi:"detective"`
 	// Use this to override the default service endpoint URL
 	Devicefarm pulumi.StringPtrInput `pulumi:"devicefarm"`
+	// Use this to override the default service endpoint URL
+	Devopsguru pulumi.StringPtrInput `pulumi:"devopsguru"`
 	// Use this to override the default service endpoint URL
 	Directconnect pulumi.StringPtrInput `pulumi:"directconnect"`
 	// Use this to override the default service endpoint URL
@@ -1887,6 +1891,11 @@ func (o EndpointsOutput) Detective() pulumi.StringPtrOutput {
 // Use this to override the default service endpoint URL
 func (o EndpointsOutput) Devicefarm() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v Endpoints) *string { return v.Devicefarm }).(pulumi.StringPtrOutput)
+}
+
+// Use this to override the default service endpoint URL
+func (o EndpointsOutput) Devopsguru() pulumi.StringPtrOutput {
+	return o.ApplyT(func(v Endpoints) *string { return v.Devopsguru }).(pulumi.StringPtrOutput)
 }
 
 // Use this to override the default service endpoint URL

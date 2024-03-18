@@ -6,6 +6,7 @@ package com.pulumi.aws.securityhub;
 import com.pulumi.aws.Utilities;
 import com.pulumi.aws.securityhub.OrganizationConfigurationArgs;
 import com.pulumi.aws.securityhub.inputs.OrganizationConfigurationState;
+import com.pulumi.aws.securityhub.outputs.OrganizationConfigurationOrganizationConfiguration;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Export;
 import com.pulumi.core.annotations.ResourceType;
@@ -17,11 +18,17 @@ import javax.annotation.Nullable;
 /**
  * Manages the Security Hub Organization Configuration.
  * 
- * &gt; **NOTE:** This resource requires an `aws.securityhub.OrganizationAdminAccount` to be configured (not necessarily with Pulumi). More information about managing Security Hub in an organization can be found in the [Managing administrator and member accounts](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts.html) documentation
+ * &gt; **NOTE:** This resource requires an `aws.securityhub.OrganizationAdminAccount` to be configured (not necessarily with Pulumi). More information about managing Security Hub in an organization can be found in the [Managing administrator and member accounts](https://docs.aws.amazon.com/securityhub/latest/userguide/securityhub-accounts.html) documentation.
+ * 
+ * &gt; **NOTE:** In order to set the `configuration_type` to `CENTRAL`, the delegated admin must be a member account of the organization and not the management account. Central configuration also requires an `aws.securityhub.FindingAggregator` to be configured.
  * 
  * &gt; **NOTE:** This is an advanced AWS resource. Pulumi will automatically assume management of the Security Hub Organization Configuration without import and perform no actions on removal from the Pulumi program.
  * 
+ * &gt; **NOTE:** Deleting this resource resets security hub to a local organization configuration with auto enable false.
+ * 
  * ## Example Usage
+ * 
+ * ### Local Configuration
  * 
  * &lt;!--Start PulumiCodeChooser --&gt;
  * ```java
@@ -67,6 +74,56 @@ import javax.annotation.Nullable;
  * ```
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### Central Configuration
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.securityhub.OrganizationAdminAccount;
+ * import com.pulumi.aws.securityhub.OrganizationAdminAccountArgs;
+ * import com.pulumi.aws.securityhub.FindingAggregator;
+ * import com.pulumi.aws.securityhub.FindingAggregatorArgs;
+ * import com.pulumi.aws.securityhub.OrganizationConfiguration;
+ * import com.pulumi.aws.securityhub.OrganizationConfigurationArgs;
+ * import com.pulumi.aws.securityhub.inputs.OrganizationConfigurationOrganizationConfigurationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new OrganizationAdminAccount(&#34;example&#34;, OrganizationAdminAccountArgs.builder()        
+ *             .adminAccountId(&#34;123456789012&#34;)
+ *             .build());
+ * 
+ *         var exampleFindingAggregator = new FindingAggregator(&#34;exampleFindingAggregator&#34;, FindingAggregatorArgs.builder()        
+ *             .linkingMode(&#34;ALL_REGIONS&#34;)
+ *             .build());
+ * 
+ *         var exampleOrganizationConfiguration = new OrganizationConfiguration(&#34;exampleOrganizationConfiguration&#34;, OrganizationConfigurationArgs.builder()        
+ *             .autoEnable(false)
+ *             .autoEnableStandards(&#34;NONE&#34;)
+ *             .organizationConfiguration(OrganizationConfigurationOrganizationConfigurationArgs.builder()
+ *                 .configurationType(&#34;CENTRAL&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import an existing Security Hub enabled account using the AWS account ID. For example:
@@ -105,6 +162,20 @@ public class OrganizationConfiguration extends com.pulumi.resources.CustomResour
      */
     public Output<String> autoEnableStandards() {
         return this.autoEnableStandards;
+    }
+    /**
+     * Provides information about the way an organization is configured in Security Hub.
+     * 
+     */
+    @Export(name="organizationConfiguration", refs={OrganizationConfigurationOrganizationConfiguration.class}, tree="[0]")
+    private Output<OrganizationConfigurationOrganizationConfiguration> organizationConfiguration;
+
+    /**
+     * @return Provides information about the way an organization is configured in Security Hub.
+     * 
+     */
+    public Output<OrganizationConfigurationOrganizationConfiguration> organizationConfiguration() {
+        return this.organizationConfiguration;
     }
 
     /**

@@ -3,6 +3,7 @@
 
 package com.pulumi.aws.lakeformation.inputs;
 
+import com.pulumi.aws.lakeformation.inputs.GetPermissionsDataCellsFilter;
 import com.pulumi.aws.lakeformation.inputs.GetPermissionsDataLocation;
 import com.pulumi.aws.lakeformation.inputs.GetPermissionsDatabase;
 import com.pulumi.aws.lakeformation.inputs.GetPermissionsLfTag;
@@ -50,6 +51,21 @@ public final class GetPermissionsPlainArgs extends com.pulumi.resources.InvokeAr
      */
     public Optional<Boolean> catalogResource() {
         return Optional.ofNullable(this.catalogResource);
+    }
+
+    /**
+     * Configuration block for a data cells filter resource. Detailed below.
+     * 
+     */
+    @Import(name="dataCellsFilter")
+    private @Nullable GetPermissionsDataCellsFilter dataCellsFilter;
+
+    /**
+     * @return Configuration block for a data cells filter resource. Detailed below.
+     * 
+     */
+    public Optional<GetPermissionsDataCellsFilter> dataCellsFilter() {
+        return Optional.ofNullable(this.dataCellsFilter);
     }
 
     /**
@@ -170,6 +186,7 @@ public final class GetPermissionsPlainArgs extends com.pulumi.resources.InvokeAr
     private GetPermissionsPlainArgs(GetPermissionsPlainArgs $) {
         this.catalogId = $.catalogId;
         this.catalogResource = $.catalogResource;
+        this.dataCellsFilter = $.dataCellsFilter;
         this.dataLocation = $.dataLocation;
         this.database = $.database;
         this.lfTag = $.lfTag;
@@ -216,6 +233,17 @@ public final class GetPermissionsPlainArgs extends com.pulumi.resources.InvokeAr
          */
         public Builder catalogResource(@Nullable Boolean catalogResource) {
             $.catalogResource = catalogResource;
+            return this;
+        }
+
+        /**
+         * @param dataCellsFilter Configuration block for a data cells filter resource. Detailed below.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder dataCellsFilter(@Nullable GetPermissionsDataCellsFilter dataCellsFilter) {
+            $.dataCellsFilter = dataCellsFilter;
             return this;
         }
 

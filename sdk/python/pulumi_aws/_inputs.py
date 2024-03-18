@@ -397,6 +397,7 @@ class ProviderEndpointArgs:
                  deploy: Optional[pulumi.Input[str]] = None,
                  detective: Optional[pulumi.Input[str]] = None,
                  devicefarm: Optional[pulumi.Input[str]] = None,
+                 devopsguru: Optional[pulumi.Input[str]] = None,
                  directconnect: Optional[pulumi.Input[str]] = None,
                  directoryservice: Optional[pulumi.Input[str]] = None,
                  dlm: Optional[pulumi.Input[str]] = None,
@@ -671,6 +672,7 @@ class ProviderEndpointArgs:
         :param pulumi.Input[str] deploy: Use this to override the default service endpoint URL
         :param pulumi.Input[str] detective: Use this to override the default service endpoint URL
         :param pulumi.Input[str] devicefarm: Use this to override the default service endpoint URL
+        :param pulumi.Input[str] devopsguru: Use this to override the default service endpoint URL
         :param pulumi.Input[str] directconnect: Use this to override the default service endpoint URL
         :param pulumi.Input[str] directoryservice: Use this to override the default service endpoint URL
         :param pulumi.Input[str] dlm: Use this to override the default service endpoint URL
@@ -1033,6 +1035,8 @@ class ProviderEndpointArgs:
             pulumi.set(__self__, "detective", detective)
         if devicefarm is not None:
             pulumi.set(__self__, "devicefarm", devicefarm)
+        if devopsguru is not None:
+            pulumi.set(__self__, "devopsguru", devopsguru)
         if directconnect is not None:
             pulumi.set(__self__, "directconnect", directconnect)
         if directoryservice is not None:
@@ -2459,6 +2463,18 @@ class ProviderEndpointArgs:
     @devicefarm.setter
     def devicefarm(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "devicefarm", value)
+
+    @property
+    @pulumi.getter
+    def devopsguru(self) -> Optional[pulumi.Input[str]]:
+        """
+        Use this to override the default service endpoint URL
+        """
+        return pulumi.get(self, "devopsguru")
+
+    @devopsguru.setter
+    def devopsguru(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "devopsguru", value)
 
     @property
     @pulumi.getter

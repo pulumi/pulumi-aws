@@ -44,7 +44,7 @@ import (
 // },
 // EcpuPerSeconds: elasticache.ServerlessCacheCacheUsageLimitsEcpuPerSecondArray{
 // &elasticache.ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs{
-// Maximum: pulumi.Int(5),
+// Maximum: pulumi.Int(5000),
 // },
 // },
 // },
@@ -100,7 +100,7 @@ import (
 // },
 // EcpuPerSeconds: elasticache.ServerlessCacheCacheUsageLimitsEcpuPerSecondArray{
 // &elasticache.ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs{
-// Maximum: pulumi.Int(5),
+// Maximum: pulumi.Int(5000),
 // },
 // },
 // },

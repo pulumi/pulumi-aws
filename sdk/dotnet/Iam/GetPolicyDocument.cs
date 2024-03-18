@@ -1561,6 +1561,9 @@ namespace Pulumi.Aws.Iam
 
     public sealed class GetPolicyDocumentArgs : global::Pulumi.InvokeArgs
     {
+        [Input("overrideJson")]
+        public string? OverrideJson { get; set; }
+
         [Input("overridePolicyDocuments")]
         private List<string>? _overridePolicyDocuments;
 
@@ -1578,6 +1581,9 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         [Input("policyId")]
         public string? PolicyId { get; set; }
+
+        [Input("sourceJson")]
+        public string? SourceJson { get; set; }
 
         [Input("sourcePolicyDocuments")]
         private List<string>? _sourcePolicyDocuments;
@@ -1617,6 +1623,9 @@ namespace Pulumi.Aws.Iam
 
     public sealed class GetPolicyDocumentInvokeArgs : global::Pulumi.InvokeArgs
     {
+        [Input("overrideJson")]
+        public Input<string>? OverrideJson { get; set; }
+
         [Input("overridePolicyDocuments")]
         private InputList<string>? _overridePolicyDocuments;
 
@@ -1634,6 +1643,9 @@ namespace Pulumi.Aws.Iam
         /// </summary>
         [Input("policyId")]
         public Input<string>? PolicyId { get; set; }
+
+        [Input("sourceJson")]
+        public Input<string>? SourceJson { get; set; }
 
         [Input("sourcePolicyDocuments")]
         private InputList<string>? _sourcePolicyDocuments;
@@ -1683,8 +1695,10 @@ namespace Pulumi.Aws.Iam
         /// Standard JSON policy document rendered based on the arguments above.
         /// </summary>
         public readonly string Json;
+        public readonly string? OverrideJson;
         public readonly ImmutableArray<string> OverridePolicyDocuments;
         public readonly string? PolicyId;
+        public readonly string? SourceJson;
         public readonly ImmutableArray<string> SourcePolicyDocuments;
         public readonly ImmutableArray<Outputs.GetPolicyDocumentStatementResult> Statements;
         public readonly string? Version;
@@ -1695,9 +1709,13 @@ namespace Pulumi.Aws.Iam
 
             string json,
 
+            string? overrideJson,
+
             ImmutableArray<string> overridePolicyDocuments,
 
             string? policyId,
+
+            string? sourceJson,
 
             ImmutableArray<string> sourcePolicyDocuments,
 
@@ -1707,8 +1725,10 @@ namespace Pulumi.Aws.Iam
         {
             Id = id;
             Json = json;
+            OverrideJson = overrideJson;
             OverridePolicyDocuments = overridePolicyDocuments;
             PolicyId = policyId;
+            SourceJson = sourceJson;
             SourcePolicyDocuments = sourcePolicyDocuments;
             Statements = statements;
             Version = version;

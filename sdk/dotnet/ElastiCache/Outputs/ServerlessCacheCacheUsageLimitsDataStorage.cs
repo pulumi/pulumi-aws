@@ -14,7 +14,7 @@ namespace Pulumi.Aws.ElastiCache.Outputs
     public sealed class ServerlessCacheCacheUsageLimitsDataStorage
     {
         /// <summary>
-        /// The upper limit for data storage the cache is set to use. Set as Integer.
+        /// The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
         /// </summary>
         public readonly int Maximum;
         /// <summary>

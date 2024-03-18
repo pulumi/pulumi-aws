@@ -77,6 +77,10 @@ type RegisteredDomain struct {
 	AdminPrivacy pulumi.BoolPtrOutput `pulumi:"adminPrivacy"`
 	// Whether the domain registration is set to renew automatically. Default: `true`.
 	AutoRenew pulumi.BoolPtrOutput `pulumi:"autoRenew"`
+	// Details about the domain billing contact. See Contact Blocks for more details.
+	BillingContact RegisteredDomainBillingContactOutput `pulumi:"billingContact"`
+	// Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
+	BillingPrivacy pulumi.BoolPtrOutput `pulumi:"billingPrivacy"`
 	// The date when the domain was created as found in the response to a WHOIS query.
 	CreationDate pulumi.StringOutput `pulumi:"creationDate"`
 	// The name of the registered domain.
@@ -158,6 +162,10 @@ type registeredDomainState struct {
 	AdminPrivacy *bool `pulumi:"adminPrivacy"`
 	// Whether the domain registration is set to renew automatically. Default: `true`.
 	AutoRenew *bool `pulumi:"autoRenew"`
+	// Details about the domain billing contact. See Contact Blocks for more details.
+	BillingContact *RegisteredDomainBillingContact `pulumi:"billingContact"`
+	// Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
+	BillingPrivacy *bool `pulumi:"billingPrivacy"`
 	// The date when the domain was created as found in the response to a WHOIS query.
 	CreationDate *string `pulumi:"creationDate"`
 	// The name of the registered domain.
@@ -207,6 +215,10 @@ type RegisteredDomainState struct {
 	AdminPrivacy pulumi.BoolPtrInput
 	// Whether the domain registration is set to renew automatically. Default: `true`.
 	AutoRenew pulumi.BoolPtrInput
+	// Details about the domain billing contact. See Contact Blocks for more details.
+	BillingContact RegisteredDomainBillingContactPtrInput
+	// Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
+	BillingPrivacy pulumi.BoolPtrInput
 	// The date when the domain was created as found in the response to a WHOIS query.
 	CreationDate pulumi.StringPtrInput
 	// The name of the registered domain.
@@ -256,6 +268,10 @@ type registeredDomainArgs struct {
 	AdminPrivacy *bool `pulumi:"adminPrivacy"`
 	// Whether the domain registration is set to renew automatically. Default: `true`.
 	AutoRenew *bool `pulumi:"autoRenew"`
+	// Details about the domain billing contact. See Contact Blocks for more details.
+	BillingContact *RegisteredDomainBillingContact `pulumi:"billingContact"`
+	// Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
+	BillingPrivacy *bool `pulumi:"billingPrivacy"`
 	// The name of the registered domain.
 	DomainName string `pulumi:"domainName"`
 	// The list of nameservers for the domain. See `nameServer` Blocks for more details.
@@ -282,6 +298,10 @@ type RegisteredDomainArgs struct {
 	AdminPrivacy pulumi.BoolPtrInput
 	// Whether the domain registration is set to renew automatically. Default: `true`.
 	AutoRenew pulumi.BoolPtrInput
+	// Details about the domain billing contact. See Contact Blocks for more details.
+	BillingContact RegisteredDomainBillingContactPtrInput
+	// Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
+	BillingPrivacy pulumi.BoolPtrInput
 	// The name of the registered domain.
 	DomainName pulumi.StringInput
 	// The list of nameservers for the domain. See `nameServer` Blocks for more details.
@@ -410,6 +430,16 @@ func (o RegisteredDomainOutput) AdminPrivacy() pulumi.BoolPtrOutput {
 // Whether the domain registration is set to renew automatically. Default: `true`.
 func (o RegisteredDomainOutput) AutoRenew() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *RegisteredDomain) pulumi.BoolPtrOutput { return v.AutoRenew }).(pulumi.BoolPtrOutput)
+}
+
+// Details about the domain billing contact. See Contact Blocks for more details.
+func (o RegisteredDomainOutput) BillingContact() RegisteredDomainBillingContactOutput {
+	return o.ApplyT(func(v *RegisteredDomain) RegisteredDomainBillingContactOutput { return v.BillingContact }).(RegisteredDomainBillingContactOutput)
+}
+
+// Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
+func (o RegisteredDomainOutput) BillingPrivacy() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *RegisteredDomain) pulumi.BoolPtrOutput { return v.BillingPrivacy }).(pulumi.BoolPtrOutput)
 }
 
 // The date when the domain was created as found in the response to a WHOIS query.

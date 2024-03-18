@@ -207,6 +207,10 @@ export class Permissions extends pulumi.CustomResource {
      */
     public readonly catalogResource!: pulumi.Output<boolean | undefined>;
     /**
+     * Configuration block for a data cells filter resource. Detailed below.
+     */
+    public readonly dataCellsFilter!: pulumi.Output<outputs.lakeformation.PermissionsDataCellsFilter | undefined>;
+    /**
      * Configuration block for a data location resource. Detailed below.
      */
     public readonly dataLocation!: pulumi.Output<outputs.lakeformation.PermissionsDataLocation>;
@@ -264,6 +268,7 @@ export class Permissions extends pulumi.CustomResource {
             const state = argsOrState as PermissionsState | undefined;
             resourceInputs["catalogId"] = state ? state.catalogId : undefined;
             resourceInputs["catalogResource"] = state ? state.catalogResource : undefined;
+            resourceInputs["dataCellsFilter"] = state ? state.dataCellsFilter : undefined;
             resourceInputs["dataLocation"] = state ? state.dataLocation : undefined;
             resourceInputs["database"] = state ? state.database : undefined;
             resourceInputs["lfTag"] = state ? state.lfTag : undefined;
@@ -283,6 +288,7 @@ export class Permissions extends pulumi.CustomResource {
             }
             resourceInputs["catalogId"] = args ? args.catalogId : undefined;
             resourceInputs["catalogResource"] = args ? args.catalogResource : undefined;
+            resourceInputs["dataCellsFilter"] = args ? args.dataCellsFilter : undefined;
             resourceInputs["dataLocation"] = args ? args.dataLocation : undefined;
             resourceInputs["database"] = args ? args.database : undefined;
             resourceInputs["lfTag"] = args ? args.lfTag : undefined;
@@ -310,6 +316,10 @@ export interface PermissionsState {
      * Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
      */
     catalogResource?: pulumi.Input<boolean>;
+    /**
+     * Configuration block for a data cells filter resource. Detailed below.
+     */
+    dataCellsFilter?: pulumi.Input<inputs.lakeformation.PermissionsDataCellsFilter>;
     /**
      * Configuration block for a data location resource. Detailed below.
      */
@@ -366,6 +376,10 @@ export interface PermissionsArgs {
      * Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
      */
     catalogResource?: pulumi.Input<boolean>;
+    /**
+     * Configuration block for a data cells filter resource. Detailed below.
+     */
+    dataCellsFilter?: pulumi.Input<inputs.lakeformation.PermissionsDataCellsFilter>;
     /**
      * Configuration block for a data location resource. Detailed below.
      */

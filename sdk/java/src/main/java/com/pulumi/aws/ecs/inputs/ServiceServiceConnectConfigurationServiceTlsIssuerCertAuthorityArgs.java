@@ -5,10 +5,9 @@ package com.pulumi.aws.ecs.inputs;
 
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 
 public final class ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityArgs extends com.pulumi.resources.ResourceArgs {
@@ -19,15 +18,15 @@ public final class ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthori
      * The ARN of the `aws.acmpca.CertificateAuthority` used to create the TLS Certificates.
      * 
      */
-    @Import(name="awsPcaAuthorityArn")
-    private @Nullable Output<String> awsPcaAuthorityArn;
+    @Import(name="awsPcaAuthorityArn", required=true)
+    private Output<String> awsPcaAuthorityArn;
 
     /**
      * @return The ARN of the `aws.acmpca.CertificateAuthority` used to create the TLS Certificates.
      * 
      */
-    public Optional<Output<String>> awsPcaAuthorityArn() {
-        return Optional.ofNullable(this.awsPcaAuthorityArn);
+    public Output<String> awsPcaAuthorityArn() {
+        return this.awsPcaAuthorityArn;
     }
 
     private ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityArgs() {}
@@ -60,7 +59,7 @@ public final class ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthori
          * @return builder
          * 
          */
-        public Builder awsPcaAuthorityArn(@Nullable Output<String> awsPcaAuthorityArn) {
+        public Builder awsPcaAuthorityArn(Output<String> awsPcaAuthorityArn) {
             $.awsPcaAuthorityArn = awsPcaAuthorityArn;
             return this;
         }
@@ -76,6 +75,9 @@ public final class ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthori
         }
 
         public ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityArgs build() {
+            if ($.awsPcaAuthorityArn == null) {
+                throw new MissingRequiredPropertyException("ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthorityArgs", "awsPcaAuthorityArn");
+            }
             return $;
         }
     }

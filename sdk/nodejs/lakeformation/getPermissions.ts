@@ -82,6 +82,7 @@ export function getPermissions(args: GetPermissionsArgs, opts?: pulumi.InvokeOpt
     return pulumi.runtime.invoke("aws:lakeformation/getPermissions:getPermissions", {
         "catalogId": args.catalogId,
         "catalogResource": args.catalogResource,
+        "dataCellsFilter": args.dataCellsFilter,
         "dataLocation": args.dataLocation,
         "database": args.database,
         "lfTag": args.lfTag,
@@ -104,6 +105,10 @@ export interface GetPermissionsArgs {
      * Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
      */
     catalogResource?: boolean;
+    /**
+     * Configuration block for a data cells filter resource. Detailed below.
+     */
+    dataCellsFilter?: inputs.lakeformation.GetPermissionsDataCellsFilter;
     /**
      * Configuration block for a data location resource. Detailed below.
      */
@@ -144,6 +149,7 @@ export interface GetPermissionsArgs {
 export interface GetPermissionsResult {
     readonly catalogId?: string;
     readonly catalogResource?: boolean;
+    readonly dataCellsFilter: outputs.lakeformation.GetPermissionsDataCellsFilter;
     readonly dataLocation: outputs.lakeformation.GetPermissionsDataLocation;
     readonly database: outputs.lakeformation.GetPermissionsDatabase;
     /**
@@ -249,6 +255,10 @@ export interface GetPermissionsOutputArgs {
      * Whether the permissions are to be granted for the Data Catalog. Defaults to `false`.
      */
     catalogResource?: pulumi.Input<boolean>;
+    /**
+     * Configuration block for a data cells filter resource. Detailed below.
+     */
+    dataCellsFilter?: pulumi.Input<inputs.lakeformation.GetPermissionsDataCellsFilterArgs>;
     /**
      * Configuration block for a data location resource. Detailed below.
      */

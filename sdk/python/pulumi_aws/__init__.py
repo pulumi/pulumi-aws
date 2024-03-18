@@ -6577,6 +6577,14 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "lakeformation/dataCellsFilter",
+  "fqn": "pulumi_aws.lakeformation",
+  "classes": {
+   "aws:lakeformation/dataCellsFilter:DataCellsFilter": "DataCellsFilter"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "lakeformation/dataLakeSettings",
   "fqn": "pulumi_aws.lakeformation",
   "classes": {
@@ -9721,6 +9729,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "securityhub/configurationPolicy",
+  "fqn": "pulumi_aws.securityhub",
+  "classes": {
+   "aws:securityhub/configurationPolicy:ConfigurationPolicy": "ConfigurationPolicy"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "securityhub/configurationPolicyAssociation",
+  "fqn": "pulumi_aws.securityhub",
+  "classes": {
+   "aws:securityhub/configurationPolicyAssociation:ConfigurationPolicyAssociation": "ConfigurationPolicyAssociation"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "securityhub/findingAggregator",
   "fqn": "pulumi_aws.securityhub",
   "classes": {
@@ -9821,6 +9845,14 @@ _utilities.register(
   "fqn": "pulumi_aws.securitylake",
   "classes": {
    "aws:securitylake/subscriber:Subscriber": "Subscriber"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "securitylake/subscriberNotification",
+  "fqn": "pulumi_aws.securitylake",
+  "classes": {
+   "aws:securitylake/subscriberNotification:SubscriberNotification": "SubscriberNotification"
   }
  },
  {

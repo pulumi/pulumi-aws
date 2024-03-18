@@ -12,6 +12,34 @@ import (
 )
 
 // Get a list of brokers that a client application can use to bootstrap.
+//
+// ## Example Usage
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/msk"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			_, err := msk.GetBootstrapBrokers(ctx, &msk.GetBootstrapBrokersArgs{
+//				ClusterArn: exampleAwsMskCluster.Arn,
+//			}, nil)
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
 func GetBootstrapBrokers(ctx *pulumi.Context, args *GetBootstrapBrokersArgs, opts ...pulumi.InvokeOption) (*GetBootstrapBrokersResult, error) {
 	opts = internal.PkgInvokeDefaultOpts(opts)
 	var rv GetBootstrapBrokersResult

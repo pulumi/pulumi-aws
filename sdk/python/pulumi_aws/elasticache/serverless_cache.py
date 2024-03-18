@@ -635,7 +635,7 @@ class ServerlessCache(pulumi.CustomResource):
                     unit="GB",
                 ),
                 ecpu_per_seconds=[aws.elasticache.ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs(
-                    maximum=5,
+                    maximum=5000,
                 )],
             ),
             description="Test Server",
@@ -662,7 +662,7 @@ class ServerlessCache(pulumi.CustomResource):
                     unit="GB",
                 ),
                 ecpu_per_seconds=[aws.elasticache.ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs(
-                    maximum=5,
+                    maximum=5000,
                 )],
             ),
             daily_snapshot_time="09:00",
@@ -729,7 +729,7 @@ class ServerlessCache(pulumi.CustomResource):
                     unit="GB",
                 ),
                 ecpu_per_seconds=[aws.elasticache.ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs(
-                    maximum=5,
+                    maximum=5000,
                 )],
             ),
             description="Test Server",
@@ -756,7 +756,7 @@ class ServerlessCache(pulumi.CustomResource):
                     unit="GB",
                 ),
                 ecpu_per_seconds=[aws.elasticache.ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs(
-                    maximum=5,
+                    maximum=5000,
                 )],
             ),
             daily_snapshot_time="09:00",

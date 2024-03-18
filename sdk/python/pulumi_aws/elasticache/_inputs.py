@@ -355,7 +355,7 @@ class ServerlessCacheCacheUsageLimitsDataStorageArgs:
                  maximum: pulumi.Input[int],
                  unit: pulumi.Input[str]):
         """
-        :param pulumi.Input[int] maximum: The upper limit for data storage the cache is set to use. Set as Integer.
+        :param pulumi.Input[int] maximum: The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
         :param pulumi.Input[str] unit: The unit that the storage is measured in, in GB.
         """
         pulumi.set(__self__, "maximum", maximum)
@@ -365,7 +365,7 @@ class ServerlessCacheCacheUsageLimitsDataStorageArgs:
     @pulumi.getter
     def maximum(self) -> pulumi.Input[int]:
         """
-        The upper limit for data storage the cache is set to use. Set as Integer.
+        The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
         """
         return pulumi.get(self, "maximum")
 
@@ -391,7 +391,7 @@ class ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs:
     def __init__(__self__, *,
                  maximum: pulumi.Input[int]):
         """
-        :param pulumi.Input[int] maximum: The upper limit for data storage the cache is set to use. Set as Integer.
+        :param pulumi.Input[int] maximum: The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
         """
         pulumi.set(__self__, "maximum", maximum)
 
@@ -399,7 +399,7 @@ class ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs:
     @pulumi.getter
     def maximum(self) -> pulumi.Input[int]:
         """
-        The upper limit for data storage the cache is set to use. Set as Integer.
+        The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
         """
         return pulumi.get(self, "maximum")
 

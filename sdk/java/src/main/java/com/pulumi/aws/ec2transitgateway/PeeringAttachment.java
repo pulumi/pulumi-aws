@@ -123,6 +123,12 @@ public class PeeringAttachment extends com.pulumi.resources.CustomResource {
     public Output<String> peerTransitGatewayId() {
         return this.peerTransitGatewayId;
     }
+    @Export(name="state", refs={String.class}, tree="[0]")
+    private Output<String> state;
+
+    public Output<String> state() {
+        return this.state;
+    }
     /**
      * Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 

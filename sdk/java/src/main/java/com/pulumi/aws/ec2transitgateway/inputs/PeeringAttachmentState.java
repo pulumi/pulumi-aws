@@ -61,6 +61,13 @@ public final class PeeringAttachmentState extends com.pulumi.resources.ResourceA
         return Optional.ofNullable(this.peerTransitGatewayId);
     }
 
+    @Import(name="state")
+    private @Nullable Output<String> state;
+
+    public Optional<Output<String>> state() {
+        return Optional.ofNullable(this.state);
+    }
+
     /**
      * Key-value tags for the EC2 Transit Gateway Peering Attachment. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
      * 
@@ -120,6 +127,7 @@ public final class PeeringAttachmentState extends com.pulumi.resources.ResourceA
         this.peerAccountId = $.peerAccountId;
         this.peerRegion = $.peerRegion;
         this.peerTransitGatewayId = $.peerTransitGatewayId;
+        this.state = $.state;
         this.tags = $.tags;
         this.tagsAll = $.tagsAll;
         this.transitGatewayId = $.transitGatewayId;
@@ -204,6 +212,15 @@ public final class PeeringAttachmentState extends com.pulumi.resources.ResourceA
          */
         public Builder peerTransitGatewayId(String peerTransitGatewayId) {
             return peerTransitGatewayId(Output.of(peerTransitGatewayId));
+        }
+
+        public Builder state(@Nullable Output<String> state) {
+            $.state = state;
+            return this;
+        }
+
+        public Builder state(String state) {
+            return state(Output.of(state));
         }
 
         /**

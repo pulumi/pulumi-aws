@@ -5,6 +5,7 @@
 from .. import _utilities
 import typing
 # Export this package's modules as members:
+from .data_cells_filter import *
 from .data_lake_settings import *
 from .get_data_lake_settings import *
 from .get_permissions import *

@@ -4,10 +4,9 @@
 package com.pulumi.aws.ecs.outputs;
 
 import com.pulumi.core.annotations.CustomType;
+import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.String;
 import java.util.Objects;
-import java.util.Optional;
-import javax.annotation.Nullable;
 
 @CustomType
 public final class ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthority {
@@ -15,15 +14,15 @@ public final class ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthori
      * @return The ARN of the `aws.acmpca.CertificateAuthority` used to create the TLS Certificates.
      * 
      */
-    private @Nullable String awsPcaAuthorityArn;
+    private String awsPcaAuthorityArn;
 
     private ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthority() {}
     /**
      * @return The ARN of the `aws.acmpca.CertificateAuthority` used to create the TLS Certificates.
      * 
      */
-    public Optional<String> awsPcaAuthorityArn() {
-        return Optional.ofNullable(this.awsPcaAuthorityArn);
+    public String awsPcaAuthorityArn() {
+        return this.awsPcaAuthorityArn;
     }
 
     public static Builder builder() {
@@ -35,7 +34,7 @@ public final class ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthori
     }
     @CustomType.Builder
     public static final class Builder {
-        private @Nullable String awsPcaAuthorityArn;
+        private String awsPcaAuthorityArn;
         public Builder() {}
         public Builder(ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthority defaults) {
     	      Objects.requireNonNull(defaults);
@@ -43,8 +42,10 @@ public final class ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthori
         }
 
         @CustomType.Setter
-        public Builder awsPcaAuthorityArn(@Nullable String awsPcaAuthorityArn) {
-
+        public Builder awsPcaAuthorityArn(String awsPcaAuthorityArn) {
+            if (awsPcaAuthorityArn == null) {
+              throw new MissingRequiredPropertyException("ServiceServiceConnectConfigurationServiceTlsIssuerCertAuthority", "awsPcaAuthorityArn");
+            }
             this.awsPcaAuthorityArn = awsPcaAuthorityArn;
             return this;
         }

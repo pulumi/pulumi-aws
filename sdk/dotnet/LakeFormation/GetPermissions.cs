@@ -234,6 +234,12 @@ namespace Pulumi.Aws.LakeFormation
         public bool? CatalogResource { get; set; }
 
         /// <summary>
+        /// Configuration block for a data cells filter resource. Detailed below.
+        /// </summary>
+        [Input("dataCellsFilter")]
+        public Inputs.GetPermissionsDataCellsFilterArgs? DataCellsFilter { get; set; }
+
+        /// <summary>
         /// Configuration block for a data location resource. Detailed below.
         /// </summary>
         [Input("dataLocation")]
@@ -300,6 +306,12 @@ namespace Pulumi.Aws.LakeFormation
         public Input<bool>? CatalogResource { get; set; }
 
         /// <summary>
+        /// Configuration block for a data cells filter resource. Detailed below.
+        /// </summary>
+        [Input("dataCellsFilter")]
+        public Input<Inputs.GetPermissionsDataCellsFilterInputArgs>? DataCellsFilter { get; set; }
+
+        /// <summary>
         /// Configuration block for a data location resource. Detailed below.
         /// </summary>
         [Input("dataLocation")]
@@ -357,6 +369,7 @@ namespace Pulumi.Aws.LakeFormation
     {
         public readonly string? CatalogId;
         public readonly bool? CatalogResource;
+        public readonly Outputs.GetPermissionsDataCellsFilterResult DataCellsFilter;
         public readonly Outputs.GetPermissionsDataLocationResult DataLocation;
         public readonly Outputs.GetPermissionsDatabaseResult Database;
         /// <summary>
@@ -383,6 +396,8 @@ namespace Pulumi.Aws.LakeFormation
 
             bool? catalogResource,
 
+            Outputs.GetPermissionsDataCellsFilterResult dataCellsFilter,
+
             Outputs.GetPermissionsDataLocationResult dataLocation,
 
             Outputs.GetPermissionsDatabaseResult database,
@@ -405,6 +420,7 @@ namespace Pulumi.Aws.LakeFormation
         {
             CatalogId = catalogId;
             CatalogResource = catalogResource;
+            DataCellsFilter = dataCellsFilter;
             DataLocation = dataLocation;
             Database = database;
             Id = id;

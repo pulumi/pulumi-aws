@@ -18,6 +18,25 @@ public final class GetPolicyDocumentArgs extends com.pulumi.resources.InvokeArgs
     public static final GetPolicyDocumentArgs Empty = new GetPolicyDocumentArgs();
 
     /**
+     * @deprecated
+     * Not used
+     * 
+     */
+    @Deprecated /* Not used */
+    @Import(name="overrideJson")
+    private @Nullable Output<String> overrideJson;
+
+    /**
+     * @deprecated
+     * Not used
+     * 
+     */
+    @Deprecated /* Not used */
+    public Optional<Output<String>> overrideJson() {
+        return Optional.ofNullable(this.overrideJson);
+    }
+
+    /**
      * List of IAM policy documents that are merged together into the exported document. In merging, statements with non-blank `sid`s will override statements with the same `sid` from earlier documents in the list. Statements with non-blank `sid`s will also override statements with the same `sid` from `source_policy_documents`.  Non-overriding statements will be added to the exported document.
      * 
      */
@@ -45,6 +64,25 @@ public final class GetPolicyDocumentArgs extends com.pulumi.resources.InvokeArgs
      */
     public Optional<Output<String>> policyId() {
         return Optional.ofNullable(this.policyId);
+    }
+
+    /**
+     * @deprecated
+     * Not used
+     * 
+     */
+    @Deprecated /* Not used */
+    @Import(name="sourceJson")
+    private @Nullable Output<String> sourceJson;
+
+    /**
+     * @deprecated
+     * Not used
+     * 
+     */
+    @Deprecated /* Not used */
+    public Optional<Output<String>> sourceJson() {
+        return Optional.ofNullable(this.sourceJson);
     }
 
     /**
@@ -95,8 +133,10 @@ public final class GetPolicyDocumentArgs extends com.pulumi.resources.InvokeArgs
     private GetPolicyDocumentArgs() {}
 
     private GetPolicyDocumentArgs(GetPolicyDocumentArgs $) {
+        this.overrideJson = $.overrideJson;
         this.overridePolicyDocuments = $.overridePolicyDocuments;
         this.policyId = $.policyId;
+        this.sourceJson = $.sourceJson;
         this.sourcePolicyDocuments = $.sourcePolicyDocuments;
         this.statements = $.statements;
         this.version = $.version;
@@ -118,6 +158,31 @@ public final class GetPolicyDocumentArgs extends com.pulumi.resources.InvokeArgs
 
         public Builder(GetPolicyDocumentArgs defaults) {
             $ = new GetPolicyDocumentArgs(Objects.requireNonNull(defaults));
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * Not used
+         * 
+         */
+        @Deprecated /* Not used */
+        public Builder overrideJson(@Nullable Output<String> overrideJson) {
+            $.overrideJson = overrideJson;
+            return this;
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * Not used
+         * 
+         */
+        @Deprecated /* Not used */
+        public Builder overrideJson(String overrideJson) {
+            return overrideJson(Output.of(overrideJson));
         }
 
         /**
@@ -170,6 +235,31 @@ public final class GetPolicyDocumentArgs extends com.pulumi.resources.InvokeArgs
          */
         public Builder policyId(String policyId) {
             return policyId(Output.of(policyId));
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * Not used
+         * 
+         */
+        @Deprecated /* Not used */
+        public Builder sourceJson(@Nullable Output<String> sourceJson) {
+            $.sourceJson = sourceJson;
+            return this;
+        }
+
+        /**
+         * @return builder
+         * 
+         * @deprecated
+         * Not used
+         * 
+         */
+        @Deprecated /* Not used */
+        public Builder sourceJson(String sourceJson) {
+            return sourceJson(Output.of(sourceJson));
         }
 
         /**

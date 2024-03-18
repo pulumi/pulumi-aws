@@ -12,7 +12,7 @@ import java.util.Objects;
 @CustomType
 public final class ServerlessCacheCacheUsageLimitsDataStorage {
     /**
-     * @return The upper limit for data storage the cache is set to use. Set as Integer.
+     * @return The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
      * 
      */
     private Integer maximum;
@@ -24,7 +24,7 @@ public final class ServerlessCacheCacheUsageLimitsDataStorage {
 
     private ServerlessCacheCacheUsageLimitsDataStorage() {}
     /**
-     * @return The upper limit for data storage the cache is set to use. Set as Integer.
+     * @return The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
      * 
      */
     public Integer maximum() {

@@ -758,7 +758,7 @@ func (o ServerlessCacheCacheUsageLimitsPtrOutput) EcpuPerSeconds() ServerlessCac
 }
 
 type ServerlessCacheCacheUsageLimitsDataStorage struct {
-	// The upper limit for data storage the cache is set to use. Set as Integer.
+	// The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
 	Maximum int `pulumi:"maximum"`
 	// The unit that the storage is measured in, in GB.
 	Unit string `pulumi:"unit"`
@@ -776,7 +776,7 @@ type ServerlessCacheCacheUsageLimitsDataStorageInput interface {
 }
 
 type ServerlessCacheCacheUsageLimitsDataStorageArgs struct {
-	// The upper limit for data storage the cache is set to use. Set as Integer.
+	// The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
 	Maximum pulumi.IntInput `pulumi:"maximum"`
 	// The unit that the storage is measured in, in GB.
 	Unit pulumi.StringInput `pulumi:"unit"`
@@ -859,7 +859,7 @@ func (o ServerlessCacheCacheUsageLimitsDataStorageOutput) ToServerlessCacheCache
 	}).(ServerlessCacheCacheUsageLimitsDataStoragePtrOutput)
 }
 
-// The upper limit for data storage the cache is set to use. Set as Integer.
+// The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
 func (o ServerlessCacheCacheUsageLimitsDataStorageOutput) Maximum() pulumi.IntOutput {
 	return o.ApplyT(func(v ServerlessCacheCacheUsageLimitsDataStorage) int { return v.Maximum }).(pulumi.IntOutput)
 }
@@ -893,7 +893,7 @@ func (o ServerlessCacheCacheUsageLimitsDataStoragePtrOutput) Elem() ServerlessCa
 	}).(ServerlessCacheCacheUsageLimitsDataStorageOutput)
 }
 
-// The upper limit for data storage the cache is set to use. Set as Integer.
+// The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
 func (o ServerlessCacheCacheUsageLimitsDataStoragePtrOutput) Maximum() pulumi.IntPtrOutput {
 	return o.ApplyT(func(v *ServerlessCacheCacheUsageLimitsDataStorage) *int {
 		if v == nil {
@@ -914,7 +914,7 @@ func (o ServerlessCacheCacheUsageLimitsDataStoragePtrOutput) Unit() pulumi.Strin
 }
 
 type ServerlessCacheCacheUsageLimitsEcpuPerSecond struct {
-	// The upper limit for data storage the cache is set to use. Set as Integer.
+	// The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
 	Maximum int `pulumi:"maximum"`
 }
 
@@ -930,7 +930,7 @@ type ServerlessCacheCacheUsageLimitsEcpuPerSecondInput interface {
 }
 
 type ServerlessCacheCacheUsageLimitsEcpuPerSecondArgs struct {
-	// The upper limit for data storage the cache is set to use. Set as Integer.
+	// The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
 	Maximum pulumi.IntInput `pulumi:"maximum"`
 }
 
@@ -985,7 +985,7 @@ func (o ServerlessCacheCacheUsageLimitsEcpuPerSecondOutput) ToServerlessCacheCac
 	return o
 }
 
-// The upper limit for data storage the cache is set to use. Set as Integer.
+// The upper limit for data storage the cache is set to use. Must be between 1 and 5,000.
 func (o ServerlessCacheCacheUsageLimitsEcpuPerSecondOutput) Maximum() pulumi.IntOutput {
 	return o.ApplyT(func(v ServerlessCacheCacheUsageLimitsEcpuPerSecond) int { return v.Maximum }).(pulumi.IntOutput)
 }

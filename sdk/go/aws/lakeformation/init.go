@@ -21,6 +21,8 @@ func (m *module) Version() semver.Version {
 
 func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi.Resource, err error) {
 	switch typ {
+	case "aws:lakeformation/dataCellsFilter:DataCellsFilter":
+		r = &DataCellsFilter{}
 	case "aws:lakeformation/dataLakeSettings:DataLakeSettings":
 		r = &DataLakeSettings{}
 	case "aws:lakeformation/lfTag:LfTag":
@@ -44,6 +46,11 @@ func init() {
 	if err != nil {
 		version = semver.Version{Major: 1}
 	}
+	pulumi.RegisterResourceModule(
+		"aws",
+		"lakeformation/dataCellsFilter",
+		&module{version},
+	)
 	pulumi.RegisterResourceModule(
 		"aws",
 		"lakeformation/dataLakeSettings",

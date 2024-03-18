@@ -3331,7 +3331,16 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			},
 			"aws_servicecatalog_provisioned_product": {Tok: awsResource(servicecatalogMod, "ProvisionedProduct")},
 			// Security Hub
-			"aws_securityhub_account":                    {Tok: awsResource(securityhubMod, "Account")},
+			"aws_securityhub_account": {Tok: awsResource(securityhubMod, "Account")},
+			"aws_securityhub_configuration_policy": {
+				Tok: awsResource(securityhubMod, "ConfigurationPolicy"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"configuration_policy": {
+						// Workaround CS0542 that prohibits member names matching class names.
+						CSharpName: "ConfigurationPolicyDetails",
+					},
+				},
+			},
 			"aws_securityhub_product_subscription":       {Tok: awsResource(securityhubMod, "ProductSubscription")},
 			"aws_securityhub_standards_subscription":     {Tok: awsResource(securityhubMod, "StandardsSubscription")},
 			"aws_securityhub_member":                     {Tok: awsResource(securityhubMod, "Member")},
@@ -3339,9 +3348,17 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			"aws_securityhub_organization_admin_account": {Tok: awsResource(securityhubMod, "OrganizationAdminAccount")},
 			"aws_securityhub_invite_accepter":            {Tok: awsResource(securityhubMod, "InviteAccepter")},
 			"aws_securityhub_insight":                    {Tok: awsResource(securityhubMod, "Insight")},
-			"aws_securityhub_organization_configuration": {Tok: awsResource(securityhubMod, "OrganizationConfiguration")},
-			"aws_securityhub_standards_control":          {Tok: awsResource(securityhubMod, "StandardsControl")},
-			"aws_securityhub_finding_aggregator":         {Tok: awsResource(securityhubMod, "FindingAggregator")},
+			"aws_securityhub_organization_configuration": {
+				Tok: awsResource(securityhubMod, "OrganizationConfiguration"),
+				Fields: map[string]*tfbridge.SchemaInfo{
+					"organization_configuration": {
+						// Workaround CS0542 that prohibits member names matching class names.
+						CSharpName: "OrganizationConfigurationDetails",
+					},
+				},
+			},
+			"aws_securityhub_standards_control":  {Tok: awsResource(securityhubMod, "StandardsControl")},
+			"aws_securityhub_finding_aggregator": {Tok: awsResource(securityhubMod, "FindingAggregator")},
 			// Service Discovery
 			"aws_service_discovery_http_namespace":        {Tok: awsResource(servicediscoveryMod, "HttpNamespace")},
 			"aws_service_discovery_private_dns_namespace": {Tok: awsResource(servicediscoveryMod, "PrivateDnsNamespace")},

@@ -95,6 +95,14 @@ export class RegisteredDomain extends pulumi.CustomResource {
      */
     public readonly autoRenew!: pulumi.Output<boolean | undefined>;
     /**
+     * Details about the domain billing contact. See Contact Blocks for more details.
+     */
+    public readonly billingContact!: pulumi.Output<outputs.route53domains.RegisteredDomainBillingContact>;
+    /**
+     * Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
+     */
+    public readonly billingPrivacy!: pulumi.Output<boolean | undefined>;
+    /**
      * The date when the domain was created as found in the response to a WHOIS query.
      */
     public /*out*/ readonly creationDate!: pulumi.Output<string>;
@@ -183,6 +191,8 @@ export class RegisteredDomain extends pulumi.CustomResource {
             resourceInputs["adminContact"] = state ? state.adminContact : undefined;
             resourceInputs["adminPrivacy"] = state ? state.adminPrivacy : undefined;
             resourceInputs["autoRenew"] = state ? state.autoRenew : undefined;
+            resourceInputs["billingContact"] = state ? state.billingContact : undefined;
+            resourceInputs["billingPrivacy"] = state ? state.billingPrivacy : undefined;
             resourceInputs["creationDate"] = state ? state.creationDate : undefined;
             resourceInputs["domainName"] = state ? state.domainName : undefined;
             resourceInputs["expirationDate"] = state ? state.expirationDate : undefined;
@@ -208,6 +218,8 @@ export class RegisteredDomain extends pulumi.CustomResource {
             resourceInputs["adminContact"] = args ? args.adminContact : undefined;
             resourceInputs["adminPrivacy"] = args ? args.adminPrivacy : undefined;
             resourceInputs["autoRenew"] = args ? args.autoRenew : undefined;
+            resourceInputs["billingContact"] = args ? args.billingContact : undefined;
+            resourceInputs["billingPrivacy"] = args ? args.billingPrivacy : undefined;
             resourceInputs["domainName"] = args ? args.domainName : undefined;
             resourceInputs["nameServers"] = args ? args.nameServers : undefined;
             resourceInputs["registrantContact"] = args ? args.registrantContact : undefined;
@@ -257,6 +269,14 @@ export interface RegisteredDomainState {
      * Whether the domain registration is set to renew automatically. Default: `true`.
      */
     autoRenew?: pulumi.Input<boolean>;
+    /**
+     * Details about the domain billing contact. See Contact Blocks for more details.
+     */
+    billingContact?: pulumi.Input<inputs.route53domains.RegisteredDomainBillingContact>;
+    /**
+     * Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
+     */
+    billingPrivacy?: pulumi.Input<boolean>;
     /**
      * The date when the domain was created as found in the response to a WHOIS query.
      */
@@ -345,6 +365,14 @@ export interface RegisteredDomainArgs {
      * Whether the domain registration is set to renew automatically. Default: `true`.
      */
     autoRenew?: pulumi.Input<boolean>;
+    /**
+     * Details about the domain billing contact. See Contact Blocks for more details.
+     */
+    billingContact?: pulumi.Input<inputs.route53domains.RegisteredDomainBillingContact>;
+    /**
+     * Whether domain billing contact information is concealed from WHOIS queries. Default: `true`.
+     */
+    billingPrivacy?: pulumi.Input<boolean>;
     /**
      * The name of the registered domain.
      */

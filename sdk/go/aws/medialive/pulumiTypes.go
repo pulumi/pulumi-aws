@@ -31964,6 +31964,415 @@ func (o MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrO
 	}).(pulumi.IntPtrOutput)
 }
 
+type GetInputDestination struct {
+	Ip   string        `pulumi:"ip"`
+	Port string        `pulumi:"port"`
+	Url  string        `pulumi:"url"`
+	Vpcs []interface{} `pulumi:"vpcs"`
+}
+
+// GetInputDestinationInput is an input type that accepts GetInputDestinationArgs and GetInputDestinationOutput values.
+// You can construct a concrete instance of `GetInputDestinationInput` via:
+//
+//	GetInputDestinationArgs{...}
+type GetInputDestinationInput interface {
+	pulumi.Input
+
+	ToGetInputDestinationOutput() GetInputDestinationOutput
+	ToGetInputDestinationOutputWithContext(context.Context) GetInputDestinationOutput
+}
+
+type GetInputDestinationArgs struct {
+	Ip   pulumi.StringInput `pulumi:"ip"`
+	Port pulumi.StringInput `pulumi:"port"`
+	Url  pulumi.StringInput `pulumi:"url"`
+	Vpcs pulumi.ArrayInput  `pulumi:"vpcs"`
+}
+
+func (GetInputDestinationArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInputDestination)(nil)).Elem()
+}
+
+func (i GetInputDestinationArgs) ToGetInputDestinationOutput() GetInputDestinationOutput {
+	return i.ToGetInputDestinationOutputWithContext(context.Background())
+}
+
+func (i GetInputDestinationArgs) ToGetInputDestinationOutputWithContext(ctx context.Context) GetInputDestinationOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInputDestinationOutput)
+}
+
+// GetInputDestinationArrayInput is an input type that accepts GetInputDestinationArray and GetInputDestinationArrayOutput values.
+// You can construct a concrete instance of `GetInputDestinationArrayInput` via:
+//
+//	GetInputDestinationArray{ GetInputDestinationArgs{...} }
+type GetInputDestinationArrayInput interface {
+	pulumi.Input
+
+	ToGetInputDestinationArrayOutput() GetInputDestinationArrayOutput
+	ToGetInputDestinationArrayOutputWithContext(context.Context) GetInputDestinationArrayOutput
+}
+
+type GetInputDestinationArray []GetInputDestinationInput
+
+func (GetInputDestinationArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInputDestination)(nil)).Elem()
+}
+
+func (i GetInputDestinationArray) ToGetInputDestinationArrayOutput() GetInputDestinationArrayOutput {
+	return i.ToGetInputDestinationArrayOutputWithContext(context.Background())
+}
+
+func (i GetInputDestinationArray) ToGetInputDestinationArrayOutputWithContext(ctx context.Context) GetInputDestinationArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInputDestinationArrayOutput)
+}
+
+type GetInputDestinationOutput struct{ *pulumi.OutputState }
+
+func (GetInputDestinationOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInputDestination)(nil)).Elem()
+}
+
+func (o GetInputDestinationOutput) ToGetInputDestinationOutput() GetInputDestinationOutput {
+	return o
+}
+
+func (o GetInputDestinationOutput) ToGetInputDestinationOutputWithContext(ctx context.Context) GetInputDestinationOutput {
+	return o
+}
+
+func (o GetInputDestinationOutput) Ip() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInputDestination) string { return v.Ip }).(pulumi.StringOutput)
+}
+
+func (o GetInputDestinationOutput) Port() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInputDestination) string { return v.Port }).(pulumi.StringOutput)
+}
+
+func (o GetInputDestinationOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInputDestination) string { return v.Url }).(pulumi.StringOutput)
+}
+
+func (o GetInputDestinationOutput) Vpcs() pulumi.ArrayOutput {
+	return o.ApplyT(func(v GetInputDestination) []interface{} { return v.Vpcs }).(pulumi.ArrayOutput)
+}
+
+type GetInputDestinationArrayOutput struct{ *pulumi.OutputState }
+
+func (GetInputDestinationArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInputDestination)(nil)).Elem()
+}
+
+func (o GetInputDestinationArrayOutput) ToGetInputDestinationArrayOutput() GetInputDestinationArrayOutput {
+	return o
+}
+
+func (o GetInputDestinationArrayOutput) ToGetInputDestinationArrayOutputWithContext(ctx context.Context) GetInputDestinationArrayOutput {
+	return o
+}
+
+func (o GetInputDestinationArrayOutput) Index(i pulumi.IntInput) GetInputDestinationOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInputDestination {
+		return vs[0].([]GetInputDestination)[vs[1].(int)]
+	}).(GetInputDestinationOutput)
+}
+
+type GetInputInputDevice struct {
+	// The ID of the Input.
+	Id string `pulumi:"id"`
+}
+
+// GetInputInputDeviceInput is an input type that accepts GetInputInputDeviceArgs and GetInputInputDeviceOutput values.
+// You can construct a concrete instance of `GetInputInputDeviceInput` via:
+//
+//	GetInputInputDeviceArgs{...}
+type GetInputInputDeviceInput interface {
+	pulumi.Input
+
+	ToGetInputInputDeviceOutput() GetInputInputDeviceOutput
+	ToGetInputInputDeviceOutputWithContext(context.Context) GetInputInputDeviceOutput
+}
+
+type GetInputInputDeviceArgs struct {
+	// The ID of the Input.
+	Id pulumi.StringInput `pulumi:"id"`
+}
+
+func (GetInputInputDeviceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInputInputDevice)(nil)).Elem()
+}
+
+func (i GetInputInputDeviceArgs) ToGetInputInputDeviceOutput() GetInputInputDeviceOutput {
+	return i.ToGetInputInputDeviceOutputWithContext(context.Background())
+}
+
+func (i GetInputInputDeviceArgs) ToGetInputInputDeviceOutputWithContext(ctx context.Context) GetInputInputDeviceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInputInputDeviceOutput)
+}
+
+// GetInputInputDeviceArrayInput is an input type that accepts GetInputInputDeviceArray and GetInputInputDeviceArrayOutput values.
+// You can construct a concrete instance of `GetInputInputDeviceArrayInput` via:
+//
+//	GetInputInputDeviceArray{ GetInputInputDeviceArgs{...} }
+type GetInputInputDeviceArrayInput interface {
+	pulumi.Input
+
+	ToGetInputInputDeviceArrayOutput() GetInputInputDeviceArrayOutput
+	ToGetInputInputDeviceArrayOutputWithContext(context.Context) GetInputInputDeviceArrayOutput
+}
+
+type GetInputInputDeviceArray []GetInputInputDeviceInput
+
+func (GetInputInputDeviceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInputInputDevice)(nil)).Elem()
+}
+
+func (i GetInputInputDeviceArray) ToGetInputInputDeviceArrayOutput() GetInputInputDeviceArrayOutput {
+	return i.ToGetInputInputDeviceArrayOutputWithContext(context.Background())
+}
+
+func (i GetInputInputDeviceArray) ToGetInputInputDeviceArrayOutputWithContext(ctx context.Context) GetInputInputDeviceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInputInputDeviceArrayOutput)
+}
+
+type GetInputInputDeviceOutput struct{ *pulumi.OutputState }
+
+func (GetInputInputDeviceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInputInputDevice)(nil)).Elem()
+}
+
+func (o GetInputInputDeviceOutput) ToGetInputInputDeviceOutput() GetInputInputDeviceOutput {
+	return o
+}
+
+func (o GetInputInputDeviceOutput) ToGetInputInputDeviceOutputWithContext(ctx context.Context) GetInputInputDeviceOutput {
+	return o
+}
+
+// The ID of the Input.
+func (o GetInputInputDeviceOutput) Id() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInputInputDevice) string { return v.Id }).(pulumi.StringOutput)
+}
+
+type GetInputInputDeviceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetInputInputDeviceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInputInputDevice)(nil)).Elem()
+}
+
+func (o GetInputInputDeviceArrayOutput) ToGetInputInputDeviceArrayOutput() GetInputInputDeviceArrayOutput {
+	return o
+}
+
+func (o GetInputInputDeviceArrayOutput) ToGetInputInputDeviceArrayOutputWithContext(ctx context.Context) GetInputInputDeviceArrayOutput {
+	return o
+}
+
+func (o GetInputInputDeviceArrayOutput) Index(i pulumi.IntInput) GetInputInputDeviceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInputInputDevice {
+		return vs[0].([]GetInputInputDevice)[vs[1].(int)]
+	}).(GetInputInputDeviceOutput)
+}
+
+type GetInputMediaConnectFlow struct {
+	FlowArn string `pulumi:"flowArn"`
+}
+
+// GetInputMediaConnectFlowInput is an input type that accepts GetInputMediaConnectFlowArgs and GetInputMediaConnectFlowOutput values.
+// You can construct a concrete instance of `GetInputMediaConnectFlowInput` via:
+//
+//	GetInputMediaConnectFlowArgs{...}
+type GetInputMediaConnectFlowInput interface {
+	pulumi.Input
+
+	ToGetInputMediaConnectFlowOutput() GetInputMediaConnectFlowOutput
+	ToGetInputMediaConnectFlowOutputWithContext(context.Context) GetInputMediaConnectFlowOutput
+}
+
+type GetInputMediaConnectFlowArgs struct {
+	FlowArn pulumi.StringInput `pulumi:"flowArn"`
+}
+
+func (GetInputMediaConnectFlowArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInputMediaConnectFlow)(nil)).Elem()
+}
+
+func (i GetInputMediaConnectFlowArgs) ToGetInputMediaConnectFlowOutput() GetInputMediaConnectFlowOutput {
+	return i.ToGetInputMediaConnectFlowOutputWithContext(context.Background())
+}
+
+func (i GetInputMediaConnectFlowArgs) ToGetInputMediaConnectFlowOutputWithContext(ctx context.Context) GetInputMediaConnectFlowOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInputMediaConnectFlowOutput)
+}
+
+// GetInputMediaConnectFlowArrayInput is an input type that accepts GetInputMediaConnectFlowArray and GetInputMediaConnectFlowArrayOutput values.
+// You can construct a concrete instance of `GetInputMediaConnectFlowArrayInput` via:
+//
+//	GetInputMediaConnectFlowArray{ GetInputMediaConnectFlowArgs{...} }
+type GetInputMediaConnectFlowArrayInput interface {
+	pulumi.Input
+
+	ToGetInputMediaConnectFlowArrayOutput() GetInputMediaConnectFlowArrayOutput
+	ToGetInputMediaConnectFlowArrayOutputWithContext(context.Context) GetInputMediaConnectFlowArrayOutput
+}
+
+type GetInputMediaConnectFlowArray []GetInputMediaConnectFlowInput
+
+func (GetInputMediaConnectFlowArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInputMediaConnectFlow)(nil)).Elem()
+}
+
+func (i GetInputMediaConnectFlowArray) ToGetInputMediaConnectFlowArrayOutput() GetInputMediaConnectFlowArrayOutput {
+	return i.ToGetInputMediaConnectFlowArrayOutputWithContext(context.Background())
+}
+
+func (i GetInputMediaConnectFlowArray) ToGetInputMediaConnectFlowArrayOutputWithContext(ctx context.Context) GetInputMediaConnectFlowArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInputMediaConnectFlowArrayOutput)
+}
+
+type GetInputMediaConnectFlowOutput struct{ *pulumi.OutputState }
+
+func (GetInputMediaConnectFlowOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInputMediaConnectFlow)(nil)).Elem()
+}
+
+func (o GetInputMediaConnectFlowOutput) ToGetInputMediaConnectFlowOutput() GetInputMediaConnectFlowOutput {
+	return o
+}
+
+func (o GetInputMediaConnectFlowOutput) ToGetInputMediaConnectFlowOutputWithContext(ctx context.Context) GetInputMediaConnectFlowOutput {
+	return o
+}
+
+func (o GetInputMediaConnectFlowOutput) FlowArn() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInputMediaConnectFlow) string { return v.FlowArn }).(pulumi.StringOutput)
+}
+
+type GetInputMediaConnectFlowArrayOutput struct{ *pulumi.OutputState }
+
+func (GetInputMediaConnectFlowArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInputMediaConnectFlow)(nil)).Elem()
+}
+
+func (o GetInputMediaConnectFlowArrayOutput) ToGetInputMediaConnectFlowArrayOutput() GetInputMediaConnectFlowArrayOutput {
+	return o
+}
+
+func (o GetInputMediaConnectFlowArrayOutput) ToGetInputMediaConnectFlowArrayOutputWithContext(ctx context.Context) GetInputMediaConnectFlowArrayOutput {
+	return o
+}
+
+func (o GetInputMediaConnectFlowArrayOutput) Index(i pulumi.IntInput) GetInputMediaConnectFlowOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInputMediaConnectFlow {
+		return vs[0].([]GetInputMediaConnectFlow)[vs[1].(int)]
+	}).(GetInputMediaConnectFlowOutput)
+}
+
+type GetInputSource struct {
+	PasswordParam string `pulumi:"passwordParam"`
+	Url           string `pulumi:"url"`
+	Username      string `pulumi:"username"`
+}
+
+// GetInputSourceInput is an input type that accepts GetInputSourceArgs and GetInputSourceOutput values.
+// You can construct a concrete instance of `GetInputSourceInput` via:
+//
+//	GetInputSourceArgs{...}
+type GetInputSourceInput interface {
+	pulumi.Input
+
+	ToGetInputSourceOutput() GetInputSourceOutput
+	ToGetInputSourceOutputWithContext(context.Context) GetInputSourceOutput
+}
+
+type GetInputSourceArgs struct {
+	PasswordParam pulumi.StringInput `pulumi:"passwordParam"`
+	Url           pulumi.StringInput `pulumi:"url"`
+	Username      pulumi.StringInput `pulumi:"username"`
+}
+
+func (GetInputSourceArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInputSource)(nil)).Elem()
+}
+
+func (i GetInputSourceArgs) ToGetInputSourceOutput() GetInputSourceOutput {
+	return i.ToGetInputSourceOutputWithContext(context.Background())
+}
+
+func (i GetInputSourceArgs) ToGetInputSourceOutputWithContext(ctx context.Context) GetInputSourceOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInputSourceOutput)
+}
+
+// GetInputSourceArrayInput is an input type that accepts GetInputSourceArray and GetInputSourceArrayOutput values.
+// You can construct a concrete instance of `GetInputSourceArrayInput` via:
+//
+//	GetInputSourceArray{ GetInputSourceArgs{...} }
+type GetInputSourceArrayInput interface {
+	pulumi.Input
+
+	ToGetInputSourceArrayOutput() GetInputSourceArrayOutput
+	ToGetInputSourceArrayOutputWithContext(context.Context) GetInputSourceArrayOutput
+}
+
+type GetInputSourceArray []GetInputSourceInput
+
+func (GetInputSourceArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInputSource)(nil)).Elem()
+}
+
+func (i GetInputSourceArray) ToGetInputSourceArrayOutput() GetInputSourceArrayOutput {
+	return i.ToGetInputSourceArrayOutputWithContext(context.Background())
+}
+
+func (i GetInputSourceArray) ToGetInputSourceArrayOutputWithContext(ctx context.Context) GetInputSourceArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetInputSourceArrayOutput)
+}
+
+type GetInputSourceOutput struct{ *pulumi.OutputState }
+
+func (GetInputSourceOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetInputSource)(nil)).Elem()
+}
+
+func (o GetInputSourceOutput) ToGetInputSourceOutput() GetInputSourceOutput {
+	return o
+}
+
+func (o GetInputSourceOutput) ToGetInputSourceOutputWithContext(ctx context.Context) GetInputSourceOutput {
+	return o
+}
+
+func (o GetInputSourceOutput) PasswordParam() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInputSource) string { return v.PasswordParam }).(pulumi.StringOutput)
+}
+
+func (o GetInputSourceOutput) Url() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInputSource) string { return v.Url }).(pulumi.StringOutput)
+}
+
+func (o GetInputSourceOutput) Username() pulumi.StringOutput {
+	return o.ApplyT(func(v GetInputSource) string { return v.Username }).(pulumi.StringOutput)
+}
+
+type GetInputSourceArrayOutput struct{ *pulumi.OutputState }
+
+func (GetInputSourceArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetInputSource)(nil)).Elem()
+}
+
+func (o GetInputSourceArrayOutput) ToGetInputSourceArrayOutput() GetInputSourceArrayOutput {
+	return o
+}
+
+func (o GetInputSourceArrayOutput) ToGetInputSourceArrayOutputWithContext(ctx context.Context) GetInputSourceArrayOutput {
+	return o
+}
+
+func (o GetInputSourceArrayOutput) Index(i pulumi.IntInput) GetInputSourceOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetInputSource {
+		return vs[0].([]GetInputSource)[vs[1].(int)]
+	}).(GetInputSourceOutput)
+}
+
 func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelCdiInputSpecificationInput)(nil)).Elem(), ChannelCdiInputSpecificationArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*ChannelCdiInputSpecificationPtrInput)(nil)).Elem(), ChannelCdiInputSpecificationArgs{})
@@ -32302,6 +32711,14 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrInput)(nil)).Elem(), MultiplexProgramMultiplexProgramSettingsVideoSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsInput)(nil)).Elem(), MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrInput)(nil)).Elem(), MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInputDestinationInput)(nil)).Elem(), GetInputDestinationArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInputDestinationArrayInput)(nil)).Elem(), GetInputDestinationArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInputInputDeviceInput)(nil)).Elem(), GetInputInputDeviceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInputInputDeviceArrayInput)(nil)).Elem(), GetInputInputDeviceArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInputMediaConnectFlowInput)(nil)).Elem(), GetInputMediaConnectFlowArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInputMediaConnectFlowArrayInput)(nil)).Elem(), GetInputMediaConnectFlowArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInputSourceInput)(nil)).Elem(), GetInputSourceArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetInputSourceArrayInput)(nil)).Elem(), GetInputSourceArray{})
 	pulumi.RegisterOutputType(ChannelCdiInputSpecificationOutput{})
 	pulumi.RegisterOutputType(ChannelCdiInputSpecificationPtrOutput{})
 	pulumi.RegisterOutputType(ChannelDestinationOutput{})
@@ -32639,4 +33056,12 @@ func init() {
 	pulumi.RegisterOutputType(MultiplexProgramMultiplexProgramSettingsVideoSettingsPtrOutput{})
 	pulumi.RegisterOutputType(MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsOutput{})
 	pulumi.RegisterOutputType(MultiplexProgramMultiplexProgramSettingsVideoSettingsStatmuxSettingsPtrOutput{})
+	pulumi.RegisterOutputType(GetInputDestinationOutput{})
+	pulumi.RegisterOutputType(GetInputDestinationArrayOutput{})
+	pulumi.RegisterOutputType(GetInputInputDeviceOutput{})
+	pulumi.RegisterOutputType(GetInputInputDeviceArrayOutput{})
+	pulumi.RegisterOutputType(GetInputMediaConnectFlowOutput{})
+	pulumi.RegisterOutputType(GetInputMediaConnectFlowArrayOutput{})
+	pulumi.RegisterOutputType(GetInputSourceOutput{})
+	pulumi.RegisterOutputType(GetInputSourceArrayOutput{})
 }

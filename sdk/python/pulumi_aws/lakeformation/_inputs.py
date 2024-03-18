@@ -10,8 +10,14 @@ from typing import Any, Mapping, Optional, Sequence, Union, overload
 from .. import _utilities
 
 __all__ = [
+    'DataCellsFilterTableDataArgs',
+    'DataCellsFilterTableDataColumnWildcardArgs',
+    'DataCellsFilterTableDataRowFilterArgs',
+    'DataCellsFilterTableDataRowFilterAllRowsWildcardArgs',
+    'DataCellsFilterTimeoutsArgs',
     'DataLakeSettingsCreateDatabaseDefaultPermissionArgs',
     'DataLakeSettingsCreateTableDefaultPermissionArgs',
+    'PermissionsDataCellsFilterArgs',
     'PermissionsDataLocationArgs',
     'PermissionsDatabaseArgs',
     'PermissionsLfTagArgs',
@@ -23,6 +29,7 @@ __all__ = [
     'ResourceLfTagsLfTagArgs',
     'ResourceLfTagsTableArgs',
     'ResourceLfTagsTableWithColumnsArgs',
+    'GetPermissionsDataCellsFilterArgs',
     'GetPermissionsDataLocationArgs',
     'GetPermissionsDatabaseArgs',
     'GetPermissionsLfTagArgs',
@@ -31,6 +38,224 @@ __all__ = [
     'GetPermissionsTableArgs',
     'GetPermissionsTableWithColumnsArgs',
 ]
+
+@pulumi.input_type
+class DataCellsFilterTableDataArgs:
+    def __init__(__self__, *,
+                 database_name: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 table_catalog_id: pulumi.Input[str],
+                 table_name: pulumi.Input[str],
+                 column_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None,
+                 column_wildcard: Optional[pulumi.Input['DataCellsFilterTableDataColumnWildcardArgs']] = None,
+                 row_filter: Optional[pulumi.Input['DataCellsFilterTableDataRowFilterArgs']] = None,
+                 version_id: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] database_name: The name of the database.
+        :param pulumi.Input[str] name: The name of the data cells filter.
+        :param pulumi.Input[str] table_catalog_id: The ID of the Data Catalog.
+        :param pulumi.Input[str] table_name: The name of the table.
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] column_names: A list of column names and/or nested column attributes.
+        :param pulumi.Input['DataCellsFilterTableDataRowFilterArgs'] row_filter: A PartiQL predicate. See Row Filter below for details.
+        :param pulumi.Input[str] version_id: ID of the data cells filter version.
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "table_catalog_id", table_catalog_id)
+        pulumi.set(__self__, "table_name", table_name)
+        if column_names is not None:
+            pulumi.set(__self__, "column_names", column_names)
+        if column_wildcard is not None:
+            pulumi.set(__self__, "column_wildcard", column_wildcard)
+        if row_filter is not None:
+            pulumi.set(__self__, "row_filter", row_filter)
+        if version_id is not None:
+            pulumi.set(__self__, "version_id", version_id)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[str]:
+        """
+        The name of the database.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the data cells filter.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="tableCatalogId")
+    def table_catalog_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Data Catalog.
+        """
+        return pulumi.get(self, "table_catalog_id")
+
+    @table_catalog_id.setter
+    def table_catalog_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "table_catalog_id", value)
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> pulumi.Input[str]:
+        """
+        The name of the table.
+        """
+        return pulumi.get(self, "table_name")
+
+    @table_name.setter
+    def table_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "table_name", value)
+
+    @property
+    @pulumi.getter(name="columnNames")
+    def column_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        A list of column names and/or nested column attributes.
+        """
+        return pulumi.get(self, "column_names")
+
+    @column_names.setter
+    def column_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "column_names", value)
+
+    @property
+    @pulumi.getter(name="columnWildcard")
+    def column_wildcard(self) -> Optional[pulumi.Input['DataCellsFilterTableDataColumnWildcardArgs']]:
+        return pulumi.get(self, "column_wildcard")
+
+    @column_wildcard.setter
+    def column_wildcard(self, value: Optional[pulumi.Input['DataCellsFilterTableDataColumnWildcardArgs']]):
+        pulumi.set(self, "column_wildcard", value)
+
+    @property
+    @pulumi.getter(name="rowFilter")
+    def row_filter(self) -> Optional[pulumi.Input['DataCellsFilterTableDataRowFilterArgs']]:
+        """
+        A PartiQL predicate. See Row Filter below for details.
+        """
+        return pulumi.get(self, "row_filter")
+
+    @row_filter.setter
+    def row_filter(self, value: Optional[pulumi.Input['DataCellsFilterTableDataRowFilterArgs']]):
+        pulumi.set(self, "row_filter", value)
+
+    @property
+    @pulumi.getter(name="versionId")
+    def version_id(self) -> Optional[pulumi.Input[str]]:
+        """
+        ID of the data cells filter version.
+        """
+        return pulumi.get(self, "version_id")
+
+    @version_id.setter
+    def version_id(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "version_id", value)
+
+
+@pulumi.input_type
+class DataCellsFilterTableDataColumnWildcardArgs:
+    def __init__(__self__, *,
+                 excluded_column_names: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]] = None):
+        """
+        :param pulumi.Input[Sequence[pulumi.Input[str]]] excluded_column_names: (Optional) Excludes column names. Any column with this name will be excluded.
+        """
+        if excluded_column_names is not None:
+            pulumi.set(__self__, "excluded_column_names", excluded_column_names)
+
+    @property
+    @pulumi.getter(name="excludedColumnNames")
+    def excluded_column_names(self) -> Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]:
+        """
+        (Optional) Excludes column names. Any column with this name will be excluded.
+        """
+        return pulumi.get(self, "excluded_column_names")
+
+    @excluded_column_names.setter
+    def excluded_column_names(self, value: Optional[pulumi.Input[Sequence[pulumi.Input[str]]]]):
+        pulumi.set(self, "excluded_column_names", value)
+
+
+@pulumi.input_type
+class DataCellsFilterTableDataRowFilterArgs:
+    def __init__(__self__, *,
+                 all_rows_wildcard: Optional[pulumi.Input['DataCellsFilterTableDataRowFilterAllRowsWildcardArgs']] = None,
+                 filter_expression: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input['DataCellsFilterTableDataRowFilterAllRowsWildcardArgs'] all_rows_wildcard: (Optional) A wildcard that matches all rows.
+        :param pulumi.Input[str] filter_expression: (Optional) A filter expression.
+        """
+        if all_rows_wildcard is not None:
+            pulumi.set(__self__, "all_rows_wildcard", all_rows_wildcard)
+        if filter_expression is not None:
+            pulumi.set(__self__, "filter_expression", filter_expression)
+
+    @property
+    @pulumi.getter(name="allRowsWildcard")
+    def all_rows_wildcard(self) -> Optional[pulumi.Input['DataCellsFilterTableDataRowFilterAllRowsWildcardArgs']]:
+        """
+        (Optional) A wildcard that matches all rows.
+        """
+        return pulumi.get(self, "all_rows_wildcard")
+
+    @all_rows_wildcard.setter
+    def all_rows_wildcard(self, value: Optional[pulumi.Input['DataCellsFilterTableDataRowFilterAllRowsWildcardArgs']]):
+        pulumi.set(self, "all_rows_wildcard", value)
+
+    @property
+    @pulumi.getter(name="filterExpression")
+    def filter_expression(self) -> Optional[pulumi.Input[str]]:
+        """
+        (Optional) A filter expression.
+        """
+        return pulumi.get(self, "filter_expression")
+
+    @filter_expression.setter
+    def filter_expression(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "filter_expression", value)
+
+
+@pulumi.input_type
+class DataCellsFilterTableDataRowFilterAllRowsWildcardArgs:
+    def __init__(__self__):
+        pass
+
+
+@pulumi.input_type
+class DataCellsFilterTimeoutsArgs:
+    def __init__(__self__, *,
+                 create: Optional[pulumi.Input[str]] = None):
+        """
+        :param pulumi.Input[str] create: A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        if create is not None:
+            pulumi.set(__self__, "create", create)
+
+    @property
+    @pulumi.getter
+    def create(self) -> Optional[pulumi.Input[str]]:
+        """
+        A string that can be [parsed as a duration](https://pkg.go.dev/time#ParseDuration) consisting of numbers and unit suffixes, such as "30s" or "2h45m". Valid time units are "s" (seconds), "m" (minutes), "h" (hours).
+        """
+        return pulumi.get(self, "create")
+
+    @create.setter
+    def create(self, value: Optional[pulumi.Input[str]]):
+        pulumi.set(self, "create", value)
+
 
 @pulumi.input_type
 class DataLakeSettingsCreateDatabaseDefaultPermissionArgs:
@@ -108,6 +333,73 @@ class DataLakeSettingsCreateTableDefaultPermissionArgs:
     @principal.setter
     def principal(self, value: Optional[pulumi.Input[str]]):
         pulumi.set(self, "principal", value)
+
+
+@pulumi.input_type
+class PermissionsDataCellsFilterArgs:
+    def __init__(__self__, *,
+                 database_name: pulumi.Input[str],
+                 name: pulumi.Input[str],
+                 table_catalog_id: pulumi.Input[str],
+                 table_name: pulumi.Input[str]):
+        """
+        :param pulumi.Input[str] database_name: The name of the database.
+        :param pulumi.Input[str] name: The name of the data cells filter.
+        :param pulumi.Input[str] table_catalog_id: The ID of the Data Catalog.
+        :param pulumi.Input[str] table_name: The name of the table.
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "table_catalog_id", table_catalog_id)
+        pulumi.set(__self__, "table_name", table_name)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> pulumi.Input[str]:
+        """
+        The name of the database.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> pulumi.Input[str]:
+        """
+        The name of the data cells filter.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="tableCatalogId")
+    def table_catalog_id(self) -> pulumi.Input[str]:
+        """
+        The ID of the Data Catalog.
+        """
+        return pulumi.get(self, "table_catalog_id")
+
+    @table_catalog_id.setter
+    def table_catalog_id(self, value: pulumi.Input[str]):
+        pulumi.set(self, "table_catalog_id", value)
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> pulumi.Input[str]:
+        """
+        The name of the table.
+        """
+        return pulumi.get(self, "table_name")
+
+    @table_name.setter
+    def table_name(self, value: pulumi.Input[str]):
+        pulumi.set(self, "table_name", value)
 
 
 @pulumi.input_type
@@ -800,6 +1092,73 @@ class ResourceLfTagsTableWithColumnsArgs:
     @wildcard.setter
     def wildcard(self, value: Optional[pulumi.Input[bool]]):
         pulumi.set(self, "wildcard", value)
+
+
+@pulumi.input_type
+class GetPermissionsDataCellsFilterArgs:
+    def __init__(__self__, *,
+                 database_name: str,
+                 name: str,
+                 table_catalog_id: str,
+                 table_name: str):
+        """
+        :param str database_name: The name of the database.
+        :param str name: The name of the data cells filter.
+        :param str table_catalog_id: The ID of the Data Catalog.
+        :param str table_name: The name of the table.
+        """
+        pulumi.set(__self__, "database_name", database_name)
+        pulumi.set(__self__, "name", name)
+        pulumi.set(__self__, "table_catalog_id", table_catalog_id)
+        pulumi.set(__self__, "table_name", table_name)
+
+    @property
+    @pulumi.getter(name="databaseName")
+    def database_name(self) -> str:
+        """
+        The name of the database.
+        """
+        return pulumi.get(self, "database_name")
+
+    @database_name.setter
+    def database_name(self, value: str):
+        pulumi.set(self, "database_name", value)
+
+    @property
+    @pulumi.getter
+    def name(self) -> str:
+        """
+        The name of the data cells filter.
+        """
+        return pulumi.get(self, "name")
+
+    @name.setter
+    def name(self, value: str):
+        pulumi.set(self, "name", value)
+
+    @property
+    @pulumi.getter(name="tableCatalogId")
+    def table_catalog_id(self) -> str:
+        """
+        The ID of the Data Catalog.
+        """
+        return pulumi.get(self, "table_catalog_id")
+
+    @table_catalog_id.setter
+    def table_catalog_id(self, value: str):
+        pulumi.set(self, "table_catalog_id", value)
+
+    @property
+    @pulumi.getter(name="tableName")
+    def table_name(self) -> str:
+        """
+        The name of the table.
+        """
+        return pulumi.get(self, "table_name")
+
+    @table_name.setter
+    def table_name(self, value: str):
+        pulumi.set(self, "table_name", value)
 
 
 @pulumi.input_type

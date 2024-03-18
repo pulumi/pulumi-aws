@@ -543,6 +543,12 @@ namespace Pulumi.Aws.Inputs
         /// <summary>
         /// Use this to override the default service endpoint URL
         /// </summary>
+        [Input("devopsguru")]
+        public Input<string>? Devopsguru { get; set; }
+
+        /// <summary>
+        /// Use this to override the default service endpoint URL
+        /// </summary>
         [Input("directconnect")]
         public Input<string>? Directconnect { get; set; }
 
