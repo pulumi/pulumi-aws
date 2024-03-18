@@ -44,7 +44,7 @@ Once you have set `AWS_REGION` and configured your AWS credentials, `make test` 
 ## Generating IAM Policies
 
 ```bash
-aws iam list-policies | jq -f docs/generate-iam-policies.jq -r > policies.go
+aws iam list-policies --scope AWS | jq -f docs/generate-iam-policies.jq -r > policies.go
 ```
 
-Copy the content of `policies.go` and insert into the resources.go file, merging with any existing manual changes. If policies have been removed, we should keep them but mark them as deprecated.
+Copy the content of `policies.go` and insert into the `iam_managed_policy.go` file, merging with any existing manual changes. If policies have been removed, we should keep them but mark them as deprecated.
