@@ -140,6 +140,11 @@ export module Principals {
      * Service Principal for Edge Lambda
      */
     export const EdgeLambdaPrincipal: Principal = {Service: "edgelambda.amazonaws.com"};
+    
+    /**
+     * Service Principal for Elastic Kubernetes Service
+     */
+    export const EksPrincipal: Principal = {Service: "eks.amazonaws.com"};
 
     /**
      * Service Principal for Elasticache
