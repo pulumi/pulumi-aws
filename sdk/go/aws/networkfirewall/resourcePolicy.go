@@ -125,9 +125,9 @@ import (
 //
 // Using `pulumi import`, import Network Firewall Resource Policies using the `resource_arn`. For example:
 //
-// <break>```sh<break>
-// $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
-// <break>```<break>
+// console
+//
+// %!p(MISSING)ulumi import aws_networkfirewall_resource_policy.example aws_networkfirewall_rule_group.example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
 type ResourcePolicy struct {
 	pulumi.CustomResourceState
 
