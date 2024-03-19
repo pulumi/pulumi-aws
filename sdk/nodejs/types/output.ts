@@ -65945,7 +65945,7 @@ export namespace rds {
          * engines can't apply some parameters without a reboot, and you will need to
          * specify "pending-reboot" here.
          */
-        applyMethod?: string;
+        applyMethod: string;
         /**
          * The name of the DB parameter.
          */
