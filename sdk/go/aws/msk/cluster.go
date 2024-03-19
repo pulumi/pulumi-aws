@@ -53,7 +53,7 @@ import (
 //				return err
 //			}
 //			subnetAz1, err := ec2.NewSubnet(ctx, "subnet_az1", &ec2.SubnetArgs{
-//				AvailabilityZone: *pulumi.String(azs.Names[0]),
+//				AvailabilityZone: pulumi.String(azs.Names[0]),
 //				CidrBlock:        pulumi.String("192.168.0.0/24"),
 //				VpcId:            vpc.ID(),
 //			})
@@ -61,7 +61,7 @@ import (
 //				return err
 //			}
 //			subnetAz2, err := ec2.NewSubnet(ctx, "subnet_az2", &ec2.SubnetArgs{
-//				AvailabilityZone: *pulumi.String(azs.Names[1]),
+//				AvailabilityZone: pulumi.String(azs.Names[1]),
 //				CidrBlock:        pulumi.String("192.168.1.0/24"),
 //				VpcId:            vpc.ID(),
 //			})
@@ -69,7 +69,7 @@ import (
 //				return err
 //			}
 //			subnetAz3, err := ec2.NewSubnet(ctx, "subnet_az3", &ec2.SubnetArgs{
-//				AvailabilityZone: *pulumi.String(azs.Names[2]),
+//				AvailabilityZone: pulumi.String(azs.Names[2]),
 //				CidrBlock:        pulumi.String("192.168.2.0/24"),
 //				VpcId:            vpc.ID(),
 //			})
@@ -130,7 +130,7 @@ import (
 //			}
 //			firehoseRole, err := iam.NewRole(ctx, "firehose_role", &iam.RoleArgs{
 //				Name:             pulumi.String("firehose_test_role"),
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err

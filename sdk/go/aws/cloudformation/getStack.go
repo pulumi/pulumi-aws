@@ -39,7 +39,7 @@ import (
 //			_, err = ec2.NewInstance(ctx, "web", &ec2.InstanceArgs{
 //				Ami:          pulumi.String("ami-abb07bcb"),
 //				InstanceType: pulumi.String("t2.micro"),
-//				SubnetId:     *pulumi.String(network.Outputs.SubnetId),
+//				SubnetId:     pulumi.String(network.Outputs.SubnetId),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("HelloWorld"),
 //				},

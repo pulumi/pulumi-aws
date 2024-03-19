@@ -117,7 +117,7 @@ import (
 //			}
 //			testInstance, err := lightsail.NewInstance(ctx, "test", &lightsail.InstanceArgs{
 //				Name:             pulumi.String("test-instance"),
-//				AvailabilityZone: *pulumi.String(available.Names[0]),
+//				AvailabilityZone: pulumi.String(available.Names[0]),
 //				BlueprintId:      pulumi.String("amazon_linux_2"),
 //				BundleId:         pulumi.String("micro_1_0"),
 //			})
@@ -136,7 +136,7 @@ import (
 //				BundleId: pulumi.String("small_1_0"),
 //				Origin: &lightsail.DistributionOriginArgs{
 //					Name:       testInstance.Name,
-//					RegionName: *pulumi.String(available.Id),
+//					RegionName: pulumi.String(available.Id),
 //				},
 //				DefaultCacheBehavior: &lightsail.DistributionDefaultCacheBehaviorArgs{
 //					Behavior: pulumi.String("cache"),
@@ -197,7 +197,7 @@ import (
 //			}
 //			testInstance, err := lightsail.NewInstance(ctx, "test", &lightsail.InstanceArgs{
 //				Name:             pulumi.String("test-instance"),
-//				AvailabilityZone: *pulumi.String(available.Names[0]),
+//				AvailabilityZone: pulumi.String(available.Names[0]),
 //				BlueprintId:      pulumi.String("amazon_linux_2"),
 //				BundleId:         pulumi.String("nano_1_0"),
 //			})
@@ -216,7 +216,7 @@ import (
 //				BundleId: pulumi.String("small_1_0"),
 //				Origin: &lightsail.DistributionOriginArgs{
 //					Name:       test.Name,
-//					RegionName: *pulumi.String(available.Id),
+//					RegionName: pulumi.String(available.Id),
 //				},
 //				DefaultCacheBehavior: &lightsail.DistributionDefaultCacheBehaviorArgs{
 //					Behavior: pulumi.String("cache"),

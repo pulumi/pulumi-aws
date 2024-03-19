@@ -98,7 +98,7 @@ import (
 //			test, err := ec2.NewVpcIpam(ctx, "test", &ec2.VpcIpamArgs{
 //				OperatingRegions: ec2.VpcIpamOperatingRegionArray{
 //					&ec2.VpcIpamOperatingRegionArgs{
-//						RegionName: *pulumi.String(current.Name),
+//						RegionName: pulumi.String(current.Name),
 //					},
 //				},
 //			})
@@ -108,7 +108,7 @@ import (
 //			testVpcIpamPool, err := ec2.NewVpcIpamPool(ctx, "test", &ec2.VpcIpamPoolArgs{
 //				AddressFamily: pulumi.String("ipv4"),
 //				IpamScopeId:   test.PrivateDefaultScopeId,
-//				Locale:        *pulumi.String(current.Name),
+//				Locale:        pulumi.String(current.Name),
 //			})
 //			if err != nil {
 //				return err
