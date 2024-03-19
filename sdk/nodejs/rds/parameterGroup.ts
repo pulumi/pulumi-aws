@@ -16,11 +16,12 @@ import * as utilities from "../utilities";
  * * [Oracle Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/USER_ModifyInstance.Oracle.html#USER_ModifyInstance.Oracle.sqlnet)
  * * [PostgreSQL Parameters](https://docs.aws.amazon.com/AmazonRDS/latest/UserGuide/Appendix.PostgreSQL.CommonDBATasks.html#Appendix.PostgreSQL.CommonDBATasks.Parameters)
  *
- * > **NOTE:** After applying your changes, you may encounter a perpetual diff in your pulumi preview
- * output for a `parameter` whose `value` remains unchanged but whose `applyMethod` is changing
- * (e.g., from `immediate` to `pending-reboot`, or `pending-reboot` to `immediate`). If only the
- * apply method of a parameter is changing, the AWS API will not register this change. To change
- * the `applyMethod` of a parameter, its value must also change.
+ * > **Hands-on:** For an example of the `aws.rds.ParameterGroup` in use, follow the Manage AWS RDS Instances tutorial on HashiCorp Learn.
+ *
+ * > **NOTE**: to make diffs less confusing, the AWS provider will ignore changes for a `parameter` whose `value` remains
+ * unchanged but whose `applyMethod` is changing (e.g., from `immediate` to `pending-reboot`, or `pending-reboot` to
+ * `immediate`). This matches the cloud: if only the apply method of a parameter is changing, the AWS API will not register
+ * this change. To change the `applyMethod` of a parameter, its value must also change.
  *
  * ## Example Usage
  *
