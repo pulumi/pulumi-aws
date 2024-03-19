@@ -31,6 +31,7 @@ import (
 	awsbase "github.com/hashicorp/aws-sdk-go-base/v2"
 	tfschema "github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
 	"github.com/mitchellh/go-homedir"
+	"github.com/pulumi/pulumi-aws/provider/v6/pkg/rds"
 	"github.com/pulumi/pulumi-aws/provider/v6/pkg/version"
 
 	pftfbridge "github.com/pulumi/pulumi-terraform-bridge/pf/tfbridge"
@@ -3095,6 +3096,7 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 						Default: managedByPulumi,
 					},
 				},
+				Docs: rds.ParameterGroupDocs("upstream"),
 			},
 			"aws_db_instance_role_association": {
 				Tok: awsResource(rdsMod, "RoleAssociation"),

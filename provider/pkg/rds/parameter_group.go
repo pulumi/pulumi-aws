@@ -17,19 +17,43 @@ package rds
 import (
 	"context"
 	"fmt"
+	"os"
+	"path/filepath"
 	"regexp"
+	"strings"
 
 	"github.com/hashicorp/terraform-plugin-sdk/v2/helper/schema"
-)
 
-// Customize resources in the rds module.
-func ReconfigureResources(p *schema.Provider) {
-	parameterGroupReconfigure(p)
-}
+	"github.com/pulumi/pulumi-terraform-bridge/v3/pkg/tfbridge"
+)
 
 var (
 	parameterGroupApplyMethodRegexp = regexp.MustCompile(`^parameter\.(\d+)\.apply_method$`)
+	parameterGroupNote              = strings.TrimSpace(strings.ReplaceAll(`
+**NOTE**: to make diffs less confusing, the AWS provider will ignore changes for a 'parameter' whose 'value' remains
+unchanged but whose 'apply_method' is changing (e.g., from 'immediate' to 'pending-reboot', or 'pending-reboot' to
+'immediate'). This matches the cloud: if only the apply method of a parameter is changing, the AWS API will not register
+this change. To change the 'apply_method' of a parameter, its value must also change.
+`, "'", "`"))
 )
+
+func ParameterGroupDocs(upstreamPath string) *tfbridge.DocInfo {
+	relPath := "website/docs/r/db_parameter_group.html.markdown"
+	fp := filepath.Join(append([]string{upstreamPath}, strings.Split(relPath, "/")...)...)
+	bytes, err := os.ReadFile(fp)
+	if err != nil {
+		// at runtime the file may not be available, bail
+		return nil
+	}
+	pattern := regexp.MustCompile(
+		"(?s)[*][*]NOTE:[*][*] After applying your changes, (.*?) must also change.",
+	)
+	newNote := []byte(parameterGroupNote)
+	markdown := pattern.ReplaceAll(bytes, newNote)
+	return &tfbridge.DocInfo{
+		Markdown: markdown,
+	}
+}
 
 // Customize the aws_db_parameter_group resource.
 func parameterGroupReconfigure(p *schema.Provider) {
