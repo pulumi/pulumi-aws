@@ -44,7 +44,7 @@ import (
 //				return err
 //			}
 //			_, err = rds.NewReservedInstance(ctx, "example", &rds.ReservedInstanceArgs{
-//				OfferingId:    *pulumi.String(test.OfferingId),
+//				OfferingId:    pulumi.String(test.OfferingId),
 //				ReservationId: pulumi.String("optionalCustomReservationID"),
 //				InstanceCount: pulumi.Int(3),
 //			})

@@ -41,7 +41,7 @@ import (
 //				Aliases: route53.RecordAliasArray{
 //					&route53.RecordAliasArgs{
 //						Name:                 pulumi.Any(mainAwsApprunnerCustomDomainAssociation.DnsTarget),
-//						ZoneId:               *pulumi.String(main.Id),
+//						ZoneId:               pulumi.String(main.Id),
 //						EvaluateTargetHealth: pulumi.Bool(true),
 //					},
 //				},

@@ -80,7 +80,7 @@ import (
 //						Name: pulumi.String("example"),
 //						Controls: auditmanager.FrameworkControlSetControlArray{
 //							&auditmanager.FrameworkControlSetControlArgs{
-//								Id: *pulumi.String(example.Id),
+//								Id: pulumi.String(example.Id),
 //							},
 //						},
 //					},
@@ -88,7 +88,7 @@ import (
 //						Name: pulumi.String("example2"),
 //						Controls: auditmanager.FrameworkControlSetControlArray{
 //							&auditmanager.FrameworkControlSetControlArgs{
-//								Id: *pulumi.String(example2.Id),
+//								Id: pulumi.String(example2.Id),
 //							},
 //						},
 //					},
