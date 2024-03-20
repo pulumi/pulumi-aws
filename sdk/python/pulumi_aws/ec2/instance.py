@@ -1822,7 +1822,7 @@ class Instance(pulumi.CustomResource):
             owners=["099720109477"])
         web = aws.ec2.Instance("web",
             ami=ubuntu.id,
-            instance_type="t3.micro",
+            instance_type=aws.ec2.InstanceType.T3_MICRO,
             tags={
                 "Name": "HelloWorld",
             })
@@ -1855,7 +1855,7 @@ class Instance(pulumi.CustomResource):
                     max_price="0.0031",
                 ),
             ),
-            instance_type="t4g.nano",
+            instance_type=aws.ec2.InstanceType.T4G_NANO,
             tags={
                 "Name": "test-spot",
             })
@@ -1889,7 +1889,7 @@ class Instance(pulumi.CustomResource):
             })
         foo_instance = aws.ec2.Instance("foo",
             ami="ami-005e54dee72cc1d00",
-            instance_type="t2.micro",
+            instance_type=aws.ec2.InstanceType.T2_MICRO,
             network_interfaces=[aws.ec2.InstanceNetworkInterfaceArgs(
                 network_interface_id=foo.id,
                 device_index=0,
@@ -1927,7 +1927,7 @@ class Instance(pulumi.CustomResource):
             )])
         example_instance = aws.ec2.Instance("example",
             ami=amzn_linux_2023_ami.id,
-            instance_type="c6a.2xlarge",
+            instance_type=aws.ec2.InstanceType.C6A_2_X_LARGE,
             subnet_id=example_subnet.id,
             cpu_options=aws.ec2.InstanceCpuOptionsArgs(
                 core_count=2,
@@ -1952,7 +1952,7 @@ class Instance(pulumi.CustomResource):
 
         this = aws.ec2.Instance("this",
             ami="ami-0dcc1e21636832c5d",
-            instance_type="m5.large",
+            instance_type=aws.ec2.InstanceType.M5_LARGE,
             host_resource_group_arn="arn:aws:resource-groups:us-west-2:012345678901:group/win-testhost",
             tenancy="host")
         ```
@@ -2065,7 +2065,7 @@ class Instance(pulumi.CustomResource):
             owners=["099720109477"])
         web = aws.ec2.Instance("web",
             ami=ubuntu.id,
-            instance_type="t3.micro",
+            instance_type=aws.ec2.InstanceType.T3_MICRO,
             tags={
                 "Name": "HelloWorld",
             })
@@ -2098,7 +2098,7 @@ class Instance(pulumi.CustomResource):
                     max_price="0.0031",
                 ),
             ),
-            instance_type="t4g.nano",
+            instance_type=aws.ec2.InstanceType.T4G_NANO,
             tags={
                 "Name": "test-spot",
             })
@@ -2132,7 +2132,7 @@ class Instance(pulumi.CustomResource):
             })
         foo_instance = aws.ec2.Instance("foo",
             ami="ami-005e54dee72cc1d00",
-            instance_type="t2.micro",
+            instance_type=aws.ec2.InstanceType.T2_MICRO,
             network_interfaces=[aws.ec2.InstanceNetworkInterfaceArgs(
                 network_interface_id=foo.id,
                 device_index=0,
@@ -2170,7 +2170,7 @@ class Instance(pulumi.CustomResource):
             )])
         example_instance = aws.ec2.Instance("example",
             ami=amzn_linux_2023_ami.id,
-            instance_type="c6a.2xlarge",
+            instance_type=aws.ec2.InstanceType.C6A_2_X_LARGE,
             subnet_id=example_subnet.id,
             cpu_options=aws.ec2.InstanceCpuOptionsArgs(
                 core_count=2,
@@ -2195,7 +2195,7 @@ class Instance(pulumi.CustomResource):
 
         this = aws.ec2.Instance("this",
             ami="ami-0dcc1e21636832c5d",
-            instance_type="m5.large",
+            instance_type=aws.ec2.InstanceType.M5_LARGE,
             host_resource_group_arn="arn:aws:resource-groups:us-west-2:012345678901:group/win-testhost",
             tenancy="host")
         ```

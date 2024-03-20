@@ -837,7 +837,7 @@ class Bucket(pulumi.CustomResource):
 
         b = aws.s3.Bucket("b",
             bucket="my-tf-test-bucket",
-            acl="private",
+            acl=aws.s3.CannedAcl.PRIVATE,
             tags={
                 "Name": "My bucket",
                 "Environment": "Dev",
@@ -855,7 +855,7 @@ class Bucket(pulumi.CustomResource):
 
         b = aws.s3.Bucket("b",
             bucket="s3-website-test.mydomain.com",
-            acl="public-read",
+            acl=aws.s3.CannedAcl.PUBLIC_READ,
             policy=std.file(input="policy.json").result,
             website=aws.s3.BucketWebsiteArgs(
                 index_document="index.html",
@@ -882,7 +882,7 @@ class Bucket(pulumi.CustomResource):
 
         b = aws.s3.Bucket("b",
             bucket="s3-website-test.mydomain.com",
-            acl="public-read",
+            acl=aws.s3.CannedAcl.PUBLIC_READ,
             cors_rules=[aws.s3.BucketCorsRuleArgs(
                 allowed_headers=["*"],
                 allowed_methods=[
@@ -905,7 +905,7 @@ class Bucket(pulumi.CustomResource):
 
         b = aws.s3.Bucket("b",
             bucket="my-tf-test-bucket",
-            acl="private",
+            acl=aws.s3.CannedAcl.PRIVATE,
             versioning=aws.s3.BucketVersioningArgs(
                 enabled=True,
             ))
@@ -921,10 +921,10 @@ class Bucket(pulumi.CustomResource):
 
         log_bucket = aws.s3.Bucket("log_bucket",
             bucket="my-tf-log-bucket",
-            acl="log-delivery-write")
+            acl=aws.s3.CannedAcl.LOG_DELIVERY_WRITE)
         b = aws.s3.Bucket("b",
             bucket="my-tf-test-bucket",
-            acl="private",
+            acl=aws.s3.CannedAcl.PRIVATE,
             loggings=[aws.s3.BucketLoggingArgs(
                 target_bucket=log_bucket.id,
                 target_prefix="log/",
@@ -941,7 +941,7 @@ class Bucket(pulumi.CustomResource):
 
         bucket = aws.s3.Bucket("bucket",
             bucket="my-bucket",
-            acl="private",
+            acl=aws.s3.CannedAcl.PRIVATE,
             lifecycle_rules=[
                 aws.s3.BucketLifecycleRuleArgs(
                     id="log",
@@ -976,7 +976,7 @@ class Bucket(pulumi.CustomResource):
             ])
         versioning_bucket = aws.s3.Bucket("versioning_bucket",
             bucket="my-versioning-bucket",
-            acl="private",
+            acl=aws.s3.CannedAcl.PRIVATE,
             versioning=aws.s3.BucketVersioningArgs(
                 enabled=True,
             ),
@@ -1032,7 +1032,7 @@ class Bucket(pulumi.CustomResource):
             ))
         source = aws.s3.Bucket("source",
             bucket="tf-test-bucket-source-12345",
-            acl="private",
+            acl=aws.s3.CannedAcl.PRIVATE,
             versioning=aws.s3.BucketVersioningArgs(
                 enabled=True,
             ),
@@ -1215,7 +1215,7 @@ class Bucket(pulumi.CustomResource):
 
         b = aws.s3.Bucket("b",
             bucket="my-tf-test-bucket",
-            acl="private",
+            acl=aws.s3.CannedAcl.PRIVATE,
             tags={
                 "Name": "My bucket",
                 "Environment": "Dev",
@@ -1233,7 +1233,7 @@ class Bucket(pulumi.CustomResource):
 
         b = aws.s3.Bucket("b",
             bucket="s3-website-test.mydomain.com",
-            acl="public-read",
+            acl=aws.s3.CannedAcl.PUBLIC_READ,
             policy=std.file(input="policy.json").result,
             website=aws.s3.BucketWebsiteArgs(
                 index_document="index.html",
@@ -1260,7 +1260,7 @@ class Bucket(pulumi.CustomResource):
 
         b = aws.s3.Bucket("b",
             bucket="s3-website-test.mydomain.com",
-            acl="public-read",
+            acl=aws.s3.CannedAcl.PUBLIC_READ,
             cors_rules=[aws.s3.BucketCorsRuleArgs(
                 allowed_headers=["*"],
                 allowed_methods=[
@@ -1283,7 +1283,7 @@ class Bucket(pulumi.CustomResource):
 
         b = aws.s3.Bucket("b",
             bucket="my-tf-test-bucket",
-            acl="private",
+            acl=aws.s3.CannedAcl.PRIVATE,
             versioning=aws.s3.BucketVersioningArgs(
                 enabled=True,
             ))
@@ -1299,10 +1299,10 @@ class Bucket(pulumi.CustomResource):
 
         log_bucket = aws.s3.Bucket("log_bucket",
             bucket="my-tf-log-bucket",
-            acl="log-delivery-write")
+            acl=aws.s3.CannedAcl.LOG_DELIVERY_WRITE)
         b = aws.s3.Bucket("b",
             bucket="my-tf-test-bucket",
-            acl="private",
+            acl=aws.s3.CannedAcl.PRIVATE,
             loggings=[aws.s3.BucketLoggingArgs(
                 target_bucket=log_bucket.id,
                 target_prefix="log/",
@@ -1319,7 +1319,7 @@ class Bucket(pulumi.CustomResource):
 
         bucket = aws.s3.Bucket("bucket",
             bucket="my-bucket",
-            acl="private",
+            acl=aws.s3.CannedAcl.PRIVATE,
             lifecycle_rules=[
                 aws.s3.BucketLifecycleRuleArgs(
                     id="log",
@@ -1354,7 +1354,7 @@ class Bucket(pulumi.CustomResource):
             ])
         versioning_bucket = aws.s3.Bucket("versioning_bucket",
             bucket="my-versioning-bucket",
-            acl="private",
+            acl=aws.s3.CannedAcl.PRIVATE,
             versioning=aws.s3.BucketVersioningArgs(
                 enabled=True,
             ),
@@ -1410,7 +1410,7 @@ class Bucket(pulumi.CustomResource):
             ))
         source = aws.s3.Bucket("source",
             bucket="tf-test-bucket-source-12345",
-            acl="private",
+            acl=aws.s3.CannedAcl.PRIVATE,
             versioning=aws.s3.BucketVersioningArgs(
                 enabled=True,
             ),

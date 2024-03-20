@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Rds
     ///         DatabaseName = "mydb",
     ///         MasterUsername = "foo",
     ///         MasterPassword = "mustbeeightcharaters",
-    ///         Engine = "aurora-postgresql",
+    ///         Engine = Aws.Rds.EngineType.AuroraPostgresql,
     ///         EngineVersion = "13.4",
     ///     });
     /// 
@@ -52,7 +52,7 @@ namespace Pulumi.Aws.Rds
     ///         Identifier = "aurora-instance-demo",
     ///         ClusterIdentifier = @default.ClusterIdentifier,
     ///         Engine = @default.Engine,
-    ///         InstanceClass = "db.r6g.large",
+    ///         InstanceClass = Aws.Rds.InstanceType.R6G_Large,
     ///     });
     /// 
     ///     var defaultKey = new Aws.Kms.Key("default", new()

@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  * });
  * const auth_cognito_A = new aws.route53.Record("auth-cognito-A", {
  *     name: main.domain,
- *     type: "A",
+ *     type: aws.route53.RecordType.A,
  *     zoneId: example.then(example => example.zoneId),
  *     aliases: [{
  *         evaluateTargetHealth: false,

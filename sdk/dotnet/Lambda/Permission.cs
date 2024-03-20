@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Lambda
     ///         Name = "lambda_function_name",
     ///         Role = iamForLambda.Arn,
     ///         Handler = "exports.handler",
-    ///         Runtime = "nodejs16.x",
+    ///         Runtime = Aws.Lambda.Runtime.NodeJS16dX,
     ///     });
     /// 
     ///     var testAlias = new Aws.Lambda.Alias("test_alias", new()
@@ -124,7 +124,7 @@ namespace Pulumi.Aws.Lambda
     ///         Name = "lambda_called_from_sns",
     ///         Role = defaultRole.Arn,
     ///         Handler = "exports.handler",
-    ///         Runtime = "python3.7",
+    ///         Runtime = Aws.Lambda.Runtime.Python3d7,
     ///     });
     /// 
     ///     var withSns = new Aws.Lambda.Permission("with_sns", new()
@@ -231,7 +231,7 @@ namespace Pulumi.Aws.Lambda
     ///         Name = "lambda_called_from_cloudwatch_logs",
     ///         Handler = "exports.handler",
     ///         Role = defaultRole.Arn,
-    ///         Runtime = "python3.7",
+    ///         Runtime = Aws.Lambda.Runtime.Python3d7,
     ///     });
     /// 
     ///     var logging = new Aws.Lambda.Permission("logging", new()

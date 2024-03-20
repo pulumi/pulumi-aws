@@ -34,7 +34,7 @@ import (
 //			_, err := route53.NewRecord(ctx, "www", &route53.RecordArgs{
 //				ZoneId: pulumi.Any(primary.ZoneId),
 //				Name:   pulumi.String("www.example.com"),
-//				Type:   pulumi.String("A"),
+//				Type:   pulumi.String(route53.RecordTypeA),
 //				Ttl:    pulumi.Int(300),
 //				Records: pulumi.StringArray{
 //					lb.PublicIp,
@@ -70,7 +70,7 @@ import (
 //			_, err := route53.NewRecord(ctx, "www-dev", &route53.RecordArgs{
 //				ZoneId: pulumi.Any(primary.ZoneId),
 //				Name:   pulumi.String("www"),
-//				Type:   pulumi.String("CNAME"),
+//				Type:   pulumi.String(route53.RecordTypeCNAME),
 //				Ttl:    pulumi.Int(5),
 //				WeightedRoutingPolicies: route53.RecordWeightedRoutingPolicyArray{
 //					&route53.RecordWeightedRoutingPolicyArgs{
@@ -88,7 +88,7 @@ import (
 //			_, err = route53.NewRecord(ctx, "www-live", &route53.RecordArgs{
 //				ZoneId: pulumi.Any(primary.ZoneId),
 //				Name:   pulumi.String("www"),
-//				Type:   pulumi.String("CNAME"),
+//				Type:   pulumi.String(route53.RecordTypeCNAME),
 //				Ttl:    pulumi.Int(5),
 //				WeightedRoutingPolicies: route53.RecordWeightedRoutingPolicyArray{
 //					&route53.RecordWeightedRoutingPolicyArgs{
@@ -128,7 +128,7 @@ import (
 //			_, err := route53.NewRecord(ctx, "www", &route53.RecordArgs{
 //				ZoneId: pulumi.Any(primary.ZoneId),
 //				Name:   pulumi.String("www.example.com"),
-//				Type:   pulumi.String("CNAME"),
+//				Type:   pulumi.String(route53.RecordTypeCNAME),
 //				Ttl:    pulumi.Int(300),
 //				GeoproximityRoutingPolicy: &route53.RecordGeoproximityRoutingPolicyArgs{
 //					Coordinates: route53.RecordGeoproximityRoutingPolicyCoordinateArray{
@@ -195,7 +195,7 @@ import (
 //			_, err = route53.NewRecord(ctx, "www", &route53.RecordArgs{
 //				ZoneId: pulumi.Any(primary.ZoneId),
 //				Name:   pulumi.String("example.com"),
-//				Type:   pulumi.String("A"),
+//				Type:   pulumi.String(route53.RecordTypeA),
 //				Aliases: route53.RecordAliasArray{
 //					&route53.RecordAliasArgs{
 //						Name:                 main.DnsName,
@@ -241,7 +241,7 @@ import (
 //				AllowOverwrite: pulumi.Bool(true),
 //				Name:           pulumi.String("test.example.com"),
 //				Ttl:            pulumi.Int(172800),
-//				Type:           pulumi.String("NS"),
+//				Type:           pulumi.String(route53.RecordTypeNS),
 //				ZoneId:         example.ZoneId,
 //				Records: pulumi.StringArray{
 //					example.NameServers.ApplyT(func(nameServers []string) (string, error) {

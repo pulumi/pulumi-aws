@@ -511,7 +511,7 @@ class Parameter(pulumi.CustomResource):
 
         foo = aws.ssm.Parameter("foo",
             name="foo",
-            type="String",
+            type=aws.ssm.ParameterType.STRING,
             value="bar")
         ```
         <!--End PulumiCodeChooser -->
@@ -525,10 +525,10 @@ class Parameter(pulumi.CustomResource):
 
         default = aws.rds.Instance("default",
             allocated_storage=10,
-            storage_type="gp2",
+            storage_type=aws.rds.StorageType.GP2,
             engine="mysql",
             engine_version="5.7.16",
-            instance_class="db.t2.micro",
+            instance_class=aws.rds.InstanceType.T2_MICRO,
             db_name="mydb",
             username="foo",
             password=database_master_password,
@@ -537,7 +537,7 @@ class Parameter(pulumi.CustomResource):
         secret = aws.ssm.Parameter("secret",
             name="/production/database/password/master",
             description="The parameter description",
-            type="SecureString",
+            type=aws.ssm.ParameterType.SECURE_STRING,
             value=database_master_password,
             tags={
                 "environment": "production",
@@ -594,7 +594,7 @@ class Parameter(pulumi.CustomResource):
 
         foo = aws.ssm.Parameter("foo",
             name="foo",
-            type="String",
+            type=aws.ssm.ParameterType.STRING,
             value="bar")
         ```
         <!--End PulumiCodeChooser -->
@@ -608,10 +608,10 @@ class Parameter(pulumi.CustomResource):
 
         default = aws.rds.Instance("default",
             allocated_storage=10,
-            storage_type="gp2",
+            storage_type=aws.rds.StorageType.GP2,
             engine="mysql",
             engine_version="5.7.16",
-            instance_class="db.t2.micro",
+            instance_class=aws.rds.InstanceType.T2_MICRO,
             db_name="mydb",
             username="foo",
             password=database_master_password,
@@ -620,7 +620,7 @@ class Parameter(pulumi.CustomResource):
         secret = aws.ssm.Parameter("secret",
             name="/production/database/password/master",
             description="The parameter description",
-            type="SecureString",
+            type=aws.ssm.ParameterType.SECURE_STRING,
             value=database_master_password,
             tags={
                 "environment": "production",

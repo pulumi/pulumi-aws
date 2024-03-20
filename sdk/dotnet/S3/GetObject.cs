@@ -39,7 +39,7 @@ namespace Pulumi.Aws.S3
         /// 
         ///     var example = new Aws.Ec2.Instance("example", new()
         ///     {
-        ///         InstanceType = "t2.micro",
+        ///         InstanceType = Aws.Ec2.InstanceType.T2_Micro,
         ///         Ami = "ami-2757f631",
         ///         UserData = bootstrapScript.Apply(getObjectResult =&gt; getObjectResult.Body),
         ///     });
@@ -114,7 +114,7 @@ namespace Pulumi.Aws.S3
         /// 
         ///     var example = new Aws.Ec2.Instance("example", new()
         ///     {
-        ///         InstanceType = "t2.micro",
+        ///         InstanceType = Aws.Ec2.InstanceType.T2_Micro,
         ///         Ami = "ami-2757f631",
         ///         UserData = bootstrapScript.Apply(getObjectResult =&gt; getObjectResult.Body),
         ///     });

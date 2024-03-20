@@ -25,7 +25,7 @@ import * as utilities from "../utilities";
  *     key: "ec2-bootstrap-script.sh",
  * });
  * const example = new aws.ec2.Instance("example", {
- *     instanceType: "t2.micro",
+ *     instanceType: aws.ec2.InstanceType.T2_Micro,
  *     ami: "ami-2757f631",
  *     userData: bootstrapScript.then(bootstrapScript => bootstrapScript.body),
  * });
@@ -240,7 +240,7 @@ export interface GetObjectResult {
  *     key: "ec2-bootstrap-script.sh",
  * });
  * const example = new aws.ec2.Instance("example", {
- *     instanceType: "t2.micro",
+ *     instanceType: aws.ec2.InstanceType.T2_Micro,
  *     ami: "ami-2757f631",
  *     userData: bootstrapScript.then(bootstrapScript => bootstrapScript.body),
  * });

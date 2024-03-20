@@ -42,7 +42,7 @@ import * as utilities from "../utilities";
  *     engineVersion: example.engineVersion,
  *     identifier: "test-primary-cluster-instance",
  *     clusterIdentifier: primary.id,
- *     instanceClass: "db.r4.large",
+ *     instanceClass: aws.rds.InstanceType.R4_Large,
  *     dbSubnetGroupName: "default",
  * });
  * const secondary = new aws.rds.Cluster("secondary", {
@@ -57,7 +57,7 @@ import * as utilities from "../utilities";
  *     engineVersion: example.engineVersion,
  *     identifier: "test-secondary-cluster-instance",
  *     clusterIdentifier: secondary.id,
- *     instanceClass: "db.r4.large",
+ *     instanceClass: aws.rds.InstanceType.R4_Large,
  *     dbSubnetGroupName: "default",
  * });
  * ```
@@ -91,7 +91,7 @@ import * as utilities from "../utilities";
  *     engineVersion: example.engineVersion,
  *     identifier: "test-primary-cluster-instance",
  *     clusterIdentifier: primary.id,
- *     instanceClass: "db.r4.large",
+ *     instanceClass: aws.rds.InstanceType.R4_Large,
  *     dbSubnetGroupName: "default",
  * });
  * const secondary = new aws.rds.Cluster("secondary", {
@@ -107,7 +107,7 @@ import * as utilities from "../utilities";
  *     engineVersion: example.engineVersion,
  *     identifier: "test-secondary-cluster-instance",
  *     clusterIdentifier: secondary.id,
- *     instanceClass: "db.r4.large",
+ *     instanceClass: aws.rds.InstanceType.R4_Large,
  *     dbSubnetGroupName: "default",
  * });
  * ```
@@ -161,7 +161,7 @@ import * as utilities from "../utilities";
  *     engine: primary.engine,
  *     engineVersion: primary.engineVersion,
  *     identifier: "donetsklviv",
- *     instanceClass: "db.r4.large",
+ *     instanceClass: aws.rds.InstanceType.R4_Large,
  * });
  * ```
  * <!--End PulumiCodeChooser -->

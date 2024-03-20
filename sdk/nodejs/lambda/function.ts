@@ -55,7 +55,7 @@ import {ARN} from "..";
  *     role: iamForLambda.arn,
  *     handler: "index.test",
  *     sourceCodeHash: lambda.then(lambda => lambda.outputBase64sha256),
- *     runtime: "nodejs18.x",
+ *     runtime: aws.lambda.Runtime.NodeJS18dX,
  *     environment: {
  *         variables: {
  *             foo: "bar",
@@ -105,7 +105,7 @@ import {ARN} from "..";
  *     name: "lambda_function_name",
  *     role: iamForLambda.arn,
  *     handler: "index.test",
- *     runtime: "nodejs18.x",
+ *     runtime: aws.lambda.Runtime.NodeJS18dX,
  *     ephemeralStorage: {
  *         size: 10240,
  *     },

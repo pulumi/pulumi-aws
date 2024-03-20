@@ -641,7 +641,7 @@ class DomainName(pulumi.CustomResource):
         # Route53 is not specifically required; any DNS host can be used.
         example_record = aws.route53.Record("example",
             name=example.domain_name,
-            type="A",
+            type=aws.route53.RecordType.A,
             zone_id=example_aws_route53_zone["id"],
             aliases=[aws.route53.RecordAliasArgs(
                 evaluate_target_health=True,
@@ -668,7 +668,7 @@ class DomainName(pulumi.CustomResource):
         # Route53 is not specifically required; any DNS host can be used.
         example_record = aws.route53.Record("example",
             name=example.domain_name,
-            type="A",
+            type=aws.route53.RecordType.A,
             zone_id=example_aws_route53_zone["id"],
             aliases=[aws.route53.RecordAliasArgs(
                 evaluate_target_health=True,
@@ -756,7 +756,7 @@ class DomainName(pulumi.CustomResource):
         # Route53 is not specifically required; any DNS host can be used.
         example_record = aws.route53.Record("example",
             name=example.domain_name,
-            type="A",
+            type=aws.route53.RecordType.A,
             zone_id=example_aws_route53_zone["id"],
             aliases=[aws.route53.RecordAliasArgs(
                 evaluate_target_health=True,
@@ -783,7 +783,7 @@ class DomainName(pulumi.CustomResource):
         # Route53 is not specifically required; any DNS host can be used.
         example_record = aws.route53.Record("example",
             name=example.domain_name,
-            type="A",
+            type=aws.route53.RecordType.A,
             zone_id=example_aws_route53_zone["id"],
             aliases=[aws.route53.RecordAliasArgs(
                 evaluate_target_health=True,

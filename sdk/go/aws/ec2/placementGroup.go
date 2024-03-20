@@ -32,7 +32,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := ec2.NewPlacementGroup(ctx, "web", &ec2.PlacementGroupArgs{
 //				Name:     pulumi.String("hunky-dory-pg"),
-//				Strategy: pulumi.String("cluster"),
+//				Strategy: pulumi.String(ec2.PlacementStrategyCluster),
 //			})
 //			if err != nil {
 //				return err

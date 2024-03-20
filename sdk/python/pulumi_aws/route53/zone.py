@@ -361,7 +361,7 @@ class Zone(pulumi.CustomResource):
         dev_ns = aws.route53.Record("dev-ns",
             zone_id=main.zone_id,
             name="dev.example.com",
-            type="NS",
+            type=aws.route53.RecordType.NS,
             ttl=30,
             records=dev.name_servers)
         ```
@@ -445,7 +445,7 @@ class Zone(pulumi.CustomResource):
         dev_ns = aws.route53.Record("dev-ns",
             zone_id=main.zone_id,
             name="dev.example.com",
-            type="NS",
+            type=aws.route53.RecordType.NS,
             ttl=30,
             records=dev.name_servers)
         ```

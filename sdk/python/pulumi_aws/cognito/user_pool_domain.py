@@ -260,7 +260,7 @@ class UserPoolDomain(pulumi.CustomResource):
         example = aws.route53.get_zone(name="example.com")
         auth_cognito__a = aws.route53.Record("auth-cognito-A",
             name=main.domain,
-            type="A",
+            type=aws.route53.RecordType.A,
             zone_id=example.zone_id,
             aliases=[aws.route53.RecordAliasArgs(
                 evaluate_target_health=False,
@@ -324,7 +324,7 @@ class UserPoolDomain(pulumi.CustomResource):
         example = aws.route53.get_zone(name="example.com")
         auth_cognito__a = aws.route53.Record("auth-cognito-A",
             name=main.domain,
-            type="A",
+            type=aws.route53.RecordType.A,
             zone_id=example.zone_id,
             aliases=[aws.route53.RecordAliasArgs(
                 evaluate_target_health=False,

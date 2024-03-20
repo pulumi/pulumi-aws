@@ -36,7 +36,7 @@ import * as utilities from "../utilities";
  *
  * const _default = new aws.rds.Cluster("default", {
  *     clusterIdentifier: "aurora-cluster-demo",
- *     engine: "aurora-mysql",
+ *     engine: aws.rds.EngineType.AuroraMysql,
  *     engineVersion: "5.7.mysql_aurora.2.03.2",
  *     availabilityZones: [
  *         "us-west-2a",
@@ -84,7 +84,7 @@ import * as utilities from "../utilities";
  *
  * const postgresql = new aws.rds.Cluster("postgresql", {
  *     clusterIdentifier: "aurora-cluster-demo",
- *     engine: "aurora-postgresql",
+ *     engine: aws.rds.EngineType.AuroraPostgresql,
  *     availabilityZones: [
  *         "us-west-2a",
  *         "us-west-2b",
@@ -144,8 +144,8 @@ import * as utilities from "../utilities";
  *
  * const example = new aws.rds.Cluster("example", {
  *     clusterIdentifier: "example",
- *     engine: "aurora-postgresql",
- *     engineMode: "provisioned",
+ *     engine: aws.rds.EngineType.AuroraPostgresql,
+ *     engineMode: aws.rds.EngineMode.Provisioned,
  *     engineVersion: "13.6",
  *     databaseName: "test",
  *     masterUsername: "test",
@@ -219,7 +219,7 @@ import * as utilities from "../utilities";
  *     mostRecent: true,
  * });
  * const exampleCluster = new aws.rds.Cluster("example", {
- *     engine: "aurora",
+ *     engine: aws.rds.EngineType.Aurora,
  *     engineVersion: "5.6.mysql_aurora.1.22.4",
  *     clusterIdentifier: "example",
  *     snapshotIdentifier: example.then(example => example.id),

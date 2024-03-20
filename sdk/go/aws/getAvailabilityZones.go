@@ -47,13 +47,13 @@ import (
 //			}
 //			// e.g., Create subnets in the first two available availability zones
 //			_, err = ec2.NewSubnet(ctx, "primary", &ec2.SubnetArgs{
-//				AvailabilityZone: *pulumi.String(available.Names[0]),
+//				AvailabilityZone: pulumi.String(available.Names[0]),
 //			})
 //			if err != nil {
 //				return err
 //			}
 //			_, err = ec2.NewSubnet(ctx, "secondary", &ec2.SubnetArgs{
-//				AvailabilityZone: *pulumi.String(available.Names[1]),
+//				AvailabilityZone: pulumi.String(available.Names[1]),
 //			})
 //			if err != nil {
 //				return err

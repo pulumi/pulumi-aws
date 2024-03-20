@@ -48,7 +48,7 @@ namespace Pulumi.Aws.LicenseManager
     ///     var exampleInstance = new Aws.Ec2.Instance("example", new()
     ///     {
     ///         Ami = example.Apply(getAmiResult =&gt; getAmiResult.Id),
-    ///         InstanceType = "t2.micro",
+    ///         InstanceType = Aws.Ec2.InstanceType.T2_Micro,
     ///     });
     /// 
     ///     var exampleLicenseConfiguration = new Aws.LicenseManager.LicenseConfiguration("example", new()

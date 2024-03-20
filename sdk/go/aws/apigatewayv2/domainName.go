@@ -82,7 +82,7 @@ import (
 //			}
 //			_, err = route53.NewRecord(ctx, "example", &route53.RecordArgs{
 //				Name:   example.DomainName,
-//				Type:   pulumi.String("A"),
+//				Type:   pulumi.String(route53.RecordTypeA),
 //				ZoneId: pulumi.Any(exampleAwsRoute53Zone.ZoneId),
 //				Aliases: route53.RecordAliasArray{
 //					&route53.RecordAliasArgs{

@@ -53,7 +53,7 @@ import (
 //				return err
 //			}
 //			exampleRole, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -68,7 +68,7 @@ import (
 //				Name:             pulumi.String("my-model"),
 //				ExecutionRoleArn: exampleRole.Arn,
 //				PrimaryContainer: &sagemaker.ModelPrimaryContainerArgs{
-//					Image: *pulumi.String(test.RegistryPath),
+//					Image: pulumi.String(test.RegistryPath),
 //				},
 //			})
 //			if err != nil {

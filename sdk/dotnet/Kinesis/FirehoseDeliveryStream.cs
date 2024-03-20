@@ -102,7 +102,7 @@ namespace Pulumi.Aws.Kinesis
     ///         Name = "firehose_lambda_processor",
     ///         Role = lambdaIam.Arn,
     ///         Handler = "exports.handler",
-    ///         Runtime = "nodejs16.x",
+    ///         Runtime = Aws.Lambda.Runtime.NodeJS16dX,
     ///     });
     /// 
     ///     var extendedS3Stream = new Aws.Kinesis.FirehoseDeliveryStream("extended_s3_stream", new()

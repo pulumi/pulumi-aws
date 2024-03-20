@@ -48,7 +48,7 @@ import (
 //				DatabaseName:   pulumi.String("mydb"),
 //				MasterUsername: pulumi.String("foo"),
 //				MasterPassword: pulumi.String("mustbeeightcharaters"),
-//				Engine:         pulumi.String("aurora-postgresql"),
+//				Engine:         pulumi.String(rds.EngineTypeAuroraPostgresql),
 //				EngineVersion:  pulumi.String("13.4"),
 //			})
 //			if err != nil {
@@ -58,7 +58,7 @@ import (
 //				Identifier:        pulumi.String("aurora-instance-demo"),
 //				ClusterIdentifier: _default.ClusterIdentifier,
 //				Engine:            _default.Engine,
-//				InstanceClass:     pulumi.String("db.r6g.large"),
+//				InstanceClass:     pulumi.String(rds.InstanceType_R6G_Large),
 //			})
 //			if err != nil {
 //				return err

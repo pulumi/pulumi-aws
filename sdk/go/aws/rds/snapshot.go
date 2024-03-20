@@ -33,7 +33,7 @@ import (
 //				AllocatedStorage:      pulumi.Int(10),
 //				Engine:                pulumi.String("mysql"),
 //				EngineVersion:         pulumi.String("5.6.21"),
-//				InstanceClass:         pulumi.String("db.t2.micro"),
+//				InstanceClass:         pulumi.String(rds.InstanceType_T2_Micro),
 //				DbName:                pulumi.String("baz"),
 //				Password:              pulumi.String("barbarbarbar"),
 //				Username:              pulumi.String("foo"),
