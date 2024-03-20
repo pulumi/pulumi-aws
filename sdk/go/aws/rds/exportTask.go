@@ -168,7 +168,7 @@ import (
 //				DbName:             pulumi.String("test"),
 //				Engine:             pulumi.String("mysql"),
 //				EngineVersion:      pulumi.String("5.7"),
-//				InstanceClass:      pulumi.String("db.t3.micro"),
+//				InstanceClass:      pulumi.String(rds.InstanceType_T3_Micro),
 //				Username:           pulumi.String("foo"),
 //				Password:           pulumi.String("foobarbaz"),
 //				ParameterGroupName: pulumi.String("default.mysql5.7"),

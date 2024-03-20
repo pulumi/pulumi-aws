@@ -56,7 +56,7 @@ import (
 //			_, err = route53.NewRecord(ctx, "example_ses_domain_mail_from_mx", &route53.RecordArgs{
 //				ZoneId: pulumi.Any(exampleAwsRoute53Zone.Id),
 //				Name:   example.MailFromDomain,
-//				Type:   pulumi.String("MX"),
+//				Type:   pulumi.String(route53.RecordTypeMX),
 //				Ttl:    pulumi.Int(600),
 //				Records: pulumi.StringArray{
 //					pulumi.String("10 feedback-smtp.us-east-1.amazonses.com"),
@@ -69,7 +69,7 @@ import (
 //			_, err = route53.NewRecord(ctx, "example_ses_domain_mail_from_txt", &route53.RecordArgs{
 //				ZoneId: pulumi.Any(exampleAwsRoute53Zone.Id),
 //				Name:   example.MailFromDomain,
-//				Type:   pulumi.String("TXT"),
+//				Type:   pulumi.String(route53.RecordTypeTXT),
 //				Ttl:    pulumi.Int(600),
 //				Records: pulumi.StringArray{
 //					pulumi.String("v=spf1 include:amazonses.com -all"),

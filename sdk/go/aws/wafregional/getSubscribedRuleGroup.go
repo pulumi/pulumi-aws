@@ -44,12 +44,12 @@ import (
 //				Rules: wafregional.WebAclRuleArray{
 //					&wafregional.WebAclRuleArgs{
 //						Priority: pulumi.Int(1),
-//						RuleId:   *pulumi.String(byName.Id),
+//						RuleId:   pulumi.String(byName.Id),
 //						Type:     pulumi.String("GROUP"),
 //					},
 //					&wafregional.WebAclRuleArgs{
 //						Priority: pulumi.Int(2),
-//						RuleId:   *pulumi.String(byMetricName.Id),
+//						RuleId:   pulumi.String(byMetricName.Id),
 //						Type:     pulumi.String("GROUP"),
 //					},
 //				},

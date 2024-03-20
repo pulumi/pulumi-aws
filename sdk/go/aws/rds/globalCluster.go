@@ -60,7 +60,7 @@ import (
 //				EngineVersion:     example.EngineVersion,
 //				Identifier:        pulumi.String("test-primary-cluster-instance"),
 //				ClusterIdentifier: primary.ID(),
-//				InstanceClass:     pulumi.String("db.r4.large"),
+//				InstanceClass:     pulumi.String(rds.InstanceType_R4_Large),
 //				DbSubnetGroupName: pulumi.String("default"),
 //			})
 //			if err != nil {
@@ -81,7 +81,7 @@ import (
 //				EngineVersion:     example.EngineVersion,
 //				Identifier:        pulumi.String("test-secondary-cluster-instance"),
 //				ClusterIdentifier: secondary.ID(),
-//				InstanceClass:     pulumi.String("db.r4.large"),
+//				InstanceClass:     pulumi.String(rds.InstanceType_R4_Large),
 //				DbSubnetGroupName: pulumi.String("default"),
 //			})
 //			if err != nil {
@@ -136,7 +136,7 @@ import (
 //				EngineVersion:     example.EngineVersion,
 //				Identifier:        pulumi.String("test-primary-cluster-instance"),
 //				ClusterIdentifier: primary.ID(),
-//				InstanceClass:     pulumi.String("db.r4.large"),
+//				InstanceClass:     pulumi.String(rds.InstanceType_R4_Large),
 //				DbSubnetGroupName: pulumi.String("default"),
 //			})
 //			if err != nil {
@@ -158,7 +158,7 @@ import (
 //				EngineVersion:     example.EngineVersion,
 //				Identifier:        pulumi.String("test-secondary-cluster-instance"),
 //				ClusterIdentifier: secondary.ID(),
-//				InstanceClass:     pulumi.String("db.r4.large"),
+//				InstanceClass:     pulumi.String(rds.InstanceType_R4_Large),
 //				DbSubnetGroupName: pulumi.String("default"),
 //			})
 //			if err != nil {
@@ -251,7 +251,7 @@ import (
 //				Engine:            primary.Engine,
 //				EngineVersion:     primary.EngineVersion,
 //				Identifier:        pulumi.String("donetsklviv"),
-//				InstanceClass:     pulumi.String("db.r4.large"),
+//				InstanceClass:     pulumi.String(rds.InstanceType_R4_Large),
 //			})
 //			if err != nil {
 //				return err

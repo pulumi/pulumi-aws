@@ -45,7 +45,7 @@ import (
 //				Type:     pulumi.String("ingress"),
 //				FromPort: pulumi.Int(0),
 //				ToPort:   pulumi.Int(65535),
-//				Protocol: pulumi.String("tcp"),
+//				Protocol: pulumi.String(ec2.ProtocolTypeTCP),
 //				CidrBlocks: pulumi.StringArray{
 //					exampleAwsVpc.CidrBlock,
 //				},
@@ -145,9 +145,9 @@ import (
 //				SecurityGroupId: pulumi.String("sg-123456"),
 //				FromPort:        pulumi.Int(443),
 //				ToPort:          pulumi.Int(443),
-//				Protocol:        pulumi.String("tcp"),
+//				Protocol:        pulumi.String(ec2.ProtocolTypeTCP),
 //				PrefixListIds: pulumi.StringArray{
-//					*pulumi.String(s3.Id),
+//					pulumi.String(s3.Id),
 //				},
 //			})
 //			if err != nil {

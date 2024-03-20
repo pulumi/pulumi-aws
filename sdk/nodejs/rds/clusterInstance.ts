@@ -50,7 +50,7 @@ import {EngineType} from "./index";
  *     clusterInstances.push(new aws.rds.ClusterInstance(`cluster_instances-${range.value}`, {
  *         identifier: `aurora-cluster-demo-${range.value}`,
  *         clusterIdentifier: _default.id,
- *         instanceClass: "db.r4.large",
+ *         instanceClass: aws.rds.InstanceType.R4_Large,
  *         engine: _default.engine,
  *         engineVersion: _default.engineVersion,
  *     }));

@@ -145,7 +145,7 @@ namespace Pulumi.Aws.Batch
     ///     var samplePlacementGroup = new Aws.Ec2.PlacementGroup("sample", new()
     ///     {
     ///         Name = "sample",
-    ///         Strategy = "cluster",
+    ///         Strategy = Aws.Ec2.PlacementStrategy.Cluster,
     ///     });
     /// 
     ///     var sampleComputeEnvironment = new Aws.Batch.ComputeEnvironment("sample", new()

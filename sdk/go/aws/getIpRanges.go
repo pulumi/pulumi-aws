@@ -53,8 +53,8 @@ import (
 //					},
 //				},
 //				Tags: pulumi.StringMap{
-//					"CreateDate": *pulumi.String(europeanEc2.CreateDate),
-//					"SyncToken":  *pulumi.Int(europeanEc2.SyncToken),
+//					"CreateDate": pulumi.String(europeanEc2.CreateDate),
+//					"SyncToken":  pulumi.Int(europeanEc2.SyncToken),
 //				},
 //			})
 //			if err != nil {

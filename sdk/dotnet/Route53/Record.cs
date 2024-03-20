@@ -29,7 +29,7 @@ namespace Pulumi.Aws.Route53
     ///     {
     ///         ZoneId = primary.ZoneId,
     ///         Name = "www.example.com",
-    ///         Type = "A",
+    ///         Type = Aws.Route53.RecordType.A,
     ///         Ttl = 300,
     ///         Records = new[]
     ///         {
@@ -58,7 +58,7 @@ namespace Pulumi.Aws.Route53
     ///     {
     ///         ZoneId = primary.ZoneId,
     ///         Name = "www",
-    ///         Type = "CNAME",
+    ///         Type = Aws.Route53.RecordType.CNAME,
     ///         Ttl = 5,
     ///         WeightedRoutingPolicies = new[]
     ///         {
@@ -78,7 +78,7 @@ namespace Pulumi.Aws.Route53
     ///     {
     ///         ZoneId = primary.ZoneId,
     ///         Name = "www",
-    ///         Type = "CNAME",
+    ///         Type = Aws.Route53.RecordType.CNAME,
     ///         Ttl = 5,
     ///         WeightedRoutingPolicies = new[]
     ///         {
@@ -113,7 +113,7 @@ namespace Pulumi.Aws.Route53
     ///     {
     ///         ZoneId = primary.ZoneId,
     ///         Name = "www.example.com",
-    ///         Type = "CNAME",
+    ///         Type = Aws.Route53.RecordType.CNAME,
     ///         Ttl = 300,
     ///         GeoproximityRoutingPolicy = new Aws.Route53.Inputs.RecordGeoproximityRoutingPolicyArgs
     ///         {
@@ -177,7 +177,7 @@ namespace Pulumi.Aws.Route53
     ///     {
     ///         ZoneId = primary.ZoneId,
     ///         Name = "example.com",
-    ///         Type = "A",
+    ///         Type = Aws.Route53.RecordType.A,
     ///         Aliases = new[]
     ///         {
     ///             new Aws.Route53.Inputs.RecordAliasArgs
@@ -216,7 +216,7 @@ namespace Pulumi.Aws.Route53
     ///         AllowOverwrite = true,
     ///         Name = "test.example.com",
     ///         Ttl = 172800,
-    ///         Type = "NS",
+    ///         Type = Aws.Route53.RecordType.NS,
     ///         ZoneId = example.ZoneId,
     ///         Records = new[]
     ///         {

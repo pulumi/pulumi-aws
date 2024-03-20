@@ -52,7 +52,7 @@ import * as utilities from "../utilities";
  * // Route53 is not specifically required; any DNS host can be used.
  * const exampleRecord = new aws.route53.Record("example", {
  *     name: example.domainName,
- *     type: "A",
+ *     type: aws.route53.RecordType.A,
  *     zoneId: exampleAwsRoute53Zone.id,
  *     aliases: [{
  *         evaluateTargetHealth: true,
@@ -81,7 +81,7 @@ import * as utilities from "../utilities";
  * // Route53 is not specifically required; any DNS host can be used.
  * const exampleRecord = new aws.route53.Record("example", {
  *     name: example.domainName,
- *     type: "A",
+ *     type: aws.route53.RecordType.A,
  *     zoneId: exampleAwsRoute53Zone.id,
  *     aliases: [{
  *         evaluateTargetHealth: true,

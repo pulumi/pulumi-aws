@@ -22,7 +22,7 @@ import * as utilities from "../utilities";
  * });
  * const web = new aws.ec2.Instance("web", {
  *     ami: "ami-abb07bcb",
- *     instanceType: "t2.micro",
+ *     instanceType: aws.ec2.InstanceType.T2_Micro,
  *     subnetId: subnetId.then(subnetId => subnetId.value),
  * });
  * ```
@@ -82,7 +82,7 @@ export interface GetExportResult {
  * });
  * const web = new aws.ec2.Instance("web", {
  *     ami: "ami-abb07bcb",
- *     instanceType: "t2.micro",
+ *     instanceType: aws.ec2.InstanceType.T2_Micro,
  *     subnetId: subnetId.then(subnetId => subnetId.value),
  * });
  * ```

@@ -35,7 +35,7 @@ import (
 //				AllocatedStorage:   pulumi.Int(10),
 //				Engine:             pulumi.String("mysql"),
 //				EngineVersion:      pulumi.String("5.6.17"),
-//				InstanceClass:      pulumi.String("db.t2.micro"),
+//				InstanceClass:      pulumi.String(rds.InstanceType_T2_Micro),
 //				DbName:             pulumi.String("mydb"),
 //				Username:           pulumi.String("foo"),
 //				Password:           pulumi.String("bar"),
@@ -51,7 +51,7 @@ import (
 //			}, nil)
 //			// Use the latest production snapshot to create a dev instance.
 //			_, err = rds.NewInstance(ctx, "dev", &rds.InstanceArgs{
-//				InstanceClass: pulumi.String("db.t2.micro"),
+//				InstanceClass: pulumi.String(rds.InstanceType_T2_Micro),
 //				DbName:        pulumi.String("mydbdev"),
 //				SnapshotIdentifier: latestProdSnapshot.ApplyT(func(latestProdSnapshot rds.GetSnapshotResult) (*string, error) {
 //					return &latestProdSnapshot.Id, nil

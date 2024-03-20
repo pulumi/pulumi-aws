@@ -32,14 +32,14 @@ import * as utilities from "../utilities";
  *     databaseName: "mydb",
  *     masterUsername: "foo",
  *     masterPassword: "mustbeeightcharaters",
- *     engine: "aurora-postgresql",
+ *     engine: aws.rds.EngineType.AuroraPostgresql,
  *     engineVersion: "13.4",
  * });
  * const defaultClusterInstance = new aws.rds.ClusterInstance("default", {
  *     identifier: "aurora-instance-demo",
  *     clusterIdentifier: _default.clusterIdentifier,
  *     engine: _default.engine,
- *     instanceClass: "db.r6g.large",
+ *     instanceClass: aws.rds.InstanceType.R6G_Large,
  * });
  * const defaultKey = new aws.kms.Key("default", {description: "AWS KMS Key to encrypt Database Activity Stream"});
  * const defaultClusterActivityStream = new aws.rds.ClusterActivityStream("default", {

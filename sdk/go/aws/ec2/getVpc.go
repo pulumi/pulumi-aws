@@ -55,7 +55,7 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewSubnet(ctx, "example", &ec2.SubnetArgs{
-//				VpcId:            *pulumi.String(selected.Id),
+//				VpcId:            pulumi.String(selected.Id),
 //				AvailabilityZone: pulumi.String("us-west-2a"),
 //				CidrBlock:        invokeCidrsubnet.Result,
 //			})
