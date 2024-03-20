@@ -201,7 +201,7 @@ resources:
 				opttest.LocalProviderPath("aws", filepath.Join(cwd, "..", "bin")),
 			)
 
-			pt.SetConfig("randSuffix", fmt.Sprintf("%d", rand.Intn(1024*1024)))
+			pt.SetConfig("randSuffix", fmt.Sprintf("%d-x", rand.Intn(1024*1024)))
 
 			pt.SetConfig("applyMethod", tc.applyMethod1)
 			pt.SetConfig("value", tc.value1)
