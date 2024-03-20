@@ -5,6 +5,7 @@ on:
   repository_dispatch:
     types:
       - upgrade-bridge
+      - upgrade-bridge-test
   workflow_dispatch:
     inputs:
       kind:
