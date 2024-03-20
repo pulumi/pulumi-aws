@@ -27,6 +27,58 @@ import javax.annotation.Nullable;
  * 
  * ## Example Usage
  * 
+ * ### DNS Validation with Route 53
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Alternative Domains DNS Validation with Route 53
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
+ * ### Email Validation
+ * 
+ * In this situation, the resource is simply a waiter for manual email approval of ACM certificates.
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.acm.Certificate;
+ * import com.pulumi.aws.acm.CertificateArgs;
+ * import com.pulumi.aws.acm.CertificateValidation;
+ * import com.pulumi.aws.acm.CertificateValidationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new Certificate(&#34;example&#34;, CertificateArgs.builder()        
+ *             .domainName(&#34;example.com&#34;)
+ *             .validationMethod(&#34;EMAIL&#34;)
+ *             .build());
+ * 
+ *         var exampleCertificateValidation = new CertificateValidation(&#34;exampleCertificateValidation&#34;, CertificateValidationArgs.builder()        
+ *             .certificateArn(example.arn())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  */
 @ResourceType(type="aws:acm/certificateValidation:CertificateValidation")
 public class CertificateValidation extends com.pulumi.resources.CustomResource {

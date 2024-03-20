@@ -20,74 +20,187 @@ namespace Pulumi.Aws.Acm
     /// &gt; **WARNING:** This resource implements a part of the validation workflow. It does not represent a real-world entity in AWS, therefore changing or deleting this resource on its own has no immediate effect.
     /// 
     /// ## Example Usage
+    /// 
     /// ### DNS Validation with Route 53
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
     /// ```csharp
-    /// using Pulumi;
-    /// using Pulumi.Aws.Acm;
-    /// using Pulumi.Aws.Route53;
     /// using System.Collections.Generic;
-    /// 
-    /// return await Deployment.RunAsync(() =&gt;
-    /// {
-    ///    var exampleCertificate = new Certificate("exampleCertificate", new CertificateArgs
-    ///    {
-    ///       DomainName = "example.com",
-    ///       ValidationMethod = "DNS"
-    ///    });
-    /// 
-    ///    var exampleZone = GetZone.Invoke(new GetZoneInvokeArgs
-    ///    {
-    ///       Name = "example.com",
-    ///       PrivateZone = false,
-    ///    });
-    /// 
-    ///    var certValidation = new Record("certValidation", new RecordArgs
-    ///    {
-    ///       Name = exampleCertificate.DomainValidationOptions.Apply(options =&gt; options[0].ResourceRecordName!),
-    ///       Records =
-    ///       {
-    ///          exampleCertificate.DomainValidationOptions.Apply(options =&gt; options[0].ResourceRecordValue!),
-    ///       },
-    ///       Ttl = 60,
-    ///       Type = exampleCertificate.DomainValidationOptions.Apply(options =&gt; options[0].ResourceRecordType!),
-    ///       ZoneId = exampleZone.Apply(zone =&gt; zone.Id),
-    ///    });
-    /// 
-    ///    var certCertificateValidation = new CertificateValidation("cert", new CertificateValidationArgs
-    ///    {
-    ///       CertificateArn = exampleCertificate.Arn,
-    ///       ValidationRecordFqdns =
-    ///       {
-    ///          certValidation.Fqdn,
-    ///       },
-    ///    });
-    ///    
-    ///    return new Dictionary&lt;string, object?&gt;
-    ///    {
-    ///       ["certificateArn"] = certCertificateValidation.CertificateArn,
-    ///    };
-    /// });
-    /// ```
-    /// ### Email Validation
-    /// ```csharp
+    /// using System.Linq;
     /// using Pulumi;
-    /// using Pulumi.Aws.Acm;
+    /// using Aws = Pulumi.Aws;
     /// 
-    /// return await Deployment.RunAsync(() =&gt;
+    /// return await Deployment.RunAsync(() =&gt; 
     /// {
-    ///    var exampleCertificate = new Certificate("exampleCertificate", new CertificateArgs
-    ///    {
-    ///       DomainName = "example.com",
-    ///       ValidationMethod = "EMAIL"
-    ///    });
+    ///     var exampleCertificate = new Aws.Acm.Certificate("example", new()
+    ///     {
+    ///         DomainName = "example.com",
+    ///         ValidationMethod = "DNS",
+    ///     });
     /// 
-    ///    var certCertificateValidation = new CertificateValidation("cert", new CertificateValidationArgs
-    ///    {
-    ///       CertificateArn = exampleCertificate.Arn,
-    ///    });
+    ///     var example = Aws.Route53.GetZone.Invoke(new()
+    ///     {
+    ///         Name = "example.com",
+    ///         PrivateZone = false,
+    ///     });
+    /// 
+    ///     var exampleRecord = new List&lt;Aws.Route53.Record&gt;();
+    ///     foreach (var range in exampleCertificate.DomainValidationOptions.Apply(domainValidationOptions =&gt; domainValidationOptions.ToDictionary(item =&gt; {
+    ///         var dvo = item.Value;
+    ///         return dvo.DomainName;
+    ///     }, item =&gt; {
+    ///         var dvo = item.Value;
+    ///         return 
+    ///         {
+    ///             { "name", dvo.ResourceRecordName },
+    ///             { "record", dvo.ResourceRecordValue },
+    ///             { "type", dvo.ResourceRecordType },
+    ///         };
+    ///     })).Select(pair =&gt; new { pair.Key, pair.Value }))
+    ///     {
+    ///         exampleRecord.Add(new Aws.Route53.Record($"example-{range.Key}", new()
+    ///         {
+    ///             AllowOverwrite = true,
+    ///             Name = range.Value.Name,
+    ///             Records = new[]
+    ///             {
+    ///                 range.Value.Record,
+    ///             },
+    ///             Ttl = 60,
+    ///             Type = System.Enum.Parse&lt;Aws.Route53.RecordType.RecordType&gt;(range.Value.Type),
+    ///             ZoneId = example.Apply(getZoneResult =&gt; getZoneResult.ZoneId),
+    ///         }));
+    ///     }
+    ///     var exampleCertificateValidation = new Aws.Acm.CertificateValidation("example", new()
+    ///     {
+    ///         CertificateArn = exampleCertificate.Arn,
+    ///         ValidationRecordFqdns = exampleRecord.Apply(exampleRecord =&gt; exampleRecord.Select(record =&gt; 
+    ///         {
+    ///             return record.Fqdn;
+    ///         }).ToList()),
+    ///     });
+    /// 
+    ///     var exampleListener = new Aws.LB.Listener("example", new()
+    ///     {
+    ///         CertificateArn = exampleCertificateValidation.CertificateArn,
+    ///     });
+    /// 
     /// });
-    /// 
     /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### Alternative Domains DNS Validation with Route 53
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Acm.Certificate("example", new()
+    ///     {
+    ///         DomainName = "example.com",
+    ///         SubjectAlternativeNames = new[]
+    ///         {
+    ///             "www.example.com",
+    ///             "example.org",
+    ///         },
+    ///         ValidationMethod = "DNS",
+    ///     });
+    /// 
+    ///     var exampleCom = Aws.Route53.GetZone.Invoke(new()
+    ///     {
+    ///         Name = "example.com",
+    ///         PrivateZone = false,
+    ///     });
+    /// 
+    ///     var exampleOrg = Aws.Route53.GetZone.Invoke(new()
+    ///     {
+    ///         Name = "example.org",
+    ///         PrivateZone = false,
+    ///     });
+    /// 
+    ///     var exampleRecord = new List&lt;Aws.Route53.Record&gt;();
+    ///     foreach (var range in Output.Tuple(example.DomainValidationOptions, dvo.DomainName == "example.org" ? exampleOrg.Apply(getZoneResult =&gt; getZoneResult.ZoneId) : exampleCom.Apply(getZoneResult =&gt; getZoneResult.ZoneId)).Apply(values =&gt;
+    ///     {
+    ///         var domainValidationOptions = values.Item1;
+    ///         var @value = values.Item2;
+    ///         return domainValidationOptions.ToDictionary(item =&gt; {
+    ///             var dvo = item.Value;
+    ///             return dvo.DomainName;
+    ///         }, item =&gt; {
+    ///             var dvo = item.Value;
+    ///             return 
+    ///             {
+    ///                 { "name", dvo.ResourceRecordName },
+    ///                 { "record", dvo.ResourceRecordValue },
+    ///                 { "type", dvo.ResourceRecordType },
+    ///                 { "zoneId", @value },
+    ///             };
+    ///         });
+    ///     }).Select(pair =&gt; new { pair.Key, pair.Value }))
+    ///     {
+    ///         exampleRecord.Add(new Aws.Route53.Record($"example-{range.Key}", new()
+    ///         {
+    ///             AllowOverwrite = true,
+    ///             Name = range.Value.Name,
+    ///             Records = new[]
+    ///             {
+    ///                 range.Value.Record,
+    ///             },
+    ///             Ttl = 60,
+    ///             Type = System.Enum.Parse&lt;Aws.Route53.RecordType.RecordType&gt;(range.Value.Type),
+    ///             ZoneId = range.Value.ZoneId,
+    ///         }));
+    ///     }
+    ///     var exampleCertificateValidation = new Aws.Acm.CertificateValidation("example", new()
+    ///     {
+    ///         CertificateArn = example.Arn,
+    ///         ValidationRecordFqdns = exampleRecord.Apply(exampleRecord =&gt; exampleRecord.Select(record =&gt; 
+    ///         {
+    ///             return record.Fqdn;
+    ///         }).ToList()),
+    ///     });
+    /// 
+    ///     var exampleListener = new Aws.LB.Listener("example", new()
+    ///     {
+    ///         CertificateArn = exampleCertificateValidation.CertificateArn,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
+    /// ### Email Validation
+    /// 
+    /// In this situation, the resource is simply a waiter for manual email approval of ACM certificates.
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.Acm.Certificate("example", new()
+    ///     {
+    ///         DomainName = "example.com",
+    ///         ValidationMethod = "EMAIL",
+    ///     });
+    /// 
+    ///     var exampleCertificateValidation = new Aws.Acm.CertificateValidation("example", new()
+    ///     {
+    ///         CertificateArn = example.Arn,
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
     /// </summary>
     [AwsResourceType("aws:acm/certificateValidation:CertificateValidation")]
     public partial class CertificateValidation : global::Pulumi.CustomResource
