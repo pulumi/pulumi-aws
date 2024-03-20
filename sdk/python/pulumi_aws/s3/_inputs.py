@@ -4548,8 +4548,8 @@ class BucketV2ObjectLockConfigurationArgs:
         if object_lock_enabled is not None:
             pulumi.set(__self__, "object_lock_enabled", object_lock_enabled)
         if rules is not None:
-            warnings.warn("""Use the aws_s3_bucket_object_lock_configuration resource instead""", DeprecationWarning)
-            pulumi.log.warn("""rules is deprecated: Use the aws_s3_bucket_object_lock_configuration resource instead""")
+            warnings.warn("""Use the s3.BucketObjectLockConfigurationV2 resource instead""", DeprecationWarning)
+            pulumi.log.warn("""rules is deprecated: Use the s3.BucketObjectLockConfigurationV2 resource instead""")
         if rules is not None:
             pulumi.set(__self__, "rules", rules)
 
@@ -4574,8 +4574,8 @@ class BucketV2ObjectLockConfigurationArgs:
         """
         Object Lock rule in place for this bucket (documented below).
         """
-        warnings.warn("""Use the aws_s3_bucket_object_lock_configuration resource instead""", DeprecationWarning)
-        pulumi.log.warn("""rules is deprecated: Use the aws_s3_bucket_object_lock_configuration resource instead""")
+        warnings.warn("""Use the s3.BucketObjectLockConfigurationV2 resource instead""", DeprecationWarning)
+        pulumi.log.warn("""rules is deprecated: Use the s3.BucketObjectLockConfigurationV2 resource instead""")
 
         return pulumi.get(self, "rules")
 

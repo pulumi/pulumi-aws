@@ -39,7 +39,7 @@ import * as utilities from "../utilities";
  *     name: "Example",
  *     role: exampleAwsIamRole.arn,
  *     handler: "index.handler",
- *     runtime: "nodejs16.x",
+ *     runtime: aws.lambda.Runtime.NodeJS16dX,
  * });
  * const exampleIntegration = new aws.apigatewayv2.Integration("example", {
  *     apiId: exampleAwsApigatewayv2Api.id,

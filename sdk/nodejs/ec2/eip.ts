@@ -73,7 +73,7 @@ import * as utilities from "../utilities";
  * });
  * const foo = new aws.ec2.Instance("foo", {
  *     ami: "ami-5189a661",
- *     instanceType: "t2.micro",
+ *     instanceType: aws.ec2.InstanceType.T2_Micro,
  *     privateIp: "10.0.0.12",
  *     subnetId: myTestSubnet.id,
  * });

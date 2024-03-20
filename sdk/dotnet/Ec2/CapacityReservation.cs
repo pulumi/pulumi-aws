@@ -25,8 +25,8 @@ namespace Pulumi.Aws.Ec2
     /// {
     ///     var @default = new Aws.Ec2.CapacityReservation("default", new()
     ///     {
-    ///         InstanceType = "t2.micro",
-    ///         InstancePlatform = "Linux/UNIX",
+    ///         InstanceType = Aws.Ec2.InstanceType.T2_Micro,
+    ///         InstancePlatform = Aws.Ec2.InstancePlatform.LinuxUnix,
     ///         AvailabilityZone = "eu-west-1a",
     ///         InstanceCount = 1,
     ///     });

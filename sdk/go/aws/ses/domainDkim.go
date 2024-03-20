@@ -55,7 +55,7 @@ import (
 //					Name: exampleDomainDkim.DkimTokens.ApplyT(func(dkimTokens []string) (string, error) {
 //						return fmt.Sprintf("%v._domainkey", dkimTokens[val0]), nil
 //					}).(pulumi.StringOutput),
-//					Type: pulumi.String("CNAME"),
+//					Type: pulumi.String(route53.RecordTypeCNAME),
 //					Ttl:  pulumi.Int(600),
 //					Records: pulumi.StringArray{
 //						exampleDomainDkim.DkimTokens.ApplyT(func(dkimTokens []string) (string, error) {

@@ -308,7 +308,7 @@ namespace Pulumi.Aws.S3
         /// <summary>
         /// Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See CORS rule below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketCorsConfigurationV2` instead.
         /// </summary>
-        [Obsolete(@"Use the aws_s3_bucket_cors_configuration resource instead")]
+        [Obsolete(@"Use the aws.s3.BucketCorsConfigurationV2 resource instead")]
         public InputList<Inputs.BucketV2CorsRuleArgs> CorsRules
         {
             get => _corsRules ?? (_corsRules = new InputList<Inputs.BucketV2CorsRuleArgs>());
@@ -327,7 +327,7 @@ namespace Pulumi.Aws.S3
         /// <summary>
         /// An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl). See Grant below for details. Conflicts with `acl`. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAclV2` instead.
         /// </summary>
-        [Obsolete(@"Use the aws_s3_bucket_acl resource instead")]
+        [Obsolete(@"Use the aws.s3.BucketAclV2 resource instead")]
         public InputList<Inputs.BucketV2GrantArgs> Grants
         {
             get => _grants ?? (_grants = new InputList<Inputs.BucketV2GrantArgs>());
@@ -341,7 +341,7 @@ namespace Pulumi.Aws.S3
         /// Configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html). See Lifecycle Rule below for details. The provider will only perform drift detection if a configuration value is provided.
         /// Use the resource `aws.s3.BucketLifecycleConfigurationV2` instead.
         /// </summary>
-        [Obsolete(@"Use the aws_s3_bucket_lifecycle_configuration resource instead")]
+        [Obsolete(@"Use the aws.s3.BucketLifecycleConfigurationV2 resource instead")]
         public InputList<Inputs.BucketV2LifecycleRuleArgs> LifecycleRules
         {
             get => _lifecycleRules ?? (_lifecycleRules = new InputList<Inputs.BucketV2LifecycleRuleArgs>());
@@ -355,7 +355,7 @@ namespace Pulumi.Aws.S3
         /// Configuration of [S3 bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) parameters. See Logging below for details. The provider will only perform drift detection if a configuration value is provided.
         /// Use the resource `aws.s3.BucketLoggingV2` instead.
         /// </summary>
-        [Obsolete(@"Use the aws_s3_bucket_logging resource instead")]
+        [Obsolete(@"Use the aws.s3.BucketLoggingV2 resource instead")]
         public InputList<Inputs.BucketV2LoggingArgs> Loggings
         {
             get => _loggings ?? (_loggings = new InputList<Inputs.BucketV2LoggingArgs>());
@@ -391,7 +391,7 @@ namespace Pulumi.Aws.S3
         /// Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
         /// Use the resource `aws.s3.BucketReplicationConfig` instead.
         /// </summary>
-        [Obsolete(@"Use the aws_s3_bucket_replication_configuration resource instead")]
+        [Obsolete(@"Use the aws.s3.BucketReplicationConfig resource instead")]
         public InputList<Inputs.BucketV2ReplicationConfigurationArgs> ReplicationConfigurations
         {
             get => _replicationConfigurations ?? (_replicationConfigurations = new InputList<Inputs.BucketV2ReplicationConfigurationArgs>());
@@ -416,7 +416,7 @@ namespace Pulumi.Aws.S3
         /// The provider will only perform drift detection if a configuration value is provided.
         /// Use the resource `aws.s3.BucketServerSideEncryptionConfigurationV2` instead.
         /// </summary>
-        [Obsolete(@"Use the aws_s3_bucket_server_side_encryption_configuration resource instead")]
+        [Obsolete(@"Use the aws.s3.BucketServerSideEncryptionConfigurationV2 resource instead")]
         public InputList<Inputs.BucketV2ServerSideEncryptionConfigurationArgs> ServerSideEncryptionConfigurations
         {
             get => _serverSideEncryptionConfigurations ?? (_serverSideEncryptionConfigurations = new InputList<Inputs.BucketV2ServerSideEncryptionConfigurationArgs>());
@@ -443,7 +443,7 @@ namespace Pulumi.Aws.S3
         /// <summary>
         /// Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketVersioningV2` instead.
         /// </summary>
-        [Obsolete(@"Use the aws_s3_bucket_versioning resource instead")]
+        [Obsolete(@"Use the aws.s3.BucketVersioningV2 resource instead")]
         public InputList<Inputs.BucketV2VersioningArgs> Versionings
         {
             get => _versionings ?? (_versionings = new InputList<Inputs.BucketV2VersioningArgs>());
@@ -457,7 +457,7 @@ namespace Pulumi.Aws.S3
         /// Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
         /// Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
         /// </summary>
-        [Obsolete(@"Use the aws_s3_bucket_website_configuration resource instead")]
+        [Obsolete(@"Use the aws.s3.BucketWebsiteConfigurationV2 resource instead")]
         public InputList<Inputs.BucketV2WebsiteArgs> Websites
         {
             get => _websites ?? (_websites = new InputList<Inputs.BucketV2WebsiteArgs>());
@@ -521,7 +521,7 @@ namespace Pulumi.Aws.S3
         /// <summary>
         /// Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See CORS rule below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketCorsConfigurationV2` instead.
         /// </summary>
-        [Obsolete(@"Use the aws_s3_bucket_cors_configuration resource instead")]
+        [Obsolete(@"Use the aws.s3.BucketCorsConfigurationV2 resource instead")]
         public InputList<Inputs.BucketV2CorsRuleGetArgs> CorsRules
         {
             get => _corsRules ?? (_corsRules = new InputList<Inputs.BucketV2CorsRuleGetArgs>());
@@ -540,7 +540,7 @@ namespace Pulumi.Aws.S3
         /// <summary>
         /// An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl). See Grant below for details. Conflicts with `acl`. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAclV2` instead.
         /// </summary>
-        [Obsolete(@"Use the aws_s3_bucket_acl resource instead")]
+        [Obsolete(@"Use the aws.s3.BucketAclV2 resource instead")]
         public InputList<Inputs.BucketV2GrantGetArgs> Grants
         {
             get => _grants ?? (_grants = new InputList<Inputs.BucketV2GrantGetArgs>());
@@ -560,7 +560,7 @@ namespace Pulumi.Aws.S3
         /// Configuration of [object lifecycle management](http://docs.aws.amazon.com/AmazonS3/latest/dev/object-lifecycle-mgmt.html). See Lifecycle Rule below for details. The provider will only perform drift detection if a configuration value is provided.
         /// Use the resource `aws.s3.BucketLifecycleConfigurationV2` instead.
         /// </summary>
-        [Obsolete(@"Use the aws_s3_bucket_lifecycle_configuration resource instead")]
+        [Obsolete(@"Use the aws.s3.BucketLifecycleConfigurationV2 resource instead")]
         public InputList<Inputs.BucketV2LifecycleRuleGetArgs> LifecycleRules
         {
             get => _lifecycleRules ?? (_lifecycleRules = new InputList<Inputs.BucketV2LifecycleRuleGetArgs>());
@@ -574,7 +574,7 @@ namespace Pulumi.Aws.S3
         /// Configuration of [S3 bucket logging](https://docs.aws.amazon.com/AmazonS3/latest/UG/ManagingBucketLogging.html) parameters. See Logging below for details. The provider will only perform drift detection if a configuration value is provided.
         /// Use the resource `aws.s3.BucketLoggingV2` instead.
         /// </summary>
-        [Obsolete(@"Use the aws_s3_bucket_logging resource instead")]
+        [Obsolete(@"Use the aws.s3.BucketLoggingV2 resource instead")]
         public InputList<Inputs.BucketV2LoggingGetArgs> Loggings
         {
             get => _loggings ?? (_loggings = new InputList<Inputs.BucketV2LoggingGetArgs>());
@@ -616,7 +616,7 @@ namespace Pulumi.Aws.S3
         /// Configuration of [replication configuration](http://docs.aws.amazon.com/AmazonS3/latest/dev/crr.html). See Replication Configuration below for details. The provider will only perform drift detection if a configuration value is provided.
         /// Use the resource `aws.s3.BucketReplicationConfig` instead.
         /// </summary>
-        [Obsolete(@"Use the aws_s3_bucket_replication_configuration resource instead")]
+        [Obsolete(@"Use the aws.s3.BucketReplicationConfig resource instead")]
         public InputList<Inputs.BucketV2ReplicationConfigurationGetArgs> ReplicationConfigurations
         {
             get => _replicationConfigurations ?? (_replicationConfigurations = new InputList<Inputs.BucketV2ReplicationConfigurationGetArgs>());
@@ -641,7 +641,7 @@ namespace Pulumi.Aws.S3
         /// The provider will only perform drift detection if a configuration value is provided.
         /// Use the resource `aws.s3.BucketServerSideEncryptionConfigurationV2` instead.
         /// </summary>
-        [Obsolete(@"Use the aws_s3_bucket_server_side_encryption_configuration resource instead")]
+        [Obsolete(@"Use the aws.s3.BucketServerSideEncryptionConfigurationV2 resource instead")]
         public InputList<Inputs.BucketV2ServerSideEncryptionConfigurationGetArgs> ServerSideEncryptionConfigurations
         {
             get => _serverSideEncryptionConfigurations ?? (_serverSideEncryptionConfigurations = new InputList<Inputs.BucketV2ServerSideEncryptionConfigurationGetArgs>());
@@ -681,7 +681,7 @@ namespace Pulumi.Aws.S3
         /// <summary>
         /// Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketVersioningV2` instead.
         /// </summary>
-        [Obsolete(@"Use the aws_s3_bucket_versioning resource instead")]
+        [Obsolete(@"Use the aws.s3.BucketVersioningV2 resource instead")]
         public InputList<Inputs.BucketV2VersioningGetArgs> Versionings
         {
             get => _versionings ?? (_versionings = new InputList<Inputs.BucketV2VersioningGetArgs>());
@@ -707,7 +707,7 @@ namespace Pulumi.Aws.S3
         /// Configuration of the [S3 bucket website](https://docs.aws.amazon.com/AmazonS3/latest/userguide/WebsiteHosting.html). See Website below for details. The provider will only perform drift detection if a configuration value is provided.
         /// Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
         /// </summary>
-        [Obsolete(@"Use the aws_s3_bucket_website_configuration resource instead")]
+        [Obsolete(@"Use the aws.s3.BucketWebsiteConfigurationV2 resource instead")]
         public InputList<Inputs.BucketV2WebsiteGetArgs> Websites
         {
             get => _websites ?? (_websites = new InputList<Inputs.BucketV2WebsiteGetArgs>());

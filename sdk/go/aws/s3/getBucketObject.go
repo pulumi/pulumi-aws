@@ -45,9 +45,9 @@ import (
 //				return err
 //			}
 //			_, err = ec2.NewInstance(ctx, "example", &ec2.InstanceArgs{
-//				InstanceType: pulumi.String("t2.micro"),
+//				InstanceType: pulumi.String(ec2.InstanceType_T2_Micro),
 //				Ami:          pulumi.String("ami-2757f631"),
-//				UserData:     *pulumi.String(bootstrapScript.Body),
+//				UserData:     pulumi.String(bootstrapScript.Body),
 //			})
 //			if err != nil {
 //				return err
@@ -88,9 +88,9 @@ import (
 //				return err
 //			}
 //			_, err = lambda.NewFunction(ctx, "test_lambda", &lambda.FunctionArgs{
-//				S3Bucket:        *pulumi.String(lambda.Id),
-//				S3Key:           *pulumi.String(lambda.Key),
-//				S3ObjectVersion: *pulumi.String(lambda.VersionId),
+//				S3Bucket:        pulumi.String(lambda.Id),
+//				S3Key:           pulumi.String(lambda.Key),
+//				S3ObjectVersion: pulumi.String(lambda.VersionId),
 //				Name:            pulumi.String("lambda_function_name"),
 //				Role:            pulumi.Any(iamForLambda.Arn),
 //				Handler:         pulumi.String("exports.test"),
@@ -118,7 +118,7 @@ func LookupBucketObject(ctx *pulumi.Context, args *LookupBucketObjectArgs, opts 
 type LookupBucketObjectArgs struct {
 	// Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
 	//
-	// Deprecated: Use the aws_s3_object data source instead
+	// Deprecated: Use the s3.BucketObjectv2 data source instead
 	Bucket string `pulumi:"bucket"`
 	// Full path to the object inside the bucket
 	Key   string  `pulumi:"key"`
@@ -134,7 +134,7 @@ type LookupBucketObjectResult struct {
 	Arn string `pulumi:"arn"`
 	// Object data (see **limitations above** to understand cases in which this field is actually available)
 	Body string `pulumi:"body"`
-	// Deprecated: Use the aws_s3_object data source instead
+	// Deprecated: Use the s3.BucketObjectv2 data source instead
 	Bucket string `pulumi:"bucket"`
 	// (Optional) Whether or not to use [Amazon S3 Bucket Keys](https://docs.aws.amazon.com/AmazonS3/latest/dev/bucket-key.html) for SSE-KMS.
 	BucketKeyEnabled bool `pulumi:"bucketKeyEnabled"`
@@ -201,7 +201,7 @@ func LookupBucketObjectOutput(ctx *pulumi.Context, args LookupBucketObjectOutput
 type LookupBucketObjectOutputArgs struct {
 	// Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
 	//
-	// Deprecated: Use the aws_s3_object data source instead
+	// Deprecated: Use the s3.BucketObjectv2 data source instead
 	Bucket pulumi.StringInput `pulumi:"bucket"`
 	// Full path to the object inside the bucket
 	Key   pulumi.StringInput    `pulumi:"key"`
@@ -240,7 +240,7 @@ func (o LookupBucketObjectResultOutput) Body() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.Body }).(pulumi.StringOutput)
 }
 
-// Deprecated: Use the aws_s3_object data source instead
+// Deprecated: Use the s3.BucketObjectv2 data source instead
 func (o LookupBucketObjectResultOutput) Bucket() pulumi.StringOutput {
 	return o.ApplyT(func(v LookupBucketObjectResult) string { return v.Bucket }).(pulumi.StringOutput)
 }

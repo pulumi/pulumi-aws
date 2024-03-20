@@ -91,7 +91,7 @@ import (
 //			}
 //			_, err = s3.NewBucketPolicy(ctx, "hoge", &s3.BucketPolicyArgs{
 //				Bucket: hogeBucketV2.ID(),
-//				Policy: *pulumi.String(hoge.Json),
+//				Policy: pulumi.String(hoge.Json),
 //			})
 //			if err != nil {
 //				return err

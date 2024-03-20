@@ -277,7 +277,7 @@ class PlacementGroup(pulumi.CustomResource):
 
         web = aws.ec2.PlacementGroup("web",
             name="hunky-dory-pg",
-            strategy="cluster")
+            strategy=aws.ec2.PlacementStrategy.CLUSTER)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -319,7 +319,7 @@ class PlacementGroup(pulumi.CustomResource):
 
         web = aws.ec2.PlacementGroup("web",
             name="hunky-dory-pg",
-            strategy="cluster")
+            strategy=aws.ec2.PlacementStrategy.CLUSTER)
         ```
         <!--End PulumiCodeChooser -->
 

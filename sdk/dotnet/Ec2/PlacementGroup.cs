@@ -27,7 +27,7 @@ namespace Pulumi.Aws.Ec2
     ///     var web = new Aws.Ec2.PlacementGroup("web", new()
     ///     {
     ///         Name = "hunky-dory-pg",
-    ///         Strategy = "cluster",
+    ///         Strategy = Aws.Ec2.PlacementStrategy.Cluster,
     ///     });
     /// 
     /// });

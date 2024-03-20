@@ -75,7 +75,7 @@ namespace Pulumi.Aws.Rds
     ///         Identifier = "mydb",
     ///         Engine = "postgres",
     ///         EngineVersion = "13.4",
-    ///         InstanceClass = "db.t3.micro",
+    ///         InstanceClass = Aws.Rds.InstanceType.T3_Micro,
     ///         DbName = "mydb",
     ///         Username = "masterusername",
     ///         Password = "mustbeeightcharacters",

@@ -97,7 +97,7 @@ import (
 //				Identifier:            pulumi.String("mydb"),
 //				Engine:                pulumi.String("postgres"),
 //				EngineVersion:         pulumi.String("13.4"),
-//				InstanceClass:         pulumi.String("db.t3.micro"),
+//				InstanceClass:         pulumi.String(rds.InstanceType_T3_Micro),
 //				DbName:                pulumi.String("mydb"),
 //				Username:              pulumi.String("masterusername"),
 //				Password:              pulumi.String("mustbeeightcharacters"),

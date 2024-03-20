@@ -22,10 +22,10 @@ public final class GetBucketObjectsArgs extends com.pulumi.resources.InvokeArgs 
      * Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
      * 
      * @deprecated
-     * Use the aws_s3_objects data source instead
+     * Use the aws.s3.getObjects data source instead
      * 
      */
-    @Deprecated /* Use the aws_s3_objects data source instead */
+    @Deprecated /* Use the aws.s3.getObjects data source instead */
     @Import(name="bucket", required=true)
     private Output<String> bucket;
 
@@ -33,10 +33,10 @@ public final class GetBucketObjectsArgs extends com.pulumi.resources.InvokeArgs 
      * @return Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
      * 
      * @deprecated
-     * Use the aws_s3_objects data source instead
+     * Use the aws.s3.getObjects data source instead
      * 
      */
-    @Deprecated /* Use the aws_s3_objects data source instead */
+    @Deprecated /* Use the aws.s3.getObjects data source instead */
     public Output<String> bucket() {
         return this.bucket;
     }
@@ -167,10 +167,10 @@ public final class GetBucketObjectsArgs extends com.pulumi.resources.InvokeArgs 
          * @return builder
          * 
          * @deprecated
-         * Use the aws_s3_objects data source instead
+         * Use the aws.s3.getObjects data source instead
          * 
          */
-        @Deprecated /* Use the aws_s3_objects data source instead */
+        @Deprecated /* Use the aws.s3.getObjects data source instead */
         public Builder bucket(Output<String> bucket) {
             $.bucket = bucket;
             return this;
@@ -182,10 +182,10 @@ public final class GetBucketObjectsArgs extends com.pulumi.resources.InvokeArgs 
          * @return builder
          * 
          * @deprecated
-         * Use the aws_s3_objects data source instead
+         * Use the aws.s3.getObjects data source instead
          * 
          */
-        @Deprecated /* Use the aws_s3_objects data source instead */
+        @Deprecated /* Use the aws.s3.getObjects data source instead */
         public Builder bucket(String bucket) {
             return bucket(Output.of(bucket));
         }

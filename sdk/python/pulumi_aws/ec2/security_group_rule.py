@@ -454,7 +454,7 @@ class SecurityGroupRule(pulumi.CustomResource):
             type="ingress",
             from_port=0,
             to_port=65535,
-            protocol="tcp",
+            protocol=aws.ec2.ProtocolType.TCP,
             cidr_blocks=[example_aws_vpc["cidrBlock"]],
             ipv6_cidr_blocks=[example_aws_vpc["ipv6CidrBlock"]],
             security_group_id="sg-123456")
@@ -502,7 +502,7 @@ class SecurityGroupRule(pulumi.CustomResource):
             security_group_id="sg-123456",
             from_port=443,
             to_port=443,
-            protocol="tcp",
+            protocol=aws.ec2.ProtocolType.TCP,
             prefix_list_ids=[s3.id])
         ```
         <!--End PulumiCodeChooser -->
@@ -612,7 +612,7 @@ class SecurityGroupRule(pulumi.CustomResource):
             type="ingress",
             from_port=0,
             to_port=65535,
-            protocol="tcp",
+            protocol=aws.ec2.ProtocolType.TCP,
             cidr_blocks=[example_aws_vpc["cidrBlock"]],
             ipv6_cidr_blocks=[example_aws_vpc["ipv6CidrBlock"]],
             security_group_id="sg-123456")
@@ -660,7 +660,7 @@ class SecurityGroupRule(pulumi.CustomResource):
             security_group_id="sg-123456",
             from_port=443,
             to_port=443,
-            protocol="tcp",
+            protocol=aws.ec2.ProtocolType.TCP,
             prefix_list_ids=[s3.id])
         ```
         <!--End PulumiCodeChooser -->

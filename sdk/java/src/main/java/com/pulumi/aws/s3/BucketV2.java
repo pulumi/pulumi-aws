@@ -89,10 +89,10 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * Use the resource `aws.s3.BucketAccelerateConfigurationV2` instead.
      * 
      * @deprecated
-     * Use the aws_s3_bucket_accelerate_configuration resource instead
+     * Use the aws.s3.BucketAccelerateConfigurationV2 resource instead
      * 
      */
-    @Deprecated /* Use the aws_s3_bucket_accelerate_configuration resource instead */
+    @Deprecated /* Use the aws.s3.BucketAccelerateConfigurationV2 resource instead */
     @Export(name="accelerationStatus", refs={String.class}, tree="[0]")
     private Output<String> accelerationStatus;
 
@@ -108,10 +108,10 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAclV2` instead.
      * 
      * @deprecated
-     * Use the aws_s3_bucket_acl resource instead
+     * Use the aws.s3.BucketAclV2 resource instead
      * 
      */
-    @Deprecated /* Use the aws_s3_bucket_acl resource instead */
+    @Deprecated /* Use the aws.s3.BucketAclV2 resource instead */
     @Export(name="acl", refs={String.class}, tree="[0]")
     private Output<String> acl;
 
@@ -196,10 +196,10 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See CORS rule below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketCorsConfigurationV2` instead.
      * 
      * @deprecated
-     * Use the aws_s3_bucket_cors_configuration resource instead
+     * Use the aws.s3.BucketCorsConfigurationV2 resource instead
      * 
      */
-    @Deprecated /* Use the aws_s3_bucket_cors_configuration resource instead */
+    @Deprecated /* Use the aws.s3.BucketCorsConfigurationV2 resource instead */
     @Export(name="corsRules", refs={List.class,BucketV2CorsRule.class}, tree="[0,1]")
     private Output<List<BucketV2CorsRule>> corsRules;
 
@@ -228,10 +228,10 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl). See Grant below for details. Conflicts with `acl`. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAclV2` instead.
      * 
      * @deprecated
-     * Use the aws_s3_bucket_acl resource instead
+     * Use the aws.s3.BucketAclV2 resource instead
      * 
      */
-    @Deprecated /* Use the aws_s3_bucket_acl resource instead */
+    @Deprecated /* Use the aws.s3.BucketAclV2 resource instead */
     @Export(name="grants", refs={List.class,BucketV2Grant.class}, tree="[0,1]")
     private Output<List<BucketV2Grant>> grants;
 
@@ -261,10 +261,10 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * Use the resource `aws.s3.BucketLifecycleConfigurationV2` instead.
      * 
      * @deprecated
-     * Use the aws_s3_bucket_lifecycle_configuration resource instead
+     * Use the aws.s3.BucketLifecycleConfigurationV2 resource instead
      * 
      */
-    @Deprecated /* Use the aws_s3_bucket_lifecycle_configuration resource instead */
+    @Deprecated /* Use the aws.s3.BucketLifecycleConfigurationV2 resource instead */
     @Export(name="lifecycleRules", refs={List.class,BucketV2LifecycleRule.class}, tree="[0,1]")
     private Output<List<BucketV2LifecycleRule>> lifecycleRules;
 
@@ -281,10 +281,10 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * Use the resource `aws.s3.BucketLoggingV2` instead.
      * 
      * @deprecated
-     * Use the aws_s3_bucket_logging resource instead
+     * Use the aws.s3.BucketLoggingV2 resource instead
      * 
      */
-    @Deprecated /* Use the aws_s3_bucket_logging resource instead */
+    @Deprecated /* Use the aws.s3.BucketLoggingV2 resource instead */
     @Export(name="loggings", refs={List.class,BucketV2Logging.class}, tree="[0,1]")
     private Output<List<BucketV2Logging>> loggings;
 
@@ -302,10 +302,10 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * Use the `object_lock_enabled` parameter and the resource `aws.s3.BucketObjectLockConfigurationV2` instead.
      * 
      * @deprecated
-     * Use the top-level parameter object_lock_enabled and the aws_s3_bucket_object_lock_configuration resource instead
+     * Use the top-level parameter object_lock_enabled and the aws.s3.BucketObjectLockConfigurationV2 resource instead
      * 
      */
-    @Deprecated /* Use the top-level parameter object_lock_enabled and the aws_s3_bucket_object_lock_configuration resource instead */
+    @Deprecated /* Use the top-level parameter object_lock_enabled and the aws.s3.BucketObjectLockConfigurationV2 resource instead */
     @Export(name="objectLockConfiguration", refs={BucketV2ObjectLockConfiguration.class}, tree="[0]")
     private Output<BucketV2ObjectLockConfiguration> objectLockConfiguration;
 
@@ -338,10 +338,10 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * Use the resource `aws.s3.BucketPolicy` instead.
      * 
      * @deprecated
-     * Use the aws_s3_bucket_policy resource instead
+     * Use the aws.s3.BucketPolicy resource instead
      * 
      */
-    @Deprecated /* Use the aws_s3_bucket_policy resource instead */
+    @Deprecated /* Use the aws.s3.BucketPolicy resource instead */
     @Export(name="policy", refs={String.class}, tree="[0]")
     private Output<String> policy;
 
@@ -373,10 +373,10 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * Use the resource `aws.s3.BucketReplicationConfig` instead.
      * 
      * @deprecated
-     * Use the aws_s3_bucket_replication_configuration resource instead
+     * Use the aws.s3.BucketReplicationConfig resource instead
      * 
      */
-    @Deprecated /* Use the aws_s3_bucket_replication_configuration resource instead */
+    @Deprecated /* Use the aws.s3.BucketReplicationConfig resource instead */
     @Export(name="replicationConfigurations", refs={List.class,BucketV2ReplicationConfiguration.class}, tree="[0,1]")
     private Output<List<BucketV2ReplicationConfiguration>> replicationConfigurations;
 
@@ -396,10 +396,10 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * Use the resource `aws.s3.BucketRequestPaymentConfigurationV2` instead.
      * 
      * @deprecated
-     * Use the aws_s3_bucket_request_payment_configuration resource instead
+     * Use the aws.s3.BucketRequestPaymentConfigurationV2 resource instead
      * 
      */
-    @Deprecated /* Use the aws_s3_bucket_request_payment_configuration resource instead */
+    @Deprecated /* Use the aws.s3.BucketRequestPaymentConfigurationV2 resource instead */
     @Export(name="requestPayer", refs={String.class}, tree="[0]")
     private Output<String> requestPayer;
 
@@ -420,10 +420,10 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * Use the resource `aws.s3.BucketServerSideEncryptionConfigurationV2` instead.
      * 
      * @deprecated
-     * Use the aws_s3_bucket_server_side_encryption_configuration resource instead
+     * Use the aws.s3.BucketServerSideEncryptionConfigurationV2 resource instead
      * 
      */
-    @Deprecated /* Use the aws_s3_bucket_server_side_encryption_configuration resource instead */
+    @Deprecated /* Use the aws.s3.BucketServerSideEncryptionConfigurationV2 resource instead */
     @Export(name="serverSideEncryptionConfigurations", refs={List.class,BucketV2ServerSideEncryptionConfiguration.class}, tree="[0,1]")
     private Output<List<BucketV2ServerSideEncryptionConfiguration>> serverSideEncryptionConfigurations;
 
@@ -476,10 +476,10 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketVersioningV2` instead.
      * 
      * @deprecated
-     * Use the aws_s3_bucket_versioning resource instead
+     * Use the aws.s3.BucketVersioningV2 resource instead
      * 
      */
-    @Deprecated /* Use the aws_s3_bucket_versioning resource instead */
+    @Deprecated /* Use the aws.s3.BucketVersioningV2 resource instead */
     @Export(name="versionings", refs={List.class,BucketV2Versioning.class}, tree="[0,1]")
     private Output<List<BucketV2Versioning>> versionings;
 
@@ -494,10 +494,10 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * (**Deprecated**) Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
      * 
      * @deprecated
-     * Use the aws_s3_bucket_website_configuration resource
+     * Use the aws.s3.BucketWebsiteConfigurationV2 resource
      * 
      */
-    @Deprecated /* Use the aws_s3_bucket_website_configuration resource */
+    @Deprecated /* Use the aws.s3.BucketWebsiteConfigurationV2 resource */
     @Export(name="websiteDomain", refs={String.class}, tree="[0]")
     private Output<String> websiteDomain;
 
@@ -512,10 +512,10 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * (**Deprecated**) Website endpoint, if the bucket is configured with a website. If not, this will be an empty string. Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
      * 
      * @deprecated
-     * Use the aws_s3_bucket_website_configuration resource
+     * Use the aws.s3.BucketWebsiteConfigurationV2 resource
      * 
      */
-    @Deprecated /* Use the aws_s3_bucket_website_configuration resource */
+    @Deprecated /* Use the aws.s3.BucketWebsiteConfigurationV2 resource */
     @Export(name="websiteEndpoint", refs={String.class}, tree="[0]")
     private Output<String> websiteEndpoint;
 
@@ -531,10 +531,10 @@ public class BucketV2 extends com.pulumi.resources.CustomResource {
      * Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
      * 
      * @deprecated
-     * Use the aws_s3_bucket_website_configuration resource instead
+     * Use the aws.s3.BucketWebsiteConfigurationV2 resource instead
      * 
      */
-    @Deprecated /* Use the aws_s3_bucket_website_configuration resource instead */
+    @Deprecated /* Use the aws.s3.BucketWebsiteConfigurationV2 resource instead */
     @Export(name="websites", refs={List.class,BucketV2Website.class}, tree="[0,1]")
     private Output<List<BucketV2Website>> websites;
 

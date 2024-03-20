@@ -37,7 +37,7 @@ import {InstanceProfile} from "../iam";
  * });
  * const web = new aws.ec2.Instance("web", {
  *     ami: ubuntu.then(ubuntu => ubuntu.id),
- *     instanceType: "t3.micro",
+ *     instanceType: aws.ec2.InstanceType.T3_Micro,
  *     tags: {
  *         Name: "HelloWorld",
  *     },
@@ -73,7 +73,7 @@ import {InstanceProfile} from "../iam";
  *             maxPrice: "0.0031",
  *         },
  *     },
- *     instanceType: "t4g.nano",
+ *     instanceType: aws.ec2.InstanceType.T4g_Nano,
  *     tags: {
  *         Name: "test-spot",
  *     },
@@ -111,7 +111,7 @@ import {InstanceProfile} from "../iam";
  * });
  * const fooInstance = new aws.ec2.Instance("foo", {
  *     ami: "ami-005e54dee72cc1d00",
- *     instanceType: "t2.micro",
+ *     instanceType: aws.ec2.InstanceType.T2_Micro,
  *     networkInterfaces: [{
  *         networkInterfaceId: foo.id,
  *         deviceIndex: 0,
@@ -154,7 +154,7 @@ import {InstanceProfile} from "../iam";
  * });
  * const exampleInstance = new aws.ec2.Instance("example", {
  *     ami: amzn_linux_2023_ami.then(amzn_linux_2023_ami => amzn_linux_2023_ami.id),
- *     instanceType: "c6a.2xlarge",
+ *     instanceType: aws.ec2.InstanceType.C6a_2XLarge,
  *     subnetId: exampleSubnet.id,
  *     cpuOptions: {
  *         coreCount: 2,
@@ -180,7 +180,7 @@ import {InstanceProfile} from "../iam";
  *
  * const _this = new aws.ec2.Instance("this", {
  *     ami: "ami-0dcc1e21636832c5d",
- *     instanceType: "m5.large",
+ *     instanceType: aws.ec2.InstanceType.M5_Large,
  *     hostResourceGroupArn: "arn:aws:resource-groups:us-west-2:012345678901:group/win-testhost",
  *     tenancy: "host",
  * });

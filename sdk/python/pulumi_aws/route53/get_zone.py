@@ -211,7 +211,7 @@ def get_zone(name: Optional[str] = None,
     www = aws.route53.Record("www",
         zone_id=selected.zone_id,
         name=f"www.{selected.name}",
-        type="A",
+        type=aws.route53.RecordType.A,
         ttl=300,
         records=["10.0.0.1"])
     ```
@@ -279,7 +279,7 @@ def get_zone_output(name: Optional[pulumi.Input[Optional[str]]] = None,
     www = aws.route53.Record("www",
         zone_id=selected.zone_id,
         name=f"www.{selected.name}",
-        type="A",
+        type=aws.route53.RecordType.A,
         ttl=300,
         records=["10.0.0.1"])
     ```

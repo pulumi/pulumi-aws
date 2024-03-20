@@ -161,7 +161,7 @@ import (
 //				return err
 //			}
 //			example, err := iam.NewRole(ctx, "example", &iam.RoleArgs{
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //				Name:             pulumi.String("gamelift-game-server-group-example"),
 //			})
 //			if err != nil {

@@ -32,7 +32,7 @@ export interface GetBucketObjectsArgs {
     /**
      * Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
      *
-     * @deprecated Use the aws_s3_objects data source instead
+     * @deprecated Use the aws.s3.getObjects data source instead
      */
     bucket: string;
     /**
@@ -66,7 +66,7 @@ export interface GetBucketObjectsArgs {
  */
 export interface GetBucketObjectsResult {
     /**
-     * @deprecated Use the aws_s3_objects data source instead
+     * @deprecated Use the aws.s3.getObjects data source instead
      */
     readonly bucket: string;
     /**
@@ -110,7 +110,7 @@ export interface GetBucketObjectsOutputArgs {
     /**
      * Lists object keys in this S3 bucket. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
      *
-     * @deprecated Use the aws_s3_objects data source instead
+     * @deprecated Use the aws.s3.getObjects data source instead
      */
     bucket: pulumi.Input<string>;
     /**

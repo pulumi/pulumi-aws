@@ -37,11 +37,11 @@ import (
 //			_, err = route53.NewRecord(ctx, "www", &route53.RecordArgs{
 //				ZoneId: pulumi.Any(primary.ZoneId),
 //				Name:   pulumi.String("example.com"),
-//				Type:   pulumi.String("A"),
+//				Type:   pulumi.String(route53.RecordTypeA),
 //				Aliases: route53.RecordAliasArray{
 //					&route53.RecordAliasArgs{
 //						Name:                 pulumi.Any(mainAwsApprunnerCustomDomainAssociation.DnsTarget),
-//						ZoneId:               *pulumi.String(main.Id),
+//						ZoneId:               pulumi.String(main.Id),
 //						EvaluateTargetHealth: pulumi.Bool(true),
 //					},
 //				},
