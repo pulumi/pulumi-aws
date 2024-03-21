@@ -336,6 +336,7 @@ jobs:
         run: >-
           tar -zxf ${{ github.workspace }}/bin/provider.tar.gz -C ${{
           github.workspace}}/bin
+          
           find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print -exec chmod +x {} \;
       - name: Download SDK
         uses: actions/download-artifact@v4
