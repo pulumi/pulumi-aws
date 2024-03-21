@@ -4110,6 +4110,15 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 					},
 				},
 			},
+			"aws_networkfirewall_resource_policy": {
+				Tok: awsResource(networkFirewallMod, "ResourcePolicy"),
+				Docs: &tfbridge.DocInfo{
+					ImportDetails: "Using `pulumi import`, import Network Firewall Resource Policies using the `resource arn`. For example: \n" +
+						"```sh\n" +
+						"$ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example\n" +
+						"```\n",
+				},
+			},
 
 			// signer
 			"aws_signer_signing_job":                {Tok: awsResource(signerMod, "SigningJob")},
