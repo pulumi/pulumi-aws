@@ -290,8 +290,6 @@ jobs:
       run: echo "🎉🎈🎉🎈🎉"
 
   unit_test:
-    if: github.event_name == 'repository_dispatch' ||
-      github.event.pull_request.head.repo.full_name == github.repository
     name: unit_test
     needs: build_sdk
     permissions:
@@ -299,78 +297,99 @@ jobs:
       id-token: write
     runs-on: ubuntu-latest
     steps:
-    - name: Checkout Repo
-      uses: actions/checkout@v4
-      with:
-        ref: ${{ env.PR_COMMIT_SHA }}
-        submodules: true
-    - name: Checkout Scripts Repo
-      uses: actions/checkout@v4
-      with:
-        path: ci-scripts
-        repository: pulumi/scripts
-        ref: deca2c5c6015ad7aaea6f572a1c2b198ca323592
-    - name: Unshallow clone for tags
-      run: git fetch --prune --unshallow --tags
-    - name: Install Go
-      uses: actions/setup-go@v5
-      with:
-        cache-dependency-path: |
-            sdk/go.sum
-        go-version: 1.21.x
-    - name: Install pulumictl
-      uses: jaxxstorm/action-install-gh-release@v1.11.0
-      with:
-        tag: v0.0.46
-        repo: pulumi/pulumictl
-    - name: Install Pulumi CLI
-      uses: pulumi/actions@v5
-      with:
-        pulumi-version: ^3
-    - name: Download provider + tfgen binaries
-      uses: actions/download-artifact@v4
-      with:
-        name: ${{ env.PROVIDER }}-provider.tar.gz
-        path: ${{ github.workspace }}/bin
-    - name: Untar provider binaries
-      run: >-
-        tar -zxf ${{ github.workspace }}/bin/provider.tar.gz -C ${{
-        github.workspace}}/bin
-
-        find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print -exec chmod +x {} \;
-    - name: Update path
-      run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
-    - name: Install gotestfmt
-      uses: GoTestTools/gotestfmt-action@v2
-      with:
-        token: ${{ secrets.GITHUB_TOKEN }}
-        version: v2.5.0
-    - name: Free Disk Space (Ubuntu)
-      uses: jlumbroso/free-disk-space@main
-      with:
-        swap-storage: false
-        tool-cache: false
-    - name: Configure AWS Credentials
-      uses: aws-actions/configure-aws-credentials@v4
-      with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-region: ${{ env.AWS_REGION }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        role-duration-seconds: 3600
-        role-session-name: ${{ env.PROVIDER }}@githubActions
-        role-to-assume: ${{ secrets.AWS_CI_ROLE_ARN }}
-    - name: Make upstream
-      run: make upstream
-    - name: Run provider tests
-      run: |
-        cd provider && go test -v -json -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
-    - if: failure() && github.event_name == 'push'
-      name: Notify Slack
-      uses: 8398a7/action-slack@v3
-      with:
-        author_name: Failure in running unit tests
-        fields: repo,commit,author,action
-        status: ${{ job.status }}
+      - name: Checkout Repo
+        uses: actions/checkout@v4
+        with:
+          submodules: true
+      - name: Checkout Scripts Repo
+        uses: actions/checkout@v4
+        with:
+          path: ci-scripts
+          repository: pulumi/scripts
+          ref: deca2c5c6015ad7aaea6f572a1c2b198ca323592
+      - name: Unshallow clone for tags
+        run: git fetch --prune --unshallow --tags
+      - name: Install pulumictl
+        uses: jaxxstorm/action-install-gh-release@v1.11.0
+        with:
+          tag: v0.0.46
+          repo: pulumi/pulumictl
+      - name: Install Pulumi CLI
+        uses: pulumi/actions@v5
+        with:
+          pulumi-version: ^3
+      - name: Setup Node
+        uses: actions/setup-node@v4
+        with:
+          node-version: ${{ env.NODEVERSION }}
+          registry-url: https://registry.npmjs.org
+      - name: Setup Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: ${{ env.PYTHONVERSION }}
+      - name: Download provider + tfgen binaries
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ env.PROVIDER }}-provider.tar.gz
+          path: ${{ github.workspace }}/bin
+      - name: Untar provider binaries
+        run: >-
+          tar -zxf ${{ github.workspace }}/bin/provider.tar.gz -C ${{
+          github.workspace}}/bin
+          find ${{ github.workspace }} -name "pulumi-*-${{ env.PROVIDER }}" -print -exec chmod +x {} \;
+      - name: Download SDK
+        uses: actions/download-artifact@v4
+        with:
+          name: ${{ matrix.language }}-sdk.tar.gz
+          path: ${{ github.workspace}}/sdk/
+      - name: Uncompress SDK folder
+        run: tar -zxf ${{ github.workspace }}/sdk/${{ matrix.language }}.tar.gz -C ${{
+          github.workspace }}/sdk/${{ matrix.language }}
+      - name: Update path
+        run: echo "${{ github.workspace }}/bin" >> "$GITHUB_PATH"
+      - name: Install Python deps
+        run: |-
+          pip3 install virtualenv==20.0.23
+          pip3 install pipenv
+      - name: Install dependencies
+        run: make install_${{ matrix.language}}_sdk
+      - name: Install gotestfmt
+        uses: GoTestTools/gotestfmt-action@v2
+        with:
+          token: ${{ secrets.GITHUB_TOKEN }}
+          version: v2.5.0
+      - name: Free Disk Space (Ubuntu)
+        uses: jlumbroso/free-disk-space@main
+        with:
+          swap-storage: false
+          tool-cache: false
+      - name: Configure AWS Credentials
+        uses: aws-actions/configure-aws-credentials@v4
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-region: ${{ env.AWS_REGION }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          role-duration-seconds: 3600
+          role-session-name: ${{ env.PROVIDER }}@githubActions
+          role-to-assume: ${{ secrets.AWS_CI_ROLE_ARN }}
+      - name: Make upstream
+        run: make upstream
+      - name: Run provider unit tests
+        run: |
+          cd provider && go test -v -json -count=1 -cover -timeout 2h -tags=${{ matrix.language }} -parallel 4 . 2>&1 | tee /tmp/gotest.log | gotestfmt
+      - if: failure() && github.event_name == 'push'
+        name: Notify Slack
+        uses: 8398a7/action-slack@v3
+        with:
+          author_name: Failure in running ${{ matrix.language }} unit tests
+          fields: repo,commit,author,action
+          status: ${{ job.status }}
+    strategy:
+      fail-fast: false
+      matrix:
+        language:
+          - nodejs
+          - python
   test:
     if: github.event_name == 'repository_dispatch' ||
       github.event.pull_request.head.repo.full_name == github.repository
