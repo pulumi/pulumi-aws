@@ -161,11 +161,10 @@ class ResourcePolicy(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Network Firewall Resource Policies using the `resource_arn`. For example:
-
-        console
-
-        %!p(MISSING)ulumi import aws_networkfirewall_resource_policy.example aws_networkfirewall_rule_group.example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
+        Using `pulumi import`, import Network Firewall Resource Policies using the `resource arn`. For example:
+        ```sh
+        $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
+        ```
 
         :param str resource_name: The name of the resource.
         :param pulumi.ResourceOptions opts: Options for the resource.
@@ -242,11 +241,10 @@ class ResourcePolicy(pulumi.CustomResource):
 
         ## Import
 
-        Using `pulumi import`, import Network Firewall Resource Policies using the `resource_arn`. For example:
-
-        console
-
-        %!p(MISSING)ulumi import aws_networkfirewall_resource_policy.example aws_networkfirewall_rule_group.example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
+        Using `pulumi import`, import Network Firewall Resource Policies using the `resource arn`. For example:
+        ```sh
+        $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
+        ```
 
         :param str resource_name: The name of the resource.
         :param ResourcePolicyArgs args: The arguments to use to populate this resource's properties.
