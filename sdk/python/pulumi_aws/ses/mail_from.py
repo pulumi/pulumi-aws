@@ -161,14 +161,14 @@ class MailFrom(pulumi.CustomResource):
         example_ses_domain_mail_from_mx = aws.route53.Record("example_ses_domain_mail_from_mx",
             zone_id=example_aws_route53_zone["id"],
             name=example.mail_from_domain,
-            type="MX",
+            type=aws.route53.RecordType.MX,
             ttl=600,
             records=["10 feedback-smtp.us-east-1.amazonses.com"])
         # Example Route53 TXT record for SPF
         example_ses_domain_mail_from_txt = aws.route53.Record("example_ses_domain_mail_from_txt",
             zone_id=example_aws_route53_zone["id"],
             name=example.mail_from_domain,
-            type="TXT",
+            type=aws.route53.RecordType.TXT,
             ttl=600,
             records=["v=spf1 include:amazonses.com -all"])
         ```
@@ -234,14 +234,14 @@ class MailFrom(pulumi.CustomResource):
         example_ses_domain_mail_from_mx = aws.route53.Record("example_ses_domain_mail_from_mx",
             zone_id=example_aws_route53_zone["id"],
             name=example.mail_from_domain,
-            type="MX",
+            type=aws.route53.RecordType.MX,
             ttl=600,
             records=["10 feedback-smtp.us-east-1.amazonses.com"])
         # Example Route53 TXT record for SPF
         example_ses_domain_mail_from_txt = aws.route53.Record("example_ses_domain_mail_from_txt",
             zone_id=example_aws_route53_zone["id"],
             name=example.mail_from_domain,
-            type="TXT",
+            type=aws.route53.RecordType.TXT,
             ttl=600,
             records=["v=spf1 include:amazonses.com -all"])
         ```

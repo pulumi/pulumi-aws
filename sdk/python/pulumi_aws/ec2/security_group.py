@@ -505,7 +505,7 @@ class SecurityGroup(pulumi.CustomResource):
 
         example = aws.ec2.SecurityGroup("example", name="sg")
         example_instance = aws.ec2.Instance("example",
-            instance_type="t3.small",
+            instance_type=aws.ec2.InstanceType.T3_SMALL,
             vpc_security_group_ids=[test["id"]])
         ```
         <!--End PulumiCodeChooser -->
@@ -736,7 +736,7 @@ class SecurityGroup(pulumi.CustomResource):
 
         example = aws.ec2.SecurityGroup("example", name="sg")
         example_instance = aws.ec2.Instance("example",
-            instance_type="t3.small",
+            instance_type=aws.ec2.InstanceType.T3_SMALL,
             vpc_security_group_ids=[test["id"]])
         ```
         <!--End PulumiCodeChooser -->

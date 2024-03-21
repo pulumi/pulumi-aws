@@ -56,8 +56,8 @@ import (
 //				return err
 //			}
 //			test, err := ec2.NewInstance(ctx, "test", &ec2.InstanceArgs{
-//				Ami:          *pulumi.String(ubuntu.Id),
-//				InstanceType: pulumi.String("t3.micro"),
+//				Ami:          pulumi.String(ubuntu.Id),
+//				InstanceType: pulumi.String(ec2.InstanceType_T3_Micro),
 //				Tags: pulumi.StringMap{
 //					"Name": pulumi.String("HelloWorld"),
 //				},

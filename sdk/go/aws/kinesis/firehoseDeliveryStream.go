@@ -67,7 +67,7 @@ import (
 //			}
 //			firehoseRole, err := iam.NewRole(ctx, "firehose_role", &iam.RoleArgs{
 //				Name:             pulumi.String("firehose_test_role"),
-//				AssumeRolePolicy: *pulumi.String(firehoseAssumeRole.Json),
+//				AssumeRolePolicy: pulumi.String(firehoseAssumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -95,7 +95,7 @@ import (
 //			}
 //			lambdaIam, err := iam.NewRole(ctx, "lambda_iam", &iam.RoleArgs{
 //				Name:             pulumi.String("lambda_iam"),
-//				AssumeRolePolicy: *pulumi.String(lambdaAssumeRole.Json),
+//				AssumeRolePolicy: pulumi.String(lambdaAssumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -105,7 +105,7 @@ import (
 //				Name:    pulumi.String("firehose_lambda_processor"),
 //				Role:    lambdaIam.Arn,
 //				Handler: pulumi.String("exports.handler"),
-//				Runtime: pulumi.String("nodejs16.x"),
+//				Runtime: pulumi.String(lambda.RuntimeNodeJS16dX),
 //			})
 //			if err != nil {
 //				return err

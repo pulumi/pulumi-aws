@@ -134,7 +134,7 @@ import (
 //			}
 //			foo, err := ec2.NewInstance(ctx, "foo", &ec2.InstanceArgs{
 //				Ami:          pulumi.String("ami-5189a661"),
-//				InstanceType: pulumi.String("t2.micro"),
+//				InstanceType: pulumi.String(ec2.InstanceType_T2_Micro),
 //				PrivateIp:    pulumi.String("10.0.0.12"),
 //				SubnetId:     myTestSubnet.ID(),
 //			})

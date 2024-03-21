@@ -290,15 +290,15 @@ class MulticastDomain(pulumi.CustomResource):
             availability_zone=available.names[0])
         instance1 = aws.ec2.Instance("instance1",
             ami=amazon_linux.id,
-            instance_type="t2.micro",
+            instance_type=aws.ec2.InstanceType.T2_MICRO,
             subnet_id=subnet1.id)
         instance2 = aws.ec2.Instance("instance2",
             ami=amazon_linux.id,
-            instance_type="t2.micro",
+            instance_type=aws.ec2.InstanceType.T2_MICRO,
             subnet_id=subnet2.id)
         instance3 = aws.ec2.Instance("instance3",
             ami=amazon_linux.id,
-            instance_type="t2.micro",
+            instance_type=aws.ec2.InstanceType.T2_MICRO,
             subnet_id=subnet3.id)
         tgw = aws.ec2transitgateway.TransitGateway("tgw", multicast_support="enable")
         attachment1 = aws.ec2transitgateway.VpcAttachment("attachment1",
@@ -406,15 +406,15 @@ class MulticastDomain(pulumi.CustomResource):
             availability_zone=available.names[0])
         instance1 = aws.ec2.Instance("instance1",
             ami=amazon_linux.id,
-            instance_type="t2.micro",
+            instance_type=aws.ec2.InstanceType.T2_MICRO,
             subnet_id=subnet1.id)
         instance2 = aws.ec2.Instance("instance2",
             ami=amazon_linux.id,
-            instance_type="t2.micro",
+            instance_type=aws.ec2.InstanceType.T2_MICRO,
             subnet_id=subnet2.id)
         instance3 = aws.ec2.Instance("instance3",
             ami=amazon_linux.id,
-            instance_type="t2.micro",
+            instance_type=aws.ec2.InstanceType.T2_MICRO,
             subnet_id=subnet3.id)
         tgw = aws.ec2transitgateway.TransitGateway("tgw", multicast_support="enable")
         attachment1 = aws.ec2transitgateway.VpcAttachment("attachment1",

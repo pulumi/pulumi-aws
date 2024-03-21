@@ -32,7 +32,7 @@ namespace Pulumi.Aws.AppRunner
         ///     {
         ///         ZoneId = primary.ZoneId,
         ///         Name = "example.com",
-        ///         Type = "A",
+        ///         Type = Aws.Route53.RecordType.A,
         ///         Aliases = new[]
         ///         {
         ///             new Aws.Route53.Inputs.RecordAliasArgs
@@ -72,7 +72,7 @@ namespace Pulumi.Aws.AppRunner
         ///     {
         ///         ZoneId = primary.ZoneId,
         ///         Name = "example.com",
-        ///         Type = "A",
+        ///         Type = Aws.Route53.RecordType.A,
         ///         Aliases = new[]
         ///         {
         ///             new Aws.Route53.Inputs.RecordAliasArgs

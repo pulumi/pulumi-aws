@@ -64,7 +64,7 @@ import (
 //			}
 //			iamForLambda, err := iam.NewRole(ctx, "iam_for_lambda", &iam.RoleArgs{
 //				Name:             pulumi.String("iam_for_lambda"),
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -82,8 +82,8 @@ import (
 //				Name:           pulumi.String("lambda_function_name"),
 //				Role:           iamForLambda.Arn,
 //				Handler:        pulumi.String("index.test"),
-//				SourceCodeHash: *pulumi.String(lambda.OutputBase64sha256),
-//				Runtime:        pulumi.String("nodejs18.x"),
+//				SourceCodeHash: pulumi.String(lambda.OutputBase64sha256),
+//				Runtime:        pulumi.String(lambda.RuntimeNodeJS18dX),
 //				Environment: &lambda.FunctionEnvironmentArgs{
 //					Variables: pulumi.StringMap{
 //						"foo": pulumi.String("bar"),
@@ -175,7 +175,7 @@ import (
 //			}
 //			iamForLambda, err := iam.NewRole(ctx, "iam_for_lambda", &iam.RoleArgs{
 //				Name:             pulumi.String("iam_for_lambda"),
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -185,7 +185,7 @@ import (
 //				Name:    pulumi.String("lambda_function_name"),
 //				Role:    iamForLambda.Arn,
 //				Handler: pulumi.String("index.test"),
-//				Runtime: pulumi.String("nodejs18.x"),
+//				Runtime: pulumi.String(lambda.RuntimeNodeJS18dX),
 //				EphemeralStorage: &lambda.FunctionEphemeralStorageArgs{
 //					Size: pulumi.Int(10240),
 //				},
@@ -354,7 +354,7 @@ import (
 //				Name:        pulumi.String("lambda_logging"),
 //				Path:        pulumi.String("/"),
 //				Description: pulumi.String("IAM policy for logging from a lambda"),
-//				Policy:      *pulumi.String(lambdaLogging.Json),
+//				Policy:      pulumi.String(lambdaLogging.Json),
 //			})
 //			if err != nil {
 //				return err

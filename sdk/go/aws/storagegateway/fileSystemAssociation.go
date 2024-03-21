@@ -73,7 +73,7 @@ import (
 //				return err
 //			}
 //			test, err := ec2.NewInstance(ctx, "test", &ec2.InstanceArgs{
-//				Ami:                      *pulumi.String(awsServiceStoragegatewayAmiFILES3Latest.Value),
+//				Ami:                      pulumi.String(awsServiceStoragegatewayAmiFILES3Latest.Value),
 //				AssociatePublicIpAddress: pulumi.Bool(true),
 //				InstanceType:             ec2.InstanceType(available.InstanceType),
 //				VpcSecurityGroupIds: pulumi.StringArray{
