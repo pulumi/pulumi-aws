@@ -130,7 +130,7 @@ class CertificateValidation(pulumi.CustomResource):
                     name=range["value"]["name"],
                     records=[range["value"]["record"]],
                     ttl=60,
-                    type=aws.route53/recordtype.RecordType(range["value"]["type"]),
+                    type=aws.route53.RecordType(range["value"]["type"]),
                     zone_id=example.zone_id))
 
         example_certificate.domain_validation_options.apply(lambda resolved_outputs: create_example({dvo.domain_name: {
@@ -171,7 +171,7 @@ class CertificateValidation(pulumi.CustomResource):
                     name=range["value"]["name"],
                     records=[range["value"]["record"]],
                     ttl=60,
-                    type=aws.route53/recordtype.RecordType(range["value"]["type"]),
+                    type=aws.route53.RecordType(range["value"]["type"]),
                     zone_id=range["value"]["zoneId"]))
 
         example.domain_validation_options.apply(lambda resolved_outputs: create_example({dvo.domain_name: {
@@ -246,7 +246,7 @@ class CertificateValidation(pulumi.CustomResource):
                     name=range["value"]["name"],
                     records=[range["value"]["record"]],
                     ttl=60,
-                    type=aws.route53/recordtype.RecordType(range["value"]["type"]),
+                    type=aws.route53.RecordType(range["value"]["type"]),
                     zone_id=example.zone_id))
 
         example_certificate.domain_validation_options.apply(lambda resolved_outputs: create_example({dvo.domain_name: {
@@ -287,7 +287,7 @@ class CertificateValidation(pulumi.CustomResource):
                     name=range["value"]["name"],
                     records=[range["value"]["record"]],
                     ttl=60,
-                    type=aws.route53/recordtype.RecordType(range["value"]["type"]),
+                    type=aws.route53.RecordType(range["value"]["type"]),
                     zone_id=range["value"]["zoneId"]))
 
         example.domain_validation_options.apply(lambda resolved_outputs: create_example({dvo.domain_name: {

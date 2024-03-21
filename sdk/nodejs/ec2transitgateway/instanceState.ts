@@ -32,7 +32,7 @@ import * as utilities from "../utilities";
  * });
  * const test = new aws.ec2.Instance("test", {
  *     ami: ubuntu.then(ubuntu => ubuntu.id),
- *     instanceType: "t3.micro",
+ *     instanceType: aws.ec2.InstanceType.T3_Micro,
  *     tags: {
  *         Name: "HelloWorld",
  *     },

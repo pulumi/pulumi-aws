@@ -51,7 +51,7 @@ import * as utilities from "../utilities";
  * });
  * const exampleRecord = new aws.route53.Record("example", {
  *     name: example.domainName,
- *     type: "A",
+ *     type: aws.route53.RecordType.A,
  *     zoneId: exampleAwsRoute53Zone.zoneId,
  *     aliases: [{
  *         name: example.domainNameConfiguration.apply(domainNameConfiguration => domainNameConfiguration.targetDomainName),

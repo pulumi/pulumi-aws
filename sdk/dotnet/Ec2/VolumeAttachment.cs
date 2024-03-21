@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Ec2
     ///     {
     ///         Ami = "ami-21f78e11",
     ///         AvailabilityZone = "us-west-2a",
-    ///         InstanceType = "t2.micro",
+    ///         InstanceType = Aws.Ec2.InstanceType.T2_Micro,
     ///         Tags = 
     ///         {
     ///             { "Name", "HelloWorld" },

@@ -33,7 +33,7 @@ import * as utilities from "../utilities";
  *     type: "ingress",
  *     fromPort: 0,
  *     toPort: 65535,
- *     protocol: "tcp",
+ *     protocol: aws.ec2.ProtocolType.TCP,
  *     cidrBlocks: [exampleAwsVpc.cidrBlock],
  *     ipv6CidrBlocks: [exampleAwsVpc.ipv6CidrBlock],
  *     securityGroupId: "sg-123456",
@@ -85,7 +85,7 @@ import * as utilities from "../utilities";
  *     securityGroupId: "sg-123456",
  *     fromPort: 443,
  *     toPort: 443,
- *     protocol: "tcp",
+ *     protocol: aws.ec2.ProtocolType.TCP,
  *     prefixListIds: [s3.then(s3 => s3.id)],
  * });
  * ```

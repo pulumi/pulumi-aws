@@ -23,7 +23,7 @@ import * as utilities from "../utilities";
  *
  * const foo = new aws.ssm.Parameter("foo", {
  *     name: "foo",
- *     type: "String",
+ *     type: aws.ssm.ParameterType.String,
  *     value: "bar",
  * });
  * ```
@@ -38,10 +38,10 @@ import * as utilities from "../utilities";
  *
  * const _default = new aws.rds.Instance("default", {
  *     allocatedStorage: 10,
- *     storageType: "gp2",
+ *     storageType: aws.rds.StorageType.GP2,
  *     engine: "mysql",
  *     engineVersion: "5.7.16",
- *     instanceClass: "db.t2.micro",
+ *     instanceClass: aws.rds.InstanceType.T2_Micro,
  *     dbName: "mydb",
  *     username: "foo",
  *     password: databaseMasterPassword,
@@ -51,7 +51,7 @@ import * as utilities from "../utilities";
  * const secret = new aws.ssm.Parameter("secret", {
  *     name: "/production/database/password/master",
  *     description: "The parameter description",
- *     type: "SecureString",
+ *     type: aws.ssm.ParameterType.SecureString,
  *     value: databaseMasterPassword,
  *     tags: {
  *         environment: "production",

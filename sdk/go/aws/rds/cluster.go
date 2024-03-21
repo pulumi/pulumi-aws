@@ -48,7 +48,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := rds.NewCluster(ctx, "default", &rds.ClusterArgs{
 //				ClusterIdentifier: pulumi.String("aurora-cluster-demo"),
-//				Engine:            pulumi.String("aurora-mysql"),
+//				Engine:            pulumi.String(rds.EngineTypeAuroraMysql),
 //				EngineVersion:     pulumi.String("5.7.mysql_aurora.2.03.2"),
 //				AvailabilityZones: pulumi.StringArray{
 //					pulumi.String("us-west-2a"),
@@ -126,7 +126,7 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			_, err := rds.NewCluster(ctx, "postgresql", &rds.ClusterArgs{
 //				ClusterIdentifier: pulumi.String("aurora-cluster-demo"),
-//				Engine:            pulumi.String("aurora-postgresql"),
+//				Engine:            pulumi.String(rds.EngineTypeAuroraPostgresql),
 //				AvailabilityZones: pulumi.StringArray{
 //					pulumi.String("us-west-2a"),
 //					pulumi.String("us-west-2b"),
@@ -216,8 +216,8 @@ import (
 //		pulumi.Run(func(ctx *pulumi.Context) error {
 //			example, err := rds.NewCluster(ctx, "example", &rds.ClusterArgs{
 //				ClusterIdentifier: pulumi.String("example"),
-//				Engine:            pulumi.String("aurora-postgresql"),
-//				EngineMode:        pulumi.String("provisioned"),
+//				Engine:            pulumi.String(rds.EngineTypeAuroraPostgresql),
+//				EngineMode:        pulumi.String(rds.EngineModeProvisioned),
 //				EngineVersion:     pulumi.String("13.6"),
 //				DatabaseName:      pulumi.String("test"),
 //				MasterUsername:    pulumi.String("test"),
@@ -348,10 +348,10 @@ import (
 //				return err
 //			}
 //			exampleCluster, err := rds.NewCluster(ctx, "example", &rds.ClusterArgs{
-//				Engine:             pulumi.String("aurora"),
+//				Engine:             pulumi.String(rds.EngineTypeAurora),
 //				EngineVersion:      pulumi.String("5.6.mysql_aurora.1.22.4"),
 //				ClusterIdentifier:  pulumi.String("example"),
-//				SnapshotIdentifier: *pulumi.String(example.Id),
+//				SnapshotIdentifier: pulumi.String(example.Id),
 //			})
 //			if err != nil {
 //				return err

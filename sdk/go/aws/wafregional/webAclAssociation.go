@@ -94,7 +94,7 @@ import (
 //			fooSubnet, err := ec2.NewSubnet(ctx, "foo", &ec2.SubnetArgs{
 //				VpcId:            fooVpc.ID(),
 //				CidrBlock:        pulumi.String("10.1.1.0/24"),
-//				AvailabilityZone: *pulumi.String(available.Names[0]),
+//				AvailabilityZone: pulumi.String(available.Names[0]),
 //			})
 //			if err != nil {
 //				return err
@@ -102,7 +102,7 @@ import (
 //			bar, err := ec2.NewSubnet(ctx, "bar", &ec2.SubnetArgs{
 //				VpcId:            fooVpc.ID(),
 //				CidrBlock:        pulumi.String("10.1.2.0/24"),
-//				AvailabilityZone: *pulumi.String(available.Names[1]),
+//				AvailabilityZone: pulumi.String(available.Names[1]),
 //			})
 //			if err != nil {
 //				return err

@@ -206,13 +206,13 @@ class ClusterActivityStream(pulumi.CustomResource):
             database_name="mydb",
             master_username="foo",
             master_password="mustbeeightcharaters",
-            engine="aurora-postgresql",
+            engine=aws.rds.EngineType.AURORA_POSTGRESQL,
             engine_version="13.4")
         default_cluster_instance = aws.rds.ClusterInstance("default",
             identifier="aurora-instance-demo",
             cluster_identifier=default.cluster_identifier,
             engine=default.engine,
-            instance_class="db.r6g.large")
+            instance_class=aws.rds.InstanceType.R6_G_LARGE)
         default_key = aws.kms.Key("default", description="AWS KMS Key to encrypt Database Activity Stream")
         default_cluster_activity_stream = aws.rds.ClusterActivityStream("default",
             resource_arn=default.arn,
@@ -270,13 +270,13 @@ class ClusterActivityStream(pulumi.CustomResource):
             database_name="mydb",
             master_username="foo",
             master_password="mustbeeightcharaters",
-            engine="aurora-postgresql",
+            engine=aws.rds.EngineType.AURORA_POSTGRESQL,
             engine_version="13.4")
         default_cluster_instance = aws.rds.ClusterInstance("default",
             identifier="aurora-instance-demo",
             cluster_identifier=default.cluster_identifier,
             engine=default.engine,
-            instance_class="db.r6g.large")
+            instance_class=aws.rds.InstanceType.R6_G_LARGE)
         default_key = aws.kms.Key("default", description="AWS KMS Key to encrypt Database Activity Stream")
         default_cluster_activity_stream = aws.rds.ClusterActivityStream("default",
             resource_arn=default.arn,

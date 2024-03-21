@@ -44,7 +44,7 @@ namespace Pulumi.Aws.Ses
     ///     {
     ///         ZoneId = exampleAwsRoute53Zone.Id,
     ///         Name = example.MailFromDomain,
-    ///         Type = "MX",
+    ///         Type = Aws.Route53.RecordType.MX,
     ///         Ttl = 600,
     ///         Records = new[]
     ///         {
@@ -57,7 +57,7 @@ namespace Pulumi.Aws.Ses
     ///     {
     ///         ZoneId = exampleAwsRoute53Zone.Id,
     ///         Name = example.MailFromDomain,
-    ///         Type = "TXT",
+    ///         Type = Aws.Route53.RecordType.TXT,
     ///         Ttl = 600,
     ///         Records = new[]
     ///         {

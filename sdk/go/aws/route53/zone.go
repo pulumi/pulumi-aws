@@ -80,7 +80,7 @@ import (
 //			_, err = route53.NewRecord(ctx, "dev-ns", &route53.RecordArgs{
 //				ZoneId:  main.ZoneId,
 //				Name:    pulumi.String("dev.example.com"),
-//				Type:    pulumi.String("NS"),
+//				Type:    pulumi.String(route53.RecordTypeNS),
 //				Ttl:     pulumi.Int(30),
 //				Records: dev.NameServers,
 //			})

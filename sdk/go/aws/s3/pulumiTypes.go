@@ -12524,11 +12524,11 @@ func (o BucketV2LoggingArrayOutput) Index(i pulumi.IntInput) BucketV2LoggingOutp
 type BucketV2ObjectLockConfiguration struct {
 	// Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
 	//
-	// Deprecated: Use the top-level parameter object_lock_enabled instead
+	// Deprecated: Use the top-level parameter objectLockEnabled instead
 	ObjectLockEnabled *string `pulumi:"objectLockEnabled"`
 	// Object Lock rule in place for this bucket (documented below).
 	//
-	// Deprecated: Use the aws_s3_bucket_object_lock_configuration resource instead
+	// Deprecated: Use the s3.BucketObjectLockConfigurationV2 resource instead
 	Rules []BucketV2ObjectLockConfigurationRule `pulumi:"rules"`
 }
 
@@ -12546,11 +12546,11 @@ type BucketV2ObjectLockConfigurationInput interface {
 type BucketV2ObjectLockConfigurationArgs struct {
 	// Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
 	//
-	// Deprecated: Use the top-level parameter object_lock_enabled instead
+	// Deprecated: Use the top-level parameter objectLockEnabled instead
 	ObjectLockEnabled pulumi.StringPtrInput `pulumi:"objectLockEnabled"`
 	// Object Lock rule in place for this bucket (documented below).
 	//
-	// Deprecated: Use the aws_s3_bucket_object_lock_configuration resource instead
+	// Deprecated: Use the s3.BucketObjectLockConfigurationV2 resource instead
 	Rules BucketV2ObjectLockConfigurationRuleArrayInput `pulumi:"rules"`
 }
 
@@ -12633,14 +12633,14 @@ func (o BucketV2ObjectLockConfigurationOutput) ToBucketV2ObjectLockConfiguration
 
 // Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
 //
-// Deprecated: Use the top-level parameter object_lock_enabled instead
+// Deprecated: Use the top-level parameter objectLockEnabled instead
 func (o BucketV2ObjectLockConfigurationOutput) ObjectLockEnabled() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v BucketV2ObjectLockConfiguration) *string { return v.ObjectLockEnabled }).(pulumi.StringPtrOutput)
 }
 
 // Object Lock rule in place for this bucket (documented below).
 //
-// Deprecated: Use the aws_s3_bucket_object_lock_configuration resource instead
+// Deprecated: Use the s3.BucketObjectLockConfigurationV2 resource instead
 func (o BucketV2ObjectLockConfigurationOutput) Rules() BucketV2ObjectLockConfigurationRuleArrayOutput {
 	return o.ApplyT(func(v BucketV2ObjectLockConfiguration) []BucketV2ObjectLockConfigurationRule { return v.Rules }).(BucketV2ObjectLockConfigurationRuleArrayOutput)
 }
@@ -12671,7 +12671,7 @@ func (o BucketV2ObjectLockConfigurationPtrOutput) Elem() BucketV2ObjectLockConfi
 
 // Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
 //
-// Deprecated: Use the top-level parameter object_lock_enabled instead
+// Deprecated: Use the top-level parameter objectLockEnabled instead
 func (o BucketV2ObjectLockConfigurationPtrOutput) ObjectLockEnabled() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *BucketV2ObjectLockConfiguration) *string {
 		if v == nil {
@@ -12683,7 +12683,7 @@ func (o BucketV2ObjectLockConfigurationPtrOutput) ObjectLockEnabled() pulumi.Str
 
 // Object Lock rule in place for this bucket (documented below).
 //
-// Deprecated: Use the aws_s3_bucket_object_lock_configuration resource instead
+// Deprecated: Use the s3.BucketObjectLockConfigurationV2 resource instead
 func (o BucketV2ObjectLockConfigurationPtrOutput) Rules() BucketV2ObjectLockConfigurationRuleArrayOutput {
 	return o.ApplyT(func(v *BucketV2ObjectLockConfiguration) []BucketV2ObjectLockConfigurationRule {
 		if v == nil {

@@ -62029,13 +62029,13 @@ export namespace s3 {
         /**
          * Indicates whether this bucket has an Object Lock configuration enabled. Valid values are `true` or `false`. This argument is not supported in all regions or partitions.
          *
-         * @deprecated Use the top-level parameter object_lock_enabled instead
+         * @deprecated Use the top-level parameter objectLockEnabled instead
          */
         objectLockEnabled?: pulumi.Input<string>;
         /**
          * Object Lock rule in place for this bucket (documented below).
          *
-         * @deprecated Use the aws_s3_bucket_object_lock_configuration resource instead
+         * @deprecated Use the aws.s3.BucketObjectLockConfigurationV2 resource instead
          */
         rules?: pulumi.Input<pulumi.Input<inputs.s3.BucketV2ObjectLockConfigurationRule>[]>;
     }

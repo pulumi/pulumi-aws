@@ -391,7 +391,7 @@ class GlobalCluster(pulumi.CustomResource):
             engine_version=example.engine_version,
             identifier="test-primary-cluster-instance",
             cluster_identifier=primary.id,
-            instance_class="db.r4.large",
+            instance_class=aws.rds.InstanceType.R4_LARGE,
             db_subnet_group_name="default")
         secondary = aws.rds.Cluster("secondary",
             engine=example.engine,
@@ -404,7 +404,7 @@ class GlobalCluster(pulumi.CustomResource):
             engine_version=example.engine_version,
             identifier="test-secondary-cluster-instance",
             cluster_identifier=secondary.id,
-            instance_class="db.r4.large",
+            instance_class=aws.rds.InstanceType.R4_LARGE,
             db_subnet_group_name="default")
         ```
         <!--End PulumiCodeChooser -->
@@ -435,7 +435,7 @@ class GlobalCluster(pulumi.CustomResource):
             engine_version=example.engine_version,
             identifier="test-primary-cluster-instance",
             cluster_identifier=primary.id,
-            instance_class="db.r4.large",
+            instance_class=aws.rds.InstanceType.R4_LARGE,
             db_subnet_group_name="default")
         secondary = aws.rds.Cluster("secondary",
             engine=example.engine,
@@ -449,7 +449,7 @@ class GlobalCluster(pulumi.CustomResource):
             engine_version=example.engine_version,
             identifier="test-secondary-cluster-instance",
             cluster_identifier=secondary.id,
-            instance_class="db.r4.large",
+            instance_class=aws.rds.InstanceType.R4_LARGE,
             db_subnet_group_name="default")
         ```
         <!--End PulumiCodeChooser -->
@@ -499,7 +499,7 @@ class GlobalCluster(pulumi.CustomResource):
             engine=primary.engine,
             engine_version=primary.engine_version,
             identifier="donetsklviv",
-            instance_class="db.r4.large")
+            instance_class=aws.rds.InstanceType.R4_LARGE)
         ```
         <!--End PulumiCodeChooser -->
 
@@ -564,7 +564,7 @@ class GlobalCluster(pulumi.CustomResource):
             engine_version=example.engine_version,
             identifier="test-primary-cluster-instance",
             cluster_identifier=primary.id,
-            instance_class="db.r4.large",
+            instance_class=aws.rds.InstanceType.R4_LARGE,
             db_subnet_group_name="default")
         secondary = aws.rds.Cluster("secondary",
             engine=example.engine,
@@ -577,7 +577,7 @@ class GlobalCluster(pulumi.CustomResource):
             engine_version=example.engine_version,
             identifier="test-secondary-cluster-instance",
             cluster_identifier=secondary.id,
-            instance_class="db.r4.large",
+            instance_class=aws.rds.InstanceType.R4_LARGE,
             db_subnet_group_name="default")
         ```
         <!--End PulumiCodeChooser -->
@@ -608,7 +608,7 @@ class GlobalCluster(pulumi.CustomResource):
             engine_version=example.engine_version,
             identifier="test-primary-cluster-instance",
             cluster_identifier=primary.id,
-            instance_class="db.r4.large",
+            instance_class=aws.rds.InstanceType.R4_LARGE,
             db_subnet_group_name="default")
         secondary = aws.rds.Cluster("secondary",
             engine=example.engine,
@@ -622,7 +622,7 @@ class GlobalCluster(pulumi.CustomResource):
             engine_version=example.engine_version,
             identifier="test-secondary-cluster-instance",
             cluster_identifier=secondary.id,
-            instance_class="db.r4.large",
+            instance_class=aws.rds.InstanceType.R4_LARGE,
             db_subnet_group_name="default")
         ```
         <!--End PulumiCodeChooser -->
@@ -672,7 +672,7 @@ class GlobalCluster(pulumi.CustomResource):
             engine=primary.engine,
             engine_version=primary.engine_version,
             identifier="donetsklviv",
-            instance_class="db.r4.large")
+            instance_class=aws.rds.InstanceType.R4_LARGE)
         ```
         <!--End PulumiCodeChooser -->
 
