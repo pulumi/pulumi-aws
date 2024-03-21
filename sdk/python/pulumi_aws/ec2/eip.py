@@ -616,7 +616,7 @@ class Eip(pulumi.CustomResource):
             map_public_ip_on_launch=True)
         foo = aws.ec2.Instance("foo",
             ami="ami-5189a661",
-            instance_type="t2.micro",
+            instance_type=aws.ec2.InstanceType.T2_MICRO,
             private_ip="10.0.0.12",
             subnet_id=my_test_subnet.id)
         bar = aws.ec2.Eip("bar",
@@ -736,7 +736,7 @@ class Eip(pulumi.CustomResource):
             map_public_ip_on_launch=True)
         foo = aws.ec2.Instance("foo",
             ami="ami-5189a661",
-            instance_type="t2.micro",
+            instance_type=aws.ec2.InstanceType.T2_MICRO,
             private_ip="10.0.0.12",
             subnet_id=my_test_subnet.id)
         bar = aws.ec2.Eip("bar",

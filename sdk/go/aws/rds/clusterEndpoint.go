@@ -50,7 +50,7 @@ import (
 //				ApplyImmediately:  pulumi.Bool(true),
 //				ClusterIdentifier: _default.ID(),
 //				Identifier:        pulumi.String("test1"),
-//				InstanceClass:     pulumi.String("db.t2.small"),
+//				InstanceClass:     pulumi.String(rds.InstanceType_T2_Small),
 //				Engine:            _default.Engine,
 //				EngineVersion:     _default.EngineVersion,
 //			})
@@ -61,7 +61,7 @@ import (
 //				ApplyImmediately:  pulumi.Bool(true),
 //				ClusterIdentifier: _default.ID(),
 //				Identifier:        pulumi.String("test2"),
-//				InstanceClass:     pulumi.String("db.t2.small"),
+//				InstanceClass:     pulumi.String(rds.InstanceType_T2_Small),
 //				Engine:            _default.Engine,
 //				EngineVersion:     _default.EngineVersion,
 //			})
@@ -72,7 +72,7 @@ import (
 //				ApplyImmediately:  pulumi.Bool(true),
 //				ClusterIdentifier: _default.ID(),
 //				Identifier:        pulumi.String("test3"),
-//				InstanceClass:     pulumi.String("db.t2.small"),
+//				InstanceClass:     pulumi.String(rds.InstanceType_T2_Small),
 //				Engine:            _default.Engine,
 //				EngineVersion:     _default.EngineVersion,
 //			})

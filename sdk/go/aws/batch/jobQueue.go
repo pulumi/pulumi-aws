@@ -129,7 +129,7 @@ type JobQueue struct {
 	ComputeEnvironmentOrders JobQueueComputeEnvironmentOrderArrayOutput `pulumi:"computeEnvironmentOrders"`
 	// (Optional) This parameter is deprecated, please use `computeEnvironmentOrder` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `computeEnvironments` will always be used over `computeEnvironmentOrder`. Please adjust your HCL accordingly.
 	//
-	// Deprecated: This parameter will be replaced by `compute_environments_order`.
+	// Deprecated: This parameter will be replaced by `computeEnvironmentsOrder`.
 	ComputeEnvironments pulumi.StringArrayOutput `pulumi:"computeEnvironments"`
 	// Specifies the name of the job queue.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -191,7 +191,7 @@ type jobQueueState struct {
 	ComputeEnvironmentOrders []JobQueueComputeEnvironmentOrder `pulumi:"computeEnvironmentOrders"`
 	// (Optional) This parameter is deprecated, please use `computeEnvironmentOrder` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `computeEnvironments` will always be used over `computeEnvironmentOrder`. Please adjust your HCL accordingly.
 	//
-	// Deprecated: This parameter will be replaced by `compute_environments_order`.
+	// Deprecated: This parameter will be replaced by `computeEnvironmentsOrder`.
 	ComputeEnvironments []string `pulumi:"computeEnvironments"`
 	// Specifies the name of the job queue.
 	Name *string `pulumi:"name"`
@@ -218,7 +218,7 @@ type JobQueueState struct {
 	ComputeEnvironmentOrders JobQueueComputeEnvironmentOrderArrayInput
 	// (Optional) This parameter is deprecated, please use `computeEnvironmentOrder` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `computeEnvironments` will always be used over `computeEnvironmentOrder`. Please adjust your HCL accordingly.
 	//
-	// Deprecated: This parameter will be replaced by `compute_environments_order`.
+	// Deprecated: This parameter will be replaced by `computeEnvironmentsOrder`.
 	ComputeEnvironments pulumi.StringArrayInput
 	// Specifies the name of the job queue.
 	Name pulumi.StringPtrInput
@@ -247,7 +247,7 @@ type jobQueueArgs struct {
 	ComputeEnvironmentOrders []JobQueueComputeEnvironmentOrder `pulumi:"computeEnvironmentOrders"`
 	// (Optional) This parameter is deprecated, please use `computeEnvironmentOrder` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `computeEnvironments` will always be used over `computeEnvironmentOrder`. Please adjust your HCL accordingly.
 	//
-	// Deprecated: This parameter will be replaced by `compute_environments_order`.
+	// Deprecated: This parameter will be replaced by `computeEnvironmentsOrder`.
 	ComputeEnvironments []string `pulumi:"computeEnvironments"`
 	// Specifies the name of the job queue.
 	Name *string `pulumi:"name"`
@@ -269,7 +269,7 @@ type JobQueueArgs struct {
 	ComputeEnvironmentOrders JobQueueComputeEnvironmentOrderArrayInput
 	// (Optional) This parameter is deprecated, please use `computeEnvironmentOrder` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `computeEnvironments` will always be used over `computeEnvironmentOrder`. Please adjust your HCL accordingly.
 	//
-	// Deprecated: This parameter will be replaced by `compute_environments_order`.
+	// Deprecated: This parameter will be replaced by `computeEnvironmentsOrder`.
 	ComputeEnvironments pulumi.StringArrayInput
 	// Specifies the name of the job queue.
 	Name pulumi.StringPtrInput
@@ -384,7 +384,7 @@ func (o JobQueueOutput) ComputeEnvironmentOrders() JobQueueComputeEnvironmentOrd
 
 // (Optional) This parameter is deprecated, please use `computeEnvironmentOrder` instead. List of compute environment ARNs mapped to a job queue. The position of the compute environments in the list will dictate the order. When importing a AWS Batch Job Queue, the parameter `computeEnvironments` will always be used over `computeEnvironmentOrder`. Please adjust your HCL accordingly.
 //
-// Deprecated: This parameter will be replaced by `compute_environments_order`.
+// Deprecated: This parameter will be replaced by `computeEnvironmentsOrder`.
 func (o JobQueueOutput) ComputeEnvironments() pulumi.StringArrayOutput {
 	return o.ApplyT(func(v *JobQueue) pulumi.StringArrayOutput { return v.ComputeEnvironments }).(pulumi.StringArrayOutput)
 }

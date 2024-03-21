@@ -59,8 +59,8 @@ class GetBucketObjectsResult:
     @property
     @pulumi.getter
     def bucket(self) -> str:
-        warnings.warn("""Use the aws_s3_objects data source instead""", DeprecationWarning)
-        pulumi.log.warn("""bucket is deprecated: Use the aws_s3_objects data source instead""")
+        warnings.warn("""Use the s3_get_objects data source instead""", DeprecationWarning)
+        pulumi.log.warn("""bucket is deprecated: Use the s3_get_objects data source instead""")
 
         return pulumi.get(self, "bucket")
 

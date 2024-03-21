@@ -37,7 +37,7 @@ import (
 //				return err
 //			}
 //			_, err = inspector2.NewDelegatedAdminAccount(ctx, "example", &inspector2.DelegatedAdminAccountArgs{
-//				AccountId: *pulumi.String(current.AccountId),
+//				AccountId: pulumi.String(current.AccountId),
 //			})
 //			if err != nil {
 //				return err

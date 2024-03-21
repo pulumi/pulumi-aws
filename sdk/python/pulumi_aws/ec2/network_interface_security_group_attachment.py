@@ -129,7 +129,7 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
             )],
             owners=["amazon"])
         instance = aws.ec2.Instance("instance",
-            instance_type="t2.micro",
+            instance_type=aws.ec2.InstanceType.T2_MICRO,
             ami=ami.id,
             tags={
                 "type": "test-instance",
@@ -213,7 +213,7 @@ class NetworkInterfaceSecurityGroupAttachment(pulumi.CustomResource):
             )],
             owners=["amazon"])
         instance = aws.ec2.Instance("instance",
-            instance_type="t2.micro",
+            instance_type=aws.ec2.InstanceType.T2_MICRO,
             ami=ami.id,
             tags={
                 "type": "test-instance",

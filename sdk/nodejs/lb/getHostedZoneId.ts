@@ -18,7 +18,7 @@ import * as utilities from "../utilities";
  * const www = new aws.route53.Record("www", {
  *     zoneId: primary.zoneId,
  *     name: "example.com",
- *     type: "A",
+ *     type: aws.route53.RecordType.A,
  *     aliases: [{
  *         name: mainAwsLb.dnsName,
  *         zoneId: main.then(main => main.id),
@@ -78,7 +78,7 @@ export interface GetHostedZoneIdResult {
  * const www = new aws.route53.Record("www", {
  *     zoneId: primary.zoneId,
  *     name: "example.com",
- *     type: "A",
+ *     type: aws.route53.RecordType.A,
  *     aliases: [{
  *         name: mainAwsLb.dnsName,
  *         zoneId: main.then(main => main.id),

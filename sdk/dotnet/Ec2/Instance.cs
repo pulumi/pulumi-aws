@@ -56,7 +56,7 @@ namespace Pulumi.Aws.Ec2
     ///     var web = new Aws.Ec2.Instance("web", new()
     ///     {
     ///         Ami = ubuntu.Apply(getAmiResult =&gt; getAmiResult.Id),
-    ///         InstanceType = "t3.micro",
+    ///         InstanceType = Aws.Ec2.InstanceType.T3_Micro,
     ///         Tags = 
     ///         {
     ///             { "Name", "HelloWorld" },
@@ -116,7 +116,7 @@ namespace Pulumi.Aws.Ec2
     ///                 MaxPrice = "0.0031",
     ///             },
     ///         },
-    ///         InstanceType = "t4g.nano",
+    ///         InstanceType = Aws.Ec2.InstanceType.T4g_Nano,
     ///         Tags = 
     ///         {
     ///             { "Name", "test-spot" },
@@ -174,7 +174,7 @@ namespace Pulumi.Aws.Ec2
     ///     var fooInstance = new Aws.Ec2.Instance("foo", new()
     ///     {
     ///         Ami = "ami-005e54dee72cc1d00",
-    ///         InstanceType = "t2.micro",
+    ///         InstanceType = Aws.Ec2.InstanceType.T2_Micro,
     ///         NetworkInterfaces = new[]
     ///         {
     ///             new Aws.Ec2.Inputs.InstanceNetworkInterfaceArgs
@@ -247,7 +247,7 @@ namespace Pulumi.Aws.Ec2
     ///     var exampleInstance = new Aws.Ec2.Instance("example", new()
     ///     {
     ///         Ami = amzn_linux_2023_ami.Apply(amzn_linux_2023_ami =&gt; amzn_linux_2023_ami.Apply(getAmiResult =&gt; getAmiResult.Id)),
-    ///         InstanceType = "c6a.2xlarge",
+    ///         InstanceType = Aws.Ec2.InstanceType.C6a_2XLarge,
     ///         SubnetId = exampleSubnet.Id,
     ///         CpuOptions = new Aws.Ec2.Inputs.InstanceCpuOptionsArgs
     ///         {
@@ -282,7 +282,7 @@ namespace Pulumi.Aws.Ec2
     ///     var @this = new Aws.Ec2.Instance("this", new()
     ///     {
     ///         Ami = "ami-0dcc1e21636832c5d",
-    ///         InstanceType = "m5.large",
+    ///         InstanceType = Aws.Ec2.InstanceType.M5_Large,
     ///         HostResourceGroupArn = "arn:aws:resource-groups:us-west-2:012345678901:group/win-testhost",
     ///         Tenancy = "host",
     ///     });

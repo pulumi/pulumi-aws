@@ -83,7 +83,7 @@ export class OrganizationConfiguration extends pulumi.CustomResource {
     /**
      * *Deprecated:* Use `autoEnableOrganizationMembers` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
      *
-     * @deprecated Use auto_enable_organization_members instead
+     * @deprecated Use autoEnableOrganizationMembers instead
      */
     public readonly autoEnable!: pulumi.Output<boolean>;
     /**
@@ -138,7 +138,7 @@ export interface OrganizationConfigurationState {
     /**
      * *Deprecated:* Use `autoEnableOrganizationMembers` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
      *
-     * @deprecated Use auto_enable_organization_members instead
+     * @deprecated Use autoEnableOrganizationMembers instead
      */
     autoEnable?: pulumi.Input<boolean>;
     /**
@@ -162,7 +162,7 @@ export interface OrganizationConfigurationArgs {
     /**
      * *Deprecated:* Use `autoEnableOrganizationMembers` instead. When this setting is enabled, all new accounts that are created in, or added to, the organization are added as a member accounts of the organization’s GuardDuty delegated administrator and GuardDuty is enabled in that AWS Region.
      *
-     * @deprecated Use auto_enable_organization_members instead
+     * @deprecated Use autoEnableOrganizationMembers instead
      */
     autoEnable?: pulumi.Input<boolean>;
     /**

@@ -30,7 +30,7 @@ namespace Pulumi.Aws.Ssm
     ///     var foo = new Aws.Ssm.Parameter("foo", new()
     ///     {
     ///         Name = "foo",
-    ///         Type = "String",
+    ///         Type = Aws.Ssm.ParameterType.String,
     ///         Value = "bar",
     ///     });
     /// 
@@ -52,10 +52,10 @@ namespace Pulumi.Aws.Ssm
     ///     var @default = new Aws.Rds.Instance("default", new()
     ///     {
     ///         AllocatedStorage = 10,
-    ///         StorageType = "gp2",
+    ///         StorageType = Aws.Rds.StorageType.GP2,
     ///         Engine = "mysql",
     ///         EngineVersion = "5.7.16",
-    ///         InstanceClass = "db.t2.micro",
+    ///         InstanceClass = Aws.Rds.InstanceType.T2_Micro,
     ///         DbName = "mydb",
     ///         Username = "foo",
     ///         Password = databaseMasterPassword,
@@ -67,7 +67,7 @@ namespace Pulumi.Aws.Ssm
     ///     {
     ///         Name = "/production/database/password/master",
     ///         Description = "The parameter description",
-    ///         Type = "SecureString",
+    ///         Type = Aws.Ssm.ParameterType.SecureString,
     ///         Value = databaseMasterPassword,
     ///         Tags = 
     ///         {

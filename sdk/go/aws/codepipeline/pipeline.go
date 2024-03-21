@@ -71,7 +71,7 @@ import (
 //			}
 //			codepipelineRole, err := iam.NewRole(ctx, "codepipeline_role", &iam.RoleArgs{
 //				Name:             pulumi.String("test-role"),
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -90,7 +90,7 @@ import (
 //						Location: codepipelineBucket.Bucket,
 //						Type:     pulumi.String("S3"),
 //						EncryptionKey: &codepipeline.PipelineArtifactStoreEncryptionKeyArgs{
-//							Id:   *pulumi.String(s3kmskey.Arn),
+//							Id:   pulumi.String(s3kmskey.Arn),
 //							Type: pulumi.String("KMS"),
 //						},
 //					},

@@ -38,7 +38,7 @@ namespace Pulumi.Aws.Ses
     ///     {
     ///         ZoneId = exampleAwsRoute53Zone.ZoneId,
     ///         Name = example.Id.Apply(id =&gt; $"_amazonses.{id}"),
-    ///         Type = "TXT",
+    ///         Type = Aws.Route53.RecordType.TXT,
     ///         Ttl = 600,
     ///         Records = new[]
     ///         {

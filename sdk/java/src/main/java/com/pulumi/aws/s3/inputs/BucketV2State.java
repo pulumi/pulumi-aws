@@ -32,10 +32,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
      * Use the resource `aws.s3.BucketAccelerateConfigurationV2` instead.
      * 
      * @deprecated
-     * Use the aws_s3_bucket_accelerate_configuration resource instead
+     * Use the aws.s3.BucketAccelerateConfigurationV2 resource instead
      * 
      */
-    @Deprecated /* Use the aws_s3_bucket_accelerate_configuration resource instead */
+    @Deprecated /* Use the aws.s3.BucketAccelerateConfigurationV2 resource instead */
     @Import(name="accelerationStatus")
     private @Nullable Output<String> accelerationStatus;
 
@@ -44,10 +44,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
      * Use the resource `aws.s3.BucketAccelerateConfigurationV2` instead.
      * 
      * @deprecated
-     * Use the aws_s3_bucket_accelerate_configuration resource instead
+     * Use the aws.s3.BucketAccelerateConfigurationV2 resource instead
      * 
      */
-    @Deprecated /* Use the aws_s3_bucket_accelerate_configuration resource instead */
+    @Deprecated /* Use the aws.s3.BucketAccelerateConfigurationV2 resource instead */
     public Optional<Output<String>> accelerationStatus() {
         return Optional.ofNullable(this.accelerationStatus);
     }
@@ -56,10 +56,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
      * The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAclV2` instead.
      * 
      * @deprecated
-     * Use the aws_s3_bucket_acl resource instead
+     * Use the aws.s3.BucketAclV2 resource instead
      * 
      */
-    @Deprecated /* Use the aws_s3_bucket_acl resource instead */
+    @Deprecated /* Use the aws.s3.BucketAclV2 resource instead */
     @Import(name="acl")
     private @Nullable Output<String> acl;
 
@@ -67,10 +67,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
      * @return The [canned ACL](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#canned-acl) to apply. Valid values are `private`, `public-read`, `public-read-write`, `aws-exec-read`, `authenticated-read`, and `log-delivery-write`. Defaults to `private`.  Conflicts with `grant`. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAclV2` instead.
      * 
      * @deprecated
-     * Use the aws_s3_bucket_acl resource instead
+     * Use the aws.s3.BucketAclV2 resource instead
      * 
      */
-    @Deprecated /* Use the aws_s3_bucket_acl resource instead */
+    @Deprecated /* Use the aws.s3.BucketAclV2 resource instead */
     public Optional<Output<String>> acl() {
         return Optional.ofNullable(this.acl);
     }
@@ -154,10 +154,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
      * Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See CORS rule below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketCorsConfigurationV2` instead.
      * 
      * @deprecated
-     * Use the aws_s3_bucket_cors_configuration resource instead
+     * Use the aws.s3.BucketCorsConfigurationV2 resource instead
      * 
      */
-    @Deprecated /* Use the aws_s3_bucket_cors_configuration resource instead */
+    @Deprecated /* Use the aws.s3.BucketCorsConfigurationV2 resource instead */
     @Import(name="corsRules")
     private @Nullable Output<List<BucketV2CorsRuleArgs>> corsRules;
 
@@ -165,10 +165,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
      * @return Rule of [Cross-Origin Resource Sharing](https://docs.aws.amazon.com/AmazonS3/latest/dev/cors.html). See CORS rule below for details. This provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketCorsConfigurationV2` instead.
      * 
      * @deprecated
-     * Use the aws_s3_bucket_cors_configuration resource instead
+     * Use the aws.s3.BucketCorsConfigurationV2 resource instead
      * 
      */
-    @Deprecated /* Use the aws_s3_bucket_cors_configuration resource instead */
+    @Deprecated /* Use the aws.s3.BucketCorsConfigurationV2 resource instead */
     public Optional<Output<List<BucketV2CorsRuleArgs>>> corsRules() {
         return Optional.ofNullable(this.corsRules);
     }
@@ -192,10 +192,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
      * An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl). See Grant below for details. Conflicts with `acl`. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAclV2` instead.
      * 
      * @deprecated
-     * Use the aws_s3_bucket_acl resource instead
+     * Use the aws.s3.BucketAclV2 resource instead
      * 
      */
-    @Deprecated /* Use the aws_s3_bucket_acl resource instead */
+    @Deprecated /* Use the aws.s3.BucketAclV2 resource instead */
     @Import(name="grants")
     private @Nullable Output<List<BucketV2GrantArgs>> grants;
 
@@ -203,10 +203,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
      * @return An [ACL policy grant](https://docs.aws.amazon.com/AmazonS3/latest/dev/acl-overview.html#sample-acl). See Grant below for details. Conflicts with `acl`. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketAclV2` instead.
      * 
      * @deprecated
-     * Use the aws_s3_bucket_acl resource instead
+     * Use the aws.s3.BucketAclV2 resource instead
      * 
      */
-    @Deprecated /* Use the aws_s3_bucket_acl resource instead */
+    @Deprecated /* Use the aws.s3.BucketAclV2 resource instead */
     public Optional<Output<List<BucketV2GrantArgs>>> grants() {
         return Optional.ofNullable(this.grants);
     }
@@ -231,10 +231,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
      * Use the resource `aws.s3.BucketLifecycleConfigurationV2` instead.
      * 
      * @deprecated
-     * Use the aws_s3_bucket_lifecycle_configuration resource instead
+     * Use the aws.s3.BucketLifecycleConfigurationV2 resource instead
      * 
      */
-    @Deprecated /* Use the aws_s3_bucket_lifecycle_configuration resource instead */
+    @Deprecated /* Use the aws.s3.BucketLifecycleConfigurationV2 resource instead */
     @Import(name="lifecycleRules")
     private @Nullable Output<List<BucketV2LifecycleRuleArgs>> lifecycleRules;
 
@@ -243,10 +243,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
      * Use the resource `aws.s3.BucketLifecycleConfigurationV2` instead.
      * 
      * @deprecated
-     * Use the aws_s3_bucket_lifecycle_configuration resource instead
+     * Use the aws.s3.BucketLifecycleConfigurationV2 resource instead
      * 
      */
-    @Deprecated /* Use the aws_s3_bucket_lifecycle_configuration resource instead */
+    @Deprecated /* Use the aws.s3.BucketLifecycleConfigurationV2 resource instead */
     public Optional<Output<List<BucketV2LifecycleRuleArgs>>> lifecycleRules() {
         return Optional.ofNullable(this.lifecycleRules);
     }
@@ -256,10 +256,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
      * Use the resource `aws.s3.BucketLoggingV2` instead.
      * 
      * @deprecated
-     * Use the aws_s3_bucket_logging resource instead
+     * Use the aws.s3.BucketLoggingV2 resource instead
      * 
      */
-    @Deprecated /* Use the aws_s3_bucket_logging resource instead */
+    @Deprecated /* Use the aws.s3.BucketLoggingV2 resource instead */
     @Import(name="loggings")
     private @Nullable Output<List<BucketV2LoggingArgs>> loggings;
 
@@ -268,10 +268,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
      * Use the resource `aws.s3.BucketLoggingV2` instead.
      * 
      * @deprecated
-     * Use the aws_s3_bucket_logging resource instead
+     * Use the aws.s3.BucketLoggingV2 resource instead
      * 
      */
-    @Deprecated /* Use the aws_s3_bucket_logging resource instead */
+    @Deprecated /* Use the aws.s3.BucketLoggingV2 resource instead */
     public Optional<Output<List<BucketV2LoggingArgs>>> loggings() {
         return Optional.ofNullable(this.loggings);
     }
@@ -282,10 +282,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
      * Use the `object_lock_enabled` parameter and the resource `aws.s3.BucketObjectLockConfigurationV2` instead.
      * 
      * @deprecated
-     * Use the top-level parameter object_lock_enabled and the aws_s3_bucket_object_lock_configuration resource instead
+     * Use the top-level parameter object_lock_enabled and the aws.s3.BucketObjectLockConfigurationV2 resource instead
      * 
      */
-    @Deprecated /* Use the top-level parameter object_lock_enabled and the aws_s3_bucket_object_lock_configuration resource instead */
+    @Deprecated /* Use the top-level parameter object_lock_enabled and the aws.s3.BucketObjectLockConfigurationV2 resource instead */
     @Import(name="objectLockConfiguration")
     private @Nullable Output<BucketV2ObjectLockConfigurationArgs> objectLockConfiguration;
 
@@ -295,10 +295,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
      * Use the `object_lock_enabled` parameter and the resource `aws.s3.BucketObjectLockConfigurationV2` instead.
      * 
      * @deprecated
-     * Use the top-level parameter object_lock_enabled and the aws_s3_bucket_object_lock_configuration resource instead
+     * Use the top-level parameter object_lock_enabled and the aws.s3.BucketObjectLockConfigurationV2 resource instead
      * 
      */
-    @Deprecated /* Use the top-level parameter object_lock_enabled and the aws_s3_bucket_object_lock_configuration resource instead */
+    @Deprecated /* Use the top-level parameter object_lock_enabled and the aws.s3.BucketObjectLockConfigurationV2 resource instead */
     public Optional<Output<BucketV2ObjectLockConfigurationArgs>> objectLockConfiguration() {
         return Optional.ofNullable(this.objectLockConfiguration);
     }
@@ -324,10 +324,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
      * Use the resource `aws.s3.BucketPolicy` instead.
      * 
      * @deprecated
-     * Use the aws_s3_bucket_policy resource instead
+     * Use the aws.s3.BucketPolicy resource instead
      * 
      */
-    @Deprecated /* Use the aws_s3_bucket_policy resource instead */
+    @Deprecated /* Use the aws.s3.BucketPolicy resource instead */
     @Import(name="policy")
     private @Nullable Output<String> policy;
 
@@ -337,10 +337,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
      * Use the resource `aws.s3.BucketPolicy` instead.
      * 
      * @deprecated
-     * Use the aws_s3_bucket_policy resource instead
+     * Use the aws.s3.BucketPolicy resource instead
      * 
      */
-    @Deprecated /* Use the aws_s3_bucket_policy resource instead */
+    @Deprecated /* Use the aws.s3.BucketPolicy resource instead */
     public Optional<Output<String>> policy() {
         return Optional.ofNullable(this.policy);
     }
@@ -365,10 +365,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
      * Use the resource `aws.s3.BucketReplicationConfig` instead.
      * 
      * @deprecated
-     * Use the aws_s3_bucket_replication_configuration resource instead
+     * Use the aws.s3.BucketReplicationConfig resource instead
      * 
      */
-    @Deprecated /* Use the aws_s3_bucket_replication_configuration resource instead */
+    @Deprecated /* Use the aws.s3.BucketReplicationConfig resource instead */
     @Import(name="replicationConfigurations")
     private @Nullable Output<List<BucketV2ReplicationConfigurationArgs>> replicationConfigurations;
 
@@ -377,10 +377,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
      * Use the resource `aws.s3.BucketReplicationConfig` instead.
      * 
      * @deprecated
-     * Use the aws_s3_bucket_replication_configuration resource instead
+     * Use the aws.s3.BucketReplicationConfig resource instead
      * 
      */
-    @Deprecated /* Use the aws_s3_bucket_replication_configuration resource instead */
+    @Deprecated /* Use the aws.s3.BucketReplicationConfig resource instead */
     public Optional<Output<List<BucketV2ReplicationConfigurationArgs>>> replicationConfigurations() {
         return Optional.ofNullable(this.replicationConfigurations);
     }
@@ -393,10 +393,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
      * Use the resource `aws.s3.BucketRequestPaymentConfigurationV2` instead.
      * 
      * @deprecated
-     * Use the aws_s3_bucket_request_payment_configuration resource instead
+     * Use the aws.s3.BucketRequestPaymentConfigurationV2 resource instead
      * 
      */
-    @Deprecated /* Use the aws_s3_bucket_request_payment_configuration resource instead */
+    @Deprecated /* Use the aws.s3.BucketRequestPaymentConfigurationV2 resource instead */
     @Import(name="requestPayer")
     private @Nullable Output<String> requestPayer;
 
@@ -408,10 +408,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
      * Use the resource `aws.s3.BucketRequestPaymentConfigurationV2` instead.
      * 
      * @deprecated
-     * Use the aws_s3_bucket_request_payment_configuration resource instead
+     * Use the aws.s3.BucketRequestPaymentConfigurationV2 resource instead
      * 
      */
-    @Deprecated /* Use the aws_s3_bucket_request_payment_configuration resource instead */
+    @Deprecated /* Use the aws.s3.BucketRequestPaymentConfigurationV2 resource instead */
     public Optional<Output<String>> requestPayer() {
         return Optional.ofNullable(this.requestPayer);
     }
@@ -422,10 +422,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
      * Use the resource `aws.s3.BucketServerSideEncryptionConfigurationV2` instead.
      * 
      * @deprecated
-     * Use the aws_s3_bucket_server_side_encryption_configuration resource instead
+     * Use the aws.s3.BucketServerSideEncryptionConfigurationV2 resource instead
      * 
      */
-    @Deprecated /* Use the aws_s3_bucket_server_side_encryption_configuration resource instead */
+    @Deprecated /* Use the aws.s3.BucketServerSideEncryptionConfigurationV2 resource instead */
     @Import(name="serverSideEncryptionConfigurations")
     private @Nullable Output<List<BucketV2ServerSideEncryptionConfigurationArgs>> serverSideEncryptionConfigurations;
 
@@ -435,10 +435,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
      * Use the resource `aws.s3.BucketServerSideEncryptionConfigurationV2` instead.
      * 
      * @deprecated
-     * Use the aws_s3_bucket_server_side_encryption_configuration resource instead
+     * Use the aws.s3.BucketServerSideEncryptionConfigurationV2 resource instead
      * 
      */
-    @Deprecated /* Use the aws_s3_bucket_server_side_encryption_configuration resource instead */
+    @Deprecated /* Use the aws.s3.BucketServerSideEncryptionConfigurationV2 resource instead */
     public Optional<Output<List<BucketV2ServerSideEncryptionConfigurationArgs>>> serverSideEncryptionConfigurations() {
         return Optional.ofNullable(this.serverSideEncryptionConfigurations);
     }
@@ -489,10 +489,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
      * Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketVersioningV2` instead.
      * 
      * @deprecated
-     * Use the aws_s3_bucket_versioning resource instead
+     * Use the aws.s3.BucketVersioningV2 resource instead
      * 
      */
-    @Deprecated /* Use the aws_s3_bucket_versioning resource instead */
+    @Deprecated /* Use the aws.s3.BucketVersioningV2 resource instead */
     @Import(name="versionings")
     private @Nullable Output<List<BucketV2VersioningArgs>> versionings;
 
@@ -500,10 +500,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
      * @return Configuration of the [S3 bucket versioning state](https://docs.aws.amazon.com/AmazonS3/latest/dev/Versioning.html). See Versioning below for details. The provider will only perform drift detection if a configuration value is provided. Use the resource `aws.s3.BucketVersioningV2` instead.
      * 
      * @deprecated
-     * Use the aws_s3_bucket_versioning resource instead
+     * Use the aws.s3.BucketVersioningV2 resource instead
      * 
      */
-    @Deprecated /* Use the aws_s3_bucket_versioning resource instead */
+    @Deprecated /* Use the aws.s3.BucketVersioningV2 resource instead */
     public Optional<Output<List<BucketV2VersioningArgs>>> versionings() {
         return Optional.ofNullable(this.versionings);
     }
@@ -512,10 +512,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
      * (**Deprecated**) Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
      * 
      * @deprecated
-     * Use the aws_s3_bucket_website_configuration resource
+     * Use the aws.s3.BucketWebsiteConfigurationV2 resource
      * 
      */
-    @Deprecated /* Use the aws_s3_bucket_website_configuration resource */
+    @Deprecated /* Use the aws.s3.BucketWebsiteConfigurationV2 resource */
     @Import(name="websiteDomain")
     private @Nullable Output<String> websiteDomain;
 
@@ -523,10 +523,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
      * @return (**Deprecated**) Domain of the website endpoint, if the bucket is configured with a website. If not, this will be an empty string. This is used to create Route 53 alias records. Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
      * 
      * @deprecated
-     * Use the aws_s3_bucket_website_configuration resource
+     * Use the aws.s3.BucketWebsiteConfigurationV2 resource
      * 
      */
-    @Deprecated /* Use the aws_s3_bucket_website_configuration resource */
+    @Deprecated /* Use the aws.s3.BucketWebsiteConfigurationV2 resource */
     public Optional<Output<String>> websiteDomain() {
         return Optional.ofNullable(this.websiteDomain);
     }
@@ -535,10 +535,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
      * (**Deprecated**) Website endpoint, if the bucket is configured with a website. If not, this will be an empty string. Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
      * 
      * @deprecated
-     * Use the aws_s3_bucket_website_configuration resource
+     * Use the aws.s3.BucketWebsiteConfigurationV2 resource
      * 
      */
-    @Deprecated /* Use the aws_s3_bucket_website_configuration resource */
+    @Deprecated /* Use the aws.s3.BucketWebsiteConfigurationV2 resource */
     @Import(name="websiteEndpoint")
     private @Nullable Output<String> websiteEndpoint;
 
@@ -546,10 +546,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
      * @return (**Deprecated**) Website endpoint, if the bucket is configured with a website. If not, this will be an empty string. Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
      * 
      * @deprecated
-     * Use the aws_s3_bucket_website_configuration resource
+     * Use the aws.s3.BucketWebsiteConfigurationV2 resource
      * 
      */
-    @Deprecated /* Use the aws_s3_bucket_website_configuration resource */
+    @Deprecated /* Use the aws.s3.BucketWebsiteConfigurationV2 resource */
     public Optional<Output<String>> websiteEndpoint() {
         return Optional.ofNullable(this.websiteEndpoint);
     }
@@ -559,10 +559,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
      * Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
      * 
      * @deprecated
-     * Use the aws_s3_bucket_website_configuration resource instead
+     * Use the aws.s3.BucketWebsiteConfigurationV2 resource instead
      * 
      */
-    @Deprecated /* Use the aws_s3_bucket_website_configuration resource instead */
+    @Deprecated /* Use the aws.s3.BucketWebsiteConfigurationV2 resource instead */
     @Import(name="websites")
     private @Nullable Output<List<BucketV2WebsiteArgs>> websites;
 
@@ -571,10 +571,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
      * Use the resource `aws.s3.BucketWebsiteConfigurationV2` instead.
      * 
      * @deprecated
-     * Use the aws_s3_bucket_website_configuration resource instead
+     * Use the aws.s3.BucketWebsiteConfigurationV2 resource instead
      * 
      */
-    @Deprecated /* Use the aws_s3_bucket_website_configuration resource instead */
+    @Deprecated /* Use the aws.s3.BucketWebsiteConfigurationV2 resource instead */
     public Optional<Output<List<BucketV2WebsiteArgs>>> websites() {
         return Optional.ofNullable(this.websites);
     }
@@ -635,10 +635,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the aws_s3_bucket_accelerate_configuration resource instead
+         * Use the aws.s3.BucketAccelerateConfigurationV2 resource instead
          * 
          */
-        @Deprecated /* Use the aws_s3_bucket_accelerate_configuration resource instead */
+        @Deprecated /* Use the aws.s3.BucketAccelerateConfigurationV2 resource instead */
         public Builder accelerationStatus(@Nullable Output<String> accelerationStatus) {
             $.accelerationStatus = accelerationStatus;
             return this;
@@ -651,10 +651,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the aws_s3_bucket_accelerate_configuration resource instead
+         * Use the aws.s3.BucketAccelerateConfigurationV2 resource instead
          * 
          */
-        @Deprecated /* Use the aws_s3_bucket_accelerate_configuration resource instead */
+        @Deprecated /* Use the aws.s3.BucketAccelerateConfigurationV2 resource instead */
         public Builder accelerationStatus(String accelerationStatus) {
             return accelerationStatus(Output.of(accelerationStatus));
         }
@@ -665,10 +665,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the aws_s3_bucket_acl resource instead
+         * Use the aws.s3.BucketAclV2 resource instead
          * 
          */
-        @Deprecated /* Use the aws_s3_bucket_acl resource instead */
+        @Deprecated /* Use the aws.s3.BucketAclV2 resource instead */
         public Builder acl(@Nullable Output<String> acl) {
             $.acl = acl;
             return this;
@@ -680,10 +680,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the aws_s3_bucket_acl resource instead
+         * Use the aws.s3.BucketAclV2 resource instead
          * 
          */
-        @Deprecated /* Use the aws_s3_bucket_acl resource instead */
+        @Deprecated /* Use the aws.s3.BucketAclV2 resource instead */
         public Builder acl(String acl) {
             return acl(Output.of(acl));
         }
@@ -799,10 +799,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the aws_s3_bucket_cors_configuration resource instead
+         * Use the aws.s3.BucketCorsConfigurationV2 resource instead
          * 
          */
-        @Deprecated /* Use the aws_s3_bucket_cors_configuration resource instead */
+        @Deprecated /* Use the aws.s3.BucketCorsConfigurationV2 resource instead */
         public Builder corsRules(@Nullable Output<List<BucketV2CorsRuleArgs>> corsRules) {
             $.corsRules = corsRules;
             return this;
@@ -814,10 +814,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the aws_s3_bucket_cors_configuration resource instead
+         * Use the aws.s3.BucketCorsConfigurationV2 resource instead
          * 
          */
-        @Deprecated /* Use the aws_s3_bucket_cors_configuration resource instead */
+        @Deprecated /* Use the aws.s3.BucketCorsConfigurationV2 resource instead */
         public Builder corsRules(List<BucketV2CorsRuleArgs> corsRules) {
             return corsRules(Output.of(corsRules));
         }
@@ -828,10 +828,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the aws_s3_bucket_cors_configuration resource instead
+         * Use the aws.s3.BucketCorsConfigurationV2 resource instead
          * 
          */
-        @Deprecated /* Use the aws_s3_bucket_cors_configuration resource instead */
+        @Deprecated /* Use the aws.s3.BucketCorsConfigurationV2 resource instead */
         public Builder corsRules(BucketV2CorsRuleArgs... corsRules) {
             return corsRules(List.of(corsRules));
         }
@@ -863,10 +863,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the aws_s3_bucket_acl resource instead
+         * Use the aws.s3.BucketAclV2 resource instead
          * 
          */
-        @Deprecated /* Use the aws_s3_bucket_acl resource instead */
+        @Deprecated /* Use the aws.s3.BucketAclV2 resource instead */
         public Builder grants(@Nullable Output<List<BucketV2GrantArgs>> grants) {
             $.grants = grants;
             return this;
@@ -878,10 +878,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the aws_s3_bucket_acl resource instead
+         * Use the aws.s3.BucketAclV2 resource instead
          * 
          */
-        @Deprecated /* Use the aws_s3_bucket_acl resource instead */
+        @Deprecated /* Use the aws.s3.BucketAclV2 resource instead */
         public Builder grants(List<BucketV2GrantArgs> grants) {
             return grants(Output.of(grants));
         }
@@ -892,10 +892,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the aws_s3_bucket_acl resource instead
+         * Use the aws.s3.BucketAclV2 resource instead
          * 
          */
-        @Deprecated /* Use the aws_s3_bucket_acl resource instead */
+        @Deprecated /* Use the aws.s3.BucketAclV2 resource instead */
         public Builder grants(BucketV2GrantArgs... grants) {
             return grants(List.of(grants));
         }
@@ -928,10 +928,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the aws_s3_bucket_lifecycle_configuration resource instead
+         * Use the aws.s3.BucketLifecycleConfigurationV2 resource instead
          * 
          */
-        @Deprecated /* Use the aws_s3_bucket_lifecycle_configuration resource instead */
+        @Deprecated /* Use the aws.s3.BucketLifecycleConfigurationV2 resource instead */
         public Builder lifecycleRules(@Nullable Output<List<BucketV2LifecycleRuleArgs>> lifecycleRules) {
             $.lifecycleRules = lifecycleRules;
             return this;
@@ -944,10 +944,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the aws_s3_bucket_lifecycle_configuration resource instead
+         * Use the aws.s3.BucketLifecycleConfigurationV2 resource instead
          * 
          */
-        @Deprecated /* Use the aws_s3_bucket_lifecycle_configuration resource instead */
+        @Deprecated /* Use the aws.s3.BucketLifecycleConfigurationV2 resource instead */
         public Builder lifecycleRules(List<BucketV2LifecycleRuleArgs> lifecycleRules) {
             return lifecycleRules(Output.of(lifecycleRules));
         }
@@ -959,10 +959,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the aws_s3_bucket_lifecycle_configuration resource instead
+         * Use the aws.s3.BucketLifecycleConfigurationV2 resource instead
          * 
          */
-        @Deprecated /* Use the aws_s3_bucket_lifecycle_configuration resource instead */
+        @Deprecated /* Use the aws.s3.BucketLifecycleConfigurationV2 resource instead */
         public Builder lifecycleRules(BucketV2LifecycleRuleArgs... lifecycleRules) {
             return lifecycleRules(List.of(lifecycleRules));
         }
@@ -974,10 +974,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the aws_s3_bucket_logging resource instead
+         * Use the aws.s3.BucketLoggingV2 resource instead
          * 
          */
-        @Deprecated /* Use the aws_s3_bucket_logging resource instead */
+        @Deprecated /* Use the aws.s3.BucketLoggingV2 resource instead */
         public Builder loggings(@Nullable Output<List<BucketV2LoggingArgs>> loggings) {
             $.loggings = loggings;
             return this;
@@ -990,10 +990,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the aws_s3_bucket_logging resource instead
+         * Use the aws.s3.BucketLoggingV2 resource instead
          * 
          */
-        @Deprecated /* Use the aws_s3_bucket_logging resource instead */
+        @Deprecated /* Use the aws.s3.BucketLoggingV2 resource instead */
         public Builder loggings(List<BucketV2LoggingArgs> loggings) {
             return loggings(Output.of(loggings));
         }
@@ -1005,10 +1005,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the aws_s3_bucket_logging resource instead
+         * Use the aws.s3.BucketLoggingV2 resource instead
          * 
          */
-        @Deprecated /* Use the aws_s3_bucket_logging resource instead */
+        @Deprecated /* Use the aws.s3.BucketLoggingV2 resource instead */
         public Builder loggings(BucketV2LoggingArgs... loggings) {
             return loggings(List.of(loggings));
         }
@@ -1021,10 +1021,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the top-level parameter object_lock_enabled and the aws_s3_bucket_object_lock_configuration resource instead
+         * Use the top-level parameter object_lock_enabled and the aws.s3.BucketObjectLockConfigurationV2 resource instead
          * 
          */
-        @Deprecated /* Use the top-level parameter object_lock_enabled and the aws_s3_bucket_object_lock_configuration resource instead */
+        @Deprecated /* Use the top-level parameter object_lock_enabled and the aws.s3.BucketObjectLockConfigurationV2 resource instead */
         public Builder objectLockConfiguration(@Nullable Output<BucketV2ObjectLockConfigurationArgs> objectLockConfiguration) {
             $.objectLockConfiguration = objectLockConfiguration;
             return this;
@@ -1038,10 +1038,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the top-level parameter object_lock_enabled and the aws_s3_bucket_object_lock_configuration resource instead
+         * Use the top-level parameter object_lock_enabled and the aws.s3.BucketObjectLockConfigurationV2 resource instead
          * 
          */
-        @Deprecated /* Use the top-level parameter object_lock_enabled and the aws_s3_bucket_object_lock_configuration resource instead */
+        @Deprecated /* Use the top-level parameter object_lock_enabled and the aws.s3.BucketObjectLockConfigurationV2 resource instead */
         public Builder objectLockConfiguration(BucketV2ObjectLockConfigurationArgs objectLockConfiguration) {
             return objectLockConfiguration(Output.of(objectLockConfiguration));
         }
@@ -1075,10 +1075,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the aws_s3_bucket_policy resource instead
+         * Use the aws.s3.BucketPolicy resource instead
          * 
          */
-        @Deprecated /* Use the aws_s3_bucket_policy resource instead */
+        @Deprecated /* Use the aws.s3.BucketPolicy resource instead */
         public Builder policy(@Nullable Output<String> policy) {
             $.policy = policy;
             return this;
@@ -1092,10 +1092,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the aws_s3_bucket_policy resource instead
+         * Use the aws.s3.BucketPolicy resource instead
          * 
          */
-        @Deprecated /* Use the aws_s3_bucket_policy resource instead */
+        @Deprecated /* Use the aws.s3.BucketPolicy resource instead */
         public Builder policy(String policy) {
             return policy(Output.of(policy));
         }
@@ -1128,10 +1128,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the aws_s3_bucket_replication_configuration resource instead
+         * Use the aws.s3.BucketReplicationConfig resource instead
          * 
          */
-        @Deprecated /* Use the aws_s3_bucket_replication_configuration resource instead */
+        @Deprecated /* Use the aws.s3.BucketReplicationConfig resource instead */
         public Builder replicationConfigurations(@Nullable Output<List<BucketV2ReplicationConfigurationArgs>> replicationConfigurations) {
             $.replicationConfigurations = replicationConfigurations;
             return this;
@@ -1144,10 +1144,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the aws_s3_bucket_replication_configuration resource instead
+         * Use the aws.s3.BucketReplicationConfig resource instead
          * 
          */
-        @Deprecated /* Use the aws_s3_bucket_replication_configuration resource instead */
+        @Deprecated /* Use the aws.s3.BucketReplicationConfig resource instead */
         public Builder replicationConfigurations(List<BucketV2ReplicationConfigurationArgs> replicationConfigurations) {
             return replicationConfigurations(Output.of(replicationConfigurations));
         }
@@ -1159,10 +1159,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the aws_s3_bucket_replication_configuration resource instead
+         * Use the aws.s3.BucketReplicationConfig resource instead
          * 
          */
-        @Deprecated /* Use the aws_s3_bucket_replication_configuration resource instead */
+        @Deprecated /* Use the aws.s3.BucketReplicationConfig resource instead */
         public Builder replicationConfigurations(BucketV2ReplicationConfigurationArgs... replicationConfigurations) {
             return replicationConfigurations(List.of(replicationConfigurations));
         }
@@ -1177,10 +1177,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the aws_s3_bucket_request_payment_configuration resource instead
+         * Use the aws.s3.BucketRequestPaymentConfigurationV2 resource instead
          * 
          */
-        @Deprecated /* Use the aws_s3_bucket_request_payment_configuration resource instead */
+        @Deprecated /* Use the aws.s3.BucketRequestPaymentConfigurationV2 resource instead */
         public Builder requestPayer(@Nullable Output<String> requestPayer) {
             $.requestPayer = requestPayer;
             return this;
@@ -1196,10 +1196,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the aws_s3_bucket_request_payment_configuration resource instead
+         * Use the aws.s3.BucketRequestPaymentConfigurationV2 resource instead
          * 
          */
-        @Deprecated /* Use the aws_s3_bucket_request_payment_configuration resource instead */
+        @Deprecated /* Use the aws.s3.BucketRequestPaymentConfigurationV2 resource instead */
         public Builder requestPayer(String requestPayer) {
             return requestPayer(Output.of(requestPayer));
         }
@@ -1212,10 +1212,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the aws_s3_bucket_server_side_encryption_configuration resource instead
+         * Use the aws.s3.BucketServerSideEncryptionConfigurationV2 resource instead
          * 
          */
-        @Deprecated /* Use the aws_s3_bucket_server_side_encryption_configuration resource instead */
+        @Deprecated /* Use the aws.s3.BucketServerSideEncryptionConfigurationV2 resource instead */
         public Builder serverSideEncryptionConfigurations(@Nullable Output<List<BucketV2ServerSideEncryptionConfigurationArgs>> serverSideEncryptionConfigurations) {
             $.serverSideEncryptionConfigurations = serverSideEncryptionConfigurations;
             return this;
@@ -1229,10 +1229,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the aws_s3_bucket_server_side_encryption_configuration resource instead
+         * Use the aws.s3.BucketServerSideEncryptionConfigurationV2 resource instead
          * 
          */
-        @Deprecated /* Use the aws_s3_bucket_server_side_encryption_configuration resource instead */
+        @Deprecated /* Use the aws.s3.BucketServerSideEncryptionConfigurationV2 resource instead */
         public Builder serverSideEncryptionConfigurations(List<BucketV2ServerSideEncryptionConfigurationArgs> serverSideEncryptionConfigurations) {
             return serverSideEncryptionConfigurations(Output.of(serverSideEncryptionConfigurations));
         }
@@ -1245,10 +1245,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the aws_s3_bucket_server_side_encryption_configuration resource instead
+         * Use the aws.s3.BucketServerSideEncryptionConfigurationV2 resource instead
          * 
          */
-        @Deprecated /* Use the aws_s3_bucket_server_side_encryption_configuration resource instead */
+        @Deprecated /* Use the aws.s3.BucketServerSideEncryptionConfigurationV2 resource instead */
         public Builder serverSideEncryptionConfigurations(BucketV2ServerSideEncryptionConfigurationArgs... serverSideEncryptionConfigurations) {
             return serverSideEncryptionConfigurations(List.of(serverSideEncryptionConfigurations));
         }
@@ -1313,10 +1313,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the aws_s3_bucket_versioning resource instead
+         * Use the aws.s3.BucketVersioningV2 resource instead
          * 
          */
-        @Deprecated /* Use the aws_s3_bucket_versioning resource instead */
+        @Deprecated /* Use the aws.s3.BucketVersioningV2 resource instead */
         public Builder versionings(@Nullable Output<List<BucketV2VersioningArgs>> versionings) {
             $.versionings = versionings;
             return this;
@@ -1328,10 +1328,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the aws_s3_bucket_versioning resource instead
+         * Use the aws.s3.BucketVersioningV2 resource instead
          * 
          */
-        @Deprecated /* Use the aws_s3_bucket_versioning resource instead */
+        @Deprecated /* Use the aws.s3.BucketVersioningV2 resource instead */
         public Builder versionings(List<BucketV2VersioningArgs> versionings) {
             return versionings(Output.of(versionings));
         }
@@ -1342,10 +1342,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the aws_s3_bucket_versioning resource instead
+         * Use the aws.s3.BucketVersioningV2 resource instead
          * 
          */
-        @Deprecated /* Use the aws_s3_bucket_versioning resource instead */
+        @Deprecated /* Use the aws.s3.BucketVersioningV2 resource instead */
         public Builder versionings(BucketV2VersioningArgs... versionings) {
             return versionings(List.of(versionings));
         }
@@ -1356,10 +1356,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the aws_s3_bucket_website_configuration resource
+         * Use the aws.s3.BucketWebsiteConfigurationV2 resource
          * 
          */
-        @Deprecated /* Use the aws_s3_bucket_website_configuration resource */
+        @Deprecated /* Use the aws.s3.BucketWebsiteConfigurationV2 resource */
         public Builder websiteDomain(@Nullable Output<String> websiteDomain) {
             $.websiteDomain = websiteDomain;
             return this;
@@ -1371,10 +1371,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the aws_s3_bucket_website_configuration resource
+         * Use the aws.s3.BucketWebsiteConfigurationV2 resource
          * 
          */
-        @Deprecated /* Use the aws_s3_bucket_website_configuration resource */
+        @Deprecated /* Use the aws.s3.BucketWebsiteConfigurationV2 resource */
         public Builder websiteDomain(String websiteDomain) {
             return websiteDomain(Output.of(websiteDomain));
         }
@@ -1385,10 +1385,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the aws_s3_bucket_website_configuration resource
+         * Use the aws.s3.BucketWebsiteConfigurationV2 resource
          * 
          */
-        @Deprecated /* Use the aws_s3_bucket_website_configuration resource */
+        @Deprecated /* Use the aws.s3.BucketWebsiteConfigurationV2 resource */
         public Builder websiteEndpoint(@Nullable Output<String> websiteEndpoint) {
             $.websiteEndpoint = websiteEndpoint;
             return this;
@@ -1400,10 +1400,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the aws_s3_bucket_website_configuration resource
+         * Use the aws.s3.BucketWebsiteConfigurationV2 resource
          * 
          */
-        @Deprecated /* Use the aws_s3_bucket_website_configuration resource */
+        @Deprecated /* Use the aws.s3.BucketWebsiteConfigurationV2 resource */
         public Builder websiteEndpoint(String websiteEndpoint) {
             return websiteEndpoint(Output.of(websiteEndpoint));
         }
@@ -1415,10 +1415,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the aws_s3_bucket_website_configuration resource instead
+         * Use the aws.s3.BucketWebsiteConfigurationV2 resource instead
          * 
          */
-        @Deprecated /* Use the aws_s3_bucket_website_configuration resource instead */
+        @Deprecated /* Use the aws.s3.BucketWebsiteConfigurationV2 resource instead */
         public Builder websites(@Nullable Output<List<BucketV2WebsiteArgs>> websites) {
             $.websites = websites;
             return this;
@@ -1431,10 +1431,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the aws_s3_bucket_website_configuration resource instead
+         * Use the aws.s3.BucketWebsiteConfigurationV2 resource instead
          * 
          */
-        @Deprecated /* Use the aws_s3_bucket_website_configuration resource instead */
+        @Deprecated /* Use the aws.s3.BucketWebsiteConfigurationV2 resource instead */
         public Builder websites(List<BucketV2WebsiteArgs> websites) {
             return websites(Output.of(websites));
         }
@@ -1446,10 +1446,10 @@ public final class BucketV2State extends com.pulumi.resources.ResourceArgs {
          * @return builder
          * 
          * @deprecated
-         * Use the aws_s3_bucket_website_configuration resource instead
+         * Use the aws.s3.BucketWebsiteConfigurationV2 resource instead
          * 
          */
-        @Deprecated /* Use the aws_s3_bucket_website_configuration resource instead */
+        @Deprecated /* Use the aws.s3.BucketWebsiteConfigurationV2 resource instead */
         public Builder websites(BucketV2WebsiteArgs... websites) {
             return websites(List.of(websites));
         }

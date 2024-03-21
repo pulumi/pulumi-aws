@@ -20,7 +20,7 @@ import * as utilities from "../utilities";
  * });
  * const web = new aws.ec2.Instance("web", {
  *     ami: "ami-abb07bcb",
- *     instanceType: "t2.micro",
+ *     instanceType: aws.ec2.InstanceType.T2_Micro,
  *     subnetId: network.then(network => network.outputs?.SubnetId),
  *     tags: {
  *         Name: "HelloWorld",
@@ -118,7 +118,7 @@ export interface GetStackResult {
  * });
  * const web = new aws.ec2.Instance("web", {
  *     ami: "ami-abb07bcb",
- *     instanceType: "t2.micro",
+ *     instanceType: aws.ec2.InstanceType.T2_Micro,
  *     subnetId: network.then(network => network.outputs?.SubnetId),
  *     tags: {
  *         Name: "HelloWorld",

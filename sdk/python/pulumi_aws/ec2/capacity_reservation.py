@@ -524,8 +524,8 @@ class CapacityReservation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         default = aws.ec2.CapacityReservation("default",
-            instance_type="t2.micro",
-            instance_platform="Linux/UNIX",
+            instance_type=aws.ec2.InstanceType.T2_MICRO,
+            instance_platform=aws.ec2.InstancePlatform.LINUX_UNIX,
             availability_zone="eu-west-1a",
             instance_count=1)
         ```
@@ -572,8 +572,8 @@ class CapacityReservation(pulumi.CustomResource):
         import pulumi_aws as aws
 
         default = aws.ec2.CapacityReservation("default",
-            instance_type="t2.micro",
-            instance_platform="Linux/UNIX",
+            instance_type=aws.ec2.InstanceType.T2_MICRO,
+            instance_platform=aws.ec2.InstancePlatform.LINUX_UNIX,
             availability_zone="eu-west-1a",
             instance_count=1)
         ```

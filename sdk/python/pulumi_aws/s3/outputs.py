@@ -4663,8 +4663,8 @@ class BucketV2ObjectLockConfiguration(dict):
         """
         Object Lock rule in place for this bucket (documented below).
         """
-        warnings.warn("""Use the aws_s3_bucket_object_lock_configuration resource instead""", DeprecationWarning)
-        pulumi.log.warn("""rules is deprecated: Use the aws_s3_bucket_object_lock_configuration resource instead""")
+        warnings.warn("""Use the s3.BucketObjectLockConfigurationV2 resource instead""", DeprecationWarning)
+        pulumi.log.warn("""rules is deprecated: Use the s3.BucketObjectLockConfigurationV2 resource instead""")
 
         return pulumi.get(self, "rules")
 

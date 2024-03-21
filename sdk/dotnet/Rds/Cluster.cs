@@ -43,7 +43,7 @@ namespace Pulumi.Aws.Rds
     ///     var @default = new Aws.Rds.Cluster("default", new()
     ///     {
     ///         ClusterIdentifier = "aurora-cluster-demo",
-    ///         Engine = "aurora-mysql",
+    ///         Engine = Aws.Rds.EngineType.AuroraMysql,
     ///         EngineVersion = "5.7.mysql_aurora.2.03.2",
     ///         AvailabilityZones = new[]
     ///         {
@@ -107,7 +107,7 @@ namespace Pulumi.Aws.Rds
     ///     var postgresql = new Aws.Rds.Cluster("postgresql", new()
     ///     {
     ///         ClusterIdentifier = "aurora-cluster-demo",
-    ///         Engine = "aurora-postgresql",
+    ///         Engine = Aws.Rds.EngineType.AuroraPostgresql,
     ///         AvailabilityZones = new[]
     ///         {
     ///             "us-west-2a",
@@ -183,8 +183,8 @@ namespace Pulumi.Aws.Rds
     ///     var example = new Aws.Rds.Cluster("example", new()
     ///     {
     ///         ClusterIdentifier = "example",
-    ///         Engine = "aurora-postgresql",
-    ///         EngineMode = "provisioned",
+    ///         Engine = Aws.Rds.EngineType.AuroraPostgresql,
+    ///         EngineMode = Aws.Rds.EngineMode.Provisioned,
     ///         EngineVersion = "13.6",
     ///         DatabaseName = "test",
     ///         MasterUsername = "test",
@@ -288,7 +288,7 @@ namespace Pulumi.Aws.Rds
     /// 
     ///     var exampleCluster = new Aws.Rds.Cluster("example", new()
     ///     {
-    ///         Engine = "aurora",
+    ///         Engine = Aws.Rds.EngineType.Aurora,
     ///         EngineVersion = "5.6.mysql_aurora.1.22.4",
     ///         ClusterIdentifier = "example",
     ///         SnapshotIdentifier = example.Apply(getClusterSnapshotResult =&gt; getClusterSnapshotResult.Id),

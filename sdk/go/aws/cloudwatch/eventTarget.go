@@ -196,7 +196,7 @@ import (
 //			}, nil)
 //			ssmLifecycleRole, err := iam.NewRole(ctx, "ssm_lifecycle", &iam.RoleArgs{
 //				Name:             pulumi.String("SSMLifecycle"),
-//				AssumeRolePolicy: *pulumi.String(ssmLifecycleTrust.Json),
+//				AssumeRolePolicy: pulumi.String(ssmLifecycleTrust.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -340,7 +340,7 @@ import (
 // }
 // ecsEvents, err := iam.NewRole(ctx, "ecs_events", &iam.RoleArgs{
 // Name: pulumi.String("ecs_events"),
-// AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+// AssumeRolePolicy: pulumi.String(assumeRole.Json),
 // })
 // if err != nil {
 // return err
@@ -381,7 +381,7 @@ import (
 // _, err = iam.NewRolePolicy(ctx, "ecs_events_run_task_with_any_role", &iam.RolePolicyArgs{
 // Name: pulumi.String("ecs_events_run_task_with_any_role"),
 // Role: ecsEvents.ID(),
-// Policy: *pulumi.String(ecsEventsRunTaskWithAnyRole.Json),
+// Policy: pulumi.String(ecsEventsRunTaskWithAnyRole.Json),
 // })
 // if err != nil {
 // return err
@@ -519,7 +519,7 @@ import (
 //			}
 //			eventBusInvokeRemoteEventBusRole, err := iam.NewRole(ctx, "event_bus_invoke_remote_event_bus", &iam.RoleArgs{
 //				Name:             pulumi.String("event-bus-invoke-remote-event-bus"),
-//				AssumeRolePolicy: *pulumi.String(assumeRole.Json),
+//				AssumeRolePolicy: pulumi.String(assumeRole.Json),
 //			})
 //			if err != nil {
 //				return err
@@ -542,7 +542,7 @@ import (
 //			}
 //			eventBusInvokeRemoteEventBusPolicy, err := iam.NewPolicy(ctx, "event_bus_invoke_remote_event_bus", &iam.PolicyArgs{
 //				Name:   pulumi.String("event_bus_invoke_remote_event_bus"),
-//				Policy: *pulumi.String(eventBusInvokeRemoteEventBus.Json),
+//				Policy: pulumi.String(eventBusInvokeRemoteEventBus.Json),
 //			})
 //			if err != nil {
 //				return err

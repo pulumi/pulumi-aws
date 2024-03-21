@@ -261,7 +261,7 @@ class DomainName(pulumi.CustomResource):
             ))
         example_record = aws.route53.Record("example",
             name=example.domain_name,
-            type="A",
+            type=aws.route53.RecordType.A,
             zone_id=example_aws_route53_zone["zoneId"],
             aliases=[aws.route53.RecordAliasArgs(
                 name=example.domain_name_configuration.target_domain_name,
@@ -334,7 +334,7 @@ class DomainName(pulumi.CustomResource):
             ))
         example_record = aws.route53.Record("example",
             name=example.domain_name,
-            type="A",
+            type=aws.route53.RecordType.A,
             zone_id=example_aws_route53_zone["zoneId"],
             aliases=[aws.route53.RecordAliasArgs(
                 name=example.domain_name_configuration.target_domain_name,

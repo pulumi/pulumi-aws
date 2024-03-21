@@ -27,7 +27,7 @@ import * as utilities from "../utilities";
  *     key: "ec2-bootstrap-script.sh",
  * });
  * const example = new aws.ec2.Instance("example", {
- *     instanceType: "t2.micro",
+ *     instanceType: aws.ec2.InstanceType.T2_Micro,
  *     ami: "ami-2757f631",
  *     userData: bootstrapScript.then(bootstrapScript => bootstrapScript.body),
  * });
@@ -79,7 +79,7 @@ export interface GetBucketObjectArgs {
     /**
      * Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
      *
-     * @deprecated Use the aws_s3_object data source instead
+     * @deprecated Use the aws.s3.BucketObjectv2 data source instead
      */
     bucket: string;
     /**
@@ -107,7 +107,7 @@ export interface GetBucketObjectResult {
      */
     readonly body: string;
     /**
-     * @deprecated Use the aws_s3_object data source instead
+     * @deprecated Use the aws.s3.BucketObjectv2 data source instead
      */
     readonly bucket: string;
     /**
@@ -224,7 +224,7 @@ export interface GetBucketObjectResult {
  *     key: "ec2-bootstrap-script.sh",
  * });
  * const example = new aws.ec2.Instance("example", {
- *     instanceType: "t2.micro",
+ *     instanceType: aws.ec2.InstanceType.T2_Micro,
  *     ami: "ami-2757f631",
  *     userData: bootstrapScript.then(bootstrapScript => bootstrapScript.body),
  * });
@@ -268,7 +268,7 @@ export interface GetBucketObjectOutputArgs {
     /**
      * Name of the bucket to read the object from. Alternatively, an [S3 access point](https://docs.aws.amazon.com/AmazonS3/latest/dev/using-access-points.html) ARN can be specified
      *
-     * @deprecated Use the aws_s3_object data source instead
+     * @deprecated Use the aws.s3.BucketObjectv2 data source instead
      */
     bucket: pulumi.Input<string>;
     /**

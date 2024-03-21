@@ -99,7 +99,7 @@ import {RestApi} from "./index";
  *     name: "mylambda",
  *     role: role.arn,
  *     handler: "lambda.lambda_handler",
- *     runtime: "python3.7",
+ *     runtime: aws.lambda.Runtime.Python3d7,
  *     sourceCodeHash: std.filebase64sha256({
  *         input: "lambda.zip",
  *     }).then(invoke => invoke.result),

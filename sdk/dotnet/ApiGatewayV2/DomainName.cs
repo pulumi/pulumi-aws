@@ -69,7 +69,7 @@ namespace Pulumi.Aws.ApiGatewayV2
     ///     var exampleRecord = new Aws.Route53.Record("example", new()
     ///     {
     ///         Name = example.Domain,
-    ///         Type = "A",
+    ///         Type = Aws.Route53.RecordType.A,
     ///         ZoneId = exampleAwsRoute53Zone.ZoneId,
     ///         Aliases = new[]
     ///         {

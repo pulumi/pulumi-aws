@@ -120,8 +120,8 @@ class GetBucketObjectResult:
     @property
     @pulumi.getter
     def bucket(self) -> str:
-        warnings.warn("""Use the aws_s3_object data source instead""", DeprecationWarning)
-        pulumi.log.warn("""bucket is deprecated: Use the aws_s3_object data source instead""")
+        warnings.warn("""Use the s3.BucketObjectv2 data source instead""", DeprecationWarning)
+        pulumi.log.warn("""bucket is deprecated: Use the s3.BucketObjectv2 data source instead""")
 
         return pulumi.get(self, "bucket")
 
@@ -374,7 +374,7 @@ def get_bucket_object(bucket: Optional[str] = None,
     bootstrap_script = aws.s3.get_bucket_object(bucket="ourcorp-deploy-config",
         key="ec2-bootstrap-script.sh")
     example = aws.ec2.Instance("example",
-        instance_type="t2.micro",
+        instance_type=aws.ec2.InstanceType.T2_MICRO,
         ami="ami-2757f631",
         user_data=bootstrap_script.body)
     ```
@@ -476,7 +476,7 @@ def get_bucket_object_output(bucket: Optional[pulumi.Input[str]] = None,
     bootstrap_script = aws.s3.get_bucket_object(bucket="ourcorp-deploy-config",
         key="ec2-bootstrap-script.sh")
     example = aws.ec2.Instance("example",
-        instance_type="t2.micro",
+        instance_type=aws.ec2.InstanceType.T2_MICRO,
         ami="ami-2757f631",
         user_data=bootstrap_script.body)
     ```
