@@ -121,11 +121,10 @@ import javax.annotation.Nullable;
  * 
  * ## Import
  * 
- * Using `pulumi import`, import Network Firewall Resource Policies using the `resource_arn`. For example:
- * 
- * &lt;break&gt;```sh&lt;break&gt;
+ * Using `pulumi import`, import Network Firewall Resource Policies using the `resource arn`. For example:
+ * ```sh
  * $ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
- * &lt;break&gt;```&lt;break&gt;
+ * ```
  * 
  */
 @ResourceType(type="aws:networkfirewall/resourcePolicy:ResourcePolicy")
