@@ -554,6 +554,17 @@ func TestRegress3421(t *testing.T) {
 	integration.ProgramTest(t, &test)
 }
 
+func TestRegress3421Update(t *testing.T) {
+	test := pulumitest.NewPulumiTest(t, "regress-3421",
+		opttest.LocalProviderPath("aws", filepath.Join(getCwd(t), "..", "bin")),
+	)
+
+	test.SetConfig("listenerPort", "80")
+	test.Up()
+	test.SetConfig("listenerPort", "81")
+	test.Up()
+}
+
 func getJSBaseOptions(t *testing.T) integration.ProgramTestOptions {
 	envRegion := getEnvRegion(t)
 	baseJS := integration.ProgramTestOptions{

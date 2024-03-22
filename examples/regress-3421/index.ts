@@ -1,4 +1,5 @@
 import * as aws from "@pulumi/aws";
+import * as pulumi from "@pulumi/pulumi";
 
 const vpc = new aws.ec2.Vpc("main", { cidrBlock: "10.0.0.0/16" });
 
@@ -37,9 +38,11 @@ const targetGroup = new aws.lb.TargetGroup("payload-tg", {
     vpcId: vpc.id,
 });
 
+const listenerPort = new pulumi.Config().getNumber("listenerPort") || 80;
+
 new aws.lb.Listener("payload-lb-listner-http", {
 loadBalancerArn: loadbalancer.arn,
-port: 80,
+port: listenerPort,
 protocol: "HTTP",
 defaultActions: [
     {
