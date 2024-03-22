@@ -795,7 +795,9 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 		shimv2.WithDiffStrategy(shimv2.PlanState),
 		shimv2.WithPlanResourceChange(func(s string) bool {
 			switch s {
-			case "aws_ssm_document", "aws_wafv2_web_acl":
+			case "aws_ssm_document",
+				"aws_wafv2_web_acl",
+				"aws_launch_template":
 				return true
 			default:
 				return false
