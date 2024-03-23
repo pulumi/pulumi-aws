@@ -10,6 +10,8 @@ import (
 	"testing"
 	"time"
 
+	"github.com/stretchr/testify/assert"
+
 	"github.com/pulumi/pulumi/pkg/v3/testing/integration"
 )
 
@@ -28,6 +30,36 @@ func TestRegress3196(t *testing.T) {
 			})
 		integration.ProgramTest(t, &test)
 	})
+}
+
+func TestRegress1504(t *testing.T) {
+	if testing.Short() {
+		t.Skipf("Skipping test in -short mode because it needs cloud credentials")
+		return
+	}
+	test := getPythonBaseOptions(t).
+		With(integration.ProgramTestOptions{
+			// Not ideal, need investigation:
+			ExpectRefreshChanges: true,
+			Dir:                  filepath.Join("test-programs", "regress-1504", "init"),
+			EditDirs: []integration.EditDir{
+				{
+					Dir: filepath.Join("test-programs", "regress-1504", "step-1"),
+					ExtraRuntimeValidation: func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
+						assert.Equal(t, float64(1), stack.Outputs["launch_template_latest_version"])
+					},
+					Additive: true,
+				},
+				{
+					Dir: filepath.Join("test-programs", "regress-1504", "step-2"),
+					ExtraRuntimeValidation: func(t *testing.T, stack integration.RuntimeValidationStackInfo) {
+						assert.Equal(t, float64(2), stack.Outputs["launch_template_latest_version"])
+					},
+					Additive: true,
+				},
+			},
+		})
+	integration.ProgramTest(t, &test)
 }
 
 func getPythonBaseOptions(t *testing.T) integration.ProgramTestOptions {
