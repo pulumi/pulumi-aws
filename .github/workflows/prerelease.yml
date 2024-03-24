@@ -492,12 +492,6 @@ jobs:
               path: ci-scripts
               ref: deca2c5c6015ad7aaea6f572a1c2b198ca323592
               repository: pulumi/scripts
-          - if: matrix.testTarget == 'pulumiExamples'
-            name: Checkout p/examples
-            uses: actions/checkout@v4
-            with:
-              path: p-examples
-              repository: pulumi/examples
           - name: Unshallow clone for tags
             run: git fetch --prune --unshallow --tags
           - name: Install Go
