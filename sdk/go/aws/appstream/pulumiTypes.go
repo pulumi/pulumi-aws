@@ -676,9 +676,9 @@ func (o FleetVpcConfigPtrOutput) SubnetIds() pulumi.StringArrayOutput {
 }
 
 type ImageBuilderAccessEndpoint struct {
-	// Type of interface endpoint.
+	// Type of interface endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html).
 	EndpointType string `pulumi:"endpointType"`
-	// Identifier (ID) of the VPC in which the interface endpoint is used.
+	// Identifier (ID) of the interface VPC endpoint.
 	VpceId *string `pulumi:"vpceId"`
 }
 
@@ -694,9 +694,9 @@ type ImageBuilderAccessEndpointInput interface {
 }
 
 type ImageBuilderAccessEndpointArgs struct {
-	// Type of interface endpoint.
+	// Type of interface endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html).
 	EndpointType pulumi.StringInput `pulumi:"endpointType"`
-	// Identifier (ID) of the VPC in which the interface endpoint is used.
+	// Identifier (ID) of the interface VPC endpoint.
 	VpceId pulumi.StringPtrInput `pulumi:"vpceId"`
 }
 
@@ -751,12 +751,12 @@ func (o ImageBuilderAccessEndpointOutput) ToImageBuilderAccessEndpointOutputWith
 	return o
 }
 
-// Type of interface endpoint.
+// Type of interface endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html).
 func (o ImageBuilderAccessEndpointOutput) EndpointType() pulumi.StringOutput {
 	return o.ApplyT(func(v ImageBuilderAccessEndpoint) string { return v.EndpointType }).(pulumi.StringOutput)
 }
 
-// Identifier (ID) of the VPC in which the interface endpoint is used.
+// Identifier (ID) of the interface VPC endpoint.
 func (o ImageBuilderAccessEndpointOutput) VpceId() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v ImageBuilderAccessEndpoint) *string { return v.VpceId }).(pulumi.StringPtrOutput)
 }

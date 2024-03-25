@@ -13,14 +13,14 @@ namespace Pulumi.Aws.Lex.Outputs
     [OutputType]
     public sealed class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage
     {
-        public readonly ImmutableArray<object> CustomPayloads;
+        public readonly ImmutableArray<Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayload> CustomPayloads;
         public readonly Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCard? ImageResponseCard;
         public readonly Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessage? PlainTextMessage;
         public readonly Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessage? SsmlMessage;
 
         [OutputConstructor]
         private V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage(
-            ImmutableArray<object> customPayloads,
+            ImmutableArray<Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayload> customPayloads,
 
             Outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCard? imageResponseCard,
 

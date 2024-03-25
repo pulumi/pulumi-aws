@@ -12,6 +12,8 @@ import com.pulumi.aws.redshift.inputs.GetDataSharesArgs;
 import com.pulumi.aws.redshift.inputs.GetDataSharesPlainArgs;
 import com.pulumi.aws.redshift.inputs.GetOrderableClusterArgs;
 import com.pulumi.aws.redshift.inputs.GetOrderableClusterPlainArgs;
+import com.pulumi.aws.redshift.inputs.GetProducerDataSharesArgs;
+import com.pulumi.aws.redshift.inputs.GetProducerDataSharesPlainArgs;
 import com.pulumi.aws.redshift.inputs.GetServiceAccountArgs;
 import com.pulumi.aws.redshift.inputs.GetServiceAccountPlainArgs;
 import com.pulumi.aws.redshift.inputs.GetSubnetGroupArgs;
@@ -20,6 +22,7 @@ import com.pulumi.aws.redshift.outputs.GetClusterCredentialsResult;
 import com.pulumi.aws.redshift.outputs.GetClusterResult;
 import com.pulumi.aws.redshift.outputs.GetDataSharesResult;
 import com.pulumi.aws.redshift.outputs.GetOrderableClusterResult;
+import com.pulumi.aws.redshift.outputs.GetProducerDataSharesResult;
 import com.pulumi.aws.redshift.outputs.GetServiceAccountResult;
 import com.pulumi.aws.redshift.outputs.GetSubnetGroupResult;
 import com.pulumi.core.Output;
@@ -950,6 +953,174 @@ public final class RedshiftFunctions {
      */
     public static CompletableFuture<GetOrderableClusterResult> getOrderableClusterPlain(GetOrderableClusterPlainArgs args, InvokeOptions options) {
         return Deployment.getInstance().invokeAsync("aws:redshift/getOrderableCluster:getOrderableCluster", TypeShape.of(GetOrderableClusterResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing AWS Redshift Producer Data Shares.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetProducerDataSharesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RedshiftFunctions.getProducerDataShares(GetProducerDataSharesArgs.builder()
+     *             .producerArn(&#34;&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetProducerDataSharesResult> getProducerDataShares(GetProducerDataSharesArgs args) {
+        return getProducerDataShares(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing AWS Redshift Producer Data Shares.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetProducerDataSharesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RedshiftFunctions.getProducerDataShares(GetProducerDataSharesArgs.builder()
+     *             .producerArn(&#34;&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetProducerDataSharesResult> getProducerDataSharesPlain(GetProducerDataSharesPlainArgs args) {
+        return getProducerDataSharesPlain(args, InvokeOptions.Empty);
+    }
+    /**
+     * Data source for managing AWS Redshift Producer Data Shares.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetProducerDataSharesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RedshiftFunctions.getProducerDataShares(GetProducerDataSharesArgs.builder()
+     *             .producerArn(&#34;&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static Output<GetProducerDataSharesResult> getProducerDataShares(GetProducerDataSharesArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invoke("aws:redshift/getProducerDataShares:getProducerDataShares", TypeShape.of(GetProducerDataSharesResult.class), args, Utilities.withVersion(options));
+    }
+    /**
+     * Data source for managing AWS Redshift Producer Data Shares.
+     * 
+     * ## Example Usage
+     * 
+     * ### Basic Usage
+     * 
+     * &lt;!--Start PulumiCodeChooser --&gt;
+     * ```java
+     * package generated_program;
+     * 
+     * import com.pulumi.Context;
+     * import com.pulumi.Pulumi;
+     * import com.pulumi.core.Output;
+     * import com.pulumi.aws.redshift.RedshiftFunctions;
+     * import com.pulumi.aws.redshift.inputs.GetProducerDataSharesArgs;
+     * import java.util.List;
+     * import java.util.ArrayList;
+     * import java.util.Map;
+     * import java.io.File;
+     * import java.nio.file.Files;
+     * import java.nio.file.Paths;
+     * 
+     * public class App {
+     *     public static void main(String[] args) {
+     *         Pulumi.run(App::stack);
+     *     }
+     * 
+     *     public static void stack(Context ctx) {
+     *         final var example = RedshiftFunctions.getProducerDataShares(GetProducerDataSharesArgs.builder()
+     *             .producerArn(&#34;&#34;)
+     *             .build());
+     * 
+     *     }
+     * }
+     * ```
+     * &lt;!--End PulumiCodeChooser --&gt;
+     * 
+     */
+    public static CompletableFuture<GetProducerDataSharesResult> getProducerDataSharesPlain(GetProducerDataSharesPlainArgs args, InvokeOptions options) {
+        return Deployment.getInstance().invokeAsync("aws:redshift/getProducerDataShares:getProducerDataShares", TypeShape.of(GetProducerDataSharesResult.class), args, Utilities.withVersion(options));
     }
     /**
      * Use this data source to get the Account ID of the [AWS Redshift Service Account](http://docs.aws.amazon.com/redshift/latest/mgmt/db-auditing.html#db-auditing-enable-logging)

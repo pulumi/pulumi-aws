@@ -429,7 +429,9 @@ __all__ = [
     'GetVpcIpamPoolsIpamPoolResult',
     'GetVpcPeeringConnectionCidrBlockSetResult',
     'GetVpcPeeringConnectionFilterResult',
+    'GetVpcPeeringConnectionIpv6CidrBlockSetResult',
     'GetVpcPeeringConnectionPeerCidrBlockSetResult',
+    'GetVpcPeeringConnectionPeerIpv6CidrBlockSetResult',
     'GetVpcPeeringConnectionsFilterResult',
     'GetVpcsFilterResult',
     'GetVpnGatewayFilterResult',
@@ -22955,6 +22957,18 @@ class GetVpcPeeringConnectionFilterResult(dict):
 
 
 @pulumi.output_type
+class GetVpcPeeringConnectionIpv6CidrBlockSetResult(dict):
+    def __init__(__self__, *,
+                 ipv6_cidr_block: str):
+        pulumi.set(__self__, "ipv6_cidr_block", ipv6_cidr_block)
+
+    @property
+    @pulumi.getter(name="ipv6CidrBlock")
+    def ipv6_cidr_block(self) -> str:
+        return pulumi.get(self, "ipv6_cidr_block")
+
+
+@pulumi.output_type
 class GetVpcPeeringConnectionPeerCidrBlockSetResult(dict):
     def __init__(__self__, *,
                  cidr_block: str):
@@ -22970,6 +22984,18 @@ class GetVpcPeeringConnectionPeerCidrBlockSetResult(dict):
         Primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
         """
         return pulumi.get(self, "cidr_block")
+
+
+@pulumi.output_type
+class GetVpcPeeringConnectionPeerIpv6CidrBlockSetResult(dict):
+    def __init__(__self__, *,
+                 ipv6_cidr_block: str):
+        pulumi.set(__self__, "ipv6_cidr_block", ipv6_cidr_block)
+
+    @property
+    @pulumi.getter(name="ipv6CidrBlock")
+    def ipv6_cidr_block(self) -> str:
+        return pulumi.get(self, "ipv6_cidr_block")
 
 
 @pulumi.output_type

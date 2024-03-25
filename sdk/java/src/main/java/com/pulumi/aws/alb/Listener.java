@@ -400,6 +400,58 @@ import javax.annotation.Nullable;
  * ```
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### Mutual TLS Authentication
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.lb.LoadBalancer;
+ * import com.pulumi.aws.lb.LoadBalancerArgs;
+ * import com.pulumi.aws.lb.TargetGroup;
+ * import com.pulumi.aws.lb.Listener;
+ * import com.pulumi.aws.lb.ListenerArgs;
+ * import com.pulumi.aws.lb.inputs.ListenerDefaultActionArgs;
+ * import com.pulumi.aws.lb.inputs.ListenerMutualAuthenticationArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new LoadBalancer(&#34;example&#34;, LoadBalancerArgs.builder()        
+ *             .loadBalancerType(&#34;application&#34;)
+ *             .build());
+ * 
+ *         var exampleTargetGroup = new TargetGroup(&#34;exampleTargetGroup&#34;);
+ * 
+ *         var exampleListener = new Listener(&#34;exampleListener&#34;, ListenerArgs.builder()        
+ *             .loadBalancerArn(example.id())
+ *             .defaultActions(ListenerDefaultActionArgs.builder()
+ *                 .targetGroupArn(exampleTargetGroup.id())
+ *                 .type(&#34;forward&#34;)
+ *                 .build())
+ *             .mutualAuthentication(ListenerMutualAuthenticationArgs.builder()
+ *                 .mode(&#34;verify&#34;)
+ *                 .trustStoreArn(&#34;...&#34;)
+ *                 .build())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import listeners using their ARN. For example:

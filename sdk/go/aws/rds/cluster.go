@@ -431,10 +431,12 @@ type Cluster struct {
 	Domain pulumi.StringPtrOutput `pulumi:"domain"`
 	// The name of the IAM role to be used when making API calls to the Directory Service.
 	DomainIamRoleName pulumi.StringPtrOutput `pulumi:"domainIamRoleName"`
-	// Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
+	// Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
 	EnableGlobalWriteForwarding pulumi.BoolPtrOutput `pulumi:"enableGlobalWriteForwarding"`
 	// Enable HTTP endpoint (data API). Only valid when `engineMode` is set to `serverless`.
 	EnableHttpEndpoint pulumi.BoolPtrOutput `pulumi:"enableHttpEndpoint"`
+	// Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
+	EnableLocalWriteForwarding pulumi.BoolPtrOutput `pulumi:"enableLocalWriteForwarding"`
 	// Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
 	EnabledCloudwatchLogsExports pulumi.StringArrayOutput `pulumi:"enabledCloudwatchLogsExports"`
 	// DNS address of the RDS instance
@@ -601,10 +603,12 @@ type clusterState struct {
 	Domain *string `pulumi:"domain"`
 	// The name of the IAM role to be used when making API calls to the Directory Service.
 	DomainIamRoleName *string `pulumi:"domainIamRoleName"`
-	// Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
+	// Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
 	EnableGlobalWriteForwarding *bool `pulumi:"enableGlobalWriteForwarding"`
 	// Enable HTTP endpoint (data API). Only valid when `engineMode` is set to `serverless`.
 	EnableHttpEndpoint *bool `pulumi:"enableHttpEndpoint"`
+	// Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
+	EnableLocalWriteForwarding *bool `pulumi:"enableLocalWriteForwarding"`
 	// Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
 	EnabledCloudwatchLogsExports []string `pulumi:"enabledCloudwatchLogsExports"`
 	// DNS address of the RDS instance
@@ -732,10 +736,12 @@ type ClusterState struct {
 	Domain pulumi.StringPtrInput
 	// The name of the IAM role to be used when making API calls to the Directory Service.
 	DomainIamRoleName pulumi.StringPtrInput
-	// Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
+	// Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
 	EnableGlobalWriteForwarding pulumi.BoolPtrInput
 	// Enable HTTP endpoint (data API). Only valid when `engineMode` is set to `serverless`.
 	EnableHttpEndpoint pulumi.BoolPtrInput
+	// Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
+	EnableLocalWriteForwarding pulumi.BoolPtrInput
 	// Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
 	EnabledCloudwatchLogsExports pulumi.StringArrayInput
 	// DNS address of the RDS instance
@@ -863,10 +869,12 @@ type clusterArgs struct {
 	Domain *string `pulumi:"domain"`
 	// The name of the IAM role to be used when making API calls to the Directory Service.
 	DomainIamRoleName *string `pulumi:"domainIamRoleName"`
-	// Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
+	// Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
 	EnableGlobalWriteForwarding *bool `pulumi:"enableGlobalWriteForwarding"`
 	// Enable HTTP endpoint (data API). Only valid when `engineMode` is set to `serverless`.
 	EnableHttpEndpoint *bool `pulumi:"enableHttpEndpoint"`
+	// Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
+	EnableLocalWriteForwarding *bool `pulumi:"enableLocalWriteForwarding"`
 	// Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
 	EnabledCloudwatchLogsExports []string `pulumi:"enabledCloudwatchLogsExports"`
 	// Name of the database engine to be used for this DB cluster. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
@@ -976,10 +984,12 @@ type ClusterArgs struct {
 	Domain pulumi.StringPtrInput
 	// The name of the IAM role to be used when making API calls to the Directory Service.
 	DomainIamRoleName pulumi.StringPtrInput
-	// Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
+	// Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
 	EnableGlobalWriteForwarding pulumi.BoolPtrInput
 	// Enable HTTP endpoint (data API). Only valid when `engineMode` is set to `serverless`.
 	EnableHttpEndpoint pulumi.BoolPtrInput
+	// Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
+	EnableLocalWriteForwarding pulumi.BoolPtrInput
 	// Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
 	EnabledCloudwatchLogsExports pulumi.StringArrayInput
 	// Name of the database engine to be used for this DB cluster. Valid Values: `aurora-mysql`, `aurora-postgresql`, `mysql`, `postgres`. (Note that `mysql` and `postgres` are Multi-AZ RDS clusters).
@@ -1244,7 +1254,7 @@ func (o ClusterOutput) DomainIamRoleName() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.StringPtrOutput { return v.DomainIamRoleName }).(pulumi.StringPtrOutput)
 }
 
-// Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
+// Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `rds.GlobalCluster`'s primary cluster. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
 func (o ClusterOutput) EnableGlobalWriteForwarding() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.EnableGlobalWriteForwarding }).(pulumi.BoolPtrOutput)
 }
@@ -1252,6 +1262,11 @@ func (o ClusterOutput) EnableGlobalWriteForwarding() pulumi.BoolPtrOutput {
 // Enable HTTP endpoint (data API). Only valid when `engineMode` is set to `serverless`.
 func (o ClusterOutput) EnableHttpEndpoint() pulumi.BoolPtrOutput {
 	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.EnableHttpEndpoint }).(pulumi.BoolPtrOutput)
+}
+
+// Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
+func (o ClusterOutput) EnableLocalWriteForwarding() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *Cluster) pulumi.BoolPtrOutput { return v.EnableLocalWriteForwarding }).(pulumi.BoolPtrOutput)
 }
 
 // Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).

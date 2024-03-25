@@ -36,7 +36,7 @@ import (
 //					exampleAwsDatasyncAgent.Arn,
 //				},
 //				AuthenticationType: pulumi.String("SAS"),
-//				ContainerUrl:       pulumi.String("https://example.com/path"),
+//				ContainerUrl:       pulumi.String("https://myaccount.blob.core.windows.net/mycontainer"),
 //				SasConfiguration: &datasync.LocationAzureBlobSasConfigurationArgs{
 //					Token: pulumi.String("sp=r&st=2023-12-20T14:54:52Z&se=2023-12-20T22:54:52Z&spr=https&sv=2021-06-08&sr=c&sig=aBBKDWQvyuVcTPH9EBp%2FXTI9E%2F%2Fmq171%2BZU178wcwqU%3D"),
 //				},

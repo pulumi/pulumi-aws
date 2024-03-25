@@ -3,12 +3,11 @@
 
 package com.pulumi.aws.lex.outputs;
 
+import com.pulumi.aws.lex.outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayload;
 import com.pulumi.aws.lex.outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCard;
 import com.pulumi.aws.lex.outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessage;
 import com.pulumi.aws.lex.outputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessage;
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Object;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,14 +15,14 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariation {
-    private List<Object> customPayloads;
+    private @Nullable List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayload> customPayloads;
     private @Nullable V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCard imageResponseCard;
     private @Nullable V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessage plainTextMessage;
     private @Nullable V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessage ssmlMessage;
 
     private V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariation() {}
-    public List<Object> customPayloads() {
-        return this.customPayloads;
+    public List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayload> customPayloads() {
+        return this.customPayloads == null ? List.of() : this.customPayloads;
     }
     public Optional<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCard> imageResponseCard() {
         return Optional.ofNullable(this.imageResponseCard);
@@ -44,7 +43,7 @@ public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificati
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<Object> customPayloads;
+        private @Nullable List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayload> customPayloads;
         private @Nullable V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCard imageResponseCard;
         private @Nullable V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessage plainTextMessage;
         private @Nullable V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessage ssmlMessage;
@@ -58,14 +57,12 @@ public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificati
         }
 
         @CustomType.Setter
-        public Builder customPayloads(List<Object> customPayloads) {
-            if (customPayloads == null) {
-              throw new MissingRequiredPropertyException("V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariation", "customPayloads");
-            }
+        public Builder customPayloads(@Nullable List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayload> customPayloads) {
+
             this.customPayloads = customPayloads;
             return this;
         }
-        public Builder customPayloads(Object... customPayloads) {
+        public Builder customPayloads(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayload... customPayloads) {
             return customPayloads(List.of(customPayloads));
         }
         @CustomType.Setter

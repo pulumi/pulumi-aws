@@ -3,13 +3,12 @@
 
 package com.pulumi.aws.lex.inputs;
 
+import com.pulumi.aws.lex.inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgs;
 import com.pulumi.aws.lex.inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardArgs;
 import com.pulumi.aws.lex.inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessageArgs;
 import com.pulumi.aws.lex.inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessageArgs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Object;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -20,11 +19,11 @@ public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificati
 
     public static final V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgs Empty = new V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgs();
 
-    @Import(name="customPayloads", required=true)
-    private Output<List<Object>> customPayloads;
+    @Import(name="customPayloads")
+    private @Nullable Output<List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgs>> customPayloads;
 
-    public Output<List<Object>> customPayloads() {
-        return this.customPayloads;
+    public Optional<Output<List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgs>>> customPayloads() {
+        return Optional.ofNullable(this.customPayloads);
     }
 
     @Import(name="imageResponseCard")
@@ -75,16 +74,16 @@ public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificati
             $ = new V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgs(Objects.requireNonNull(defaults));
         }
 
-        public Builder customPayloads(Output<List<Object>> customPayloads) {
+        public Builder customPayloads(@Nullable Output<List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgs>> customPayloads) {
             $.customPayloads = customPayloads;
             return this;
         }
 
-        public Builder customPayloads(List<Object> customPayloads) {
+        public Builder customPayloads(List<V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgs> customPayloads) {
             return customPayloads(Output.of(customPayloads));
         }
 
-        public Builder customPayloads(Object... customPayloads) {
+        public Builder customPayloads(V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgs... customPayloads) {
             return customPayloads(List.of(customPayloads));
         }
 
@@ -116,9 +115,6 @@ public final class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificati
         }
 
         public V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgs build() {
-            if ($.customPayloads == null) {
-                throw new MissingRequiredPropertyException("V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgs", "customPayloads");
-            }
             return $;
         }
     }

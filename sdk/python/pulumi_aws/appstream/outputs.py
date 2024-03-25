@@ -270,8 +270,8 @@ class ImageBuilderAccessEndpoint(dict):
                  endpoint_type: str,
                  vpce_id: Optional[str] = None):
         """
-        :param str endpoint_type: Type of interface endpoint.
-        :param str vpce_id: Identifier (ID) of the VPC in which the interface endpoint is used.
+        :param str endpoint_type: Type of interface endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html).
+        :param str vpce_id: Identifier (ID) of the interface VPC endpoint.
         """
         pulumi.set(__self__, "endpoint_type", endpoint_type)
         if vpce_id is not None:
@@ -281,7 +281,7 @@ class ImageBuilderAccessEndpoint(dict):
     @pulumi.getter(name="endpointType")
     def endpoint_type(self) -> str:
         """
-        Type of interface endpoint.
+        Type of interface endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html).
         """
         return pulumi.get(self, "endpoint_type")
 
@@ -289,7 +289,7 @@ class ImageBuilderAccessEndpoint(dict):
     @pulumi.getter(name="vpceId")
     def vpce_id(self) -> Optional[str]:
         """
-        Identifier (ID) of the VPC in which the interface endpoint is used.
+        Identifier (ID) of the interface VPC endpoint.
         """
         return pulumi.get(self, "vpce_id")
 

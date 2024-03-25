@@ -65,7 +65,7 @@ public final class UserPoolLambdaConfig {
      */
     private @Nullable String preSignUp;
     /**
-     * @return Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the LambdaArn of `pre_token_generation_config`.
+     * @return Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the lambda_arn of `pre_token_generation_config`.
      * 
      */
     private @Nullable String preTokenGeneration;
@@ -157,7 +157,7 @@ public final class UserPoolLambdaConfig {
         return Optional.ofNullable(this.preSignUp);
     }
     /**
-     * @return Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the LambdaArn of `pre_token_generation_config`.
+     * @return Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the lambda_arn of `pre_token_generation_config`.
      * 
      */
     public Optional<String> preTokenGeneration() {

@@ -67,14 +67,14 @@ public final class LocationHdfsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
+     * The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberos_keytab_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab_base64`) is required.
      * 
      */
     @Import(name="kerberosKeytab")
     private @Nullable Output<String> kerberosKeytab;
 
     /**
-     * @return The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
+     * @return The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberos_keytab_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab_base64`) is required.
      * 
      */
     public Optional<Output<String>> kerberosKeytab() {
@@ -82,18 +82,48 @@ public final class LocationHdfsArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * The krb5.conf file that contains the Kerberos configuration information. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
+     * Use instead of `kerberos_keytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab`) is required.
+     * 
+     */
+    @Import(name="kerberosKeytabBase64")
+    private @Nullable Output<String> kerberosKeytabBase64;
+
+    /**
+     * @return Use instead of `kerberos_keytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab`) is required.
+     * 
+     */
+    public Optional<Output<String>> kerberosKeytabBase64() {
+        return Optional.ofNullable(this.kerberosKeytabBase64);
+    }
+
+    /**
+     * The krb5.conf file that contains the Kerberos configuration information. Use `kerberos_krb5_conf_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf_base64`) is required.
      * 
      */
     @Import(name="kerberosKrb5Conf")
     private @Nullable Output<String> kerberosKrb5Conf;
 
     /**
-     * @return The krb5.conf file that contains the Kerberos configuration information. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
+     * @return The krb5.conf file that contains the Kerberos configuration information. Use `kerberos_krb5_conf_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf_base64`) is required.
      * 
      */
     public Optional<Output<String>> kerberosKrb5Conf() {
         return Optional.ofNullable(this.kerberosKrb5Conf);
+    }
+
+    /**
+     * Use instead of `kerberos_krb5_conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf`) is required.
+     * 
+     */
+    @Import(name="kerberosKrb5ConfBase64")
+    private @Nullable Output<String> kerberosKrb5ConfBase64;
+
+    /**
+     * @return Use instead of `kerberos_krb5_conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf`) is required.
+     * 
+     */
+    public Optional<Output<String>> kerberosKrb5ConfBase64() {
+        return Optional.ofNullable(this.kerberosKrb5ConfBase64);
     }
 
     /**
@@ -223,7 +253,9 @@ public final class LocationHdfsArgs extends com.pulumi.resources.ResourceArgs {
         this.authenticationType = $.authenticationType;
         this.blockSize = $.blockSize;
         this.kerberosKeytab = $.kerberosKeytab;
+        this.kerberosKeytabBase64 = $.kerberosKeytabBase64;
         this.kerberosKrb5Conf = $.kerberosKrb5Conf;
+        this.kerberosKrb5ConfBase64 = $.kerberosKrb5ConfBase64;
         this.kerberosPrincipal = $.kerberosPrincipal;
         this.kmsKeyProviderUri = $.kmsKeyProviderUri;
         this.nameNodes = $.nameNodes;
@@ -326,7 +358,7 @@ public final class LocationHdfsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kerberosKeytab The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
+         * @param kerberosKeytab The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberos_keytab_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab_base64`) is required.
          * 
          * @return builder
          * 
@@ -337,7 +369,7 @@ public final class LocationHdfsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kerberosKeytab The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
+         * @param kerberosKeytab The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberos_keytab_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab_base64`) is required.
          * 
          * @return builder
          * 
@@ -347,7 +379,28 @@ public final class LocationHdfsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kerberosKrb5Conf The krb5.conf file that contains the Kerberos configuration information. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
+         * @param kerberosKeytabBase64 Use instead of `kerberos_keytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab`) is required.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kerberosKeytabBase64(@Nullable Output<String> kerberosKeytabBase64) {
+            $.kerberosKeytabBase64 = kerberosKeytabBase64;
+            return this;
+        }
+
+        /**
+         * @param kerberosKeytabBase64 Use instead of `kerberos_keytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab`) is required.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kerberosKeytabBase64(String kerberosKeytabBase64) {
+            return kerberosKeytabBase64(Output.of(kerberosKeytabBase64));
+        }
+
+        /**
+         * @param kerberosKrb5Conf The krb5.conf file that contains the Kerberos configuration information. Use `kerberos_krb5_conf_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf_base64`) is required.
          * 
          * @return builder
          * 
@@ -358,13 +411,34 @@ public final class LocationHdfsArgs extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param kerberosKrb5Conf The krb5.conf file that contains the Kerberos configuration information. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
+         * @param kerberosKrb5Conf The krb5.conf file that contains the Kerberos configuration information. Use `kerberos_krb5_conf_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf_base64`) is required.
          * 
          * @return builder
          * 
          */
         public Builder kerberosKrb5Conf(String kerberosKrb5Conf) {
             return kerberosKrb5Conf(Output.of(kerberosKrb5Conf));
+        }
+
+        /**
+         * @param kerberosKrb5ConfBase64 Use instead of `kerberos_krb5_conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf`) is required.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kerberosKrb5ConfBase64(@Nullable Output<String> kerberosKrb5ConfBase64) {
+            $.kerberosKrb5ConfBase64 = kerberosKrb5ConfBase64;
+            return this;
+        }
+
+        /**
+         * @param kerberosKrb5ConfBase64 Use instead of `kerberos_krb5_conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf`) is required.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder kerberosKrb5ConfBase64(String kerberosKrb5ConfBase64) {
+            return kerberosKrb5ConfBase64(Output.of(kerberosKrb5ConfBase64));
         }
 
         /**

@@ -70,6 +70,11 @@ export const getOrderableCluster: typeof import("./getOrderableCluster").getOrde
 export const getOrderableClusterOutput: typeof import("./getOrderableCluster").getOrderableClusterOutput = null as any;
 utilities.lazyLoad(exports, ["getOrderableCluster","getOrderableClusterOutput"], () => require("./getOrderableCluster"));
 
+export { GetProducerDataSharesArgs, GetProducerDataSharesResult, GetProducerDataSharesOutputArgs } from "./getProducerDataShares";
+export const getProducerDataShares: typeof import("./getProducerDataShares").getProducerDataShares = null as any;
+export const getProducerDataSharesOutput: typeof import("./getProducerDataShares").getProducerDataSharesOutput = null as any;
+utilities.lazyLoad(exports, ["getProducerDataShares","getProducerDataSharesOutput"], () => require("./getProducerDataShares"));
+
 export { GetServiceAccountArgs, GetServiceAccountResult, GetServiceAccountOutputArgs } from "./getServiceAccount";
 export const getServiceAccount: typeof import("./getServiceAccount").getServiceAccount = null as any;
 export const getServiceAccountOutput: typeof import("./getServiceAccount").getServiceAccountOutput = null as any;

@@ -140,7 +140,7 @@ namespace Pulumi.Aws.AppStream
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
-        /// State of the image builder. Can be: `PENDING`, `UPDATING_AGENT`, `RUNNING`, `STOPPING`, `STOPPED`, `REBOOTING`, `SNAPSHOTTING`, `DELETING`, `FAILED`, `UPDATING`, `PENDING_QUALIFICATION`
+        /// State of the image builder. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_ImageBuilder.html#AppStream2-Type-ImageBuilder-State).
         /// </summary>
         [Output("state")]
         public Output<string> State { get; private set; } = null!;
@@ -396,7 +396,7 @@ namespace Pulumi.Aws.AppStream
         public Input<string>? Name { get; set; }
 
         /// <summary>
-        /// State of the image builder. Can be: `PENDING`, `UPDATING_AGENT`, `RUNNING`, `STOPPING`, `STOPPED`, `REBOOTING`, `SNAPSHOTTING`, `DELETING`, `FAILED`, `UPDATING`, `PENDING_QUALIFICATION`
+        /// State of the image builder. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_ImageBuilder.html#AppStream2-Type-ImageBuilder-State).
         /// </summary>
         [Input("state")]
         public Input<string>? State { get; set; }

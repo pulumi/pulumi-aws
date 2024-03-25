@@ -580,6 +580,28 @@ class Listener(pulumi.CustomResource):
         ```
         <!--End PulumiCodeChooser -->
 
+        ### Mutual TLS Authentication
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lb.LoadBalancer("example", load_balancer_type="application")
+        example_target_group = aws.lb.TargetGroup("example")
+        example_listener = aws.lb.Listener("example",
+            load_balancer_arn=example.id,
+            default_actions=[aws.lb.ListenerDefaultActionArgs(
+                target_group_arn=example_target_group.id,
+                type="forward",
+            )],
+            mutual_authentication=aws.lb.ListenerMutualAuthenticationArgs(
+                mode="verify",
+                trust_store_arn="...",
+            ))
+        ```
+        <!--End PulumiCodeChooser -->
+
         ## Import
 
         Using `pulumi import`, import listeners using their ARN. For example:
@@ -799,6 +821,28 @@ class Listener(pulumi.CustomResource):
                 target_group_arn=example_target_group.id,
                 type="forward",
             )])
+        ```
+        <!--End PulumiCodeChooser -->
+
+        ### Mutual TLS Authentication
+
+        <!--Start PulumiCodeChooser -->
+        ```python
+        import pulumi
+        import pulumi_aws as aws
+
+        example = aws.lb.LoadBalancer("example", load_balancer_type="application")
+        example_target_group = aws.lb.TargetGroup("example")
+        example_listener = aws.lb.Listener("example",
+            load_balancer_arn=example.id,
+            default_actions=[aws.lb.ListenerDefaultActionArgs(
+                target_group_arn=example_target_group.id,
+                type="forward",
+            )],
+            mutual_authentication=aws.lb.ListenerMutualAuthenticationArgs(
+                mode="verify",
+                trust_store_arn="...",
+            ))
         ```
         <!--End PulumiCodeChooser -->
 

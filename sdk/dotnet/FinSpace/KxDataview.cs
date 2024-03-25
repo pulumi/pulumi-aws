@@ -131,6 +131,15 @@ namespace Pulumi.Aws.FinSpace
         public Output<string> Name { get; private set; } = null!;
 
         /// <summary>
+        /// The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.
+        /// * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `auto_update` must be set as `false` if `read_write` is `true` for a dataview.
+        /// * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
+        /// * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `read_write` parameter later.
+        /// </summary>
+        [Output("readWrite")]
+        public Output<bool?> ReadWrite { get; private set; } = null!;
+
+        /// <summary>
         /// The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segment_configurations below.
         /// </summary>
         [Output("segmentConfigurations")]
@@ -247,6 +256,15 @@ namespace Pulumi.Aws.FinSpace
         [Input("name")]
         public Input<string>? Name { get; set; }
 
+        /// <summary>
+        /// The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.
+        /// * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `auto_update` must be set as `false` if `read_write` is `true` for a dataview.
+        /// * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
+        /// * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `read_write` parameter later.
+        /// </summary>
+        [Input("readWrite")]
+        public Input<bool>? ReadWrite { get; set; }
+
         [Input("segmentConfigurations")]
         private InputList<Inputs.KxDataviewSegmentConfigurationArgs>? _segmentConfigurations;
 
@@ -346,6 +364,15 @@ namespace Pulumi.Aws.FinSpace
         /// </summary>
         [Input("name")]
         public Input<string>? Name { get; set; }
+
+        /// <summary>
+        /// The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.
+        /// * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `auto_update` must be set as `false` if `read_write` is `true` for a dataview.
+        /// * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
+        /// * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `read_write` parameter later.
+        /// </summary>
+        [Input("readWrite")]
+        public Input<bool>? ReadWrite { get; set; }
 
         [Input("segmentConfigurations")]
         private InputList<Inputs.KxDataviewSegmentConfigurationGetArgs>? _segmentConfigurations;

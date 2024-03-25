@@ -1691,7 +1691,7 @@ class UserPoolLambdaConfig(dict):
         :param str post_confirmation: Post-confirmation AWS Lambda trigger.
         :param str pre_authentication: Pre-authentication AWS Lambda trigger.
         :param str pre_sign_up: Pre-registration AWS Lambda trigger.
-        :param str pre_token_generation: Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the LambdaArn of `pre_token_generation_config`.
+        :param str pre_token_generation: Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the lambda_arn of `pre_token_generation_config`.
         :param 'UserPoolLambdaConfigPreTokenGenerationConfigArgs' pre_token_generation_config: Allow to customize access tokens. See pre_token_configuration_type
         :param str user_migration: User migration Lambda config type.
         :param str verify_auth_challenge_response: Verifies the authentication challenge response.
@@ -1809,7 +1809,7 @@ class UserPoolLambdaConfig(dict):
     @pulumi.getter(name="preTokenGeneration")
     def pre_token_generation(self) -> Optional[str]:
         """
-        Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the LambdaArn of `pre_token_generation_config`.
+        Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the lambda_arn of `pre_token_generation_config`.
         """
         return pulumi.get(self, "pre_token_generation")
 

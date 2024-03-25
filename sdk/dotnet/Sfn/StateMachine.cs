@@ -226,6 +226,9 @@ namespace Pulumi.Aws.Sfn
         [Output("roleArn")]
         public Output<string> RoleArn { get; private set; } = null!;
 
+        /// <summary>
+        /// The ARN of the state machine version.
+        /// </summary>
         [Output("stateMachineVersionArn")]
         public Output<string> StateMachineVersionArn { get; private set; } = null!;
 
@@ -430,6 +433,9 @@ namespace Pulumi.Aws.Sfn
         [Input("roleArn")]
         public Input<string>? RoleArn { get; set; }
 
+        /// <summary>
+        /// The ARN of the state machine version.
+        /// </summary>
         [Input("stateMachineVersionArn")]
         public Input<string>? StateMachineVersionArn { get; set; }
 

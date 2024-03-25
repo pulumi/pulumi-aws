@@ -455,7 +455,7 @@ namespace Pulumi.Aws.Rds
         public Output<string?> DomainIamRoleName { get; private set; } = null!;
 
         /// <summary>
-        /// Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
+        /// Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`'s primary cluster. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
         /// </summary>
         [Output("enableGlobalWriteForwarding")]
         public Output<bool?> EnableGlobalWriteForwarding { get; private set; } = null!;
@@ -465,6 +465,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Output("enableHttpEndpoint")]
         public Output<bool?> EnableHttpEndpoint { get; private set; } = null!;
+
+        /// <summary>
+        /// Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
+        /// </summary>
+        [Output("enableLocalWriteForwarding")]
+        public Output<bool?> EnableLocalWriteForwarding { get; private set; } = null!;
 
         /// <summary>
         /// Set of log types to export to cloudwatch. If omitted, no logs will be exported. The following log types are supported: `audit`, `error`, `general`, `slowquery`, `postgresql` (PostgreSQL).
@@ -869,7 +875,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? DomainIamRoleName { get; set; }
 
         /// <summary>
-        /// Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
+        /// Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`'s primary cluster. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
         /// </summary>
         [Input("enableGlobalWriteForwarding")]
         public Input<bool>? EnableGlobalWriteForwarding { get; set; }
@@ -879,6 +885,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("enableHttpEndpoint")]
         public Input<bool>? EnableHttpEndpoint { get; set; }
+
+        /// <summary>
+        /// Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
+        /// </summary>
+        [Input("enableLocalWriteForwarding")]
+        public Input<bool>? EnableLocalWriteForwarding { get; set; }
 
         [Input("enabledCloudwatchLogsExports")]
         private InputList<string>? _enabledCloudwatchLogsExports;
@@ -1250,7 +1262,7 @@ namespace Pulumi.Aws.Rds
         public Input<string>? DomainIamRoleName { get; set; }
 
         /// <summary>
-        /// Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`'s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
+        /// Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`'s primary cluster. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
         /// </summary>
         [Input("enableGlobalWriteForwarding")]
         public Input<bool>? EnableGlobalWriteForwarding { get; set; }
@@ -1260,6 +1272,12 @@ namespace Pulumi.Aws.Rds
         /// </summary>
         [Input("enableHttpEndpoint")]
         public Input<bool>? EnableHttpEndpoint { get; set; }
+
+        /// <summary>
+        /// Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren't allowed on reader DB instances.. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
+        /// </summary>
+        [Input("enableLocalWriteForwarding")]
+        public Input<bool>? EnableLocalWriteForwarding { get; set; }
 
         [Input("enabledCloudwatchLogsExports")]
         private InputList<string>? _enabledCloudwatchLogsExports;

@@ -125,7 +125,7 @@ export class ImageBuilder extends pulumi.CustomResource {
      */
     public readonly name!: pulumi.Output<string>;
     /**
-     * State of the image builder. Can be: `PENDING`, `UPDATING_AGENT`, `RUNNING`, `STOPPING`, `STOPPED`, `REBOOTING`, `SNAPSHOTTING`, `DELETING`, `FAILED`, `UPDATING`, `PENDING_QUALIFICATION`
+     * State of the image builder. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_ImageBuilder.html#AppStream2-Type-ImageBuilder-State).
      */
     public /*out*/ readonly state!: pulumi.Output<string>;
     /**
@@ -260,7 +260,7 @@ export interface ImageBuilderState {
      */
     name?: pulumi.Input<string>;
     /**
-     * State of the image builder. Can be: `PENDING`, `UPDATING_AGENT`, `RUNNING`, `STOPPING`, `STOPPED`, `REBOOTING`, `SNAPSHOTTING`, `DELETING`, `FAILED`, `UPDATING`, `PENDING_QUALIFICATION`
+     * State of the image builder. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_ImageBuilder.html#AppStream2-Type-ImageBuilder-State).
      */
     state?: pulumi.Input<string>;
     /**

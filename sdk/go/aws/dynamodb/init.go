@@ -29,6 +29,8 @@ func (m *module) Construct(ctx *pulumi.Context, name, typ, urn string) (r pulumi
 		r = &KinesisStreamingDestination{}
 	case "aws:dynamodb/table:Table":
 		r = &Table{}
+	case "aws:dynamodb/tableExport:TableExport":
+		r = &TableExport{}
 	case "aws:dynamodb/tableItem:TableItem":
 		r = &TableItem{}
 	case "aws:dynamodb/tableReplica:TableReplica":
@@ -66,6 +68,11 @@ func init() {
 	pulumi.RegisterResourceModule(
 		"aws",
 		"dynamodb/table",
+		&module{version},
+	)
+	pulumi.RegisterResourceModule(
+		"aws",
+		"dynamodb/tableExport",
 		&module{version},
 	)
 	pulumi.RegisterResourceModule(

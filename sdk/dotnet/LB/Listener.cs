@@ -309,6 +309,46 @@ namespace Pulumi.Aws.LB
     /// ```
     /// &lt;!--End PulumiCodeChooser --&gt;
     /// 
+    /// ### Mutual TLS Authentication
+    /// 
+    /// &lt;!--Start PulumiCodeChooser --&gt;
+    /// ```csharp
+    /// using System.Collections.Generic;
+    /// using System.Linq;
+    /// using Pulumi;
+    /// using Aws = Pulumi.Aws;
+    /// 
+    /// return await Deployment.RunAsync(() =&gt; 
+    /// {
+    ///     var example = new Aws.LB.LoadBalancer("example", new()
+    ///     {
+    ///         LoadBalancerType = "application",
+    ///     });
+    /// 
+    ///     var exampleTargetGroup = new Aws.LB.TargetGroup("example");
+    /// 
+    ///     var exampleListener = new Aws.LB.Listener("example", new()
+    ///     {
+    ///         LoadBalancerArn = example.Id,
+    ///         DefaultActions = new[]
+    ///         {
+    ///             new Aws.LB.Inputs.ListenerDefaultActionArgs
+    ///             {
+    ///                 TargetGroupArn = exampleTargetGroup.Id,
+    ///                 Type = "forward",
+    ///             },
+    ///         },
+    ///         MutualAuthentication = new Aws.LB.Inputs.ListenerMutualAuthenticationArgs
+    ///         {
+    ///             Mode = "verify",
+    ///             TrustStoreArn = "...",
+    ///         },
+    ///     });
+    /// 
+    /// });
+    /// ```
+    /// &lt;!--End PulumiCodeChooser --&gt;
+    /// 
     /// ## Import
     /// 
     /// Using `pulumi import`, import listeners using their ARN. For example:

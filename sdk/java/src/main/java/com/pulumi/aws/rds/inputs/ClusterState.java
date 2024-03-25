@@ -370,14 +370,14 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
-     * Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`&#39;s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
+     * Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`&#39;s primary cluster. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
      * 
      */
     @Import(name="enableGlobalWriteForwarding")
     private @Nullable Output<Boolean> enableGlobalWriteForwarding;
 
     /**
-     * @return Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`&#39;s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
+     * @return Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`&#39;s primary cluster. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
      * 
      */
     public Optional<Output<Boolean>> enableGlobalWriteForwarding() {
@@ -397,6 +397,21 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
      */
     public Optional<Output<Boolean>> enableHttpEndpoint() {
         return Optional.ofNullable(this.enableHttpEndpoint);
+    }
+
+    /**
+     * Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren&#39;t allowed on reader DB instances.. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
+     * 
+     */
+    @Import(name="enableLocalWriteForwarding")
+    private @Nullable Output<Boolean> enableLocalWriteForwarding;
+
+    /**
+     * @return Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren&#39;t allowed on reader DB instances.. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
+     * 
+     */
+    public Optional<Output<Boolean>> enableLocalWriteForwarding() {
+        return Optional.ofNullable(this.enableLocalWriteForwarding);
     }
 
     /**
@@ -968,6 +983,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         this.domainIamRoleName = $.domainIamRoleName;
         this.enableGlobalWriteForwarding = $.enableGlobalWriteForwarding;
         this.enableHttpEndpoint = $.enableHttpEndpoint;
+        this.enableLocalWriteForwarding = $.enableLocalWriteForwarding;
         this.enabledCloudwatchLogsExports = $.enabledCloudwatchLogsExports;
         this.endpoint = $.endpoint;
         this.engine = $.engine;
@@ -1522,7 +1538,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableGlobalWriteForwarding Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`&#39;s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
+         * @param enableGlobalWriteForwarding Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`&#39;s primary cluster. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
          * 
          * @return builder
          * 
@@ -1533,7 +1549,7 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
         }
 
         /**
-         * @param enableGlobalWriteForwarding Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`&#39;s primary cluster. See the [Aurora Userguide documentation](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
+         * @param enableGlobalWriteForwarding Whether cluster should forward writes to an associated global cluster. Applied to secondary clusters to enable them to forward writes to an `aws.rds.GlobalCluster`&#39;s primary cluster. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-global-database-write-forwarding.html) for more information.
          * 
          * @return builder
          * 
@@ -1561,6 +1577,27 @@ public final class ClusterState extends com.pulumi.resources.ResourceArgs {
          */
         public Builder enableHttpEndpoint(Boolean enableHttpEndpoint) {
             return enableHttpEndpoint(Output.of(enableHttpEndpoint));
+        }
+
+        /**
+         * @param enableLocalWriteForwarding Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren&#39;t allowed on reader DB instances.. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableLocalWriteForwarding(@Nullable Output<Boolean> enableLocalWriteForwarding) {
+            $.enableLocalWriteForwarding = enableLocalWriteForwarding;
+            return this;
+        }
+
+        /**
+         * @param enableLocalWriteForwarding Whether read replicas can forward write operations to the writer DB instance in the DB cluster. By default, write operations aren&#39;t allowed on reader DB instances.. See the [User Guide for Aurora](https://docs.aws.amazon.com/AmazonRDS/latest/AuroraUserGuide/aurora-mysql-write-forwarding.html) for more information. **NOTE:** Local write forwarding requires Aurora MySQL version 3.04 or higher.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder enableLocalWriteForwarding(Boolean enableLocalWriteForwarding) {
+            return enableLocalWriteForwarding(Output.of(enableLocalWriteForwarding));
         }
 
         /**

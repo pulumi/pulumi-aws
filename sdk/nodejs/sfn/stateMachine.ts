@@ -200,6 +200,9 @@ export class StateMachine extends pulumi.CustomResource {
      * The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
      */
     public readonly roleArn!: pulumi.Output<string>;
+    /**
+     * The ARN of the state machine version.
+     */
     public /*out*/ readonly stateMachineVersionArn!: pulumi.Output<string>;
     /**
      * The current status of the state machine. Either `ACTIVE` or `DELETING`.
@@ -324,6 +327,9 @@ export interface StateMachineState {
      * The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
      */
     roleArn?: pulumi.Input<string>;
+    /**
+     * The ARN of the state machine version.
+     */
     stateMachineVersionArn?: pulumi.Input<string>;
     /**
      * The current status of the state machine. Either `ACTIVE` or `DELETING`.

@@ -92,6 +92,11 @@ type KxDataview struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringOutput `pulumi:"name"`
+	// The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.
+	// * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `autoUpdate` must be set as `false` if `readWrite` is `true` for a dataview.
+	// * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
+	// * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `readWrite` parameter later.
+	ReadWrite pulumi.BoolPtrOutput `pulumi:"readWrite"`
 	// The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segmentConfigurations below.
 	SegmentConfigurations KxDataviewSegmentConfigurationArrayOutput `pulumi:"segmentConfigurations"`
 	Status                pulumi.StringOutput                       `pulumi:"status"`
@@ -169,6 +174,11 @@ type kxDataviewState struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
+	// The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.
+	// * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `autoUpdate` must be set as `false` if `readWrite` is `true` for a dataview.
+	// * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
+	// * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `readWrite` parameter later.
+	ReadWrite *bool `pulumi:"readWrite"`
 	// The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segmentConfigurations below.
 	SegmentConfigurations []KxDataviewSegmentConfiguration `pulumi:"segmentConfigurations"`
 	Status                *string                          `pulumi:"status"`
@@ -205,6 +215,11 @@ type KxDataviewState struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
+	// The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.
+	// * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `autoUpdate` must be set as `false` if `readWrite` is `true` for a dataview.
+	// * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
+	// * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `readWrite` parameter later.
+	ReadWrite pulumi.BoolPtrInput
 	// The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segmentConfigurations below.
 	SegmentConfigurations KxDataviewSegmentConfigurationArrayInput
 	Status                pulumi.StringPtrInput
@@ -239,6 +254,11 @@ type kxDataviewArgs struct {
 	//
 	// The following arguments are optional:
 	Name *string `pulumi:"name"`
+	// The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.
+	// * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `autoUpdate` must be set as `false` if `readWrite` is `true` for a dataview.
+	// * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
+	// * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `readWrite` parameter later.
+	ReadWrite *bool `pulumi:"readWrite"`
 	// The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segmentConfigurations below.
 	SegmentConfigurations []KxDataviewSegmentConfiguration `pulumi:"segmentConfigurations"`
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -265,6 +285,11 @@ type KxDataviewArgs struct {
 	//
 	// The following arguments are optional:
 	Name pulumi.StringPtrInput
+	// The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.
+	// * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `autoUpdate` must be set as `false` if `readWrite` is `true` for a dataview.
+	// * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
+	// * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `readWrite` parameter later.
+	ReadWrite pulumi.BoolPtrInput
 	// The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segmentConfigurations below.
 	SegmentConfigurations KxDataviewSegmentConfigurationArrayInput
 	// Key-value mapping of resource tags. If configured with a provider `defaultTags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
@@ -413,6 +438,14 @@ func (o KxDataviewOutput) LastModifiedTimestamp() pulumi.StringOutput {
 // The following arguments are optional:
 func (o KxDataviewOutput) Name() pulumi.StringOutput {
 	return o.ApplyT(func(v *KxDataview) pulumi.StringOutput { return v.Name }).(pulumi.StringOutput)
+}
+
+// The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.
+// * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `autoUpdate` must be set as `false` if `readWrite` is `true` for a dataview.
+// * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
+// * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `readWrite` parameter later.
+func (o KxDataviewOutput) ReadWrite() pulumi.BoolPtrOutput {
+	return o.ApplyT(func(v *KxDataview) pulumi.BoolPtrOutput { return v.ReadWrite }).(pulumi.BoolPtrOutput)
 }
 
 // The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segmentConfigurations below.

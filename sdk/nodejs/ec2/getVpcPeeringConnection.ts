@@ -126,17 +126,25 @@ export interface GetVpcPeeringConnectionResult {
      */
     readonly cidrBlock: string;
     /**
-     * List of objects with CIDR blocks of the requester VPC.
+     * List of objects with IPv4 CIDR blocks of the requester VPC.
      */
     readonly cidrBlockSets: outputs.ec2.GetVpcPeeringConnectionCidrBlockSet[];
     readonly filters?: outputs.ec2.GetVpcPeeringConnectionFilter[];
     readonly id: string;
+    /**
+     * List of objects with IPv6 CIDR blocks of the requester VPC.
+     */
+    readonly ipv6CidrBlockSets: outputs.ec2.GetVpcPeeringConnectionIpv6CidrBlockSet[];
     readonly ownerId: string;
     readonly peerCidrBlock: string;
     /**
-     * List of objects with CIDR blocks of the accepter VPC.
+     * List of objects with IPv4 CIDR blocks of the accepter VPC.
      */
     readonly peerCidrBlockSets: outputs.ec2.GetVpcPeeringConnectionPeerCidrBlockSet[];
+    /**
+     * List of objects with IPv6 CIDR blocks of the accepter VPC.
+     */
+    readonly peerIpv6CidrBlockSets: outputs.ec2.GetVpcPeeringConnectionPeerIpv6CidrBlockSet[];
     readonly peerOwnerId: string;
     readonly peerRegion: string;
     readonly peerVpcId: string;

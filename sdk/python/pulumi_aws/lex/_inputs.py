@@ -981,11 +981,13 @@ __all__ = [
     'V2modelsSlotValueElicitationSettingPromptSpecificationArgs',
     'V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupArgs',
     'V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageArgs',
+    'V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayloadArgs',
     'V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardArgs',
     'V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardButtonArgs',
     'V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessageArgs',
     'V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessageArgs',
     'V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationArgs',
+    'V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayloadArgs',
     'V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardArgs',
     'V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardButtonArgs',
     'V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessageArgs',
@@ -1002,11 +1004,13 @@ __all__ = [
     'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseArgs',
     'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupArgs',
     'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgs',
+    'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayloadArgs',
     'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardArgs',
     'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardButtonArgs',
     'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePlainTextMessageArgs',
     'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessageArgs',
     'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationArgs',
+    'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationCustomPayloadArgs',
     'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardArgs',
     'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardButtonArgs',
     'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationPlainTextMessageArgs',
@@ -1014,11 +1018,13 @@ __all__ = [
     'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseArgs',
     'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupArgs',
     'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgs',
+    'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayloadArgs',
     'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardArgs',
     'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardButtonArgs',
     'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessageArgs',
     'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessageArgs',
     'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgs',
+    'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayloadArgs',
     'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgs',
     'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardButtonArgs',
     'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationPlainTextMessageArgs',
@@ -1026,11 +1032,13 @@ __all__ = [
     'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseArgs',
     'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupArgs',
     'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs',
+    'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadArgs',
     'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardArgs',
     'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardButtonArgs',
     'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessageArgs',
     'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessageArgs',
     'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgs',
+    'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgs',
     'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardArgs',
     'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardButtonArgs',
     'V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessageArgs',
@@ -42564,11 +42572,12 @@ class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupArgs:
 @pulumi.input_type
 class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageArgs:
     def __init__(__self__, *,
-                 custom_payloads: pulumi.Input[Sequence[Any]],
+                 custom_payloads: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayloadArgs']]]] = None,
                  image_response_card: Optional[pulumi.Input['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessageArgs']] = None):
-        pulumi.set(__self__, "custom_payloads", custom_payloads)
+        if custom_payloads is not None:
+            pulumi.set(__self__, "custom_payloads", custom_payloads)
         if image_response_card is not None:
             pulumi.set(__self__, "image_response_card", image_response_card)
         if plain_text_message is not None:
@@ -42578,11 +42587,11 @@ class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageA
 
     @property
     @pulumi.getter(name="customPayloads")
-    def custom_payloads(self) -> pulumi.Input[Sequence[Any]]:
+    def custom_payloads(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayloadArgs']]]]:
         return pulumi.get(self, "custom_payloads")
 
     @custom_payloads.setter
-    def custom_payloads(self, value: pulumi.Input[Sequence[Any]]):
+    def custom_payloads(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayloadArgs']]]]):
         pulumi.set(self, "custom_payloads", value)
 
     @property
@@ -42611,6 +42620,22 @@ class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageA
     @ssml_message.setter
     def ssml_message(self, value: Optional[pulumi.Input['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessageArgs']]):
         pulumi.set(self, "ssml_message", value)
+
+
+@pulumi.input_type
+class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayloadArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -42727,11 +42752,12 @@ class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageS
 @pulumi.input_type
 class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationArgs:
     def __init__(__self__, *,
-                 custom_payloads: pulumi.Input[Sequence[Any]],
+                 custom_payloads: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayloadArgs']]]] = None,
                  image_response_card: Optional[pulumi.Input['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessageArgs']] = None):
-        pulumi.set(__self__, "custom_payloads", custom_payloads)
+        if custom_payloads is not None:
+            pulumi.set(__self__, "custom_payloads", custom_payloads)
         if image_response_card is not None:
             pulumi.set(__self__, "image_response_card", image_response_card)
         if plain_text_message is not None:
@@ -42741,11 +42767,11 @@ class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariatio
 
     @property
     @pulumi.getter(name="customPayloads")
-    def custom_payloads(self) -> pulumi.Input[Sequence[Any]]:
+    def custom_payloads(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayloadArgs']]]]:
         return pulumi.get(self, "custom_payloads")
 
     @custom_payloads.setter
-    def custom_payloads(self, value: pulumi.Input[Sequence[Any]]):
+    def custom_payloads(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayloadArgs']]]]):
         pulumi.set(self, "custom_payloads", value)
 
     @property
@@ -42774,6 +42800,22 @@ class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariatio
     @ssml_message.setter
     def ssml_message(self, value: Optional[pulumi.Input['V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessageArgs']]):
         pulumi.set(self, "ssml_message", value)
+
+
+@pulumi.input_type
+class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayloadArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -43254,11 +43296,12 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueRes
 @pulumi.input_type
 class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageArgs:
     def __init__(__self__, *,
-                 custom_payloads: pulumi.Input[Sequence[Any]],
+                 custom_payloads: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayloadArgs']]]] = None,
                  image_response_card: Optional[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessageArgs']] = None):
-        pulumi.set(__self__, "custom_payloads", custom_payloads)
+        if custom_payloads is not None:
+            pulumi.set(__self__, "custom_payloads", custom_payloads)
         if image_response_card is not None:
             pulumi.set(__self__, "image_response_card", image_response_card)
         if plain_text_message is not None:
@@ -43268,11 +43311,11 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueRes
 
     @property
     @pulumi.getter(name="customPayloads")
-    def custom_payloads(self) -> pulumi.Input[Sequence[Any]]:
+    def custom_payloads(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayloadArgs']]]]:
         return pulumi.get(self, "custom_payloads")
 
     @custom_payloads.setter
-    def custom_payloads(self, value: pulumi.Input[Sequence[Any]]):
+    def custom_payloads(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayloadArgs']]]]):
         pulumi.set(self, "custom_payloads", value)
 
     @property
@@ -43301,6 +43344,22 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueRes
     @ssml_message.setter
     def ssml_message(self, value: Optional[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessageArgs']]):
         pulumi.set(self, "ssml_message", value)
+
+
+@pulumi.input_type
+class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayloadArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -43417,11 +43476,12 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueRes
 @pulumi.input_type
 class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationArgs:
     def __init__(__self__, *,
-                 custom_payloads: pulumi.Input[Sequence[Any]],
+                 custom_payloads: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationCustomPayloadArgs']]]] = None,
                  image_response_card: Optional[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationSsmlMessageArgs']] = None):
-        pulumi.set(__self__, "custom_payloads", custom_payloads)
+        if custom_payloads is not None:
+            pulumi.set(__self__, "custom_payloads", custom_payloads)
         if image_response_card is not None:
             pulumi.set(__self__, "image_response_card", image_response_card)
         if plain_text_message is not None:
@@ -43431,11 +43491,11 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueRes
 
     @property
     @pulumi.getter(name="customPayloads")
-    def custom_payloads(self) -> pulumi.Input[Sequence[Any]]:
+    def custom_payloads(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationCustomPayloadArgs']]]]:
         return pulumi.get(self, "custom_payloads")
 
     @custom_payloads.setter
-    def custom_payloads(self, value: pulumi.Input[Sequence[Any]]):
+    def custom_payloads(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationCustomPayloadArgs']]]]):
         pulumi.set(self, "custom_payloads", value)
 
     @property
@@ -43464,6 +43524,22 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueRes
     @ssml_message.setter
     def ssml_message(self, value: Optional[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationSsmlMessageArgs']]):
         pulumi.set(self, "ssml_message", value)
+
+
+@pulumi.input_type
+class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationCustomPayloadArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -43659,11 +43735,12 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitin
 @pulumi.input_type
 class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageArgs:
     def __init__(__self__, *,
-                 custom_payloads: pulumi.Input[Sequence[Any]],
+                 custom_payloads: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayloadArgs']]]] = None,
                  image_response_card: Optional[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessageArgs']] = None):
-        pulumi.set(__self__, "custom_payloads", custom_payloads)
+        if custom_payloads is not None:
+            pulumi.set(__self__, "custom_payloads", custom_payloads)
         if image_response_card is not None:
             pulumi.set(__self__, "image_response_card", image_response_card)
         if plain_text_message is not None:
@@ -43673,11 +43750,11 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitin
 
     @property
     @pulumi.getter(name="customPayloads")
-    def custom_payloads(self) -> pulumi.Input[Sequence[Any]]:
+    def custom_payloads(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayloadArgs']]]]:
         return pulumi.get(self, "custom_payloads")
 
     @custom_payloads.setter
-    def custom_payloads(self, value: pulumi.Input[Sequence[Any]]):
+    def custom_payloads(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayloadArgs']]]]):
         pulumi.set(self, "custom_payloads", value)
 
     @property
@@ -43706,6 +43783,22 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitin
     @ssml_message.setter
     def ssml_message(self, value: Optional[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessageArgs']]):
         pulumi.set(self, "ssml_message", value)
+
+
+@pulumi.input_type
+class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayloadArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -43822,11 +43915,12 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitin
 @pulumi.input_type
 class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgs:
     def __init__(__self__, *,
-                 custom_payloads: pulumi.Input[Sequence[Any]],
+                 custom_payloads: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayloadArgs']]]] = None,
                  image_response_card: Optional[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessageArgs']] = None):
-        pulumi.set(__self__, "custom_payloads", custom_payloads)
+        if custom_payloads is not None:
+            pulumi.set(__self__, "custom_payloads", custom_payloads)
         if image_response_card is not None:
             pulumi.set(__self__, "image_response_card", image_response_card)
         if plain_text_message is not None:
@@ -43836,11 +43930,11 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitin
 
     @property
     @pulumi.getter(name="customPayloads")
-    def custom_payloads(self) -> pulumi.Input[Sequence[Any]]:
+    def custom_payloads(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayloadArgs']]]]:
         return pulumi.get(self, "custom_payloads")
 
     @custom_payloads.setter
-    def custom_payloads(self, value: pulumi.Input[Sequence[Any]]):
+    def custom_payloads(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayloadArgs']]]]):
         pulumi.set(self, "custom_payloads", value)
 
     @property
@@ -43869,6 +43963,22 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitin
     @ssml_message.setter
     def ssml_message(self, value: Optional[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessageArgs']]):
         pulumi.set(self, "ssml_message", value)
+
+
+@pulumi.input_type
+class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayloadArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -44042,11 +44152,12 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResp
 @pulumi.input_type
 class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageArgs:
     def __init__(__self__, *,
-                 custom_payloads: pulumi.Input[Sequence[Any]],
+                 custom_payloads: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadArgs']]]] = None,
                  image_response_card: Optional[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessageArgs']] = None):
-        pulumi.set(__self__, "custom_payloads", custom_payloads)
+        if custom_payloads is not None:
+            pulumi.set(__self__, "custom_payloads", custom_payloads)
         if image_response_card is not None:
             pulumi.set(__self__, "image_response_card", image_response_card)
         if plain_text_message is not None:
@@ -44056,11 +44167,11 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResp
 
     @property
     @pulumi.getter(name="customPayloads")
-    def custom_payloads(self) -> pulumi.Input[Sequence[Any]]:
+    def custom_payloads(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadArgs']]]]:
         return pulumi.get(self, "custom_payloads")
 
     @custom_payloads.setter
-    def custom_payloads(self, value: pulumi.Input[Sequence[Any]]):
+    def custom_payloads(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadArgs']]]]):
         pulumi.set(self, "custom_payloads", value)
 
     @property
@@ -44089,6 +44200,22 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResp
     @ssml_message.setter
     def ssml_message(self, value: Optional[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessageArgs']]):
         pulumi.set(self, "ssml_message", value)
+
+
+@pulumi.input_type
+class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayloadArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type
@@ -44205,11 +44332,12 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResp
 @pulumi.input_type
 class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationArgs:
     def __init__(__self__, *,
-                 custom_payloads: pulumi.Input[Sequence[Any]],
+                 custom_payloads: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgs']]]] = None,
                  image_response_card: Optional[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCardArgs']] = None,
                  plain_text_message: Optional[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessageArgs']] = None,
                  ssml_message: Optional[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessageArgs']] = None):
-        pulumi.set(__self__, "custom_payloads", custom_payloads)
+        if custom_payloads is not None:
+            pulumi.set(__self__, "custom_payloads", custom_payloads)
         if image_response_card is not None:
             pulumi.set(__self__, "image_response_card", image_response_card)
         if plain_text_message is not None:
@@ -44219,11 +44347,11 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResp
 
     @property
     @pulumi.getter(name="customPayloads")
-    def custom_payloads(self) -> pulumi.Input[Sequence[Any]]:
+    def custom_payloads(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgs']]]]:
         return pulumi.get(self, "custom_payloads")
 
     @custom_payloads.setter
-    def custom_payloads(self, value: pulumi.Input[Sequence[Any]]):
+    def custom_payloads(self, value: Optional[pulumi.Input[Sequence[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgs']]]]):
         pulumi.set(self, "custom_payloads", value)
 
     @property
@@ -44252,6 +44380,22 @@ class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResp
     @ssml_message.setter
     def ssml_message(self, value: Optional[pulumi.Input['V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessageArgs']]):
         pulumi.set(self, "ssml_message", value)
+
+
+@pulumi.input_type
+class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayloadArgs:
+    def __init__(__self__, *,
+                 value: pulumi.Input[str]):
+        pulumi.set(__self__, "value", value)
+
+    @property
+    @pulumi.getter
+    def value(self) -> pulumi.Input[str]:
+        return pulumi.get(self, "value")
+
+    @value.setter
+    def value(self, value: pulumi.Input[str]):
+        pulumi.set(self, "value", value)
 
 
 @pulumi.input_type

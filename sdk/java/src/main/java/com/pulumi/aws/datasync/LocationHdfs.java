@@ -64,6 +64,52 @@ import javax.annotation.Nullable;
  * ```
  * &lt;!--End PulumiCodeChooser --&gt;
  * 
+ * ### Kerberos Authentication
+ * 
+ * &lt;!--Start PulumiCodeChooser --&gt;
+ * ```java
+ * package generated_program;
+ * 
+ * import com.pulumi.Context;
+ * import com.pulumi.Pulumi;
+ * import com.pulumi.core.Output;
+ * import com.pulumi.aws.datasync.LocationHdfs;
+ * import com.pulumi.aws.datasync.LocationHdfsArgs;
+ * import com.pulumi.aws.datasync.inputs.LocationHdfsNameNodeArgs;
+ * import java.util.List;
+ * import java.util.ArrayList;
+ * import java.util.Map;
+ * import java.io.File;
+ * import java.nio.file.Files;
+ * import java.nio.file.Paths;
+ * 
+ * public class App {
+ *     public static void main(String[] args) {
+ *         Pulumi.run(App::stack);
+ *     }
+ * 
+ *     public static void stack(Context ctx) {
+ *         var example = new LocationHdfs(&#34;example&#34;, LocationHdfsArgs.builder()        
+ *             .agentArns(exampleAwsDatasyncAgent.arn())
+ *             .authenticationType(&#34;KERBEROS&#34;)
+ *             .nameNodes(LocationHdfsNameNodeArgs.builder()
+ *                 .hostname(exampleAwsInstance.privateDns())
+ *                 .port(80)
+ *                 .build())
+ *             .kerberosPrincipal(&#34;user@example.com&#34;)
+ *             .kerberosKeytabBase64(StdFunctions.filebase64(Filebase64Args.builder()
+ *                 .input(&#34;user.keytab&#34;)
+ *                 .build()).result())
+ *             .kerberosKrb5Conf(StdFunctions.file(FileArgs.builder()
+ *                 .input(&#34;krb5.conf&#34;)
+ *                 .build()).result())
+ *             .build());
+ * 
+ *     }
+ * }
+ * ```
+ * &lt;!--End PulumiCodeChooser --&gt;
+ * 
  * ## Import
  * 
  * Using `pulumi import`, import `aws_datasync_location_hdfs` using the Amazon Resource Name (ARN). For example:
@@ -132,32 +178,60 @@ public class LocationHdfs extends com.pulumi.resources.CustomResource {
         return Codegen.optional(this.blockSize);
     }
     /**
-     * The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
+     * The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberos_keytab_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab_base64`) is required.
      * 
      */
     @Export(name="kerberosKeytab", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kerberosKeytab;
 
     /**
-     * @return The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
+     * @return The Kerberos key table (keytab) that contains mappings between the defined Kerberos principal and the encrypted keys. Use `kerberos_keytab_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab_base64`) is required.
      * 
      */
     public Output<Optional<String>> kerberosKeytab() {
         return Codegen.optional(this.kerberosKeytab);
     }
     /**
-     * The krb5.conf file that contains the Kerberos configuration information. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
+     * Use instead of `kerberos_keytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab`) is required.
+     * 
+     */
+    @Export(name="kerberosKeytabBase64", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> kerberosKeytabBase64;
+
+    /**
+     * @return Use instead of `kerberos_keytab` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_keytab`) is required.
+     * 
+     */
+    public Output<Optional<String>> kerberosKeytabBase64() {
+        return Codegen.optional(this.kerberosKeytabBase64);
+    }
+    /**
+     * The krb5.conf file that contains the Kerberos configuration information. Use `kerberos_krb5_conf_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf_base64`) is required.
      * 
      */
     @Export(name="kerberosKrb5Conf", refs={String.class}, tree="[0]")
     private Output</* @Nullable */ String> kerberosKrb5Conf;
 
     /**
-     * @return The krb5.conf file that contains the Kerberos configuration information. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
+     * @return The krb5.conf file that contains the Kerberos configuration information. Use `kerberos_krb5_conf_base64` instead whenever the value is not a valid UTF-8 string. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf_base64`) is required.
      * 
      */
     public Output<Optional<String>> kerberosKrb5Conf() {
         return Codegen.optional(this.kerberosKrb5Conf);
+    }
+    /**
+     * Use instead of `kerberos_krb5_conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf`) is required.
+     * 
+     */
+    @Export(name="kerberosKrb5ConfBase64", refs={String.class}, tree="[0]")
+    private Output</* @Nullable */ String> kerberosKrb5ConfBase64;
+
+    /**
+     * @return Use instead of `kerberos_krb5_conf` to pass base64-encoded binary data directly. If `KERBEROS` is specified for `authentication_type`, this parameter (or `kerberos_krb5_conf`) is required.
+     * 
+     */
+    public Output<Optional<String>> kerberosKrb5ConfBase64() {
+        return Codegen.optional(this.kerberosKrb5ConfBase64);
     }
     /**
      * The Kerberos principal with access to the files and folders on the HDFS cluster. If `KERBEROS` is specified for `authentication_type`, this parameter is required.
@@ -206,14 +280,14 @@ public class LocationHdfs extends com.pulumi.resources.CustomResource {
      * 
      */
     @Export(name="qopConfiguration", refs={LocationHdfsQopConfiguration.class}, tree="[0]")
-    private Output</* @Nullable */ LocationHdfsQopConfiguration> qopConfiguration;
+    private Output<LocationHdfsQopConfiguration> qopConfiguration;
 
     /**
      * @return The Quality of Protection (QOP) configuration specifies the Remote Procedure Call (RPC) and data transfer protection settings configured on the Hadoop Distributed File System (HDFS) cluster. If `qop_configuration` isn&#39;t specified, `rpc_protection` and `data_transfer_protection` default to `PRIVACY`. If you set RpcProtection or DataTransferProtection, the other parameter assumes the same value.  See configuration below.
      * 
      */
-    public Output<Optional<LocationHdfsQopConfiguration>> qopConfiguration() {
-        return Codegen.optional(this.qopConfiguration);
+    public Output<LocationHdfsQopConfiguration> qopConfiguration() {
+        return this.qopConfiguration;
     }
     /**
      * The number of DataNodes to replicate the data to when writing to the HDFS cluster. By default, data is replicated to three DataNodes.
