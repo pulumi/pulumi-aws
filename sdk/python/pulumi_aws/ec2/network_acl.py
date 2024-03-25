@@ -31,7 +31,13 @@ class NetworkAclArgs:
         """
         pulumi.set(__self__, "vpc_id", vpc_id)
         if egress is not None:
+            warnings.warn("""Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.""", DeprecationWarning)
+            pulumi.log.warn("""egress is deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.""")
+        if egress is not None:
             pulumi.set(__self__, "egress", egress)
+        if ingress is not None:
+            warnings.warn("""Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.""", DeprecationWarning)
+            pulumi.log.warn("""ingress is deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.""")
         if ingress is not None:
             pulumi.set(__self__, "ingress", ingress)
         if subnet_ids is not None:
@@ -57,6 +63,9 @@ class NetworkAclArgs:
         """
         Specifies an egress rule. Parameters defined below.
         """
+        warnings.warn("""Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.""", DeprecationWarning)
+        pulumi.log.warn("""egress is deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.""")
+
         return pulumi.get(self, "egress")
 
     @egress.setter
@@ -69,6 +78,9 @@ class NetworkAclArgs:
         """
         Specifies an ingress rule. Parameters defined below.
         """
+        warnings.warn("""Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.""", DeprecationWarning)
+        pulumi.log.warn("""ingress is deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.""")
+
         return pulumi.get(self, "ingress")
 
     @ingress.setter
@@ -125,7 +137,13 @@ class _NetworkAclState:
         if arn is not None:
             pulumi.set(__self__, "arn", arn)
         if egress is not None:
+            warnings.warn("""Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.""", DeprecationWarning)
+            pulumi.log.warn("""egress is deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.""")
+        if egress is not None:
             pulumi.set(__self__, "egress", egress)
+        if ingress is not None:
+            warnings.warn("""Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.""", DeprecationWarning)
+            pulumi.log.warn("""ingress is deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.""")
         if ingress is not None:
             pulumi.set(__self__, "ingress", ingress)
         if owner_id is not None:
@@ -160,6 +178,9 @@ class _NetworkAclState:
         """
         Specifies an egress rule. Parameters defined below.
         """
+        warnings.warn("""Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.""", DeprecationWarning)
+        pulumi.log.warn("""egress is deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.""")
+
         return pulumi.get(self, "egress")
 
     @egress.setter
@@ -172,6 +193,9 @@ class _NetworkAclState:
         """
         Specifies an ingress rule. Parameters defined below.
         """
+        warnings.warn("""Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.""", DeprecationWarning)
+        pulumi.log.warn("""ingress is deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.""")
+
         return pulumi.get(self, "ingress")
 
     @ingress.setter
@@ -474,6 +498,9 @@ class NetworkAcl(pulumi.CustomResource):
         """
         Specifies an egress rule. Parameters defined below.
         """
+        warnings.warn("""Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.""", DeprecationWarning)
+        pulumi.log.warn("""egress is deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.""")
+
         return pulumi.get(self, "egress")
 
     @property
@@ -482,6 +509,9 @@ class NetworkAcl(pulumi.CustomResource):
         """
         Specifies an ingress rule. Parameters defined below.
         """
+        warnings.warn("""Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.""", DeprecationWarning)
+        pulumi.log.warn("""ingress is deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.""")
+
         return pulumi.get(self, "ingress")
 
     @property

@@ -424,8 +424,12 @@ type SecurityGroup struct {
 	// Security group description. Defaults to `Managed by Pulumi`. Cannot be `""`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you'd like to classify your security groups in a way that can be updated, use `tags`.
 	Description pulumi.StringOutput `pulumi:"description"`
 	// Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+	//
+	// Deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
 	Egress SecurityGroupEgressArrayOutput `pulumi:"egress"`
 	// Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+	//
+	// Deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
 	Ingress SecurityGroupIngressArrayOutput `pulumi:"ingress"`
 	// Name of the security group. If omitted, the provider will assign a random, unique name.
 	Name pulumi.StringOutput `pulumi:"name"`
@@ -483,8 +487,12 @@ type securityGroupState struct {
 	// Security group description. Defaults to `Managed by Pulumi`. Cannot be `""`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you'd like to classify your security groups in a way that can be updated, use `tags`.
 	Description *string `pulumi:"description"`
 	// Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+	//
+	// Deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
 	Egress []SecurityGroupEgress `pulumi:"egress"`
 	// Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+	//
+	// Deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
 	Ingress []SecurityGroupIngress `pulumi:"ingress"`
 	// Name of the security group. If omitted, the provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
@@ -510,8 +518,12 @@ type SecurityGroupState struct {
 	// Security group description. Defaults to `Managed by Pulumi`. Cannot be `""`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you'd like to classify your security groups in a way that can be updated, use `tags`.
 	Description pulumi.StringPtrInput
 	// Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+	//
+	// Deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
 	Egress SecurityGroupEgressArrayInput
 	// Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+	//
+	// Deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
 	Ingress SecurityGroupIngressArrayInput
 	// Name of the security group. If omitted, the provider will assign a random, unique name.
 	Name pulumi.StringPtrInput
@@ -539,8 +551,12 @@ type securityGroupArgs struct {
 	// Security group description. Defaults to `Managed by Pulumi`. Cannot be `""`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you'd like to classify your security groups in a way that can be updated, use `tags`.
 	Description *string `pulumi:"description"`
 	// Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+	//
+	// Deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
 	Egress []SecurityGroupEgress `pulumi:"egress"`
 	// Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+	//
+	// Deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
 	Ingress []SecurityGroupIngress `pulumi:"ingress"`
 	// Name of the security group. If omitted, the provider will assign a random, unique name.
 	Name *string `pulumi:"name"`
@@ -559,8 +575,12 @@ type SecurityGroupArgs struct {
 	// Security group description. Defaults to `Managed by Pulumi`. Cannot be `""`. **NOTE**: This field maps to the AWS `GroupDescription` attribute, for which there is no Update API. If you'd like to classify your security groups in a way that can be updated, use `tags`.
 	Description pulumi.StringPtrInput
 	// Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+	//
+	// Deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
 	Egress SecurityGroupEgressArrayInput
 	// Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+	//
+	// Deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
 	Ingress SecurityGroupIngressArrayInput
 	// Name of the security group. If omitted, the provider will assign a random, unique name.
 	Name pulumi.StringPtrInput
@@ -672,11 +692,15 @@ func (o SecurityGroupOutput) Description() pulumi.StringOutput {
 }
 
 // Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+//
+// Deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
 func (o SecurityGroupOutput) Egress() SecurityGroupEgressArrayOutput {
 	return o.ApplyT(func(v *SecurityGroup) SecurityGroupEgressArrayOutput { return v.Egress }).(SecurityGroupEgressArrayOutput)
 }
 
 // Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+//
+// Deprecated: Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
 func (o SecurityGroupOutput) Ingress() SecurityGroupIngressArrayOutput {
 	return o.ApplyT(func(v *SecurityGroup) SecurityGroupIngressArrayOutput { return v.Ingress }).(SecurityGroupIngressArrayOutput)
 }

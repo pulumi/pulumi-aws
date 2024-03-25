@@ -54,14 +54,22 @@ public final class SecurityGroupState extends com.pulumi.resources.ResourceArgs 
     /**
      * Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
      * 
+     * @deprecated
+     * Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
+     * 
      */
+    @Deprecated /* Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules. */
     @Import(name="egress")
     private @Nullable Output<List<SecurityGroupEgressArgs>> egress;
 
     /**
      * @return Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
      * 
+     * @deprecated
+     * Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
+     * 
      */
+    @Deprecated /* Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules. */
     public Optional<Output<List<SecurityGroupEgressArgs>>> egress() {
         return Optional.ofNullable(this.egress);
     }
@@ -69,14 +77,22 @@ public final class SecurityGroupState extends com.pulumi.resources.ResourceArgs 
     /**
      * Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
      * 
+     * @deprecated
+     * Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
+     * 
      */
+    @Deprecated /* Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules. */
     @Import(name="ingress")
     private @Nullable Output<List<SecurityGroupIngressArgs>> ingress;
 
     /**
      * @return Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
      * 
+     * @deprecated
+     * Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
+     * 
      */
+    @Deprecated /* Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules. */
     public Optional<Output<List<SecurityGroupIngressArgs>>> ingress() {
         return Optional.ofNullable(this.ingress);
     }
@@ -275,7 +291,11 @@ public final class SecurityGroupState extends com.pulumi.resources.ResourceArgs 
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
+         * 
          */
+        @Deprecated /* Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules. */
         public Builder egress(@Nullable Output<List<SecurityGroupEgressArgs>> egress) {
             $.egress = egress;
             return this;
@@ -286,7 +306,11 @@ public final class SecurityGroupState extends com.pulumi.resources.ResourceArgs 
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
+         * 
          */
+        @Deprecated /* Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules. */
         public Builder egress(List<SecurityGroupEgressArgs> egress) {
             return egress(Output.of(egress));
         }
@@ -296,7 +320,11 @@ public final class SecurityGroupState extends com.pulumi.resources.ResourceArgs 
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
+         * 
          */
+        @Deprecated /* Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules. */
         public Builder egress(SecurityGroupEgressArgs... egress) {
             return egress(List.of(egress));
         }
@@ -306,7 +334,11 @@ public final class SecurityGroupState extends com.pulumi.resources.ResourceArgs 
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
+         * 
          */
+        @Deprecated /* Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules. */
         public Builder ingress(@Nullable Output<List<SecurityGroupIngressArgs>> ingress) {
             $.ingress = ingress;
             return this;
@@ -317,7 +349,11 @@ public final class SecurityGroupState extends com.pulumi.resources.ResourceArgs 
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
+         * 
          */
+        @Deprecated /* Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules. */
         public Builder ingress(List<SecurityGroupIngressArgs> ingress) {
             return ingress(Output.of(ingress));
         }
@@ -327,7 +363,11 @@ public final class SecurityGroupState extends com.pulumi.resources.ResourceArgs 
          * 
          * @return builder
          * 
+         * @deprecated
+         * Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
+         * 
          */
+        @Deprecated /* Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules. */
         public Builder ingress(SecurityGroupIngressArgs... ingress) {
             return ingress(List.of(ingress));
         }
