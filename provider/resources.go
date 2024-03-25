@@ -795,7 +795,9 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 		shimv2.WithDiffStrategy(shimv2.PlanState),
 		shimv2.WithPlanResourceChange(func(s string) bool {
 			switch s {
-			case "aws_ssm_document", "aws_wafv2_web_acl":
+			case "aws_ssm_document",
+				"aws_wafv2_web_acl",
+				"aws_launch_template":
 				return true
 			default:
 				return false
@@ -4113,12 +4115,10 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 			"aws_networkfirewall_resource_policy": {
 				Tok: awsResource(networkFirewallMod, "ResourcePolicy"),
 				Docs: &tfbridge.DocInfo{
-					ImportDetails: strings.ReplaceAll(`Using ^pulumi import^, import Network Firewall Resource Policies using the ^resource_arn^. For example:
-
-<break>^^^sh<break>
-$ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example
-<break>^^^<break>
-`, "^", "`"),
+					ImportDetails: "Using `pulumi import`, import Network Firewall Resource Policies using the `resource arn`. For example: \n" +
+						"```sh\n" +
+						"$ pulumi import aws:networkfirewall/resourcePolicy:ResourcePolicy example arn:aws:network-firewall:us-west-1:123456789012:stateful-rulegroup/example\n" +
+						"```\n",
 				},
 			},
 

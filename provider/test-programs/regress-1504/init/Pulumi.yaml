@@ -1,0 +1,10 @@
+name: repro-1504
+runtime:
+  name: python
+  options:
+    virtualenv: venv
+description: Reproduce pulumi-aws issue 1504
+config:
+  pulumi:tags:
+    value:
+      pulumi:template: aws-python

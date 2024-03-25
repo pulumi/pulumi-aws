@@ -26,7 +26,6 @@ import (
 
 func editRules(defaults []tfbridge.DocsEdit) []tfbridge.DocsEdit {
 	return append(defaults,
-		fixupImports(),
 		// This fixes up strings such as:
 		//
 		//	name        = "terraform-kinesis-firehose-os",
@@ -63,32 +62,6 @@ func reReplace(from string, to string) tfbridge.DocsEdit {
 		Path: "*",
 		Edit: func(_ string, content []byte) ([]byte, error) {
 			return fromR.ReplaceAll(content, toB), nil
-		},
-	}
-}
-
-func fixupImports() tfbridge.DocsEdit {
-	const tfOrTODO = `([tT]erraform|TODO)`
-
-	var inlineImportRegexp = regexp.MustCompile("% " + tfOrTODO + " import.*")
-	var quotedImportRegexp = regexp.MustCompile("`" + tfOrTODO + " import`")
-
-	// (?s) makes the '.' match newlines (in addition to everything else).
-	var blockImportRegexp = regexp.MustCompile("(?s)In " + tfOrTODO + " v[0-9]+\\.[0-9]+\\.[0-9]+ and later," +
-		" use an `import` block.*?```.+?```\n")
-
-	return tfbridge.DocsEdit{
-		Path: "*",
-		Edit: func(_ string, content []byte) ([]byte, error) {
-			content = blockImportRegexp.ReplaceAllLiteral(content, nil)
-			content = inlineImportRegexp.ReplaceAllFunc(content, func(match []byte) []byte {
-				match = bytes.ReplaceAll(match, []byte("terraform"), []byte("pulumi"))
-				match = bytes.ReplaceAll(match, []byte("Terraform"), []byte("pulumi"))
-				match = bytes.ReplaceAll(match, []byte("TODO"), []byte("pulumi"))
-				return match
-			})
-			content = quotedImportRegexp.ReplaceAllLiteral(content, []byte("`pulumi import`"))
-			return content, nil
 		},
 	}
 }
