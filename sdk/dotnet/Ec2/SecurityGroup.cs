@@ -317,9 +317,9 @@ namespace Pulumi.Aws.Ec2
     /// ",
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             example,
+    ///             example, 
     ///         },
     ///     });
     /// 
@@ -341,9 +341,9 @@ namespace Pulumi.Aws.Ec2
     /// ",
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             exampleResource,
+    ///             exampleResource, 
     ///         },
     ///     });
     /// 
