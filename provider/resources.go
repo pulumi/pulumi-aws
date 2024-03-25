@@ -1819,8 +1819,26 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Tok: awsResource(ec2Mod, "NetworkAcl"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					// Use "ingress" instead of "ingresses" to match AWS APIs
-					"ingress": {Name: "ingress"},
-					"egress":  {Name: "egress"},
+					"ingress": {
+						Name: "ingress",
+						DeprecationMessage: "Use of inline rules is discouraged as they cannot be used in conjunction " +
+							"with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.",
+					},
+					"egress": {
+						Name: "egress",
+						DeprecationMessage: "Use of inline rules is discouraged as they cannot be used in conjunction " +
+							"with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.",
+					},
+				},
+				PreCheckCallback: func(ctx context.Context, config resource.PropertyMap, meta resource.PropertyMap,
+				) (resource.PropertyMap, error) {
+					_, hasIngress := config["ingress"]
+					_, hasEgress := config["egress"]
+					if hasIngress || hasEgress {
+						tfbridge.GetLogger(ctx).Warn("Use of inline rules is discouraged as they cannot be used in conjunction " +
+							"with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.")
+					}
+					return config, nil
 				},
 			},
 			"aws_default_network_acl": {
@@ -1879,8 +1897,26 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"description": {Default: managedByPulumi},
 					// Use "ingress" instead of "ingresses" to match AWS APIs
-					"ingress": {Name: "ingress"},
-					"egress":  {Name: "egress"},
+					"ingress": {
+						Name: "ingress",
+						DeprecationMessage: "Use of inline rules is discouraged as they cannot be used in conjunction " +
+							"with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.",
+					},
+					"egress": {
+						Name: "egress",
+						DeprecationMessage: "Use of inline rules is discouraged as they cannot be used in conjunction " +
+							"with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.",
+					},
+				},
+				PreCheckCallback: func(ctx context.Context, config resource.PropertyMap, meta resource.PropertyMap,
+				) (resource.PropertyMap, error) {
+					_, hasIngress := config["ingress"]
+					_, hasEgress := config["egress"]
+					if hasIngress || hasEgress {
+						tfbridge.GetLogger(ctx).Warn("Use of inline rules is discouraged as they cannot be used in conjunction " +
+							"with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.")
+					}
+					return config, nil
 				},
 			},
 			"aws_network_interface_sg_attachment": {Tok: awsResource(ec2Mod, "NetworkInterfaceSecurityGroupAttachment")},
