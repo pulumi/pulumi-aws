@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Anton Tayanovskyy <anton@pulumi.com>
 Date: Fri, 9 Feb 2024 14:39:32 -0500
-Subject: [PATCH 40/47] Patch osis_pipeline tags flags
+Subject: [PATCH 40/46] Patch osis_pipeline tags flags
 
 
 diff --git a/internal/service/osis/pipeline.go b/internal/service/osis/pipeline.go
