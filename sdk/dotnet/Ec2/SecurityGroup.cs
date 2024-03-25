@@ -317,10 +317,10 @@ namespace Pulumi.Aws.Ec2
     /// ",
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             example,
-    ///         },
+    ///             example, 
+    ///         }
     ///     });
     /// 
     ///     var exampleResource = new Null.Index.Resource("example", new()
@@ -341,10 +341,10 @@ namespace Pulumi.Aws.Ec2
     /// ",
     ///     }, new CustomResourceOptions
     ///     {
-    ///         DependsOn = new[]
+    ///         DependsOn =
     ///         {
-    ///             exampleResource,
-    ///         },
+    ///             exampleResource, 
+    ///         }
     ///     });
     /// 
     /// });
