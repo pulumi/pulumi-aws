@@ -3133,10 +3133,10 @@ github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.8 h1:mav2tSitA9BPJPLLahKg
 github.com/pulumi/pulumi-terraform-bridge/x/muxer v0.0.8/go.mod h1:qUYk2c9i/yqMGNj9/bQyXpS39BxNDSXYjVN1njnq0zY=
 github.com/pulumi/pulumi-yaml v1.6.0 h1:mb/QkebWXTa1fR+P3ZkCCHGXOYC6iTN8X8By9eNz8xM=
 github.com/pulumi/pulumi-yaml v1.6.0/go.mod h1:RyEPo4MhL363sbAiFMVKRsQmXpQPDCY1S8pGv3E6Ij0=
-github.com/pulumi/pulumi/pkg/v3 v3.111.1 h1:SrVgQE96T7YlZx/AZoFSlXYwur7ZmQUHyjbPI8sH96Q=
-github.com/pulumi/pulumi/pkg/v3 v3.111.1/go.mod h1:ZWsq8Y0EMHZ5E2ju92jC+POz97TEXs3BbQ6r2o0U4SA=
-github.com/pulumi/pulumi/sdk/v3 v3.111.1 h1:uOeG/b6YxBuL59xHtmFPspMa8BB6ovjHelL7sVCGJZw=
-github.com/pulumi/pulumi/sdk/v3 v3.111.1/go.mod h1:5A6GHUwAJlRY1SSLZh84aDIbsBShcrfcmHzI50ecSBg=
+github.com/pulumi/pulumi/pkg/v3 v3.111.2-0.20240325003253-e64c747fb747 h1:pdVYYUhFy3dkMsDL1g66x/Hzj4G2ChKZnekBQ6e3ls8=
+github.com/pulumi/pulumi/pkg/v3 v3.111.2-0.20240325003253-e64c747fb747/go.mod h1:rqY+lgFmvNcgaTFY3ek0iffqZMVG2I13Z1sLlq53z2M=
+github.com/pulumi/pulumi/sdk/v3 v3.111.2-0.20240325003253-e64c747fb747 h1:IPOW+EFExcKlQcr7rI65iLFuLhGC5UeLI/q5MHogZ/Y=
+github.com/pulumi/pulumi/sdk/v3 v3.111.2-0.20240325003253-e64c747fb747/go.mod h1:BZqRjE2GtMYyjB8eNUomPWld+8RaqXKAuYXFqE13JMY=
 github.com/pulumi/schema-tools v0.1.2 h1:Fd9xvUjgck4NA+7/jSk7InqCUT4Kj940+EcnbQKpfZo=
 github.com/pulumi/schema-tools v0.1.2/go.mod h1:62lgj52Tzq11eqWTIaKd+EVyYAu5dEcDJxMhTjvMO/k=
 github.com/pulumi/terraform-diff-reader v0.0.2 h1:kTE4nEXU3/SYXESvAIem+wyHMI3abqkI3OhJ0G04LLI=
@@ -4526,8 +4526,9 @@ google.golang.org/protobuf v1.28.2-0.20230222093303-bc1253ad3743/go.mod h1:HV8QO
 google.golang.org/protobuf v1.29.1/go.mod h1:HV8QOd/L58Z+nl8r43ehVNZIU/HEI6OcFqwMG9pJV4I=
 google.golang.org/protobuf v1.30.0/go.mod h1:HV8QOd/L58Z+nl8r43ehVNZIU/HEI6OcFqwMG9pJV4I=
 google.golang.org/protobuf v1.31.0/go.mod h1:HV8QOd/L58Z+nl8r43ehVNZIU/HEI6OcFqwMG9pJV4I=
-google.golang.org/protobuf v1.32.0 h1:pPC6BG5ex8PDFnkbrGU3EixyhKcQ2aDuBS36lqK/C7I=
 google.golang.org/protobuf v1.32.0/go.mod h1:c6P6GXX6sHbq/GpV6MGZEdwhWPcYBgnhAHhKbcUYpos=
+google.golang.org/protobuf v1.33.0 h1:uNO2rsAINq/JlFpSdYEKIZ0uKD/R9cpdv0T+yoGwGmI=
+google.golang.org/protobuf v1.33.0/go.mod h1:c6P6GXX6sHbq/GpV6MGZEdwhWPcYBgnhAHhKbcUYpos=
 gopkg.in/airbrake/gobrake.v2 v2.0.9/go.mod h1:/h5ZAUhDkGaJfjzjKLSjv6zCL6O0LLBxU4K+aSYdM/U=
 gopkg.in/alecthomas/kingpin.v2 v2.2.6/go.mod h1:FMv+mEhP44yOT+4EoQTLFTRgOQ1FBLkstjWtayDeSgw=
 gopkg.in/check.v1 v0.0.0-20161208181325-20d25e280405/go.mod h1:Co6ibVJAznAaIkqp8huTwlJQCZ016jof/cbN4VW5Yz0=
