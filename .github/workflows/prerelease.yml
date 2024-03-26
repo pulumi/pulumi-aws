@@ -56,6 +56,12 @@ jobs:
         cache-dependency-path: |
             sdk/go.sum
         go-version: 1.21.x
+    - name: Cache examples generation
+      uses: actions/cache@v4
+      with:
+        path: |
+          .pulumi/examples-cache
+        key: ${{ runner.os }}-${{ hashFiles('provider/go.sum') }}
     - name: Install pulumictl
       uses: jaxxstorm/action-install-gh-release@v1.11.0
       with:
@@ -117,6 +123,7 @@ jobs:
       with:
         name: ${{ matrix.language  }}-sdk.tar.gz
         path: ${{ github.workspace}}/sdk/${{ matrix.language }}.tar.gz
+        retention-days: 30
     - if: failure() && github.event_name == 'push'
       name: Notify Slack
       uses: 8398a7/action-slack@v3
@@ -133,6 +140,7 @@ jobs:
         - dotnet
         - go
         - java
+
   license_check:
     name: License Check
     uses: ./.github/workflows/license.yml
