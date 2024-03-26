@@ -7365,11 +7365,11 @@ export namespace appstream {
 
     export interface ImageBuilderAccessEndpoint {
         /**
-         * Type of interface endpoint.
+         * Type of interface endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html).
          */
         endpointType: pulumi.Input<string>;
         /**
-         * Identifier (ID) of the VPC in which the interface endpoint is used.
+         * Identifier (ID) of the interface VPC endpoint.
          */
         vpceId?: pulumi.Input<string>;
     }
@@ -14716,7 +14716,7 @@ export namespace cognito {
          */
         preSignUp?: pulumi.Input<string>;
         /**
-         * Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the LambdaArn of `preTokenGenerationConfig`.
+         * Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the lambdaArn of `preTokenGenerationConfig`.
          */
         preTokenGeneration?: pulumi.Input<string>;
         /**
@@ -17535,6 +17535,40 @@ export namespace devicefarm {
          * The ID of the Amazon VPC.
          */
         vpcId: pulumi.Input<string>;
+    }
+}
+
+export namespace devopsguru {
+    export interface EventSourcesConfigEventSource {
+        /**
+         * Stores whether DevOps Guru is configured to consume recommendations which are generated from AWS CodeGuru Profiler. See `amazonCodeGuruProfiler` below.
+         */
+        amazonCodeGuruProfilers?: pulumi.Input<pulumi.Input<inputs.devopsguru.EventSourcesConfigEventSourceAmazonCodeGuruProfiler>[]>;
+    }
+
+    export interface EventSourcesConfigEventSourceAmazonCodeGuruProfiler {
+        /**
+         * Status of the CodeGuru Profiler integration. Valid values are `ENABLED` and `DISABLED`.
+         */
+        status: pulumi.Input<string>;
+    }
+
+    export interface ResourceCollectionCloudformation {
+        /**
+         * Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all acccount resources) this array should be a single item containing a wildcard (`"*"`).
+         */
+        stackNames: pulumi.Input<pulumi.Input<string>[]>;
+    }
+
+    export interface ResourceCollectionTags {
+        /**
+         * An AWS tag key that is used to identify the AWS resources that DevOps Guru analyzes. All AWS resources in your account and Region tagged with this key make up your DevOps Guru application and analysis boundary. The key must begin with the prefix `DevOps-Guru-`. Any casing can be used for the prefix, but the associated tags __must use the same casing__ in their tag key.
+         */
+        appBoundaryKey: pulumi.Input<string>;
+        /**
+         * Array of tag values. These can be used to further filter for specific resources within the application boundary. To analyze all resources tagged with the `appBoundaryKey` regardless of the corresponding tag value, this array should be a single item containing a wildcard (`"*"`).
+         */
+        tagValues: pulumi.Input<pulumi.Input<string>[]>;
     }
 }
 
@@ -27676,6 +27710,10 @@ export namespace finspace {
          * The database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume.
          */
         dbPaths: pulumi.Input<pulumi.Input<string>[]>;
+        /**
+         * Enables on-demand caching on the selected database path when a particular file or a column of the database is accessed. When on demand caching is **True**, dataviews perform minimal loading of files on the filesystem as needed. When it is set to **False**, everything is cached. The default value is **False**.
+         */
+        onDemand?: pulumi.Input<boolean>;
         /**
          * The name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
          */
@@ -48940,10 +48978,14 @@ export namespace lex {
     }
 
     export interface V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage {
-        customPayloads: pulumi.Input<any[]>;
+        customPayloads?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayload>[]>;
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCard>;
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessage>;
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessage>;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayload {
+        value: pulumi.Input<string>;
     }
 
     export interface V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCard {
@@ -48967,10 +49009,14 @@ export namespace lex {
     }
 
     export interface V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariation {
-        customPayloads: pulumi.Input<any[]>;
+        customPayloads?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayload>[]>;
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCard>;
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessage>;
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessage>;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayload {
+        value: pulumi.Input<string>;
     }
 
     export interface V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCard {
@@ -49054,10 +49100,14 @@ export namespace lex {
     }
 
     export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage {
-        customPayloads: pulumi.Input<any[]>;
+        customPayloads?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayload>[]>;
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCard>;
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePlainTextMessage>;
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessage>;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayload {
+        value: pulumi.Input<string>;
     }
 
     export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCard {
@@ -49081,10 +49131,14 @@ export namespace lex {
     }
 
     export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariation {
-        customPayloads: pulumi.Input<any[]>;
+        customPayloads?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationCustomPayload>[]>;
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCard>;
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationPlainTextMessage>;
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationSsmlMessage>;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationCustomPayload {
+        value: pulumi.Input<string>;
     }
 
     export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCard {
@@ -49120,10 +49174,14 @@ export namespace lex {
     }
 
     export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage {
-        customPayloads: pulumi.Input<any[]>;
+        customPayloads?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayload>[]>;
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCard>;
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessage>;
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessage>;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayload {
+        value: pulumi.Input<string>;
     }
 
     export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCard {
@@ -49147,10 +49205,14 @@ export namespace lex {
     }
 
     export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariation {
-        customPayloads: pulumi.Input<any[]>;
+        customPayloads?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayload>[]>;
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCard>;
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationPlainTextMessage>;
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessage>;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayload {
+        value: pulumi.Input<string>;
     }
 
     export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCard {
@@ -49184,10 +49246,14 @@ export namespace lex {
     }
 
     export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage {
-        customPayloads: pulumi.Input<any[]>;
+        customPayloads?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayload>[]>;
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCard>;
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessage>;
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessage>;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayload {
+        value: pulumi.Input<string>;
     }
 
     export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCard {
@@ -49211,10 +49277,14 @@ export namespace lex {
     }
 
     export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariation {
-        customPayloads: pulumi.Input<any[]>;
+        customPayloads?: pulumi.Input<pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayload>[]>;
         imageResponseCard?: pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCard>;
         plainTextMessage?: pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessage>;
         ssmlMessage?: pulumi.Input<inputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessage>;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayload {
+        value: pulumi.Input<string>;
     }
 
     export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCard {
@@ -59524,6 +59594,40 @@ export namespace redshift {
         managedBy?: pulumi.Input<string>;
         /**
          * ARN (Amazon Resource Name) of the producer.
+         */
+        producerArn?: pulumi.Input<string>;
+    }
+
+    export interface GetProducerDataSharesDataShare {
+        /**
+         * ARN (Amazon Resource Name) of the data share.
+         */
+        dataShareArn?: string;
+        /**
+         * Identifier of a datashare to show its managing entity.
+         */
+        managedBy?: string;
+        /**
+         * Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
+         *
+         * The following arguments are optional:
+         */
+        producerArn?: string;
+    }
+
+    export interface GetProducerDataSharesDataShareArgs {
+        /**
+         * ARN (Amazon Resource Name) of the data share.
+         */
+        dataShareArn?: pulumi.Input<string>;
+        /**
+         * Identifier of a datashare to show its managing entity.
+         */
+        managedBy?: pulumi.Input<string>;
+        /**
+         * Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
+         *
+         * The following arguments are optional:
          */
         producerArn?: pulumi.Input<string>;
     }

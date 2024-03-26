@@ -11,6 +11,7 @@ from .get_table_item import *
 from .global_table import *
 from .kinesis_streaming_destination import *
 from .table import *
+from .table_export import *
 from .table_item import *
 from .table_replica import *
 from .tag import *

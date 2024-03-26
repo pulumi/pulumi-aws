@@ -145,6 +145,27 @@ public final class KxDataviewArgs extends com.pulumi.resources.ResourceArgs {
     }
 
     /**
+     * The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.
+     * * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `auto_update` must be set as `false` if `read_write` is `true` for a dataview.
+     * * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
+     * * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `read_write` parameter later.
+     * 
+     */
+    @Import(name="readWrite")
+    private @Nullable Output<Boolean> readWrite;
+
+    /**
+     * @return The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.
+     * * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `auto_update` must be set as `false` if `read_write` is `true` for a dataview.
+     * * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
+     * * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `read_write` parameter later.
+     * 
+     */
+    public Optional<Output<Boolean>> readWrite() {
+        return Optional.ofNullable(this.readWrite);
+    }
+
+    /**
      * The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segment_configurations below.
      * 
      */
@@ -185,6 +206,7 @@ public final class KxDataviewArgs extends com.pulumi.resources.ResourceArgs {
         this.description = $.description;
         this.environmentId = $.environmentId;
         this.name = $.name;
+        this.readWrite = $.readWrite;
         this.segmentConfigurations = $.segmentConfigurations;
         this.tags = $.tags;
     }
@@ -377,6 +399,33 @@ public final class KxDataviewArgs extends com.pulumi.resources.ResourceArgs {
          */
         public Builder name(String name) {
             return name(Output.of(name));
+        }
+
+        /**
+         * @param readWrite The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.
+         * * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `auto_update` must be set as `false` if `read_write` is `true` for a dataview.
+         * * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
+         * * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `read_write` parameter later.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder readWrite(@Nullable Output<Boolean> readWrite) {
+            $.readWrite = readWrite;
+            return this;
+        }
+
+        /**
+         * @param readWrite The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.
+         * * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `auto_update` must be set as `false` if `read_write` is `true` for a dataview.
+         * * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
+         * * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `read_write` parameter later.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder readWrite(Boolean readWrite) {
+            return readWrite(Output.of(readWrite));
         }
 
         /**

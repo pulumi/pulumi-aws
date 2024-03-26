@@ -17,14 +17,14 @@ public final class ImageBuilderAccessEndpointArgs extends com.pulumi.resources.R
     public static final ImageBuilderAccessEndpointArgs Empty = new ImageBuilderAccessEndpointArgs();
 
     /**
-     * Type of interface endpoint.
+     * Type of interface endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html).
      * 
      */
     @Import(name="endpointType", required=true)
     private Output<String> endpointType;
 
     /**
-     * @return Type of interface endpoint.
+     * @return Type of interface endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html).
      * 
      */
     public Output<String> endpointType() {
@@ -32,14 +32,14 @@ public final class ImageBuilderAccessEndpointArgs extends com.pulumi.resources.R
     }
 
     /**
-     * Identifier (ID) of the VPC in which the interface endpoint is used.
+     * Identifier (ID) of the interface VPC endpoint.
      * 
      */
     @Import(name="vpceId")
     private @Nullable Output<String> vpceId;
 
     /**
-     * @return Identifier (ID) of the VPC in which the interface endpoint is used.
+     * @return Identifier (ID) of the interface VPC endpoint.
      * 
      */
     public Optional<Output<String>> vpceId() {
@@ -72,7 +72,7 @@ public final class ImageBuilderAccessEndpointArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param endpointType Type of interface endpoint.
+         * @param endpointType Type of interface endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html).
          * 
          * @return builder
          * 
@@ -83,7 +83,7 @@ public final class ImageBuilderAccessEndpointArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param endpointType Type of interface endpoint.
+         * @param endpointType Type of interface endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html).
          * 
          * @return builder
          * 
@@ -93,7 +93,7 @@ public final class ImageBuilderAccessEndpointArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param vpceId Identifier (ID) of the VPC in which the interface endpoint is used.
+         * @param vpceId Identifier (ID) of the interface VPC endpoint.
          * 
          * @return builder
          * 
@@ -104,7 +104,7 @@ public final class ImageBuilderAccessEndpointArgs extends com.pulumi.resources.R
         }
 
         /**
-         * @param vpceId Identifier (ID) of the VPC in which the interface endpoint is used.
+         * @param vpceId Identifier (ID) of the interface VPC endpoint.
          * 
          * @return builder
          * 

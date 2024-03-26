@@ -357,9 +357,17 @@ public class StateMachine extends com.pulumi.resources.CustomResource {
     public Output<String> roleArn() {
         return this.roleArn;
     }
+    /**
+     * The ARN of the state machine version.
+     * 
+     */
     @Export(name="stateMachineVersionArn", refs={String.class}, tree="[0]")
     private Output<String> stateMachineVersionArn;
 
+    /**
+     * @return The ARN of the state machine version.
+     * 
+     */
     public Output<String> stateMachineVersionArn() {
         return this.stateMachineVersionArn;
     }

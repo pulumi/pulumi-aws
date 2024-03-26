@@ -21,6 +21,7 @@ __all__ = [
     'ScheduledActionTargetActionResizeClusterArgs',
     'ScheduledActionTargetActionResumeClusterArgs',
     'GetDataSharesDataShareArgs',
+    'GetProducerDataSharesDataShareArgs',
 ]
 
 @pulumi.input_type
@@ -612,6 +613,62 @@ class GetDataSharesDataShareArgs:
     def producer_arn(self) -> str:
         """
         ARN (Amazon Resource Name) of the producer.
+        """
+        return pulumi.get(self, "producer_arn")
+
+    @producer_arn.setter
+    def producer_arn(self, value: str):
+        pulumi.set(self, "producer_arn", value)
+
+
+@pulumi.input_type
+class GetProducerDataSharesDataShareArgs:
+    def __init__(__self__, *,
+                 data_share_arn: str,
+                 managed_by: str,
+                 producer_arn: str):
+        """
+        :param str data_share_arn: ARN (Amazon Resource Name) of the data share.
+        :param str managed_by: Identifier of a datashare to show its managing entity.
+        :param str producer_arn: Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
+               
+               The following arguments are optional:
+        """
+        pulumi.set(__self__, "data_share_arn", data_share_arn)
+        pulumi.set(__self__, "managed_by", managed_by)
+        pulumi.set(__self__, "producer_arn", producer_arn)
+
+    @property
+    @pulumi.getter(name="dataShareArn")
+    def data_share_arn(self) -> str:
+        """
+        ARN (Amazon Resource Name) of the data share.
+        """
+        return pulumi.get(self, "data_share_arn")
+
+    @data_share_arn.setter
+    def data_share_arn(self, value: str):
+        pulumi.set(self, "data_share_arn", value)
+
+    @property
+    @pulumi.getter(name="managedBy")
+    def managed_by(self) -> str:
+        """
+        Identifier of a datashare to show its managing entity.
+        """
+        return pulumi.get(self, "managed_by")
+
+    @managed_by.setter
+    def managed_by(self, value: str):
+        pulumi.set(self, "managed_by", value)
+
+    @property
+    @pulumi.getter(name="producerArn")
+    def producer_arn(self) -> str:
+        """
+        Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
+
+        The following arguments are optional:
         """
         return pulumi.get(self, "producer_arn")
 

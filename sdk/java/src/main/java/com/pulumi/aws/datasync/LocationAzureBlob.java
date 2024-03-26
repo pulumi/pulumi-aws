@@ -50,7 +50,7 @@ import javax.annotation.Nullable;
  *         var example = new LocationAzureBlob(&#34;example&#34;, LocationAzureBlobArgs.builder()        
  *             .agentArns(exampleAwsDatasyncAgent.arn())
  *             .authenticationType(&#34;SAS&#34;)
- *             .containerUrl(&#34;https://example.com/path&#34;)
+ *             .containerUrl(&#34;https://myaccount.blob.core.windows.net/mycontainer&#34;)
  *             .sasConfiguration(LocationAzureBlobSasConfigurationArgs.builder()
  *                 .token(&#34;sp=r&amp;st=2023-12-20T14:54:52Z&amp;se=2023-12-20T22:54:52Z&amp;spr=https&amp;sv=2021-06-08&amp;sr=c&amp;sig=aBBKDWQvyuVcTPH9EBp%2FXTI9E%2F%2Fmq171%2BZU178wcwqU%3D&#34;)
  *                 .build())

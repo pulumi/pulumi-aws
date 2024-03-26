@@ -23,7 +23,7 @@ class GetVpcPeeringConnectionResult:
     """
     A collection of values returned by getVpcPeeringConnection.
     """
-    def __init__(__self__, accepter=None, cidr_block=None, cidr_block_sets=None, filters=None, id=None, owner_id=None, peer_cidr_block=None, peer_cidr_block_sets=None, peer_owner_id=None, peer_region=None, peer_vpc_id=None, region=None, requester=None, status=None, tags=None, vpc_id=None):
+    def __init__(__self__, accepter=None, cidr_block=None, cidr_block_sets=None, filters=None, id=None, ipv6_cidr_block_sets=None, owner_id=None, peer_cidr_block=None, peer_cidr_block_sets=None, peer_ipv6_cidr_block_sets=None, peer_owner_id=None, peer_region=None, peer_vpc_id=None, region=None, requester=None, status=None, tags=None, vpc_id=None):
         if accepter and not isinstance(accepter, dict):
             raise TypeError("Expected argument 'accepter' to be a dict")
         pulumi.set(__self__, "accepter", accepter)
@@ -39,6 +39,9 @@ class GetVpcPeeringConnectionResult:
         if id and not isinstance(id, str):
             raise TypeError("Expected argument 'id' to be a str")
         pulumi.set(__self__, "id", id)
+        if ipv6_cidr_block_sets and not isinstance(ipv6_cidr_block_sets, list):
+            raise TypeError("Expected argument 'ipv6_cidr_block_sets' to be a list")
+        pulumi.set(__self__, "ipv6_cidr_block_sets", ipv6_cidr_block_sets)
         if owner_id and not isinstance(owner_id, str):
             raise TypeError("Expected argument 'owner_id' to be a str")
         pulumi.set(__self__, "owner_id", owner_id)
@@ -48,6 +51,9 @@ class GetVpcPeeringConnectionResult:
         if peer_cidr_block_sets and not isinstance(peer_cidr_block_sets, list):
             raise TypeError("Expected argument 'peer_cidr_block_sets' to be a list")
         pulumi.set(__self__, "peer_cidr_block_sets", peer_cidr_block_sets)
+        if peer_ipv6_cidr_block_sets and not isinstance(peer_ipv6_cidr_block_sets, list):
+            raise TypeError("Expected argument 'peer_ipv6_cidr_block_sets' to be a list")
+        pulumi.set(__self__, "peer_ipv6_cidr_block_sets", peer_ipv6_cidr_block_sets)
         if peer_owner_id and not isinstance(peer_owner_id, str):
             raise TypeError("Expected argument 'peer_owner_id' to be a str")
         pulumi.set(__self__, "peer_owner_id", peer_owner_id)
@@ -94,7 +100,7 @@ class GetVpcPeeringConnectionResult:
     @pulumi.getter(name="cidrBlockSets")
     def cidr_block_sets(self) -> Sequence['outputs.GetVpcPeeringConnectionCidrBlockSetResult']:
         """
-        List of objects with CIDR blocks of the requester VPC.
+        List of objects with IPv4 CIDR blocks of the requester VPC.
         """
         return pulumi.get(self, "cidr_block_sets")
 
@@ -107,6 +113,14 @@ class GetVpcPeeringConnectionResult:
     @pulumi.getter
     def id(self) -> str:
         return pulumi.get(self, "id")
+
+    @property
+    @pulumi.getter(name="ipv6CidrBlockSets")
+    def ipv6_cidr_block_sets(self) -> Sequence['outputs.GetVpcPeeringConnectionIpv6CidrBlockSetResult']:
+        """
+        List of objects with IPv6 CIDR blocks of the requester VPC.
+        """
+        return pulumi.get(self, "ipv6_cidr_block_sets")
 
     @property
     @pulumi.getter(name="ownerId")
@@ -122,9 +136,17 @@ class GetVpcPeeringConnectionResult:
     @pulumi.getter(name="peerCidrBlockSets")
     def peer_cidr_block_sets(self) -> Sequence['outputs.GetVpcPeeringConnectionPeerCidrBlockSetResult']:
         """
-        List of objects with CIDR blocks of the accepter VPC.
+        List of objects with IPv4 CIDR blocks of the accepter VPC.
         """
         return pulumi.get(self, "peer_cidr_block_sets")
+
+    @property
+    @pulumi.getter(name="peerIpv6CidrBlockSets")
+    def peer_ipv6_cidr_block_sets(self) -> Sequence['outputs.GetVpcPeeringConnectionPeerIpv6CidrBlockSetResult']:
+        """
+        List of objects with IPv6 CIDR blocks of the accepter VPC.
+        """
+        return pulumi.get(self, "peer_ipv6_cidr_block_sets")
 
     @property
     @pulumi.getter(name="peerOwnerId")
@@ -182,9 +204,11 @@ class AwaitableGetVpcPeeringConnectionResult(GetVpcPeeringConnectionResult):
             cidr_block_sets=self.cidr_block_sets,
             filters=self.filters,
             id=self.id,
+            ipv6_cidr_block_sets=self.ipv6_cidr_block_sets,
             owner_id=self.owner_id,
             peer_cidr_block=self.peer_cidr_block,
             peer_cidr_block_sets=self.peer_cidr_block_sets,
+            peer_ipv6_cidr_block_sets=self.peer_ipv6_cidr_block_sets,
             peer_owner_id=self.peer_owner_id,
             peer_region=self.peer_region,
             peer_vpc_id=self.peer_vpc_id,
@@ -272,9 +296,11 @@ def get_vpc_peering_connection(cidr_block: Optional[str] = None,
         cidr_block_sets=pulumi.get(__ret__, 'cidr_block_sets'),
         filters=pulumi.get(__ret__, 'filters'),
         id=pulumi.get(__ret__, 'id'),
+        ipv6_cidr_block_sets=pulumi.get(__ret__, 'ipv6_cidr_block_sets'),
         owner_id=pulumi.get(__ret__, 'owner_id'),
         peer_cidr_block=pulumi.get(__ret__, 'peer_cidr_block'),
         peer_cidr_block_sets=pulumi.get(__ret__, 'peer_cidr_block_sets'),
+        peer_ipv6_cidr_block_sets=pulumi.get(__ret__, 'peer_ipv6_cidr_block_sets'),
         peer_owner_id=pulumi.get(__ret__, 'peer_owner_id'),
         peer_region=pulumi.get(__ret__, 'peer_region'),
         peer_vpc_id=pulumi.get(__ret__, 'peer_vpc_id'),

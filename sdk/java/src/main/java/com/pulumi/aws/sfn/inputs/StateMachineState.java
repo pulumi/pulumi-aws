@@ -153,9 +153,17 @@ public final class StateMachineState extends com.pulumi.resources.ResourceArgs {
         return Optional.ofNullable(this.roleArn);
     }
 
+    /**
+     * The ARN of the state machine version.
+     * 
+     */
     @Import(name="stateMachineVersionArn")
     private @Nullable Output<String> stateMachineVersionArn;
 
+    /**
+     * @return The ARN of the state machine version.
+     * 
+     */
     public Optional<Output<String>> stateMachineVersionArn() {
         return Optional.ofNullable(this.stateMachineVersionArn);
     }
@@ -476,11 +484,23 @@ public final class StateMachineState extends com.pulumi.resources.ResourceArgs {
             return roleArn(Output.of(roleArn));
         }
 
+        /**
+         * @param stateMachineVersionArn The ARN of the state machine version.
+         * 
+         * @return builder
+         * 
+         */
         public Builder stateMachineVersionArn(@Nullable Output<String> stateMachineVersionArn) {
             $.stateMachineVersionArn = stateMachineVersionArn;
             return this;
         }
 
+        /**
+         * @param stateMachineVersionArn The ARN of the state machine version.
+         * 
+         * @return builder
+         * 
+         */
         public Builder stateMachineVersionArn(String stateMachineVersionArn) {
             return stateMachineVersionArn(Output.of(stateMachineVersionArn));
         }

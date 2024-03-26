@@ -689,6 +689,8 @@ class KxDataviewSegmentConfiguration(dict):
             suggest = "db_paths"
         elif key == "volumeName":
             suggest = "volume_name"
+        elif key == "onDemand":
+            suggest = "on_demand"
 
         if suggest:
             pulumi.log.warn(f"Key '{key}' not found in KxDataviewSegmentConfiguration. Access the value via the '{suggest}' property getter instead.")
@@ -703,13 +705,17 @@ class KxDataviewSegmentConfiguration(dict):
 
     def __init__(__self__, *,
                  db_paths: Sequence[str],
-                 volume_name: str):
+                 volume_name: str,
+                 on_demand: Optional[bool] = None):
         """
         :param Sequence[str] db_paths: The database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume.
         :param str volume_name: The name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
+        :param bool on_demand: Enables on-demand caching on the selected database path when a particular file or a column of the database is accessed. When on demand caching is **True**, dataviews perform minimal loading of files on the filesystem as needed. When it is set to **False**, everything is cached. The default value is **False**.
         """
         pulumi.set(__self__, "db_paths", db_paths)
         pulumi.set(__self__, "volume_name", volume_name)
+        if on_demand is not None:
+            pulumi.set(__self__, "on_demand", on_demand)
 
     @property
     @pulumi.getter(name="dbPaths")
@@ -726,6 +732,14 @@ class KxDataviewSegmentConfiguration(dict):
         The name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
         """
         return pulumi.get(self, "volume_name")
+
+    @property
+    @pulumi.getter(name="onDemand")
+    def on_demand(self) -> Optional[bool]:
+        """
+        Enables on-demand caching on the selected database path when a particular file or a column of the database is accessed. When on demand caching is **True**, dataviews perform minimal loading of files on the filesystem as needed. When it is set to **False**, everything is cached. The default value is **False**.
+        """
+        return pulumi.get(self, "on_demand")
 
 
 @pulumi.output_type

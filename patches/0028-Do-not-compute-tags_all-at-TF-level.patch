@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Anton Tayanovskyy <anton@pulumi.com>
 Date: Mon, 6 Nov 2023 11:17:16 -0500
-Subject: [PATCH 28/47] Do not compute tags_all at TF level
+Subject: [PATCH 28/46] Do not compute tags_all at TF level
 
 
 diff --git a/internal/framework/base.go b/internal/framework/base.go
@@ -232,7 +232,7 @@ index 33d374f4e2..b2e1c97096 100644
  		Blocks: map[string]schema.Block{
  			"timeouts": timeouts.Block(ctx, timeouts.Opts{
 diff --git a/internal/verify/diff.go b/internal/verify/diff.go
-index db152ada7c..ae851b099a 100644
+index 776355f900..ae851b099a 100644
 --- a/internal/verify/diff.go
 +++ b/internal/verify/diff.go
 @@ -5,102 +5,13 @@ package verify
@@ -294,8 +294,8 @@ index db152ada7c..ae851b099a 100644
 -		}
 -
 -		if len(allTags) == 0 {
--			if err := diff.SetNewComputed("tags_all"); err != nil {
--				return fmt.Errorf("setting tags_all to computed: %w", err)
+-			if err := diff.SetNew("tags_all", allTags.Map()); err != nil {
+-				return fmt.Errorf("setting new tags_all diff: %w", err)
 -			}
 -		}
 -	} else if !diff.HasChange("tags") {

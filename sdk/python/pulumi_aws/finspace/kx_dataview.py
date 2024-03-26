@@ -24,6 +24,7 @@ class KxDataviewArgs:
                  changeset_id: Optional[pulumi.Input[str]] = None,
                  description: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 read_write: Optional[pulumi.Input[bool]] = None,
                  segment_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['KxDataviewSegmentConfigurationArgs']]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None):
         """
@@ -38,6 +39,10 @@ class KxDataviewArgs:
         :param pulumi.Input[str] name: A unique identifier for the dataview.
                
                The following arguments are optional:
+        :param pulumi.Input[bool] read_write: The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.
+               * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `auto_update` must be set as `false` if `read_write` is `true` for a dataview.
+               * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
+               * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `read_write` parameter later.
         :param pulumi.Input[Sequence[pulumi.Input['KxDataviewSegmentConfigurationArgs']]] segment_configurations: The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segment_configurations below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -53,6 +58,8 @@ class KxDataviewArgs:
             pulumi.set(__self__, "description", description)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if read_write is not None:
+            pulumi.set(__self__, "read_write", read_write)
         if segment_configurations is not None:
             pulumi.set(__self__, "segment_configurations", segment_configurations)
         if tags is not None:
@@ -157,6 +164,21 @@ class KxDataviewArgs:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="readWrite")
+    def read_write(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.
+        * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `auto_update` must be set as `false` if `read_write` is `true` for a dataview.
+        * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
+        * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `read_write` parameter later.
+        """
+        return pulumi.get(self, "read_write")
+
+    @read_write.setter
+    def read_write(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "read_write", value)
+
+    @property
     @pulumi.getter(name="segmentConfigurations")
     def segment_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KxDataviewSegmentConfigurationArgs']]]]:
         """
@@ -195,6 +217,7 @@ class _KxDataviewState:
                  environment_id: Optional[pulumi.Input[str]] = None,
                  last_modified_timestamp: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 read_write: Optional[pulumi.Input[bool]] = None,
                  segment_configurations: Optional[pulumi.Input[Sequence[pulumi.Input['KxDataviewSegmentConfigurationArgs']]]] = None,
                  status: Optional[pulumi.Input[str]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -214,6 +237,10 @@ class _KxDataviewState:
         :param pulumi.Input[str] name: A unique identifier for the dataview.
                
                The following arguments are optional:
+        :param pulumi.Input[bool] read_write: The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.
+               * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `auto_update` must be set as `false` if `read_write` is `true` for a dataview.
+               * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
+               * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `read_write` parameter later.
         :param pulumi.Input[Sequence[pulumi.Input['KxDataviewSegmentConfigurationArgs']]] segment_configurations: The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segment_configurations below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -240,6 +267,8 @@ class _KxDataviewState:
             pulumi.set(__self__, "last_modified_timestamp", last_modified_timestamp)
         if name is not None:
             pulumi.set(__self__, "name", name)
+        if read_write is not None:
+            pulumi.set(__self__, "read_write", read_write)
         if segment_configurations is not None:
             pulumi.set(__self__, "segment_configurations", segment_configurations)
         if status is not None:
@@ -387,6 +416,21 @@ class _KxDataviewState:
         pulumi.set(self, "name", value)
 
     @property
+    @pulumi.getter(name="readWrite")
+    def read_write(self) -> Optional[pulumi.Input[bool]]:
+        """
+        The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.
+        * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `auto_update` must be set as `false` if `read_write` is `true` for a dataview.
+        * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
+        * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `read_write` parameter later.
+        """
+        return pulumi.get(self, "read_write")
+
+    @read_write.setter
+    def read_write(self, value: Optional[pulumi.Input[bool]]):
+        pulumi.set(self, "read_write", value)
+
+    @property
     @pulumi.getter(name="segmentConfigurations")
     def segment_configurations(self) -> Optional[pulumi.Input[Sequence[pulumi.Input['KxDataviewSegmentConfigurationArgs']]]]:
         """
@@ -448,6 +492,7 @@ class KxDataview(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 read_write: Optional[pulumi.Input[bool]] = None,
                  segment_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KxDataviewSegmentConfigurationArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -498,6 +543,10 @@ class KxDataview(pulumi.CustomResource):
         :param pulumi.Input[str] name: A unique identifier for the dataview.
                
                The following arguments are optional:
+        :param pulumi.Input[bool] read_write: The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.
+               * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `auto_update` must be set as `false` if `read_write` is `true` for a dataview.
+               * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
+               * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `read_write` parameter later.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KxDataviewSegmentConfigurationArgs']]]] segment_configurations: The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segment_configurations below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         """
@@ -565,6 +614,7 @@ class KxDataview(pulumi.CustomResource):
                  description: Optional[pulumi.Input[str]] = None,
                  environment_id: Optional[pulumi.Input[str]] = None,
                  name: Optional[pulumi.Input[str]] = None,
+                 read_write: Optional[pulumi.Input[bool]] = None,
                  segment_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KxDataviewSegmentConfigurationArgs']]]]] = None,
                  tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
                  __props__=None):
@@ -592,6 +642,7 @@ class KxDataview(pulumi.CustomResource):
                 raise TypeError("Missing required property 'environment_id'")
             __props__.__dict__["environment_id"] = environment_id
             __props__.__dict__["name"] = name
+            __props__.__dict__["read_write"] = read_write
             __props__.__dict__["segment_configurations"] = segment_configurations
             __props__.__dict__["tags"] = tags
             __props__.__dict__["arn"] = None
@@ -620,6 +671,7 @@ class KxDataview(pulumi.CustomResource):
             environment_id: Optional[pulumi.Input[str]] = None,
             last_modified_timestamp: Optional[pulumi.Input[str]] = None,
             name: Optional[pulumi.Input[str]] = None,
+            read_write: Optional[pulumi.Input[bool]] = None,
             segment_configurations: Optional[pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KxDataviewSegmentConfigurationArgs']]]]] = None,
             status: Optional[pulumi.Input[str]] = None,
             tags: Optional[pulumi.Input[Mapping[str, pulumi.Input[str]]]] = None,
@@ -644,6 +696,10 @@ class KxDataview(pulumi.CustomResource):
         :param pulumi.Input[str] name: A unique identifier for the dataview.
                
                The following arguments are optional:
+        :param pulumi.Input[bool] read_write: The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.
+               * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `auto_update` must be set as `false` if `read_write` is `true` for a dataview.
+               * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
+               * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `read_write` parameter later.
         :param pulumi.Input[Sequence[pulumi.Input[pulumi.InputType['KxDataviewSegmentConfigurationArgs']]]] segment_configurations: The configuration that contains the database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume. If you do not explicitly specify any database path for a volume, they are accessible from the cluster through the default S3/object store segment. See segment_configurations below.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value mapping of resource tags. If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: Map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -663,6 +719,7 @@ class KxDataview(pulumi.CustomResource):
         __props__.__dict__["environment_id"] = environment_id
         __props__.__dict__["last_modified_timestamp"] = last_modified_timestamp
         __props__.__dict__["name"] = name
+        __props__.__dict__["read_write"] = read_write
         __props__.__dict__["segment_configurations"] = segment_configurations
         __props__.__dict__["status"] = status
         __props__.__dict__["tags"] = tags
@@ -758,6 +815,17 @@ class KxDataview(pulumi.CustomResource):
         The following arguments are optional:
         """
         return pulumi.get(self, "name")
+
+    @property
+    @pulumi.getter(name="readWrite")
+    def read_write(self) -> pulumi.Output[Optional[bool]]:
+        """
+        The option to specify whether you want to make the dataview writable to perform database maintenance. The following are some considerations related to writable dataviews.
+        * You cannot create partial writable dataviews. When you create writeable dataviews you must provide the entire database path. You cannot perform updates on a writeable dataview. Hence, `auto_update` must be set as `false` if `read_write` is `true` for a dataview.
+        * You must also use a unique volume for creating a writeable dataview. So, if you choose a volume that is already in use by another dataview, the dataview creation fails.
+        * Once you create a dataview as writeable, you cannot change it to read-only. So, you cannot update the `read_write` parameter later.
+        """
+        return pulumi.get(self, "read_write")
 
     @property
     @pulumi.getter(name="segmentConfigurations")

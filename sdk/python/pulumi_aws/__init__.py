@@ -151,6 +151,8 @@ if typing.TYPE_CHECKING:
     detective = __detective
     import pulumi_aws.devicefarm as __devicefarm
     devicefarm = __devicefarm
+    import pulumi_aws.devopsguru as __devopsguru
+    devopsguru = __devopsguru
     import pulumi_aws.directconnect as __directconnect
     directconnect = __directconnect
     import pulumi_aws.directoryservice as __directoryservice
@@ -490,6 +492,7 @@ else:
     dax = _utilities.lazy_import('pulumi_aws.dax')
     detective = _utilities.lazy_import('pulumi_aws.detective')
     devicefarm = _utilities.lazy_import('pulumi_aws.devicefarm')
+    devopsguru = _utilities.lazy_import('pulumi_aws.devopsguru')
     directconnect = _utilities.lazy_import('pulumi_aws.directconnect')
     directoryservice = _utilities.lazy_import('pulumi_aws.directoryservice')
     dlm = _utilities.lazy_import('pulumi_aws.dlm')
@@ -3265,6 +3268,22 @@ _utilities.register(
  },
  {
   "pkg": "aws",
+  "mod": "devopsguru/eventSourcesConfig",
+  "fqn": "pulumi_aws.devopsguru",
+  "classes": {
+   "aws:devopsguru/eventSourcesConfig:EventSourcesConfig": "EventSourcesConfig"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "devopsguru/resourceCollection",
+  "fqn": "pulumi_aws.devopsguru",
+  "classes": {
+   "aws:devopsguru/resourceCollection:ResourceCollection": "ResourceCollection"
+  }
+ },
+ {
+  "pkg": "aws",
   "mod": "directconnect/bgpPeer",
   "fqn": "pulumi_aws.directconnect",
   "classes": {
@@ -3645,6 +3664,14 @@ _utilities.register(
   "fqn": "pulumi_aws.dynamodb",
   "classes": {
    "aws:dynamodb/table:Table": "Table"
+  }
+ },
+ {
+  "pkg": "aws",
+  "mod": "dynamodb/tableExport",
+  "fqn": "pulumi_aws.dynamodb",
+  "classes": {
+   "aws:dynamodb/tableExport:TableExport": "TableExport"
   }
  },
  {

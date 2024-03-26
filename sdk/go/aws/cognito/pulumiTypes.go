@@ -4297,7 +4297,7 @@ type UserPoolLambdaConfig struct {
 	PreAuthentication *string `pulumi:"preAuthentication"`
 	// Pre-registration AWS Lambda trigger.
 	PreSignUp *string `pulumi:"preSignUp"`
-	// Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the LambdaArn of `preTokenGenerationConfig`.
+	// Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the lambdaArn of `preTokenGenerationConfig`.
 	PreTokenGeneration *string `pulumi:"preTokenGeneration"`
 	// Allow to customize access tokens. See pre_token_configuration_type
 	PreTokenGenerationConfig *UserPoolLambdaConfigPreTokenGenerationConfig `pulumi:"preTokenGenerationConfig"`
@@ -4339,7 +4339,7 @@ type UserPoolLambdaConfigArgs struct {
 	PreAuthentication pulumi.StringPtrInput `pulumi:"preAuthentication"`
 	// Pre-registration AWS Lambda trigger.
 	PreSignUp pulumi.StringPtrInput `pulumi:"preSignUp"`
-	// Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the LambdaArn of `preTokenGenerationConfig`.
+	// Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the lambdaArn of `preTokenGenerationConfig`.
 	PreTokenGeneration pulumi.StringPtrInput `pulumi:"preTokenGeneration"`
 	// Allow to customize access tokens. See pre_token_configuration_type
 	PreTokenGenerationConfig UserPoolLambdaConfigPreTokenGenerationConfigPtrInput `pulumi:"preTokenGenerationConfig"`
@@ -4476,7 +4476,7 @@ func (o UserPoolLambdaConfigOutput) PreSignUp() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolLambdaConfig) *string { return v.PreSignUp }).(pulumi.StringPtrOutput)
 }
 
-// Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the LambdaArn of `preTokenGenerationConfig`.
+// Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the lambdaArn of `preTokenGenerationConfig`.
 func (o UserPoolLambdaConfigOutput) PreTokenGeneration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v UserPoolLambdaConfig) *string { return v.PreTokenGeneration }).(pulumi.StringPtrOutput)
 }
@@ -4622,7 +4622,7 @@ func (o UserPoolLambdaConfigPtrOutput) PreSignUp() pulumi.StringPtrOutput {
 	}).(pulumi.StringPtrOutput)
 }
 
-// Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the LambdaArn of `preTokenGenerationConfig`.
+// Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the lambdaArn of `preTokenGenerationConfig`.
 func (o UserPoolLambdaConfigPtrOutput) PreTokenGeneration() pulumi.StringPtrOutput {
 	return o.ApplyT(func(v *UserPoolLambdaConfig) *string {
 		if v == nil {

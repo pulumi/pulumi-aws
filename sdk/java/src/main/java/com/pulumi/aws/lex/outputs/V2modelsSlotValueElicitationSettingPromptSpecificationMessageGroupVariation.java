@@ -3,12 +3,11 @@
 
 package com.pulumi.aws.lex.outputs;
 
+import com.pulumi.aws.lex.outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayload;
 import com.pulumi.aws.lex.outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCard;
 import com.pulumi.aws.lex.outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessage;
 import com.pulumi.aws.lex.outputs.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessage;
 import com.pulumi.core.annotations.CustomType;
-import com.pulumi.exceptions.MissingRequiredPropertyException;
-import java.lang.Object;
 import java.util.List;
 import java.util.Objects;
 import java.util.Optional;
@@ -16,14 +15,14 @@ import javax.annotation.Nullable;
 
 @CustomType
 public final class V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariation {
-    private List<Object> customPayloads;
+    private @Nullable List<V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayload> customPayloads;
     private @Nullable V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCard imageResponseCard;
     private @Nullable V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessage plainTextMessage;
     private @Nullable V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessage ssmlMessage;
 
     private V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariation() {}
-    public List<Object> customPayloads() {
-        return this.customPayloads;
+    public List<V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayload> customPayloads() {
+        return this.customPayloads == null ? List.of() : this.customPayloads;
     }
     public Optional<V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCard> imageResponseCard() {
         return Optional.ofNullable(this.imageResponseCard);
@@ -44,7 +43,7 @@ public final class V2modelsSlotValueElicitationSettingPromptSpecificationMessage
     }
     @CustomType.Builder
     public static final class Builder {
-        private List<Object> customPayloads;
+        private @Nullable List<V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayload> customPayloads;
         private @Nullable V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCard imageResponseCard;
         private @Nullable V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessage plainTextMessage;
         private @Nullable V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessage ssmlMessage;
@@ -58,14 +57,12 @@ public final class V2modelsSlotValueElicitationSettingPromptSpecificationMessage
         }
 
         @CustomType.Setter
-        public Builder customPayloads(List<Object> customPayloads) {
-            if (customPayloads == null) {
-              throw new MissingRequiredPropertyException("V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariation", "customPayloads");
-            }
+        public Builder customPayloads(@Nullable List<V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayload> customPayloads) {
+
             this.customPayloads = customPayloads;
             return this;
         }
-        public Builder customPayloads(Object... customPayloads) {
+        public Builder customPayloads(V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayload... customPayloads) {
             return customPayloads(List.of(customPayloads));
         }
         @CustomType.Setter

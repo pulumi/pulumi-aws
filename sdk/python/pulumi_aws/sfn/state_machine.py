@@ -193,6 +193,7 @@ class _StateMachineState:
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[bool] publish: Set to true to publish a version of the state machine during creation. Default: false.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
+        :param pulumi.Input[str] state_machine_version_arn: The ARN of the state machine version.
         :param pulumi.Input[str] status: The current status of the state machine. Either `ACTIVE` or `DELETING`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -354,6 +355,9 @@ class _StateMachineState:
     @property
     @pulumi.getter(name="stateMachineVersionArn")
     def state_machine_version_arn(self) -> Optional[pulumi.Input[str]]:
+        """
+        The ARN of the state machine version.
+        """
         return pulumi.get(self, "state_machine_version_arn")
 
     @state_machine_version_arn.setter
@@ -816,6 +820,7 @@ class StateMachine(pulumi.CustomResource):
         :param pulumi.Input[str] name_prefix: Creates a unique name beginning with the specified prefix. Conflicts with `name`.
         :param pulumi.Input[bool] publish: Set to true to publish a version of the state machine during creation. Default: false.
         :param pulumi.Input[str] role_arn: The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
+        :param pulumi.Input[str] state_machine_version_arn: The ARN of the state machine version.
         :param pulumi.Input[str] status: The current status of the state machine. Either `ACTIVE` or `DELETING`.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags: Key-value map of resource tags. .If configured with a provider `default_tags` configuration block present, tags with matching keys will overwrite those defined at the provider-level.
         :param pulumi.Input[Mapping[str, pulumi.Input[str]]] tags_all: A map of tags assigned to the resource, including those inherited from the provider `default_tags` configuration block.
@@ -922,6 +927,9 @@ class StateMachine(pulumi.CustomResource):
     @property
     @pulumi.getter(name="stateMachineVersionArn")
     def state_machine_version_arn(self) -> pulumi.Output[str]:
+        """
+        The ARN of the state machine version.
+        """
         return pulumi.get(self, "state_machine_version_arn")
 
     @property

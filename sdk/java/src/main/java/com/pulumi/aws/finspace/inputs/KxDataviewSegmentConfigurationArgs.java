@@ -6,9 +6,12 @@ package com.pulumi.aws.finspace.inputs;
 import com.pulumi.core.Output;
 import com.pulumi.core.annotations.Import;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 
 public final class KxDataviewSegmentConfigurationArgs extends com.pulumi.resources.ResourceArgs {
@@ -31,6 +34,21 @@ public final class KxDataviewSegmentConfigurationArgs extends com.pulumi.resourc
     }
 
     /**
+     * Enables on-demand caching on the selected database path when a particular file or a column of the database is accessed. When on demand caching is **True**, dataviews perform minimal loading of files on the filesystem as needed. When it is set to **False**, everything is cached. The default value is **False**.
+     * 
+     */
+    @Import(name="onDemand")
+    private @Nullable Output<Boolean> onDemand;
+
+    /**
+     * @return Enables on-demand caching on the selected database path when a particular file or a column of the database is accessed. When on demand caching is **True**, dataviews perform minimal loading of files on the filesystem as needed. When it is set to **False**, everything is cached. The default value is **False**.
+     * 
+     */
+    public Optional<Output<Boolean>> onDemand() {
+        return Optional.ofNullable(this.onDemand);
+    }
+
+    /**
      * The name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
      * 
      */
@@ -49,6 +67,7 @@ public final class KxDataviewSegmentConfigurationArgs extends com.pulumi.resourc
 
     private KxDataviewSegmentConfigurationArgs(KxDataviewSegmentConfigurationArgs $) {
         this.dbPaths = $.dbPaths;
+        this.onDemand = $.onDemand;
         this.volumeName = $.volumeName;
     }
 
@@ -99,6 +118,27 @@ public final class KxDataviewSegmentConfigurationArgs extends com.pulumi.resourc
          */
         public Builder dbPaths(String... dbPaths) {
             return dbPaths(List.of(dbPaths));
+        }
+
+        /**
+         * @param onDemand Enables on-demand caching on the selected database path when a particular file or a column of the database is accessed. When on demand caching is **True**, dataviews perform minimal loading of files on the filesystem as needed. When it is set to **False**, everything is cached. The default value is **False**.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder onDemand(@Nullable Output<Boolean> onDemand) {
+            $.onDemand = onDemand;
+            return this;
+        }
+
+        /**
+         * @param onDemand Enables on-demand caching on the selected database path when a particular file or a column of the database is accessed. When on demand caching is **True**, dataviews perform minimal loading of files on the filesystem as needed. When it is set to **False**, everything is cached. The default value is **False**.
+         * 
+         * @return builder
+         * 
+         */
+        public Builder onDemand(Boolean onDemand) {
+            return onDemand(Output.of(onDemand));
         }
 
         /**

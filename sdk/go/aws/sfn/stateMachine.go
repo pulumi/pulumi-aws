@@ -237,7 +237,8 @@ type StateMachine struct {
 	Publish    pulumi.BoolPtrOutput `pulumi:"publish"`
 	RevisionId pulumi.StringOutput  `pulumi:"revisionId"`
 	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
-	RoleArn                pulumi.StringOutput `pulumi:"roleArn"`
+	RoleArn pulumi.StringOutput `pulumi:"roleArn"`
+	// The ARN of the state machine version.
 	StateMachineVersionArn pulumi.StringOutput `pulumi:"stateMachineVersionArn"`
 	// The current status of the state machine. Either `ACTIVE` or `DELETING`.
 	Status pulumi.StringOutput `pulumi:"status"`
@@ -307,7 +308,8 @@ type stateMachineState struct {
 	Publish    *bool   `pulumi:"publish"`
 	RevisionId *string `pulumi:"revisionId"`
 	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
-	RoleArn                *string `pulumi:"roleArn"`
+	RoleArn *string `pulumi:"roleArn"`
+	// The ARN of the state machine version.
 	StateMachineVersionArn *string `pulumi:"stateMachineVersionArn"`
 	// The current status of the state machine. Either `ACTIVE` or `DELETING`.
 	Status *string `pulumi:"status"`
@@ -342,7 +344,8 @@ type StateMachineState struct {
 	Publish    pulumi.BoolPtrInput
 	RevisionId pulumi.StringPtrInput
 	// The Amazon Resource Name (ARN) of the IAM role to use for this state machine.
-	RoleArn                pulumi.StringPtrInput
+	RoleArn pulumi.StringPtrInput
+	// The ARN of the state machine version.
 	StateMachineVersionArn pulumi.StringPtrInput
 	// The current status of the state machine. Either `ACTIVE` or `DELETING`.
 	Status pulumi.StringPtrInput
@@ -541,6 +544,7 @@ func (o StateMachineOutput) RoleArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StateMachine) pulumi.StringOutput { return v.RoleArn }).(pulumi.StringOutput)
 }
 
+// The ARN of the state machine version.
 func (o StateMachineOutput) StateMachineVersionArn() pulumi.StringOutput {
 	return o.ApplyT(func(v *StateMachine) pulumi.StringOutput { return v.StateMachineVersionArn }).(pulumi.StringOutput)
 }

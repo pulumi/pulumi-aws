@@ -369,6 +369,54 @@ import (
 // ```
 // <!--End PulumiCodeChooser -->
 //
+// ### Mutual TLS Authentication
+//
+// <!--Start PulumiCodeChooser -->
+// ```go
+// package main
+//
+// import (
+//
+//	"github.com/pulumi/pulumi-aws/sdk/v6/go/aws/lb"
+//	"github.com/pulumi/pulumi/sdk/v3/go/pulumi"
+//
+// )
+//
+//	func main() {
+//		pulumi.Run(func(ctx *pulumi.Context) error {
+//			example, err := lb.NewLoadBalancer(ctx, "example", &lb.LoadBalancerArgs{
+//				LoadBalancerType: pulumi.String("application"),
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			exampleTargetGroup, err := lb.NewTargetGroup(ctx, "example", nil)
+//			if err != nil {
+//				return err
+//			}
+//			_, err = lb.NewListener(ctx, "example", &lb.ListenerArgs{
+//				LoadBalancerArn: example.ID(),
+//				DefaultActions: lb.ListenerDefaultActionArray{
+//					&lb.ListenerDefaultActionArgs{
+//						TargetGroupArn: exampleTargetGroup.ID(),
+//						Type:           pulumi.String("forward"),
+//					},
+//				},
+//				MutualAuthentication: &lb.ListenerMutualAuthenticationArgs{
+//					Mode:          pulumi.String("verify"),
+//					TrustStoreArn: pulumi.String("..."),
+//				},
+//			})
+//			if err != nil {
+//				return err
+//			}
+//			return nil
+//		})
+//	}
+//
+// ```
+// <!--End PulumiCodeChooser -->
+//
 // ## Import
 //
 // Using `pulumi import`, import listeners using their ARN. For example:

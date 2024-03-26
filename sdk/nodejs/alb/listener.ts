@@ -208,6 +208,29 @@ import * as utilities from "../utilities";
  * ```
  * <!--End PulumiCodeChooser -->
  *
+ * ### Mutual TLS Authentication
+ *
+ * <!--Start PulumiCodeChooser -->
+ * ```typescript
+ * import * as pulumi from "@pulumi/pulumi";
+ * import * as aws from "@pulumi/aws";
+ *
+ * const example = new aws.lb.LoadBalancer("example", {loadBalancerType: "application"});
+ * const exampleTargetGroup = new aws.lb.TargetGroup("example", {});
+ * const exampleListener = new aws.lb.Listener("example", {
+ *     loadBalancerArn: example.id,
+ *     defaultActions: [{
+ *         targetGroupArn: exampleTargetGroup.id,
+ *         type: "forward",
+ *     }],
+ *     mutualAuthentication: {
+ *         mode: "verify",
+ *         trustStoreArn: "...",
+ *     },
+ * });
+ * ```
+ * <!--End PulumiCodeChooser -->
+ *
  * ## Import
  *
  * Using `pulumi import`, import listeners using their ARN. For example:

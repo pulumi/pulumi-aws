@@ -7445,11 +7445,11 @@ export namespace appstream {
 
     export interface ImageBuilderAccessEndpoint {
         /**
-         * Type of interface endpoint.
+         * Type of interface endpoint. For valid values, refer to the [AWS documentation](https://docs.aws.amazon.com/appstream2/latest/APIReference/API_AccessEndpoint.html).
          */
         endpointType: string;
         /**
-         * Identifier (ID) of the VPC in which the interface endpoint is used.
+         * Identifier (ID) of the interface VPC endpoint.
          */
         vpceId: string;
     }
@@ -15837,7 +15837,7 @@ export namespace cognito {
          */
         preSignUp?: string;
         /**
-         * Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the LambdaArn of `preTokenGenerationConfig`.
+         * Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the lambdaArn of `preTokenGenerationConfig`.
          */
         preTokenGeneration: string;
         /**
@@ -20120,11 +20120,11 @@ export namespace datasync {
         /**
          * The data transfer protection setting configured on the HDFS cluster. This setting corresponds to your dfs.data.transfer.protection setting in the hdfs-site.xml file on your Hadoop cluster. Valid values are `DISABLED`, `AUTHENTICATION`, `INTEGRITY` and `PRIVACY`.
          */
-        dataTransferProtection?: string;
+        dataTransferProtection: string;
         /**
          * The RPC protection setting configured on the HDFS cluster. This setting corresponds to your hadoop.rpc.protection setting in your core-site.xml file on your Hadoop cluster. Valid values are `DISABLED`, `AUTHENTICATION`, `INTEGRITY` and `PRIVACY`.
          */
-        rpcProtection?: string;
+        rpcProtection: string;
     }
 
     export interface LocationSmbMountOptions {
@@ -20368,6 +20368,41 @@ export namespace devicefarm {
          * The ID of the Amazon VPC.
          */
         vpcId: string;
+    }
+
+}
+
+export namespace devopsguru {
+    export interface EventSourcesConfigEventSource {
+        /**
+         * Stores whether DevOps Guru is configured to consume recommendations which are generated from AWS CodeGuru Profiler. See `amazonCodeGuruProfiler` below.
+         */
+        amazonCodeGuruProfilers?: outputs.devopsguru.EventSourcesConfigEventSourceAmazonCodeGuruProfiler[];
+    }
+
+    export interface EventSourcesConfigEventSourceAmazonCodeGuruProfiler {
+        /**
+         * Status of the CodeGuru Profiler integration. Valid values are `ENABLED` and `DISABLED`.
+         */
+        status: string;
+    }
+
+    export interface ResourceCollectionCloudformation {
+        /**
+         * Array of the names of the AWS CloudFormation stacks. If `type` is `AWS_SERVICE` (all acccount resources) this array should be a single item containing a wildcard (`"*"`).
+         */
+        stackNames: string[];
+    }
+
+    export interface ResourceCollectionTags {
+        /**
+         * An AWS tag key that is used to identify the AWS resources that DevOps Guru analyzes. All AWS resources in your account and Region tagged with this key make up your DevOps Guru application and analysis boundary. The key must begin with the prefix `DevOps-Guru-`. Any casing can be used for the prefix, but the associated tags __must use the same casing__ in their tag key.
+         */
+        appBoundaryKey: string;
+        /**
+         * Array of tag values. These can be used to further filter for specific resources within the application boundary. To analyze all resources tagged with the `appBoundaryKey` regardless of the corresponding tag value, this array should be a single item containing a wildcard (`"*"`).
+         */
+        tagValues: string[];
     }
 
 }
@@ -24905,11 +24940,19 @@ export namespace ec2 {
         values: string[];
     }
 
+    export interface GetVpcPeeringConnectionIpv6CidrBlockSet {
+        ipv6CidrBlock: string;
+    }
+
     export interface GetVpcPeeringConnectionPeerCidrBlockSet {
         /**
          * Primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
          */
         cidrBlock: string;
+    }
+
+    export interface GetVpcPeeringConnectionPeerIpv6CidrBlockSet {
+        ipv6CidrBlock: string;
     }
 
     export interface GetVpcPeeringConnectionsFilter {
@@ -32105,6 +32148,10 @@ export namespace finspace {
          * The database path of the data that you want to place on each selected volume. Each segment must have a unique database path for each volume.
          */
         dbPaths: string[];
+        /**
+         * Enables on-demand caching on the selected database path when a particular file or a column of the database is accessed. When on demand caching is **True**, dataviews perform minimal loading of files on the filesystem as needed. When it is set to **False**, everything is cached. The default value is **False**.
+         */
+        onDemand?: boolean;
         /**
          * The name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
          */
@@ -54472,10 +54519,14 @@ export namespace lex {
     }
 
     export interface V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessage {
-        customPayloads: any[];
+        customPayloads?: outputs.lex.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayload[];
         imageResponseCard?: outputs.lex.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCard;
         plainTextMessage?: outputs.lex.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessagePlainTextMessage;
         ssmlMessage?: outputs.lex.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageCustomPayload {
+        value: string;
     }
 
     export interface V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupMessageImageResponseCard {
@@ -54499,10 +54550,14 @@ export namespace lex {
     }
 
     export interface V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariation {
-        customPayloads: any[];
+        customPayloads?: outputs.lex.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayload[];
         imageResponseCard?: outputs.lex.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCard;
         plainTextMessage?: outputs.lex.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationPlainTextMessage;
         ssmlMessage?: outputs.lex.V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationCustomPayload {
+        value: string;
     }
 
     export interface V2modelsSlotValueElicitationSettingPromptSpecificationMessageGroupVariationImageResponseCard {
@@ -54586,10 +54641,14 @@ export namespace lex {
     }
 
     export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessage {
-        customPayloads: any[];
+        customPayloads?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayload[];
         imageResponseCard?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCard;
         plainTextMessage?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessagePlainTextMessage;
         ssmlMessage?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageCustomPayload {
+        value: string;
     }
 
     export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupMessageImageResponseCard {
@@ -54613,10 +54672,14 @@ export namespace lex {
     }
 
     export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariation {
-        customPayloads: any[];
+        customPayloads?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationCustomPayload[];
         imageResponseCard?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCard;
         plainTextMessage?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationPlainTextMessage;
         ssmlMessage?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationCustomPayload {
+        value: string;
     }
 
     export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationContinueResponseMessageGroupVariationImageResponseCard {
@@ -54652,10 +54715,14 @@ export namespace lex {
     }
 
     export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessage {
-        customPayloads: any[];
+        customPayloads?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayload[];
         imageResponseCard?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCard;
         plainTextMessage?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessagePlainTextMessage;
         ssmlMessage?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageCustomPayload {
+        value: string;
     }
 
     export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupMessageImageResponseCard {
@@ -54679,10 +54746,14 @@ export namespace lex {
     }
 
     export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariation {
-        customPayloads: any[];
+        customPayloads?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayload[];
         imageResponseCard?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCard;
         plainTextMessage?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationPlainTextMessage;
         ssmlMessage?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayload {
+        value: string;
     }
 
     export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationImageResponseCard {
@@ -54716,10 +54787,14 @@ export namespace lex {
     }
 
     export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessage {
-        customPayloads: any[];
+        customPayloads?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayload[];
         imageResponseCard?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCard;
         plainTextMessage?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessagePlainTextMessage;
         ssmlMessage?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageSsmlMessage;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageCustomPayload {
+        value: string;
     }
 
     export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupMessageImageResponseCard {
@@ -54743,10 +54818,14 @@ export namespace lex {
     }
 
     export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariation {
-        customPayloads: any[];
+        customPayloads?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayload[];
         imageResponseCard?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCard;
         plainTextMessage?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationPlainTextMessage;
         ssmlMessage?: outputs.lex.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationSsmlMessage;
+    }
+
+    export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationCustomPayload {
+        value: string;
     }
 
     export interface V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationWaitingResponseMessageGroupVariationImageResponseCard {
@@ -66128,6 +66207,23 @@ export namespace redshift {
         managedBy: string;
         /**
          * ARN (Amazon Resource Name) of the producer.
+         */
+        producerArn: string;
+    }
+
+    export interface GetProducerDataSharesDataShare {
+        /**
+         * ARN (Amazon Resource Name) of the data share.
+         */
+        dataShareArn: string;
+        /**
+         * Identifier of a datashare to show its managing entity.
+         */
+        managedBy: string;
+        /**
+         * Amazon Resource Name (ARN) of the producer namespace that returns in the list of datashares.
+         *
+         * The following arguments are optional:
          */
         producerArn: string;
     }

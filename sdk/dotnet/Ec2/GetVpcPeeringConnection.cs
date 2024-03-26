@@ -305,17 +305,25 @@ namespace Pulumi.Aws.Ec2
         /// </summary>
         public readonly string CidrBlock;
         /// <summary>
-        /// List of objects with CIDR blocks of the requester VPC.
+        /// List of objects with IPv4 CIDR blocks of the requester VPC.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVpcPeeringConnectionCidrBlockSetResult> CidrBlockSets;
         public readonly ImmutableArray<Outputs.GetVpcPeeringConnectionFilterResult> Filters;
         public readonly string Id;
+        /// <summary>
+        /// List of objects with IPv6 CIDR blocks of the requester VPC.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetVpcPeeringConnectionIpv6CidrBlockSetResult> Ipv6CidrBlockSets;
         public readonly string OwnerId;
         public readonly string PeerCidrBlock;
         /// <summary>
-        /// List of objects with CIDR blocks of the accepter VPC.
+        /// List of objects with IPv4 CIDR blocks of the accepter VPC.
         /// </summary>
         public readonly ImmutableArray<Outputs.GetVpcPeeringConnectionPeerCidrBlockSetResult> PeerCidrBlockSets;
+        /// <summary>
+        /// List of objects with IPv6 CIDR blocks of the accepter VPC.
+        /// </summary>
+        public readonly ImmutableArray<Outputs.GetVpcPeeringConnectionPeerIpv6CidrBlockSetResult> PeerIpv6CidrBlockSets;
         public readonly string PeerOwnerId;
         public readonly string PeerRegion;
         public readonly string PeerVpcId;
@@ -341,11 +349,15 @@ namespace Pulumi.Aws.Ec2
 
             string id,
 
+            ImmutableArray<Outputs.GetVpcPeeringConnectionIpv6CidrBlockSetResult> ipv6CidrBlockSets,
+
             string ownerId,
 
             string peerCidrBlock,
 
             ImmutableArray<Outputs.GetVpcPeeringConnectionPeerCidrBlockSetResult> peerCidrBlockSets,
+
+            ImmutableArray<Outputs.GetVpcPeeringConnectionPeerIpv6CidrBlockSetResult> peerIpv6CidrBlockSets,
 
             string peerOwnerId,
 
@@ -368,9 +380,11 @@ namespace Pulumi.Aws.Ec2
             CidrBlockSets = cidrBlockSets;
             Filters = filters;
             Id = id;
+            Ipv6CidrBlockSets = ipv6CidrBlockSets;
             OwnerId = ownerId;
             PeerCidrBlock = peerCidrBlock;
             PeerCidrBlockSets = peerCidrBlockSets;
+            PeerIpv6CidrBlockSets = peerIpv6CidrBlockSets;
             PeerOwnerId = peerOwnerId;
             PeerRegion = peerRegion;
             PeerVpcId = peerVpcId;

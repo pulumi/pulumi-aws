@@ -5,7 +5,9 @@ package com.pulumi.aws.ec2.outputs;
 
 import com.pulumi.aws.ec2.outputs.GetVpcPeeringConnectionCidrBlockSet;
 import com.pulumi.aws.ec2.outputs.GetVpcPeeringConnectionFilter;
+import com.pulumi.aws.ec2.outputs.GetVpcPeeringConnectionIpv6CidrBlockSet;
 import com.pulumi.aws.ec2.outputs.GetVpcPeeringConnectionPeerCidrBlockSet;
+import com.pulumi.aws.ec2.outputs.GetVpcPeeringConnectionPeerIpv6CidrBlockSet;
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
 import java.lang.Boolean;
@@ -29,19 +31,29 @@ public final class GetVpcPeeringConnectionResult {
      */
     private String cidrBlock;
     /**
-     * @return List of objects with CIDR blocks of the requester VPC.
+     * @return List of objects with IPv4 CIDR blocks of the requester VPC.
      * 
      */
     private List<GetVpcPeeringConnectionCidrBlockSet> cidrBlockSets;
     private @Nullable List<GetVpcPeeringConnectionFilter> filters;
     private String id;
+    /**
+     * @return List of objects with IPv6 CIDR blocks of the requester VPC.
+     * 
+     */
+    private List<GetVpcPeeringConnectionIpv6CidrBlockSet> ipv6CidrBlockSets;
     private String ownerId;
     private String peerCidrBlock;
     /**
-     * @return List of objects with CIDR blocks of the accepter VPC.
+     * @return List of objects with IPv4 CIDR blocks of the accepter VPC.
      * 
      */
     private List<GetVpcPeeringConnectionPeerCidrBlockSet> peerCidrBlockSets;
+    /**
+     * @return List of objects with IPv6 CIDR blocks of the accepter VPC.
+     * 
+     */
+    private List<GetVpcPeeringConnectionPeerIpv6CidrBlockSet> peerIpv6CidrBlockSets;
     private String peerOwnerId;
     private String peerRegion;
     private String peerVpcId;
@@ -73,7 +85,7 @@ public final class GetVpcPeeringConnectionResult {
         return this.cidrBlock;
     }
     /**
-     * @return List of objects with CIDR blocks of the requester VPC.
+     * @return List of objects with IPv4 CIDR blocks of the requester VPC.
      * 
      */
     public List<GetVpcPeeringConnectionCidrBlockSet> cidrBlockSets() {
@@ -85,6 +97,13 @@ public final class GetVpcPeeringConnectionResult {
     public String id() {
         return this.id;
     }
+    /**
+     * @return List of objects with IPv6 CIDR blocks of the requester VPC.
+     * 
+     */
+    public List<GetVpcPeeringConnectionIpv6CidrBlockSet> ipv6CidrBlockSets() {
+        return this.ipv6CidrBlockSets;
+    }
     public String ownerId() {
         return this.ownerId;
     }
@@ -92,11 +111,18 @@ public final class GetVpcPeeringConnectionResult {
         return this.peerCidrBlock;
     }
     /**
-     * @return List of objects with CIDR blocks of the accepter VPC.
+     * @return List of objects with IPv4 CIDR blocks of the accepter VPC.
      * 
      */
     public List<GetVpcPeeringConnectionPeerCidrBlockSet> peerCidrBlockSets() {
         return this.peerCidrBlockSets;
+    }
+    /**
+     * @return List of objects with IPv6 CIDR blocks of the accepter VPC.
+     * 
+     */
+    public List<GetVpcPeeringConnectionPeerIpv6CidrBlockSet> peerIpv6CidrBlockSets() {
+        return this.peerIpv6CidrBlockSets;
     }
     public String peerOwnerId() {
         return this.peerOwnerId;
@@ -142,9 +168,11 @@ public final class GetVpcPeeringConnectionResult {
         private List<GetVpcPeeringConnectionCidrBlockSet> cidrBlockSets;
         private @Nullable List<GetVpcPeeringConnectionFilter> filters;
         private String id;
+        private List<GetVpcPeeringConnectionIpv6CidrBlockSet> ipv6CidrBlockSets;
         private String ownerId;
         private String peerCidrBlock;
         private List<GetVpcPeeringConnectionPeerCidrBlockSet> peerCidrBlockSets;
+        private List<GetVpcPeeringConnectionPeerIpv6CidrBlockSet> peerIpv6CidrBlockSets;
         private String peerOwnerId;
         private String peerRegion;
         private String peerVpcId;
@@ -161,9 +189,11 @@ public final class GetVpcPeeringConnectionResult {
     	      this.cidrBlockSets = defaults.cidrBlockSets;
     	      this.filters = defaults.filters;
     	      this.id = defaults.id;
+    	      this.ipv6CidrBlockSets = defaults.ipv6CidrBlockSets;
     	      this.ownerId = defaults.ownerId;
     	      this.peerCidrBlock = defaults.peerCidrBlock;
     	      this.peerCidrBlockSets = defaults.peerCidrBlockSets;
+    	      this.peerIpv6CidrBlockSets = defaults.peerIpv6CidrBlockSets;
     	      this.peerOwnerId = defaults.peerOwnerId;
     	      this.peerRegion = defaults.peerRegion;
     	      this.peerVpcId = defaults.peerVpcId;
@@ -219,6 +249,17 @@ public final class GetVpcPeeringConnectionResult {
             return this;
         }
         @CustomType.Setter
+        public Builder ipv6CidrBlockSets(List<GetVpcPeeringConnectionIpv6CidrBlockSet> ipv6CidrBlockSets) {
+            if (ipv6CidrBlockSets == null) {
+              throw new MissingRequiredPropertyException("GetVpcPeeringConnectionResult", "ipv6CidrBlockSets");
+            }
+            this.ipv6CidrBlockSets = ipv6CidrBlockSets;
+            return this;
+        }
+        public Builder ipv6CidrBlockSets(GetVpcPeeringConnectionIpv6CidrBlockSet... ipv6CidrBlockSets) {
+            return ipv6CidrBlockSets(List.of(ipv6CidrBlockSets));
+        }
+        @CustomType.Setter
         public Builder ownerId(String ownerId) {
             if (ownerId == null) {
               throw new MissingRequiredPropertyException("GetVpcPeeringConnectionResult", "ownerId");
@@ -244,6 +285,17 @@ public final class GetVpcPeeringConnectionResult {
         }
         public Builder peerCidrBlockSets(GetVpcPeeringConnectionPeerCidrBlockSet... peerCidrBlockSets) {
             return peerCidrBlockSets(List.of(peerCidrBlockSets));
+        }
+        @CustomType.Setter
+        public Builder peerIpv6CidrBlockSets(List<GetVpcPeeringConnectionPeerIpv6CidrBlockSet> peerIpv6CidrBlockSets) {
+            if (peerIpv6CidrBlockSets == null) {
+              throw new MissingRequiredPropertyException("GetVpcPeeringConnectionResult", "peerIpv6CidrBlockSets");
+            }
+            this.peerIpv6CidrBlockSets = peerIpv6CidrBlockSets;
+            return this;
+        }
+        public Builder peerIpv6CidrBlockSets(GetVpcPeeringConnectionPeerIpv6CidrBlockSet... peerIpv6CidrBlockSets) {
+            return peerIpv6CidrBlockSets(List.of(peerIpv6CidrBlockSets));
         }
         @CustomType.Setter
         public Builder peerOwnerId(String peerOwnerId) {
@@ -316,9 +368,11 @@ public final class GetVpcPeeringConnectionResult {
             _resultValue.cidrBlockSets = cidrBlockSets;
             _resultValue.filters = filters;
             _resultValue.id = id;
+            _resultValue.ipv6CidrBlockSets = ipv6CidrBlockSets;
             _resultValue.ownerId = ownerId;
             _resultValue.peerCidrBlock = peerCidrBlock;
             _resultValue.peerCidrBlockSets = peerCidrBlockSets;
+            _resultValue.peerIpv6CidrBlockSets = peerIpv6CidrBlockSets;
             _resultValue.peerOwnerId = peerOwnerId;
             _resultValue.peerRegion = peerRegion;
             _resultValue.peerVpcId = peerVpcId;

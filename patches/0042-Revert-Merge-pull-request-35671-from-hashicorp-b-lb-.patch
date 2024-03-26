@@ -1,7 +1,7 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Venelin <venelin@pulumi.com>
 Date: Wed, 14 Feb 2024 14:49:38 +0000
-Subject: [PATCH 43/47] Revert "Merge pull request #35671 from
+Subject: [PATCH 42/46] Revert "Merge pull request #35671 from
  hashicorp/b-lb-listener-stickiness-3"
 
 This reverts commit 32a681fcfcd8d78c5ac9e199384a980bb71c82ed, reversing
@@ -263,7 +263,7 @@ index 047ee68dee..6da74fd123 100644
  	conditions := make([]interface{}, len(rule.Conditions))
  	for i, condition := range rule.Conditions {
 diff --git a/website/docs/r/lb_listener.html.markdown b/website/docs/r/lb_listener.html.markdown
-index e3a16fed28..c98b41fea4 100644
+index 1e934ff25e..1695adb02f 100644
 --- a/website/docs/r/lb_listener.html.markdown
 +++ b/website/docs/r/lb_listener.html.markdown
 @@ -278,19 +278,10 @@ The following arguments are optional:

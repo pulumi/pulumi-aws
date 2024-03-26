@@ -15,10 +15,10 @@ import (
 //
 // ## Import
 //
-// Using `pulumi import`, import Security Lake subscriber using the subscriber ARN. For example:
+// Using `pulumi import`, import Security Lake subscriber using the subscriber ID. For example:
 //
 // ```sh
-// $ pulumi import aws:securitylake/subscriber:Subscriber example arn:aws:securitylake:eu-west-2:1234567890:subscriber/9f3bfe79-d543-474d-a93c-f3846805d208
+// $ pulumi import aws:securitylake/subscriber:Subscriber example 9f3bfe79-d543-474d-a93c-f3846805d208
 // ```
 type Subscriber struct {
 	pulumi.CustomResourceState

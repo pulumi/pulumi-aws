@@ -169,14 +169,14 @@ public final class UserPoolLambdaConfigArgs extends com.pulumi.resources.Resourc
     }
 
     /**
-     * Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the LambdaArn of `pre_token_generation_config`.
+     * Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the lambda_arn of `pre_token_generation_config`.
      * 
      */
     @Import(name="preTokenGeneration")
     private @Nullable Output<String> preTokenGeneration;
 
     /**
-     * @return Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the LambdaArn of `pre_token_generation_config`.
+     * @return Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the lambda_arn of `pre_token_generation_config`.
      * 
      */
     public Optional<Output<String>> preTokenGeneration() {
@@ -476,7 +476,7 @@ public final class UserPoolLambdaConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param preTokenGeneration Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the LambdaArn of `pre_token_generation_config`.
+         * @param preTokenGeneration Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the lambda_arn of `pre_token_generation_config`.
          * 
          * @return builder
          * 
@@ -487,7 +487,7 @@ public final class UserPoolLambdaConfigArgs extends com.pulumi.resources.Resourc
         }
 
         /**
-         * @param preTokenGeneration Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the LambdaArn of `pre_token_generation_config`.
+         * @param preTokenGeneration Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the lambda_arn of `pre_token_generation_config`.
          * 
          * @return builder
          * 

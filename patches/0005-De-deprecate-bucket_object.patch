@@ -1,11 +1,11 @@
 From 0000000000000000000000000000000000000000 Mon Sep 17 00:00:00 2001
 From: Daniel Bradley <daniel@pulumi.com>
 Date: Fri, 4 Nov 2022 17:06:11 +0000
-Subject: [PATCH 05/47] De-deprecate bucket_object
+Subject: [PATCH 05/46] De-deprecate bucket_object
 
 
 diff --git a/internal/service/s3/bucket_object.go b/internal/service/s3/bucket_object.go
-index fe0d296ce8..3a99e36393 100644
+index 853f7f1780..5e7fd2bfd3 100644
 --- a/internal/service/s3/bucket_object.go
 +++ b/internal/service/s3/bucket_object.go
 @@ -67,7 +67,7 @@ func resourceBucketObject() *schema.Resource {

@@ -25,6 +25,12 @@ namespace Pulumi.Aws.FinSpace.Inputs
         }
 
         /// <summary>
+        /// Enables on-demand caching on the selected database path when a particular file or a column of the database is accessed. When on demand caching is **True**, dataviews perform minimal loading of files on the filesystem as needed. When it is set to **False**, everything is cached. The default value is **False**.
+        /// </summary>
+        [Input("onDemand")]
+        public Input<bool>? OnDemand { get; set; }
+
+        /// <summary>
         /// The name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
         /// </summary>
         [Input("volumeName", required: true)]

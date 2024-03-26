@@ -12,11 +12,11 @@ namespace Pulumi.Aws.Lex.Inputs
 
     public sealed class V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationArgs : global::Pulumi.ResourceArgs
     {
-        [Input("customPayloads", required: true)]
-        private InputList<object>? _customPayloads;
-        public InputList<object> CustomPayloads
+        [Input("customPayloads")]
+        private InputList<Inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayloadArgs>? _customPayloads;
+        public InputList<Inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayloadArgs> CustomPayloads
         {
-            get => _customPayloads ?? (_customPayloads = new InputList<object>());
+            get => _customPayloads ?? (_customPayloads = new InputList<Inputs.V2modelsSlotValueElicitationSettingWaitAndContinueSpecificationStillWaitingResponseMessageGroupVariationCustomPayloadArgs>());
             set => _customPayloads = value;
         }
 

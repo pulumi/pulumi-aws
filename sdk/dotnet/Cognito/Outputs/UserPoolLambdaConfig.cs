@@ -54,7 +54,7 @@ namespace Pulumi.Aws.Cognito.Outputs
         /// </summary>
         public readonly string? PreSignUp;
         /// <summary>
-        /// Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the LambdaArn of `pre_token_generation_config`.
+        /// Allow to customize identity token claims before token generation. Set this parameter for legacy purposes; for new instances of pre token generation triggers, set the lambda_arn of `pre_token_generation_config`.
         /// </summary>
         public readonly string? PreTokenGeneration;
         /// <summary>

@@ -139,6 +139,7 @@ import * as datasync from "./datasync";
 import * as dax from "./dax";
 import * as detective from "./detective";
 import * as devicefarm from "./devicefarm";
+import * as devopsguru from "./devopsguru";
 import * as directconnect from "./directconnect";
 import * as directoryservice from "./directoryservice";
 import * as dlm from "./dlm";
@@ -344,6 +345,7 @@ export {
     dax,
     detective,
     devicefarm,
+    devopsguru,
     directconnect,
     directoryservice,
     dlm,

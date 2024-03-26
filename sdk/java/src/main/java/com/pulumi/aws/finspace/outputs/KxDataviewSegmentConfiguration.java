@@ -5,9 +5,12 @@ package com.pulumi.aws.finspace.outputs;
 
 import com.pulumi.core.annotations.CustomType;
 import com.pulumi.exceptions.MissingRequiredPropertyException;
+import java.lang.Boolean;
 import java.lang.String;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
+import javax.annotation.Nullable;
 
 @CustomType
 public final class KxDataviewSegmentConfiguration {
@@ -16,6 +19,11 @@ public final class KxDataviewSegmentConfiguration {
      * 
      */
     private List<String> dbPaths;
+    /**
+     * @return Enables on-demand caching on the selected database path when a particular file or a column of the database is accessed. When on demand caching is **True**, dataviews perform minimal loading of files on the filesystem as needed. When it is set to **False**, everything is cached. The default value is **False**.
+     * 
+     */
+    private @Nullable Boolean onDemand;
     /**
      * @return The name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
      * 
@@ -29,6 +37,13 @@ public final class KxDataviewSegmentConfiguration {
      */
     public List<String> dbPaths() {
         return this.dbPaths;
+    }
+    /**
+     * @return Enables on-demand caching on the selected database path when a particular file or a column of the database is accessed. When on demand caching is **True**, dataviews perform minimal loading of files on the filesystem as needed. When it is set to **False**, everything is cached. The default value is **False**.
+     * 
+     */
+    public Optional<Boolean> onDemand() {
+        return Optional.ofNullable(this.onDemand);
     }
     /**
      * @return The name of the volume that you want to attach to a dataview. This volume must be in the same availability zone as the dataview that you are attaching to.
@@ -48,11 +63,13 @@ public final class KxDataviewSegmentConfiguration {
     @CustomType.Builder
     public static final class Builder {
         private List<String> dbPaths;
+        private @Nullable Boolean onDemand;
         private String volumeName;
         public Builder() {}
         public Builder(KxDataviewSegmentConfiguration defaults) {
     	      Objects.requireNonNull(defaults);
     	      this.dbPaths = defaults.dbPaths;
+    	      this.onDemand = defaults.onDemand;
     	      this.volumeName = defaults.volumeName;
         }
 
@@ -68,6 +85,12 @@ public final class KxDataviewSegmentConfiguration {
             return dbPaths(List.of(dbPaths));
         }
         @CustomType.Setter
+        public Builder onDemand(@Nullable Boolean onDemand) {
+
+            this.onDemand = onDemand;
+            return this;
+        }
+        @CustomType.Setter
         public Builder volumeName(String volumeName) {
             if (volumeName == null) {
               throw new MissingRequiredPropertyException("KxDataviewSegmentConfiguration", "volumeName");
@@ -78,6 +101,7 @@ public final class KxDataviewSegmentConfiguration {
         public KxDataviewSegmentConfiguration build() {
             final var _resultValue = new KxDataviewSegmentConfiguration();
             _resultValue.dbPaths = dbPaths;
+            _resultValue.onDemand = onDemand;
             _resultValue.volumeName = volumeName;
             return _resultValue;
         }

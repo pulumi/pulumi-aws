@@ -56563,6 +56563,100 @@ func (o GetVpcPeeringConnectionFilterArrayOutput) Index(i pulumi.IntInput) GetVp
 	}).(GetVpcPeeringConnectionFilterOutput)
 }
 
+type GetVpcPeeringConnectionIpv6CidrBlockSet struct {
+	Ipv6CidrBlock string `pulumi:"ipv6CidrBlock"`
+}
+
+// GetVpcPeeringConnectionIpv6CidrBlockSetInput is an input type that accepts GetVpcPeeringConnectionIpv6CidrBlockSetArgs and GetVpcPeeringConnectionIpv6CidrBlockSetOutput values.
+// You can construct a concrete instance of `GetVpcPeeringConnectionIpv6CidrBlockSetInput` via:
+//
+//	GetVpcPeeringConnectionIpv6CidrBlockSetArgs{...}
+type GetVpcPeeringConnectionIpv6CidrBlockSetInput interface {
+	pulumi.Input
+
+	ToGetVpcPeeringConnectionIpv6CidrBlockSetOutput() GetVpcPeeringConnectionIpv6CidrBlockSetOutput
+	ToGetVpcPeeringConnectionIpv6CidrBlockSetOutputWithContext(context.Context) GetVpcPeeringConnectionIpv6CidrBlockSetOutput
+}
+
+type GetVpcPeeringConnectionIpv6CidrBlockSetArgs struct {
+	Ipv6CidrBlock pulumi.StringInput `pulumi:"ipv6CidrBlock"`
+}
+
+func (GetVpcPeeringConnectionIpv6CidrBlockSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcPeeringConnectionIpv6CidrBlockSet)(nil)).Elem()
+}
+
+func (i GetVpcPeeringConnectionIpv6CidrBlockSetArgs) ToGetVpcPeeringConnectionIpv6CidrBlockSetOutput() GetVpcPeeringConnectionIpv6CidrBlockSetOutput {
+	return i.ToGetVpcPeeringConnectionIpv6CidrBlockSetOutputWithContext(context.Background())
+}
+
+func (i GetVpcPeeringConnectionIpv6CidrBlockSetArgs) ToGetVpcPeeringConnectionIpv6CidrBlockSetOutputWithContext(ctx context.Context) GetVpcPeeringConnectionIpv6CidrBlockSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcPeeringConnectionIpv6CidrBlockSetOutput)
+}
+
+// GetVpcPeeringConnectionIpv6CidrBlockSetArrayInput is an input type that accepts GetVpcPeeringConnectionIpv6CidrBlockSetArray and GetVpcPeeringConnectionIpv6CidrBlockSetArrayOutput values.
+// You can construct a concrete instance of `GetVpcPeeringConnectionIpv6CidrBlockSetArrayInput` via:
+//
+//	GetVpcPeeringConnectionIpv6CidrBlockSetArray{ GetVpcPeeringConnectionIpv6CidrBlockSetArgs{...} }
+type GetVpcPeeringConnectionIpv6CidrBlockSetArrayInput interface {
+	pulumi.Input
+
+	ToGetVpcPeeringConnectionIpv6CidrBlockSetArrayOutput() GetVpcPeeringConnectionIpv6CidrBlockSetArrayOutput
+	ToGetVpcPeeringConnectionIpv6CidrBlockSetArrayOutputWithContext(context.Context) GetVpcPeeringConnectionIpv6CidrBlockSetArrayOutput
+}
+
+type GetVpcPeeringConnectionIpv6CidrBlockSetArray []GetVpcPeeringConnectionIpv6CidrBlockSetInput
+
+func (GetVpcPeeringConnectionIpv6CidrBlockSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcPeeringConnectionIpv6CidrBlockSet)(nil)).Elem()
+}
+
+func (i GetVpcPeeringConnectionIpv6CidrBlockSetArray) ToGetVpcPeeringConnectionIpv6CidrBlockSetArrayOutput() GetVpcPeeringConnectionIpv6CidrBlockSetArrayOutput {
+	return i.ToGetVpcPeeringConnectionIpv6CidrBlockSetArrayOutputWithContext(context.Background())
+}
+
+func (i GetVpcPeeringConnectionIpv6CidrBlockSetArray) ToGetVpcPeeringConnectionIpv6CidrBlockSetArrayOutputWithContext(ctx context.Context) GetVpcPeeringConnectionIpv6CidrBlockSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcPeeringConnectionIpv6CidrBlockSetArrayOutput)
+}
+
+type GetVpcPeeringConnectionIpv6CidrBlockSetOutput struct{ *pulumi.OutputState }
+
+func (GetVpcPeeringConnectionIpv6CidrBlockSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcPeeringConnectionIpv6CidrBlockSet)(nil)).Elem()
+}
+
+func (o GetVpcPeeringConnectionIpv6CidrBlockSetOutput) ToGetVpcPeeringConnectionIpv6CidrBlockSetOutput() GetVpcPeeringConnectionIpv6CidrBlockSetOutput {
+	return o
+}
+
+func (o GetVpcPeeringConnectionIpv6CidrBlockSetOutput) ToGetVpcPeeringConnectionIpv6CidrBlockSetOutputWithContext(ctx context.Context) GetVpcPeeringConnectionIpv6CidrBlockSetOutput {
+	return o
+}
+
+func (o GetVpcPeeringConnectionIpv6CidrBlockSetOutput) Ipv6CidrBlock() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcPeeringConnectionIpv6CidrBlockSet) string { return v.Ipv6CidrBlock }).(pulumi.StringOutput)
+}
+
+type GetVpcPeeringConnectionIpv6CidrBlockSetArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVpcPeeringConnectionIpv6CidrBlockSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcPeeringConnectionIpv6CidrBlockSet)(nil)).Elem()
+}
+
+func (o GetVpcPeeringConnectionIpv6CidrBlockSetArrayOutput) ToGetVpcPeeringConnectionIpv6CidrBlockSetArrayOutput() GetVpcPeeringConnectionIpv6CidrBlockSetArrayOutput {
+	return o
+}
+
+func (o GetVpcPeeringConnectionIpv6CidrBlockSetArrayOutput) ToGetVpcPeeringConnectionIpv6CidrBlockSetArrayOutputWithContext(ctx context.Context) GetVpcPeeringConnectionIpv6CidrBlockSetArrayOutput {
+	return o
+}
+
+func (o GetVpcPeeringConnectionIpv6CidrBlockSetArrayOutput) Index(i pulumi.IntInput) GetVpcPeeringConnectionIpv6CidrBlockSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpcPeeringConnectionIpv6CidrBlockSet {
+		return vs[0].([]GetVpcPeeringConnectionIpv6CidrBlockSet)[vs[1].(int)]
+	}).(GetVpcPeeringConnectionIpv6CidrBlockSetOutput)
+}
+
 type GetVpcPeeringConnectionPeerCidrBlockSet struct {
 	// Primary CIDR block of the requester VPC of the specific VPC Peering Connection to retrieve.
 	CidrBlock string `pulumi:"cidrBlock"`
@@ -56658,6 +56752,100 @@ func (o GetVpcPeeringConnectionPeerCidrBlockSetArrayOutput) Index(i pulumi.IntIn
 	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpcPeeringConnectionPeerCidrBlockSet {
 		return vs[0].([]GetVpcPeeringConnectionPeerCidrBlockSet)[vs[1].(int)]
 	}).(GetVpcPeeringConnectionPeerCidrBlockSetOutput)
+}
+
+type GetVpcPeeringConnectionPeerIpv6CidrBlockSet struct {
+	Ipv6CidrBlock string `pulumi:"ipv6CidrBlock"`
+}
+
+// GetVpcPeeringConnectionPeerIpv6CidrBlockSetInput is an input type that accepts GetVpcPeeringConnectionPeerIpv6CidrBlockSetArgs and GetVpcPeeringConnectionPeerIpv6CidrBlockSetOutput values.
+// You can construct a concrete instance of `GetVpcPeeringConnectionPeerIpv6CidrBlockSetInput` via:
+//
+//	GetVpcPeeringConnectionPeerIpv6CidrBlockSetArgs{...}
+type GetVpcPeeringConnectionPeerIpv6CidrBlockSetInput interface {
+	pulumi.Input
+
+	ToGetVpcPeeringConnectionPeerIpv6CidrBlockSetOutput() GetVpcPeeringConnectionPeerIpv6CidrBlockSetOutput
+	ToGetVpcPeeringConnectionPeerIpv6CidrBlockSetOutputWithContext(context.Context) GetVpcPeeringConnectionPeerIpv6CidrBlockSetOutput
+}
+
+type GetVpcPeeringConnectionPeerIpv6CidrBlockSetArgs struct {
+	Ipv6CidrBlock pulumi.StringInput `pulumi:"ipv6CidrBlock"`
+}
+
+func (GetVpcPeeringConnectionPeerIpv6CidrBlockSetArgs) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcPeeringConnectionPeerIpv6CidrBlockSet)(nil)).Elem()
+}
+
+func (i GetVpcPeeringConnectionPeerIpv6CidrBlockSetArgs) ToGetVpcPeeringConnectionPeerIpv6CidrBlockSetOutput() GetVpcPeeringConnectionPeerIpv6CidrBlockSetOutput {
+	return i.ToGetVpcPeeringConnectionPeerIpv6CidrBlockSetOutputWithContext(context.Background())
+}
+
+func (i GetVpcPeeringConnectionPeerIpv6CidrBlockSetArgs) ToGetVpcPeeringConnectionPeerIpv6CidrBlockSetOutputWithContext(ctx context.Context) GetVpcPeeringConnectionPeerIpv6CidrBlockSetOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcPeeringConnectionPeerIpv6CidrBlockSetOutput)
+}
+
+// GetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayInput is an input type that accepts GetVpcPeeringConnectionPeerIpv6CidrBlockSetArray and GetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayOutput values.
+// You can construct a concrete instance of `GetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayInput` via:
+//
+//	GetVpcPeeringConnectionPeerIpv6CidrBlockSetArray{ GetVpcPeeringConnectionPeerIpv6CidrBlockSetArgs{...} }
+type GetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayInput interface {
+	pulumi.Input
+
+	ToGetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayOutput() GetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayOutput
+	ToGetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayOutputWithContext(context.Context) GetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayOutput
+}
+
+type GetVpcPeeringConnectionPeerIpv6CidrBlockSetArray []GetVpcPeeringConnectionPeerIpv6CidrBlockSetInput
+
+func (GetVpcPeeringConnectionPeerIpv6CidrBlockSetArray) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcPeeringConnectionPeerIpv6CidrBlockSet)(nil)).Elem()
+}
+
+func (i GetVpcPeeringConnectionPeerIpv6CidrBlockSetArray) ToGetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayOutput() GetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayOutput {
+	return i.ToGetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayOutputWithContext(context.Background())
+}
+
+func (i GetVpcPeeringConnectionPeerIpv6CidrBlockSetArray) ToGetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayOutputWithContext(ctx context.Context) GetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayOutput {
+	return pulumi.ToOutputWithContext(ctx, i).(GetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayOutput)
+}
+
+type GetVpcPeeringConnectionPeerIpv6CidrBlockSetOutput struct{ *pulumi.OutputState }
+
+func (GetVpcPeeringConnectionPeerIpv6CidrBlockSetOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*GetVpcPeeringConnectionPeerIpv6CidrBlockSet)(nil)).Elem()
+}
+
+func (o GetVpcPeeringConnectionPeerIpv6CidrBlockSetOutput) ToGetVpcPeeringConnectionPeerIpv6CidrBlockSetOutput() GetVpcPeeringConnectionPeerIpv6CidrBlockSetOutput {
+	return o
+}
+
+func (o GetVpcPeeringConnectionPeerIpv6CidrBlockSetOutput) ToGetVpcPeeringConnectionPeerIpv6CidrBlockSetOutputWithContext(ctx context.Context) GetVpcPeeringConnectionPeerIpv6CidrBlockSetOutput {
+	return o
+}
+
+func (o GetVpcPeeringConnectionPeerIpv6CidrBlockSetOutput) Ipv6CidrBlock() pulumi.StringOutput {
+	return o.ApplyT(func(v GetVpcPeeringConnectionPeerIpv6CidrBlockSet) string { return v.Ipv6CidrBlock }).(pulumi.StringOutput)
+}
+
+type GetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayOutput struct{ *pulumi.OutputState }
+
+func (GetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayOutput) ElementType() reflect.Type {
+	return reflect.TypeOf((*[]GetVpcPeeringConnectionPeerIpv6CidrBlockSet)(nil)).Elem()
+}
+
+func (o GetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayOutput) ToGetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayOutput() GetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayOutput {
+	return o
+}
+
+func (o GetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayOutput) ToGetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayOutputWithContext(ctx context.Context) GetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayOutput {
+	return o
+}
+
+func (o GetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayOutput) Index(i pulumi.IntInput) GetVpcPeeringConnectionPeerIpv6CidrBlockSetOutput {
+	return pulumi.All(o, i).ApplyT(func(vs []interface{}) GetVpcPeeringConnectionPeerIpv6CidrBlockSet {
+		return vs[0].([]GetVpcPeeringConnectionPeerIpv6CidrBlockSet)[vs[1].(int)]
+	}).(GetVpcPeeringConnectionPeerIpv6CidrBlockSetOutput)
 }
 
 type GetVpcPeeringConnectionsFilter struct {
@@ -57830,8 +58018,12 @@ func init() {
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcPeeringConnectionCidrBlockSetArrayInput)(nil)).Elem(), GetVpcPeeringConnectionCidrBlockSetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcPeeringConnectionFilterInput)(nil)).Elem(), GetVpcPeeringConnectionFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcPeeringConnectionFilterArrayInput)(nil)).Elem(), GetVpcPeeringConnectionFilterArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcPeeringConnectionIpv6CidrBlockSetInput)(nil)).Elem(), GetVpcPeeringConnectionIpv6CidrBlockSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcPeeringConnectionIpv6CidrBlockSetArrayInput)(nil)).Elem(), GetVpcPeeringConnectionIpv6CidrBlockSetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcPeeringConnectionPeerCidrBlockSetInput)(nil)).Elem(), GetVpcPeeringConnectionPeerCidrBlockSetArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcPeeringConnectionPeerCidrBlockSetArrayInput)(nil)).Elem(), GetVpcPeeringConnectionPeerCidrBlockSetArray{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcPeeringConnectionPeerIpv6CidrBlockSetInput)(nil)).Elem(), GetVpcPeeringConnectionPeerIpv6CidrBlockSetArgs{})
+	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayInput)(nil)).Elem(), GetVpcPeeringConnectionPeerIpv6CidrBlockSetArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcPeeringConnectionsFilterInput)(nil)).Elem(), GetVpcPeeringConnectionsFilterArgs{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcPeeringConnectionsFilterArrayInput)(nil)).Elem(), GetVpcPeeringConnectionsFilterArray{})
 	pulumi.RegisterInputType(reflect.TypeOf((*GetVpcsFilterInput)(nil)).Elem(), GetVpcsFilterArgs{})
@@ -58671,8 +58863,12 @@ func init() {
 	pulumi.RegisterOutputType(GetVpcPeeringConnectionCidrBlockSetArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcPeeringConnectionFilterOutput{})
 	pulumi.RegisterOutputType(GetVpcPeeringConnectionFilterArrayOutput{})
+	pulumi.RegisterOutputType(GetVpcPeeringConnectionIpv6CidrBlockSetOutput{})
+	pulumi.RegisterOutputType(GetVpcPeeringConnectionIpv6CidrBlockSetArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcPeeringConnectionPeerCidrBlockSetOutput{})
 	pulumi.RegisterOutputType(GetVpcPeeringConnectionPeerCidrBlockSetArrayOutput{})
+	pulumi.RegisterOutputType(GetVpcPeeringConnectionPeerIpv6CidrBlockSetOutput{})
+	pulumi.RegisterOutputType(GetVpcPeeringConnectionPeerIpv6CidrBlockSetArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcPeeringConnectionsFilterOutput{})
 	pulumi.RegisterOutputType(GetVpcPeeringConnectionsFilterArrayOutput{})
 	pulumi.RegisterOutputType(GetVpcsFilterOutput{})
