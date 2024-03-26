@@ -274,10 +274,14 @@ export class SecurityGroup extends pulumi.CustomResource {
     public readonly description!: pulumi.Output<string>;
     /**
      * Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+     *
+     * @deprecated Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
      */
     public readonly egress!: pulumi.Output<outputs.ec2.SecurityGroupEgress[]>;
     /**
      * Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+     *
+     * @deprecated Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
      */
     public readonly ingress!: pulumi.Output<outputs.ec2.SecurityGroupIngress[]>;
     /**
@@ -368,10 +372,14 @@ export interface SecurityGroupState {
     description?: pulumi.Input<string>;
     /**
      * Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+     *
+     * @deprecated Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
      */
     egress?: pulumi.Input<pulumi.Input<inputs.ec2.SecurityGroupEgress>[]>;
     /**
      * Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+     *
+     * @deprecated Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
      */
     ingress?: pulumi.Input<pulumi.Input<inputs.ec2.SecurityGroupIngress>[]>;
     /**
@@ -416,10 +424,14 @@ export interface SecurityGroupArgs {
     description?: pulumi.Input<string>;
     /**
      * Configuration block for egress rules. Can be specified multiple times for each egress rule. Each egress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+     *
+     * @deprecated Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
      */
     egress?: pulumi.Input<pulumi.Input<inputs.ec2.SecurityGroupEgress>[]>;
     /**
      * Configuration block for ingress rules. Can be specified multiple times for each ingress rule. Each ingress block supports fields documented below. This argument is processed in attribute-as-blocks mode.
+     *
+     * @deprecated Use of inline rules is discouraged as they cannot be used in conjunction with any Security Group Rule resources. Doing so will cause a conflict and may overwrite rules.
      */
     ingress?: pulumi.Input<pulumi.Input<inputs.ec2.SecurityGroupIngress>[]>;
     /**

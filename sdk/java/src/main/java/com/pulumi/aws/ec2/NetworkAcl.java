@@ -112,7 +112,11 @@ public class NetworkAcl extends com.pulumi.resources.CustomResource {
     /**
      * Specifies an egress rule. Parameters defined below.
      * 
+     * @deprecated
+     * Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.
+     * 
      */
+    @Deprecated /* Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules. */
     @Export(name="egress", refs={List.class,NetworkAclEgress.class}, tree="[0,1]")
     private Output<List<NetworkAclEgress>> egress;
 
@@ -126,7 +130,11 @@ public class NetworkAcl extends com.pulumi.resources.CustomResource {
     /**
      * Specifies an ingress rule. Parameters defined below.
      * 
+     * @deprecated
+     * Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules.
+     * 
      */
+    @Deprecated /* Use of inline rules is discouraged as they cannot be used in conjunction with any Network ACL Rule resources. Doing so will cause a conflict and may overwrite rules. */
     @Export(name="ingress", refs={List.class,NetworkAclIngress.class}, tree="[0,1]")
     private Output<List<NetworkAclIngress>> ingress;
 
