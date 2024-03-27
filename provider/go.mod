@@ -17,6 +17,11 @@ require (
 	pgregory.net/rapid v0.6.1
 )
 
+replace (
+	github.com/pulumi/pulumi-terraform-bridge/pf => github.com/pulumi/pulumi-terraform-bridge/pf v0.31.1-0.20240327020745-3987c1e68ad5
+	github.com/pulumi/pulumi-terraform-bridge/v3 => github.com/pulumi/pulumi-terraform-bridge/v3 v3.78.1-0.20240327020745-3987c1e68ad5
+)
+
 // This replace is copied from upstream/go.mod, and should be maintained only as long as
 // upstream maintains the same replace.
 //
