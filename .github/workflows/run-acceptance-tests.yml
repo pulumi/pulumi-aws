@@ -174,8 +174,8 @@ jobs:
       uses: actions/checkout@v4
       with:
         submodules: true
-    # - name: Unshallow clone for tags
-    #   run: git fetch --prune --unshallow --tags
+    - name: Unshallow clone for tags
+      run: git fetch --prune --unshallow --tags
     - name: make upstream
       run: make upstream
     - name: Install Go
@@ -197,11 +197,11 @@ jobs:
     #     path: ci-scripts
     #     repository: pulumi/scripts
     #     ref: deca2c5c6015ad7aaea6f572a1c2b198ca323592
-    # - name: Install pulumictl
-    #   uses: jaxxstorm/action-install-gh-release@v1.11.0
-    #   with:
-    #     tag: v0.0.46
-    #     repo: pulumi/pulumictl
+    - name: Install pulumictl
+      uses: jaxxstorm/action-install-gh-release@v1.11.0
+      with:
+        tag: v0.0.46
+        repo: pulumi/pulumictl
     - if: github.event_name == 'pull_request'
       name: Install Schema Tools
       uses: jaxxstorm/action-install-gh-release@v1.11.0
