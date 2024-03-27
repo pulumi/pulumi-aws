@@ -178,14 +178,14 @@ func GetLogResourcePolicy(ctx *pulumi.Context,
 // Input properties used for looking up and filtering LogResourcePolicy resources.
 type logResourcePolicyState struct {
 	// Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
-	PolicyDocument *string `pulumi:"policyDocument"`
+	PolicyDocument interface{} `pulumi:"policyDocument"`
 	// Name of the resource policy.
 	PolicyName *string `pulumi:"policyName"`
 }
 
 type LogResourcePolicyState struct {
 	// Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
-	PolicyDocument pulumi.StringPtrInput
+	PolicyDocument pulumi.Input
 	// Name of the resource policy.
 	PolicyName pulumi.StringPtrInput
 }
@@ -196,7 +196,7 @@ func (LogResourcePolicyState) ElementType() reflect.Type {
 
 type logResourcePolicyArgs struct {
 	// Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
-	PolicyDocument string `pulumi:"policyDocument"`
+	PolicyDocument interface{} `pulumi:"policyDocument"`
 	// Name of the resource policy.
 	PolicyName string `pulumi:"policyName"`
 }
@@ -204,7 +204,7 @@ type logResourcePolicyArgs struct {
 // The set of arguments for constructing a LogResourcePolicy resource.
 type LogResourcePolicyArgs struct {
 	// Details of the resource policy, including the identity of the principal that is enabled to put logs to this account. This is formatted as a JSON string. Maximum length of 5120 characters.
-	PolicyDocument pulumi.StringInput
+	PolicyDocument pulumi.Input
 	// Name of the resource policy.
 	PolicyName pulumi.StringInput
 }

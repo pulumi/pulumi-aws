@@ -153,7 +153,7 @@ type topicPolicyState struct {
 	// The AWS Account ID of the SNS topic owner
 	Owner *string `pulumi:"owner"`
 	// The fully-formed AWS policy as JSON.
-	Policy *string `pulumi:"policy"`
+	Policy interface{} `pulumi:"policy"`
 }
 
 type TopicPolicyState struct {
@@ -162,7 +162,7 @@ type TopicPolicyState struct {
 	// The AWS Account ID of the SNS topic owner
 	Owner pulumi.StringPtrInput
 	// The fully-formed AWS policy as JSON.
-	Policy pulumi.StringPtrInput
+	Policy pulumi.Input
 }
 
 func (TopicPolicyState) ElementType() reflect.Type {
@@ -173,7 +173,7 @@ type topicPolicyArgs struct {
 	// The ARN of the SNS topic
 	Arn string `pulumi:"arn"`
 	// The fully-formed AWS policy as JSON.
-	Policy string `pulumi:"policy"`
+	Policy interface{} `pulumi:"policy"`
 }
 
 // The set of arguments for constructing a TopicPolicy resource.
@@ -181,7 +181,7 @@ type TopicPolicyArgs struct {
 	// The ARN of the SNS topic
 	Arn pulumi.StringInput
 	// The fully-formed AWS policy as JSON.
-	Policy pulumi.StringInput
+	Policy pulumi.Input
 }
 
 func (TopicPolicyArgs) ElementType() reflect.Type {

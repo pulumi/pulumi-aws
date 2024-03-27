@@ -1335,11 +1335,9 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Tok: awsResource(cloudwatchMod, "LogResourcePolicy"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"policy_document": {
-						Elem: &tfbridge.SchemaInfo{
-							Type:      "string",
-							AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
-							Transform: tfbridge.TransformJSONDocument,
-						},
+						Type:      "string",
+						AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
+						Transform: tfbridge.TransformJSONDocument,
 					},
 				},
 			},
@@ -2087,11 +2085,9 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Tok: awsResource(ecrMod, "RegistryPolicy"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"policy": {
-						Elem: &tfbridge.SchemaInfo{
-							Type:      "string",
-							AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
-							Transform: tfbridge.TransformJSONDocument,
-						},
+						Type:      "string",
+						AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
+						Transform: tfbridge.TransformJSONDocument,
 					},
 				},
 			},
@@ -3851,11 +3847,9 @@ func ProviderFromMeta(metaInfo *tfbridge.MetadataInfo) *tfbridge.ProviderInfo {
 				Tok: awsResource(snsMod, "TopicPolicy"),
 				Fields: map[string]*tfbridge.SchemaInfo{
 					"policy": {
-						Elem: &tfbridge.SchemaInfo{
-							Type:      "string",
-							AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
-							Transform: tfbridge.TransformJSONDocument,
-						},
+						Type:      "string",
+						AltTypes:  []tokens.Type{awsType(iamMod, "documents", "PolicyDocument")},
+						Transform: tfbridge.TransformJSONDocument,
 					},
 				},
 			},

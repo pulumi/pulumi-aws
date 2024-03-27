@@ -132,14 +132,14 @@ func GetRegistryPolicy(ctx *pulumi.Context,
 // Input properties used for looking up and filtering RegistryPolicy resources.
 type registryPolicyState struct {
 	// The policy document. This is a JSON formatted string.
-	Policy *string `pulumi:"policy"`
+	Policy interface{} `pulumi:"policy"`
 	// The registry ID where the registry was created.
 	RegistryId *string `pulumi:"registryId"`
 }
 
 type RegistryPolicyState struct {
 	// The policy document. This is a JSON formatted string.
-	Policy pulumi.StringPtrInput
+	Policy pulumi.Input
 	// The registry ID where the registry was created.
 	RegistryId pulumi.StringPtrInput
 }
@@ -150,13 +150,13 @@ func (RegistryPolicyState) ElementType() reflect.Type {
 
 type registryPolicyArgs struct {
 	// The policy document. This is a JSON formatted string.
-	Policy string `pulumi:"policy"`
+	Policy interface{} `pulumi:"policy"`
 }
 
 // The set of arguments for constructing a RegistryPolicy resource.
 type RegistryPolicyArgs struct {
 	// The policy document. This is a JSON formatted string.
-	Policy pulumi.StringInput
+	Policy pulumi.Input
 }
 
 func (RegistryPolicyArgs) ElementType() reflect.Type {

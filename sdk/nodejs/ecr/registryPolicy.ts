@@ -4,6 +4,8 @@
 import * as pulumi from "@pulumi/pulumi";
 import * as utilities from "../utilities";
 
+import {PolicyDocument} from "../iam";
+
 /**
  * Provides an Elastic Container Registry Policy.
  *
@@ -114,7 +116,7 @@ export interface RegistryPolicyState {
     /**
      * The policy document. This is a JSON formatted string.
      */
-    policy?: pulumi.Input<string>;
+    policy?: pulumi.Input<string | PolicyDocument>;
     /**
      * The registry ID where the registry was created.
      */
@@ -128,5 +130,5 @@ export interface RegistryPolicyArgs {
     /**
      * The policy document. This is a JSON formatted string.
      */
-    policy: pulumi.Input<string>;
+    policy: pulumi.Input<string | PolicyDocument>;
 }
