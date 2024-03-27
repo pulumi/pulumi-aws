@@ -155,6 +155,9 @@ tfgen: install_plugins upstream
 	PULUMI_CONVERT=$(PULUMI_CONVERT) PULUMI_DISABLE_AUTOMATIC_PLUGIN_ACQUISITION=$(PULUMI_CONVERT) $(WORKING_DIR)/bin/$(TFGEN) schema --out provider/cmd/$(PROVIDER)
 	(cd provider && VERSION=$(VERSION) go generate cmd/$(PROVIDER)/main.go)
 
+schema: export PULUMI_HOME := $(WORKING_DIR)/.pulumi
+schema: export PATH := $(WORKING_DIR)/.pulumi/bin:$(PATH)
+schema: export PULUMI_CONVERT_EXAMPLES_CACHE_DIR := $(WORKING_DIR)/.pulumi/examples-cache
 schema: export PULUMI_CONVERT := $(PULUMI_CONVERT)
 schema: export PULUMI_DISABLE_AUTOMATIC_PLUGIN_ACQUISITION := $(PULUMI_CONVERT)
 schema:
