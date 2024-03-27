@@ -158,10 +158,14 @@ tfgen: install_plugins upstream
 schema: export PULUMI_HOME := $(WORKING_DIR)/.pulumi
 schema: export PATH := $(WORKING_DIR)/.pulumi/bin:$(PATH)
 schema: export PULUMI_CONVERT_EXAMPLES_CACHE_DIR := $(WORKING_DIR)/.pulumi/examples-cache
-schema: export PULUMI_CONVERT := $(PULUMI_CONVERT)
-schema: export PULUMI_DISABLE_AUTOMATIC_PLUGIN_ACQUISITION := $(PULUMI_CONVERT)
 schema:
 	$(WORKING_DIR)/bin/$(TFGEN) schema --out provider/cmd/$(PROVIDER)
+
+go_generate: export PULUMI_HOME := $(WORKING_DIR)/.pulumi
+go_generate: export PATH := $(WORKING_DIR)/.pulumi/bin:$(PATH)
+go_generate: export PULUMI_CONVERT_EXAMPLES_CACHE_DIR := $(WORKING_DIR)/.pulumi/examples-cache
+go_generate:
+	(cd provider && VERSION=$(VERSION) go generate cmd/$(PROVIDER)/main.go)
 
 tfgen_build_only:
 	(cd provider && go build $(PULUMI_PROVIDER_BUILD_PARALLELISM) -o $(WORKING_DIR)/bin/$(TFGEN) -ldflags "-X $(PROJECT)/$(VERSION_PATH)=$(VERSION)" $(PROJECT)/$(PROVIDER_PATH)/cmd/$(TFGEN))
