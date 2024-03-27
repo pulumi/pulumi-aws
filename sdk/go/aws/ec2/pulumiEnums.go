@@ -298,6 +298,18 @@ const (
 	InstanceType_C6id_24XLarge = InstanceType("c6id.24xlarge")
 	InstanceType_C6id_32XLarge = InstanceType("c6id.32xlarge")
 	InstanceType_C6id_Metal    = InstanceType("c6id.metal")
+	InstanceType_C7a_Medium    = InstanceType("c7a.medium")
+	InstanceType_C7a_Large     = InstanceType("c7a.large")
+	InstanceType_C7a_XLarge    = InstanceType("c7a.xlarge")
+	InstanceType_C7a_2XLarge   = InstanceType("c7a.2xlarge")
+	InstanceType_C7a_4XLarge   = InstanceType("c7a.4xlarge")
+	InstanceType_C7a_8XLarge   = InstanceType("c7a.8xlarge")
+	InstanceType_C7a_12XLarge  = InstanceType("c7a.12xlarge")
+	InstanceType_C7a_16XLarge  = InstanceType("c7a.16xlarge")
+	InstanceType_C7a_24XLarge  = InstanceType("c7a.24xlarge")
+	InstanceType_C7a_32XLarge  = InstanceType("c7a.32xlarge")
+	InstanceType_C7a_48XLarge  = InstanceType("c7a.48xlarge")
+	InstanceType_C7a_Metal     = InstanceType("c7a.metal-48xl")
 	InstanceType_Cc2_8XLarge   = InstanceType("cc2.8xlarge")
 	InstanceType_D2_2XLarge    = InstanceType("d2.2xlarge")
 	InstanceType_D2_4XLarge    = InstanceType("d2.4xlarge")
@@ -906,6 +918,18 @@ func (o InstanceTypePtrOutput) ToStringPtrOutputWithContext(ctx context.Context)
 //	InstanceType_C6id_24XLarge
 //	InstanceType_C6id_32XLarge
 //	InstanceType_C6id_Metal
+//	InstanceType_C7a_Medium
+//	InstanceType_C7a_Large
+//	InstanceType_C7a_XLarge
+//	InstanceType_C7a_2XLarge
+//	InstanceType_C7a_4XLarge
+//	InstanceType_C7a_8XLarge
+//	InstanceType_C7a_12XLarge
+//	InstanceType_C7a_16XLarge
+//	InstanceType_C7a_24XLarge
+//	InstanceType_C7a_32XLarge
+//	InstanceType_C7a_48XLarge
+//	InstanceType_C7a_Metal
 //	InstanceType_Cc2_8XLarge
 //	InstanceType_D2_2XLarge
 //	InstanceType_D2_4XLarge
